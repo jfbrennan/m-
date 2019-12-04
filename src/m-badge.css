@@ -1,0 +1,17 @@
+@import "custom-props.css";
+
+m-badge {
+  display: none;
+  background-color: var(--color-gray);
+  border-radius: 50%;
+}
+
+/* Use count attr for the Badge's content */
+m-badge[count]:before {
+  content: attr(count);
+}
+
+/* Show the Badge only when it has a count attr and count is non-empty or non-zero */
+m-badge[count]:not([count=""]):not([count="0"]) {
+  display: inline-block;
+}

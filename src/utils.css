@@ -1,0 +1,20 @@
+/* Spacing */
+.pad-all-none { padding: 0 }
+.pad-all-xs { padding: 6px }
+.pad-all-sm { padding: 12px }
+.pad-all-md { padding: 18px }
+.pad-all-lg { padding: 30px }
+.pad-all-xl { padding: 48px }
+
+.mar-all-none { margin: 0 }
+.mar-all-xs { margin: 6px }
+.mar-all-sm { margin: 12px }
+.mar-all-md { margin: 18px }
+.mar-all-lg { margin: 30px }
+.mar-all-xl { margin: 48px }
+
+/* Text */
+.txt-left { text-align: left }
+.txt-right { text-align: right }
+.txt-center { text-align: center }
+.txt-justify { text-align: justify }
