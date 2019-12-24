@@ -1,56 +1,75 @@
-<h1 class="txt-center">Getting Started</h1>
-<p class="txt-center">M- is a lightweight design system built with web standards, which means it's extremely fast to download and execute and is compatible with all JavaScript frameworks past, present, and future.</p>
-<div class="txt-center">
-  <span>6kb</span>
-  <span>Standards-based</span>
+<div class="txt-center" style="margin: 60px 0"><h1>Getting Started</h1>
+  <p style="width: 70%; margin: 0 auto">M- is a design system built with web standards. This means it's extremely fast to download and execute and is compatible with all JavaScript frameworks past,
+    present, and future.</p>
+  <h5>
+    <span>6kb</span>
+    <m-pipe></m-pipe>
+    <span>responsive</span>
+    <m-pipe></m-pipe>
+    <span>accessible</span>
+    <m-pipe></m-pipe>
+    <span>compatible with <a href="https://custom-elements-everywhere.com/" target="_blank" rel="noopener">everything</a></span>
+  </h5>
 </div>
 <h2>Installation</h2>
 <h3>CDN</h3>
-<p>Development: <a href="">path/to/file</a></p>
-<p>Production: <a href="">path/to/file</a></p>
+<p>Development: <a href="{{devCdnUrl}}">{{devCdnUrl}}</a></p>
+<p>Production: <a href="{{devCdnUrl}}">{{devCdnUrl}}</a></p>
 <h3>npm</h3>
 <code>npm install m-</code>
 <p>Built files are located in <code>/dist</code></p>
 <h2>Browser support</h2>
-<p>The last 2 versions of Chrome, Chrome for Android, Safari, iOS Safari, Firefox, and Edge are supported. Other modern browsers that support
-  <a href="">Custom Elements</a> are likely to work, but are not tested. IE is not supported and is unlikely to work even if you polyfill.</p>
-<h2>Demo</h2>
+<p>M- works with the last 2 versions of Chrome, Chrome for Android, Safari, iOS Safari, Firefox, and Edge. Other modern browsers that support
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements" target="_blank" rel="noopener">Custom Elements</a> are likely to work, but are not tested (<a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file
+    a bug</a>). IE is not supported and is unlikely to work even if you polyfill.</p>
+<h2>Quick setup</h2>
 <p>Just include the production m- stylesheet and script from the CDN and it works:</p>
-<code>
-  html
-  head
-    link rel="stylesheet" href="https://cdn.com/path/to/file"
-  body
-    m-badge count="1"
-
-    script src="https://cdn.com/path/to/file"
-</code>
+<code-sample>
+<html>
+<head>
+<link rel="stylesheet" href="{{devCdnUrl}}">
+</head>
+<body>
+<m-box ord="primary">
+<h2 class="mar-t-none">M- is working!</h2>
+<m-badge count="1"></m-badge>
+<m-icon name="trophy"></m-icon>
+<button ord="primary">Save</button>
+</m-box>
+<script src="{{devCdnUrl}}"></script>
+</body>
+</html>
+</code-sample>
 <p>Using M- with popular JavaScript libraries works just as well:</p>
-<code>
-  html
-  head
-  link rel="stylesheet" href="https://cdn.com/path/to/file"
-  body
-    div id="app"
+<code-sample>
+  <html>
+  <head>
+    <link rel="stylesheet" href="{{devCdnUrl}}">
+  </head>
+  <body>
+  <script src="{{devCdnUrl}}"></script>
+  <script src="app.js"></script>
+  <script>
+    // Then inside a Vue
+    <template>
+      <m-badge :count="count"></m-badge>
+    </template>
 
-  script src="https://cdn.com/path/to/file"
-  script src="app.js"
+    // or Riot
+    <m-badge count=\{state.count}></m-badge>
 
-  // Then inside a Vue or Riot or Svelte template...
-  template
-    div
-      m-badge :count="count"
+    // or Svelte template
+    <m-badge \{count}></m-badge>
 
-  div
-    m-badge count={state.count}
-
-  div
-    m-badge {count}
-
-  // Or React render function...
-  render() {
-    return
-      div
-        m-badge count={this.state.count}
-  }
-</code>
+    // Or React render function
+    render() \{
+      return (
+        <div>
+          <m-badge count=\{this.state.count}></m-badge>
+        </div>
+      );
+    }
+  </script>
+  </body>
+  </html>
+</code-sample>

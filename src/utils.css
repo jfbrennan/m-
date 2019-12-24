@@ -6,6 +6,20 @@
 .pad-all-lg { padding: 30px }
 .pad-all-xl { padding: 48px }
 
+.pad-l-none { padding-left: 0 }
+.pad-l-xs { padding-left: 6px }
+.pad-l-sm { padding-left: 12px }
+.pad-l-md { padding-left: 18px }
+.pad-l-lg { padding-left: 30px }
+.pad-l-xl { padding-left: 48px }
+
+.pad-b-none { padding-bottom: 0 }
+.pad-b-xs { padding-bottom: 6px }
+.pad-b-sm { padding-bottom: 12px }
+.pad-b-md { padding-bottom: 18px }
+.pad-b-lg { padding-bottom: 30px }
+.pad-b-xl { padding-bottom: 48px }
+
 .mar-all-none { margin: 0 }
 .mar-all-xs { margin: 6px }
 .mar-all-sm { margin: 12px }
@@ -13,8 +27,70 @@
 .mar-all-lg { margin: 30px }
 .mar-all-xl { margin: 48px }
 
+.mar-t-none { margin-top: 0 }
+.mar-t-xs { margin-top: 6px }
+.mar-t-sm { margin-top: 12px }
+.mar-t-md { margin-top: 18px }
+.mar-t-lg { margin-top: 30px }
+.mar-t-xl { margin-top: 48px }
+
+.mar-r-none { margin-right: 0 }
+.mar-r-xs { margin-right: 6px }
+.mar-r-sm { margin-right: 12px }
+.mar-r-md { margin-right: 18px }
+.mar-r-lg { margin-right: 30px }
+.mar-r-xl { margin-right: 48px }
+
+.mar-b-none { margin-bottom: 0 }
+.mar-b-xs { margin-bottom: 6px }
+.mar-b-sm { margin-bottom: 12px }
+.mar-b-md { margin-bottom: 18px }
+.mar-b-lg { margin-bottom: 30px }
+.mar-b-xl { margin-bottom: 48px }
+
+.mar-l-none { margin-left: 0 }
+.mar-l-xs { margin-left: 6px }
+.mar-l-sm { margin-left: 12px }
+.mar-l-md { margin-left: 18px }
+.mar-l-lg { margin-left: 30px }
+.mar-l-xl { margin-left: 48px }
+
+/* Font */
+.fnt-bolder { font-weight: bolder }
+.fnt-lighter { font-weight: 200 }
+.fnt-bold { font-weight: bold}
+.fnt-italic { font-style: italic }
+.fnt-normal { font-style: normal }
+
 /* Text */
 .txt-left { text-align: left }
 .txt-right { text-align: right }
 .txt-center { text-align: center }
 .txt-justify { text-align: justify }
+.txt-xs { font-size: 13px}
+.txt-md { font-size: 16px}
+.txt-lg { font-size: 24px}
+
+/* Display */
+.flex { display: flex }
+.inline-flex { display: inline-flex }
+.block { display: block }
+.inline-block { display: inline-block }
+.inline { display: inline }
+.hidden { display: none }
+.left { float: left }
+.right { float: right }
+.clear { clear: both }
+
+/* Position */
+.pos-absolute { position: absolute }
+.pos-fixed { position: fixed }
+.pos-relative { position: relative }
+.pos-static { position: static }
+.pos-sticky { position: sticky; top: 0 }
+
+/* Other */
+.noselect {
+  user-select: none;
+  cursor: default;
+}

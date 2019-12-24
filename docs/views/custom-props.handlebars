@@ -1,0 +1,66 @@
+<h1>Custom Properties</h1>
+<p>Variables referenced by components and meant for direct use as well.</p>
+<h2 id="demo">Demo</h2>
+<code-sample>
+  #foo \{
+    background-color: var(--color-blue);
+  }
+</code-sample>
+<h2 id="api">API</h2>
+<p>Learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">Custom properties aka CSS variables</a> and how to use them.</p>
+<h3 id="colors">Colors</h3>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>--color-gray</code></td>
+    <td>gray bg...</td>
+    <td>Most common gray</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="spacing">Spacing</h3>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>--space-xs</code></td>
+    <td>6px</td>
+    <td>Smallest size in the system</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="other">Other</h3>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>--max-content-width</code></td>
+    <td>1280px</td>
+    <td>The max width used by <a href="/content-container">Content</a>. Instead of using this in a custom CSS rule consider wrapping your content in a <code>m-content</code>.</td>
+  </tr>
+  </tbody>
+</table>
+<h2 id="guidelines">Guidelines</h2>
+<h3 id="hard-code">Do not hard code values</h3>
+<p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors">famously</a> had 548 unique colors hard-coded 6,498 times across their stylesheets. A total maintenance meltdown! Custom properties help you avoid this by enabling you to set up a shared single source of truth for the unique values in the design system. Use them instead of copying and hard coding their values!</p>
+<h3 id="accessibility">Accessibility</h3>
+<p></p>

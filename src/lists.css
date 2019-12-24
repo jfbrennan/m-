@@ -1,0 +1,7 @@
+ul, ol, dl { margin: 0 }
+ul, ol, dl { padding-left: 24px }
+
+ul[type=none] {
+  list-style: none;
+  padding-left: 0;
+}

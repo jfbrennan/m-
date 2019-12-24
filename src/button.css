@@ -1,0 +1,35 @@
+button {cursor: pointer;}
+button:active {outline:0;}
+
+/*
+  The ord attr is short for "ordinal" as in "ordinal number word".
+  Ordinal number words are the 10+ words used for describing the
+  precedence or importance of an item in an ordered list.
+*/
+button[ord], a[is=button][ord] {
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 2px 6px 3px 6px;
+  cursor: pointer;
+}
+
+a[is=button][ord]:hover {
+  text-decoration: none;
+}
+
+button[ord=primary], a[is=button][ord=primary] {
+  background-color: var(--color-primary-action);
+  color: white;
+}
+
+button[ord=secondary], a[is=button][ord=secondary] {
+  background-color: var(--color-secondary-action);
+  color: white;
+}
+
+button[ord=tertiary], a[is=button][ord=tertiary] {
+  background-color: var(--color-tertiary-action);
+  color: white;
+}
+

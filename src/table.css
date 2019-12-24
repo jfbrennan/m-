@@ -1,0 +1,10 @@
+@import "custom-props.css";
+
+table {
+  width: 100%;
+  background-color: white;
+}
+table th, td { padding: var(--space-xs) }
+table td { vertical-align: top }
+thead { text-align: left }
+

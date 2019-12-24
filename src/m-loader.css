@@ -1,0 +1,23 @@
+m-loader { display: inline; }
+
+m-loader:before {
+  display: inline-block;
+  font-family: 'simple-line-icons';
+  content: '\e098';
+  transform: matrix(-1, 0, 0, 1, 0, 0); /* Flip icon horizontally */
+  font-weight: bolder;
+  line-height: 1;
+  margin-right: 3px;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes m-loader-loading {
+  0% { transform: rotate(0deg) matrix(-1, 0, 0, 1, 0, 0) }
+  100% { transform: rotate(360deg) matrix(-1, 0, 0, 1, 0, 0) }
+}
+
+m-loader[loading]:before {
+  animation: m-loader-loading 1.2s linear infinite;
+}

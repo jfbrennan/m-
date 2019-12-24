@@ -1,0 +1,4 @@
+m-tabs {display: flex}
+m-tab {padding: var(--space-xs) var(--space-lg)}
+m-tab:hover {cursor: pointer}
+m-tab[selected] {border-bottom: 2px solid var(--color-blue)}

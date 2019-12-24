@@ -1,4 +1,18 @@
+@import "custom-props.css";
+
 body {
   margin: 0;
   height: 100vh;
+  box-sizing: border-box;
+  background-color: var(--color-off-white);
+  color: var(--color-darkest);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+code {
+  border: 1px solid var(--color-gray);
+  border-radius: 2px;
+  background-color: white;
+  padding: 0 3px;
+}
+

@@ -1,7 +1,32 @@
 :root {
-    /* Colors */
-    --color-gray: #a8a8a8;
+  /* Colors */
+  --color-gray-1: #dcdcdc;
+  --color-gray: #a8a8a8;
+  --color-off-white: #f9f9f9;
+  --color-darkest: #2a2a2a;
+  --color-blue: #0070c9;
+  --color-med-blue: rgba(0, 154, 243, 0.55);
+  --color-red: #C92303;
+  --color-med-red: #F34203;
 
-    /* Other */
-    --max-content-width: 1200px;
+  --color-disabled-fg: var(--color-gray);
+  --color-disabled-bg: var(--color-gray-1);
+
+  --color-primary-action: var(--color-blue);
+  --color-secondary-action: var(--color-med-blue);
+  --color-tertiary-action: tan;
+
+  /* Other */
+  --max-content-width: 1200px;
+
+  /* Spacing */
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 18px;
+  --space-lg: 30px;
+  --space-xl: 48px;
+
+  /* Font */
+  --font-size-min: 13px; /* a11y recommendation */
+  --font-default-size: 16px;
 }

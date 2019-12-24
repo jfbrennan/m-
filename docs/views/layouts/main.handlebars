@@ -2,26 +2,87 @@
 <html>
 <head>
   <title>M-</title>
-  <link rel="stylesheet" href="/css/m-all.css">
+  <link rel="stylesheet" href="/m-all.css">
   <style>
-    body { display: flex }
-    aside { width: 160px }
-    aside > nav > a { display: block }
+    aside { flex: 0 0 180px }
     main { flex-grow: 1 }
   </style>
 </head>
-<body>
-  <aside class="pad-all-md">
-    <h1>M-</h1>
+<body class="flex">
+<aside class="pad-all-md">
+  <m-box ord="primary">
+    <h1 class="mar-all-none noselect">M-</h1>
+    <div class="txt-xs mar-b-md">v{{version}}</div>
     <nav>
-      <a href="/">Home</a>
-      <a href="badge">Badge</a>
-      <a href="content">Content</a>
-      <a href="grid">Grid</a>
+      <a href="/" class="block mar-b-xs">Home</a>
+      <a disabled href="/sample" class="block mar-b-xs">Sample page</a>
+      <hr>
+      <h4>Page setup</h4>
+      <a disabled href="content" class="block mar-b-xs">Content</a>
+      <a disabled href="grid" class="block mar-b-xs">Grid</a>
+      <a disabled href="head-tags" class="block mar-b-xs">Head tags</a>
+      <h4>Components</h4>
+      <a href="alert" class="block mar-b-xs">Alert</a>
+      <a href="autocomplete" class="block mar-b-xs">Autocomplete</a>
+      <a href="badge" class="block mar-b-xs">Badge</a>
+      <a href="box" class="block mar-b-xs">Box</a>
+      <a href="button" class="block mar-b-xs">Button</a>
+      <a disabled href="dialog" class="block mar-b-xs">Dialog</a>
+      <a disabled href="form" class="block mar-b-xs">Form</a>
+      <a href="icons" class="block mar-b-xs">Icons</a>
+      <a disabled href="input" class="block mar-b-xs">Input</a>
+      <a href="loader" class="block mar-b-xs">Loader</a>
+      <a disabled href="link" class="block mar-b-xs">Link</a>
+      <a disabled href="menu" class="block mar-b-xs">Menu</a>
+      <a disabled href="radio" class="block mar-b-xs">Radio</a>
+      <a disabled href="select" class="block mar-b-xs">Select</a>
+      <a href="tabs" class="block mar-b-xs">Tabs</a>
+      <a href="tag" class="block mar-b-xs">Tag</a>
+      <a disabled href="table" class="block mar-b-xs">Table</a>
+      <a disabled href="textarea" class="block mar-b-xs">Textarea</a>
+      <h4>Typography</h4>
+      <a disabled href="headings" class="block mar-b-xs">Headings</a>
+      <a href="lists" class="block mar-b-xs">Lists</a>
+      <a href="rules" class="block mar-b-xs">Rules</a>
+      <h4>Utils</h4>
+      <a disabled href="custom-props" class="block mar-b-xs">Custom properties</a>
+      <a disabled href="helper-classes" class="block mar-b-xs">Helper classes</a>
+      <hr>
+      <a href="https://github.com/jfbrennan/m-" target="_blank" rel="noopener">
+        <img src="github-logo.png" alt="GitHub logo" class="mar-r-xs" style="height: 14px">Repo</a>
     </nav>
-  </aside>
-  <main class="pad-all-md">
-    {{{body}}}
-  </main>
+  </m-box>
+</aside>
+<main class="pad-all-md pad-b-lg">
+  {{{body}}}
+</main>
+
+<!-- Scripts below (order matters) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-html.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
+<script src="code-sample.riot" type="riot/tag"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
+<script>
+  riot.compile(() => riot.mount('*'));
+</script>
+<script src="/m-.js"></script>
+<script>
+  // Autocomplete demo
+  MdashAutocomplete.prototype.sources.fruit = function(query) {
+    // Use query to fetch/filter/map/find/whatever your use case is for getting matching results
+    let matches = ['apple', 'banana', 'peach', 'apricot', 'blueberry'].filter(fruit => fruit.startsWith(query));
+
+    // Function must return a Promise or use async keyword
+    return Promise.resolve({
+      query,
+      matches
+    });
+  };
+
+  // Tabs demo
+  document.querySelector('m-tabs').addEventListener('m-select', e => console.log(e))
+</script>
 </body>
 </html>

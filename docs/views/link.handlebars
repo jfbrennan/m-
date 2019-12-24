@@ -1,8 +1,8 @@
-<h1>Badge</h1>
-<p>For notification counts and other small bits of info.</p>
+<h1>Link</h1>
+<p>Most common call-to-action element. Used for navigating.</p>
 <h2>Demo</h2>
 <code-sample>
-  <m-badge count="1"></m-badge>
+  <a href="">Link</a>
 </code-sample>
 <h2>API</h2>
 <h3>Tag</h3>
@@ -10,15 +10,13 @@
   <thead>
   <tr>
     <th>Name</th>
-    <th>Type</th>
     <th>Content</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>m-badge</code></td>
-    <td>Custom tag</td>
-    <td>None</td>
+    <td><code>a</code></td>
+    <td>Any content</td>
   </tr>
   </tbody>
 </table>
@@ -34,15 +32,21 @@
   </thead>
   <tbody>
   <tr>
-    <td><code>count</code></td>
-    <td>Number</td>
+    <td><code>href</code></td>
+    <td>URL</td>
     <td>Yes</td>
-    <td>When set Badge will display the count. If 0 (zero), empty, or removed Badge will hide itself.</td>
+    <td>Desc</td>
+  </tr>
+  <tr>
+    <td><code>disabled</code></td>
+    <td>Boolean attribute</td>
+    <td></td>
+    <td>Desc</td>
   </tr>
   </tbody>
 </table>
 <h2>Guidelines</h2>
-<h3>Localization</h3>
-<p>Localize the count's value before setting it.</p>
+<h3>Title</h3>
+<p>Desc.</p>
 <h3>Accessibility</h3>
 <p></p>

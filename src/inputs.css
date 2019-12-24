@@ -1,0 +1,40 @@
+@import "custom-props.css";
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+fieldset + fieldset {
+  margin-top: var(--space-md);
+}
+
+fieldset label, fieldset input {
+  display: block;
+}
+
+fieldset label {
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+fieldset input {
+  width: 100%;
+  font-size: 16px;
+  padding: 6px;
+  border: 1px solid var(--color-gray-1);
+}
+
+fieldset input + input {
+  margin-top: 3px;
+}
+
+fieldset input:focus {
+  outline: 0;
+  border: 1px solid var(--color-blue);
+}
+
+fieldset input:invalid, fieldset input[invalid] {
+  border-color: var(--color-red);
+}

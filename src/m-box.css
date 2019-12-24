@@ -1,0 +1,19 @@
+@import "custom-props.css";
+
+m-box, m-well {
+  display: block;
+  border-radius: 3px;
+  padding: var(--space-md);
+}
+
+m-box[ord=primary] {
+  background-color: white;
+  border: 1px solid var(--color-gray-1);
+}
+
+m-box[ord=secondary] {
+  background-color: var(--color-off-white);
+  box-shadow: 0px 0px 2px var(--color-darkest) inset;
+}
+
+m-box + m-box {margin-top: var(--space-md) }

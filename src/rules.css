@@ -1,0 +1,19 @@
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--color-gray);
+}
+
+m-vr {
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+  background-color: var(--color-gray);
+}
+
+m-pipe {
+  display: inline-block;
+  color: var(--color-gray);
+  margin: auto 12px;
+}
+m-pipe:before { content: '|' }

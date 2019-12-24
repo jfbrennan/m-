@@ -6,9 +6,17 @@ const app = express();
 
 // Set some locals
 app.locals.version = pkg.version;
+app.locals.devCdnUrl = 'path/to/file'; // pkg.devCdnUrl
+app.locals.prodCdnUrl = 'path/to/file'; // pkg.prodCdnUrl
 
 // Set up template engine
 app.engine('handlebars', handlebars()).set('view engine', 'handlebars');
+
+// Log all requests (this must come before all middleware)
+app.use((req, res, next) => {
+  console.log(req.originalUrl, req.headers);
+  next();
+});
 
 // Serve public files
 app.use(express.static('public'));

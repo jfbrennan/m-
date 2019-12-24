@@ -1,0 +1,7 @@
+m-tag {
+  display: inline;
+  border: 1px solid var(--color-gray-1);
+  background-color: var(--color-off-white);
+  padding: 3px var(--space-xs);
+  font-size: var(--font-size-min);
+}

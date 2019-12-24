@@ -1,0 +1,87 @@
+<code-sample class="flex">
+  <div ref="editor"><yield/></div>
+  <div if="{!opts.readonly}" ref="preview" class="mar-l-md"></div>
+  <script>
+      format() {
+        switch (this.opts.mode) {
+          case 'javascript':
+            this.editor.session.setValue(js_beautify(this.editor.getValue()), {
+              indent_size: 2,
+              indent_char: ' ',
+              indent_with_tabs: !1
+            });
+            break;
+          case 'json':
+            this.editor.session.setValue(JSON.stringify(this.editor.getValue(), null, 2));
+            break;
+          case 'css':
+            this.editor.session.setValue(css_beautify(this.editor.getValue()));
+            break;
+          default:
+            // Custom Elements have to be put in a <template> so they don't get rendered out on page load
+            const content = this.editor.getValue().replace(/^[\s\n\r]*<template>[\s\n\r]*|[\s\n\r]*<\/template>[\s\n\r]*$/gm, '');
+            this.editor.session.setValue(html_beautify(content))
+        }
+      }
+
+      updatePreview() {
+        if (!this.opts.readonly) this.refs.preview.innerHTML = this.editor.getValue();
+      }
+
+      // copyToClipboard(e) {
+      //   const t = document.createElement('textarea');
+      //   t.value = this.editor.getValue();
+      //   t.setAttribute('readonly', '');
+      //   t.style.position = 'absolute';
+      //   t.style.left = '-9999px';
+      //   document.body.appendChild(t);
+      //   t.select();
+      //   document.execCommand('copy');
+      //   document.body.removeChild(t);
+      //   const label = e.currentTarget.textContent;
+      //   e.currentTarget.textContent = 'Copied';
+      //   setTimeout(() => e.currentTarget.textContent = label, 1e3)
+      // }
+
+      this.on('mount', () => {
+        let content = this.refs.editor.innerHTML;
+        this.editor = ace.edit(this.refs.editor, {
+          mode: 'ace/mode/' + (this.opts.mode || 'html'),
+          theme: 'ace/theme/monokai',
+          readOnly: this.opts.readonly,
+          useWorker: !1,
+          showGutter: !this.opts.readonly,
+          displayIndentGuides: !1,
+          showPrintMargin: !1,
+          showFoldWidgets: !1,
+          tabSize: 2,
+          useSoftTabs: !0,
+          maxLines: 1 / 0
+        });
+        this.editor.renderer.setScrollMargin(6, 6);
+        this.editor.session.setValue(content);
+        this.format();
+        this.editor.session.on('change', this.updatePreview);
+        this.updatePreview();
+      })
+  </script>
+
+  <style>
+    :scope { display: block }
+    :scope [ref=editor] {
+      min-width: 40%;
+      border-radius: 2px;
+      min-height: 80px;
+    }
+    :scope[readonly] [ref=editor] {
+      width: 100%;
+      border-radius: 2px;
+      min-height: 80px;
+    }
+    :scope [ref=preview] { flex-grow: 1 }
+
+    .ace_gutter { border-radius: 2px 0 0 2px }
+    .ace-monokai .ace_comment { color: #bbbbbb
+    }
+  </style>
+</code-sample>
