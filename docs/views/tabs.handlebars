@@ -12,75 +12,85 @@
 </code-sample>
 <h2 id="api">API</h2>
 <h3 id="tag">Tags</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Content</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>m-tabs</code></td>
-    <td>Custom Element</td>
-    <td><code>m-tab</code> children</td>
+    <td colspan="2"><code>m-tabs</code></td>
+    <td colspan="2">Custom Element</td>
+    <td colspan="6"><code>m-tab</code> children</td>
   </tr>
   <tr>
-    <td><code>m-tab</code></td>
-    <td>Custom tag</td>
-    <td>Any</td>
+    <td colspan="2"><code>m-tab</code></td>
+    <td colspan="2">Custom tag</td>
+    <td colspan="6">Any</td>
   </tr>
   </tbody>
 </table>
 <h3 id="attributes">Attributes</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Value</th>
-    <th>Required</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>selected</code></td>
-    <td>Boolean attribute</td>
-    <td></td>
-    <td>Selects that Tab. If more than one Tab has this attribute the first is selected. If no Tabs have it, then the first Tab is selected</td>
+    <td colspan="2"><code>selected</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Selects that Tab. If more than one Tab has this attribute the first is selected. If no Tabs have it, then the first Tab is selected</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>disabled</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Disables the Tab.</td>
   </tr>
   </tbody>
 </table>
 <h3 id="events">Events</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Detail</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Detail</th>
+    <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>m-select</code></td>
-    <td><code>index</code> of the Tab, <code>id</code> of the Tab if present, <code>href</code> if the clicked target was a link</td>
-    <td>Fired after a Tab was selected.</td>
+    <td colspan="2"><code>m-select</code></td>
+    <td colspan="2">
+      <div class="mar-b-sm">An object with properties:</div>
+      <ul type="none">
+        <li class="mar-b-sm"><code>index</code> of the Tab</li>
+        <li class="mar-b-sm"><code>id</code> of the Tab if present</li>
+        <li class="mar-b-sm"><code>href</code> if the clicked target was a link</li>
+      </ul>
+    </td>
+    <td colspan="6">Fired after a Tab was selected. If the tab content is a link note that the click is prevented and you'll need to use the href from detail. This also fires when tab selection is made on initialization.</td>
   </tr>
   </tbody>
 </table>
 <h3 id="methods">Methods</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Signature</th>
-    <th>Description</th>
+    <th colspan="2">Signature</th>
+    <th colspan="8">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>select(index)</code></td>
-    <td>Selects the Tab at <code>index</code>. This will trigger the <code>m-select</code> event just as if the user had clicked it.</td>
+    <td colspan="2"><code>select(index)</code></td>
+    <td colspan="8">Selects the Tab at <code>index</code>. This will trigger the <code>m-select</code> event just as if the user had clicked it.</td>
   </tr>
   </tbody>
 </table>

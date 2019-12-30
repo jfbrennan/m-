@@ -8,9 +8,9 @@ button:active {outline:0;}
 */
 button[ord], a[is=button][ord] {
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 16px;
-  padding: 2px 6px 3px 6px;
+  padding: 6px 18px;
   cursor: pointer;
 }
 
@@ -24,8 +24,9 @@ button[ord=primary], a[is=button][ord=primary] {
 }
 
 button[ord=secondary], a[is=button][ord=secondary] {
-  background-color: var(--color-secondary-action);
-  color: white;
+  border: 1px solid var(--color-primary-action);
+  background: none;
+  color: var(--color-primary-action);
 }
 
 button[ord=tertiary], a[is=button][ord=tertiary] {

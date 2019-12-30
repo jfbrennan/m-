@@ -9,81 +9,74 @@
 </code-sample>
 <h2>API</h2>
 <h3>Tag</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Content</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>button</code></td>
-    <td>Native element</td>
-    <td>Any content</td>
+    <td colspan="2"><code>button</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6">Any content</td>
   </tr>
   </tbody>
 </table>
 <h3 id="attributes">Attributes</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Value</th>
-    <th>Required</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>ord</code></td>
-    <td>
+    <td colspan="2"><code>ord</code> <small class="fnt-bold fnt-italic">required</small></td>
+    <td colspan="2">
       <ul type="none">
         <li>primary</li>
         <li>secondary</li>
         <li>tertiary</li>
       </ul>
     </td>
-    <td>Yes</td>
-    <td><a href="https://en.wikipedia.org/wiki/Ordinal_numeral" target="_blank" rel="noopener">Ordinal number word</a> for describing the button's precedence.</td>
+    <td colspan="6"><a href="https://en.wikipedia.org/wiki/Ordinal_numeral" target="_blank" rel="noopener">Ordinal number word</a> for describing the button's precedence.</td>
   </tr>
   <tr>
-    <td><code>disabled</code></td>
-    <td>Boolean attribute</td>
-    <td></td>
-    <td>When present will disable the button.</td>
+    <td colspan="2"><code>disabled</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">When present will disable the button.</td>
   </tr>
   <tr>
-    <td><code>type</code></td>
-    <td>submit</td>
-    <td></td>
-    <td>Set this when the button should submit its related form. Avoid <code>&lt;input type="submit"&gt;</code></td>
+    <td colspan="2"><code>type</code></td>
+    <td colspan="2">submit</td>
+    <td colspan="6">Set this when the button should submit a related form. Avoid <code>&lt;input type="submit"&gt;</code></td>
   </tr>
   </tbody>
 </table>
 <p>For <code>a</code> only</p>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Value</th>
-    <th>Required</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>is</code></td>
-    <td>button</td>
-    <td>Yes</td>
-    <td>Will style the link as a button. Use this instead of <code>&lt;button&gt;</code> when your use case needs a real link.</td>
+    <td colspan="2"><code>is</code> <small class="fnt-bold fnt-italic">required</small></td>
+    <td colspan="2">button</td>
+    <td colspan="6">Will style the link as a button. Use this instead of <code>&lt;button&gt;</code> when your use case needs a real link.</td>
   </tr>
   </tbody>
 </table>
-
 <h2>Guidelines</h2>
 <h3>Button or link?</h3>
-<p>If the action is to navigate, use a regular <a href="link">link</a>, but if that link also needs to look like a button then use the <code>is=button</code> attribute. If the action is not navigation, then use <code>button</code>.</p>
+<p>If the action is to navigate use a regular <a href="link">link</a>, but if that link also needs to look like a button then add the <code>is="button"</code> attribute. If the action is not navigating, then use a button.</p>
 <h3>Accessibility</h3>
 <p></p>

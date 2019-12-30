@@ -2,10 +2,12 @@
   /* Colors */
   --color-gray-1: #dcdcdc;
   --color-gray: #a8a8a8;
+  --color-gray-2: #ccc;
   --color-off-white: #f9f9f9;
-  --color-darkest: #2a2a2a;
+  --color-darkest: #282828;
+  --color-darker: #333;
   --color-blue: #0070c9;
-  --color-med-blue: rgba(0, 154, 243, 0.55);
+  --color-med-blue: #6bf;
   --color-red: #C92303;
   --color-med-red: #F34203;
 
@@ -15,6 +17,11 @@
   --color-primary-action: var(--color-blue);
   --color-secondary-action: var(--color-med-blue);
   --color-tertiary-action: tan;
+
+  --color-primary-bg: white;
+  --color-secondary-bg: #F5F3F7;
+  --color-tertiary-bg: #fafafa;
+  --color-border: #dedede;
 
   /* Other */
   --max-content-width: 1200px;

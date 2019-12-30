@@ -3,7 +3,7 @@ M- (pronounced "em dash") is a design system that is very small, extremely fast,
 
 Unlike popular design systems, M- does not restrict you to a specific framework or library. It uses none of them, but works with all of them - old and new - since it's built with HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements).
 
-Try M- right now by just copy/pasting that CDN snippet below into your page and you're done. Then [visit the doc site](https://m-) to build some UI!
+Try M- right now by just copy/pasting that CDN snippet below into your page - that's it! Then [visit the doc site](https://m-) and start using M-!
 
 ## Installation
 ### CDN
@@ -11,7 +11,7 @@ Try M- right now by just copy/pasting that CDN snippet below into your page and 
 <link rel="stylesheet" href="https://cdn.com/m-/{version}/min.css">
 <script defer src="https://cdn.com/m-/{version}/min.js"></script>
 ```
-### npm
+### NPM
 `npm install m-`
 
 Built assets are located in `/dist`

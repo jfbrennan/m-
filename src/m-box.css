@@ -6,14 +6,19 @@ m-box, m-well {
   padding: var(--space-md);
 }
 
+/*
+  The ord attr is short for "ordinal" as in "ordinal number word".
+  Ordinal number words are the 10+ words used for describing the
+  precedence or importance of an item in an ordered list.
+*/
 m-box[ord=primary] {
   background-color: white;
   border: 1px solid var(--color-gray-1);
 }
 
 m-box[ord=secondary] {
-  background-color: var(--color-off-white);
-  box-shadow: 0px 0px 2px var(--color-darkest) inset;
+  background-color: var(--color-secondary-bg);
+  box-shadow: 0px 1px 2px var(--color-gray) inset;
 }
 
 m-box + m-box {margin-top: var(--space-md) }

@@ -13,11 +13,11 @@
 </div>
 <h2>Installation</h2>
 <h3>CDN</h3>
-<p>Development: <a href="{{devCdnUrl}}">{{devCdnUrl}}</a></p>
-<p>Production: <a href="{{devCdnUrl}}">{{devCdnUrl}}</a></p>
+<p>Development: <code>{{devCdnUrl}}[css|js]</code></p>
+<p>Production: <code>{{prodCdnUrl}}css|js</code></p>
 <h3>npm</h3>
 <code>npm install m-</code>
-<p>Built files are located in <code>/dist</code></p>
+<p>Built assets are located in <code>m-/dist</code>.</p>
 <h2>Browser support</h2>
 <p>M- works with the last 2 versions of Chrome, Chrome for Android, Safari, iOS Safari, Firefox, and Edge. Other modern browsers that support
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements" target="_blank" rel="noopener">Custom Elements</a> are likely to work, but are not tested (<a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file
@@ -27,7 +27,7 @@
 <code-sample>
 <html>
 <head>
-<link rel="stylesheet" href="{{devCdnUrl}}">
+<link rel="stylesheet" href="{{prodCdnUrl}}css">
 </head>
 <body>
 <m-box ord="primary">
@@ -36,7 +36,7 @@
 <m-icon name="trophy"></m-icon>
 <button ord="primary">Save</button>
 </m-box>
-<script src="{{devCdnUrl}}"></script>
+<script src="{{prodCdnUrl}}js"></script>
 </body>
 </html>
 </code-sample>
@@ -73,3 +73,5 @@
   </body>
   </html>
 </code-sample>
+<h2>More about M-</h2>
+<p>The "m" is short for markup, which is a reminder of how close to standards M- was designed and built to be. If HTML had these elements what would their tag names be? What attributes would they have and what would their names and values be?</p>

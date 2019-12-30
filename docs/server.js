@@ -6,8 +6,8 @@ const app = express();
 
 // Set some locals
 app.locals.version = pkg.version;
-app.locals.devCdnUrl = 'path/to/file'; // pkg.devCdnUrl
-app.locals.prodCdnUrl = 'path/to/file'; // pkg.prodCdnUrl
+app.locals.devCdnUrl = 'https://cdnjs.com/m-/1.0.0/dev.'; // pkg.devCdnUrl
+app.locals.prodCdnUrl = 'https://cdnjs.com/m-/1.0.0/min.'; // pkg.prodCdnUrl
 
 // Set up template engine
 app.engine('handlebars', handlebars()).set('view engine', 'handlebars');

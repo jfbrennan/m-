@@ -15,5 +15,6 @@ m-pipe {
   display: inline-block;
   color: var(--color-gray);
   margin: auto 12px;
+  font-weight: 400;
 }
 m-pipe:before { content: '|' }

@@ -73,6 +73,9 @@
 
 /* Display */
 .flex { display: flex }
+.justify-content-center {justify-content: center}
+.align-items-center {align-items: center}
+
 .inline-flex { display: inline-flex }
 .block { display: block }
 .inline-block { display: inline-block }
@@ -88,9 +91,17 @@
 .pos-relative { position: relative }
 .pos-static { position: static }
 .pos-sticky { position: sticky; top: 0 }
+.pin-t {top: 0}
+.pin-r {right: 0}
+.pin-b {bottom: 0}
+.pin-l {left: 0}
 
 /* Other */
 .noselect {
   user-select: none;
   cursor: default;
+}
+
+.pointer {
+  cursor: pointer;
 }

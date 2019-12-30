@@ -1,0 +1,93 @@
+<h1>Dialog</h1>
+<p>Modal content container.</p>
+<h2 id="demo">Demo</h2>
+<code-sample>
+<template>
+  <m-dialog>
+    <h2>Title</h2>
+    <p>Body lorem ipsum</p>
+  </m-dialog>
+</template>
+
+<button onclick="document.querySelector('m-dialog').show()" ord="primary">Open Dialog</button>
+</code-sample>
+<h2 id="api">API</h2>
+<h3 id="tag">Tag</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>m-dialog</code></td>
+    <td colspan="2">Custom Element</td>
+    <td colspan="6">Any content. First element with <code>autofocus</code> will receive focus.</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="attributes">Attributes</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>open</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">When present, dialog will be displayed.</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="events">Events</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Detail</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>close</code></td>
+    <td colspan="2">None</td>
+    <td colspan="6">Fired after the Dialog was closed. Note that the element and its content are still present in the DOM.</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="methods">Methods</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Signature</th>
+    <th colspan="8">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>close([returnValue])</code></td>
+    <td colspan="8">MDN says: "Closes the dialog. An optional DOMString may be passed as an argument, updating the returnValue of the the dialog." Also note that the element and its content are still present in the DOM.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>show()</code></td>
+    <td colspan="8">MDN says: "Displays the dialog modelessly, i.e. still allowing interaction with content outside of the dialog."</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>showModal()</code></td>
+    <td colspan="8">MDN says: "Displays the dialog as a modal, over the top of any other dialogs that might be present. Interaction outside the dialog is blocked."</td>
+  </tr>
+  </tbody>
+</table>
+<h2 id="guidelines">Guidelines</h2>
+<h3 id="title">What about HTMLDialogElement?</h3>
+<p>This element attempts to match the <code>HTMLDialogElement</code> interface as close as possible, so when browser support for <code>&lt;dialog&gt;</code> is sufficient it will be removed from M- in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>
+<h3 id="accessibility">Accessibility</h3>
+<p>The necessary ARIA attributes are added automatically; however, if your Dialog "contains an alert message" you should set <code>role="alertdialog"</code>.</p>

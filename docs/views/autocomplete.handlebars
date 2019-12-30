@@ -11,76 +11,83 @@
 </code-sample>
 <h2 id="api">API</h2>
 <h3 id="tag">Tag</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Content</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>m-autocomplete</code></td>
-    <td>Custom Element</td>
-    <td>None</td>
+    <td colspan="2"><code>m-autocomplete</code></td>
+    <td colspan="2">Custom Element</td>
+    <td colspan="6">None</td>
   </tr>
   </tbody>
 </table>
 <h3 id="attributes">Attributes</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Value</th>
-    <th>Required</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>source</code></td>
-    <td>String</td>
-    <td>Yes</td>
-    <td>The source of data to query for matches. Learn how to create them <a href="#creating-sources">below</a></td>
+    <td colspan="2"><code>source</code> <small class="fnt-bold fnt-italic">required</small></td>
+    <td colspan="2">String</td>
+    <td colspan="6">The source of data to query for matches. Learn how to create them <a href="#creating-sources">below</a></td>
   </tr>
   <tr>
-    <td><code>max</code></td>
-    <td>Number</td>
-    <td></td>
-    <td>Truncates the number of results to <code>max</code>. Autocomplete will overflow at about 10 visible results regardless of the max set.</td>
+    <td colspan="2"><code>max</code></td>
+    <td colspan="2">Number</td>
+    <td colspan="6">Truncates the number of results to <code>max</code>. Autocomplete will overflow at about 10 visible results regardless of the max set.</td>
   </tr>
   </tbody>
 </table>
 <h3 id="events">Events</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Detail</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Detail</th>
+    <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>m-select</code></td>
-    <td><code>source</code> the source name for easy reference and <code>item</code> the item selected from <code>matches</code>. Item will be the whole object as returned by the source.</td>
-    <td>Fired after a match was selected by the user.</td>
+    <td colspan="2"><code>m-select</code></td>
+    <td colspan="2">
+      <div class="mar-b-sm">An object with properties:</div>
+      <ul type="none">
+        <li class="mar-b-sm"><code>source</code> the name of the source for easy reference</li>
+        <li><code>item</code> the item selected from <code>matches</code>. Item will be the whole object as returned by the source.</li>
+      </ul>
+    </td>
+    <td colspan="6">Fired after a match was selected by the user.</td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="creating-sources">Creating sources</h3>
-<p>Sources are async functions added to the global <code>MdashAutocomplete.prototype.sources</code> object. Here's an example <code>fruit</code> source:</p>
+<p>Sources are async functions added to the global <code>MdashAutocomplete.prototype.sources</code> object. Here's an example <code>fruit</code> source used in the demo above:</p>
 <code-sample readonly="true" mode="javascript">
   MdashAutocomplete.prototype.sources.fruit = function (query) \{
-    // Use query to fetch/filter/map/find/whatever your use case is for getting matching results
+
+    // 1. Use "query" to fetch, filter, map, find, or whatever your use case is for getting matching results
     let matches = ['apple', 'banana', 'peach'].filter(fruit => fruit.startsWith(query));
 
-    // Function must return a Promise or use async keyword
-    return Promise.resolve(\{query, matches});
+    // 2. Result must be an object with the original "query" and a "matches" Array
+    const result = \{query, matches};
+
+    // 3. Return value must be a Promise or use async keyword
+    return Promise.resolve(result);
   }
 </code-sample>
-<p>Note that an object with the original <code>query</code> must be returned to avoid showing stale matches and an Array of <code>matches</code> must be returned even if empty (Autocomplete handles that). It doesn't matter when a source is added to Autocomplete because the lookup will happen in real time.</p>
+<p><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> If the source's data is over the network try caching results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>matches = cache[query] || getMatches(query)</code>.</p>
 <h3 id="accessibility">Accessibility</h3>
 <p></p>
