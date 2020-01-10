@@ -26,6 +26,14 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
+app.get('/examples', (req, res) => {
+  res.render('examples', {layout: 'examples'});
+});
+
+app.get('/demo', (req, res) => {
+  res.render('demo', {layout: 'demo'});
+});
+
 app.get('/*', (req, res) => {
   const viewPath = req.path.substr(1, req.path.length);
   res.render(viewPath);

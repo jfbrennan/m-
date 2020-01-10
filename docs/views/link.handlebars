@@ -3,50 +3,70 @@
 <h2>Demo</h2>
 <code-sample>
   <a href="">Link</a>
+  <span is="a">Link look-a-like</span>
 </code-sample>
 <h2>API</h2>
 <h3>Tag</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Content</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>a</code></td>
-    <td>Any content</td>
+    <td colspan="2"><code>a</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6">Any</td>
   </tr>
   </tbody>
 </table>
 <h3>Attributes</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Value</th>
-    <th>Required</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>href</code></td>
-    <td>URL</td>
-    <td>Yes</td>
-    <td>Desc</td>
+    <td colspan="2"><code>href</code> <small class="fnt-bold fnt-italic">required</small></td>
+    <td colspan="2">
+      <ul type="none">
+        <li>relative or absolute URL</li>
+        <li>#{string} (target fragment)</li>
+        <li>mailto:{string}</li>
+        <li>tel:{string}</li>
+        <li>sms:{string}</li>
+      </ul>
+    </td>
+    <td colspan="6">Sets the type of link. Be sure to use document fragments and mailto, tel, and sms URL schemes correctly to ensure optimal user experience.</td>
   </tr>
   <tr>
-    <td><code>disabled</code></td>
-    <td>Boolean attribute</td>
-    <td></td>
-    <td>Desc</td>
+    <td colspan="2"><code>disabled</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Disables the link.</td>
+  </tr>
+  </tbody>
+</table>
+<small><span class="fnt-bold">Note:</span> Not all anchor attributes are list here. See <a
+        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes">MDN: Anchor element - Attributes</a> for the full list.</small>
+<p>For <span class="fnt-bold">non-anchor</span> elements only:</p>
+<table layout="fixed">
+  <tbody>
+  <tr>
+    <td colspan="2"><code>is</code> <small class="fnt-bold fnt-italic">required</small></td>
+    <td colspan="2">a</td>
+    <td colspan="6">Will style the element as a link. Use this instead of <code>&lt;a&gt;</code> when your use case is not a real link.</td>
   </tr>
   </tbody>
 </table>
 <h2>Guidelines</h2>
-<h3>Title</h3>
-<p>Desc.</p>
+<h3>Security</h3>
+<p>When linking to sites you don't own, you should use <code>rel="noopener"</code>.</p>
 <h3>Accessibility</h3>
 <p></p>

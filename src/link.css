@@ -1,15 +1,15 @@
 @import "custom-props.css";
 
-a {
+a, [is="a"] {
   text-decoration: none;
   color: var(--color-primary-action);
   cursor: pointer;
 }
 
-a:visited { color: var(--color-primary-action) }
-a:hover { text-decoration: underline }
+a:visited, [is="a"]:visited { color: var(--color-primary-action) }
+a:hover, [is="a"]:hover { text-decoration: underline }
 
-a[disabled] {
+a[disabled], [is="a"][disabled] {
   color: var(--color-disabled-fg);
   pointer-events: none;
 }

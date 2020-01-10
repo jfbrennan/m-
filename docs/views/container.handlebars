@@ -1,0 +1,69 @@
+<h1>Container</h1>
+<p>The most basic element for page layout.</p>
+<h2 id="demo">Demo</h2>
+<code-sample>
+  <m-container>I'm centered in the viewport, have responsive padding, and my content will be contained according to <code>maxwidth</code>.</m-container>
+</code-sample>
+<p>See more <a href="/examples#Containers">examples</a></p>
+<h2 id="api">API</h2>
+<h3 id="tag">Tag</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>m-container</code></td>
+    <td colspan="2">Custom tag</td>
+    <td colspan="6">Any</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="attributes">Attributes</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>maxwidth</code></td>
+    <td colspan="2">
+      <ul type="none">
+        <li>lg <small class="fnt-bold fnt-italic">default</small></li>
+        <li>md</li>
+        <li>none</li>
+      </ul>
+    </td>
+    <td colspan="6">Sets the max width of the container, which includes some padding. "lg" <span class="fnt-italic">grows up to</span> 1536px, "md" starts at 800px and
+      <span class="fnt-italic">shrinks down</span>, and "sm" starts at 576px and <span class="fnt-italic">shrinks down</span>.<br>Read
+      <a href="#more-maxwidth">more on maxwidth</a> for details.</td>
+  </tr>
+  </tbody>
+</table>
+<h2 id="guidelines">Guidelines</h2>
+<h3 id="more-maxwidth">More on maxwidth</h3>
+<p>By default Container will grow up to 1536 pixels wide (<code>maxwidth="lg"</code>), which is intended to make full use of the screen up to the equivalent of a 16" MacBook Pro. You can remove this limit with <code>maxwidth="none"</code>.</p>
+  <p>In cases where there isn't a full page of content or maybe a more focused layout is desired, "md" is often the right width. On-boarding flows or a promotional page are good examples where "md" would be useful. In some cases a very narrow and focused layout is needed, like a log in form. Use "sm" for these.</p>
+<p>In all cases Container will include padding and center itself in the viewport.</p>
+<h3 id="layout-elements">Other layout elements</h3>
+<p>HTML offers a number of semantic elements to use for layout in addition to Container and <a href="/grid">Grid</a>. From W3C:</p>
+<ul>
+  <li class="mar-b-xs"><code>&lt;header&gt;</code> Defines a header for a document or a section</li>
+  <li class="mar-b-xs"><code>&lt;nav&gt;</code> Defines a container for navigation links</li>
+  <li class="mar-b-xs"><code>&lt;section&gt;</code> Defines a section in a document</li>
+  <li class="mar-b-xs"><code>&lt;article&gt;</code> Defines an independent self-contained article</li>
+  <li class="mar-b-xs"><code>&lt;aside&gt;</code> Defines content aside from the content (like a sidebar)</li>
+  <li class="mar-b-xs"><code>&lt;footer&gt;</code> Defines a footer for a document or a section</li>
+  <li class="mar-b-xs"><code>&lt;details&gt;</code> Defines additional details</li>
+  <li class="mar-b-xs"><code>&lt;summary&gt;</code> Defines a heading for the <code>&lt;details&gt;</code> element</li>
+</ul>
+<h3 id="accessibility">Accessibility</h3>
+<p>There are no accessibility recommendations for Container.</p>

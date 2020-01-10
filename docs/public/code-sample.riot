@@ -46,7 +46,7 @@
       this.on('mount', () => {
         let content = this.refs.editor.innerHTML;
         this.editor = ace.edit(this.refs.editor, {
-          mode: 'ace/mode/' + (this.opts.mode || 'html'),
+          mode: `ace/mode/${this.opts.mode || 'html'}`,
           theme: 'ace/theme/monokai',
           readOnly: this.opts.readonly,
           useWorker: !1,

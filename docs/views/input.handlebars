@@ -1,0 +1,145 @@
+<h1>Input</h1>
+<p>Form element for receiving user input.</p>
+<h2 id="demo">Demo</h2>
+<code-sample>
+  <fieldset>
+    <label>Label</label>
+    <input type="text" placeholder="Placeholder">
+  </fieldset>
+</code-sample>
+<h2 id="api">API</h2>
+<h3 id="tag">Tag</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>input</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6">None</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="attributes">Attributes</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>type</code></td>
+    <td colspan="2">
+      <ul type="none">
+        <li>text <small class="fnt-bold fnt-italic">default</small></li>
+        <li>email</li>
+        <li>tel</li>
+        <li>password</li>
+        <li>number</li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types" target="_blank" rel="noopener">many more...</a></li>
+      </ul>
+    </td>
+    <td colspan="6">Sets the expected type of value. Take care to set email, tel, password, and number inputs correctly to ensure optimal user experience.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>disabled</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Disables the input so it can't be changed or interacted with. It will be skipped when tabbing and its value will <span class="fnt-bold">not</span> be submitted with the form.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>readonly</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Makes the input read-only, which means the user can't change its value, but can still tab to it and copy the text. Its value will be submitted with the form.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>invalid</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Highlights input as having an invalid value. When the input is invalid it should have a <a href="/form#small">small element</a> explaining how to correct it. Validation is owned by the application not M-.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>placeholder</code></td>
+    <td colspan="2">String</td>
+    <td colspan="6">Displays the string inside the input. Good for showing expected format or example value.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>autofocus</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">If present, the browser will bring focus to this element on page load. Excellent for log in or search pages or whenever the first user action is to type something.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>autocomplete</code></td>
+    <td colspan="2">
+      <dl>
+        <dt>Credit Card</dt>
+          <dd>cc-name</dd>
+          <dd>cc-number</dd>
+          <dd>cc-csc</dd>
+          <dd>cc-exp-month</dd>
+          <dd>cc-exp-year</dd>
+        <dt>Name</dt>
+          <dd>name</dd>
+          <dd>given-name</dd>
+          <dd>additional-name</dd>
+          <dd>family-name</dd>
+        <dt>Address</dt>
+          <dd>street-address</dd>
+          <dd>address-level1 (state or province)</dd>
+          <dd>address-level2 (city)</dd>
+          <dd>postal-code</dd>
+          <dd>country</dd>
+        <dt>Phone & Email</dt>
+          <dd>tel</dd>
+          <dd>email</dd>
+      </dl>
+    </td>
+    <td colspan="6">These are required in order for the browser to autofill the form. Not all values are shown here! See the complete list and learn more at
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete" target="_blank" rel="noopener">MDN: HTML autocomplete attribute</a>.</td>
+  </tr>
+  </tbody>
+</table>
+<small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes" target="_blank" rel="noopener">MDN: Input element - Attributes</a> for the full list.</small>
+<h3 id="events">Events</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Detail</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>m-dismiss</code></td>
+    <td colspan="2">None</td>
+    <td colspan="6">Fired after the Foo was removed from the DOM.</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="methods">Methods</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="3">Signature</th>
+    <th colspan="7">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="3"><code>dismiss()</code></td>
+    <td colspan="7">Removes the Foo from the DOM.</td>
+  </tr>
+  </tbody>
+</table>
+<h2 id="guidelines">Guidelines</h2>
+<h3 id="title">Title</h3>
+<p>Desc.</p>
+<h3 id="accessibility">Accessibility</h3>
+<p>There are no accessibility recommendations for Foo.</p>

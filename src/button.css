@@ -1,6 +1,10 @@
 button {cursor: pointer;}
 button:active {outline:0;}
-
+button + button,
+button + a[is=button],
+a[is=button] + button {
+  margin-left: var(--space-sm);
+}
 /*
   The ord attr is short for "ordinal" as in "ordinal number word".
   Ordinal number words are the 10+ words used for describing the

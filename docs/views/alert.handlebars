@@ -3,10 +3,7 @@
 <h2 id="demo">Demo</h2>
 <code-sample>
   <template>
-    <m-alert type="info">Important message</m-alert>
-    <m-alert type="success">Reassuring message</m-alert>
-    <m-alert type="warn">Cautionary message</m-alert>
-    <m-alert type="error">Error message</m-alert>
+    <m-alert type="warn">A cautionary message</m-alert>
   </template>
 </code-sample>
 <h2 id="api">API</h2>
@@ -47,7 +44,7 @@
         <li>error</li>
       </ul>
     </td>
-    <td colspan="6">Sets the type of the message.</td>
+    <td colspan="6">Sets the type of the message. Error messages should use "error", cautionary messages should use "warn", reassuring messages should use "success", and important informational messages should use "info".</td>
   </tr>
   <tr>
     <td colspan="1"><code>autodismiss</code></td>
@@ -62,8 +59,7 @@
         <li>false</li>
       </ul>
     </td>
-    <td colspan="6">When set to "false" the dismiss button will not be displayed so the user can't dismiss the Alert. The application can still directly remove the Alert from the DOM or call its <code>dismiss</code> method and
-      <code>autodismiss</code> is still effective.</td>
+    <td colspan="6">When set to "false" the dismiss button will not be displayed so the user can't dismiss the Alert. The application can still directly remove the Alert from the DOM or call its <code>dismiss</code> method. <code>autodismiss</code> is also still effective.</td>
   </tr>
   </tbody>
 </table>
@@ -100,9 +96,7 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="title">Alert vs. Dialog</h3>
-<p>Some information is so important it justifies interrupting the user experience. In these cases consider displaying it in a <a href="/dialog">Dialog</a>.</p>
+<h3 id="alert-vs-dialog">Alert vs. Dialog</h3>
+<p>Some information is so important it justifies interrupting the user experience, so for these cases consider displaying it in a <a href="/dialog">Dialog</a> instead of Alert.</p>
 <h3 id="accessibility">Accessibility</h3>
-<p>When type is <code>warn</code> or <code>error</code> the <a
-        href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role" target="_blank" rel="noopener">ARIA
-  alert role</a> will be added automatically.</p>
+<p>When <code>type</code> is "warn" or "error" the <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role" target="_blank" rel="noopener">ARIA alert role</a> will be added automatically.</p>

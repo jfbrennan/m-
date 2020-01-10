@@ -1,0 +1,77 @@
+<h1>Text area</h1>
+<p>Multi-line input.</p>
+<h2 id="demo">Demo</h2>
+<code-sample>
+  <fieldset>
+    <label>Leave a comment</label>
+    <textarea></textarea>
+  </fieldset>
+</code-sample>
+<h2 id="api">API</h2>
+<h3 id="tag">Tag</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>textarea</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6">Text</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="attributes">Attributes</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>rows</code></td>
+    <td colspan="2">Number</td>
+    <td colspan="6">Sets a <span class="fnt-italic">starting</span> height that will accommodate the given number of rows, i.e. lines of text. This does not prevent additional lines from being typed and the user can also resize it to be taller or shorter.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>maxlength</code></td>
+    <td colspan="2">Number</td>
+    <td colspan="6">Limits the number of characters allowed in the text area.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>minlength</code></td>
+    <td colspan="2">Number</td>
+    <td colspan="6">Sets a minimum required number of characters in the text area.</td>
+  </tr>
+  </tbody>
+</table>
+<small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#Attributes" target="_blank" rel="noopener">MDN: Text area element - Attributes</a> for the full list.</small>
+<h3 id="events">Events</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Detail</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>m-dismiss</code></td>
+    <td colspan="2">None</td>
+    <td colspan="6">Fired after the Foo was removed from the DOM.</td>
+  </tr>
+  </tbody>
+</table>
+<h2 id="guidelines">Guidelines</h2>
+<h3 id="title">Default row size</h3>
+<p>The default is three rows or lines of text, but you should set a number that makes the most sense for your use case. For example, a chat app makes sense to take the default of three, but a customer feedback form should likely have 5-10. Note that text areas are resizable so the user can extend it further if needed, just take care to set a sensible default.</p>
+<h3 id="accessibility">Accessibility</h3>
+<p>There are no accessibility recommendations for Foo.</p>

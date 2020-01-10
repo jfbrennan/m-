@@ -1,21 +1,33 @@
 :root {
   /* Colors */
-  --color-gray-1: #dcdcdc;
-  --color-gray: #a8a8a8;
-  --color-gray-2: #ccc;
-  --color-off-white: #f9f9f9;
-  --color-darkest: #282828;
+  --color-offwhite: #f9f9f9;
+  --color-gray-1: #e2e2e2;
+  --color-gray-2: #dedede;
+  --color-gray-3: #ccc;
+  --color-gray-4: #a8a8a8;
+  --color-gray-5: #9f9f9f;
+  --color-gray-6: #858585;
+  --color-dark: #404040;
   --color-darker: #333;
-  --color-blue: #0070c9;
-  --color-med-blue: #6bf;
-  --color-red: #C92303;
-  --color-med-red: #F34203;
+  --color-darkest: #282828;
+  --color-blue-dark: #0070c9;
+  --color-blue-med: #6bf;
+  --color-blue-light: #b4daff;
+  --color-red-dark: #C92303;
+  --color-red-med: #F34203;
+  --color-red-light: #f3a18a;
+  --color-green-dark: #1b8512;
+  --color-green-med: #1fbc12;
+  --color-green-light: #c3f3b3;
+  --color-orange-dark: #cc8614;
+  --color-orange-med: #d29d40;
+  --color-orange-light: #e5c286;
 
-  --color-disabled-fg: var(--color-gray);
+  --color-disabled-fg: var(--color-gray-4);
   --color-disabled-bg: var(--color-gray-1);
 
-  --color-primary-action: var(--color-blue);
-  --color-secondary-action: var(--color-med-blue);
+  --color-primary-action: var(--color-blue-dark);
+  --color-secondary-action: var(--color-blue-med);
   --color-tertiary-action: tan;
 
   --color-primary-bg: white;
@@ -24,16 +36,23 @@
   --color-border: #dedede;
 
   /* Other */
-  --max-content-width: 1200px;
+  --max-content-width: 1536px; /* The 16" MacBook Pro */
 
-  /* Spacing */
+  /* Spacing - loosely based on divine proportions */
   --space-xs: 6px;
   --space-sm: 12px;
   --space-md: 18px;
   --space-lg: 30px;
   --space-xl: 48px;
 
+  /* Breakpoints */
+  --breakpoint-sm: 576px; /* and below is "phone" */
+  --breakpoint-md: 768px; /* and below is "tablet" */
+  --breakpoint-lg: 992px;
+
   /* Font */
   --font-size-min: 13px; /* a11y recommendation */
-  --font-default-size: 16px;
+  --font-size-default: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 48px;
 }

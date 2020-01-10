@@ -2,9 +2,9 @@ customElements.define('m-alert', class extends HTMLElement {
   constructor() {
     super();
     this.render = lighterhtml.render.bind(null, this, this.render.bind(this));
-    this.content = Array.from(this.childNodes);
     if (this.type === 'warn' || this.type === 'error') this.setAttribute('role', 'alert');
     this.classList.add('pad-all-md', 'flex', 'pos-relative');
+    this.content = Array.from(this.childNodes);
     this.render();
   }
 
@@ -16,14 +16,22 @@ customElements.define('m-alert', class extends HTMLElement {
     this.setAttribute('dismissible', val);
   }
 
+  get type() {
+    return this.getAttribute('type');
+  }
+
+  set type(val) {
+    this.setAttribute('type', val);
+  }
+
   static get observedAttributes() { return ['type', 'autodismiss', 'dismissible']; }
 
-  attributeChangedCallback(name, prev, curr) {
+  attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case 'type':
         this.icon = this.type === 'success' ? 'check' : this.type === 'warn' ? 'exclamation' : this.type === 'error' ? 'ban' : 'question';
       case 'autodismiss':
-        const seconds = curr ? parseInt(curr) * 1000 : 4000;
+        const seconds = newVal ? parseInt(newVal) * 1000 : 4000;
         if (seconds > 0) setTimeout(() => this.dismiss(), seconds);
     }
 

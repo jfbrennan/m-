@@ -98,15 +98,15 @@
 <h3 id="title">Title</h3>
 <p>Desc.</p>
 <h3 id="accessibility">Accessibility</h3>
-<p>Most of the ARIA roles and attributes are added and maintained automatically. Set <code>role="tabpanel"</code> on the element(s) that contain a Tab's corresponding content. You should further associate the tab and tabpanel by setting the tabpanel element's <code>aria-labelledby</code> attribute to the tab's id:</p>
+<p>Most of the ARIA roles and attributes are added and maintained automatically, but you do need to set <code>role="tabpanel"</code> on the element that contains a Tab's corresponding content. You should further associate the tab and tabpanel by setting up these ARIA attributes:</p>
 <code-sample readonly="readonly">
 <template>
   <m-tabs>
-    <m-tab id="a">A</m-tab>
+    <m-tab id="a" aria-controls="a-panel">A</m-tab>
     <m-tab id="b">B</m-tab>
   </m-tabs>
-  <div role="tabpanel" aria-labelledby="a">
-    When A tab is selected this should show its content and the ARIA label updated.
+  <div id="a-panel" role="tabpanel" aria-labelledby="a">
+    This content is shown when the "a" Tab is selected.
   </div>
 </template>
 </code-sample>

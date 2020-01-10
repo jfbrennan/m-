@@ -3,53 +3,56 @@
 <head>
   <title>M-</title>
   <link rel="stylesheet" href="/m-all.css">
+  <link rel="stylesheet" href="/custom-props.css">
   <style>
     aside { flex: 0 0 180px }
     main { flex-grow: 1 }
   </style>
 </head>
-<body class="flex">
+<body class="flex" style="height: 100%">
 <aside class="pad-all-md">
-  <div class="pos-sticky">
+  <div>
     <h1 class="mar-all-none noselect">M-</h1>
     <div class="txt-xs mar-b-md">v{{version}}</div>
     <nav>
       <a href="/" class="block mar-b-xs">Home</a>
-      <a disabled href="/sample" class="block mar-b-xs">Sample page</a>
+      <a href="https://github.com/jfbrennan/m-" target="_blank" rel="noopener">
+        Repo <img src="github-logo.png" alt="GitHub logo" class="mar-r-xs" style="height: 14px"></a>
       <hr>
       <h4>Page setup</h4>
-      <a disabled href="content" class="block mar-b-xs">Content</a>
-      <a disabled href="grid" class="block mar-b-xs">Grid</a>
-      <a disabled href="head-tags" class="block mar-b-xs">Head tags</a>
+      <a href="/head-tags" class="block mar-b-xs">Head tags</a>
+      <a href="/container" class="block mar-b-xs">Container</a>
+      <a href="/grid" class="block mar-b-xs">Grid</a>
       <h4>Components</h4>
-      <a href="alert" class="block mar-b-xs">Alert</a>
-      <a href="autocomplete" class="block mar-b-xs">Autocomplete</a>
-      <a href="badge" class="block mar-b-xs">Badge</a>
-      <a href="box" class="block mar-b-xs">Box</a>
-      <a href="button" class="block mar-b-xs">Button</a>
-      <a href="dialog" class="block mar-b-xs">Dialog</a>
-      <a disabled href="form" class="block mar-b-xs">Form</a>
-      <a href="icons" class="block mar-b-xs">Icons</a>
-      <a disabled href="input" class="block mar-b-xs">Input</a>
-      <a href="loader" class="block mar-b-xs">Loader</a>
-      <a disabled href="link" class="block mar-b-xs">Link</a>
-      <a disabled href="menu" class="block mar-b-xs">Menu</a>
-      <a disabled href="radio" class="block mar-b-xs">Radio</a>
-      <a disabled href="select" class="block mar-b-xs">Select</a>
-      <a href="tabs" class="block mar-b-xs">Tabs</a>
-      <a href="tag" class="block mar-b-xs">Tag</a>
-      <a disabled href="table" class="block mar-b-xs">Table</a>
-      <a disabled href="textarea" class="block mar-b-xs">Textarea</a>
+      <a href="/accordion" class="block mar-b-xs">Accordion</a>
+      <a href="/alert" class="block mar-b-xs">Alert</a>
+      <a href="/autocomplete" class="block mar-b-xs">Autocomplete</a>
+      <a href="/badge" class="block mar-b-xs">Badge</a>
+      <a href="/box" class="block mar-b-xs">Box</a>
+      <a href="/button" class="block mar-b-xs">Button</a>
+      <a href="/details" class="block mar-b-xs">Details</a>
+      <a href="/dialog" class="block mar-b-xs">Dialog</a>
+      <a href="/form" class="block mar-b-xs">Form</a>
+      <a href="/icons" class="block mar-b-xs">Icons</a>
+      <a href="/input" class="block mar-b-xs">Input</a>
+      <a href="/loader" class="block mar-b-xs">Loader</a>
+      <a href="/link" class="block mar-b-xs">Link</a>
+      <a href="/menu" class="block mar-b-xs">Menu</a>
+      <a href="/radio" class="block mar-b-xs">Radio</a>
+      <a href="/select" class="block mar-b-xs">Select</a>
+      <a href="/tabs" class="block mar-b-xs">Tabs</a>
+      <a href="/tag" class="block mar-b-xs">Tag</a>
+      <a href="/table" class="block mar-b-xs">Table</a>
+      <a href="/textarea" class="block mar-b-xs">Textarea</a>
       <h4>Typography</h4>
-      <a href="text" class="block mar-b-xs">Text</a>
-      <a href="lists" class="block mar-b-xs">Lists</a>
-      <a href="rules" class="block mar-b-xs">Rules</a>
+      <a href="/text" class="block mar-b-xs">Text</a>
+      <a href="/lists" class="block mar-b-xs">Lists</a>
+      <a href="/rules" class="block mar-b-xs">Rules</a>
       <h4>Utils</h4>
-      <a disabled href="custom-props" class="block mar-b-xs">Custom properties</a>
-      <a disabled href="helper-classes" class="block mar-b-xs">Helper classes</a>
+      <a href="/custom-props" class="block mar-b-xs">Custom properties</a>
+      <a href="/helper-classes" class="block mar-b-xs">Helper classes</a>
       <hr>
-      <a href="https://github.com/jfbrennan/m-" target="_blank" rel="noopener">
-        <img src="github-logo.png" alt="GitHub logo" class="mar-r-xs" style="height: 14px">Repo</a>
+      <a href="/examples" class="block mar-b-xs">Examples page</a>
     </nav>
   </div>
 </aside>
@@ -82,7 +85,7 @@
   };
 
   // Tabs demo
-  document.querySelector('m-tabs').addEventListener('m-select', e => console.log(e))
+  // document.querySelector('m-tabs').addEventListener('m-select', e => console.log(e))
 </script>
 </body>
 </html>

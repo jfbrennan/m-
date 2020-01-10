@@ -20,12 +20,22 @@ function css() {
     .pipe(gulp.dest('dist'))
 }
 
+function customPropsCopy() {
+  return gulp.src('src/custom-props.css')
+    .pipe(gulp.dest('dist'))
+}
+
+function styles(cb) {
+  gulp.parallel(css, customPropsCopy);
+  cb();
+}
+
+
 function buildComponentsFile() {
-  const hyper = './node_modules/hyperhtml-element/min.js';
   const lighter = './node_modules/lighterhtml/min.js';
   return gulp.src([lighter, 'src/*.js'])
     .pipe(concat('m-.js'))
-    // .pipe(terser())
+    .pipe(terser())
     .pipe(gulp.dest('dist'))
 }
 
@@ -38,13 +48,13 @@ function fonts() {
 }
 
 function watch(cb) {
-  gulp.series(css, fonts, buildComponentsFile, copyToDocs);
-  gulp.watch('src', gulp.series(css, fonts, buildComponentsFile, copyToDocs));
+  gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs);
+  gulp.watch('src', gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs));
   cb();
 }
 
-exports.css = css;
+exports.styles = styles;
 exports.fonts = fonts;
 exports.buildComponentsFile = buildComponentsFile;
-exports.build = gulp.series(css, fonts, buildComponentsFile, copyToDocs);
+exports.build = gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs);
 exports.watch = watch;

@@ -4,6 +4,8 @@ m-box, m-well {
   display: block;
   border-radius: 3px;
   padding: var(--space-md);
+  background-color: white;
+  border: 1px solid var(--color-gray-1);
 }
 
 /*
@@ -11,14 +13,14 @@ m-box, m-well {
   Ordinal number words are the 10+ words used for describing the
   precedence or importance of an item in an ordered list.
 */
-m-box[ord=primary] {
-  background-color: white;
-  border: 1px solid var(--color-gray-1);
-}
-
 m-box[ord=secondary] {
+  border: none;
   background-color: var(--color-secondary-bg);
-  box-shadow: 0px 1px 2px var(--color-gray) inset;
+  box-shadow: 0px 1px 2px var(--color-gray-3) inset;
 }
 
 m-box + m-box {margin-top: var(--space-md) }
+
+@media only screen and (max-width: 600px) {
+  m-box { padding: var(--space-sm) }
+}

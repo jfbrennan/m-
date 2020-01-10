@@ -6,7 +6,7 @@ m-badge {
   height: 1.25rem;
   text-align: center;
   color: white;
-  background-color: var(--color-blue);
+  background-color: var(--color-blue-dark);
   border-radius: 0.625rem;
   font-weight: 600;
   line-height: 1.25rem;

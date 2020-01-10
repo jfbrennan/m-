@@ -1,0 +1,325 @@
+<h1 id="Containers" class="txt-center txt-xxl">Containers</h1>
+<m-container maxwidth="sm">
+  <h4>Small container</h4>
+  <m-box ord="primary">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <fieldset>
+        <label>Email</label>
+        <input type="email" autofocus>
+      </fieldset>
+      <fieldset>
+        <label>Password</label>
+        <input type="password">
+        <small><a href="/forgot">Forgot password</a></small>
+      </fieldset>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a href="/sign-up">Sign up</a></div>
+  </m-box>
+</m-container>
+<m-container maxwidth="md">
+  <h4>Medium container</h4>
+  <m-box ord="primary">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <fieldset>
+        <label>Email</label>
+        <input type="email" autofocus>
+      </fieldset>
+      <fieldset>
+        <label>Password</label>
+        <input type="password">
+        <small><a href="/forgot">Forgot password</a></small>
+      </fieldset>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a href="/sign-up">Sign up</a></div>
+  </m-box>
+</m-container>
+<m-container>
+  <h4>Default container</h4>
+  <m-box ord="primary">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <fieldset>
+        <label>Email</label>
+        <input type="email" autofocus>
+      </fieldset>
+      <fieldset>
+        <label>Password</label>
+        <input type="password">
+        <small><a href="/forgot">Forgot password</a></small>
+      </fieldset>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a href="/sign-up">Sign up</a></div>
+  </m-box>
+</m-container>
+<m-container maxwidth="none">
+  <h4>"None" max width container</h4>
+  <m-box ord="primary">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <fieldset>
+        <label>Email</label>
+        <input type="email" autofocus>
+      </fieldset>
+      <fieldset>
+        <label>Password</label>
+        <input type="password">
+        <small><a href="/forgot">Forgot password</a></small>
+      </fieldset>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a href="/sign-up">Sign up</a></div>
+  </m-box>
+</m-container>
+<hr>
+<h1 id="Grids" class="txt-center txt-xxl">Grids</h1>
+<m-container>
+  <h4>Auto-span</h4>
+  <m-row>
+    <m-col>
+      <m-box>One column in one row.</m-box></m-col>
+  </m-row>
+  <m-row>
+    <m-col>
+      <m-box>Two columns...</m-box></m-col>
+    <m-col>
+      <m-box>in another row.</m-box></m-col>
+  </m-row>
+  <m-row>
+    <m-col>
+      <m-box>Three columns...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>in...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>yet another row.</m-box>
+    </m-col>
+  </m-row>
+  <h4>Span size and auto-span</h4>
+  <m-row>
+    <m-col span="3">
+      <m-box>One column with <code>span="3"</code>...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>and a second column fills remaining space.</m-box>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col span="3">
+      <m-box>One column with <code>span="3"</code>...</m-box>
+    </m-col>
+    <m-col span="4">
+      <m-box>another with <code>span="4"</code>...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>and a third column fills remaining space.</m-box>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col span="7">
+      <m-box>One column with <code>span="7"</code> and no other columns.</m-box>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col span="7">
+      <m-box>One column with <code>span="7"</code>...</m-box>
+    </m-col>
+    <m-col span="5">
+      <m-box>another with <code>span="5"</code> to make 12.</m-box>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col span="7">
+      <m-box>One column with <code>span="7"</code>...</m-box>
+    </m-col>
+    <m-col span="6">
+      <m-box>and another with <code>span="6"</code>, which exceeds the 12 column grid. <span class="fnt-bold fnt-italic">Avoid!</span></m-box>
+    </m-col>
+  </m-row>
+  <h4>Centering columns</h4>
+  <m-row center>
+    <m-col>
+      <m-box>One auto-span column inside a <code>center</code>ed row.</m-box>
+    </m-col>
+  </m-row>
+  <m-row center>
+    <m-col span="3">
+      <m-box>One column with <code>span="3"</code>...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>and one with the default auto-span inside a <code>center</code>ed row.</m-box>
+    </m-col>
+  </m-row>
+  <h4>Responsive columns</h4>
+</m-container>
+<hr>
+<h1 id="Boxes" class="txt-center txt-xxl">Boxes</h1>
+<m-container>
+  <h4>Default</h4>
+  <div>Regular text on the page.</div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <m-box>
+    <div>Regular text in a Box.</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </m-box>
+  <m-box ord="secondary">
+    <div>Regular text in a secondary Box.</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </m-box>
+  <h4>Three in a row</h4>
+  <m-row>
+    <m-col>
+      <div>Regular text on the page</div>
+    </m-col>
+    <m-col>
+      <m-box>Regular text in a Box</m-box>
+    </m-col>
+    <m-col>
+      <m-box ord="secondary">Regular text in a secondary Box</m-box>
+    </m-col>
+  </m-row>
+</m-container>
+<hr>
+<h1 id="Boxes" class="txt-center txt-xxl">Dialogs</h1>
+<m-container>
+  <m-dialog id="overflowingcontent">
+    <h2>Title</h2>
+    <p>Body lorem ipsum</p>
+    <p>Regular text on the page.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <m-box>
+      <p>Regular text in a Box.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </m-box>
+    <p>Body lorem ipsum</p>
+    <p>Regular text on the page.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <m-box>
+      <p>Regular text in a Box.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </m-box>
+    <p>Body lorem ipsum</p>
+    <p>Regular text on the page.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <m-box>
+      <p>Regular text in a Box.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </m-box>
+    <p>Body lorem ipsum</p>
+    <p>Regular text on the page.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <m-box>
+      <p>Regular text in a Box.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </m-box>
+  </m-dialog>
+  <m-dialog id="mincontent">
+    <div>Text</div>
+  </m-dialog>
+  <m-dialog id="nocontent">
+  </m-dialog>
+  <m-dialog id="hasform">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <fieldset>
+        <label>Email</label>
+        <input type="email" autofocus placeholder="My 'autofocus' works as expected">
+      </fieldset>
+      <fieldset>
+        <label>Password</label>
+        <input type="password">
+        <small><a href="/forgot">Forgot password</a></small>
+      </fieldset>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a href="/sign-up">Sign up</a></div>
+    <p><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog.</p>
+  </m-dialog>
+  <m-dialog id="modeless">
+    <h1>Modeless</h1>
+    <p>This Dialog is opened with the <code>show()</code> method, which makes it "modeless". This means the user can still interact with other elements on the page (try it, you can't do that with the other Dialog examples), which could result in the user triggering actions unintentionally, so be judicious when using this method.</p>
+  </m-dialog>
+  <button onclick="document.querySelector('#overflowingcontent').showModal()" ord="primary">Open "overflowing content" Dialog</button>
+  <button onclick="document.querySelector('#mincontent').showModal()" ord="primary">Open "minimum content" Dialog</button>
+  <button onclick="document.querySelector('#nocontent').showModal()" ord="primary">Open "no content" Dialog</button>
+  <button onclick="document.querySelector('#hasform').showModal()" ord="primary">Open "has form" Dialog</button>
+  <button onclick="document.querySelector('#modeless').show()" ord="primary">Open "modeless" Dialog</button>
+</m-container>
+<hr>
+<h1 id="Forms" class="txt-center txt-xxl">Forms</h1>
+<m-container>
+  <h4>Everything form</h4>
+  <form>
+    <fieldset>
+      <label>Input</label>
+      <input type="text" placeholder="Text">
+      <input type="email" placeholder="Email">
+      <input type="number" placeholder="Number">
+      <input type="password" placeholder="Password">
+    </fieldset>
+    <fieldset>
+      <label>Checkbox</label>
+      <input type="checkbox"><label>One</label>
+      <input type="checkbox"><label>Two</label>
+      <input type="checkbox"><label>Three</label>
+    </fieldset>
+    <fieldset>
+      <label>Radio</label>
+      <input type="radio"><label>One</label>
+      <input type="radio"><label>Two</label>
+      <input type="radio"><label>Three</label>
+    </fieldset>
+    <fieldset>
+      <label>Select</label>
+      <select>
+        <option>Single...</option>
+        <option>One</option>
+        <option>Two</option>
+        <option>Three</option>
+      </select>
+      <select>
+        <option>With groups...</option>
+        <optgroup label="Label">
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </optgroup>
+        <optgroup label="Label">
+          <option>Four</option>
+          <option>Five</option>
+          <option>Six</option>
+        </optgroup>
+      </select>
+      <select multiple>
+        <option>Multiple...</option>
+        <option>One</option>
+        <option>Two</option>
+        <option>Three</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label>Text area</label>
+      <textarea rows="3"></textarea>
+    </fieldset>
+    <button type="submit" ord="primary">Save</button>
+    <button ord="secondary">Cancel</button>
+  </form>
+</m-container>
+<hr>
+<h1 id="Details" class="txt-center txt-xxl">Details</h1>
+<m-container>
+  <p>This is a short bit of info about elephants.</p>
+  <m-details>
+    <summary><span is="a">Learn more</span></summary>
+    <p>Details about this thing.</p>
+    <p>And more details about this thing.</p>
+  </m-details>
+</m-container>

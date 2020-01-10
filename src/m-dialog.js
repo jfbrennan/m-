@@ -10,11 +10,11 @@ customElements.define('m-dialog', class extends HTMLElement {
 
   static get observedAttributes() { return ['open']; }
 
-  attributeChangedCallback(name, oldValue, newValue) {
+  attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case 'open':
-        if (newValue === null) this.close();
-        if (newValue === '') {
+        if (newVal === null) this.close();
+        if (newVal === '') {
           this.querySelector('[autofocus]').focus(); // Good UX and HTMLDialogElement spec says to do it
         }
     }
@@ -31,12 +31,14 @@ customElements.define('m-dialog', class extends HTMLElement {
   // MDN: "Closes the dialog. An optional DOMString may be passed as an argument, updating the returnValue of the the dialog."
   close(returnValue) {
     this.returnValue = returnValue || this.returnValue;
+    this.style.pointerEvents = 'auto';
     this.open = false;
     this.dispatchEvent(new CustomEvent('close')); // MDN: "Fired when the dialog is closed."
   }
 
   // MDN: "Displays the dialog modelessly, i.e. still allowing interaction with content outside of the dialog."
   show() {
+    this.style.pointerEvents = 'none'; // To "allow interaction outside dialog"
     this.open = true;
   }
 
@@ -46,11 +48,12 @@ customElements.define('m-dialog', class extends HTMLElement {
   }
 
   render() {
+    // TODO Should this.content = Array.from(this.childNodes) happen every render in case elements were added/removed post-init?
     const role = this.getAttribute('role') === 'alertdialog' ? 'alertdialog' : 'dialog';
     return lighterhtml.html`
       <div role="${role}" class="pos-relative pad-all-md">
         <button onclick="${e => this.close()}" class="pad-all-sm txt-lg pos-absolute pin-t pin-r">&times;</button>
-        <div>${this.content}</div>
+        <div><div>${this.content}</div></div>
       </div>
       <style>
         m-dialog {
@@ -65,10 +68,17 @@ customElements.define('m-dialog', class extends HTMLElement {
         }
         m-dialog[open] {display: flex}
         m-dialog > div {
+          pointer-events: auto;
           background-color: #F5F3F7;
-          box-shadow: 0px 16px 18px -3px #a8a8a8;
+          box-shadow: 0px 16px 18px -3px #858585;
+          height: 60%;
+          max-width: 75%;
         }
         m-dialog > div > button {border: none; line-height: 0.5; background: none;}
+        m-dialog > div > div {
+          height: 100%;
+          overflow: auto;
+        }
       </style>
     `;
   }

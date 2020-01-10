@@ -9,7 +9,7 @@
   </m-dialog>
 </template>
 
-<button onclick="document.querySelector('m-dialog').show()" ord="primary">Open Dialog</button>
+<button onclick="document.querySelector('m-dialog').showModal()" ord="primary">Open Dialog</button>
 </code-sample>
 <h2 id="api">API</h2>
 <h3 id="tag">Tag</h3>
@@ -42,7 +42,7 @@
   <tr>
     <td colspan="2"><code>open</code></td>
     <td colspan="2">Boolean attribute</td>
-    <td colspan="6">When present, dialog will be displayed.</td>
+    <td colspan="6">Dialog will open when set and close when removed. It is the same as calling <code>showModal()</code> and <code>close()</code>. If you want the dialog displayed "modelessly", you have to call the <code>show</code> method.</td>
   </tr>
   </tbody>
 </table>
@@ -89,5 +89,7 @@
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="title">What about HTMLDialogElement?</h3>
 <p>This element attempts to match the <code>HTMLDialogElement</code> interface as close as possible, so when browser support for <code>&lt;dialog&gt;</code> is sufficient it will be removed from M- in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>
+<h3 id="state">Forms and DOM state</h3>
+<p>Dialog does not change the state of its children other than moving them into a containing div on init. Forms and all other elements will initialize the way they are provided by the application and will continue to remain untouched even when the Dialog is closed. The state of the DOM is completely the controlled by the application. For example, if a Dialog is used to present a log in form the application should remove the Dialog completely or reset the form after successful authentication. If left alone the Dialog and the log in form inside it will still contain the user's credentials.</p>
 <h3 id="accessibility">Accessibility</h3>
 <p>The necessary ARIA attributes are added automatically; however, if your Dialog "contains an alert message" you should set <code>role="alertdialog"</code>.</p>

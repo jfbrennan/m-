@@ -1,0 +1,80 @@
+<h1>Grid</h1>
+<p>For responsive 12-column grid layouts.</p>
+<h2 id="demo">Demo</h2>
+<code-sample>
+  <m-row>
+    <m-col>
+      <m-box>These two columns...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>auto-span.</m-box>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col span="4">
+      <m-box>These two...</m-box>
+    </m-col>
+    <m-col span="8">
+      <m-box>span an explicit number of columns (4 and 8).</m-box>
+    </m-col>
+  </m-row>
+</code-sample>
+<p>See more <a href="/examples#Grids">examples</a></p>
+<h2 id="api">API</h2>
+<h3 id="tag">Tag</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>m-row</code></td>
+    <td colspan="2">Custom tag</td>
+    <td colspan="6"><code>m-col</code> children only</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>m-col</code></td>
+    <td colspan="2">Custom tag</td>
+    <td colspan="6">Any</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="attributes">Attributes</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+</table>
+<p>For <code>m-row</code> only:</p>
+<table layout="fixed">
+  <tbody>
+  <tr>
+    <td colspan="2"><code>center</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Centers the columns in the row.</td>
+  </tr>
+  </tbody>
+</table>
+<p>For <code>m-col</code> only:</p>
+<table layout="fixed">
+  <tbody>
+  <tr>
+    <td colspan="2"><code>span</code></td>
+    <td colspan="2">[sm-|md-|lg-]1-12</td>
+    <td colspan="6">Sets the number of columns to span in a 12 column grid. Use the screen size prefixes for greater control on specific screen sizes.</td>
+  </tr>
+  </tbody>
+</table>
+<h2 id="guidelines">Guidelines</h2>
+<h3 id="title">Title</h3>
+<p>Desc.</p>
+<h3 id="accessibility">Accessibility</h3>
+<p>There are no accessibility recommendations for Foo.</p>

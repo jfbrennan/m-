@@ -25,7 +25,7 @@ customElements.define('m-tabs', class extends HTMLElement {
       // Unselect current tab
       this.tabs.forEach(tab => {
         tab.removeAttribute('selected');
-        tab.removeAttribute('aria-selected');
+        tab.setAttribute('aria-selected', 'false');
       });
 
       // Select new tab and fire event

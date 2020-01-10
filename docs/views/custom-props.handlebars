@@ -1,44 +1,121 @@
 <h1>Custom Properties</h1>
-<p>Variables referenced by components and meant for direct use as well.</p>
+<p>These variables are used internally by M- and are meant for direct use when creating custom styles.</p>
 <h2 id="demo">Demo</h2>
 <code-sample>
-  #foo \{
-    background-color: var(--color-blue);
-  }
+  <style>
+    @import "../node_modules/m-/dist/custom-props.css";
+    #foo { background-color: var(--color-gray-2) }
+  </style>
+  <div id="foo" class="pad-all-lg">I'm styled with a custom property</div>
 </code-sample>
 <h2 id="api">API</h2>
-<p>Learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">Custom properties aka CSS variables</a> and how to use them.</p>
+<p>Learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">custom properties aka CSS variables</a> and how to use them.</p>
 <h3 id="colors">Colors</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Example</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="3">Example</th>
+    <th colspan="3">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>--color-gray</code></td>
-    <td>gray bg...</td>
-    <td>Most common gray</td>
+    <td colspan="2"><code>--color-red-[dark|med|light]</code></td>
+    <td colspan="3" class="pad-all-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-red-dark"></div>
+        <div class="color-red-med"></div>
+        <div class="color-red-light"></div>
+      </div>
+    </td>
+    <td colspan="3">Used to denote something has or will go wrong.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--color-orange-[dark|med|light]</code></td>
+    <td colspan="3" class="pad-all-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-orange-dark"></div>
+        <div class="color-orange-med"></div>
+        <div class="color-orange-light"></div>
+      </div>
+    </td>
+    <td colspan="3">Used for bringing attention to something that may not be desirable.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--color-blue-[dark|med|light]</code></td>
+    <td colspan="3" class="pad-all-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-blue-dark"></div>
+        <div class="color-blue-med"></div>
+        <div class="color-blue-light"></div>
+      </div>
+    </td>
+    <td colspan="3">Used highlight primary actions.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--color-green-[dark|med|light]</code></td>
+    <td colspan="3" class="pad-all-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-green-dark"></div>
+        <div class="color-green-med"></div>
+        <div class="color-green-light"></div>
+      </div>
+    </td>
+    <td colspan="3">Used to communicate something desirable has or will happen.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--color-[darkest|darker|dark]</code></td>
+    <td colspan="3" class="pad-all-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-darkest"></div>
+        <div class="color-darker"></div>
+        <div class="color-dark"></div>
+      </div>
+    </td>
+    <td colspan="3">Used for text and high-contrast backgrounds.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--color-gray-[6|5|4|3|2|1]</code></td>
+    <td colspan="3" class="pad-all-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-gray-6"></div>
+        <div class="color-gray-5"></div>
+        <div class="color-gray-4"></div>
+        <div class="color-gray-3"></div>
+        <div class="color-gray-2"></div>
+        <div class="color-gray-1"></div>
+      </div>
+    </td>
+    <td colspan="3">Grayscale used for backgrounds, borders, and disabled state.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--color-gray-offwhite</code></td>
+    <td colspan="3" class="pad-all-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-offwhite"></div>
+      </div>
+    </td>
+    <td colspan="3">Used for the whole page background.</td>
   </tr>
   </tbody>
 </table>
 <h3 id="spacing">Spacing</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Example</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="3">Example</th>
+    <th colspan="4">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>--space-xs</code></td>
-    <td>6px</td>
-    <td>Smallest size in the system</td>
+    <td colspan="2"><code>--space-[xs|sm|md|lg|xl]</code></td>
+    <td colspan="3">6, 12, 18, 30, 48px</td>
+    <td colspan="4">Used for developing a visual rhythm between elements. Loosely follows <a
+            href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the padding and margin
+      <a href="/helper-classes">helper classes</a> whenever possible and reserve use of <code>--space-*</code> for other spacing needs like position.</td>
   </tr>
   </tbody>
 </table>
@@ -55,12 +132,52 @@
   <tr>
     <td><code>--max-content-width</code></td>
     <td>1280px</td>
-    <td>The max width used by <a href="/content-container">Content</a>. Instead of using this in a custom CSS rule consider wrapping your content in a <code>m-content</code>.</td>
+    <td>The max width used by <a href="/content-container">Content</a>. Instead of using this in a custom CSS rule consider wrapping your content in a <code>m-container</code>.</td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="hard-code">Do not hard code values</h3>
-<p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors">famously</a> had 548 unique colors hard-coded 6,498 times across their stylesheets. A total maintenance meltdown! Custom properties help you avoid this by enabling you to set up a shared single source of truth for the unique values in the design system. Use them instead of copying and hard coding their values!</p>
+<h3 id="hard-code">Don't hard code values</h3>
+<p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across their stylesheets. A total maintenance meltdown! Custom properties help you avoid this by enabling you to set up a shared single source of truth for the unique values in the design system. Reference them instead of copying and hard coding their values:</p>
+<code-sample mode="css" readonly="readonly">
+/* Do */
+@import "../node_modules/m-/dist/custom-props.css";
+#foo \{
+  background-color: var(--color-gray-2);
+}
+
+/* Don't */
+#foo \{
+  background-color: #cccccc;
+}
+</code-sample>
 <h3 id="accessibility">Accessibility</h3>
 <p></p>
+
+<style>
+  [class^="color-"] { width: 32% }
+  .color-red-dark { background-color: var(--color-red-dark) }
+  .color-red-med { background-color: var(--color-red-med) }
+  .color-red-light { background-color: var(--color-red-light) }
+  .color-blue-dark { background-color: var(--color-blue-dark) }
+  .color-blue-med { background-color: var(--color-blue-med) }
+  .color-blue-light { background-color: var(--color-blue-light) }
+  .color-green-dark { background-color: var(--color-green-dark) }
+  .color-green-med { background-color: var(--color-green-med) }
+  .color-green-light { background-color: var(--color-green-light) }
+  .color-orange-dark { background-color: var(--color-orange-dark) }
+  .color-orange-med { background-color: var(--color-orange-med) }
+  .color-orange-light { background-color: var(--color-orange-light) }
+  .color-darkest { background-color: var(--color-darkest) }
+  .color-darker { background-color: var(--color-darker) }
+  .color-dark { background-color: var(--color-dark) }
+  [class^="color-gray-"] { width: 16% }
+  .color-gray-1 { background-color: var(--color-gray-1) }
+  .color-gray-2 { background-color: var(--color-gray-2) }
+  .color-gray-3 { background-color: var(--color-gray-3) }
+  .color-gray-4 { background-color: var(--color-gray-4) }
+  .color-gray-5 { background-color: var(--color-gray-5) }
+  .color-gray-6 { background-color: var(--color-gray-6) }
+  [class^="color-offwhite"] { width: 96% }
+  .color-offwhite { background-color: var(--color-offwhite) }
+</style>

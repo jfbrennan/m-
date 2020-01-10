@@ -6,11 +6,13 @@ fieldset {
   border: none;
 }
 
-fieldset + fieldset {
+fieldset + fieldset, fieldset + button {
   margin-top: var(--space-md);
 }
 
-fieldset label, fieldset input {
+fieldset label,
+fieldset input,
+fieldset select {
   display: block;
 }
 
@@ -19,22 +21,71 @@ fieldset label {
   margin-bottom: var(--space-xs);
 }
 
-fieldset input {
+fieldset input, fieldset textarea {box-sizing: border-box}
+
+fieldset input,
+fieldset select,
+fieldset textarea {
   width: 100%;
   font-size: 16px;
   padding: 6px;
   border: 1px solid var(--color-gray-1);
+  border-radius: 0px;
+  background-color: white;
+  color: var(--color-darker);
 }
 
-fieldset input + input {
-  margin-top: 3px;
+fieldset select:not([multiple]) {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' height='10px' width='22px'%3E%3Ctext x='0' y='10' fill='gray'%3E%E2%96%BE%3C/text%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
 }
 
-fieldset input:focus {
+fieldset textarea {
+  resize: vertical;
+  min-height: 32px; /* Keep in sync with <input>'s natural height */
+}
+
+fieldset input + input,
+fieldset input + select,
+fieldset input + textarea,
+fieldset select + select,
+fieldset select + input,
+fieldset select + textarea,
+fieldset textarea + textarea,
+fieldset textarea + input,
+fieldset textarea + select {
+  margin-top: var(--space-xs);
+}
+
+fieldset input:focus,
+fieldset select:focus,
+fieldset textarea:focus {
   outline: 0;
-  border: 1px solid var(--color-blue);
+  border: 1px solid var(--color-blue-dark);
 }
 
-fieldset input:invalid, fieldset input[invalid] {
-  border-color: var(--color-red);
+fieldset input:invalid,
+fieldset input[invalid],
+fieldset select:invalid,
+fieldset select[invalid],
+fieldset textarea:invalid,
+fieldset textarea[invalid] {
+  border-color: var(--color-red-dark);
+}
+
+fieldset input:invalid + small,
+fieldset input[invalid] + small,
+fieldset select:invalid + small,
+fieldset select[invalid] + small,
+fieldset textarea:invalid + small,
+fieldset textarea[invalid] + small {
+  color: var(--color-red-dark);
+}
+
+fieldset input + small,
+fieldset select + small,
+fieldset textarea + small {
+  color: var(--color-gray-6);
 }

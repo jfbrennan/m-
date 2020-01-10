@@ -5,11 +5,14 @@ table {
   border-collapse: collapse;
 }
 table[layout=fixed] {table-layout: fixed}
+table[striped] > tbody tr:nth-of-type(odd) {background-color: var(--color-gray-2)}
 table th, td { padding: var(--space-xs) }
 table td { vertical-align: top; padding: var(--space-sm) var(--space-md) var(--space-sm) 0 }
-table tr {border-bottom: 1px solid var(--color-gray-2)}
+table > tbody > tr:first-of-type {border-top: 1px solid var(--color-gray-3)}
+table > tbody > tr {border-bottom: 1px solid var(--color-gray-3)}
 thead { text-align: left }
-thead>tr {border-top: 2px solid var(--color-gray-2)}
+thead>tr {border-top: 2px solid var(--color-gray-3)}
 thead th {padding: var(--space-xs) var(--space-md) var(--space-xs) 0}
+
 
 

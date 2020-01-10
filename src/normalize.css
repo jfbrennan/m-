@@ -11,8 +11,8 @@ body {
 
 code {
   border-radius: 2px;
-  background-color: var(--color-off-white);
-  color: var(--color-med-red);
+  background-color: var(--color-offwhite);
+  color: var(--color-red-med);
   padding: 1px 3px;
 }
 

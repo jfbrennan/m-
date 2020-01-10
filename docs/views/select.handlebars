@@ -1,0 +1,98 @@
+<h1>Select</h1>
+<p>Drop-down list of choices.</p>
+<h2 id="demo">Demo</h2>
+<code-sample>
+  <fieldset>
+    <label>Pick one</label>
+    <select>
+      <option>One</option>
+      <option>Two</option>
+      <option>Three</option>
+    </select>
+    <select name="pets" multiple size="4">
+      <optgroup label="4-legged pets">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="hamster" disabled>Hamster</option>
+      </optgroup>
+      <optgroup label="Flying pets">
+        <option value="parrot">Parrot</option>
+        <option value="macaw">Macaw</option>
+        <option value="albatross">Albatross</option>
+      </optgroup>
+    </select>
+  </fieldset>
+</code-sample>
+<h2 id="api">API</h2>
+<h3 id="tag">Tag</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Type</th>
+    <th colspan="6">Content</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>select</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6"><code>option</code> or <code>optgroup</code> children</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>optgroup</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6"><code>option</code> children</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>option</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6">Text</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="attributes">Attributes</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Value</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>label</code></td>
+    <td colspan="2">String</td>
+    <td colspan="6">Displayed as the group heading.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>value</code></td>
+    <td colspan="2">String</td>
+    <td colspan="6">Used as the <code>value</code> of the element.</td>
+  </tr>
+  </tbody>
+</table>
+<small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#Attributes" target="_blank" rel="noopener">MDN: Text area element - Attributes</a> for the full list.</small>
+<h3 id="events">Events</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Detail</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>change</code></td>
+    <td colspan="2">None</td>
+    <td colspan="6">Fired after an option was selected.</td>
+  </tr>
+  </tbody>
+</table>
+<h2 id="guidelines">Guidelines</h2>
+<h3 id="more-autocomplete">More Autocomplete</h3>
+<p>Any select with a dozen or more options could benefit from becoming an <a href="/autocomplete">Autocomplete</a>.</p>
+<h3 id="accessibility">Accessibility</h3>
+<p>There are no accessibility recommendations for Foo.</p>

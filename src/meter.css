@@ -1,0 +1,5 @@
+meter {
+  display: block;
+  width: 100%;
+  height: var(--space-sm);
+}

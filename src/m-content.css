@@ -1,6 +1,0 @@
-@import "custom-props.css";
-
-m-content {
-  display: block;
-  max-width: var(--max-content-width);
-}
