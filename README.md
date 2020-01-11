@@ -11,7 +11,7 @@ Try M- right now by just copy/pasting that CDN snippet below into your page - th
 <link rel="stylesheet" href="https://cdn.com/m-/{version}/min.css">
 <script defer src="https://cdn.com/m-/{version}/min.js"></script>
 ```
-### NPM
+### NPM (pending)
 `npm install m-`
 
 Built assets are located in `/dist`.
