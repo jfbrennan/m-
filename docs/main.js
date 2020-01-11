@@ -1,6 +1,6 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
-const pkg = require('../package');
+const pkg = require('./package');
 
 const app = express();
 
@@ -40,4 +40,4 @@ app.get('/*', (req, res) => {
 });
 
 // Start the server
-app.listen(8081, () => console.log(`Doc site started.`));
+app.listen(process.env.PORT || 3000, () => console.log(`M- doc site started.`));
