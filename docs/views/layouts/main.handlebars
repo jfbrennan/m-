@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>M-</title>
-  <link rel="stylesheet" href="{{prodCdnUrl}}css">
+  <link rel="stylesheet" href="{{localUrl}}css">
   <link rel="stylesheet" href="/custom-props.css">
   <style>
     aside { flex: 0 0 180px }
@@ -70,7 +70,7 @@
 <script>
   riot.compile(() => riot.mount('*'));
 </script>
-<script src="/min.js"></script>
+<script src="{{localUrl}}js"></script>
 <script>
   // Autocomplete demo
   MdashAutocomplete.prototype.sources.fruit = function(query) {
