@@ -56,7 +56,7 @@ m-row[center] { justify-content: center }
 /*}*/
 
 m-col,
-m-col[offset] {
+m-col[indent] {
   box-sizing: border-box;
   flex: 0 0 auto;
   padding-right: var(--half-gutter-width, 0.5rem);
@@ -135,53 +135,53 @@ m-col[span="12"] {
   max-width: 100%;
 }
 
-/* offset is used to push columns inward */
-m-col[offset="0"] {
-  margin-left: 0;
-}
-
-m-col[offset="1"] {
+/* indent is used to push columns inward */
+m-col[indent="1"] {
   margin-left: 8.33333333%;
 }
 
-m-col[offset="2"] {
+m-col[indent="2"] {
   margin-left: 16.66666667%;
 }
 
-m-col[offset="3"] {
+m-col[indent="3"] {
   margin-left: 25%;
 }
 
-m-col[offset="4"] {
+m-col[indent="4"] {
   margin-left: 33.33333333%;
 }
 
-m-col[offset="5"] {
+m-col[indent="5"] {
   margin-left: 41.66666667%;
 }
 
-m-col[offset="6"] {
+m-col[indent="6"] {
   margin-left: 50%;
 }
 
-m-col[offset="7"] {
+m-col[indent="7"] {
   margin-left: 58.33333333%;
 }
 
-m-col[offset="8"] {
+m-col[indent="8"] {
   margin-left: 66.66666667%;
 }
 
-m-col[offset="9"] {
+m-col[indent="9"] {
   margin-left: 75%;
 }
 
-m-col[offset="10"] {
+m-col[indent="10"] {
   margin-left: 83.33333333%;
 }
 
-m-col[offset="11"] {
+m-col[indent="11"] {
   margin-left: 91.66666667%;
+}
+
+m-col[indent="12"] {
+  margin-left: 100%;
 }
 
 /*.start-xs {*/
@@ -245,19 +245,19 @@ m-col[offset="11"] {
 /*  m-col-sm-10,*/
 /*  m-col-sm-11,*/
 /*  m-col-sm-12,*/
-/*  m-col-sm[offset="0,*/
-/*  m-col-sm[offset="1,*/
-/*  m-col-sm[offset="2,*/
-/*  m-col-sm[offset="3,*/
-/*  m-col-sm[offset="4,*/
-/*  m-col-sm[offset="5,*/
-/*  m-col-sm[offset="6,*/
-/*  m-col-sm[offset="7,*/
-/*  m-col-sm[offset="8,*/
-/*  m-col-sm[offset="9,*/
-/*  m-col-sm[offset="10,*/
-/*  m-col-sm[offset="11,*/
-/*  m-col-sm[offset="12 {*/
+/*  m-col-sm[indent="0,*/
+/*  m-col-sm[indent="1,*/
+/*  m-col-sm[indent="2,*/
+/*  m-col-sm[indent="3,*/
+/*  m-col-sm[indent="4,*/
+/*  m-col-sm[indent="5,*/
+/*  m-col-sm[indent="6,*/
+/*  m-col-sm[indent="7,*/
+/*  m-col-sm[indent="8,*/
+/*  m-col-sm[indent="9,*/
+/*  m-col-sm[indent="10,*/
+/*  m-col-sm[indent="11,*/
+/*  m-col-sm[indent="12 {*/
 /*    box-sizing: border-box;*/
 /*    flex: 0 0 auto;*/
 /*    padding-right: var(--half-gutter-width, 0.5rem);*/
@@ -330,51 +330,51 @@ m-col[offset="11"] {
 /*    max-width: 100%;*/
 /*  }*/
 
-/*  m-col-sm[offset="0 {*/
+/*  m-col-sm[indent="0 {*/
 /*    margin-left: 0;*/
 /*  }*/
 
-/*  m-col-sm[offset="1 {*/
+/*  m-col-sm[indent="1 {*/
 /*    margin-left: 8.33333333%;*/
 /*  }*/
 
-/*  m-col-sm[offset="2 {*/
+/*  m-col-sm[indent="2 {*/
 /*    margin-left: 16.66666667%;*/
 /*  }*/
 
-/*  m-col-sm[offset="3 {*/
+/*  m-col-sm[indent="3 {*/
 /*    margin-left: 25%;*/
 /*  }*/
 
-/*  m-col-sm[offset="4 {*/
+/*  m-col-sm[indent="4 {*/
 /*    margin-left: 33.33333333%;*/
 /*  }*/
 
-/*  m-col-sm[offset="5 {*/
+/*  m-col-sm[indent="5 {*/
 /*    margin-left: 41.66666667%;*/
 /*  }*/
 
-/*  m-col-sm[offset="6 {*/
+/*  m-col-sm[indent="6 {*/
 /*    margin-left: 50%;*/
 /*  }*/
 
-/*  m-col-sm[offset="7 {*/
+/*  m-col-sm[indent="7 {*/
 /*    margin-left: 58.33333333%;*/
 /*  }*/
 
-/*  m-col-sm[offset="8 {*/
+/*  m-col-sm[indent="8 {*/
 /*    margin-left: 66.66666667%;*/
 /*  }*/
 
-/*  m-col-sm[offset="9 {*/
+/*  m-col-sm[indent="9 {*/
 /*    margin-left: 75%;*/
 /*  }*/
 
-/*  m-col-sm[offset="10 {*/
+/*  m-col-sm[indent="10 {*/
 /*    margin-left: 83.33333333%;*/
 /*  }*/
 
-/*  m-col-sm[offset="11 {*/
+/*  m-col-sm[indent="11 {*/
 /*    margin-left: 91.66666667%;*/
 /*  }*/
 
@@ -440,19 +440,19 @@ m-col[offset="11"] {
 /*  m-col-md-10,*/
 /*  m-col-md-11,*/
 /*  m-col-md-12,*/
-/*  m-col-md[offset="0,*/
-/*  m-col-md[offset="1,*/
-/*  m-col-md[offset="2,*/
-/*  m-col-md[offset="3,*/
-/*  m-col-md[offset="4,*/
-/*  m-col-md[offset="5,*/
-/*  m-col-md[offset="6,*/
-/*  m-col-md[offset="7,*/
-/*  m-col-md[offset="8,*/
-/*  m-col-md[offset="9,*/
-/*  m-col-md[offset="10,*/
-/*  m-col-md[offset="11,*/
-/*  m-col-md[offset="12 {*/
+/*  m-col-md[indent="0,*/
+/*  m-col-md[indent="1,*/
+/*  m-col-md[indent="2,*/
+/*  m-col-md[indent="3,*/
+/*  m-col-md[indent="4,*/
+/*  m-col-md[indent="5,*/
+/*  m-col-md[indent="6,*/
+/*  m-col-md[indent="7,*/
+/*  m-col-md[indent="8,*/
+/*  m-col-md[indent="9,*/
+/*  m-col-md[indent="10,*/
+/*  m-col-md[indent="11,*/
+/*  m-col-md[indent="12 {*/
 /*    box-sizing: border-box;*/
 /*    flex: 0 0 auto;*/
 /*    padding-right: var(--half-gutter-width, 0.5rem);*/
@@ -525,51 +525,51 @@ m-col[offset="11"] {
 /*    max-width: 100%;*/
 /*  }*/
 
-/*  m-col-md[offset="0 {*/
+/*  m-col-md[indent="0 {*/
 /*    margin-left: 0;*/
 /*  }*/
 
-/*  m-col-md[offset="1 {*/
+/*  m-col-md[indent="1 {*/
 /*    margin-left: 8.33333333%;*/
 /*  }*/
 
-/*  m-col-md[offset="2 {*/
+/*  m-col-md[indent="2 {*/
 /*    margin-left: 16.66666667%;*/
 /*  }*/
 
-/*  m-col-md[offset="3 {*/
+/*  m-col-md[indent="3 {*/
 /*    margin-left: 25%;*/
 /*  }*/
 
-/*  m-col-md[offset="4 {*/
+/*  m-col-md[indent="4 {*/
 /*    margin-left: 33.33333333%;*/
 /*  }*/
 
-/*  m-col-md[offset="5 {*/
+/*  m-col-md[indent="5 {*/
 /*    margin-left: 41.66666667%;*/
 /*  }*/
 
-/*  m-col-md[offset="6 {*/
+/*  m-col-md[indent="6 {*/
 /*    margin-left: 50%;*/
 /*  }*/
 
-/*  m-col-md[offset="7 {*/
+/*  m-col-md[indent="7 {*/
 /*    margin-left: 58.33333333%;*/
 /*  }*/
 
-/*  m-col-md[offset="8 {*/
+/*  m-col-md[indent="8 {*/
 /*    margin-left: 66.66666667%;*/
 /*  }*/
 
-/*  m-col-md[offset="9 {*/
+/*  m-col-md[indent="9 {*/
 /*    margin-left: 75%;*/
 /*  }*/
 
-/*  m-col-md[offset="10 {*/
+/*  m-col-md[indent="10 {*/
 /*    margin-left: 83.33333333%;*/
 /*  }*/
 
-/*  m-col-md[offset="11 {*/
+/*  m-col-md[indent="11 {*/
 /*    margin-left: 91.66666667%;*/
 /*  }*/
 
@@ -635,19 +635,19 @@ m-col[offset="11"] {
 /*  m-col-lg-10,*/
 /*  m-col-lg-11,*/
 /*  m-col-lg-12,*/
-/*  m-col-lg[offset="0,*/
-/*  m-col-lg[offset="1,*/
-/*  m-col-lg[offset="2,*/
-/*  m-col-lg[offset="3,*/
-/*  m-col-lg[offset="4,*/
-/*  m-col-lg[offset="5,*/
-/*  m-col-lg[offset="6,*/
-/*  m-col-lg[offset="7,*/
-/*  m-col-lg[offset="8,*/
-/*  m-col-lg[offset="9,*/
-/*  m-col-lg[offset="10,*/
-/*  m-col-lg[offset="11,*/
-/*  m-col-lg[offset="12 {*/
+/*  m-col-lg[indent="0,*/
+/*  m-col-lg[indent="1,*/
+/*  m-col-lg[indent="2,*/
+/*  m-col-lg[indent="3,*/
+/*  m-col-lg[indent="4,*/
+/*  m-col-lg[indent="5,*/
+/*  m-col-lg[indent="6,*/
+/*  m-col-lg[indent="7,*/
+/*  m-col-lg[indent="8,*/
+/*  m-col-lg[indent="9,*/
+/*  m-col-lg[indent="10,*/
+/*  m-col-lg[indent="11,*/
+/*  m-col-lg[indent="12 {*/
 /*    box-sizing: border-box;*/
 /*    flex: 0 0 auto;*/
 /*    padding-right: var(--half-gutter-width, 0.5rem);*/
@@ -720,51 +720,51 @@ m-col[offset="11"] {
 /*    max-width: 100%;*/
 /*  }*/
 
-/*  m-col-lg[offset="0 {*/
+/*  m-col-lg[indent="0 {*/
 /*    margin-left: 0;*/
 /*  }*/
 
-/*  m-col-lg[offset="1 {*/
+/*  m-col-lg[indent="1 {*/
 /*    margin-left: 8.33333333%;*/
 /*  }*/
 
-/*  m-col-lg[offset="2 {*/
+/*  m-col-lg[indent="2 {*/
 /*    margin-left: 16.66666667%;*/
 /*  }*/
 
-/*  m-col-lg[offset="3 {*/
+/*  m-col-lg[indent="3 {*/
 /*    margin-left: 25%;*/
 /*  }*/
 
-/*  m-col-lg[offset="4 {*/
+/*  m-col-lg[indent="4 {*/
 /*    margin-left: 33.33333333%;*/
 /*  }*/
 
-/*  m-col-lg[offset="5 {*/
+/*  m-col-lg[indent="5 {*/
 /*    margin-left: 41.66666667%;*/
 /*  }*/
 
-/*  m-col-lg[offset="6 {*/
+/*  m-col-lg[indent="6 {*/
 /*    margin-left: 50%;*/
 /*  }*/
 
-/*  m-col-lg[offset="7 {*/
+/*  m-col-lg[indent="7 {*/
 /*    margin-left: 58.33333333%;*/
 /*  }*/
 
-/*  m-col-lg[offset="8 {*/
+/*  m-col-lg[indent="8 {*/
 /*    margin-left: 66.66666667%;*/
 /*  }*/
 
-/*  m-col-lg[offset="9 {*/
+/*  m-col-lg[indent="9 {*/
 /*    margin-left: 75%;*/
 /*  }*/
 
-/*  m-col-lg[offset="10 {*/
+/*  m-col-lg[indent="10 {*/
 /*    margin-left: 83.33333333%;*/
 /*  }*/
 
-/*  m-col-lg[offset="11 {*/
+/*  m-col-lg[indent="11 {*/
 /*    margin-left: 91.66666667%;*/
 /*  }*/
 

@@ -89,6 +89,9 @@
 .txt-lg { font-size: 24px}
 .txt-xl { font-size: 32px}
 .txt-xxl { font-size: 100px}
+.txt-gray-5 { color: var(--color-gray-5)}
+.txt-gray-6 { color: var(--color-gray-6)}
+.txt-dark { color: var(--color-dark)}
 .txt-noselect {
   user-select: none;
   cursor: default;
@@ -98,7 +101,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 
 /* Display */
 .flex { display: flex }

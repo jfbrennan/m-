@@ -1,5 +1,5 @@
 <div class="txt-center" style="margin: 60px 0"><h1>Getting Started</h1>
-  <p style="width: 70%; margin: 0 auto">M- is a design system that fully embraces the web. This means it's linkable, extremely fast to download and execute, and is compatible with all JavaScript frameworks past,
+  <p style="width: 70%; margin: 0 auto">M- is a design system that fully embraces the web. This means it's linkable, standards-based, extremely fast to download and execute, and is compatible with all JavaScript frameworks past,
     present, and future.</p>
   <h5>
     <span>6kb</span>
@@ -21,15 +21,17 @@
 <h2>Quick start</h2>
 <p>Just include the production M- stylesheet and script from the CDN and it works:</p>
 <code-sample>
-<!-- Copy/paste inside <head> -->
+<!-- Copy/paste this inside <head> -->
 <link rel="stylesheet" href="{{prodCdnUrl}}css">
 <script defer src="{{prodCdnUrl}}js"></script>
 
-<!-- Try some M- inside <body> -->
-<h2 class="mar-t-none">M- is working!</h2>
-<m-badge count="1"></m-badge>
-<m-icon name="trophy"></m-icon>
-<button ord="primary">Save</button>
+<!-- Now try this inside <body> -->
+<template>
+  <m-alert type="success">
+    <h2 class="mar-t-none">Success!</h2>
+    <p>M- is working. You get a trophy <m-icon name="trophy"></m-icon></p>
+  </m-alert>
+</template>
 </code-sample>
 <p>Using M- with popular JavaScript libraries works just as well:</p>
 <code-sample>
@@ -85,17 +87,17 @@
 <p>The prefix comes from the need to prefix custom HTML (learn more about that in
   <a href="https://dev.to/jfbrennan/custom-html-tags-4788" target="_blank">this blog post</a>). The "m" is short for markup, as in HT<span class="fnt-bold">M</span>L, and is a reminder that M- is designed and built on standards.</p>
 <h3>Design philosophy</h3>
-<p>M- embraces the open web platform! Web development is the best because it is:</p>
+<p>M- fully embraces the open web platform. Web development is awesome! It's:</p>
 <ul>
   <li>relatively simple</li>
-  <li>slightly easier than other platforms</li>
+  <li>easier than other platforms</li>
   <li>totally open</li>
   <li>available on virtually every OS and device</li>
   <li>has the biggest user base by far!</li>
   <li>has no barriers to entry</li>
 </ul>
-<p>M- was designed with all of this in mind. It's why the
-  <a href="#installation">CDN option</a> is the first option and not missing or buried as if linking to other resources on the internet is a last resort! It's why M- components could be mistaken for native HTML, e.g. <code>&lt;m-alert type="warn" autodismiss&gt;...&lt;/m-alert&gt;</code>. It's why there are no proprietary ideas or 3rd party frameworks. It's why the project is open source.</p>
+<p>M- was designed with all of this in mind. It's why
+  <a href="#installation">CDN install</a> is the first option and not missing or buried as if linking to other resources on the internet is only a last resort! It's why M- components are built with standard tech and their API could be mistaken for native HTML, e.g. <code>&lt;m-alert type="warn" autodismiss&gt;...&lt;/m-alert&gt;</code>. It's why there are no proprietary ideas or 3rd party frameworks. It's why the project is open source.</p>
 <p>In cases where HTML has gaps they are filled by M- with thoughtful native-like solutions that avoid "doing it all" and instead do enough while allowing you to do more without getting in the way.</p>
 <p>If HTML natively had all these custom elements what would their tag names be? What attributes would they have and what would their names and values be? M- aims to offer what HTML natively doesn't, but do it in a way that is imperceptible. If for example you could cover up the m-'s in your markup, could you tell the difference between native HTML elements and custom M- elements.</p>
 <p>Too many popular UI libraries and frameworks today have lost sight of what makes web development so fun and M- is here to provide an alternative.</p>
@@ -103,7 +105,7 @@
 <p>The open web platform is accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. Those are totally okay for building an application, but not reusable UI components. M- works for total beginners as well as professional software engineers, so whether you're building your first website or a large scale application with millions of users, M- will help you to easily build UI.</p>
 <h3>Performance</h3>
 <p>M- was intentionally built small and fast. Its speed comes primarily from leverage, i.e. leveraging native elements and web standards as much as possible in order to minimize size, retain browser optimizations, and eliminate dependencies. Even the latest JavaScript frameworks and virtual DOMs are still abstractions that come with a performance cost over native. In software engineering, nothing is faster than nothing...think about it ;)</p>
-<p>In addition to execution, <span class="fnt-bold">page loads</span> are faster with M- because it's incredibly small:</p>
+<p>In addition to execution, <span class="fnt-bold">page loads</span> are faster with M- because it is drastically smaller compared to other popular choices:</p>
 <!--  <li><span class="fnt-bold">Reactstrap</span> --------------------------------------------------------------------------------------------91.8kb min+gz (23.6 .css, 4.9+38.3+4.5+20.5 .js)</li>-->
 <table layout="fixed">
   <tr>

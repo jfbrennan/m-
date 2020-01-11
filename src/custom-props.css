@@ -4,9 +4,9 @@
   --color-gray-1: #e2e2e2;
   --color-gray-2: #dedede;
   --color-gray-3: #ccc;
-  --color-gray-4: #a8a8a8;
-  --color-gray-5: #9f9f9f;
-  --color-gray-6: #858585;
+  --color-gray-4: #979797;
+  --color-gray-5: #838383;
+  --color-gray-6: #6e6e6e;
   --color-dark: #404040;
   --color-darker: #333;
   --color-darkest: #282828;
@@ -37,8 +37,9 @@
 
   /* Other */
   --max-content-width: 1536px; /* The 16" MacBook Pro */
+  --input-min-height: 34px;
 
-  /* Spacing - loosely based on divine proportions */
+  /* Spacing (loosely based on Divine Proportions) */
   --space-xs: 6px;
   --space-sm: 12px;
   --space-md: 18px;

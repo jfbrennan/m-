@@ -27,6 +27,7 @@ fieldset input,
 fieldset select,
 fieldset textarea {
   width: 100%;
+  min-height: var(--input-min-height);
   font-size: 16px;
   padding: 6px;
   border: 1px solid var(--color-gray-1);
@@ -42,10 +43,7 @@ fieldset select:not([multiple]) {
   background-position: right center;
 }
 
-fieldset textarea {
-  resize: vertical;
-  min-height: 32px; /* Keep in sync with <input>'s natural height */
-}
+fieldset textarea { resize: vertical }
 
 fieldset input + input,
 fieldset input + select,

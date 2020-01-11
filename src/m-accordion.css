@@ -1,14 +1,7 @@
-m-accordion {
-  display: block;
-}
+m-accordion { display: block }
 
-m-accordion > m-details {
-  border-top: 2px solid var(--color-gray-2);
-}
-
-m-accordion > m-details:last-child {
-  border-bottom: 2px solid var(--color-gray-2);
-}
+m-accordion > m-details { border-top: 3px solid var(--color-gray-2) }
+m-accordion > m-details:last-child { border-bottom: 3px solid var(--color-gray-2) }
 
 m-accordion > m-details > summary {
   padding: var(--space-sm) 0;
