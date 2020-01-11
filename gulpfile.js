@@ -15,6 +15,7 @@ function css() {
   ];
 
   return gulp.src('src/m-all.css')
+    .pipe(concat('min.css'))
     .pipe(postcss(postcssPlugins))
     .pipe(csso())
     .pipe(gulp.dest('dist'))
@@ -34,7 +35,7 @@ function styles(cb) {
 function buildComponentsFile() {
   const lighter = './node_modules/lighterhtml/min.js';
   return gulp.src([lighter, 'src/*.js'])
-    .pipe(concat('m-.js'))
+    .pipe(concat('min.js'))
     .pipe(terser())
     .pipe(gulp.dest('dist'))
 }
