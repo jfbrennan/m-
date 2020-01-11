@@ -1,5 +1,5 @@
 # M-
-M- (pronounced "em dash") is a design system based on web standards. It's very small (see comparison chart), extremely fast, and compatible with any JavaScript framework. 
+M- (pronounced "em dash") is a design system based on web standards. It's possibly the world's smallest - 6kb min+gz - despite being full-featured, it's extremely fast, and compatible with vanilla JavaScript and **all** JavaScript frameworks! 
 
 M- does not restrict you to a specific framework or library. It uses none of them, but works with all of them - old and new - since it's built with native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements).
 
@@ -11,7 +11,7 @@ Try M- right now by just copy/pasting that CDN snippet below into your page - th
 <link rel="stylesheet" href="https://cdn.com/m-/{version}/min.css">
 <script defer src="https://cdn.com/m-/{version}/min.js"></script>
 ```
-### NPM
+### NPM (pending)
 `npm install m-`
 
 Built assets are located in `/dist`.
