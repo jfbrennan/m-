@@ -3,6 +3,7 @@ const handlebars = require('express-handlebars');
 const pkg = require('./package');
 
 const app = express();
+console.log(process.env.NODE_ENV)
 
 // Set some locals
 app.locals.version = pkg.version;

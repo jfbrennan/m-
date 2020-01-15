@@ -90,7 +90,7 @@
     <td colspan="3">Grayscale used for backgrounds, borders, and disabled state.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--color-gray-offwhite</code></td>
+    <td colspan="2"><code>--color-offwhite</code></td>
     <td colspan="3" class="pad-all-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-offwhite"></div>
@@ -100,39 +100,44 @@
   </tr>
   </tbody>
 </table>
-<h3 id="spacing">Spacing</h3>
+<h3 id="space">Space</h3>
 <table layout="fixed">
   <thead>
   <tr>
     <th colspan="2">Name</th>
     <th colspan="3">Example</th>
-    <th colspan="4">Description</th>
+    <th colspan="3">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
     <td colspan="2"><code>--space-[xs|sm|md|lg|xl]</code></td>
     <td colspan="3">6, 12, 18, 30, 48px</td>
-    <td colspan="4">Used for developing a visual rhythm between elements. Loosely follows <a
+    <td colspan="3">Used for developing a visual rhythm between elements. Loosely follows <a
             href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the padding and margin
       <a href="/helper-classes">helper classes</a> whenever possible and reserve use of <code>--space-*</code> for other spacing needs like position.</td>
   </tr>
   </tbody>
 </table>
 <h3 id="other">Other</h3>
-<table>
+<table layout="fixed">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Example</th>
-    <th>Description</th>
+    <th colspan="2">Name</th>
+    <th colspan="3">Example</th>
+    <th colspan="3">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td><code>--max-content-width</code></td>
-    <td>1280px</td>
-    <td>The max width used by <a href="/content-container">Content</a>. Instead of using this in a custom CSS rule consider wrapping your content in a <code>m-container</code>.</td>
+    <td colspan="2"><code>--max-content-width</code></td>
+    <td colspan="3">1536px</td>
+    <td colspan="3">The max width used by <a href="/container">Container</a>. Instead of using this in a custom CSS rule consider wrapping your content in a <code>m-container</code>.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--min-input-height</code></td>
+    <td colspan="3">34px</td>
+    <td colspan="3">The min height used for form elements. Reference this if you'd like your element to match the height of inputs.</td>
   </tr>
   </tbody>
 </table>

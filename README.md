@@ -8,10 +8,10 @@ Try M- right now by just copy/pasting that CDN snippet below into your page - th
 ## Installation
 ### CDN
 ```html
-<link rel="stylesheet" href="https://cdn.com/m-/{version}/min.css">
-<script defer src="https://cdn.com/m-/{version}/min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/m-@0.0.2-alpha/dist/min.css">
+<script defer src="https://unpkg.com/m-@0.0.2-alpha/dist/min.js"></script>
 ```
-### NPM (pending)
+### NPM
 `npm install m-`
 
 Built assets are located in `/dist`.
@@ -23,9 +23,9 @@ M- is tested against the last 2 versions of Chrome, Chrome for Android, Safari, 
 ## Working with this project
 _Pre-reqs:_ [Node](https://nodejs.org) and [Gulp CLI](https://gulpjs.com/docs/en/getting-started/quick-start)
 
-- Fork and clone the repo then
-- `npm install`
-- `gulp build`
-- `cd docs` and `npm start`
+1. Fork and clone the repo
+1. `npm install`
+1. `gulp build`
+1. `cd docs` and `npm start`
 
 You now have the project built and the doc site running locally. Run `gulp watch` and start coding!

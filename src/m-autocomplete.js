@@ -33,7 +33,7 @@ class MdashAutocomplete extends HTMLElement {
     e.stopPropagation();
     this.refs.search.value = item;
     this.refs.search.focus();
-    this.dispatchEvent(new CustomEvent('m-select', {detail: {source: this.source, item}}));
+    this.dispatchEvent(new CustomEvent('select', {detail: {source: this.source, item}}));
     this.clear();
   }
 

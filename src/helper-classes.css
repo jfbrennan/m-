@@ -71,7 +71,7 @@
 
 /* Font */
 .fnt-bolder { font-weight: bolder }
-.fnt-lighter { font-weight: 200 }
+.fnt-light { font-weight: 200 }
 .fnt-bold { font-weight: bold}
 .fnt-italic { font-style: italic }
 .fnt-normal { font-style: normal }
@@ -85,10 +85,11 @@
 .txt-upper { text-transform: uppercase }
 .txt-caps { text-transform: capitalize }
 .txt-xs { font-size: 13px}
-.txt-md { font-size: 1var(--space-xs)}
+.txt-sm { font-size: 16px}
+.txt-md { font-size: 18px}
 .txt-lg { font-size: 24px}
 .txt-xl { font-size: 32px}
-.txt-xxl { font-size: 100px}
+.txt-xxl { font-size: 100px; color: var(--color-darkest)}
 .txt-gray-5 { color: var(--color-gray-5)}
 .txt-gray-6 { color: var(--color-gray-6)}
 .txt-dark { color: var(--color-dark)}
@@ -103,15 +104,17 @@
 }
 
 /* Display */
-.flex { display: flex }
+.flex { display: flex; flex-wrap: wrap }
+.flex-grow { flex-grow: 1 }
 .justify-content-center {justify-content: center}
 .align-items-center {align-items: center}
-
 .inline-flex { display: inline-flex }
 .block { display: block }
 .inline-block { display: inline-block }
 .inline { display: inline }
 .hidden { display: none }
+
+/* Float */
 .left { float: left }
 .right { float: right }
 .clear { clear: both }
@@ -128,6 +131,6 @@
 .pin-l {left: 0}
 
 /* Other */
-.pointer {
-  cursor: pointer;
-}
+.pointer { cursor: pointer; }
+.full-width { width: 100% }
+.push { margin-left: auto }

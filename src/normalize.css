@@ -4,9 +4,8 @@ body {
   margin: 0;
   height: 100vh;
   box-sizing: border-box;
-  /*background-color: var(--color-off-white);*/
-  color: var(--color-darkest);
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--color-dark);
+  font-family: 'Helvetica Neue', Arial;
 }
 
 code {

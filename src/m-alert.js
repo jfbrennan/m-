@@ -39,7 +39,7 @@ customElements.define('m-alert', class extends HTMLElement {
   }
 
   dismiss() {
-    this.dispatchEvent(new CustomEvent('m-dismiss'));
+    this.dispatchEvent(new CustomEvent('dismiss'));
     this.remove();
   }
 
@@ -50,7 +50,7 @@ customElements.define('m-alert', class extends HTMLElement {
       <div>${this.content}</div>
       <style>
         m-alert + m-alert {margin-top: 12px}
-        m-alert[type=info] {background-color: lightsteelblue}
+        m-alert[type=info] {background-color: #f2f8fc}
         m-alert[type=success] {background-color: darkseagreen}
         m-alert[type=warn] {background-color: orange}
         m-alert[type=error] {background-color: red}
