@@ -3,19 +3,17 @@ const handlebars = require('express-handlebars');
 const pkg = require('./package');
 
 const app = express();
-console.log(process.env.NODE_ENV)
 
 // Set some locals
 app.locals.version = pkg.version;
-app.locals.devCdnUrl = 'https://unpkg.com/m-@0.0.2-alpha/dist/dev.'; // pkg.devCdnUrl
-app.locals.prodCdnUrl = 'https://unpkg.com/m-@0.0.2-alpha/dist/min.'; // pkg.prodCdnUrl
-app.locals.localUrl = process.env.NODE_ENV === 'development' ? '/min.' : app.locals.prodCdnUrl; // pkg.prodCdnUrl
-
+app.locals.devCdnUrl = `https://unpkg.com/m-@${pkg.version}/dist/dev.`;
+app.locals.prodCdnUrl = `https://unpkg.com/m-@${pkg.version}/dist/min.`;
+app.locals.localUrl = process.env.NODE_ENV === 'development' ? '/min.' : app.locals.prodCdnUrl;
 
 // Set up template engine
 app.engine('handlebars', handlebars()).set('view engine', 'handlebars');
 
-// Log all requests (this must come before all middleware)
+// Log all requests
 app.use((req, res, next) => {
   console.log(req.originalUrl, req.headers);
   next();
