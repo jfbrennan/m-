@@ -19,6 +19,7 @@ fieldset select {
 fieldset label {
   display: block;
   margin-bottom: var(--space-xs);
+  font-weight: 500;
 }
 
 fieldset input, fieldset textarea {box-sizing: border-box}

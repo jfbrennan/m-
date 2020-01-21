@@ -14,6 +14,10 @@ customElements.define('m-details', class extends HTMLElement {
     switch (name) {
       case 'open':
         this.dispatchEvent(new CustomEvent('toggle'));
+        if (newVal !== null) {
+          const autofocus = this.querySelector('[autofocus]');
+          autofocus && autofocus.focus();
+        }
     }
   }
 

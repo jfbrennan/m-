@@ -5,3 +5,5 @@ m-tag {
   padding: 3px var(--space-xs);
   font-size: var(--font-size-min);
 }
+
+m-tag + m-tag { margin-left: 3px }

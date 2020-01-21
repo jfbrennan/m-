@@ -1,7 +1,7 @@
 {
   "name": "m-",
   "description": "M- (pronounced \"em dash\") is a design system based on web standards. It's very small (see comparison chart), extremely fast, and compatible with any JavaScript framework. \n",
-  "version": "0.0.2-alpha",
+  "version": "0.0.3-alpha",
   "homepage": "https://m-docs.org",
   "repository": {
     "type" : "git",
