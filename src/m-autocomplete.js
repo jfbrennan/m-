@@ -14,10 +14,10 @@ class MdashAutocomplete extends HTMLElement {
     this.render();
   }
 
-  showMatches(q) {
-    if (q) {
+  showMatches(query) {
+    if (query) {
       const source = this.getAttribute('source');
-      MdashAutocomplete.prototype.sources[source](q).then(({query, matches}) => {
+      MdashAutocomplete.prototype.sources[source](query).then(({query, matches}) => {
         if (query === this.querySelector('input').value) {
           this.matches = matches.slice(0, this.max || matches.length);
           this.render();
@@ -47,13 +47,14 @@ class MdashAutocomplete extends HTMLElement {
       <input ref="search" onkeyup="${e => this.showMatches(e.currentTarget.value)}" placeholder="${this.getAttribute('placeholder')}">
       <div ref="matches" hidden="${!this.matches}">
         <ul type="none" class="pos-absolute">
-          ${this.matches && this.matches.map(m => `<li onclick="${e => this.select(e, m)}" class="pad-all-sm">${m}</li>`)}
+          ${this.matches && this.matches.length && this.matches.map(m => `<li onclick="${e => this.select(e, m)}" class="pad-all-sm pointer">${m}</li>`)}
+          ${(this.matches && !this.matches.length) && '<li class="pad-all-sm fnt-italic">No results</li>'}
         </ul>
       </div>
       <style>
         m-autocomplete {display: block}
         m-autocomplete [ref=matches] ul {background-color: white; min-width: 200px}
-        m-autocomplete [ref=matches] li:hover {background-color: lightgrey; cursor: pointer}
+        m-autocomplete [ref=matches] li:hover {background-color: lightgrey}
       </style>
     `;
   }

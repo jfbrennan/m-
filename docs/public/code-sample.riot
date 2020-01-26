@@ -71,15 +71,12 @@
     :scope [ref=editor] {
       min-width: 40%;
       border-radius: 2px;
-      min-height: 80px;
     }
-    :scope[readonly] [ref=editor] {
-      width: 100%;
-      border-radius: 2px;
-      min-height: 80px;
-    }
+    :scope:not([readonly]) [ref=editor] { min-height: 80px }
+    :scope[readonly] [ref=editor] { width: 100% }
     :scope [ref=preview] { flex-grow: 1 }
 
+    /* ACE editor overrides */
     .ace_gutter { border-radius: 2px 0 0 2px }
     .ace-monokai .ace_comment { color: #bbbbbb
     }

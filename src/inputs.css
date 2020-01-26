@@ -11,20 +11,25 @@ fieldset + fieldset, fieldset + button {
 }
 
 fieldset label,
-fieldset input,
+fieldset input:not([type=radio]):not([type=checkbox]),
 fieldset select {
   display: block;
 }
 
-fieldset label {
-  display: block;
+fieldset input + label {
+  display: inline;
+}
+
+
+fieldset label,
+fieldset legend {
   margin-bottom: var(--space-xs);
   font-weight: 500;
 }
 
 fieldset input, fieldset textarea {box-sizing: border-box}
 
-fieldset input,
+fieldset input:not([type=radio]):not([type=checkbox]),
 fieldset select,
 fieldset textarea {
   width: 100%;

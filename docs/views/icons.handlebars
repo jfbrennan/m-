@@ -61,7 +61,7 @@
 <div id="icon-container"></div>
 <script>
   // Find the m- stylesheet then parse out icon names from all the icon rules
-  const mdashStyleSheet = Array.from(document.styleSheets).find(css => css.href && css.href.includes('m-'));
+  const mdashStyleSheet = Array.from(document.styleSheets).find(css => css.href && css.href.includes('min'));
   const iconNames = Array.from(mdashStyleSheet.cssRules)
           .filter(rule => rule.selectorText && rule.selectorText.includes('m-icon[name='))
           .map(rule => rule.selectorText.match(/m-icon\[name=\"(.*)\"\]::before/)[1]);

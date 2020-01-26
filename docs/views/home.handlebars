@@ -1,5 +1,6 @@
-<div class="txt-center" style="margin: 60px 0"><h1>Getting Started</h1>
-  <p style="width: 70%; margin: 0 auto">M- is a design system that fully embraces the web. This means it's linkable, standards-based, extremely fast to download and execute, and is compatible with all JavaScript frameworks past,
+<div class="txt-center" style="margin: 60px 0"><h1>Introduction</h1>
+  <p class="txt-lg" style="width: 70%; margin: 0 auto 6px">A design system that fully embraces the web.</p>
+  <p class="txt-lg" style="width: 70%; margin: 0 auto">M- is linkable, standards-based, tiny, extremely fast, and compatible with all JavaScript frameworks past,
     present, and future.</p>
   <h5>
     <span>6kb</span>
@@ -8,9 +9,69 @@
     <m-pipe></m-pipe>
     <span>accessible</span>
     <m-pipe></m-pipe>
-    <span>compatible with <a href="https://custom-elements-everywhere.com/" target="_blank" rel="noopener">everything</a></span>
+    <span>compatible with everything except <a href="https://custom-elements-everywhere.com/#react" target="_blank" rel="noopener">one naughty framework</a></span>
   </h5>
 </div>
+<h2>Quick start</h2>
+<p>1. Copy/paste this into <code>&lt;head&gt;</code>:</p>
+<code-sample readonly="readonly">
+  <link rel="stylesheet" href="{{prodCdnUrl}}css">
+  <script defer src="{{prodCdnUrl}}js"></script>
+</code-sample>
+<p>2. Now try this:</p>
+<code-sample>
+  <template>
+    <m-alert type="success">
+      M- is working! You get a trophy <m-icon name="trophy"></m-icon>
+    </m-alert>
+  </template>
+</code-sample>
+<p>3. Use time saved to build features!</p>
+<h2>Compatible with everything</h2>
+<p>Works anywhere HTML works, which means it's compatible with all JavaScript libraries and templating languages:</p>
+<code-sample readonly="readonly">
+  <template>
+    <!--   Vue + M-   -->
+    <m-alert v-if="alert" v-bind:type="alert.type">
+      \{{ alert.message }}
+      <m-icon v-bind:name="alert.icon"></m-icon>
+    </m-alert>
+
+
+    <!--   Riot + M-   -->
+    <m-alert if="{alert}" type="{alert.type}">
+      {alert.message}
+      <m-icon name="{alert.icon}"></m-icon>
+    </m-alert>
+
+
+    <!--   Svelte + M-   -->
+    {#if alert}
+      <m-alert bind:type="{alert.type}">
+        {alert.message}
+        <m-icon bind:name="{alert.icon}"></m-icon>
+      </m-alert>
+    {/if}
+
+
+    <!--   Preact + M-   -->
+    {props.alert &&
+      <m-alert type={props.alert.type}>
+        {alert.message}
+        <m-icon name={props.alert.icon}></m-icon>
+      </m-alert>
+    }
+
+
+    <!--   Handlebars + M-   -->
+    \{{#if alert}}
+    <m-alert type="\{{alert.type}}">
+      \{{alert.message}}
+      <m-icon name="\{{alert.icon}}"></m-icon>
+    </m-alert>
+    \{{/if}}
+  </template>
+</code-sample>
 <h2 id="installation">Installation</h2>
 <h3>CDN</h3>
 <p>Development: <code>{{devCdnUrl}}[css|js]</code></p>
@@ -18,54 +79,6 @@
 <h3>npm</h3>
 <code>npm install m-</code>
 <p>Built assets including <a href="/custom-props">custom properties</a> are located in <code>m-/dist</code>.</p>
-<h2>Quick start</h2>
-<p>Just include the production M- stylesheet and script from the CDN and it works:</p>
-<code-sample>
-<!-- Copy/paste this inside <head> -->
-<!--<link rel="stylesheet" href="{{prodCdnUrl}}css">-->
-<!--<script defer src="{{prodCdnUrl}}js"></script>-->
-
-<!-- Now try this inside <body> -->
-<template>
-  <m-alert type="success">
-    <h2 class="mar-t-none">Success!</h2>
-    <p>M- is working. You get a trophy <m-icon name="trophy"></m-icon></p>
-  </m-alert>
-</template>
-</code-sample>
-<p>Using M- with popular JavaScript libraries works just as well:</p>
-<code-sample>
-  <html>
-  <head>
-    <link rel="stylesheet" href="{{devCdnUrl}}">
-  </head>
-  <body>
-  <script src="{{devCdnUrl}}"></script>
-  <script src="app.js"></script>
-  <script>
-    // Then inside a Vue
-    <template>
-      <m-badge :count="count"></m-badge>
-    </template>
-
-    // or Riot
-    <m-badge count=\{state.count}></m-badge>
-
-    // or Svelte template
-    <m-badge \{count}></m-badge>
-
-    // Or React render function
-    render() \{
-      return (
-        <div>
-          <m-badge count=\{this.state.count}></m-badge>
-        </div>
-      );
-    }
-  </script>
-  </body>
-  </html>
-</code-sample>
 <h2>Browser support</h2>
 <p>M- works with the last 2 versions of:</p>
 <ul>
@@ -84,8 +97,8 @@
   <em>structure and manage your application</em> with M- supplying the <em>UI components</em>.</p>
 <!--<p>It's native HTML plus elements you wish HTML had.</p>-->
 <h3>m- prefix</h3>
-<p>The prefix comes from the need to prefix custom HTML (learn more about that in
-  <a href="https://dev.to/jfbrennan/custom-html-tags-4788" target="_blank">this blog post</a>). The "m" is short for markup, as in HT<span class="fnt-bold">M</span>L, and is a reminder that M- is designed and built on standards.</p>
+<p>The prefix is required for custom HTML (learn more about that in
+  <a href="https://dev.to/jfbrennan/custom-html-tags-4788" target="_blank">this blog post</a>). The letter "m" is short for markup, as in HT<span class="fnt-bold">M</span>L, and was chosen to serve as a reminder that M- is all about that beautiful declarative markup!</p>
 <h3>Design philosophy</h3>
 <p>M- fully embraces the open web platform. Web development is awesome! It's:</p>
 <ul>
@@ -97,7 +110,7 @@
   <li>has no barriers to entry</li>
 </ul>
 <p>M- was designed with all of this in mind. It's why
-  <a href="#installation">CDN install</a> is the first option and not missing or buried as if linking to other resources on the internet is only a last resort! It's why M- components are built with standard tech and their API could be mistaken for native HTML, e.g. <code>&lt;m-alert type="warn" autodismiss&gt;...&lt;/m-alert&gt;</code>. It's why there are no proprietary ideas or 3rd party frameworks. It's why the project is open source.</p>
+  <a href="#installation">CDN install</a> is the first option and not missing or buried as if linking to other resources on the internet is only a last resort! It's why M- components are built with standard tech and not a popular JavaScript library. It's why M- API could be mistaken for native API, e.g. <code>&lt;m-alert type="warn" autodismiss&gt;...&lt;/m-alert&gt;</code>. It's why there is no special syntax or proprietary ideas or dependencies. It's why the project is open source.</p>
 <p>In cases where HTML has gaps they are filled by M- with thoughtful native-like solutions that avoid "doing it all" and instead do enough while allowing you to do more without getting in the way.</p>
 <p>If HTML natively had all these custom elements what would their tag names be? What attributes would they have and what would their names and values be? M- aims to offer what HTML natively doesn't, but do it in a way that is imperceptible. If for example you could cover up the m-'s in your markup, could you tell the difference between native HTML elements and custom M- elements.</p>
 <p>Too many popular UI libraries and frameworks today have lost sight of what makes web development so fun and M- is here to provide an alternative.</p>
@@ -105,7 +118,7 @@
 <p>The open web platform is accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. Those are totally okay for building an application, but not reusable UI components. M- works for total beginners as well as professional software engineers, so whether you're building your first website or a large scale application with millions of users, M- will help you to easily build UI.</p>
 <h3>Performance</h3>
 <p>M- was intentionally built small and fast. Its speed comes primarily from leverage, i.e. leveraging native elements and web standards as much as possible in order to minimize size, retain browser optimizations, and eliminate dependencies. Even the latest JavaScript frameworks and virtual DOMs are still abstractions that come with a performance cost over native. In software engineering, nothing is faster than nothing...think about it ;)</p>
-<p>In addition to execution, <span class="fnt-bold">page loads</span> are faster with M- because it is drastically smaller compared to other popular choices:</p>
+<p>In addition to execution speed, <span class="fnt-bold">page loads</span> are faster with M- because it is drastically smaller compared to other popular choices:</p>
 <!--  <li><span class="fnt-bold">Reactstrap</span> --------------------------------------------------------------------------------------------91.8kb min+gz (23.6 .css, 4.9+38.3+4.5+20.5 .js)</li>-->
 <table layout="fixed">
   <tr>
@@ -172,7 +185,8 @@
     </td>
   </tr>
 </table>
-<small><span class="fnt-bold">Note:</span> This comparison includes a project's stylesheets and scripts with dependencies (Material-UI's own js + React + React DOM, for example). It does not include any font or icon files, although
+<small><span class="fnt-bold">Note:</span> This comparison includes any stylesheets and scripts with dependencies (e.g. Material-UI's own js + React + React DOM). It does not include any font or icon files, although
   <a href="https://dev.to/jfbrennan/no-svg-icons-are-not-settled-science" target="_blank" rel="noopener">some icon implementations</a> can impact performance.</small>
 <!--<p>Yes, this is purely a comparison of size and not a precise apples-to-apples comparison. The point is M- adds very little to page load, which is extremely important for mobile users.</p>-->
 <p>M- helps you keep your payload small! Or another way of looking at it is you're left with a big surplus budget to use for other things. M- plus your app and its dependencies could all easily fit inside just one of those!</p>
+

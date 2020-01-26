@@ -70,8 +70,26 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="title">What about HTMLDetailsElement?</h3>
-<p>This element attempts to match the <code>HTMLDetailsElement</code> interface as close as possible, so when browser support for <code>&lt;dialog&gt;</code> is sufficient it will be removed from M- in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>
-<h3 id="necessary">Is the content even necessary?</h3>
-<p>Although Details and <a href="/accordion">Accordion</a> are good for progressive disclosure, you should always consider if the hidden content could just be removed altogether.</p>
+<p>This element attempts to match the <code>HTMLDetailsElement</code> interface as close as possible, so when browser support for <code>&lt;details&gt;</code> is sufficient it will be removed from M- in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>
+<h3 id="necessary">Ask yourself if the content is necessary</h3>
+<p>Although Details and <a href="/accordion">Accordion</a> are great tools for progressive disclosure, you should always consider if the hidden content is necessary or if it could just be removed altogether.</p>
+<h3>Clickable elements inside summary</h3>
+<p>Sometimes <code>&lt;summary&gt;</code> will need to include a button or other interactive element that should not toggle Details. Your event handler needs to use <code>stopPropogation</code>. Here's a rough example:</p>
+<code-sample>
+  <script>
+    // Clicking "Clear" will not open/close Details
+    const clearHistory = e => e.stopPropagation();
+  </script>
+
+  <template>
+    <m-details>
+      <summary>
+        <span is="a">Show report history</span>
+        <span  onclick="clearHistory(event)" is="a" class="mar-l-md">Clear</span>
+      </summary>
+      <p>Long list of report history...</p>
+    </m-details>
+  </template>
+</code-sample>
 <h3 id="accessibility">Accessibility</h3>
-<p>There are no accessibility recommendations for Foo.</p>
+<p>aria-exanded=true.</p>

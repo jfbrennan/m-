@@ -106,40 +106,8 @@
   </tbody>
 </table>
 <small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes" target="_blank" rel="noopener">MDN: Input element - Attributes</a> for the full list.</small>
-<h3 id="events">Events</h3>
-<table layout="fixed">
-  <thead>
-  <tr>
-    <th colspan="2">Name</th>
-    <th colspan="2">Detail</th>
-    <th colspan="6">Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td colspan="2"><code>m-dismiss</code></td>
-    <td colspan="2">None</td>
-    <td colspan="6">Fired after the Foo was removed from the DOM.</td>
-  </tr>
-  </tbody>
-</table>
-<h3 id="methods">Methods</h3>
-<table layout="fixed">
-  <thead>
-  <tr>
-    <th colspan="3">Signature</th>
-    <th colspan="7">Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td colspan="3"><code>dismiss()</code></td>
-    <td colspan="7">Removes the Foo from the DOM.</td>
-  </tr>
-  </tbody>
-</table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="title">Title</h3>
-<p>Desc.</p>
+<h3 id="right-type">Use the right type</h3>
+<p>It's very important to take the time to understand what values can be entered in an input and to use the right <code>type</code> for those values. If, for example, the input is for a membership number then using <code>type="number"</code> will present an easier to use numbers-only keyboard on most touch devices. These UX optimizations are important to users and virtually free to implement, so take a moment to ensure you're using the right input type.</p>
 <h3 id="accessibility">Accessibility</h3>
-<p>There are no accessibility recommendations for Foo.</p>
+<p>Labels should use the <code>for</code> attribute to reference the id of its corresponding input. Inputs should use the right type (see above), autofocus, and autocomplete to improve their usability.</p>
