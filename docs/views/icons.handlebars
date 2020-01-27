@@ -60,7 +60,7 @@
 </fieldset>
 <div id="icon-container"></div>
 <script>
-  // Find the m- stylesheet then parse out icon names from all the icon rules
+  // Find the m- stylesheet then parse out icon names from the icon rules
   const mdashStyleSheet = Array.from(document.styleSheets).find(css => css.href && css.href.includes('min'));
   const iconNames = Array.from(mdashStyleSheet.cssRules)
           .filter(rule => rule.selectorText && rule.selectorText.includes('m-icon[name='))

@@ -36,10 +36,15 @@ fieldset textarea {
   min-height: var(--input-min-height);
   font-size: 16px;
   padding: 6px;
-  border: 1px solid var(--color-gray-1);
   border-radius: 0px;
   background-color: white;
   color: var(--color-darker);
+}
+
+fieldset input,
+fieldset select,
+fieldset textarea {
+  border: 1px solid var(--color-gray-1);
 }
 
 fieldset select:not([multiple]) {

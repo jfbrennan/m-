@@ -9,40 +9,56 @@
 <table layout="fixed">
   <thead>
   <tr>
-    <th colspan="2">Name</th>
-    <th colspan="2">Type</th>
-    <th colspan="6">Content</th>
+    <th colspan="6">Code</th>
+    <th colspan="2">Purpose</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>&lt;link rel="manifest" href="/manifest.json" crossorigin="use-credentials"&gt;</code></td>
-    <td colspan="2">Native element | Custom tag | Custom Element</td>
-    <td colspan="6">None | Text | Any | Something specific</td>
+    <td colspan="6"><code>&lt;link rel="manifest" href="path/to/manifest.json"&gt;</code></td>
+    <td colspan="2">Triggers download of an <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest" target="_blank" rel="noopener">application
+      manifest</a>, which includes helpful information for browsers to optimize the user experience. Use the  crossorigin="use-credentials" option</td>
   </tr>
   <tr>
-    <td colspan="2">
+    <td colspan="6">
       <code>
         &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
       </code>
     </td>
-    <td colspan="2">Native element | Custom tag | Custom Element</td>
-    <td colspan="6">None | Text | Any | Something specific</td>
+    <td colspan="2">Configures device viewport to support responsive designs</td>
+  </tr>
+  <tr>
+    <td colspan="6">
+      <code>
+        &lt;link rel="apple-touch-icon" sizes="180x180" href="path/to/apple-icon-180x180.png"&gt;
+      </code>
+      <code class="inline-block mar-t-sm">
+        &lt;link rel="icon" type="image/png" sizes="192x192" href="path/to/android-icon-192x192.png"&gt;
+      </code>
+    </td>
+    <td colspan="2">Browsers use these as tab and app icons.</td>
+  </tr>
+  <tr>
+    <td colspan="6">
+      <code>
+        &lt;meta name="theme-color" content="#ffffff"&gt;
+      </code>
+    </td>
+    <td colspan="2">Browsers use this is some areas to help your brand feel more embedded.</td>
+  </tr>
+  <tr>
+    <td colspan="6">
+      <code>
+        &lt;meta name="msapplication-TileColor" content="#ffffff"&gt;
+      </code><br>
+      <code class="inline-block mar-t-sm">
+        &lt;meta name="msapplication-TileImage" content="path/to/ms-icon-144x144.png"&gt;
+      </code>
+    </td>
+    <td colspan="2">Windows uses these to help your brand feel more embedded.</td>
   </tr>
   </tbody>
 </table>
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="https://www.redditstatic.com/desktop2x/img/favicon/android-icon-192x192.png">
-
-<meta name="theme-color" content="#ffffff">
-
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="https://www.redditstatic.com/desktop2x/img/favicon/ms-icon-144x144.png">
-
-
-
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="title">Title</h3>
 <p>Desc.</p>

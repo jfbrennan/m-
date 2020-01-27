@@ -3,7 +3,7 @@
   <p class="txt-lg" style="width: 70%; margin: 0 auto">M- is linkable, standards-based, tiny, extremely fast, and compatible with all JavaScript frameworks past,
     present, and future.</p>
   <h5>
-    <span>6kb</span>
+    <a href="#performance">tiny</a>
     <m-pipe></m-pipe>
     <span>responsive</span>
     <m-pipe></m-pipe>
@@ -15,8 +15,8 @@
 <h2>Quick start</h2>
 <p>1. Copy/paste this into <code>&lt;head&gt;</code>:</p>
 <code-sample readonly="readonly">
-  <link rel="stylesheet" href="{{prodCdnUrl}}css">
-  <script defer src="{{prodCdnUrl}}js"></script>
+  <link href="{{prodCdnUrl}}css" rel="stylesheet">
+  <script src="{{prodCdnUrl}}js" defer></script>
 </code-sample>
 <p>2. Now try this:</p>
 <code-sample>
@@ -116,7 +116,7 @@
 <p>Too many popular UI libraries and frameworks today have lost sight of what makes web development so fun and M- is here to provide an alternative.</p>
 <h3>Easy for everyone</h3>
 <p>The open web platform is accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. Those are totally okay for building an application, but not reusable UI components. M- works for total beginners as well as professional software engineers, so whether you're building your first website or a large scale application with millions of users, M- will help you to easily build UI.</p>
-<h3>Performance</h3>
+<h3 id="performance">Performance</h3>
 <p>M- was intentionally built small and fast. Its speed comes primarily from leverage, i.e. leveraging native elements and web standards as much as possible in order to minimize size, retain browser optimizations, and eliminate dependencies. Even the latest JavaScript frameworks and virtual DOMs are still abstractions that come with a performance cost over native. In software engineering, nothing is faster than nothing...think about it ;)</p>
 <p>In addition to execution speed, <span class="fnt-bold">page loads</span> are faster with M- because it is drastically smaller compared to other popular choices:</p>
 <!--  <li><span class="fnt-bold">Reactstrap</span> --------------------------------------------------------------------------------------------91.8kb min+gz (23.6 .css, 4.9+38.3+4.5+20.5 .js)</li>-->
@@ -126,8 +126,8 @@
       <span class="fnt-bold">M-</span>
     </td>
     <td colspan="6">
-      <meter min="0" max="244" low="20" optimum="12" high="80" value="12.6"></meter>
-      <small>12.6kb min+gz (4.4 .css, 8.2 .js)</small>
+      <meter min="0" max="244" low="20" optimum="12" high="80" value="12.3"></meter>
+      <small>12.3kb min+gz (4.4 .css, 7.9 .js)</small>
     </td>
   </tr>
   <tr>
@@ -188,5 +188,5 @@
 <small><span class="fnt-bold">Note:</span> This comparison includes any stylesheets and scripts with dependencies (e.g. Material-UI's own js + React + React DOM). It does not include any font or icon files, although
   <a href="https://dev.to/jfbrennan/no-svg-icons-are-not-settled-science" target="_blank" rel="noopener">some icon implementations</a> can impact performance.</small>
 <!--<p>Yes, this is purely a comparison of size and not a precise apples-to-apples comparison. The point is M- adds very little to page load, which is extremely important for mobile users.</p>-->
-<p>M- helps you keep your payload small! Or another way of looking at it is you're left with a big surplus budget to use for other things. M- plus your app and its dependencies could all easily fit inside just one of those!</p>
+<p>Switching to M- makes your payload very small! Or another way of looking at it is you're left with a big surplus budget to use for other things. M- plus your app and its dependencies could all easily fit inside just one of those!</p>
 
