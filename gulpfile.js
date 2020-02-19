@@ -34,8 +34,7 @@ function styles(cb) {
   cb();
 }
 
-
-function buildComponentsFile() {
+function js() {
   return gulp.src('src/*.js')
     .pipe(concat('min.js'))
     .pipe(terser())
@@ -51,13 +50,13 @@ function fonts() {
 }
 
 function build(cb) {
-  gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs);
+  gulp.series(styles, fonts, js, copyToDocs);
   cb();
 }
 
 function versionBump(cb) {
+  // Bump version in both package.json files, then update version in ./README.md
   exec('npm version prerelease && (cd docs && npm version prerelease)', function (err, stdout, stderr) {
-    // Replace version in ./README.md
     const pkg = require('./package');
     gulp.src('./README.md', {base: './'})
       .pipe(replace(/(https:\/\/unpkg\.com\/m-@)(.*)(\/dist\/.*)/g, (match, p1, p2, p3) => p1 + pkg.version + p3))
@@ -67,15 +66,20 @@ function versionBump(cb) {
   });
 }
 
+function commit(cb) {
+  // Commit version changes
+  const pkg = require('./package');
+  exec(`git commit -a -m "Released new version: ${pkg.version}" && git push`, function (err, stdout, stderr) {
+    cb(err);
+  });
+}
+
 function watch(cb) {
-  gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs);
-  gulp.watch('src', gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs));
+  gulp.series(styles, fonts, js, copyToDocs);
+  gulp.watch('src', gulp.series(styles, fonts, js, copyToDocs));
   cb();
 }
 
-exports.styles = styles;
-exports.fonts = fonts;
-exports.buildComponentsFile = buildComponentsFile;
 exports.build = build;
-exports.release = gulp.series(build, versionBump);
+exports.release = gulp.series(build, versionBump, commit);
 exports.watch = watch;
