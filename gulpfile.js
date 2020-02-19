@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const postcss = require('gulp-postcss');
 const terser = require('gulp-terser');
 const concat = require('gulp-concat');
+const replace = require('gulp-replace');
 const atImport = require("postcss-import");
 const autoprefixer = require('autoprefixer');
 const customProperties = require('postcss-custom-properties');
@@ -55,12 +56,14 @@ function build(cb) {
 }
 
 function versionBump(cb) {
-  // npm version {patch, minor, major, prerelease} at ./
-  // npm version {patch, minor, major, prerelease} in ./docs
-  // Replace in ./README.md
   exec('npm version prerelease && (cd docs && npm version prerelease)', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
+    // Replace version in ./README.md
+    const pkg = require('./package');
+    gulp.src('README.md')
+      .pipe(replace(/(?:https:\/\/unpkg\.com\/m-@)(.*)(?=\/dist)/g, pkg.version))
+      .pipe(gulp.dest('README.md'));
+
+    console.log(pkg.version);
     cb(err);
   });
 }
