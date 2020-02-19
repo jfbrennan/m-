@@ -33,8 +33,7 @@ function styles(cb) {
 
 
 function buildComponentsFile() {
-  const lighter = './node_modules/lighterhtml/min.js';
-  return gulp.src([lighter, 'src/*.js'])
+  return gulp.src('src/*.js')
     .pipe(concat('min.js'))
     .pipe(terser())
     .pipe(gulp.dest('dist'))

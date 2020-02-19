@@ -1,1 +1,20 @@
-<h1>Build a demo!</h1>
+<m-container>
+  <header class="flex" style="justify-content: space-between">
+    <h1>Events</h1>
+    <fieldset>
+      <label for="filter" class="inline">Show</label>
+      <select name="filter" id="filter" class="inline-block" style="width: 200px">
+        <option value="all">All</option>
+      </select>
+    </fieldset>
+  </header>
+  <table>
+    <thead>
+    <tr>
+      <th>Priority</th>
+      <th>Event Type</th>
+    </tr>
+    </thead>
+    <tbody id="events"></tbody>
+  </table>
+</m-container>

@@ -8,8 +8,12 @@
 @import "helper-classes.css";
 @import "meter.css";
 @import "m-accordion.css";
+@import "m-alert.css";
+@import "m-autocomplete.css";
 @import "m-badge.css";
 @import "m-box.css";
+@import "m-details.css";
+@import "m-dialog.css";
 @import "m-container.css";
 @import "m-grid.css";
 @import "m-icons.css";

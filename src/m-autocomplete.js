@@ -1,17 +1,32 @@
 class MdashAutocomplete extends HTMLElement {
   constructor() {
     super();
-    this.render = lighterhtml.render.bind(null, this, this.render.bind(this));
 
     // Closes matching results when user clicks outside of it
     document.body.addEventListener('click', e => {
-      if (!this.refs.matches.contains(e.currentTarget)) {
+      if (!this.querySelector('[ref="matches"]').contains(e.currentTarget)) {
         this.clear();
       }
     });
+
     this.matches = null;
 
-    this.render();
+    // One time render stuff
+    const input = document.createElement('input');
+    input.setAttribute('ref', 'search');
+    input.setAttribute('placeholder', this.getAttribute('placeholder'));
+    input.addEventListener('keyup', e => this.showMatches(e.currentTarget.value));
+
+    const matches = document.createElement('div');
+    matches.setAttribute('ref', 'matches');
+    matches.addEventListener('click', e => {
+      const li = e.target.closest('li');
+      const match = li.dataset.value;
+      this.select(e, match);
+    });
+    matches.hidden = !this.matches;
+
+    this.append(input, matches);
   }
 
   showMatches(query) {
@@ -20,7 +35,7 @@ class MdashAutocomplete extends HTMLElement {
       MdashAutocomplete.prototype.sources[source](query).then(({query, matches}) => {
         if (query === this.querySelector('input').value) {
           this.matches = matches.slice(0, this.max || matches.length);
-          this.render();
+          this.renderMatches();
         }
       });
     }
@@ -31,31 +46,31 @@ class MdashAutocomplete extends HTMLElement {
 
   select(e, item) {
     e.stopPropagation();
-    this.refs.search.value = item;
-    this.refs.search.focus();
+    this.querySelector('[ref="search"]').value = item;
+    this.querySelector('[ref="search"]').focus();
     this.dispatchEvent(new CustomEvent('select', {detail: {source: this.source, item}}));
     this.clear();
   }
 
   clear() {
     this.matches = null;
-    this.render();
+    this.renderMatches();
   }
 
-  render() {
-    return lighterhtml.html`
-      <input ref="search" onkeyup="${e => this.showMatches(e.currentTarget.value)}" placeholder="${this.getAttribute('placeholder')}">
-      <div ref="matches" hidden="${!this.matches}">
-        <ul type="none" class="pos-absolute">
-          ${this.matches && this.matches.length && this.matches.map(m => `<li onclick="${e => this.select(e, m)}" class="pad-all-sm pointer">${m}</li>`)}
-          ${(this.matches && !this.matches.length) && '<li class="pad-all-sm fnt-italic">No results</li>'}
-        </ul>
-      </div>
-      <style>
-        m-autocomplete {display: block}
-        m-autocomplete [ref=matches] ul {background-color: white; min-width: 200px}
-        m-autocomplete [ref=matches] li:hover {background-color: lightgrey}
-      </style>
+  renderMatches() {
+    const matches = this.querySelector('[ref="matches"]');
+    matches.hidden = !this.matches;
+
+    // TODO used to have  onclick="${e => this.select(e, m)}" on each <li>
+    matches.innerHTML = `
+      <ul type="none" class="pos-absolute">
+        ${this.matches && this.matches.length
+          ? this.matches.reduce((s, m) => s +=`<li class="pad-all-sm pointer" data-value="${m}">${m}</li>`, '')
+          : this.matches && !this.matches.length 
+            ? '<li class="pad-all-sm fnt-italic">No results</li>'
+            : ''
+        }
+      </ul>
     `;
   }
 }

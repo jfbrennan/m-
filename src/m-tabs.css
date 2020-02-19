@@ -1,11 +1,18 @@
 m-tabs {display: flex}
+
 m-tab {
   font-weight: bold;
   padding: var(--space-xs) var(--space-lg);
 }
+
 m-tab:hover {
   cursor: pointer;
   border-bottom: 2px solid var(--color-gray-3);
 }
+
+m-tab a:hover {
+  text-decoration: none;
+}
+
 m-tab[selected] {border-bottom: 2px solid var(--color-blue-dark)}
 m-tab[disabled] {color: var(--color-disabled-fg); cursor: default}

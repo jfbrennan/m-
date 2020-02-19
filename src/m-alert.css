@@ -1,0 +1,6 @@
+m-alert + m-alert {margin-top: 12px}
+m-alert[type=info] {background-color: #f2f8fc}
+m-alert[type=success] {background-color: darkseagreen}
+m-alert[type=warn] {background-color: orange}
+m-alert[type=error] {background-color: red}
+m-alert > button {border: none; line-height: 0.5; background: none;}
