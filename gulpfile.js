@@ -76,7 +76,11 @@ function commit(cb) {
 
 function publish(cb) {
   // Publish to NPM
+  const pkg = require('./package');
   exec('npm publish --access public', function (err, stdout, stderr) {
+    if (!err) {
+      console.log(`Version ${pkg.version} has been built, committed, and published. You can now zip /docs and upload to AWS.`)
+    }
     cb(err);
   });
 }
