@@ -1,5 +1,5 @@
 # M-
-M- (pronounced "em dash") is a design system based on web standards. It's possibly the world's smallest - 6kb min+gz - despite being full-featured, it's extremely fast, and compatible with vanilla JavaScript and [**all but one**](https://custom-elements-everywhere.com/#react) JavaScript frameworks! 
+M- (pronounced "em dash") is a design system based on web standards. It's possibly the world's smallest - just *6kb* min+gz - despite being full-featured. It's extremely fast and compatible with vanilla JavaScript and [**all but one**](https://custom-elements-everywhere.com/#react) JavaScript frameworks!
 
 M- does not restrict you to a specific framework or library. It uses none of them, but works with all of them - old and new - since it's built with native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements).
 
