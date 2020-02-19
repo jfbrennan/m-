@@ -59,11 +59,10 @@ function versionBump(cb) {
   exec('npm version prerelease && (cd docs && npm version prerelease)', function (err, stdout, stderr) {
     // Replace version in ./README.md
     const pkg = require('./package');
-    gulp.src('README.md')
+    gulp.src('./README.md', {base: './'})
       .pipe(replace(/(?:https:\/\/unpkg\.com\/m-@)(.*)(?=\/dist)/g, pkg.version))
-      .pipe(gulp.dest('README.md'));
+      .pipe(gulp.dest('./'));
 
-    console.log(pkg.version);
     cb(err);
   });
 }
