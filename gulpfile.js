@@ -60,7 +60,7 @@ function versionBump(cb) {
     // Replace version in ./README.md
     const pkg = require('./package');
     gulp.src('./README.md', {base: './'})
-      .pipe(replace(/(?:https:\/\/unpkg\.com\/m-@)(.*)(?=\/dist)/g, '$1', pkg.version))
+      .pipe(replace(/(https:\/\/unpkg\.com\/m-@)(.*)(\/dist\/.*)/g, (match, p1, p2, p3) => p1 + pkg.version + p3))
       .pipe(gulp.dest('./'));
 
     cb(err);
