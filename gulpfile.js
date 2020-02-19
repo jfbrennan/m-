@@ -74,6 +74,13 @@ function commit(cb) {
   });
 }
 
+function publish(cb) {
+  // Publish to NPM
+  exec('npm publish --access public', function (err, stdout, stderr) {
+    cb(err);
+  });
+}
+
 function watch(cb) {
   gulp.series(styles, fonts, js, copyToDocs);
   gulp.watch('src', gulp.series(styles, fonts, js, copyToDocs));
@@ -81,5 +88,5 @@ function watch(cb) {
 }
 
 exports.build = build;
-exports.release = gulp.series(build, versionBump, commit);
+exports.release = gulp.series(build, versionBump, commit, publish);
 exports.watch = watch;
