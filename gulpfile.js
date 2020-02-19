@@ -6,6 +6,8 @@ const atImport = require("postcss-import");
 const autoprefixer = require('autoprefixer');
 const customProperties = require('postcss-custom-properties');
 const csso = require('gulp-csso');
+const exec = require('child_process').exec;
+
 
 function css() {
   const postcssPlugins = [
@@ -47,6 +49,22 @@ function fonts() {
   return gulp.src('src/**/*.woff2').pipe(gulp.dest('dist'));
 }
 
+function build(cb) {
+  gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs);
+  cb();
+}
+
+function versionBump(cb) {
+  // npm version {patch, minor, major, prerelease} at ./
+  // npm version {patch, minor, major, prerelease} in ./docs
+  // Replace in ./README.md
+  exec('npm version prerelease && (cd docs && npm version prerelease)', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+}
+
 function watch(cb) {
   gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs);
   gulp.watch('src', gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs));
@@ -56,5 +74,6 @@ function watch(cb) {
 exports.styles = styles;
 exports.fonts = fonts;
 exports.buildComponentsFile = buildComponentsFile;
-exports.build = gulp.series(css, customPropsCopy, fonts, buildComponentsFile, copyToDocs);
+exports.build = build;
+exports.release = gulp.series(build, versionBump);
 exports.watch = watch;
