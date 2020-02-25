@@ -29,11 +29,6 @@ function customPropsCopy() {
     .pipe(gulp.dest('dist'))
 }
 
-function styles(cb) {
-  gulp.parallel(css, customPropsCopy);
-  cb();
-}
-
 function js() {
   return gulp.src('src/*.js')
     .pipe(concat('min.js'))
@@ -50,7 +45,7 @@ function fonts() {
 }
 
 function build(cb) {
-  gulp.series(styles, fonts, js, copyToDocs);
+  gulp.series(css, customPropsCopy, fonts, js, copyToDocs);
   cb();
 }
 
@@ -86,8 +81,8 @@ function publish(cb) {
 }
 
 function watch(cb) {
-  gulp.series(styles, fonts, js, copyToDocs);
-  gulp.watch('src', gulp.series(styles, fonts, js, copyToDocs));
+  gulp.series(css, customPropsCopy, fonts, js, copyToDocs);
+  gulp.watch('src', gulp.series(css, customPropsCopy, fonts, js, copyToDocs));
   cb();
 }
 

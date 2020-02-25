@@ -9,7 +9,7 @@ m-accordion > m-details > summary {
 }
 
 m-accordion > m-details > summary:after {
-  font-family: 'simple-line-icons';
+  font-family: 'm-icons';
   content: '\e604';
   position: absolute;
   top: var(--space-sm);

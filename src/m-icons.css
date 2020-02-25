@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'simple-line-icons';
-  src: url('./Simple-Line-Icons.woff2?v=2.4.0') format('woff2');
+  font-family: 'm-icons';
+  src: url('./Simple-Line-Icons.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 m-icon {
-  font-family: 'simple-line-icons';
+  font-family: 'm-icons';
   speak: none;
   font-style: normal;
   font-weight: normal;

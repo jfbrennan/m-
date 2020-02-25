@@ -8,69 +8,10 @@
 </head>
 <body>
   {{{body}}}
-
+  <script src="https://unpkg.com/retchful@1.0.0-beta/dist/min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
   <script>
-    // Bootstrapped from server
-    const events = [
-      {
-        event_id: 1,
-        priority: 'P1',
-        event_type: 'Robbery'
-      },
-      {
-        event_id: 2,
-        priority: 'P3',
-        event_type: 'Traffic incident'
-      }
-    ];
-
-    function renderEventsTable(events) {
-      let results = '';
-      events.forEach(event => {
-        results += `
-          <tr>
-            <td><m-badge count="${event.priority}"></m-badge></td>
-            <td>${event.event_type}</td>
-          </tr>
-        `;
-      });
-      document.getElementById('events').innerHTML = results;
-    }
-
-    class EventService {
-
-      makeEvent(id) {
-        const eventTypes = ['robbery', 'noise complaint', 'assault', 'missing person']
-        return {
-          event_id: id,
-          priority: `P${id % 3}`,
-          event_type: eventTypes[id % eventTypes.length],
-        }
-      }
-
-      onEventsReceived(handleEvents) {
-        const intervalId = setInterval(() => {
-          const count = 5
-          const ids = new Array(count).fill(null).map((_, index) => index)
-          const events = ids.map(id => this.makeEvent(id))
-          console.log('s')
-          handleEvents(events)
-        }, 2000)
-
-        return () => {
-          clearInterval(intervalId)
-        }
-      }
-    }
-
-    const eventService = new EventService();
-
-
-    // Init render
-    renderEventsTable(events);
-
-    // Receive fresh events
-    eventService.onEventsReceived(e => renderEventsTable(e))
+    riot.compile(() => riot.mount('*'));
   </script>
 </body>
 </html>

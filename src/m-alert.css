@@ -1,6 +1,12 @@
-m-alert + m-alert {margin-top: 12px}
-m-alert[type=info] {background-color: #f2f8fc}
-m-alert[type=success] {background-color: darkseagreen}
-m-alert[type=warn] {background-color: orange}
-m-alert[type=error] {background-color: red}
+@import "custom-props.css";
+
+m-alert + m-alert {margin-top: var(--space-sm)}
+m-alert[type=info] {background-color: var(--color-blue-light)}
+m-alert[type=success] {background-color: var(--color-green-light)}
+m-alert[type=warn] {background-color: var(--color-orange-light)}
+m-alert[type=error] {background-color: var(--color-red-light)}
+m-alert[type=info] > m-icon  {color: var(--color-blue-dark)}
+m-alert[type=success] > m-icon {color: var(--color-green-dark)}
+m-alert[type=warn] > m-icon {color: var(--color-orange-dark)}
+m-alert[type=error] > m-icon {color: var(--color-red-dark)}
 m-alert > button {border: none; line-height: 0.5; background: none;}

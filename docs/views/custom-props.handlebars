@@ -11,6 +11,7 @@
 <h2 id="api">API</h2>
 <p>Learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">custom properties aka CSS variables</a> and how to use them.</p>
 <h3 id="colors">Colors</h3>
+<p>All color values are in the <a href="https://stripe.com/blog/accessible-color-systems">perceptually uniform color space</a> to provide visually appealing colors and help achieve WCAG 2.0 contrast guidelines.</p>
 <table layout="fixed">
   <thead>
   <tr>
@@ -98,9 +99,19 @@
     </td>
     <td colspan="3">Used for the whole page background.</td>
   </tr>
+  <tr>
+    <td colspan="2"><code>--color-primary-action</code></td>
+    <td colspan="3" class="pad-all-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-primary-action"></div>
+      </div>
+    </td>
+    <td colspan="3">Used for links and other primary action elements.</td>
+  </tr>
   </tbody>
 </table>
 <h3 id="space">Space</h3>
+<p>The spacing sizes are based on <a href="">Divine Proportions</a> to help provide a natural rhythm.</p>
 <table layout="fixed">
   <thead>
   <tr>
@@ -185,4 +196,6 @@
   .color-gray-6 { background-color: var(--color-gray-6) }
   [class^="color-offwhite"] { width: 96% }
   .color-offwhite { background-color: var(--color-offwhite) }
+  [class^="color-primary-action"] { width: 96% }
+  .color-primary-action { background-color: var(--color-primary-action) }
 </style>

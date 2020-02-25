@@ -2,7 +2,7 @@ m-loader { display: inline; }
 
 m-loader:before {
   display: inline-block;
-  font-family: 'simple-line-icons';
+  font-family: 'm-icons';
   content: '\e098';
   transform: matrix(-1, 0, 0, 1, 0, 0); /* Flip icon horizontally */
   font-weight: bolder;
