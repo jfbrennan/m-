@@ -76,9 +76,15 @@
     :scope[readonly] [ref=editor] { width: 100% }
     :scope [ref=preview] { flex-grow: 1 }
 
+    @media only screen and (max-width: 600px) {
+      :scope { flex-direction: column }
+      :scope [ref=preview] {
+        margin-left: 0;
+        margin-top: 6px;
+      }
+    }
     /* ACE editor overrides */
     .ace_gutter { border-radius: 2px 0 0 2px }
-    .ace-monokai .ace_comment { color: #bbbbbb
-    }
+    .ace-monokai .ace_comment { color: #bbbbbb }
   </style>
 </code-sample>

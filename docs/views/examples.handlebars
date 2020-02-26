@@ -16,7 +16,7 @@
   </m-row>
 </m-container>
 <hr>
-<h1 id="Containers" class="txt-center txt-xxl">Containers</h1>
+<h1 id="Containers" class="txt-center txt-xxl">Container</h1>
 <m-container maxwidth="sm">
   <h4>Small container</h4>
   <m-box ord="primary">
@@ -361,4 +361,27 @@
     <p>Details about this thing.</p>
     <p>And more details about this thing.</p>
   </m-details>
+</m-container>
+<h1 id="Loader" class="txt-center txt-xxl">Loader</h1>
+<m-container>
+  <h4>Basic loaders</h4>
+  <p>Loader on its own: <m-loader loading></m-loader></p>
+  <p>Loader without <code>loading</code>: <m-loader></m-loader></p>
+  <p>Loader with text: <m-loader loading>Searching...</m-loader></p>
+  <h4 class="mar-b-xs">Loader used in button</h4>
+  <div>Loader is in the button and is <code>hidden</code> waiting for the user to click...<button ord="primary"><m-loader loading hidden></m-loader>Save</button></div>
+  <div>When clicked, the app removes <code>hidden</code> and updates the label: <button ord="primary"><m-loader loading></m-loader>Saving</button></div>
+  <h4>Loader and links</h4>
+  <p>Loader has its own text and is in a link. The app, for example, could toggle its <code>loading</code> attribute and text: <a href=""><m-loader loading>Pause</m-loader></a><m-pipe></m-pipe><a href=""><m-loader>Resume</m-loader></a></p>
+  <p>Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
+  <div class="txt-center" style="width: 400px">
+    <m-loader loading class="block">Downloading...</m-loader>
+    <a href="" class="block mar-t-xs txt-xs">Stop</a>
+  </div>
+  <h4>Loader size</h4>
+  <p>Explicit size of 70px:</p>
+  <m-loader loading style="font-size: 70px"></m-loader>
+  <h1><m-loader loading>Inside Heading 1</m-loader></h1>
+  <h2><m-loader loading>Inside Heading 2</m-loader></h2>
+  <h3><m-loader loading>Inside Heading 3</m-loader></h3>
 </m-container>

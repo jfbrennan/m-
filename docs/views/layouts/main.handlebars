@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   {{> ga}}
   <title>M-</title>
   <link rel="stylesheet" href="{{localUrl}}css">
   <link rel="stylesheet" href="/custom-props.css">
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
   <style>
-    aside { flex: 0 0 180px }
+    #menu {
+      flex: 0 0 140px;
+    }
+
     main { flex-grow: 1 }
+
+    #menu-toggle {
+      display: none;
+      right: 12px;
+      top: 12px;
+      z-index: 11;
+    }
+
+    @media only screen and (max-width: 600px) {
+      #menu-toggle { display: block }
+      #menu { display: none }
+      #menu[open] {
+        background-color: white;
+        z-index: 10;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+      }
+    }
   </style>
 </head>
 <body class="flex" style="height: 100%">
-<aside class="pad-all-md">
+<m-icon id="menu-toggle" name="menu" class="pos-absolute pointer"></m-icon>
+<aside id="menu" class="pad-all-md">
   <div>
     <h1 class="mar-all-none txt-center">M-</h1>
     <div class="txt-xs mar-b-md txt-center txt-gray-6">{{version}}</div>
@@ -74,6 +100,9 @@
 </script>
 <script src="{{localUrl}}js"></script>
 <script>
+  // Menu toggle (for small screens)
+  document.getElementById('menu-toggle').addEventListener('click', e => document.getElementById('menu').toggleAttribute('open'));
+
   // Autocomplete demo
   MdashAutocomplete.prototype.sources.fruit = function(query) {
     // Use query to fetch/filter/map/find/whatever your use case is for getting matching results

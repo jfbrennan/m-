@@ -3,9 +3,9 @@
 <h2 id="demo">Demo</h2>
 <code-sample>
   <m-loader loading>Searching...</m-loader>
-  <br>
-  <a href="/search"><m-loader>Try again</m-loader></a>
+  <a href="/restart"><m-loader>Restart</m-loader></a>
 </code-sample>
+<p>See more <a href="/examples#Loader">examples</a></p>
 <h2 id="api">API</h2>
 <h3 id="tag">Tag</h3>
 <table layout="fixed">
@@ -42,10 +42,19 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="title">Loading message</h3>
-<p>In most cases the loader should have its own message or be in close proximity to one, like in the case of accompanying a button's label. In some cases it's appropriate to have a loader without a message.</p>
+<h3 id="title">Loader text</h3>
+<p>In most cases the loader should have its own text or be in close proximity to a related message, like a button label. In some cases it's appropriate to have a loader on it's own without a message.</p>
 <h3 id="nesting">Nesting</h3>
-<p>Loader inherits font properties, so when nested inside other elements like button, anchor, or headings it looks as you would expect it to.</p>
+<p>Loader can be put just about anywhere and will inherit font properties, so when nested in elements like button, anchor, or headings it looks as you would expect it to:</p>
+<code-sample>
+  <button ord="primary"><m-loader loading hidden></m-loader>Save</button>
+  becomes &rarr;
+  <button ord="primary"><m-loader loading></m-loader>Saving</button>
+  <h2><m-loader loading>Downloading...</m-loader></h2>
+  <h3><m-loader loading>Downloading...</m-loader></h3>
+  <a href="/cancel-search"><m-loader loading>Cancel</m-loader></a>
+</code-sample>
+
 <h3 id="accessibility">Accessibility</h3>
 <p>If a Loader doesn't have text it should use
-  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute" rel="noopener" target="_blank"><code>aria-labelledby</code></a>.</p>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute" rel="noopener" target="_blank"><code>aria-labelledby</code></a> or <code>aria-label</code>.</p>
