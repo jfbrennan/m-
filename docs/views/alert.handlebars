@@ -3,10 +3,10 @@
 <h2 id="demo">Demo</h2>
 <code-sample>
   <template>
-    <m-alert type="info">A cautionary message</m-alert>
-    <m-alert type="success">A cautionary message</m-alert>
+    <m-alert type="info">An informational message</m-alert>
+    <m-alert type="success">A positive message</m-alert>
     <m-alert type="warn">A cautionary message</m-alert>
-    <m-alert type="error">A cautionary message</m-alert>
+    <m-alert type="error">An error message</m-alert>
   </template>
 </code-sample>
 <h2 id="api">API</h2>
@@ -47,7 +47,7 @@
         <li>error</li>
       </ul>
     </td>
-    <td colspan="6">Sets the type of the message. Error messages should use "error", cautionary messages should use "warn", reassuring messages should use "success", and important informational messages should use "info".</td>
+    <td colspan="6">Sets the type of the message. Error messages should use "error", cautionary messages should use "warn", positive messages should use "success", and important informational messages should use "info".</td>
   </tr>
   <tr>
     <td colspan="1"><code>autodismiss</code></td>
@@ -79,7 +79,7 @@
   <tr>
     <td colspan="1"><code>dismiss</code></td>
     <td colspan="2">None</td>
-    <td colspan="6">Fires after Alert has been dismissed. This happens when the user clicks the dismiss button, on auto-dismiss, or the application calls <code>dismiss</code>.</td>
+    <td colspan="6">Fires after Alert has been dismissed. This happens when the user clicks the dismiss button or on auto-dismiss or the application calls <code>dismiss()</code>.</td>
   </tr>
   </tbody>
 </table>
@@ -94,7 +94,7 @@
   <tbody>
   <tr>
     <td colspan="3"><code>dismiss()</code></td>
-    <td colspan="6">Removes the Alert from the DOM.</td>
+    <td colspan="6">Can be used to programmatically remove the Alert.</td>
   </tr>
   </tbody>
 </table>

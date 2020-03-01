@@ -25,7 +25,7 @@
   <tr>
     <td colspan="2"><code>m-dialog</code></td>
     <td colspan="2">Custom Element</td>
-    <td colspan="6">Any content. First element with <code>autofocus</code> will receive focus.</td>
+    <td colspan="6">Any content. The first element with <code>autofocus</code> will receive focus when the Dialog is opened.</td>
   </tr>
   </tbody>
 </table>
@@ -59,7 +59,7 @@
   <tr>
     <td colspan="2"><code>close</code></td>
     <td colspan="2">None</td>
-    <td colspan="6">Fired after the Dialog was closed. Note that the element and its content are preserved in the DOM (e.g. forms still have user-entered values, so reset it if that's what your use case requires).</td>
+    <td colspan="6">Fired after the Dialog was closed. Note that the element and its content are preserved in the DOM, so, for example, forms will still have user-entered values. Your app should reset the form if that's what your use case requires.</td>
   </tr>
   </tbody>
 </table>
@@ -74,7 +74,7 @@
   <tbody>
   <tr>
     <td colspan="2"><code>close([returnValue])</code></td>
-    <td colspan="8">MDN says: "Closes the dialog. An optional DOMString may be passed as an argument, updating the returnValue of the the dialog." Also note that the element and its content are still present in the DOM (e.g. forms still have user-entered values, so reset it if that's what your use case requires).</td>
+    <td colspan="8">MDN says: "Closes the dialog. An optional DOMString may be passed as an argument, updating the returnValue of the the dialog." Also note that the Dialog and its contents are still present in the DOM (e.g. forms still have user-entered values, so reset it if that's what your use case requires).</td>
   </tr>
   <tr>
     <td colspan="2"><code>show()</code></td>
@@ -87,7 +87,7 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="title">What about HTMLDialogElement?</h3>
+<h3 id="title">What about &lt;dialog&gt;?</h3>
 <p>This element attempts to match the <code>HTMLDialogElement</code> interface as close as possible, so when browser support for <code>&lt;dialog&gt;</code> is sufficient it will be removed from M- in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>
 <h3 id="state">Forms and DOM state</h3>
 <p>Dialog does not change the state of its children other than moving them into a containing div on init. Forms and all other elements will initialize the way they are provided by the application and will continue to remain untouched even when the Dialog is closed. The state of the provided content is controlled by your application. For example, if a Dialog is used to present a login form the application should remove the Dialog completely or reset the form after successful authentication. If left alone the Dialog and the login form inside it will contain the user's credentials. It's your content; you have to manage it!</p>

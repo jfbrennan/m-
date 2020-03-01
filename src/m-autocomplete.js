@@ -9,6 +9,9 @@ class MdashAutocomplete extends HTMLElement {
       }
     });
 
+    // Close on esc keyup
+    document.addEventListener('keyup', e => e.key === 'Escape' ? this.clear() : null);
+
     this.matches = null;
 
     // One time render stuff
@@ -16,6 +19,7 @@ class MdashAutocomplete extends HTMLElement {
     input.setAttribute('ref', 'search');
     input.setAttribute('placeholder', this.getAttribute('placeholder'));
     input.addEventListener('keyup', e => this.showMatches(e.currentTarget.value));
+    // TODO autocomplete can experience loss of focus during normal use, which create undesired flash of no focus ring :(
 
     const matches = document.createElement('div');
     matches.setAttribute('ref', 'matches');
@@ -55,6 +59,7 @@ class MdashAutocomplete extends HTMLElement {
   clear() {
     this.matches = null;
     this.renderMatches();
+    this.querySelector('input').focus();
   }
 
   renderMatches() {

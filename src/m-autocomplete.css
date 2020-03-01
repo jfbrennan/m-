@@ -7,5 +7,5 @@ m-autocomplete [ref=matches] ul {
 }
 
 m-autocomplete [ref=matches] li:hover {
-  background-color: var(--color-gray-2);
+  background-color: var(--color-offwhite);
 }

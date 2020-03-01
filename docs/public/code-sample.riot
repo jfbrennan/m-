@@ -20,7 +20,11 @@
           default:
             // Custom Elements have to be put in a <template> so they don't get rendered out on page load
             const content = this.editor.getValue().replace(/^[\s\n\r]*<template>[\s\n\r]*|[\s\n\r]*<\/template>[\s\n\r]*$/gm, '');
-            this.editor.session.setValue(html_beautify(content))
+            this.editor.session.setValue(html_beautify(content), {
+              indent_size: 2,
+              indent_char: ' ',
+              indent_with_tabs: !1
+            })
         }
       }
 
@@ -50,12 +54,12 @@
           theme: 'ace/theme/monokai',
           readOnly: this.opts.readonly,
           useWorker: !1,
-          showGutter: !this.opts.readonly,
+          showGutter: false,
           displayIndentGuides: !1,
           showPrintMargin: !1,
           showFoldWidgets: !1,
           tabSize: 2,
-          useSoftTabs: !0,
+          useSoftTabs: true,
           maxLines: 1 / 0
         });
         this.editor.renderer.setScrollMargin(6, 6);

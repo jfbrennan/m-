@@ -11,10 +11,10 @@ m-vr {
   background-color: var(--color-gray-4);
 }
 
-m-pipe {
+m-vbar {
   display: inline-block;
   color: var(--color-gray-4);
   margin: auto 12px;
   font-weight: 400;
 }
-m-pipe:before { content: '|' }
+m-vbar:before { content: '|' }

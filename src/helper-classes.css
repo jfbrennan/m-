@@ -105,6 +105,13 @@
 
 /* Display */
 .flex { display: flex }
+.inline-flex { display: inline-flex }
+.block { display: block }
+.inline-block { display: inline-block }
+.inline { display: inline }
+.hidden { display: none }
+
+/* Flexbox */
 .flex-grow { flex-grow: 1 }
 .flex-wrap { flex-wrap: wrap }
 .flex-col { flex-direction: column }
@@ -113,11 +120,6 @@
 .justify-content-evenly { justify-content: space-evenly }
 .justify-content-around { justify-content: space-around }
 .align-items-center {align-items: center}
-.inline-flex { display: inline-flex }
-.block { display: block }
-.inline-block { display: inline-block }
-.inline { display: inline }
-.hidden { display: none }
 
 /* Float */
 .left { float: left }

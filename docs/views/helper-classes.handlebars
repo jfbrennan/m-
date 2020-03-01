@@ -4,7 +4,7 @@
 <code-sample>
   <div class="fnt-bold left">Hello</div>
   <div class="fnt-light right">world!</div>
-  <div class="clear flex align-items-center">
+  <div class="clear flex pos-sticky align-items-center">
     <div class="txt-xs pad-all-sm">one</div>
     <div class="txt-sm pad-all-sm">two</div>
     <div class="txt-md pad-all-sm">three</div>
@@ -24,15 +24,7 @@
   <tbody>
   <tr>
     <td colspan="2"><code>flex</code></td>
-    <td colspan="6">Shortcut for display: flex with flex-wrap: wrap</td>
-  </tr>
-  <tr>
-    <td colspan="2"><code>justify-content-center</code></td>
-    <td colspan="6">Shortcut for justify-content: center</td>
-  </tr>
-  <tr>
-    <td colspan="2"><code>align-items-center</code></td>
-    <td colspan="6">Shortcut for align-items: center</td>
+    <td colspan="6">Shortcut for display: flex</td>
   </tr>
   <tr>
     <td colspan="2"><code>inline-flex</code></td>
@@ -53,6 +45,49 @@
   <tr>
     <td colspan="2"><code>hidden</code></td>
     <td colspan="6">Shortcut for display: none</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="flexbox">Flexbox</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>flex-grow</code></td>
+    <td colspan="6">Shortcut for flex-grow: 1</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>flex-wrap</code></td>
+    <td colspan="6">Shortcut for flex-wrap: wrap</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>flex-col</code></td>
+    <td colspan="6">Shortcut for flex-direction: column</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>justify-content-center</code></td>
+    <td colspan="6">Shortcut for justify-content: center</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>justify-content-between</code></td>
+    <td colspan="6">Shortcut for justify-content: between</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>justify-content-evenly</code></td>
+    <td colspan="6">Shortcut for justify-content: evenly</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>justify-content-around</code></td>
+    <td colspan="6">Shortcut for justify-content: around</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>align-items-center</code></td>
+    <td colspan="6">Shortcut for align-items: center</td>
   </tr>
   </tbody>
 </table>
@@ -178,12 +213,11 @@
   </tr>
   <tr>
     <td colspan="2"><code>txt-[xs|sm|md|lg|xl|xxl]</code></td>
-    <td colspan="6">Sets font-size. Sizes map to the
-      <a href="/custom-props#font-size">font-size custom props</a>.</td>
+    <td colspan="6">Sets font-size.</td>
   </tr>
   <tr>
     <td colspan="2"><code>txt-[color-name]</code></td>
-    <td colspan="6">Sets color. Color name maps to a
+    <td colspan="6">Sets text color. Names map to a
       <a href="/custom-props#colors">color custom prop</a>, e.g. <code>txt-red-dark</code></td>
   </tr>
   </tbody>

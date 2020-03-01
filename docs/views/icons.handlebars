@@ -43,13 +43,14 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="accompany-label">Accompany with a label</h3>
-<p>Icons should be used to <span class="font-italic">enhance</span> content not replace it. Strive to accompany an icon with a label or other relevant content in close proximity.</p>
+<p>Icons should be used to <span class="fnt-italic">enhance</span> content not replace it. Users can misinterpret icons, so strive to accompany an icon with a label or other relevant content in close proximity.</p>
 <code-sample>
-<m-icon name="user" aria-labelledby="name"></m-icon>
-<span id="name">John Doe</span>
+  <m-icon name="user" aria-labelledby="account-name"></m-icon>
+  <span id="account-name">John Doe</span>
 </code-sample>
 <h3 id="svg">Why not SVG?</h3>
-<p>Implementing SVG icons requires an abstraction and since there is no visual or accessibility difference between SVG and font icons, that abstraction is 100% sunken overhead. Font icons require no abstraction and so they save kilobytes and also have maximum compatibility.</p>
+<p>Implementing SVG icons requires an abstraction and since there is no visual or accessibility difference between SVG and font icons, that abstraction is 100% sunken overhead. Font icons require no abstraction and so they save kilobytes and also have maximum compatibility. You can read more about the differences
+  <a href="https://dev.to/jfbrennan/svg-icons-are-not-settled-science-4hpo" target="_blank" rel="noopener">here</a>.</p>
 <h3 id="accessibility">Accessibility</h3>
 <p>Because icons should be accompanying a label (see above) they should reference that label with <a
         href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"><code>aria-labelledby</code></a> attribute. In those cases where there is no label use

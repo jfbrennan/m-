@@ -1,0 +1,20 @@
+{
+  "name": "M-",
+  "short_name": "M-",
+  "start_url": ".",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "description": "Official documentation for the M- design system.",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

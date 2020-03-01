@@ -5,8 +5,11 @@ m-tab {
   padding: var(--space-xs) var(--space-lg);
 }
 
-m-tab:hover {
+m-tab:not([disabled]) {
   cursor: pointer;
+}
+
+m-tab:not([disabled]):not([selected]):hover {
   border-bottom: 2px solid var(--color-gray-3);
 }
 
@@ -14,5 +17,5 @@ m-tab a:hover {
   text-decoration: none;
 }
 
-m-tab[selected] {border-bottom: 2px solid var(--color-blue-dark)}
+m-tab[selected] {border-bottom: 2px solid var(--color-primary-action)}
 m-tab[disabled] {color: var(--color-disabled-fg); cursor: default}

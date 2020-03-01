@@ -5,7 +5,7 @@
   <title>M-</title>
   <link rel="stylesheet" href="{{localUrl}}css">
   <link rel="stylesheet" href="/custom-props.css">
-<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+  {{> head-tags}}
   <style>
     #menu {
       flex: 0 0 140px;
@@ -20,6 +20,8 @@
       z-index: 11;
     }
 
+    .intro-text { width: 70% }
+
     @media only screen and (max-width: 600px) {
       #menu-toggle { display: block }
       #menu { display: none }
@@ -31,6 +33,12 @@
         top: 0;
         right: 0;
         left: 0;
+      }
+      .intro-text { width: 100% }
+      .benefits m-vbar { display: none }
+      .benefits span {
+        display: block;
+        margin-top: var(--space-xs);
       }
     }
   </style>
@@ -80,7 +88,7 @@
       <a href="/custom-props" class="block mar-b-xs">Custom properties</a>
       <a href="/helper-classes" class="block mar-b-xs">Helper classes</a>
       <hr>
-      <small>Copyright &copy; 2019-2020 Jordan Brennan</small>
+      <small>Copyright &copy; 2020<br>Jordan Brennan</small>
     </nav>
   </div>
 </aside>
