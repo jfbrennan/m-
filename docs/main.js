@@ -25,6 +25,7 @@ app.use(express.static('public'));
 // Routes
 app.get('/', (req, res) => res.render('home'));
 app.get('/demo', (req, res) => res.render('demo', {layout: 'demo'}));
+app.get('/examples/{example}', (req, res) => res.render(`examples/${req.params.example}`, {layout: 'demo'}));
 app.get('/examples', (req, res) => res.render('examples', {layout: 'examples'}));
 app.get('/*', (req, res) => res.render(req.path.substr(1, req.path.length)));
 

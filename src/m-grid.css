@@ -184,6 +184,25 @@ m-col[indent="12"] {
   margin-left: 100%;
 }
 
+/* Order is used to reorder columns at specific breakpoints */
+/*m-col[order~="1"] {*/
+/*  order: 1;*/
+/*}*/
+
+/*m-col[order~="2"] {*/
+/*  order: 2;*/
+/*}*/
+
+@media only screen and (max-width: 768px) {
+  m-col[order~=md-1] {
+    order: 1;
+  }
+
+  m-col[order~=md-2] {
+    order: 2;
+  }
+}
+
 /*.start-xs {*/
 /*  justify-content: flex-start;*/
 /*  text-align: start;*/

@@ -38,14 +38,14 @@
     <td colspan="2"><code>href</code> <small class="fnt-bold fnt-italic">required</small></td>
     <td colspan="2">
       <ul type="none">
-        <li>relative or absolute URL</li>
-        <li>#{string} (target fragment)</li>
-        <li>mailto:{string}</li>
-        <li>tel:{string}</li>
-        <li>sms:{string}</li>
+        <li>URL</li>
+        <li>#{target fragment id}</li>
+        <li>mailto:{email address}</li>
+        <li>tel:{phone number}</li>
+        <li>sms:{phone number}</li>
       </ul>
     </td>
-    <td colspan="6">Sets the type of link. Be sure to use document fragments and mailto, tel, and sms URL schemes correctly to ensure optimal user experience.</td>
+    <td colspan="6">Sets the type of link. <p>Be sure to use target fragments or the other URL schemes correctly to ensure optimal user experience. Every phone number, for example, should be wrapped in a link with the <code>tel:</code> scheme to make it really convenient for user to call that number.</p></td>
   </tr>
   <tr>
     <td colspan="2"><code>disabled</code></td>
@@ -54,7 +54,7 @@
   </tr>
   </tbody>
 </table>
-<small><span class="fnt-bold">Note:</span> Not all anchor attributes are list here. See <a
+<small><span class="fnt-bold">Note:</span> Not all anchor attributes are listed here. See <a
         href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes">MDN: Anchor element - Attributes</a> for the full list.</small>
 <p>For <span class="fnt-bold">non-anchor</span> elements only:</p>
 <table layout="fixed">
@@ -68,6 +68,6 @@
 </table>
 <h2>Guidelines</h2>
 <h3>Security</h3>
-<p>When linking to sites you don't own, you should use <code>rel="noopener"</code>.</p>
+<p>When linking to websites you don't control, you should add the <code>rel="noopener"</code> attribute.</p>
 <h3>Accessibility</h3>
-<p></p>
+<p>Links should behave as links, i.e. they activate when clicked. Links that don't behave this way should not use the anchor tag and should instead use the <code>is="a"</code> attribute to avoid confusing screen-readers. Also, groups of links like menus, breadcrumbs, or primary navigation should be contained in a <code>nav</code> element.</p>

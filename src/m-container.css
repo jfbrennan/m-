@@ -7,7 +7,7 @@ m-container {
   padding: var(--space-md);
 }
 
-m-container[maxwidth=md] {max-width: var(--breakpoint-md)}
+m-container[maxwidth=md] {max-width: var(--breakpoint-lg)}
 m-container[maxwidth=sm] {max-width: 375px}
 m-container[maxwidth=none] {max-width: none}
 

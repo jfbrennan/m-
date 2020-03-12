@@ -71,7 +71,7 @@
 
 /* Font */
 .fnt-bolder { font-weight: bolder }
-.fnt-light { font-weight: 200 }
+.fnt-light { font-weight: 300 }
 .fnt-bold { font-weight: bold}
 .fnt-italic { font-style: italic }
 .fnt-normal { font-style: normal }
@@ -143,3 +143,4 @@
 .auto-width { width: auto }
 .push { margin-left: auto }
 .pull { margin-right: auto }
+.bg-offwhite { background-color: var(--color-offwhite)}

@@ -2,6 +2,7 @@
   "name": "M-",
   "short_name": "M-",
   "start_url": ".",
+  "display": "minimal-ui",
   "background_color": "#fff",
   "theme_color": "#fff",
   "description": "Official documentation for the M- design system.",
