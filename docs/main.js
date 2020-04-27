@@ -30,4 +30,4 @@ app.get('/examples', (req, res) => res.render('examples', {layout: 'examples'}))
 app.get('/*', (req, res) => res.render(req.path.substr(1, req.path.length)));
 
 // Start the server
-app.listen(process.env.PORT || 3000, () => console.log('M- doc site started.'));
+app.listen(3000, () => console.log(`M- doc site running at localhost:3000 with process.env.NODE_ENV=${process.env.NODE_ENV}.`));

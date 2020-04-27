@@ -4,7 +4,7 @@ m-container {
   display: block;
   max-width: var(--max-content-width);
   margin: auto;
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
 }
 
 m-container[maxwidth=md] {max-width: var(--breakpoint-lg)}

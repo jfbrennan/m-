@@ -1,13 +1,14 @@
 customElements.define('m-alert', class extends HTMLElement {
   constructor() {
     super();
+  }
 
+  connectedCallback() {
     // One time render stuff
     this.classList.add('pad-all-md', 'flex', 'pos-relative');
     if (this.type === 'warn' || this.type === 'error') this.setAttribute('role', 'alert');
 
     const icon = document.createElement('m-icon');
-    icon.setAttribute('name', this.icon);
     icon.classList.add('txt-lg', 'mar-r-md');
 
     const dismissBtn = document.createElement('button');
@@ -40,13 +41,16 @@ customElements.define('m-alert', class extends HTMLElement {
 
   static get observedAttributes() { return ['type', 'autodismiss', 'dismissible']; }
 
+  // Called once before connectedCallback, which means children may not be present
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case 'type':
-        const icon = this.type === 'success' ? 'check' : this.type === 'warn' ? 'exclamation' : this.type === 'error' ? 'ban' : 'question';
-        this.querySelector('m-icon').setAttribute('name', icon);
+        const iconName = this.type === 'success' ? 'check' : this.type === 'warn' ? 'exclamation' : this.type === 'error' ? 'ban' : 'question';
+        const icon = this.querySelector('m-icon');
+        if (icon) icon.setAttribute('name', iconName);
       case 'dismissible':
-        this.querySelector('button').hidden = newVal === 'false';
+        const dismissBtn = this.querySelector('button');
+        if (dismissBtn) dismissBtn.hidden = newVal === 'false';
       case 'autodismiss':
         const seconds = newVal ? parseInt(newVal) * 1000 : 4000;
         if (seconds > 0) setTimeout(() => this.dismiss(), seconds);

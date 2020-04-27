@@ -9,7 +9,9 @@
 customElements.define('m-details', class extends HTMLElement {
   constructor() {
     super();
+  }
 
+  connectedCallback() {
     // One time render stuff
     const children = Array.from(this.childNodes);
 

@@ -10,6 +10,9 @@
 customElements.define('m-dialog', class extends HTMLElement {
   constructor() {
     super();
+  }
+
+  connectedCallback() {
     this.returnValue = null;
 
     // Close on esc keyup
@@ -19,7 +22,7 @@ customElements.define('m-dialog', class extends HTMLElement {
     const container = document.createElement('div');
     const role = this.getAttribute('role') === 'alertdialog' ? 'alertdialog' : 'dialog';
     container.setAttribute('role', role);
-    container.classList.add('pos-relative', 'pad-all-md');
+    container.classList.add('pos-relative', 'pad-all-lg');
 
     const closeBtn = document.createElement('button');
     closeBtn.textContent = '×'; // That's the &times; char

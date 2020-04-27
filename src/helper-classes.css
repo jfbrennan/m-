@@ -115,11 +115,15 @@
 .flex-grow { flex-grow: 1 }
 .flex-wrap { flex-wrap: wrap }
 .flex-col { flex-direction: column }
-.justify-content-center {justify-content: center}
 .justify-content-between { justify-content: space-between }
 .justify-content-evenly { justify-content: space-evenly }
+.justify-content-center { justify-content: center }
 .justify-content-around { justify-content: space-around }
-.align-items-center {align-items: center}
+.justify-content-end { justify-content: flex-end }
+.align-items-center { align-items: center}
+.align-self-stretch { align-self: stretch }
+.align-self-end { align-self: flex-end }
+
 
 /* Float */
 .left { float: left }

@@ -7,13 +7,15 @@ m-dialog {
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 1000;
 }
 m-dialog[open] {display: flex}
 m-dialog > div {
   pointer-events: auto;
   background-color: #F5F3F7;
   box-shadow: 0px 16px 18px -3px #858585;
-  height: 60%;
+  min-height: 100px;
+  max-height: 75%;
   max-width: 75%;
 }
 m-dialog > div > button {border: none; line-height: 0.5; background: none;}
