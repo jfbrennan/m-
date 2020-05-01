@@ -8,8 +8,8 @@ Try M- right now by just copy/pasting that CDN snippet below into your page - th
 ## Installation
 ### CDN
 ```html
-<link rel="stylesheet" href="https://unpkg.com/m-@1.0.0-beta.21/dist/min.css">
-<script defer src="https://unpkg.com/m-@1.0.0-beta.21/dist/min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/m-@1.0.0-beta.22/dist/min.css">
+<script defer src="https://unpkg.com/m-@1.0.0-beta.22/dist/min.js"></script>
 ```
 ### NPM
 `npm install m-`
