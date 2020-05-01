@@ -1,12 +1,27 @@
-m-menu {display: inline-block}
+m-menu {
+  display: inline-block;
+  position: relative;
+}
+
 m-menu > [slot=items] {
   display: none;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: white;
   border: 1px solid;
-  padding: 12px;
+  padding: var(--space-md);
   min-width: 78px;
 }
-m-menu > [slot=items] > a {display: block}
-m-menu[open] > [slot=items] {display: block}
+m-menu > [slot=items] > a {
+  margin-bottom: var(--space-sm)
+}
+m-menu > [slot=items] > a:last-of-type {
+  margin-bottom: 0
+}
+m-menu > [slot=items] > a,
+m-menu[open] > [slot=items] {
+  display: block;
+}
+
 m-menu > [slot="trigger"] {cursor: pointer}

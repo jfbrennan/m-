@@ -2,6 +2,7 @@ m-tabs {display: flex}
 
 m-tab {
   font-weight: bold;
+  text-align: center;
   padding: var(--space-xs) var(--space-lg);
 }
 
