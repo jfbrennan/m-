@@ -7,8 +7,12 @@
   <link rel="stylesheet" href="/custom-props.css">
   {{> head-tags}}
   <style>
-    #menu {
-      flex: 0 0 140px;
+    #menu { flex: 0 0 140px }
+
+    #m-logo {
+      width: 48px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     main { flex-grow: 1 }
@@ -47,8 +51,8 @@
 <m-icon id="menu-toggle" name="menu" class="pos-absolute pointer"></m-icon>
 <aside id="menu" class="pad-all-md">
   <div>
-    <h1 class="mar-all-none txt-center">M-</h1>
-    <div class="txt-xs mar-b-md txt-center txt-gray-6">{{version}}</div>
+    <img id="m-logo" src="/favicon.png" alt="M- logo" class="block mar-b-sm">
+    <small class="block mar-b-md txt-center txt-gray-6">v{{version}}</small>
     <nav>
       <a href="/" class="block mar-b-xs">Home</a>
       <a href="https://github.com/jfbrennan/m-" target="_blank" rel="noopener" class="block mar-b-xs">
@@ -114,7 +118,7 @@
   // Autocomplete demo
   MdashAutocomplete.prototype.sources.fruit = function(query) {
     // Use query to fetch/filter/map/find/whatever your use case is for getting matching results
-    let matches = ['apple', 'banana', 'peach', 'apricot', 'blueberry'].filter(fruit => fruit.startsWith(query));
+    let matches = ['apple', 'banana', 'peach'].filter(fruit => fruit.startsWith(query));
 
     // Function must return a Promise or use async keyword
     return Promise.resolve({

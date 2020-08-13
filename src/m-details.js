@@ -1,6 +1,8 @@
 /**
- * This element needs to match the HTMLDetailsElement spec (except the m- prefix) so
- * it can be safely removed once browser support is good enough. Some notable naming choices:
+ * This element needs to match the HTMLDetailsElement spec (https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement, except the m- prefix) so
+ * it can be safely removed once browser support is good enough.
+ *
+ * Some notable naming choices:
  * "details" - this is what the native element is called, so we're just prefixing that
  * "summary" - this is a native element
  * "open" - this is the correct attribute name
@@ -26,14 +28,13 @@ customElements.define('m-details', class extends HTMLElement {
   static get observedAttributes() { return ['open']; }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    switch (name) {
-      case 'open':
-        this.dispatchEvent(new CustomEvent('toggle'));
+    if (name === 'open') {
+      this.dispatchEvent(new CustomEvent('toggle'));
 
-        if (newVal !== null) {
-          const autofocus = this.querySelector('[autofocus]');
-          autofocus && autofocus.focus();
-        }
+      if (newVal !== null) {
+        const autofocus = this.querySelector('[autofocus]');
+        autofocus && autofocus.focus();
+      }
     }
   }
 

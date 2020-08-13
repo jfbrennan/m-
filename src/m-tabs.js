@@ -9,7 +9,7 @@ customElements.define('m-tabs', class extends HTMLElement {
 
     // When <m-tabs> is clicked the correct <m-tab> will be found and selected
     this.addEventListener('click', e => {
-      if (e.target.href) e.preventDefault(); // App has to redirect/route with href in event detail
+      if (e.target.href) e.preventDefault(); // App is responsible to redirect/route with `href` in event detail
       const tab = e.composedPath().find(el => el.tagName === 'M-TAB');
       this.select(this.tabs.indexOf(tab), e.target.href);
     });

@@ -1,17 +1,13 @@
 button {cursor: pointer;}
 button:active, button:focus {outline:0;}
 
-button + button,
-button + a[is=button],
-a[is=button] + button {
-  margin-left: var(--space-sm);
-}
 /*
   The ord attr is short for "ordinal" as in "ordinal number word".
   Ordinal number words are the 10+ words used for describing the
   precedence or importance of an item in an ordered list.
 */
-button[ord], a[is=button][ord] {
+button[ord], a[is=button] {
+  margin: 0;
   display: inline-block;
   box-sizing: border-box;
   min-height: var(--input-min-height);
@@ -24,7 +20,13 @@ button[ord], a[is=button][ord] {
   background: none;
 }
 
-a[is=button][ord]:hover {
+button[ord] + button[ord],
+button[ord] + a[is=button],
+a[is=button] + button[ord] {
+  margin-left: var(--space-sm);
+}
+
+a[is=button]:hover {
   text-decoration: none;
 }
 

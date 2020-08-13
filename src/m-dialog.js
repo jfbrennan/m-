@@ -1,6 +1,8 @@
 /**
  * This element needs to match the HTMLDialogElement spec (except the m- prefix) so
- * it can be safely removed once browser support is good enough. Some notable naming choices:
+ * it can be safely removed once browser support is good enough.
+ *
+ * Some notable naming choices:
  * "dialog" - this is what the native element is called, so we're just prefixing that
  * "open" - this is the correct attribute name
  * "close" - this is the correct event and method names

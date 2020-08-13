@@ -55,6 +55,7 @@
           readOnly: this.opts.readonly,
           useWorker: !1,
           showGutter: false,
+          highlightActiveLine: false,
           displayIndentGuides: !1,
           showPrintMargin: !1,
           showFoldWidgets: !1,
@@ -87,8 +88,10 @@
         margin-top: 6px;
       }
     }
+
     /* ACE editor overrides */
     .ace_gutter { border-radius: 2px 0 0 2px }
     .ace-monokai .ace_comment { color: #bbbbbb }
+    .ace_editor .ace_marker-layer .ace_bracket { display: none }
   </style>
 </code-sample>

@@ -142,7 +142,7 @@
   <tr>
     <td colspan="2"><code>--max-content-width</code></td>
     <td colspan="3">1536px</td>
-    <td colspan="3">The max width used by <a href="/container">Container</a>. Instead of using this in a custom CSS rule consider wrapping your content in a <code>m-container</code>.</td>
+    <td colspan="3">The max width used by <a href="/container">Container</a>. Wrapping your content in a <code>m-container</code> is more likely what you need, but you can use this if necessary.</td>
   </tr>
   <tr>
     <td colspan="2"><code>--min-input-height</code></td>
@@ -152,7 +152,7 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="hard-code">Don't hard code values</h3>
+<h3 id="hard-code">Use these instead of hard coding values!</h3>
 <p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across their stylesheets. A total maintenance meltdown! Custom properties are a standard CSS feature that helps you avoid this by enabling you to set up a shared single source of truth for the unique values in the design system. Reference them instead of copying and hard coding their values:</p>
 <code-sample mode="css" readonly="readonly">
 /* Do */

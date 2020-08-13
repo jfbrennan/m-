@@ -2,6 +2,7 @@ const express = require('express');
 const handlebars = require('express-handlebars');
 const pkg = require('./package');
 
+// Create the server
 const app = express();
 
 // Set some locals

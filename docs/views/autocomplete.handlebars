@@ -5,7 +5,12 @@
 <template>
   <fieldset>
     <label>Search</label>
-    <m-autocomplete source="fruit" placeholder="Try typing &quot;a&quot;"></m-autocomplete>
+    <m-autocomplete source="fruits" placeholder="Try typing 'apple'"></m-autocomplete>
+    <datalist id="fruits">
+      <option value="apple"></option>
+      <option value="banana"></option>
+      <option value="peach"></option>
+    </datalist>
   </fieldset>
 </template>
 </code-sample>
@@ -45,7 +50,7 @@
   <tr>
     <td colspan="2"><code>source</code> <small class="fnt-bold fnt-italic">required</small></td>
     <td colspan="2">String</td>
-    <td colspan="6">The source of data to query for matches. This can be the id of a <code>datalist</code> element or custom source function. Learn how to create them <a href="#creating-sources">below</a></td>
+    <td colspan="6">The source of data to query for matches. This can be the id of a <code>datalist</code> element or custom source function. Learn how to create them <a href="#creating-sources">below</a>.</td>
   </tr>
   <tr>
     <td colspan="2"><code>max</code></td>
@@ -79,9 +84,9 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="creating-sources">Creating sources</h3>
-<p>Sources come from one of two places. These are custom source functions that can query for matches from any source, e.g. in-memory data, local storage, over the network, and the other is the standard <code>datalist</code> element. Learn more about each and how to implement them below.</p>
+<p>Sources come from one of two places. These are custom source functions that can query for matches from any source, e.g. in-memory data, local storage, over the network, and the other is the standard <code>datalist</code> element. If a function and <code>datalist</code> source are found, autocomplete will choose function. Learn more about each and how to implement them below.</p>
 <h4>Custom source function</h4>
-<p>These are async functions added to the global <code>MdashAutocomplete.prototype.sources</code> object. Here's an example <code>fruit</code> source used in the demo above:</p>
+<p>These are async functions added to the global <code>MdashAutocomplete.prototype.sources</code> object. Here's an example <code>fruit</code> source similar to the demo above:</p>
 <code-sample readonly="true" mode="javascript">
   MdashAutocomplete.prototype.sources.fruit = function (query, max) \{
 
@@ -97,7 +102,7 @@
 </code-sample>
 <p><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> If the source's data is over the network try caching results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>matches = cache[query] || getMatches(query)</code>. You can also use <code>max</code> if it's beneficial while searching to know the maximum number of matches that will be shown.</p>
 <h4>Datalist element</h4>
-<p>These are standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist">data list</a> elements. Here's an example:</p>
+<p>Include a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist">data list</a> element in the DOM and autocomplete will search the option's values for matches. Here's an example:</p>
 <code-sample>
 <datalist id="fruit">
   <option value="apple"></option>

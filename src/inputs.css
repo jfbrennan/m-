@@ -6,7 +6,9 @@ fieldset {
   border: none;
 }
 
-fieldset + fieldset, fieldset + button {
+fieldset + fieldset,
+fieldset + button[ord],
+fieldset + a[is=button] {
   margin-top: var(--space-md);
 }
 
@@ -33,6 +35,7 @@ fieldset input:not([type=radio]):not([type=checkbox]),
 fieldset select,
 fieldset textarea {
   width: 100%;
+  margin: 0;
   min-height: var(--input-min-height);
   font-size: 16px;
   padding: 6px;
@@ -64,8 +67,11 @@ fieldset select + input,
 fieldset select + textarea,
 fieldset textarea + textarea,
 fieldset textarea + input,
-fieldset textarea + select {
-  margin-top: var(--space-xs);
+fieldset textarea + select,
+fieldset small + input,
+fieldset small + select,
+fieldset small + textarea {
+  margin-top: var(--space-xs) !important;
 }
 
 fieldset input:focus,

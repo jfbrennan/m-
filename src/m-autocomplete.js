@@ -5,7 +5,7 @@ class MdashAutocomplete extends HTMLElement {
     // Closes matching results when user clicks outside of it
     document.body.addEventListener('click', e => {
       if (!this.querySelector('[ref="matches"]').contains(e.currentTarget)) {
-        this.clear();
+        this.clear(true);
       }
     });
 
@@ -18,7 +18,7 @@ class MdashAutocomplete extends HTMLElement {
     const input = document.createElement('input');
     input.setAttribute('ref', 'search');
     input.setAttribute('placeholder', this.getAttribute('placeholder'));
-    input.addEventListener('keyup', e => this.showMatches(e.currentTarget.value));
+    input.addEventListener('keyup', e => this.search(e.currentTarget.value));
     // TODO autocomplete can experience loss of focus during normal use, which create undesired flash of no focus ring :(
 
     const matches = document.createElement('div');
@@ -33,15 +33,30 @@ class MdashAutocomplete extends HTMLElement {
     this.append(input, matches);
   }
 
-  showMatches(query) {
+  search(query) {
     if (query) {
       const source = this.getAttribute('source');
-      MdashAutocomplete.prototype.sources[source](query).then(({query, matches}) => {
-        if (query === this.querySelector('input').value) {
-          this.matches = matches.slice(0, this.max || matches.length);
-          this.renderMatches();
-        }
-      });
+
+      // Try function source...
+      if (MdashAutocomplete.prototype.sources[source]) {
+        MdashAutocomplete.prototype.sources[source](query).then(({query, matches}) => {
+          // Check that original query is still the same first since these are async calls
+          if (query === this.querySelector('input').value) {
+            this.matches = matches.slice(0, this.max || matches.length);
+            this.renderMatches();
+          }
+        });
+      }
+      // Try <datalist> source...
+      else if (document.getElementById(source)) {
+        this.matches = [];
+        document.getElementById(source).querySelectorAll('option').forEach(opt => {
+          if (opt.value.includes(query)) {
+            this.matches.push(opt.value);
+          }
+        });
+        this.renderMatches();
+      }
     }
     else {
       this.clear();
@@ -56,10 +71,12 @@ class MdashAutocomplete extends HTMLElement {
     this.clear();
   }
 
-  clear() {
+  clear(preventFocus) {
     this.matches = null;
     this.renderMatches();
-    this.querySelector('input').focus();
+    if (!preventFocus) {
+      this.querySelector('input').focus();
+    }
   }
 
   renderMatches() {

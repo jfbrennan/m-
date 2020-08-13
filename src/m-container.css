@@ -7,7 +7,7 @@ m-container {
   padding: var(--space-md);
 }
 
-m-container[maxwidth=md] {max-width: var(--breakpoint-lg)}
+m-container[maxwidth=md] {max-width: 924px} /* Plus its margin = 960 which is a very comfortable and common size */
 m-container[maxwidth=sm] {max-width: 375px}
 m-container[maxwidth=none] {max-width: none}
 

@@ -66,16 +66,16 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>m-select</code></td>
+    <td colspan="2"><code>select</code></td>
     <td colspan="2">
       <div class="mar-b-sm">An object with properties:</div>
       <ul type="none">
         <li class="mar-b-sm"><code>index</code> of the Tab</li>
         <li class="mar-b-sm"><code>id</code> of the Tab if present</li>
-        <li class="mar-b-sm"><code>href</code> if the clicked target was a link</li>
+        <li class="mar-b-sm"><code>href</code> if the clicked target was a link, this will be its href</li>
       </ul>
     </td>
-    <td colspan="6">Fired after a Tab was selected. If the tab content is a link note that the click is prevented and you'll need to use the href from detail. This also fires when tab selection is made on initialization.</td>
+    <td colspan="6">Fired after a tab was selected. If the tab's content is a link note that the click will be prevented and you'll need to use <code>e.detail.href</code> to go from there. This also fires when tabs are first initialized.</td>
   </tr>
   </tbody>
 </table>
@@ -90,11 +90,106 @@
   <tbody>
   <tr>
     <td colspan="2"><code>select(index)</code></td>
-    <td colspan="8">Selects the Tab at <code>index</code>. This will trigger the <code>m-select</code> event just as if the user had clicked it.</td>
+    <td colspan="8">Selects the Tab at <code>index</code>. This will trigger the <code>select</code> event just as if the user had clicked it.</td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
+<h3 id="tabpanel">Tab panel</h3>
+<p>The content shown when a tab is selected is completely controlled by the application. This content is referred to as the tab panel. Tab panels can be a single container element that has its content replaced on tab <code>select</code> or one tab panel element for each tab that is hidden/shown on tab <code>select</code> or in cases where the tab is a link there is no tab panel but a new page.</p>
+<p>Here's a few examples to help explain:</p>
+<code-sample readonly="readonly">
+  <template>
+    <m-tabs id="account-tabs">
+      <m-tab id="profile">Profile</m-tab>
+      <m-tab id="payment">Payment</m-tab>
+      <m-tab id="notifications">Notifications</m-tab>
+    </m-tabs>
+    <div id="account-tabpanel">This content changes based on the selected tab.</div>
+
+    <script>
+      const tabPanel =  document.querySelector('#account-tabpanel');
+
+      // An event listener and switch case is good, but innerHTML may not be right for your case
+      document.querySelector('#account-tabs').addEventListener('select', e => {
+        switch (e.detail.id) {
+          case 'profile':
+            tabPanel.innerHTML = 'Some profile content...';
+            break;
+          case 'payment':
+            tabPanel.innerHTML = 'Some payment content...';
+            break;
+          case 'notifications':
+            tabPanel.innerHTML = 'Some notifications content...';
+            break;
+          default:
+            tabPanel.innerHTML = 'Some profile content...';
+        }
+      })
+    </script>
+  </template>
+</code-sample>
+<p>Here's another approach:</p>
+<code-sample readonly="readonly">
+  <template>
+    <m-tabs id="account-tabs">
+      <m-tab id="profile">Profile</m-tab>
+      <m-tab id="payment">Payment</m-tab>
+      <m-tab id="notifications">Notifications</m-tab>
+    </m-tabs>
+    <div id="profile-tabpanel">Some profile content...</div>
+    <div id="payment-tabpanel">Some payment content...</div>
+    <div id="notifications-tabpanel">Some notifications content...</div>
+
+    <script>
+      const profileTabPanel = document.querySelector('#profile-tabpanel');
+      const paymentTabPanel = document.querySelector('#payment-tabpanel');
+      const notificationsTabPanel = document.querySelector('#notifications-tabpanel');
+
+      // The hidden attribute is an easy way to show/hide the active tab panel
+      document.querySelector('#account-tabs').addEventListener('select', e => {
+        profileTabPanel.hidden = true;
+        paymentTabPanel.hidden = true;
+        notificationsTabPanel.hidden = true;
+
+        const activeTabPanel = document.querySelector(`#${e.detail.id}-tabpanel`) || profileTabPanel;
+        activeTabPanel.hidden = false;
+      })
+    </script>
+  </template>
+</code-sample>
+<p>Here's a tab with a link:</p>
+<code-sample readonly="readonly">
+  <template>
+    <m-tabs id="account-tabs">
+      <m-tab id="profile">Profile</m-tab>
+      <m-tab id="payment">Payment</m-tab>
+      <m-tab><a href="/notifications">Notifications</a></m-tab>
+    </m-tabs>
+    <div id="profile-tabpanel">Some profile content...</div>
+    <div id="payment-tabpanel">Some payment content...</div>
+
+    <script>
+      const profileTabPanel = document.querySelector('#profile-tabpanel');
+      const paymentTabPanel = document.querySelector('#payment-tabpanel');
+
+      // If the selected tab was a link, go to it
+      document.querySelector('#account-tabs').addEventListener('select', e => {
+        if (e.detail.href) {
+          window.location.href = e.detail.href;
+        }
+        else {
+          profileTabPanel.hidden = true;
+          paymentTabPanel.hidden = true;
+
+          const activeTabPanel = document.querySelector(`#${e.detail.id}-tabpanel`) || profileTabPanel;
+          activeTabPanel.hidden = false;
+        }
+      })
+    </script>
+  </template>
+</code-sample>
+
 <h3 id="accessibility">Accessibility</h3>
 <p>Most of the ARIA roles and attributes are added and maintained automatically, but you do need to set <code>role="tabpanel"</code> on the element that contains a Tab's corresponding content. You should further associate the tab and tabpanel by setting up these ARIA attributes:</p>
 <code-sample readonly="readonly">
