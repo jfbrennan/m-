@@ -34,7 +34,17 @@ _Pre-reqs:_ [Node](https://nodejs.org) and [Gulp CLI](https://gulpjs.com/docs/en
 You now have M- built watching for changes and the doc site running at [localhost:3000](http://localhost:3000). Run `gulp watch` and start coding!
 
 ### Coding notes
-Custom Element constructors have strict rules about what you can safely do inside them. Please get familiar with [Requirements for custom element constructors and reactions](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance). 
+Custom Element constructors have strict rules about what you can safely do inside them. Please get familiar with [Requirements for custom element constructors and reactions](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance).
+
+### Publish npm package
+
+### Deploy doc site
+1. Zip the contents of `docs` excluding `node_modules`.
+1. Go to AWS > us-east-2 > Elastic Beanstalk > Environments > MDocSite-env
+1. Click 'Upload and deploy' button
+1. Pick the .zip file from step one, accept the default version label, and click 'Deploy'
+1. Monitor the deploy. The site goes down for a couple minutes and should automatically come back up with the new version.
+ 
 ## Other things
 Some IDEs complain about unknown HTML tags. If that's the case, add this list to make it happy:
 `m-accordion, m-alert, m-autocomplete, m-badge, m-box, m-col, m-container, m-details, m-dialog, m-icon, m-loader, m-menu, m-row, m-tab, m-tabs, m-tag`
