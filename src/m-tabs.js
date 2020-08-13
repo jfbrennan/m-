@@ -1,6 +1,9 @@
 customElements.define('m-tabs', class extends HTMLElement {
   constructor() {
     super();
+  }
+
+  connectedCallback() {
     // Get <m-tab> children and select one
     this.tabs = Array.from(this.querySelectorAll('m-tab'));
     const tab = this.tabs.find(tab => tab.hasAttribute('selected'));
@@ -34,4 +37,5 @@ customElements.define('m-tabs', class extends HTMLElement {
       this.dispatchEvent(new CustomEvent('select', {detail: {index, id: tab.id, href}}));
     }
   }
+
 });

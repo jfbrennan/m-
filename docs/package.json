@@ -1,12 +1,12 @@
 {
   "name": "m-docs",
-  "version": "1.0.0-beta.19",
+  "version": "1.0.0-beta.22",
   "private": true,
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0"
   },
   "scripts": {
-    "start": "node main.js"
+    "start": "NODE_ENV=development node main.js"
   }
 }

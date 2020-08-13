@@ -1,14 +1,17 @@
 customElements.define('m-alert', class extends HTMLElement {
   constructor() {
     super();
+  }
 
+  connectedCallback() {
     // One time render stuff
     this.classList.add('pad-all-md', 'flex', 'pos-relative');
     if (this.type === 'warn' || this.type === 'error') this.setAttribute('role', 'alert');
 
     const icon = document.createElement('m-icon');
-    icon.setAttribute('name', this.icon);
     icon.classList.add('txt-lg', 'mar-r-md');
+    const iconName = this.type === 'success' ? 'check' : this.type === 'warn' ? 'exclamation' : this.type === 'error' ? 'ban' : 'question';
+    icon.setAttribute('name', iconName);
 
     const dismissBtn = document.createElement('button');
     dismissBtn.textContent = '×'; // That's the &times; char
@@ -40,13 +43,20 @@ customElements.define('m-alert', class extends HTMLElement {
 
   static get observedAttributes() { return ['type', 'autodismiss', 'dismissible']; }
 
+  // Called once before connectedCallback, which means children may not be present
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case 'type':
-        const icon = this.type === 'success' ? 'check' : this.type === 'warn' ? 'exclamation' : this.type === 'error' ? 'ban' : 'question';
-        this.querySelector('m-icon').setAttribute('name', icon);
+        // TODO If oldVal is null, it's likely this is the first attr change, which we want to ignore.
+        //  If we don't ignore then the first icon of the given content will get overridden since connectedCallback hasn't run yet.
+        if (oldVal) {
+          const iconName = this.type === 'success' ? 'check' : this.type === 'warn' ? 'exclamation' : this.type === 'error' ? 'ban' : 'question';
+          const icon = this.querySelector('m-icon');
+          if (icon) icon.setAttribute('name', iconName);
+        }
       case 'dismissible':
-        this.querySelector('button').hidden = newVal === 'false';
+        const dismissBtn = this.querySelector('button');
+        if (dismissBtn) dismissBtn.hidden = newVal === 'false';
       case 'autodismiss':
         const seconds = newVal ? parseInt(newVal) * 1000 : 4000;
         if (seconds > 0) setTimeout(() => this.dismiss(), seconds);

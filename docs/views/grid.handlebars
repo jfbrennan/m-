@@ -7,12 +7,12 @@
       <m-box>These two columns...</m-box>
     </m-col>
     <m-col>
-      <m-box>auto-span.</m-box>
+      <m-box>will auto-span.</m-box>
     </m-col>
   </m-row>
   <m-row>
     <m-col span="4">
-      <m-box>These two...</m-box>
+      <m-box>These two columns...</m-box>
     </m-col>
     <m-col span="8">
       <m-box>span an explicit number of columns (4 and 8).</m-box>
@@ -84,7 +84,22 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="title">Title</h3>
-<p>Desc.</p>
+<h3 id="nesting">Nesting Grids</h3>
+<p>Grids can be nested inside other grids to create complex responsive layouts. Two, three, or even four Grids deep are normal, but any more than that and your implementation is likely poorly designed.</p>
+<h3 id="simple">Simpler solutions</h3>
+<p>Although Grid is very capable, avoid the temptation to use it to implement all layouts. At times a <a href="/helper-classes">helper class</a> or two are sufficient and no Grid is needed. Compare the three headings below to see how Grid may not always be the right solution:</p>
+<code-sample>
+  <h1 class="txt-center">Centered Heading</h1>
+  <hr>
+  <div class="flex justify-content-center">
+    <h1>Centered Heading</h1>
+  </div>
+  <hr>
+  <m-row center>
+    <m-col>
+      <h1>Centered Heading</h1>
+    </m-col>
+  </m-row>
+</code-sample>
 <h3 id="accessibility">Accessibility</h3>
 <p>There are no accessibility recommendations for Grid.</p>

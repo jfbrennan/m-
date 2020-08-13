@@ -1,10 +1,12 @@
-<div class="txt-center" style="margin: 60px 0"><h1>A modern design system that fully embraces web standards</h1>
-<!--  <p class="txt-lg intro-text mar-b-sm" style="margin-left: auto; margin-right: auto">M- is a modern design system that fully embraces the web.</p>-->
-  <p class="txt-lg intro-text" style="margin: 0 auto 6px">M-'s purpose is to add to HTML, not replace it or try to outsmart it. This makes it great for every project type and skill level.</p>
+<div class="txt-center" style="margin: 60px 0">
+  <h1>A design system that fully embraces the web</h1>
+  <p class="txt-lg intro-text" style="margin: 0 auto 6px">M-'s goal is to add to HTML, not replace it or try to outsmart it.<br>This makes M- ideal for all web projects and skill levels.</p>
 <!--  <p class="txt-lg intro-text" style="margin: 0 auto">It's linkable, standards-based, tiny, responsive, accessible, and compatible with all JavaScript frameworks past,-->
 <!--    present, and future.</p>-->
   <h5 class="benefits">
-    <span>tiny <a href="#performance" class="txt-xs" style="font-family: monospace">6kb</a></span>
+    <span>linkable</span>
+    <m-vbar></m-vbar>
+    <span>tiny <a href="#performance" class="txt-sm" style="font-family: monospace">6kb</a></span>
     <m-vbar></m-vbar>
     <span>
       <m-icon name="screen-smartphone" class="pos-relative" style="left: 3px"></m-icon>
@@ -15,12 +17,11 @@
     <m-vbar></m-vbar>
     <span>WCAG 2.1 accessible</span>
     <m-vbar></m-vbar>
-    <span>standards only for <a href="https://custom-elements-everywhere.com/#angular" target="_blank" rel="noopener">maximum compatibility</a></span>
-<!--    <span>compatible with everything except <a href="https://custom-elements-everywhere.com/#react" target="_blank" rel="noopener">one naughty framework</a></span>-->
+    <span>standards for <a href="https://custom-elements-everywhere.com/#angular" target="_blank" rel="noopener">maximum compatibility</a></span>
   </h5>
 </div>
 <h2 id="quick-start">Quick start</h2>
-<p>This is the internet, so just link to it:</p>
+<p>This is the web, so just link to it and get coding:</p>
 <code-sample readonly="readonly">
   <template>
     <link href="{{prodCdnUrl}}css" rel="stylesheet">
@@ -70,14 +71,14 @@
     `<m-alert type="${alert.type}">${alert.message}</m-alert>`
 
 
-    <!--   Or just raw HTML   -->
+    <!--   Or just plain HTML   -->
     <m-alert type="success">My message</m-alert>
   </template>
 </code-sample>
 <p>Framework compatibility with Custom Elements are being tracked on <a href="https://custom-elements-everywhere.com">Custom Elements Everywhere</a>. Today, all but one is playing nicely with web standards.</p>
 <h2 id="performance">Performance</h2>
-<p>M- was intentionally built small and fast. Its speed comes primarily from leverage, i.e. leveraging native elements and web standards as much as possible in order to minimize size, retain browser optimizations, and eliminate dependencies. Even the latest JavaScript frameworks and virtual DOMs are still abstractions that come with a performance cost over native. In software engineering, nothing is faster than nothing...think about it ;)</p>
-<p>In addition to execution speed, <span class="fnt-bold">page loads</span> are faster with M- because it is drastically smaller compared to other popular choices:</p>
+<p>M- was intentionally built small and fast. Its <span class="fnt-bold">execution speed</span> comes primarily from leverage, i.e. leveraging native elements and web standards as much as possible in order to minimize size, retain browser optimizations, and eliminate dependencies. Even the latest JavaScript frameworks and virtual DOMs are still abstractions that come with a performance cost over native. In software engineering, nothing is faster than nothing...think about it ;)</p>
+<p>In addition to execution speed, <span class="fnt-bold">page loads</span> are faster with M- because it is drastically smaller than other popular choices:</p>
 <table layout="fixed">
   <tr>
     <td colspan="1">
@@ -85,7 +86,7 @@
     </td>
     <td colspan="6">
       <meter min="0" max="244" low="20" optimum="12" high="80" value="6.4"></meter>
-      <small>6.4kb min+gz (4.6 .css, 1.8 .js)</small>
+      <small>6.4kb</small>
     </td>
   </tr>
   <tr>
@@ -94,7 +95,7 @@
     </td>
     <td colspan="6">
       <meter min="0" max="244" low="20" optimum="12" high="80" value="71.4"></meter>
-      <small>71.4kb min+gz (23.6 .css, 24.3 + 7.5 + 16 .js)</small>
+      <small>71.4kb</small>
     </td>
   </tr>
   <tr>
@@ -103,7 +104,7 @@
     </td>
     <td colspan="6">
       <meter min="0" max="244" low="20" optimum="12" high="80" value="79.5"></meter>
-      <small>79.5kb min+gz (26.3 .css, 53.2 .js)</small>
+      <small>79.5kb</small>
     </td>
   </tr>
   <tr>
@@ -112,7 +113,7 @@
     </td>
     <td colspan="6">
       <meter min="0" max="244" low="20" optimum="12" high="80" value="87.8"></meter>
-      <small>87.8kb min+gz (17.2 .css, 30.7 + 1.8 + 38.1 .js)</small>
+      <small>87.8kb</small>
     </td>
   </tr>
   <tr>
@@ -121,7 +122,7 @@
     </td>
     <td colspan="6">
       <meter min="0" max="244" low="20" optimum="12" high="80" value="103.1"></meter>
-      <small>103.1kb min+gz (23.6 .css, 4.9 + 38.3 + 36.3 .js)</small>
+      <small>103.1kb</small>
     </td>
   </tr>
   <tr>
@@ -130,7 +131,7 @@
     </td>
     <td colspan="6">
       <meter min="0" max="244" low="20" optimum="12" high="80" value="134.2"></meter>
-      <small>134.2kb min+gz (4.9 + 38.3 + 91 .js)</small>
+      <small>134.2kb</small>
     </td>
   </tr>
   <tr>
@@ -139,11 +140,11 @@
     </td>
     <td colspan="6">
       <meter min="0" max="244" low="20" optimum="12" high="80" value="244"></meter>
-      <small>244.1kb min+gz (244.1 .js, but not sure if its bundle includes React or not...would add another 40kb!)</small>
+      <small>244.1kb</small>
     </td>
   </tr>
 </table>
-<small><span class="fnt-bold">Note:</span> This comparison includes all stylesheets and scripts plus dependencies (e.g. Material-UI's own js + React + React DOM) necessary to use the library. It does not include any images, fonts or icon files, although
+<small><span class="fnt-bold">Note:</span> These numbers are the min+gzip sizes and include all stylesheets, scripts, and runtime dependencies. It does not include any images, fonts or icon files, although
   <a href="/icons#svg">some icon implementations</a> can impact performance.</small>
 <!--<p>Yes, this is purely a comparison of size and not a precise apples-to-apples comparison. The point is M- adds very little to page load, which is extremely important for mobile users.</p>-->
 <!--<p>Switching to M- makes your payload very small! Or another way of looking at it is you're left with a big surplus budget to use for other things. M- plus your app and its dependencies could all easily fit inside just one of those!</p>-->
@@ -153,9 +154,9 @@
 <p>Production: <code>{{prodCdnUrl}}[css|js]</code></p>
 <h3>npm</h3>
 <code>npm install m-</code>
-<p>Built assets including <a href="/custom-props">custom properties</a> are located in <code>/dist</code>.</p>
+<p>Built assets including <a href="/custom-props">custom properties</a> are located in <code>dist/</code>.</p>
 <h2 id="browsers">Browser support</h2>
-<p>M- works with the last 2 versions of:</p>
+<p>M- works with the latest versions of:</p>
 <ul>
   <li>Chrome</li>
   <li>Chrome for Android</li>
@@ -168,14 +169,13 @@
     a bug if you see something</a>). IE is not supported and is unlikely to work even if you polyfill.</p>
 <h2 id="about">More about M-</h2>
 <h3>Purpose</h3>
-<p>M- is designed to fully leverage web standards. Its purpose is to <span class="fnt-italic">add to</span> HTML, not replace it or try to outsmart it! M- provides all the core UI components a website would need and additional building blocks for creating your own unique components. M- is not an application framework, so depending on the kind of project you're working on you may use M- on its own or you will use your framework of choice to
+<p>M-'s purpose is to give you a complete set of basic UI components for building web apps, but in a way that fully leverages web standards and avoids coupling your view layer to a specific framework. It does this by <span class="fnt-italic">adding to</span> HTML, not replacing it or trying to outsmart it like some frameworks do. The result is the smallest download possible, fastest execution possible, and maximum longevity (standards outlive even the most popular frameworks). M- provides all the core UI components a website would need and additional building blocks for creating your own unique components. M- is not an application framework, so depending on the kind of project you're working on you may use M- on its own or you will use your framework of choice to
   <em>structure and manage your application</em> with HTML and M- supplying the <em>UI components</em>.</p>
-<p>In short, M- is native HTML plus elements you wish HTML had.</p>
 <h3>m- prefix</h3>
 <p>The prefix is required for custom HTML (learn more about that in
   <a href="https://dev.to/jfbrennan/custom-html-tags-4788" target="_blank" rel="noopener">this blog post</a>). The letter "m" is short for markup, as in HT<span class="fnt-bold">M</span>L, and was chosen to serve as a reminder that M- is all about that beautiful declarative markup!</p>
 <h3>Design philosophy</h3>
-<p>M- fully embraces the open web platform. Developing on the web is awesome because:</p>
+<p>M- believes in and is committed to the open web platform. Developing on the web is awesome because:</p>
 <ul>
   <li>it's totally open</li>
   <li>has no barriers to entry</li>
@@ -183,11 +183,9 @@
   <li>available on virtually every OS and device in the world</li>
   <li>has the biggest and most active user base by far!</li>
 </ul>
-<p>M- was designed with all of this in mind. It's why
-  <a href="#installation">CDN install</a> is the first option and not missing or buried as if linking to other resources on the internet is only a last resort! It's why M- components are built with standard tech and not a popular JavaScript library. It's why M- API could be mistaken for native API, e.g. <code>&lt;m-alert type="warn" autodismiss&gt;...&lt;/m-alert&gt;</code>. It's why there is no special syntax or proprietary ideas or dependencies. It's why the project is open source.</p>
-<!--<p>In cases where HTML has gaps they are filled by M- with thoughtful native-like solutions that avoid "doing it all" and instead do enough while allowing you to do more without getting in the way.</p>-->
-<!--<p>If HTML natively had all these custom elements what would their tag names be? What attributes would they have and what would their names and values be? M- aims to offer what HTML natively doesn't, but do it in a way that is imperceptible. If for example you could cover up the m-'s in your markup, could you tell the difference between native HTML elements and custom M- elements.</p>-->
-<p>Too many popular UI libraries have lost sight of what makes web development fun and easy. M- aims to be a modern alternative that restores a lot of the older fun web development experience.</p>
+<p>M- was designed with all that in mind. It's why
+  <a href="#installation">CDN install</a> is the first option and not buried or unavailable as if linking to other resources on the internet is a last resort! It's why M- components are built with standard, approachable tech and not the most popular JavaScript library. It's why there is no special syntax or proprietary ideas and why there's no dependencies. It's why the project is open source.</p>
+<p>The intent of the API's design is to match native HTML where possible, e.g. <code>type="..."</code>, <code>name="..."</code>, <code>disabled</code>, and when there isn't a native example to follow to use familiar patterns, e.g. <code>dismissible="false"</code> was chosen because of how it feels similar to the native <code>draggable="false"</code> attribute and explicit setting of "false" to disable the default. If you could cover up all the <code>m-</code>'s in your markup, the hope is you won't be able to tell the difference between native HTML elements and M-.</p>
 <h3>Easy for everyone</h3>
-<p>The open web platform is accessible to everyone, so a design system for the web shouldn't require advanced knowledge just to get up and running and it shouldn't require a commitment to learn framework idioms and API in order to make full use of it. Frameworks are appropriate for building an application; not reusable UI components. Because M- is "only" HTML, it works for total beginners as well as professional software engineers. So, whether you're building your first website or a large scale application with millions of users, M- will help you to quickly build UI with long-lasting standards-based code.</p>
-
+<p>There's no install, no CLI, and no Webpack pain here because this is the web and the web shouldn't feel like enterprise Java! The web is an open platform accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. M- works for total beginners as well as professional software engineers, so whether you're building your first website or a large scale application with millions of users, M- will help you to quickly build UI with easy-to-use, long-lasting, standards-based code.</p>
+<!--<p>If M- has helped you, please help with M-'s hosting fees: <a href="">Open Collective</a></p>-->

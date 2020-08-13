@@ -1,13 +1,17 @@
 button {cursor: pointer;}
 button:active, button:focus {outline:0;}
 
+button + button,
+button + a[role=button],
+a[role=button] + button {
+  margin-left: var(--space-sm);
+}
 /*
   The ord attr is short for "ordinal" as in "ordinal number word".
   Ordinal number words are the 10+ words used for describing the
   precedence or importance of an item in an ordered list.
 */
-button[ord], a[is=button] {
-  margin: 0;
+button[ord], a[role=button][ord] {
   display: inline-block;
   box-sizing: border-box;
   min-height: var(--input-min-height);
@@ -20,27 +24,21 @@ button[ord], a[is=button] {
   background: none;
 }
 
-button[ord] + button[ord],
-button[ord] + a[is=button],
-a[is=button] + button[ord] {
-  margin-left: var(--space-sm);
-}
-
-a[is=button]:hover {
+a[role=button][ord]:hover {
   text-decoration: none;
 }
 
-button[ord=primary], a[is=button][ord=primary] {
+button[ord=primary], a[role=button][ord=primary] {
   background-color: var(--color-primary-action);
   color: white;
 }
 
-button[ord=secondary], a[is=button][ord=secondary] {
+button[ord=secondary], a[role=button][ord=secondary] {
   border: 2px solid var(--color-primary-action);
   color: var(--color-primary-action);
 }
 
-button[ord=tertiary], a[is=button][ord=tertiary] {
+button[ord=tertiary], a[role=button][ord=tertiary] {
   border: 2px solid var(--color-dark);
   color: var(--color-dark);
 }

@@ -36,7 +36,7 @@
   --color-border: #dedede;
 
   /* Other */
-  --max-content-width: 1536px; /* The 16" MacBook Pro */
+  --max-content-width: 1792px; /* The 16" MacBook Pro */
   --input-min-height: 34px;
 
   /* Spacing (loosely based on Divine Proportions) */

@@ -90,13 +90,16 @@
 .txt-lg { font-size: 24px}
 .txt-xl { font-size: 32px}
 .txt-xxl { font-size: 100px; color: var(--color-darkest)}
+.txt-offwhite { color: var(--color-offwhite)}
+.txt-gray-1 { color: var(--color-gray-1)}
+.txt-gray-2 { color: var(--color-gray-2)}
+.txt-gray-3 { color: var(--color-gray-3)}
+.txt-gray-4 { color: var(--color-gray-4)}
 .txt-gray-5 { color: var(--color-gray-5)}
 .txt-gray-6 { color: var(--color-gray-6)}
 .txt-dark { color: var(--color-dark)}
-.txt-noselect {
-  user-select: none;
-  cursor: default;
-}
+.txt-darker { color: var(--color-darker)}
+.txt-darkest { color: var(--color-darkest)}
 .txt-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -115,11 +118,15 @@
 .flex-grow { flex-grow: 1 }
 .flex-wrap { flex-wrap: wrap }
 .flex-col { flex-direction: column }
-.justify-content-center {justify-content: center}
+.justify-content-center { justify-content: center }
 .justify-content-between { justify-content: space-between }
 .justify-content-evenly { justify-content: space-evenly }
 .justify-content-around { justify-content: space-around }
-.align-items-center {align-items: center}
+.justify-content-end { justify-content: flex-end }
+.align-items-center { align-items: center}
+.align-self-stretch { align-self: stretch }
+.align-self-end { align-self: flex-end }
+
 
 /* Float */
 .left { float: left }
@@ -144,3 +151,9 @@
 .push { margin-left: auto }
 .pull { margin-right: auto }
 .bg-offwhite { background-color: var(--color-offwhite)}
+.overflow-auto { overflow: auto }
+.txt-noselect, /* DEPRECATE */
+.noselect {
+  user-select: none;
+  cursor: default;
+}

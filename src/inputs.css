@@ -29,6 +29,11 @@ fieldset legend {
   font-weight: 500;
 }
 
+fieldset input[type=radio] + label,
+fieldset input[type=checkbox] + label {
+  font-weight: normal;
+}
+
 fieldset input, fieldset textarea {box-sizing: border-box}
 
 fieldset input:not([type=radio]):not([type=checkbox]),
