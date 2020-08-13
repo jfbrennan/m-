@@ -1,5 +1,5 @@
 m-tag {
-  display: inline;
+  display: inline-block;
   border: 1px solid var(--color-gray-1);
   background-color: var(--color-offwhite);
   padding: 3px var(--space-xs);

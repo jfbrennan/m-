@@ -90,13 +90,55 @@
   <tbody>
   <tr>
     <td colspan="2"><code>select(index)</code></td>
-    <td colspan="8">Selects the Tab at <code>index</code>. This will trigger the <code>m-select</code> event just as if the user had clicked it.</td>
+    <td colspan="8">Selects the Tab at <code>index</code>. This will trigger the <code>select</code> event just as if the user had clicked it.</td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
+<h3 id="tabpanel">Tab panel</h3>
+<p>Tabs does not include or enforce anything related to Tabs' content. The content, aka "tab panels", and how they're managed are completely left up to the application. By listening to the <code>select</code> event and using its <code>detail</code> data you can react in any way that makes sense for your use cases. This typically means showing a section of relevant content. Here's a simple example:</p>
+<code-sample readonly="readonly">
+  <template>
+    <m-tabs>
+      <m-tab id="a">A</m-tab>
+      <m-tab id="b">B</m-tab>
+    </m-tabs>
+    <div id="a-panel" class="panel">
+      This content is shown when the "a" Tab is selected.
+    </div>
+    <div id="b-panel" class="panel">
+      This content is shown when the "b" Tab is selected.
+    </div>
+  </template>
+  <script>
+    document.querySelector('m-tabs').addEventListener('select', e => {
+      document.querySelectorAll('.panel').forEach(panel => panel.hidden = panel.id !== e.detail.id); // Hide all except the one with matching id
+    })
+  </script>
+</code-sample>
+<p>Here's the same thing in a Riot app (Vue and other frameworks would be similar):</p>
+<code-sample readonly="readonly">
+  <template>
+    <m-tabs onselect="{selectTab}">
+      <m-tab id="a">A</m-tab>
+      <m-tab id="b">B</m-tab>
+    </m-tabs>
+    <div if="{state.activeTab === 'a'}">
+      This content is shown when the "a" Tab is selected.
+    </div>
+    <div if="{state.activeTab === 'b'}">
+      This content is shown when the "b" Tab is selected.
+    </div>
+  </template>
+  <script>
+    selectTab(e) {
+      this.update({activeTab: e.detail.id});
+    }
+  </script>
+</code-sample>
+
 <h3 id="accessibility">Accessibility</h3>
-<p>Most of the ARIA roles and attributes are added and maintained automatically, but you do need to set <code>role="tabpanel"</code> on the element that contains a Tab's corresponding content. You should further associate the tab and tabpanel by setting up these ARIA attributes:</p>
+<p>Most of the ARIA roles and attributes are set automatically, but you need to add <code>role="tabpanel"</code> on elements that contain a Tab's corresponding content. You should further associate the tab and tabpanel by setting up these ARIA attributes:</p>
 <code-sample readonly="readonly">
 <template>
   <m-tabs>

@@ -10,6 +10,8 @@ customElements.define('m-alert', class extends HTMLElement {
 
     const icon = document.createElement('m-icon');
     icon.classList.add('txt-lg', 'mar-r-md');
+    const iconName = this.type === 'success' ? 'check' : this.type === 'warn' ? 'exclamation' : this.type === 'error' ? 'ban' : 'question';
+    icon.setAttribute('name', iconName);
 
     const dismissBtn = document.createElement('button');
     dismissBtn.textContent = '×'; // That's the &times; char
@@ -45,9 +47,13 @@ customElements.define('m-alert', class extends HTMLElement {
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case 'type':
-        const iconName = this.type === 'success' ? 'check' : this.type === 'warn' ? 'exclamation' : this.type === 'error' ? 'ban' : 'question';
-        const icon = this.querySelector('m-icon');
-        if (icon) icon.setAttribute('name', iconName);
+        // TODO If oldVal is null, it's likely this is the first attr change, which we want to ignore.
+        //  If we don't ignore then the first icon of the given content will get overridden since connectedCallback hasn't run yet.
+        if (oldVal) {
+          const iconName = this.type === 'success' ? 'check' : this.type === 'warn' ? 'exclamation' : this.type === 'error' ? 'ban' : 'question';
+          const icon = this.querySelector('m-icon');
+          if (icon) icon.setAttribute('name', iconName);
+        }
       case 'dismissible':
         const dismissBtn = this.querySelector('button');
         if (dismissBtn) dismissBtn.hidden = newVal === 'false';
