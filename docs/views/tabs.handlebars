@@ -68,7 +68,7 @@
   <tr>
     <td colspan="2"><code>select</code></td>
     <td colspan="2">
-      <div class="mar-b-sm"><code>e.detail</code> is an object with properties:</div>
+      <div class="mar-b-sm">An object with properties:</div>
       <ul type="none">
         <li class="mar-b-sm"><code>index</code> of the Tab</li>
         <li class="mar-b-sm"><code>id</code> of the Tab if present</li>
@@ -109,12 +109,12 @@
     <div id="b-panel" class="panel">
       This content is shown when the "b" Tab is selected.
     </div>
+    <script>
+      document.querySelector('m-tabs').addEventListener('select', e => {
+        document.querySelectorAll('.panel').forEach(panel => panel.hidden = panel.id !== e.detail.id); // Hide all except the one with matching id
+      })
+    </script>
   </template>
-  <script>
-    document.querySelector('m-tabs').addEventListener('select', e => {
-      document.querySelectorAll('.panel').forEach(panel => panel.hidden = panel.id !== e.detail.id); // Hide all except the one with matching id
-    })
-  </script>
 </code-sample>
 <p>Here's the same thing in a Riot app (Vue and other frameworks would be similar):</p>
 <code-sample readonly="readonly">
@@ -129,12 +129,12 @@
     <div if="{state.activeTab === 'b'}">
       This content is shown when the "b" Tab is selected.
     </div>
+      <script>
+        selectTab(e) {
+          this.update({activeTab: e.detail.id});
+        }
+      </script>
   </template>
-  <script>
-    selectTab(e) {
-      this.update({activeTab: e.detail.id});
-    }
-  </script>
 </code-sample>
 
 <h3 id="accessibility">Accessibility</h3>

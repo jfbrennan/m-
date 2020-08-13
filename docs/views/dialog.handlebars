@@ -60,7 +60,7 @@
     <td colspan="2"><code>close</code></td>
     <td colspan="2">None</td>
     <td colspan="6">Fired after the Dialog was closed. Note that the element and its content are preserved in the DOM, so, for example, forms will still have user-entered values. Your app should reset the form if that's what your use case requires.
-    <p>Beware of infinite loops when implementing a close/cancel button. Only call <code>close()</code></p> if the event is not the close event, e.g. <code>if (e.type !== 'close') { myDialog.close() }</code>.</td>
+      <p class="mar-b-none">Beware of infinite loops when implementing a close/cancel button. Only call <code>close()</code> if the event is not the close event, e.g. <code>if (e.type !== 'close') { myDialog.close() }</code>.</p></td>
   </tr>
   </tbody>
 </table>
