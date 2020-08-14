@@ -35,7 +35,7 @@
   </template>
 </code-sample>
 <h2 id="compatibility">Compatible with everything</h2>
-<p>M- can be used anywhere HTML is used - server-side, SPA, static sites, and even some email clients. That also means it works with virtually all JavaScript frameworks past, present, and future. Large organizations especially benefit from M- because it enables all teams to share common UI components without imposing restrictions on tech stacks or architectures.</p>
+<p>M- can be used anywhere HTML is used because it is HTML. This means server-side render, SPA, static sites, and even some email clients all work with M-. It also means M- works with virtually all JavaScript frameworks past, present, and future. Large organizations especially benefit from M- because it enables teams to share common UI components without imposing restrictions on tech stacks or architectures.</p>
 <p>Here's what M- looks like when used with some popular libraries:</p>
 <code-sample readonly="readonly">
   <template>
@@ -76,7 +76,7 @@
 <p>All of these work because M- is based on web standards. Framework compatibility with Custom Elements is being tracked on <a href="https://custom-elements-everywhere.com">custom-elements-everywhere.com</a>. Today, all but
   <a href="https://custom-elements-everywhere.com/#react">one</a> works with these web standards.</p>
 <h2 id="performance">Performance</h2>
-<p>M- was intentionally built small and fast. Its <span class="fnt-bold">execution speed</span> comes primarily from leverage, i.e. leveraging native elements and web standards as much as possible in order to minimize size, retain browser optimizations, and eliminate dependencies. Even the latest JavaScript frameworks and virtual DOMs are still abstractions that come with a performance cost over native. In software engineering, nothing is faster than nothing...think about it ;)</p>
+<p>M- is fast! Its <span class="fnt-bold">execution speed</span> comes primarily from leverage, i.e. leveraging native elements and web standards as much as possible in order to minimize logic, retain browser optimizations, and eliminate dependencies. Even the latest JavaScript frameworks and virtual DOMs are still abstractions that come with a performance cost over native. In software engineering, nothing is faster than nothing...think about it ;)</p>
 <p>In addition to execution speed, <span class="fnt-bold">page loads</span> are faster with M- because it is drastically smaller than other popular choices:</p>
 <table layout="fixed">
   <tr>
@@ -168,23 +168,24 @@
     a bug if you see something</a>). IE is not supported and is unlikely to work even if you polyfill.</p>
 <h2 id="about">More about M-</h2>
 <h3>Purpose</h3>
-<p>M-'s purpose is to give you a complete set of basic UI components for building web apps, but in a way that fully leverages web standards and avoids coupling your view layer to a specific framework. It does this by <span class="fnt-italic">adding to</span> HTML, not replacing it or trying to outsmart it like some frameworks do. The result is the smallest download possible, fastest execution possible, and maximum longevity (standards outlive even the most popular frameworks). M- provides all the core UI components a website would need and additional building blocks for creating your own unique components. M- is not an application framework, so depending on the kind of project you're working on you may use M- on its own or you will use your framework of choice to
-  <em>structure and manage your application</em> with HTML and M- supplying the <em>UI components</em>.</p>
-<h3>m- prefix</h3>
-<p>The prefix is required for custom HTML (learn more about that in
+<p>M-'s purpose is to give you a complete set of basic UI components for building web apps, but in a way that fully leverages web standards and avoids coupling your view layer to a specific framework. It does this by <span class="fnt-italic">embracing</span> HTML, not replacing it or trying to outsmart it like some frameworks do. The result is a uniquely small and fast design system with maximum longevity (standards outlive everything!).</p>
+<p>M- provides all the core UI components a website would need and additional building blocks for creating your own unique components. Depending on the kind of project you're working on, you can use M- on its own or alongside your framework of choice which is responsible for the
+  <em>structure and state of your application</em> with HTML and M- supplying the <em>UI components</em>.</p>
+<h3>The prefix</h3>
+<p>The "m-" prefix is required for custom HTML (learn more about that in
   <a href="https://dev.to/jfbrennan/custom-html-tags-4788" target="_blank" rel="noopener">this blog post</a>). The letter "m" is short for markup, as in HT<span class="fnt-bold">M</span>L, and was chosen to serve as a reminder that M- is all about that beautiful declarative markup!</p>
 <h3>Design philosophy</h3>
 <p>M- believes in and is committed to the open web platform. Developing on the web is awesome because:</p>
 <ul>
-  <li>it's totally open</li>
-  <li>has no barriers to entry</li>
-  <li>easier than other platforms</li>
-  <li>available on virtually every OS and device in the world</li>
-  <li>has the biggest and most active user base by far!</li>
+  <li>It's totally open</li>
+  <li>Has no barriers to entry</li>
+  <li>Easier than other platforms</li>
+  <li>Available on virtually every OS and device in the world!</li>
+  <li>Has the biggest and most active user base by far!</li>
 </ul>
 <p>M- was designed with all that in mind. It's why
-  <a href="#installation">CDN install</a> is the first option and not buried or unavailable as if linking to other resources on the internet is a last resort! It's why M- components are built with standard, approachable tech and not the most popular JavaScript library. It's why there is no special syntax or proprietary ideas and why there's no dependencies. It's why the project is open source.</p>
-<p>The intent of the API's design is to match native HTML where possible, e.g. <code>type="..."</code>, <code>name="..."</code>, <code>disabled</code>, and when there isn't a native example to follow to use familiar patterns, e.g. <code>dismissible="false"</code> was chosen because of how it feels similar to the native <code>draggable="false"</code> attribute and explicit setting of "false" to disable the default. If you could cover up all the <code>m-</code>'s in your markup, the hope is you won't be able to tell the difference between native HTML elements and M-.</p>
+  <a href="#installation">CDN install</a> is the first option and not buried or unavailable as if linking to other resources on the internet is a last resort. It's why M- components are built with standard, approachable tech and not a popular JavaScript library. It's why there is no special syntax or proprietary ideas and why there's no dependencies. It's why the project is open source.</p>
+<p>The intent of the API's design is to be familiar. Where possible, M- matches native HTML, e.g. <code>type=""</code>, <code>name=""</code>, <code>disabled</code>, and when there isn't a native example to follow M- strives to use familiar patterns, e.g. <code>dismissible="false"</code> for Alert was chosen because it feels similar to the native <code>draggable="false"</code> attribute. If you could cover up all the <code>m-</code> prefixes in your markup, the idea is you wouldn't be able to tell the difference between native HTML elements and M-.</p>
 <h3>Easy for everyone</h3>
 <p>There's no install, no CLI, and no Webpack pain here because this is the web and the web shouldn't feel like enterprise Java! The web is an open platform accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. M- works for total beginners as well as professional software engineers, so whether you're building your first website or a large scale application with millions of users, M- will help you to quickly build UI with easy-to-use, long-lasting, standards-based code.</p>
-<!--<p>If M- has helped you, please help with M-'s hosting fees: <a href="">Open Collective</a></p>-->
+<!--<p>If M- has helped you, please help M- with its hosting fees: <a href="">Open Collective</a></p>-->
