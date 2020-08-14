@@ -64,7 +64,7 @@ function versionBump(cb) {
 function commit(cb) {
   // Commit version changes
   const pkg = require('./package');
-  exec(`git pull && git commit -a -m "Released new version: ${pkg.version}" && git push`, function (err, stdout, stderr) {
+  exec(`git pull && git commit -a -m "Released new version: ${pkg.version}" && git push --tags origin master`, function (err, stdout, stderr) {
     cb(err);
   });
 }
