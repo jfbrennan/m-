@@ -37,6 +37,7 @@ You now have M- built watching for changes and the doc site running at [localhos
 Custom Element constructors have strict rules about what you can safely do inside them. Please get familiar with [Requirements for custom element constructors and reactions](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance).
 
 ### Publish npm package
+Just run `gulp release` when a new version is ready to be published. Be sure to set the appropriate semver type (patch, minor, major) in the `npm version` command in the gulpfile beforehand. Don't forget to then deploy the doc site.
 
 ### Deploy doc site
 1. Zip the contents of `docs` excluding `node_modules`.
