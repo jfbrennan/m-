@@ -31,7 +31,7 @@ _Pre-reqs:_ [Node](https://nodejs.org) and [Gulp CLI](https://gulpjs.com/docs/en
 1. `npm install`
 1. `npm start`
 
-You now have M- built watching for changes and the doc site running at [localhost:3000](http://localhost:3000). Run `gulp watch` and start coding!
+You now have M- built watching for changes and the doc site running at [localhost:3000](http://localhost:3000). Start coding!
 
 ### Coding notes
 Custom Element constructors have strict rules about what you can safely do inside them. Please get familiar with [Requirements for custom element constructors and reactions](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance).
