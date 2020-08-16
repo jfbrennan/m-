@@ -357,7 +357,7 @@
 <m-container>
   <p>This is a short bit of info about elephants.</p>
   <m-details>
-    <summary><span is="a">Learn more</span></summary>
+    <summary><span role="link">Learn more</span></summary>
     <p>Details about this thing.</p>
     <p>And more details about this thing.</p>
   </m-details>
@@ -373,7 +373,7 @@
   <div>When clicked, the app removes <code>hidden</code> and updates the label: <button ord="primary"><m-loader loading></m-loader>Saving</button></div>
   <h4>Loader and links</h4>
   <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <code>loading</code> attribute and text based on the state of the process: <a href=""><m-loader loading>Pause</m-loader></a><m-vbar></m-vbar><a href=""><m-loader>Resume</m-loader></a></p>
-  <p>Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
+  <p>This Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
   <div class="txt-center" style="width: 400px">
     <m-loader loading class="block">Downloading...</m-loader>
     <a href="" class="block mar-t-xs txt-xs">Stop</a>
@@ -384,4 +384,28 @@
   <h1><m-loader loading>Inside Heading 1</m-loader></h1>
   <h2><m-loader loading>Inside Heading 2</m-loader></h2>
   <h3><m-loader loading>Inside Heading 3</m-loader></h3>
+</m-container>
+
+<!-- Menu -->
+<h1 id="Menus" class="txt-center txt-xxl">Menu</h1>
+<m-container>
+  <h4>Basic Menu with links</h4>
+  <m-menu>
+    <button slot="trigger" ord="primary">Open menu</button>
+    <div slot="items">
+      <a href="">Link</a>
+      <a href="">Link</a>
+      <a href="">Link</a>
+    </div>
+  </m-menu>
+  <h4>A Menu with a message and links</h4>
+  <m-menu>
+    <button slot="trigger" ord="primary">Open menu</button>
+    <div slot="items">
+      <p>Lorem ipsum dolor sit amet</p>
+      <a href="">Link</a>
+      <a href="">Link</a>
+      <a href="">Link</a>
+    </div>
+  </m-menu>
 </m-container>

@@ -87,10 +87,10 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="submit-button">Submit button</h3>
-<p>M- requires forms to use <code>&lt;button type="submit"&gt;</code> instead of <code>&lt;input type="submit"&gt;</code>. This is more semantic and provides greater control of the button style and content. For example, you couldn't put an Icon or Loader inside a submit input.</p>
+<h3 id="submit-button">Submit button vs. input button</h3>
+<p>M- recommends forms use <code>&lt;button type="submit"&gt;</code> instead of <code>&lt;input type="submit"&gt;</code>. This is more semantic and provides greater control of the button style and content. For example, you can't put an Icon or Loader inside a submit input.</p>
 <h3 id="fieldset">Why &lt;fieldset&gt;?</h3>
-<p>Rather than inventing new tags or using boilerplate divs and classes, M- leverages the native fieldset tag. Although it's historically uncommon to put just one input inside a fieldset, it is perfectly valid markup. Single or multiple input combinations of various types work perfectly well and results in clean and uniform code where each logical group is clearly identifiable:</p>
+<p>Rather than inventing new tags or using boilerplate divs and classes, M- leverages the native fieldset tag. Although it's historically uncommon to put just one input inside a fieldset, it is perfectly valid markup. Single or multiple input combinations of various types work perfectly well and results in the most clean and uniform form code:</p>
 <code-sample>
 <form>
   <fieldset>
@@ -125,7 +125,7 @@
   <fieldset>
     <label>Password</label>
     <input type="password" value="secret">
-    <small>Must include a number or uppercase letter and be at least 8 characters long</small>
+    <small>Must include a number, special character, and be at least 8 characters long</small>
   </fieldset>
   <fieldset>
     <label>Entrée</label>
@@ -139,4 +139,4 @@
   </fieldset>
 </code-sample>
 <h3 id="accessibility">Accessibility</h3>
-<p></p>
+<p>See <a href="/input#accessibility">Input</a>, <a href="/checkbox#accessibility">Checkbox</a>, <a href="/radio#accessibility">Radio</a>, <a href="/select#accessibility">Select</a>, and <a href="/textarea#accessibility">Textarea</a> for their respective accessibility recommendations.</p>

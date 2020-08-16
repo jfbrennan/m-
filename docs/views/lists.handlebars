@@ -95,11 +95,19 @@
 <h3>Lists for lists</h3>
 <p>List elements are meant for content that is a list. It's tempting to overuse these for layout, so take time to think about some better alternatives to list elements that could be used. One common alternative for navigation is this:</p>
 <code-sample>
+  <!-- Better -->
   <nav>
     <a href="">Link</a>
     <a href="">Link</a>
     <a href="">Link</a>
   </nav>
+
+  <!-- Bad habit -->
+  <ul type="none">
+    <li class="inline"><a href="">Link</a></li>
+    <li class="inline"><a href="">Link</a></li>
+    <li class="inline"><a href="">Link</a></li>
+  </ul>
 </code-sample>
 <h3>Accessibility</h3>
-<p></p>
+<p>Use the correct list parent elements for your use case, i.e. <code>ol</code> when the list order is meaningful and <code>ul</code> when it isn't.</p>

@@ -85,19 +85,22 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="nesting">Nesting Grids</h3>
-<p>Grids can be nested inside other grids to create complex responsive layouts. Two, three, or even four Grids deep are normal, but any more than that and your implementation is likely poorly designed.</p>
+<p>Grids can be nested inside other grids to create complex responsive layouts. Two or eve three Grids deep are normal, but any more than that and your implementation is likely poorly designed.</p>
 <h3 id="simple">Simpler solutions</h3>
-<p>Although Grid is very capable, avoid the temptation to use it to implement all layouts. At times a <a href="/helper-classes">helper class</a> or two are sufficient and no Grid is needed. Compare the three headings below to see how Grid may not always be the right solution:</p>
+<p>Although Grid is very capable, avoid the temptation to use it to implement all layouts. At times a <a href="/helper-classes">helper class</a> or two are sufficient and no Grid is needed. Compare the three centered headings below to see how Grid may not always be the right solution:</p>
 <code-sample>
-  <h1 class="txt-center">Centered Heading</h1>
-  <hr>
+  <!-- Very simple -->
+  <h1 class="txt-center">Example 1</h1>
+
+  <!-- Also pretty simple -->
   <div class="flex justify-content-center">
-    <h1>Centered Heading</h1>
+    <h1>Example 2</h1>
   </div>
-  <hr>
+
+  <!-- This is overkill -->
   <m-row center>
     <m-col>
-      <h1>Centered Heading</h1>
+      <h1>Example 3</h1>
     </m-col>
   </m-row>
 </code-sample>

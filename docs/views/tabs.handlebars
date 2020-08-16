@@ -75,7 +75,7 @@
         <li class="mar-b-sm"><code>href</code> if the clicked target was a link, this will be its href</li>
       </ul>
     </td>
-    <td colspan="6">Fired after a tab was selected. If the tab's content is a link note that the click will be prevented and you'll need to use <code>e.detail.href</code> to go from there. This also fires when tabs are first initialized.</td>
+    <td colspan="6">Fired after a tab was selected. If the tab's content is a link the click will be prevented and you'll need to use <code>e.detail.href</code> to navigate. This also fires when Tabs is first initialized.</td>
   </tr>
   </tbody>
 </table>
@@ -96,7 +96,7 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="tabpanel">Tab panel</h3>
-<p>Tabs does not include or enforce anything related to Tabs' content. The content, aka "tab panels", and how they're managed are completely left up to the application. By listening to the <code>select</code> event and using its <code>detail</code> data you can react in any way that makes sense for your use cases. This typically means showing a section of relevant content. Here's a simple example:</p>
+<p>Tabs does not enforce anything related to the toggled content, but its <code>select</code> event is there to help. The content, aka "tab panels", and how they're managed is completely left up to the application. By listening to the <code>select</code> event and using its <code>detail</code> data you can react in any way that makes sense for your use cases. This typically means showing the section of relevant content and hiding others. Here's a simple example:</p>
 <code-sample readonly="readonly">
   <template>
     <m-tabs>
@@ -116,7 +116,7 @@
     </script>
   </template>
 </code-sample>
-<p>Here's the same thing in a Riot app (Vue and other frameworks would be similar):</p>
+<p>Here's the same thing in a Riot app (Vue and other frameworks are similar):</p>
 <code-sample readonly="readonly">
   <template>
     <m-tabs onselect="{selectTab}">
@@ -143,10 +143,13 @@
 <template>
   <m-tabs>
     <m-tab id="a" aria-controls="a-panel">A</m-tab>
-    <m-tab id="b">B</m-tab>
+    <m-tab id="b" aria-controls="b-panel">B</m-tab>
   </m-tabs>
   <div id="a-panel" role="tabpanel" aria-labelledby="a">
     This content is shown when the "a" Tab is selected.
+  </div>
+  <div id="b-panel" role="tabpanel" aria-labelledby="b">
+    This content is shown when the "b" Tab is selected.
   </div>
 </template>
 </code-sample>

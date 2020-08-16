@@ -47,7 +47,7 @@
         <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types" target="_blank" rel="noopener">many more...</a></li>
       </ul>
     </td>
-    <td colspan="6">Sets the expected type of value. Take care to set email, tel, password, and number inputs correctly to ensure optimal user experience.</td>
+    <td colspan="6">Sets the expected type of value. Take care to set email, tel, password, and number inputs based on use case to ensure optimal user experience.</td>
   </tr>
   <tr>
     <td colspan="2"><code>disabled</code></td>
@@ -62,17 +62,17 @@
   <tr>
     <td colspan="2"><code>invalid</code></td>
     <td colspan="2">Boolean attribute</td>
-    <td colspan="6">Highlights input as having an invalid value. When the input is invalid it should have a <a href="/form#small">small element</a> explaining how to correct it. Validation is owned by the application not M-.</td>
+    <td colspan="6">Highlights input as having an invalid value. When the input is invalid it should have a <a href="/form#small">small element</a> explaining how to correct it. Validation is owned by your application not M-.</td>
   </tr>
   <tr>
     <td colspan="2"><code>placeholder</code></td>
     <td colspan="2">String</td>
-    <td colspan="6">Displays the string inside the input. Good for showing expected format or example value.</td>
+    <td colspan="6">Displays a message inside the input. Ideal for showing an expected format or sample value.</td>
   </tr>
   <tr>
     <td colspan="2"><code>autofocus</code></td>
     <td colspan="2">Boolean attribute</td>
-    <td colspan="6">If present, the browser will bring focus to this element on page load. Excellent for log in or search pages or whenever the first user action is to type something.</td>
+    <td colspan="6">If present, the browser will bring focus to this element on page load. Excellent for log in or search pages or whenever the first interaction is likely to type something.</td>
   </tr>
   <tr>
     <td colspan="2"><code>autocomplete</code></td>
@@ -108,6 +108,6 @@
 <small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes" target="_blank" rel="noopener">MDN: Input element - Attributes</a> for the full list.</small>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="right-type">Use the right type</h3>
-<p>It's very important to take the time to understand what values can be entered in an input and to use the right <code>type</code> for those values. If, for example, the input is for a membership number then using <code>type="number"</code> will present an easier to use numbers-only keyboard on most touch devices. These UX optimizations are important to users and virtually free to implement, so take a moment to ensure you're using the right input type.</p>
+<p>It's very important to take the time to understand what values a user can enter in a given input and to use the right <code>type</code> for those values. If, for example, the input is for a membership number then using <code>type="number"</code> will present an easier to use numbers-only keyboard on most touch devices. The same goes for email and phone numbers. These UX optimizations are important to users and are virtually free to implement, so take a moment to ensure you're using the right input type.</p>
 <h3 id="accessibility">Accessibility</h3>
 <p>Labels should use the <code>for</code> attribute to reference the id of its corresponding input. Inputs should use the right type (see above), autofocus, and autocomplete to improve their usability.</p>
