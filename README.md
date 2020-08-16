@@ -3,7 +3,7 @@ M- (pronounced "em dash") is a design system based on web standards. It's possib
 
 M- does not restrict you to a specific framework or library. It uses none of them, but works with all of them - old and new - since it's built with native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements).
 
-Try M- right now by just copy/pasting that CDN snippet below into your page - that's it! Then [visit the doc site](https://m-docs.org) and start using M- as-is or fork it and customize to match your design language!
+Try M- right now by just copy-pasting that CDN snippet below into your page - that's it! Then [visit the doc site](https://m-docs.org) and start using M- as-is or fork it and customize to match your design language!
 
 ## Installation
 ### CDN
