@@ -10,9 +10,11 @@
     #menu { flex: 0 0 140px }
 
     #m-logo {
-      width: 48px;
+      width: 50px;
       margin-left: auto;
       margin-right: auto;
+      border-radius: 50%;
+      border: 1px solid #a8dd1d;
     }
 
     main { flex-grow: 1 }
@@ -51,8 +53,8 @@
 <m-icon id="menu-toggle" name="menu" class="pos-absolute pointer"></m-icon>
 <aside id="menu" class="pad-all-md">
   <div>
-    <img id="m-logo" src="/favicon.png" alt="M- logo" class="block mar-b-sm">
-    <small class="block mar-b-md txt-center txt-gray-6">v{{version}}</small>
+    <img id="m-logo" src="/favicon.png" alt="M- logo" class="block mar-t-md mar-b-xs">
+    <small class="block mar-b-md txt-center txt-gray-6">{{version}}</small>
     <nav>
       <a href="/" class="block mar-b-xs">Home</a>
       <a href="https://github.com/jfbrennan/m-" target="_blank" rel="noopener" class="block mar-b-xs">
