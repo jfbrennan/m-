@@ -44,7 +44,7 @@ Just run `gulp release` when a new version is ready to be published. Be sure to 
 1. Go to AWS > us-east-2 > Elastic Beanstalk > Environments > MDocSite-env
 1. Click 'Upload and deploy' button
 1. Pick the .zip file from step one, accept the default version label, and click 'Deploy'
-1. Monitor the deploy. The site goes down for a couple minutes and should automatically come back up with the new version.
+1. Monitor the deploy. The site goes down for a minute and should automatically come back up with the new version.
  
 ## Other things
 Some IDEs complain about unknown HTML tags. If that's the case, add this list to make it happy:
