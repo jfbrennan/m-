@@ -17,7 +17,7 @@ Try M- right now by just copy-pasting that CDN snippet below into your page - th
 Built assets are located in `/dist`.
 
 ## Browser support
-M- is tested against the last 2 versions of Chrome, Chrome for Android, Safari, iOS Safari, Firefox, and Edge. Other modern browsers that support Custom Elements are likely to work, but are not tested (<a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file
+M- is tested against the lastest versions of Chrome, Chrome for Android, Safari, iOS Safari, Firefox, and Edge. Other modern browsers that support Custom Elements are likely to work, but are not tested (<a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file
     a bug</a> if you see something). IE is not supported and unlikely to work even if you polyfill.
 
 ## Working with this project
