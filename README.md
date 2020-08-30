@@ -48,6 +48,6 @@ Just run `gulp release` when a new version is ready to be published. Be sure to 
  
 ## Other things
 Some IDEs complain about unknown HTML tags. If that's the case, add this list to make it happy:
-`m-accordion, m-alert, m-autocomplete, m-badge, m-box, m-col, m-container, m-details, m-dialog, m-icon, m-loader, m-menu, m-row, m-tab, m-tabs, m-tag`
+`m-accordion, m-alert, m-autocomplete, m-badge, m-box, m-col, m-container, m-details, m-dialog, m-icon, m-loader, m-menu, m-row, m-tab, m-tabs, m-tag, m-vbar`
 
 Riot currently doesn't work with `m-dialog` due to the way it progressively updates the DOM. There's a Riot [issue]() to address this.
