@@ -27,7 +27,7 @@ jobs:
         flags: 'g'
       
     - name: Push to AWS
-      uses: einaregilsson/beanstalk-deploy@v3
+      uses: einaregilsson/beanstalk-deploy@v11
       with:
         aws_access_key: ${{secrets.AWS_ACCESS_KEY}}
         aws_secret_key: ${{secrets.AWS_SECRET_KEY}}
