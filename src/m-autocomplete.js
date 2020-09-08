@@ -1,7 +1,9 @@
 class MdashAutocomplete extends HTMLElement {
   constructor() {
     super();
+  }
 
+  connectedCallback() {
     // Closes matching results when user clicks outside of it
     document.body.addEventListener('click', e => {
       if (!this.querySelector('[ref="matches"]').contains(e.currentTarget)) {
@@ -30,9 +32,9 @@ class MdashAutocomplete extends HTMLElement {
     });
     matches.hidden = !this.matches;
 
-    this.append(input, matches);
+    this.append(input, matches);  
   }
-
+  
   search(query) {
     if (query) {
       const source = this.getAttribute('source');
