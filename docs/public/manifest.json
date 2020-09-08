@@ -3,8 +3,8 @@
   "short_name": "M-",
   "start_url": ".",
   "display": "minimal-ui",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#fff",
+  "theme_color": "#fff",
   "description": "Web standards FTW.",
   "icons": [
     {
