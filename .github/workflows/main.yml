@@ -1,0 +1,15 @@
+# Deploys docs anytime updates are merged to master
+name: DeployDocs
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Zip docs
+      run: zip -r docs.zip ./docs -x ".git/*" ".github/*"
+    - name: Push to AWS
+      run: echo "push to AWS..."
