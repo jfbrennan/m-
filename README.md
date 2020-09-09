@@ -36,6 +36,8 @@ You now have M- built watching for changes and the doc site running at [localhos
 ### Coding notes
 Custom Element constructors have strict rules about what you can safely do inside them. Please get familiar with [Requirements for custom element constructors and reactions](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance).
 
+Some components are custom HTML tags that require no JavaScript. Other components are Custom Elements and for these the styles are also maintained in a separate CSS file.
+
 ### Publish npm package
 Just run `gulp release` when a new version is ready to be published. Be sure to set the appropriate semver type (patch, minor, major) in the `npm version` command in the gulpfile beforehand. Don't forget to then deploy the doc site.
 
@@ -49,5 +51,3 @@ Just run `gulp release` when a new version is ready to be published. Be sure to 
 ## Other things
 Some IDEs complain about unknown HTML tags. If that's the case, add this list to make it happy:
 `m-accordion, m-alert, m-autocomplete, m-badge, m-box, m-col, m-container, m-details, m-dialog, m-icon, m-loader, m-menu, m-row, m-tab, m-tabs, m-tag, m-vbar`
-
-Riot currently doesn't work with `m-dialog` due to the way it progressively updates the DOM. There's a Riot [issue]() to address this.
