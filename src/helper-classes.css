@@ -124,6 +124,7 @@
 .justify-content-around { justify-content: space-around }
 .justify-content-end { justify-content: flex-end }
 .align-items-center { align-items: center}
+.align-items-end { align-items: flex-end }
 .align-self-stretch { align-self: stretch }
 .align-self-end { align-self: flex-end }
 
