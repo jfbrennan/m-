@@ -146,6 +146,7 @@
 
 /* Other */
 .pointer { cursor: pointer; }
+.full-height { height: 100% }
 .full-width { width: 100% }
 .auto-width { width: auto }
 .push { margin-left: auto }
