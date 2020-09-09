@@ -2,16 +2,12 @@
 <html lang="en">
 <head>
   {{> ga}}
-  <title>Demo</title>
+  <title>M-</title>
   <link rel="stylesheet" href="{{localUrl}}css">
   <script defer src="{{localUrl}}js"></script>
+  {{> head-tags}}
 </head>
 <body class="bg-offwhite">
   {{{body}}}
-  <script src="https://unpkg.com/retchful@1.0.0-beta/dist/min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
-  <script>
-    riot.compile(() => riot.mount('*'));
-  </script>
 </body>
 </html>
