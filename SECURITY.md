@@ -8,4 +8,4 @@
 
 ## Reporting a Vulnerability
 
-Simply open an issue and label it with the `sec` label.
+Simply open an issue and label it with the `security` label.
