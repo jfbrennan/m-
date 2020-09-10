@@ -1,4 +1,8 @@
-# M-
+<p align="center">
+  <a href="http://m-docs.org">
+    <img src="" alt="M- logo" width="200" height="165">
+  </a>
+</p>
 M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- the lightest design system available at a tiny *6kb* and extremely fast!
 
 M- can be used with any framework - client-side or server-side - or no framework at all because it's made from native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). SSR, SPA, PWA, static site, email template - whatever your use case is M- works. This is especially useful to organizations where committing to one framework or one architecture is not possible or desirable.
