@@ -3,7 +3,9 @@
     <img src="http://m-docs.org/favicon-192.png" alt="M- logo" width="192">
   </a>
 </p>
-<h2 align="center"></h3>
+<h3 align="center">A design system that fully embraces web standards</h3>
+<p align="center">M-'s goal is to add to HTML, not replace it or try to outsmart it.
+This makes M- ideal for all web projects and skill levels.</p>
 
 M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- the lightest design system available at a tiny *6kb* and extremely fast!
 
