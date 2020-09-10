@@ -21,7 +21,7 @@ Drop this in your app's `<head>` and that's it!
 <link rel="stylesheet" href="https://unpkg.com/m-@1.0.0/dist/min.css">
 <script defer src="https://unpkg.com/m-@1.0.0/dist/min.js"></script>
 ```
-Or install via NPM and bundle and host yourself `npm install m-`. Built assets are located in `/dist`.
+Or install via NPM and bundle and host with your assets: `npm install m-` (built files are located in `/dist`)
 
 ## Browser support
 M- is tested against the lastest versions of Chrome, Chrome for Android, Safari, iOS Safari, Firefox, and Edge. Other modern browsers that support Custom Elements are likely to work, but are not tested (<a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file
