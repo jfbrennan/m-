@@ -6,7 +6,8 @@
 <h3 align="center">A design system that fully embraces web standards</h3>
 <p align="center">M-'s goal is to add to HTML, not replace it or try to outsmart it.
 This makes M- ideal for all web projects and skill levels.</p>
-
+<p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | standards for maximum compatibility</strong></p>
+<hr>
 M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- the lightest design system available at a tiny *6kb* and extremely fast!
 
 M- can be used with any framework - client-side or server-side - or no framework at all because it's made from native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). SSR, SPA, PWA, static site, email template - whatever your use case is M- works. This is especially useful to organizations where committing to one framework or one architecture is not possible or desirable.
