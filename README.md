@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://m-docs.org">
-    <img src="" alt="M- logo" width="200" height="165">
+    <img src="http://m-docs.org/favicon-192.png" alt="M- logo" width="192">
   </a>
 </p>
 M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- the lightest design system available at a tiny *6kb* and extremely fast!
