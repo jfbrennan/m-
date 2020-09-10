@@ -9,19 +9,19 @@ This makes M- ideal for all web projects and skill levels.</p>
 <p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | standards for maximum compatibility</strong></p>
 <hr>
 
-M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- the lightest design system available at a tiny *6kb* and extremely fast!
+M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- [extremely light](http://m-docs.org/#performance) compared to others and extremely fast!
 
-M- can be used with any framework - client-side or server-side - or no framework at all because it's made from native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). SSR, SPA, PWA, static site, email template - whatever your use case is M- works. This is especially useful to organizations where committing to one framework or one architecture is not possible or desirable.
+M- can works with any framework - client-side or server-side - or no framework at all because it's made from native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). SSR, SPA, PWA, static site, email template - whatever type of project you have M- will work. This is especially useful to organizations looking to share a design system, but committing to one JavaScript framework or one architecture is not possible or desirable.
 
 Try M- right now by just linking to the CDN files below and then visit the [doc site](https://m-docs.org) to learn more. If you want to use your own design language, just fork this project and customize the code (it's a really easy codebase to work in).
 
-## Installation
-### CDN
+## Quick start
+Drop these in your app's `<head>` and that's it!
 ```html
 <link rel="stylesheet" href="https://unpkg.com/m-@1.0.0/dist/min.css">
 <script defer src="https://unpkg.com/m-@1.0.0/dist/min.js"></script>
 ```
-### NPM
+Or install via NPM and bundle and host yourself
 `npm install m-`
 
 Built assets are located in `/dist`.
