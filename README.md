@@ -16,7 +16,7 @@ M- can works with any framework - client-side or server-side - or no framework a
 Try M- right now by just linking to the CDN files below and then visit the [doc site](https://m-docs.org) to learn more. If you want to use your own design language, just fork this project and customize the code (it's a really easy codebase to work in).
 
 ## Quick start
-Drop these in your app's `<head>` and that's it!
+Drop this in your app's `<head>` and that's it!
 ```html
 <link rel="stylesheet" href="https://unpkg.com/m-@1.0.0/dist/min.css">
 <script defer src="https://unpkg.com/m-@1.0.0/dist/min.js"></script>
