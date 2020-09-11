@@ -3,9 +3,8 @@
     <img src="http://m-docs.org/m-logo.png" alt="M- logo" width="192">
   </a>
 </p>
-<h3 align="center">A design system that fully embraces web standards</h3>
-<p align="center">M-'s goal is to add to HTML, not replace it or try to outsmart it.
-This makes M- ideal for all web projects and skill levels.</p>
+<h3 align="center">A design system that fully embraces web standards.</h3>
+<p align="center">M-'s goal is to add to HTML, not replace it or try to outsmart it.<br>This makes M- ideal for all web projects and skill levels.</p>
 <p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | standards for maximum compatibility</strong></p>
 <hr>
 
