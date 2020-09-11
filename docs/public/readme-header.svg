@@ -2,7 +2,7 @@
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
-        @import "/jfbrennan/m-/raw/master/src/m-all.css";
+        @import "../../src/m-all.css";
       </style>
 
       <div class="flex">
