@@ -1,6 +1,10 @@
 <div align="left">
-  <img align="center" src="http://m-docs.org/m-logo.png" alt="M- logo" width="192">
-  <img align="center" src="https://img.shields.io/badge/build-passing-brightgreen">
+  <div  align="center">
+    <img src="http://m-docs.org/m-logo.png" alt="M- logo" width="192">
+  </div>
+  <div  align="center">
+    <img src="https://img.shields.io/badge/build-passing-brightgreen">
+  </div>
 </div>
 <div align="right">
   <h3 align="center">A design system that fully embraces web standards.</h3>
