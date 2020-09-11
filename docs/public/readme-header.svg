@@ -2,12 +2,12 @@
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
-        @import url("https://unpkg.com/m-@1.0.0/dist/min.css");
+        @import "../../src/m-all.css";
       </style>
 
       <div class="flex">
         <div>
-          <img src="http://m-docs.org/m-logo.png" alt="M- logo" width="192"/>
+          <img src="./m-logo.png" alt="M- logo" width="192"/>
           <img src="https://img.shields.io/badge/build-passing-brightgreen"/>
         </div>
         <div>
