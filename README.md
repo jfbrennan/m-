@@ -1,8 +1,8 @@
 <div align="left">
-  <div  align="center">
+  <div>
     <img src="http://m-docs.org/m-logo.png" alt="M- logo" width="192">
   </div>
-  <div  align="center">
+  <div>
     <img src="https://img.shields.io/badge/build-passing-brightgreen">
   </div>
 </div>
