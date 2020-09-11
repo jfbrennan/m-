@@ -10,11 +10,25 @@
     #menu { flex: 0 0 140px }
 
     #m-logo {
-      width: 50px;
+      width: 60px;
+      height: 60px;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 6px;
+      background-color: #272822;
       border-radius: 50%;
       border: 2px solid #8dbf29;
+      color: #e9c834;
+      font-family: Monaco, Menlo, monospace;
+      font-weight: bold;
+      font-size: 36px;
+      display: block;
+      position: relative;
+    }
+    #m-logo span {
+      position: absolute;
+      top: 5px;
+      left: 10px;
     }
 
     main { flex-grow: 1 }
@@ -53,7 +67,7 @@
 <m-icon id="menu-toggle" name="menu" class="pos-absolute pointer"></m-icon>
 <aside id="menu" class="pad-all-md">
   <div>
-    <img id="m-logo" src="/favicon.png" alt="M- logo" class="block mar-t-md mar-b-xs">
+    <span id="m-logo" aria-label="M- logo"><span>m-</span></span>
     <small class="block mar-b-md txt-center txt-gray-6">{{version}}</small>
     <nav>
       <a href="/" class="block mar-b-xs">Home</a>
