@@ -1,12 +1,16 @@
-<p align="center">
-  <a href="http://m-docs.org">
-    <img src="http://m-docs.org/favicon-192.png" alt="M- logo" width="192">
-  </a>
-</p>
-<h3 align="center">A design system that fully embraces web standards</h3>
-<p align="center">M-'s goal is to add to HTML, not replace it or try to outsmart it.
-This makes M- ideal for all web projects and skill levels.</p>
-<p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | standards for maximum compatibility</strong></p>
+<div style="display: inline-block">
+  <div>
+    <img src="http://m-docs.org/m-logo.png" alt="M- logo" width="192">
+  </div>
+  <div>
+    <img src="https://img.shields.io/badge/build-passing-brightgreen">
+  </div>
+</div>
+<div style="display: inline-block">
+  <h3 align="center">A design system that fully embraces web standards.</h3>
+  <p align="center">M-'s goal is to add to HTML, not replace it or try to outsmart it.<br>This makes M- ideal for all web projects and skill levels.</p>
+  <p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | standards for maximum compatibility</strong></p>  
+</div>
 <hr>
 
 M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- [extremely light](http://m-docs.org/#performance) compared to others and extremely fast!
@@ -16,7 +20,7 @@ M- can works with any framework - client-side or server-side - or no framework a
 Try M- right now by just linking to the CDN files below and then visit the [doc site](https://m-docs.org) to learn more. If you want to use your own design language, just fork this project and customize the code (it's a really easy codebase to work in).
 
 ## Quick start
-This is the web, so add these links in <head> and you're done!
+This is the web, so just add these links in `<head>` and you're done!
 ```html
 <link rel="stylesheet" href="https://unpkg.com/m-@1.0.0/dist/min.css">
 <script defer src="https://unpkg.com/m-@1.0.0/dist/min.js"></script>
@@ -24,8 +28,16 @@ This is the web, so add these links in <head> and you're done!
 Or install via NPM and bundle and host with your assets: `npm install m-` (built files are located in `/dist`)
 
 ## Browser support
-M- is tested against the lastest versions of Chrome, Chrome for Android, Safari, iOS Safari, Firefox, and Edge. Other modern browsers that support Custom Elements are likely to work, but are not tested (<a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file
-    a bug</a> if you see something). IE is not supported and unlikely to work even if you polyfill.
+M- works with the latest versions of:
+
+- Chrome
+- Chrome for Android
+- Safari
+- iOS Safari
+- Firefox
+- Edge
+
+Other modern browsers that support [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements) are likely to work, but are not tested ([file a bug](https://github.com/jfbrennan/m-/issues) if you see something). IE is not supported and is unlikely to work even if you polyfill.
 
 ## Working with this project
 _Pre-reqs:_ [Node](https://nodejs.org) and [Gulp CLI](https://gulpjs.com/docs/en/getting-started/quick-start)
