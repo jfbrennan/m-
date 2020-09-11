@@ -1,5 +1,11 @@
 m-tabs {display: flex}
 
+m-tabs[scroll] {
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+m-tabs[scroll]::-webkit-scrollbar { display: none }
+
 m-tab {
   font-weight: bold;
   text-align: center;
