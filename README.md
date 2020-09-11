@@ -23,8 +23,16 @@ This is the web, so just add these links in `<head>` and you're done!
 Or install via NPM and bundle and host with your assets: `npm install m-` (built files are located in `/dist`)
 
 ## Browser support
-M- is tested against the lastest versions of Chrome, Chrome for Android, Safari, iOS Safari, Firefox, and Edge. Other modern browsers that support Custom Elements are likely to work, but are not tested (<a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file
-    a bug</a> if you see something). IE is not supported and unlikely to work even if you polyfill.
+M- works with the latest versions of:
+
+- Chrome
+- Chrome for Android
+- Safari
+- iOS Safari
+- Firefox
+- Edge
+
+Other modern browsers that support [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements) are likely to work, but are not tested ([file a bug](https://github.com/jfbrennan/m-/issues) if you see something). IE is not supported and is unlikely to work even if you polyfill.
 
 ## Working with this project
 _Pre-reqs:_ [Node](https://nodejs.org) and [Gulp CLI](https://gulpjs.com/docs/en/getting-started/quick-start)
