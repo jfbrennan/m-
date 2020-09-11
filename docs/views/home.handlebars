@@ -1,18 +1,23 @@
 <div class="txt-center" style="margin: 60px 0">
-  <h1>A design system that fully embraces web standards.</h1>
-<!--  <h1>Because everything else is a pain.</h1>-->
-<!--  <h1>Standards #FTW</h1>-->
-<!--  <h1>React is a scam.</h1>-->
-<!--  <h1>Small design system means a large...</h1>-->
-<!--  <h1>This shouldn't be free!!</h1>-->
-<!--  <h1>The AWS fees are too damn high!</h1>-->
-<!--  <h1>"Nothing is faster than nothing." -Me</h1>-->
-<!--  <h1>Stop reading and start coding.</h1>-->
-<!--  <h1>Seriously! Drop in those CDN links and get to work.</h1>-->
-<!--  <h1>Wow. How many messages are there?</h1>-->
-<!--  <h1>14, including this one.</h1>-->
-<!--  <h1>Will it loop?</h1>-->
-<!--  <h1>No.</h1>-->
+  <div id="messages">
+    <h1>A design system that fully embraces web standards.</h1>
+    <h1 hidden>Because everything else is a pain.</h1>
+    <h1 hidden>Does 👏 not 👏 sah 👏 port 👏 IE.</h1>
+    <h1 hidden>Standards #FTW</h1>
+    <h1 hidden>The cure for coding migraines they don't want you to know about!</h1>
+    <h1 hidden>React is a scam.</h1>
+    <h1 hidden>It's freedom, baby. Yeah!</h1>
+    <h1 hidden>A small design system means a large...</h1>
+    <h1 hidden>"Nothing is faster than nothing." -Me</h1>
+    <h1 hidden>This shouldn't be free!!</h1>
+    <h1 hidden>The AWS fees are too damn high!</h1>
+    <h1 hidden>Stop reading and start coding.</h1>
+    <h1 hidden>Seriously. Drop in those CDN links and get to work.</h1>
+    <h1 hidden>How many messages are there?</h1>
+    <h1 hidden>17, including this one.</h1>
+    <h1 hidden>Does it loop though?</h1>
+    <h1 hidden>No.</h1>
+  </div>
   <p class="txt-lg intro-text" style="margin: 0 auto 6px">M-'s goal is to add to HTML, not replace it or try to outsmart it.<br>This makes M- ideal for all web projects and skill levels.</p>
   <h5 class="benefits">
     <span>linkable</span>
@@ -209,4 +214,25 @@
 <p>The JavaScript community has been convinced of an awful lie:</p>
 <blockquote>Modern web development requires special tools, syntax, compilers, and all sorts of time-wasting pain.</blockquote>
 <p>It's not true! M- bucks the trend and doesn't need to be installed or configured, has no CLI, and doesn't send you down a rabbit hole of pain. This is the web and web development shouldn't be like enterprise Java! The web is an open platform accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started, and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. M- serves true beginners equally as well as it does professional software engineers. So, whether you're building your first website or a large scale application with millions of users, M- helps you quickly build UI with easy-to-use, long-lasting, standards-based code.</p>
+<!--<h2>Contribution & support</h2>-->
 <!--<p>If M- has helped you, please help M- with its hosting fees: <a href="">Open Collective</a></p>-->
+<!--<p>If you want to help, <a href="https://github.com/jfbrennan/m-/issues" rel="noopener">come on over to GitHub</a> and help.</p>-->
+
+<script>
+  // Cycle through the messages at the top of the page
+  const intervalId = setInterval(goToNextMessage, 3500);
+
+  function goToNextMessage() {
+    const currentMessage = document.getElementById('messages').querySelector('h1:not([hidden])');
+    const nextMessage = currentMessage.nextElementSibling;
+
+    // Hide current, show next
+    if (nextMessage) {
+      currentMessage.hidden = true;
+      nextMessage.hidden = false;
+    }
+    else {
+      clearInterval(intervalId);
+    }
+  }
+</script>
