@@ -42,19 +42,38 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="accompany-label">Accompany with a label</h3>
+<h3 id="text">Pair with some text</h3>
 <p>Icons should be used to <span class="fnt-italic">enhance</span> content not replace it. Users can misinterpret icons, so strive to accompany an icon with a label or other relevant content in close proximity.</p>
 <code-sample>
-  <m-icon name="user" aria-labelledby="account-name"></m-icon>
-  <span id="account-name">John Doe</span>
+  <m-menu>
+    <span slot="trigger" role="link"><m-icon name="user"></m-icon> John Doe</span>
+    <div slot="items">
+      <a href="/profile">Profile</a>
+      <a href="/settings">Settings</a>
+      <hr>
+      <a href="/logout">Log out</a>
+    </div>
+  </m-menu>
+</code-sample>
+<p>If an icon is on its own, use the <code>title</code> attribute to explain what it symbolizes (e.g. "Your current location") or its action (e.g. "Reload this page", like your browser's refresh icon). Hover over the user icon for a clue:</p>
+<code-sample>
+  <m-menu>
+    <span slot="trigger" role="link"><m-icon name="user" title="Open user menu"></m-icon></span>
+    <div slot="items">
+      <a href="/profile">Profile</a>
+      <a href="/settings">Settings</a>
+      <hr>
+      <a href="/logout">Log out</a>
+    </div>
+  </m-menu>
 </code-sample>
 <h3 id="svg">Why not SVG?</h3>
-<p>Implementing SVG icons requires a relatively expensive abstraction and because there is no visual or accessibility difference between SVG and font icons, that abstraction would be all cost and no benefit. Font icons require no JavaScript and so they save kilobytes and also have maximum compatibility. You can read more about the differences
+<p>Implementing SVG icons requires a relatively expensive abstraction and because there is no visual or accessibility difference between SVG and glyph icons, that abstraction would be a cost with no benefit. M- icons require no JavaScript and so they save kilobytes and have maximum compatibility. You can read more about the differences between SVG and glyphs
   <a href="https://dev.to/jfbrennan/svg-icons-are-not-settled-science-4hpo" target="_blank" rel="noopener">here</a>.</p>
 <h3 id="accessibility">Accessibility</h3>
-<p>Because icons should be accompanying a label (see above) they should reference that label with <a
+<p>Because icons should be paired with some text (see above) they should reference that text with <a
         href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"><code>aria-labelledby</code></a> attribute. In those cases where there is no label use
-  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute"><code>aria-label</code></a>.</p>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute"><code>aria-label</code></a> and <code>title</code>.</p>
 <h3 id="all-icons">All icons</h3>
 <fieldset>
   <input id="search-icons" type="text" placeholder="Search">

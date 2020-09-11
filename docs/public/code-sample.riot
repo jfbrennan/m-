@@ -19,13 +19,22 @@
             break;
           default:
             // Custom Elements have to be put in a <template> so they don't get rendered out on page load
-            const content = this.editor.getValue().replace(/^[\s\n\r]*<template>[\s\n\r]*|[\s\n\r]*<\/template>[\s\n\r]*$/gm, '');
-            this.editor.session.setValue(html_beautify(content), {
+            let content = this.editor.getValue().replace(/^[\s\n\r]*<template>[\s\n\r]*|[\s\n\r]*<\/template>[\s\n\r]*$/gm, '');
+            content = content.replace(/=""/g, '');
+            content = this.decodeHtml(content);
+            content = html_beautify(content);
+            this.editor.session.setValue(content, {
               indent_size: 2,
               indent_char: ' ',
               indent_with_tabs: !1
             })
         }
+      }
+
+      decodeHtml(html) {
+        const txt = document.createElement('textarea');
+        txt.innerHTML = html;
+        return txt.value;
       }
 
       updatePreview() {

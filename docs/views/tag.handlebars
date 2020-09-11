@@ -2,10 +2,10 @@
 <h2 class="txt-gray-5 mar-t-none">Used for keywords, short labels, or other cases for a unique text</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
-<m-tag>HTML</m-tag>
-<m-tag>CSS</m-tag>
-<m-tag>JavaScript</m-tag>
-<m-tag>HTTP</m-tag>
+<m-tag>non-smoking</m-tag>
+<m-tag>WiFi</m-tag>
+<m-tag>pool</m-tag>
+<m-tag><m-icon name="cup"></m-icon> free breakfast</m-tag>
 </code-sample>
 <h2 id="api">API</h2>
 <h3 id="tag">Tag</h3>
@@ -27,4 +27,8 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="accessibility">Accessibility</h3>
-<p>If a Tag only contains an icon, you should add an <code>aria-label</code>.</p>
+<p>Use <code>aria-label</code> if the Tag only contains an icon:</p>
+<code-sample>
+  <m-tag aria-label="free breakfast"><m-icon name="cup"></m-icon></m-tag>
+</code-sample>
+

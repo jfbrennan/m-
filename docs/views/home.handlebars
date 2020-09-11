@@ -19,14 +19,14 @@
   </h5>
 </div>
 <h2 id="quick-start">Quick start</h2>
-<p>This is the web, so just link to M- and get coding:</p>
+<p>This is the web, so just link to M- and that's it!</p>
 <code-sample readonly="readonly">
   <template>
     <link href="{{prodCdnUrl}}css" rel="stylesheet">
     <script src="{{prodCdnUrl}}js" defer></script>
   </template>
 </code-sample>
-<p>Now try this in your app to test it out (you should see that Alert):</p>
+<p>Try this in your app to test it out (you should see that Alert):</p>
 <code-sample>
   <template>
     <m-alert type="success">
@@ -35,48 +35,53 @@
   </template>
 </code-sample>
 <h2 id="compatibility">Compatible with everything</h2>
-<p>M- can be used anywhere HTML is used because it is HTML. This means server-side render, SPA, static sites, and even some email clients all work with M-. It also means M- works with virtually all JavaScript frameworks past, present, and future. Large organizations especially benefit from M- because it enables teams to share common UI components without imposing restrictions on tech stacks or architectures.</p>
-<p>Here's what M- looks like when used with some popular libraries:</p>
+<p>M- can be used anywhere HTML is used because it is HTML. That means SSR, SPA, PWA, static site, and email templates are compatible as well as virtually* all JavaScript frameworks past, present, and future. That's the power of leveraging web standards!</p>
+<p>Large organizations especially benefit from this because M- can be shared across all projects with no restrictions on tech stack or architecture.</p>
+<p>As an example, here's the M- Alert component being used with many different technologies:</p>
 <code-sample readonly="readonly">
-  <template>
-    <!--   Vue + M-   -->
-    <m-alert v-if="alert" v-bind:type="alert.type">\{{ alert.message }}</m-alert>
+<template>
+  <!--   Vue   -->
+  <m-alert v-if="alert" v-bind:type="alert.type">\{{ alert.message }}</m-alert>
 
 
-    <!--   Riot + M-   -->
-    <m-alert if="{alert}" type="{alert.type}">{alert.message}</m-alert>
+  <!--   Riot   -->
+  <m-alert if="{alert}" type="{alert.type}">{alert.message}</m-alert>
 
 
-    <!--   Svelte + M-   -->
-    {#if alert}
-      <m-alert bind:type="{alert.type}">{alert.message}</m-alert>
-    {/if}
+  <!--   Svelte   -->
+  {#if alert}
+    <m-alert bind:type="{alert.type}">{alert.message}</m-alert>
+  {/if}
 
 
-    <!--   Preact + M-   -->
-    {props.alert &&
-      <m-alert type={props.alert.type}>{props.alert.message}</m-alert>
-    }
+  <!--   Preact   -->
+  {props.alert &&
+    <m-alert type={props.alert.type}>{props.alert.message}</m-alert>
+  }
 
 
-    <!--   Handlebars + M-   -->
-    \{{#if alert}}
-      <m-alert type="\{{alert.type}}">\{{alert.message}}</m-alert>
-    \{{/if}}
+  <!--   Handlebars   -->
+  \{{#if alert}}
+  <m-alert type="\{{alert.type}}">\{{alert.message}}</m-alert>
+  \{{/if}}
 
 
-    <!--   Lit, Hyper, Lighter, or plain ES6 templates + M-   -->
-    `<m-alert type="${alert.type}">${alert.message}</m-alert>`
+  <!--   EJS   -->
+  <m-alert type="<%= alert.type %>"><%= alert.message %></m-alert>
 
 
-    <!--   Or just plain HTML   -->
-    <m-alert type="success">My message</m-alert>
-  </template>
+  <!--   Lit, Hyper, Lighter, JS template literals   -->
+  `<m-alert type="${alert.type}">${alert.message}</m-alert>`
+
+
+  <!--   and plain HTML of course :)   -->
+  <m-alert type="success">My message</m-alert>
+</template>
 </code-sample>
-<p>All of these work because M- is based on web standards. Framework compatibility with Custom Elements is being tracked on <a href="https://custom-elements-everywhere.com">custom-elements-everywhere.com</a>. Today, all but
-  <a href="https://custom-elements-everywhere.com/#react">one</a> works with these web standards.</p>
+<small>*Framework compatibility with Custom Elements is being tracked on <a href="https://custom-elements-everywhere.com">custom-elements-everywhere.com</a>. Today, all but
+  <a href="https://custom-elements-everywhere.com/#react">one</a> works with this standard.</small>
 <h2 id="performance">Performance</h2>
-<p>M- is fast! Its <span class="fnt-bold">execution speed</span> comes primarily from leverage, i.e. leveraging native elements and web standards as much as possible in order to minimize logic, retain browser optimizations, and eliminate dependencies. Even the latest JavaScript frameworks and virtual DOMs are still abstractions that come with a performance cost over native, but in software engineering, nothing is faster than nothing...think about it ;)</p>
+<p>M- is fast! Its <span class="fnt-bold">execution speed</span> comes from leveraging standards as much as possible in order to minimize code, retain browser optimizations, and eliminate dependencies. The latest JavaScript frameworks and virtual DOMs are still relatively expensive abstractions with execution overhead, and when it comes to code, nothing is faster than nothing!</p>
 <p>In addition to execution speed, <span class="fnt-bold">page loads</span> are faster with M- because it is drastically smaller than other popular choices:</p>
 <table layout="fixed">
   <tr>

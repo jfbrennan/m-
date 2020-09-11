@@ -42,6 +42,19 @@
     <th colspan="6">Description</th>
   </tr>
   </thead>
+</table>
+<p>For <span class="fnt-bold">m-tabs</span> only:</p>
+<table layout="fixed">
+  <tbody>
+  <tr>
+    <td colspan="2"><code>scroll</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Makes the tab list horizontally scrollable. In some cases, like flex grow, overflow doesn't happen and so the parent element will need an explicit width (try the <code>full-width</code> helper class) instead.</td>
+  </tr>
+  </tbody>
+</table>
+<p>For <span class="fnt-bold">m-tab</span> only:</p>
+<table layout="fixed">
   <tbody>
   <tr>
     <td colspan="2"><code>selected</code></td>
@@ -138,7 +151,7 @@
 </code-sample>
 
 <h3 id="accessibility">Accessibility</h3>
-<p>Most of the ARIA roles and attributes are added and maintained automatically, but you do need to set <code>role="tabpanel"</code> on the element that contains a Tab's corresponding content. You should further associate the tab and tabpanel by setting up these ARIA attributes:</p>
+<p>Some of the necessary ARIA roles and attributes are added and maintained automatically, but you will need to set <code>role="tabpanel"</code> on the element that contains a Tab's corresponding content. You should further associate the tab and tab panel by setting up these ARIA attributes:</p>
 <code-sample readonly="readonly">
 <template>
   <m-tabs>
