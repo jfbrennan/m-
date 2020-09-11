@@ -2,9 +2,11 @@
   <img src="http://m-docs.org/m-logo.png" alt="M- logo" width="192">
   <img src="https://img.shields.io/badge/build-passing-brightgreen">
 </div>
-<h3 align="center">A design system that fully embraces web standards.</h3>
-<p align="center">M-'s goal is to add to HTML, not replace it or try to outsmart it.<br>This makes M- ideal for all web projects and skill levels.</p>
-<p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | standards for maximum compatibility</strong></p>
+<div align="right">
+  <h3 align="center">A design system that fully embraces web standards.</h3>
+  <p align="center">M-'s goal is to add to HTML, not replace it or try to outsmart it.<br>This makes M- ideal for all web projects and skill levels.</p>
+  <p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | standards for maximum compatibility</strong></p>  
+</div>
 <hr>
 
 M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- [extremely light](http://m-docs.org/#performance) compared to others and extremely fast!
