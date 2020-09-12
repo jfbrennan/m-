@@ -84,6 +84,7 @@
 .txt-lower { text-transform: lowercase }
 .txt-upper { text-transform: uppercase }
 .txt-caps { text-transform: capitalize }
+.txt-space { letter-spacing: 2px }
 .txt-xs { font-size: 13px}
 .txt-sm { font-size: 16px}
 .txt-md { font-size: 18px}
