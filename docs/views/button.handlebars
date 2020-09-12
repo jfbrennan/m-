@@ -51,11 +51,6 @@
     </td>
   </tr>
   <tr>
-    <td colspan="2"><code>disabled</code></td>
-    <td colspan="2">Boolean attribute</td>
-    <td colspan="6">When present will disable the button.</td>
-  </tr>
-  <tr>
     <td colspan="2"><code>type</code></td>
     <td colspan="2">
       <ul type="none">
@@ -64,11 +59,16 @@
       </ul>
     </td>
     <td colspan="6">
-      <p class="mar-t-none">Use "submit" when the button submits a form. Avoid <code>&lt;input type="submit"&gt;</code>. See
+      <p class="mar-t-none">Use submit when the button submits a form. Avoid <code>&lt;input type="submit"&gt;</code>. See
         <a href="/form#submit-button">Submit button</a> for more info</p>
       <p class="mar-b-none">Remove is a custom button type. It's used by other components and is intended for remove use cases (e.g. remove item from cart, close Dialog).
         <a href="#remove">See below</a> for more info.</p>
     </td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>disabled</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">When present will disable the button.</td>
   </tr>
   </tbody>
 </table>
@@ -104,7 +104,7 @@
     <h4 class="mar-t-none mar-b-xs">Your order</h4>
     <div class="flex align-items-center justify-content-between">🌮 Taco, spicy pork <button type="remove"></button></div>
     <div class="flex align-items-center justify-content-between">🌯 Burrito, steak, add guac <button type="remove"></button></div>
-    <div class="flex align-items-center justify-content-between">🥛 Horchata, 2 qty. <button type="remove"></button></div>
+    <div class="flex align-items-center justify-content-between">🥤 Horchata, 2 qty. <button type="remove"></button></div>
     <hr>
     <span class="left txt-xs txt-upper">Total</span>
     <span class="right txt-xs">$18.36</span>
