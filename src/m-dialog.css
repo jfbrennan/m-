@@ -19,7 +19,7 @@ m-dialog > div {
   max-height: 75%;
   max-width: 75%;
 }
-m-dialog > div > m-close { line-height: 0.5 }
+m-dialog > div > button[type=remove] { line-height: 0.5 }
 m-dialog > div > div {
   height: 100%;
   overflow: auto;

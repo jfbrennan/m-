@@ -1,9 +1,9 @@
 button {cursor: pointer;}
 button:active, button:focus {outline:0;}
 
-button + button,
-button + a[role=button],
-a[role=button] + button {
+button[ord] + button[ord],
+button[ord] + a[ord][role=button],
+a[ord][role=button] + button[ord] {
   margin-left: var(--space-sm);
 }
 /*
@@ -53,3 +53,9 @@ button[ord=tertiary][disabled], a[role=button][ord=tertiary][disabled] {
   border: 2px solid var(--color-disabled-fg);
   color: var(--color-disabled-fg);
 }
+
+button[type=remove] {
+  border: none;
+  background: none;
+}
+button[type=remove]::before { content: '×' }
