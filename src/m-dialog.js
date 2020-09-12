@@ -26,10 +26,11 @@ customElements.define('m-dialog', class extends HTMLElement {
     container.setAttribute('role', role);
     container.classList.add('pos-relative', 'pad-all-lg');
 
-    const closeBtn = document.createElement('button');
-    closeBtn.textContent = '×'; // That's the &times; char
+    const closeBtn = document.createElement('m-close');
+    closeBtn.setAttribute('role', 'button');
+    closeBtn.setAttribute('aria-label', 'Close dialog');
     closeBtn.classList.add('pad-all-sm', 'txt-lg', 'pos-absolute', 'pin-t', 'pin-r');
-    closeBtn.addEventListener('click', e => this.close());
+    closeBtn.addEventListener('click', () => this.close());
 
     const content1 = document.createElement('div'); // Yes, both are needed
     const content2 = document.createElement('div');
