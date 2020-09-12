@@ -55,6 +55,7 @@ button[ord=tertiary][disabled], a[role=button][ord=tertiary][disabled] {
 }
 
 button[type=remove] {
+  margin: 0;
   border: none;
   background: none;
 }

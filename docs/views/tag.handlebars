@@ -5,7 +5,7 @@
 <m-tag>non-smoking</m-tag>
 <m-tag>WiFi</m-tag>
 <m-tag>pool</m-tag>
-<m-tag><m-icon name="cup"></m-icon> free breakfast<m-close></m-close></m-tag>
+<m-tag><m-icon name="cup"></m-icon> free breakfast</m-tag>
 </code-sample>
 <h2 id="api">API</h2>
 <h3 id="tag">Tag</h3>
@@ -21,22 +21,22 @@
   <tr>
     <td colspan="2"><code>m-tag</code></td>
     <td colspan="2">Custom tag</td>
-    <td colspan="6">Text, icon, and/or link and the Close button for <a href="#removable">removable tags</a></td>
+    <td colspan="6">Text, icon, and/or link and a remove button for <a href="#removable">removable tags</a></td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="removable">Removable tags</h3>
-<p>Just include a <a href="/close">close</a> button and attach a click handler using your preferred method. Here's a basic example:</p>
+<p>Just include a <a href="/button#remove">remove</a> button and attach a click handler using your preferred method. Here's a basic example:</p>
 <code-sample>
   <script>
     const removeTag = (e, id) => confirm(`Remove tag with id=${id}?`) ? e.currentTarget.parentElement.remove() : null;
   </script>
   <template>
     <h4>Filters</h4>
-    <m-tag>bug<m-close onclick="removeTag(event, 1)"></m-close></m-tag>
-    <m-tag>open<m-close onclick="removeTag(event, 2)"></m-close></m-tag>
-    <m-tag>mine<m-close onclick="removeTag(event, 3)"></m-close></m-tag>
+    <m-tag>bug<button type="remove" onclick="removeTag(event, 1)"></button></m-tag>
+    <m-tag>open<button type="remove" onclick="removeTag(event, 2)"></button></m-tag>
+    <m-tag>assigned to me<button type="remove" onclick="removeTag(event, 3)"></button></m-tag>
   </template>
 </code-sample>
 
