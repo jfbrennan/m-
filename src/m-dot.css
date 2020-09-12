@@ -1,10 +1,24 @@
-m-dot { padding: var(--space-xs) }
+m-dot {
+  display: inline-flex;
+  align-items: center;
+}
+
+m-dot + m-dot {
+  margin-left: var(--space-md);
+}
 
 m-dot::before {
   content: '';
   width: 8px;
   height: 8px;
+  margin: var(--space-xs);
   border-radius: 50%;
-  background-color: var(--color-darkest);
-  display: inline-block;
+  background-color: var(--color-gray-4);
 }
+
+/* Must match Alert icon colors */
+m-dot[type=info]::before {background-color: var(--color-blue-med)}
+m-dot[type=success]::before {background-color: var(--color-green-med)}
+m-dot[type=warn]::before {background-color: var(--color-orange-med)}
+m-dot[type=error]::before {background-color: var(--color-red-med)}
+
