@@ -51,7 +51,7 @@ function build(cb) {
 
 function versionBump(cb) {
   // Bump version in both package.json files, then update version in ./README.md
-  exec('npm version 1.0.0 && (cd docs && npm version 1.0.0)', function (err, stdout, stderr) {
+  exec('npm version minor && (cd docs && npm version minor)', function (err, stdout, stderr) {
     const pkg = require('./package');
     gulp.src('./README.md', {base: './'})
       .pipe(replace(/(https:\/\/unpkg\.com\/m-@)(.*)(\/dist\/.*)/g, (match, p1, p2, p3) => p1 + pkg.version + p3))
