@@ -23,4 +23,4 @@ m-alert[type=error] > m-icon,
   color: var(--color-red-dark);
 }
 
-m-alert > button {border: none; line-height: 0.5; background: none;}
+m-alert > m-close { line-height: 0.5 }
