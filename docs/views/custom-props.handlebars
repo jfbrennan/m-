@@ -1,12 +1,12 @@
 <h1 class="mar-b-xs">Custom Properties</h1>
-<h2 class="txt-gray-5 mar-t-none">Variables used internally by M- and meant for direct use when creating custom styles</h2>
+<h2 class="txt-gray-5 mar-t-none">Design tokens referenced internally and available for custom styles</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
   <style>
     @import "../node_modules/m-/dist/custom-props.css";
     #foo { background-color: var(--color-gray-2) }
   </style>
-  <div id="foo" class="pad-all-lg">I'm styled with a custom property</div>
+  <div id="foo" class="pad-all-lg">My background uses a custom property</div>
 </code-sample>
 <h2 id="api">API</h2>
 <h3 id="colors">Colors</h3>
@@ -115,7 +115,7 @@
   <thead>
   <tr>
     <th colspan="2">Name</th>
-    <th colspan="3">Values</th>
+    <th colspan="3">Value</th>
     <th colspan="3">Description</th>
   </tr>
   </thead>
@@ -126,6 +126,29 @@
     <td colspan="3">Used for developing a visual rhythm between elements. Loosely follows <a
             href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the
       <a href="/helper-classes#space">padding and margin helper classes</a> whenever possible and reserve use of <code>--space-*</code> for other spacing needs like position.</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="space">Element styles</h3>
+<p>All elements use these values for their relevant styles.</p>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="3">Value</th>
+    <th colspan="3">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>--round-[sm|md|full]</code></td>
+    <td colspan="3">2, 4, 50%</td>
+    <td colspan="3">Used for border radiuses.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--width-[xs|sm]</code></td>
+    <td colspan="3">1, 2</td>
+    <td colspan="3">Used for border width.</td>
   </tr>
   </tbody>
 </table>
@@ -140,6 +163,11 @@
   </thead>
   <tbody>
   <tr>
+    <td colspan="2"><code>--font-family</code></td>
+    <td colspan="3">'Helvetica Neue', Arial</td>
+    <td colspan="3">The typefaces in use.</td>
+  </tr>
+  <tr>
     <td colspan="2"><code>--max-content-width</code></td>
     <td colspan="3">1536px</td>
     <td colspan="3">The max width used by <a href="/container">Container</a>. Wrapping your content in a <code>m-container</code> is more likely what you need, but you can use this if necessary.</td>
@@ -152,8 +180,8 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="hard-code">Use these instead of hard coding values!</h3>
-<p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across their stylesheets. A complete maintenance meltdown! Custom properties are a standard CSS feature that helps you avoid this by enabling you to set up a shared single source of truth for the unique values in the design system. Reference them instead of copying and hard coding their values:</p>
+<h3 id="hard-code">Use these instead of hard coded values</h3>
+<p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across all their stylesheets. That's a maintenance meltdown! Custom properties are a standard CSS feature that helps you avoid this by enabling you to set up a shared single source of truth for the unique values in the design system. Reference them instead of copying and hard coding their values. Like this:</p>
 <code-sample mode="css" readonly="readonly">
 /* Do */
 @import "../node_modules/m-/dist/custom-props.css";
@@ -166,7 +194,7 @@
   background-color: #cccccc;
 }
 </code-sample>
-<p>Learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">custom properties aka CSS variables</a> and how to use them.</p>
+<p>Go <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">here</a> to learn more about custom properties and how to use them.</p>
 <h3 id="accessibility">Accessibility</h3>
 <p>The colors and spacing meet accessibility requirements.</p>
 
