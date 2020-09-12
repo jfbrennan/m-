@@ -26,8 +26,8 @@ customElements.define('m-dialog', class extends HTMLElement {
     container.setAttribute('role', role);
     container.classList.add('pos-relative', 'pad-all-lg');
 
-    const closeBtn = document.createElement('m-close');
-    closeBtn.setAttribute('role', 'button');
+    const closeBtn = document.createElement('button');
+    closeBtn.setAttribute('type', 'remove');
     closeBtn.setAttribute('aria-label', 'Close dialog');
     closeBtn.classList.add('pad-all-sm', 'txt-lg', 'pos-absolute', 'pin-t', 'pin-r');
     closeBtn.addEventListener('click', () => this.close());

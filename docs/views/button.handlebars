@@ -5,6 +5,7 @@
   <button ord="primary">Primary</button>
   <button ord="secondary">Secondary</button>
   <button ord="tertiary">Tertiary</button>
+  <button type="remove"></button>
   <a role="button" ord="primary" href="/">Link</a>
 </code-sample>
 <h2>API</h2>
@@ -53,9 +54,18 @@
   </tr>
   <tr>
     <td colspan="2"><code>type</code></td>
-    <td colspan="2">submit</td>
-    <td colspan="6">Set this when the button should submit a form. Avoid <code>&lt;input type="submit"&gt;</code>. See
-      <a href="/form#submit-button">Submit button</a> for more info</td>
+    <td colspan="2">
+      <ul type="none">
+        <li>submit</li>
+        <li>remove</li>
+      </ul>
+    </td>
+    <td colspan="6">
+      <p class="mar-t-none">Use "submit" when the button submits a form. Avoid <code>&lt;input type="submit"&gt;</code>. See
+        <a href="/form#submit-button">Submit button</a> for more info</p>
+      <p class="mar-b-none">Remove is a custom button type. It's used by other components and is intended for remove use cases (e.g. remove item from cart, close Dialog).
+        <a href="#remove">See below</a> for more info.</p>
+    </td>
   </tr>
   </tbody>
 </table>
@@ -72,5 +82,30 @@
 <h2>Guidelines</h2>
 <h3>Button or link?</h3>
 <p>If the action is not navigating the user to a new url, then use a button. If the action navigates to a new url use a regular <a href="/link">link</a>, but if that link needs to look like a button then add the <code>role="button"</code> attribute.</p>
+<h3 id="remove">The remove button</h3>
+<p>Dialog, Alert, and other components use this button type to create a consistent experience. Use it for similar use cases to meet user expectations:</p>
+<m-row>
+  <m-col>
+    <m-alert type="success">Lorem ipsum dolor</m-alert>
+  </m-col>
+  <m-col>
+    <m-tag>lorem <button type="remove"></button></m-tag>
+    <m-tag>ipsum <button type="remove"></button></m-tag>
+    <m-tag>dolor <button type="remove"></button></m-tag>
+  </m-col>
+  <m-col>
+    <m-dialog>Lorem ipsum dolor</m-dialog>
+    <button onclick="document.querySelector('m-dialog').showModal()" ord="primary">Open Dialog</button>
+  </m-col>
+  <m-col class="pad-r-lg">
+    <h4 class="mar-t-none mar-b-xs">Your order</h4>
+    <div class="flex align-items-center justify-content-between">🌮 Taco, spicy pork <button type="remove"></button></div>
+    <div class="flex align-items-center justify-content-between">🌯 Burrito, steak, add guac <button type="remove"></button></div>
+    <div class="flex align-items-center justify-content-between">🥛 Horchata, 2 qty. <button type="remove"></button></div>
+    <hr>
+    <span class="left txt-xs txt-upper">Total</span>
+    <span class="right txt-xs">$18.36</span>
+  </m-col>
+</m-row>
 <h3>Accessibility</h3>
-<p>There are no additional accessibility requirements for Button.</p>
+<p>The remove button should have an <code>aria-label</code> attribute.</p>
