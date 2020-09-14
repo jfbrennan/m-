@@ -10,7 +10,7 @@
 </code-sample>
 <h2 id="api">API</h2>
 <h3 id="colors">Colors</h3>
-<p>All color values are in the <a href="https://stripe.com/blog/accessible-color-systems">perceptually uniform color space</a> to provide visually appealing colors and help achieve WCAG 2.0 contrast guidelines.</p>
+<p>All color values are in the <a href="https://stripe.com/blog/accessible-color-systems">perceptually uniform color space</a> to provide visually appealing colors while still achieving WCAG 2.0 contrast guidelines.</p>
 <table layout="fixed">
   <thead>
   <tr>
@@ -146,9 +146,38 @@
     <td colspan="3">Used for border radiuses.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--width-[xs|sm]</code></td>
+    <td colspan="2"><code>--border-[xs|sm]</code></td>
     <td colspan="3">1, 2</td>
-    <td colspan="3">Used for border width.</td>
+    <td colspan="3">Used for border width. All borders have the same <code>--color-border</code> color and solid style.</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="breakpoints">Breakpoints</h3>
+<p>Although custom properties are unfortunately not usable in media queries, these breakpoint values are useful elsewhere.</p>
+<p>The large breakpoint and above are considered desktop-sized</p>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="3">Value</th>
+    <th colspan="3">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>--breakpoint-sm</code></td>
+    <td colspan="3">576px</td>
+    <td colspan="3">The portrait width of an iPhone X.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--breakpoint-md</code></td>
+    <td colspan="3">768px</td>
+    <td colspan="3">The portrait width of an iPad.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--breakpoint-lg</code></td>
+    <td colspan="3">992px</td>
+    <td colspan="3">The landscape width of an iPad.</td>
   </tr>
   </tbody>
 </table>
