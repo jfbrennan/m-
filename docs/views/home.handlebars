@@ -1,5 +1,9 @@
-<div class="txt-center" style="margin: 60px 0">
-  <div id="messages">
+<div id="home-logo-version" class="hidden txt-center mar-t-lg">
+  <img src="/m-logo.png" alt="M- logo" width="100px">
+  <small class="block mar-t-sm txt-md">{{ version }}</small>
+</div>
+<div id="home-intro" class="txt-center">
+  <div id="home-messages">
     <h1>A design system that fully embraces web standards.</h1>
     <h1 hidden>Because everything else is a pain.</h1>
     <h1 hidden>It's freedom, baby. Yeah!</h1>
@@ -18,7 +22,10 @@
     <h1 hidden>Does it loop though?</h1>
     <h1 hidden>No.</h1>
   </div>
-  <p class="txt-lg intro-text" style="margin: 0 auto 6px">M-'s goal is to add to HTML, not replace it or try to outsmart it.<br>This makes M- ideal for all web projects and skill levels.</p>
+  <div class="push pull mar-b-xs txt-center txt-lg">
+    <div class="mar-b-xs">M-'s goal is to add to HTML, not replace it or try to outsmart it.</div>
+    <div>This makes M- ideal for all web projects and skill levels.</div>
+  </div>
   <h5 class="benefits">
     <span>linkable</span>
     <m-vbar></m-vbar>
@@ -106,7 +113,7 @@
   <a href="https://custom-elements-everywhere.com/#react">one</a> works with this standard.</small>
 <h2 id="performance">Performance</h2>
 <p>M- is fast! Its <span class="fnt-bold">execution speed</span> comes from leveraging standards as much as possible in order to minimize code, retain browser optimizations, and eliminate dependencies. The latest JavaScript frameworks and virtual DOMs are still relatively expensive abstractions with execution overhead, and when it comes to code, nothing is faster than nothing!</p>
-<p>In addition to execution speed, <span class="fnt-bold">page loads</span> are faster with M- because it is drastically smaller:</p>
+<p>In addition to execution speed, <span class="fnt-bold">pages load faster</span> because M- is so much smaller:</p>
 <table layout="fixed">
   <tr>
     <td colspan="1">
@@ -181,7 +188,7 @@
     </td>
   </tr>
 </table>
-<small><span class="fnt-bold">Note:</span> Sizes are min+gzip and include all required stylesheets, scripts, and runtime dependencies.</small>
+<small><span class="fnt-bold">Note:</span> Sizes are min+gzip and include stylesheets, scripts, and runtime dependencies. In other words, this is the overhead before you've started your first line of code.</small>
 <!--<p>Yes, this is purely a comparison of size and not a precise apples-to-apples comparison. The point is M- adds very little to page load, which is extremely important for mobile users.</p>-->
 <!--<p>Switching to M- makes your payload very small! Or another way of looking at it is you're left with a big surplus budget to use for other things. M- plus your app and its dependencies could all easily fit inside just one of those!</p>-->
 <h2 id="installation">Installation</h2>
@@ -236,7 +243,7 @@
   const intervalId = setInterval(goToNextMessage, 3800);
 
   function goToNextMessage() {
-    const currentMessage = document.getElementById('messages').querySelector('h1:not([hidden])');
+    const currentMessage = document.getElementById('home-messages').querySelector('h1:not([hidden])');
     const nextMessage = currentMessage.nextElementSibling;
 
     // Hide current, show next

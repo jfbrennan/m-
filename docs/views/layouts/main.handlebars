@@ -34,16 +34,19 @@
     main { flex-grow: 1 }
 
     #menu-toggle {
-      display: none;
-      right: 12px;
-      top: 12px;
+      right: var(--space-md);
+      top: var(--space-md);
       z-index: 11;
     }
 
     .intro-text { width: 70% }
 
+    #home-intro { margin-top: 60px }
+
     @media only screen and (max-width: 600px) {
       #menu-toggle { display: block }
+      #home-logo-version { display: block }
+      #home-intro { margin-top: 0 }
       #menu { display: none }
       #menu[open] {
         background-color: white;
@@ -54,7 +57,7 @@
         right: 0;
         left: 0;
       }
-      .intro-text { width: 100% }
+      .intro-text { width: 90% }
       .benefits m-vbar { display: none }
       .benefits span {
         display: block;
@@ -64,7 +67,7 @@
   </style>
 </head>
 <body class="flex" style="height: 100%">
-<m-icon id="menu-toggle" name="menu" class="pos-absolute pointer"></m-icon>
+<m-icon id="menu-toggle" name="menu" class="hidden pos-absolute pointer txt-md"></m-icon>
 <aside id="menu" class="pad-all-md">
   <div>
     <span id="m-logo" aria-label="M- logo"><span>m-</span></span>
@@ -73,7 +76,7 @@
       <a href="/" class="block mar-b-xs">Home</a>
       <a href="https://github.com/jfbrennan/m-" target="_blank" rel="noopener" class="block mar-b-xs">
         Repo <img src="github-logo.png" alt="GitHub logo" class="mar-r-xs" style="height: 14px"></a>
-      <a href="/examples" class="block mar-b-xs">Examples page</a>
+      <a href="/examples" class="block mar-b-xs">Examples</a>
       <hr class="mar-t-md mar-b-md">
       <h4 class="mar-t-none mar-b-sm">Layout</h4>
       <a href="/head-tags" class="block mar-b-xs">Head tags</a>
