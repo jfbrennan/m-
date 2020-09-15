@@ -5,7 +5,7 @@
 <template>
   <m-details>
     <summary>Summary</summary>
-    <p>Details about this thing</p>
+    <p>The deets.</p>
   </m-details>
 </template>
 </code-sample>
@@ -46,7 +46,7 @@
   <tr>
     <td colspan="2"><code>open</code></td>
     <td colspan="2">Boolean attribute</td>
-    <td colspan="6">When present the details are shown (everything after summary). When removed details are hidden.</td>
+    <td colspan="6">When present, the details are shown (everything after summary). When removed details are hidden. If you want Details open by default, add this attribute.</td>
   </tr>
   </tbody>
 </table>
@@ -63,7 +63,7 @@
   <tr>
     <td colspan="2"><code>toggle</code></td>
     <td colspan="2">None</td>
-    <td colspan="6">Fires after Details was opened or closed.</td>
+    <td colspan="6">Fires after Details was opened or closed. If `e.currentTarget.open` is true, then it was opened otherwise it was closed.</td>
   </tr>
   </tbody>
 </table>

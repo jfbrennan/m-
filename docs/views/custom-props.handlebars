@@ -209,8 +209,8 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="hard-code">Use these instead of hard coded values</h3>
-<p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across all their stylesheets. That's a maintenance meltdown! Custom properties are a standard CSS feature that helps you avoid this by enabling you to set up a shared single source of truth for the unique values in the design system. Reference them instead of copying and hard coding their values. Like this:</p>
+<h3 id="hard-code">Do not hard code values</h3>
+<p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across all their stylesheets. That's a maintenance meltdown! Custom properties are a standard CSS feature that helps you avoid this by defining reusable values. Reference these custom properties instead of hard coding their values. Like this:</p>
 <code-sample mode="css" readonly="readonly">
 /* Do */
 @import "../node_modules/m-/dist/custom-props.css";
@@ -220,7 +220,7 @@
 
 /* Don't */
 #foo \{
-  background-color: #cccccc;
+  background-color: #dedede;
 }
 </code-sample>
 <p>Go <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">here</a> to learn more about custom properties and how to use them.</p>
