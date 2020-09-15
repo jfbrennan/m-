@@ -110,43 +110,39 @@
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="tabpanel">Tab panel</h3>
 <p>Tabs does not enforce anything related to the toggled content, but its <code>select</code> event is there to help. The content, aka "tab panels", and how they're managed is completely left up to the application. By listening to the <code>select</code> event and using its <code>detail</code> data you can react in any way that makes sense for your use cases. This typically means showing the section of relevant content and hiding others. Here's a simple example:</p>
-<code-sample readonly="readonly">
+<code-sample>
+  <script>
+    // Set hidden on all except the one with matching id
+    const switchPanel = e => document.querySelectorAll('[role=tabpanel]').forEach(panel => panel.hidden = panel.dataset.tab !== e.detail.id);
+  </script>
   <template>
-    <m-tabs>
+    <m-tabs onselect="switchPanel(event)">
       <m-tab id="a">A</m-tab>
       <m-tab id="b">B</m-tab>
     </m-tabs>
-    <div id="a-panel" class="panel">
-      This content is shown when the "a" Tab is selected.
-    </div>
-    <div id="b-panel" class="panel">
-      This content is shown when the "b" Tab is selected.
-    </div>
-    <script>
-      document.querySelector('m-tabs').addEventListener('select', e => {
-        document.querySelectorAll('.panel').forEach(panel => panel.hidden = panel.id !== e.detail.id); // Hide all except the one with matching id
-      })
-    </script>
+    <div data-tab="a" role="tabpanel" hidden>A tab panel</div>
+    <div data-tab="b" role="tabpanel" hidden>B tab panel</div>
   </template>
 </code-sample>
-<p>Here's the same thing in a Riot app (Vue and other frameworks are similar):</p>
+<p>Here's the same thing in a Riot app, for example:</p>
 <code-sample readonly="readonly">
   <template>
-    <m-tabs onselect="{selectTab}">
-      <m-tab id="a">A</m-tab>
-      <m-tab id="b">B</m-tab>
-    </m-tabs>
-    <div if="{state.activeTab === 'a'}">
-      This content is shown when the "a" Tab is selected.
-    </div>
-    <div if="{state.activeTab === 'b'}">
-      This content is shown when the "b" Tab is selected.
-    </div>
+    <my-app>
+      <m-tabs onselect="{switchPanel}">
+        <m-tab id="a">A</m-tab>
+        <m-tab id="b">B</m-tab>
+      </m-tabs>
+      <div if="{state.tab === 'a'}" role="tabpanel">A tab panel</div>
+      <div if="{state.tab === 'b'}" role="tabpanel">B tab panel</div>
+
       <script>
-        selectTab(e) {
-          this.update({activeTab: e.detail.id});
+        export default {
+          switchPanel(e) {
+            this.update({tab: e.detail.id});
+          }
         }
       </script>
+    </my-app>
   </template>
 </code-sample>
 
