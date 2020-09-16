@@ -1,4 +1,0 @@
-m-details {display: block}
-m-details > [ref=content] {display: none}
-m-details[open] > [ref=content] {display: block}
-m-details > summary {cursor: pointer}

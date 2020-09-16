@@ -4,14 +4,14 @@
 <code-sample>
 <template>
   <m-accordion>
-    <m-details>
+    <details>
       <summary>Summary</summary>
       <p>Details about this thing</p>
-    </m-details>
-    <m-details>
+    </details>
+    <details>
       <summary>Summary</summary>
       <p>Details about this thing</p>
-    </m-details>
+    </details>
   </m-accordion>
 </template>
 </code-sample>
@@ -33,18 +33,43 @@
   </tr>
   </tbody>
 </table>
+<h3 id="events">Events</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Detail</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>toggle</code></td>
+    <td colspan="2">None</td>
+    <td colspan="6">This is the event from Details children. See <a href="#Oopen">Opening all or one</a> to learn how to use it.</td>
+  </tr>
+  </tbody>
+</table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="open">Opening all or one</h3>
-<p>Accordion does not control its Details children, your app does. You can allow all details to be open (the default behavior) or only allow one to be open at a time. This is as simple as removing the <code>open</code> attribute from all Details children except the one the user clicked.</p>
-<!--<code-sample mode="javascript" readonly="readonly">-->
-<!--  // Details' "toggle" event handler-->
-<!--  handleToggle(e) {-->
-<!--    document.querySelectorAll('m-accordion > m-details').forEach(d => {-->
-<!--      if (d !== e.currentTarget) {-->
-<!--        d.removeAttribute('open');-->
-<!--      }-->
-<!--    }-->
-<!--  }-->
-<!--</code-sample>-->
+<p>Accordion does not control its Details children, your app does. You can allow all of the Accordion's Details to be open (the default behavior) or only one at a time. This is as simple as removing the <code>open</code> attribute from all Details children except the one the user clicked. Listen to the toggle event and check <code>e.target.open</code> to know if the toggled Details was opened or closed.</p>
+<code-sample>
+  <script>
+    // Accordion delegated "toggle" event handler
+    const handleToggle = e => e.currentTarget.querySelectorAll('details').forEach(details => details.open = details === e.target ? e.target.open : false)
+  </script>
+  <template>
+    <m-accordion ontoggle="handleToggle(event)">
+      <details id="a">
+        <summary>Summary</summary>
+        <p>Details about this thing</p>
+      </details>
+      <details id="b">
+        <summary>Summary</summary>
+        <p>Details about this thing</p>
+      </details>
+    </m-accordion>
+  </template>
+</code-sample>
 <h3 id="accessibility">Accessibility</h3>
 <p>All accessibility recommendations apply to the <a href="/details">Details</a> children.</p>
