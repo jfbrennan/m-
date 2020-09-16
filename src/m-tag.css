@@ -1,5 +1,6 @@
 m-tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   border: 1px solid var(--color-gray-1);
   background-color: var(--color-offwhite);
   padding: 3px var(--space-xs);
@@ -7,3 +8,8 @@ m-tag {
 }
 
 m-tag + m-tag { margin-left: 3px }
+
+m-tag button[type=remove] {
+  padding-right: 0;
+  font-size: var(--font-size-default);
+}
