@@ -3,10 +3,14 @@
 <h2 id="demo">Demo</h2>
 <code-sample>
 <template>
-  <m-details>
-    <summary>Summary</summary>
-    <p>The deets.</p>
-  </m-details>
+  <details>
+    <summary><fieldset><input type="text"></fieldset> text <a href="#">Link</a><button ord="secondary" onclick="alert()">Btn</button><m-badge count="5"></m-badge></summary>
+    <p>The deets M-.</p>
+  </details>
+  <details>
+    <summary>Summary native</summary>
+    <p>The deets native.</p>
+  </details>
 </template>
 </code-sample>
 <p>See more <a href="/examples#Details">examples</a></p>
@@ -22,9 +26,9 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>m-details</code></td>
-    <td colspan="2">Custom Element</td>
-    <td colspan="6"><code>&lt;summary&gt;</code> as first child and any other content</td>
+    <td colspan="2"><code>details</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6"><code>&lt;summary&gt;</code> as first child and any other content after that</td>
   </tr>
   <tr>
     <td colspan="2"><code>summary</code></td>
@@ -63,31 +67,34 @@
   <tr>
     <td colspan="2"><code>toggle</code></td>
     <td colspan="2">None</td>
-    <td colspan="6">Fires after Details was opened or closed. If `e.currentTarget.open` is true, then it was opened otherwise it was closed.</td>
+    <td colspan="6">
+      <p class="mar-t-none">Fires after Details was opened or closed. If <code>e.currentTarget.open</code> is true, then it was opened otherwise it was closed.</p>
+      <p>This event bubbles if its parent element is an <a href="/accordion">Accordion</a>.</p>
+    </td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="title">What about &lt;details&gt;?</h3>
-<p>This element attempts to match the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement" target="_blank" rel="noopener"><code>HTMLDetailsElement</code></a> interface as close as possible so when browser support for <code>&lt;details&gt;</code> is sufficient it will be removed from M- in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>
-<h3 id="necessary">Is the content is necessary?</h3>
+<!--<h3 id="title">What about &lt;details&gt;?</h3>-->
+<!--<p>This element matches the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement" target="_blank" rel="noopener"><code>HTMLDetailsElement</code></a> interface as close as possible so when browser support for <code>&lt;details&gt;</code> is sufficient it will be removed from M- in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>-->
+<h3 id="necessary">Is the content even necessary?</h3>
 <p>Although Details and <a href="/accordion">Accordion</a> are great tools for progressive disclosure, you should consider if the hidden content is necessary or if it could just be removed altogether.</p>
 <h3>Clickable elements inside summary</h3>
-<p>Sometimes <code>&lt;summary&gt;</code> will need to include a button or other interactive element that should not toggle Details. Your event handler needs to use <code>stopPropogation</code> to prevent Details from opening. Here's a simple example:</p>
+<p>Some designs will include a button or other interactive element in <code>&lt;summary&gt;</code> that should not toggle the details. Most elements behave as normal without toggling Details, but some, like in the example below, need an event handler to <code>preventDefault</code> to stop this from happening:</p>
 <code-sample>
   <script>
     // Clicking "Clear history" will not open/close Details
-    const clearHistory = e => e.stopPropagation();
+    const clearHistory = e => e.preventDefault();
   </script>
 
   <template>
-    <m-details>
+    <details>
       <summary>
-        <span role="link">Show report history</span>
-        <span onclick="clearHistory(event)" role="link" class="mar-l-md">Clear history</span>
+        <span role="link"><m-icon name="clock"></m-icon> See report history</span>
+        <span onclick="clearHistory(event)" role="link" class="mar-l-md">Clear</span>
       </summary>
       <p>The report history...</p>
-    </m-details>
+    </details>
   </template>
 </code-sample>
 <h3 id="accessibility">Accessibility</h3>

@@ -1,14 +1,14 @@
 m-accordion { display: block }
 
-m-accordion > m-details { border-top: 3px solid var(--color-gray-2) }
-m-accordion > m-details:last-child { border-bottom: 3px solid var(--color-gray-2) }
+m-accordion > details { border-top: 3px solid var(--color-gray-2) }
+m-accordion > details:last-child { border-bottom: 3px solid var(--color-gray-2) }
 
-m-accordion > m-details > summary {
+m-accordion > details > summary {
   padding: var(--space-sm) 0;
   position: relative;
 }
 
-m-accordion > m-details > summary:after {
+m-accordion > details > summary:after {
   font-family: 'm-icons';
   content: '\e604';
   position: absolute;
@@ -19,7 +19,7 @@ m-accordion > m-details > summary:after {
 
 }
 
-m-accordion > m-details[open] > summary:after {
+m-accordion > details[open] > summary:after {
   transform: rotate(180deg);
   transition: transform 250ms;
 }
