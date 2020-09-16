@@ -146,6 +146,11 @@
 .pin-b {bottom: 0}
 .pin-l {left: 0}
 
+/* Borders */
+/*.brd-radius-sm { border-radius: var(--m-brd-radius-sm) }*/
+/*.brd-radius-md { border-radius: var(--m-brd-radius-md) }*/
+/*.brd-radius-full { border-radius: var(--m-brd-radius-full) }*/
+
 /* Other */
 .pointer { cursor: pointer; }
 .full-height { height: 100% }

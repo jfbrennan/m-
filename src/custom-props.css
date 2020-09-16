@@ -35,6 +35,12 @@
   --color-tertiary-bg: #fafafa;
   --color-border: var(--color-gray-2);
 
+  /* Borders */
+  --m-brd-radius-sm: 2px;
+  --m-brd-radius-md: 4px;
+  --m-brd-radius-full: 50%;
+
+
   /* Other */
   --max-content-width: 1792px; /* The 16" MacBook Pro */
   --input-min-height: 34px;
