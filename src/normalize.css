@@ -9,7 +9,7 @@ body {
 }
 
 code {
-  border-radius: var(--m-brd-radius-sm);
+  border-radius: var(--m-border-radius-sm);
   background-color: var(--color-offwhite);
   color: var(--color-red-dark);
   padding: 1px 3px;

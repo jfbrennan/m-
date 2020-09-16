@@ -17,7 +17,7 @@ button[ord], a[role=button][ord], button[type=remove] {
   display: inline-block;
   box-sizing: border-box;
   border: none;
-  border-radius: var(--m-brd-radius-md);
+  border-radius: var(--m-border-radius-md);
   font-weight: 500;
   cursor: pointer;
   background: none;

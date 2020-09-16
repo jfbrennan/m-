@@ -12,7 +12,7 @@ m-dot::before {
   width: 8px;
   height: 8px;
   margin: var(--space-xs);
-  border-radius: var(--m-brd-radius-full);
+  border-radius: var(--m-border-radius-full);
   background-color: var(--color-gray-4);
 }
 

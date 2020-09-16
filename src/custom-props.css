@@ -36,9 +36,9 @@
   --color-border: var(--color-gray-2);
 
   /* Borders */
-  --m-brd-radius-sm: 2px;
-  --m-brd-radius-md: 4px;
-  --m-brd-radius-full: 50%;
+  --m-border-radius-sm: 2px;
+  --m-border-radius-md: 4px;
+  --m-border-radius-full: 50%;
 
 
   /* Other */
