@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://m-docs.org">
-    <img src="./docs/img/m-logo.png" alt="M- logo" width="192">
+    <img src="http://m-docs.org/m-logo.png" alt="M- logo" width="192">
   </a>
 </p>
 <h3 align="center">A design system that fully embraces web standards.</h3>
