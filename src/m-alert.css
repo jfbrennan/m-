@@ -22,5 +22,3 @@ m-alert[type=error] > m-icon,
 .alert-error {
   color: var(--color-red-dark);
 }
-
-m-alert > button[type=remove] { line-height: 0.5 }

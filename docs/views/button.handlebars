@@ -84,7 +84,8 @@
 </table>
 <h2>Guidelines</h2>
 <h3>Button or link?</h3>
-<p>If the action is not navigating the user to a new url, then use a button. If the action navigates to a new url use a regular <a href="/link">link</a>, but if that link needs to look like a button then add the <code>role="button"</code> attribute.</p>
+<p>If the action navigates to a new url, strive to use regular <a href="/link">links</a>, but if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that for these cases an actual link is used so the user can
+  <kbd>cmd + click</kbd> or copy the link. If the action is not navigating the user to a new url, then use a button.</p>
 <h3 id="remove">The remove button</h3>
 <p>Dialog, Alert, and other components use this button type to create a consistent experience. Use it for similar use cases to meet user expectations:</p>
 <m-row>
@@ -102,9 +103,9 @@
   </m-col>
   <m-col class="pad-r-lg">
     <h4 class="mar-t-none mar-b-xs">Your order</h4>
-    <div class="flex align-items-center justify-content-between">🌮 Taco, spicy pork <button type="remove"></button></div>
-    <div class="flex align-items-center justify-content-between">🌯 Burrito, steak, add guac <button type="remove"></button></div>
-    <div class="flex align-items-center justify-content-between">🥤 Horchata, 2 qty.d <button type="remove"></button></div>
+    <div class="flex align-items-center justify-content-between">🌮 Taco, spicy pork <button type="remove" class="txt-md"></button></div>
+    <div class="flex align-items-center justify-content-between">🌯 Burrito, steak, add guac <button type="remove" class="txt-md"></button></div>
+    <div class="flex align-items-center justify-content-between">🥤 Horchata, 2 qty. <button type="remove" class="txt-md"></button></div>
     <hr>
     <span class="left txt-xs txt-upper">Total</span>
     <span class="right txt-xs">$18.36</span>

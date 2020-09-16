@@ -1,5 +1,5 @@
-button {cursor: pointer;}
-button:active, button:focus {outline:0;}
+button { cursor: pointer }
+button:active, button:focus { outline:0 }
 
 button[ord] + button[ord],
 button[ord] + a[ord][role=button],
@@ -11,22 +11,31 @@ a[ord][role=button] + button[ord] {
   Ordinal number words are the 10+ words used for describing the
   precedence or importance of an item in an ordered list.
 */
-button[ord], a[role=button][ord] {
+button[ord], a[role=button][ord], button[type=remove] {
+  margin: 0;
   display: inline-block;
   box-sizing: border-box;
-  min-height: var(--input-min-height);
   border: none;
   border-radius: 4px;
-  font-size: 16px;
   font-weight: 500;
-  padding: 6px 18px;
   cursor: pointer;
   background: none;
 }
 
-a[role=button][ord]:hover {
-  text-decoration: none;
+button[ord], a[role=button][ord] {
+  font-size: 16px;
+  min-height: var(--input-min-height);
+  padding: 6px 18px;
 }
+
+button[type=remove] { line-height: 0.5 }
+button[type=remove]:active { color: initial }
+button[type=remove]::before {
+  content: '×';
+  display: table;
+}
+
+a[role=button][ord]:hover { text-decoration: none }
 
 button[ord=primary], a[role=button][ord=primary] {
   background-color: var(--color-primary-action);
@@ -53,10 +62,3 @@ button[ord=tertiary][disabled], a[role=button][ord=tertiary][disabled] {
   border: 2px solid var(--color-disabled-fg);
   color: var(--color-disabled-fg);
 }
-
-button[type=remove] {
-  margin: 0;
-  border: none;
-  background: none;
-}
-button[type=remove]::before { content: '×' }

@@ -33,7 +33,7 @@
   --color-primary-bg: white;
   --color-secondary-bg: #F5F3F7;
   --color-tertiary-bg: #fafafa;
-  --color-border: #dedede;
+  --color-border: var(--color-gray-2);
 
   /* Other */
   --max-content-width: 1792px; /* The 16" MacBook Pro */
