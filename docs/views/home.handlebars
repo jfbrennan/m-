@@ -11,11 +11,12 @@
     <h1 hidden>Standards #FTW</h1>
     <h1 hidden>Depressed? Call 1-800-M-DASH</h1>
     <h1 hidden>React is a scam.</h1>
+    <h1 hidden>It's so good people are calling it HTML6.</h1>
+    <h1 hidden>Modern with a little old-school web thrown in.</h1>
     <h1 hidden>Tiny design system means a big...probability of faster pages</h1>
     <h1 hidden>"Nothing is faster than nothing." <span style="white-space: nowrap">-Me</span></h1>
     <h1 hidden>The AWS fees are too damn high!!</h1>
-    <h1 hidden>It's so good people are calling it HTML6.</h1>
-    <h1 hidden>Copy those CDN links and code.</h1>
+    <h1 hidden>But for real tho copy the CDN links and start.</h1>
     <h1 hidden>You should stop reading this.</h1>
     <h1 hidden>How many messages are there?</h1>
     <h1 hidden>17, including this one.</h1>
@@ -43,22 +44,17 @@
     <a href="#compatibility">very compatible</a>
   </h5>
 </div>
-<h2 id="quick-start">Quick start</h2>
-<p>This is the web, so just add these links in <code>&lt;head&gt;</code> and you're done!</p>
-<code-sample readonly="readonly">
-  <template>
-    <link href="{{prodCdnUrl}}css" rel="stylesheet">
-    <script src="{{prodCdnUrl}}js" defer></script>
-  </template>
-</code-sample>
-<p>Now put this bit of HTML in a template and you'll see that green Alert component:</p>
-<code-sample>
-  <template>
-    <m-alert type="success">
-      M- is working! You get a trophy <m-icon name="trophy"></m-icon>
-    </m-alert>
-  </template>
-</code-sample>
+<div class="push pull txt-center mar-t-xl" style="max-width: 545px">
+  <h4 id="quick-start" class="mar-t-none mar-b-xs">Quick start</h4>
+  <p class="mar-t-none mar-b-sm">It's called the web, people. Use it:</p>
+  <code-sample readonly="readonly">
+    <template>
+      <link href="{{prodCdnUrl}}css" rel="stylesheet">
+      <script src="{{prodCdnUrl}}js" defer></script>
+    </template>
+  </code-sample>
+  <div class="txt-xs">or <a href="#installation">npm</a></div>
+</div>
 <hr class="mar-t-xl mar-b-xl">
 <h2 id="tell-me">Summary</h2>
 <p>M- is ready-to-use UI elements for websites (buttons, menus, etc.).</p>
@@ -193,10 +189,10 @@
 <!--<p>Yes, this is purely a comparison of size and not a precise apples-to-apples comparison. The point is M- adds very little to page load, which is extremely important for mobile users.</p>-->
 <!--<p>Switching to M- makes your payload very small! Or another way of looking at it is you're left with a big surplus budget to use for other things. M- plus your app and its dependencies could all easily fit inside just one of those!</p>-->
 <h2 id="installation">Installation</h2>
-<h3>CDN</h3>
+<h3 id="installation-cdn">CDN</h3>
 <p>Development: <code>{{devCdnUrl}}[css|js]</code></p>
 <p>Production: <code>{{prodCdnUrl}}[css|js]</code></p>
-<h3>npm</h3>
+<h3 id="installation-npm">npm</h3>
 <code>npm install m-</code>
 <p>Built assets including <a href="/custom-props">custom properties</a> are located in <code>dist/</code>.</p>
 <h2 id="browsers">Browser support</h2>
@@ -213,9 +209,11 @@
     a bug if you see something</a>). IE is not supported and is unlikely to work even if you polyfill.</p>
 <h2 id="about">More about M-</h2>
 <h3>Purpose</h3>
-<p>To Make [this part of] Web Development Great Again. It's all become too complicated and time-consuming. It feels like enterprise Java. Ew!</p>
-<p>So, within the scope of design systems, M- strives to give you a complete set of compatible-with-everything UI components instantly available from a CDN. No downloads. No CLI. No configuration. No build steps. No virtual transpiling the linter tree-shake compile matrix. It does this by <span class="fnt-italic">embracing</span> HTML (and CSS and JavaScript) and relentlessly leveraging them.</p>
-<p>The result is a uniquely small and fast design system with standards-level longevity.</p>
+<p>To make [the UI part of] Web Development great again.</p>
+<p>It's all become too complicated and time-consuming. The front-end is starting to feel like enterprise Java.</p>
+<img src="/img/ew.gif" alt="Jimmy Fallon's ew!" height="100px">
+<p>So, within the scope of design systems, M- brings the easy back. It gives you a complete set of modern compatible-with-everything UI components instantly available from a CDN. No downloads. No CLI. No configuration. No build steps. No virtual transpiling the linter tree-shake compile matrix. It does this by <span class="fnt-italic">embracing</span> HTML (and CSS and JavaScript) and relentlessly leveraging it. The result is a fun, uniquely small, and fast design system with standards-level longevity.</p>
+<p></p>
 <!--<p>Depending on the kind of project you're working on, you can use M- on its own or alongside your framework of choice. That framework is responsible for the-->
 <!--  <em>structure and state of your application</em> while HTML and M- supply the top layer of <em>UI components</em>.</p>-->
 <h3>The m- prefix</h3>
