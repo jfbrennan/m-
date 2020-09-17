@@ -6,7 +6,7 @@
   <m-dot type="success">Success</m-dot>
   <m-dot type="warn">Warning</m-dot>
   <m-dot type="error">Error</m-dot>
-  <m-dot>Default</m-dot>
+  <m-dot>Unknown</m-dot>
 </code-sample>
 <p>See more <a href="/examples#Dot">examples</a></p>
 <h2 id="api">API</h2>
@@ -63,7 +63,7 @@
   <details>
     <summary>
       <div class="flex">
-        <m-dot type="success" class="mar-r-lg"></m-dot>
+        <m-dot type="success" class="mar-r-md"></m-dot>
         <span class="txt-md fnt-bold">Databases</span>
       </div>
     </summary>
@@ -72,7 +72,7 @@
   <details>
     <summary>
       <div class="flex">
-        <m-dot type="success" class="mar-r-lg"></m-dot>
+        <m-dot type="success" class="mar-r-md"></m-dot>
         <span class="txt-md fnt-bold">API</span>
       </div>
     </summary>
@@ -81,12 +81,24 @@
   <details>
     <summary>
       <div class="flex">
-        <m-dot type="warn" class="mar-r-lg"></m-dot>
+        <m-dot type="warn" class="mar-r-md"></m-dot>
         <span class="txt-md fnt-bold">Notification service</span>
       </div>
     </summary>
     <p>Increase in avgerage response time.</p>
   </details>
 </m-accordion>
+<h3 id="unknown">Unknown type</h3>
+<p>A Dot with an unknown type is useful when a generic dot is needed. Another use case is when your app wants to display a dot, but its type is still being determined. A
+  <a href="/loader">Loader</a> can help communicate in these situations:</p>
+<div>
+  <m-dot>Marcus is offline</m-dot>
+</div>
+<div class="flex align-items-center">
+  <m-dot>Marcus is</m-dot><m-loader loading class="mar-l-xs txt-xs"></m-loader>
+</div>
+<div>
+  <m-dot type="success">Marcus is online</m-dot>
+</div>
 <h3 id="accessibility">Accessibility</h3>
 <p>When there is no text use <code>aria-label</code>, e.g. <code>&lt;m-dot type="success" aria-label="Systems okay"&gt;</code>.</p>

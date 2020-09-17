@@ -6,6 +6,7 @@ button[ord] + a[ord][role=button],
 a[ord][role=button] + button[ord] {
   margin-left: var(--space-sm);
 }
+
 /*
   The ord attr is short for "ordinal" as in "ordinal number word".
   Ordinal number words are the 10+ words used for describing the
@@ -16,16 +17,16 @@ button[ord], a[role=button][ord], button[type=remove] {
   display: inline-block;
   box-sizing: border-box;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--m-border-radius-md);
   font-weight: 500;
   cursor: pointer;
   background: none;
 }
 
 button[ord], a[role=button][ord] {
-  font-size: 16px;
+  font-size: var(--font-size-default);
   min-height: var(--input-min-height);
-  padding: 6px 18px;
+  padding: var(--space-xs) var(--space-md);
 }
 
 button[type=remove] { line-height: 0.5 }
