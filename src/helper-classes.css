@@ -90,6 +90,7 @@
 .txt-md { font-size: 18px}
 .txt-lg { font-size: 24px}
 .txt-xl { font-size: 32px}
+.txt-xxl { font-size: 48px}
 .txt-xxl { font-size: 100px; color: var(--color-darkest)}
 .txt-offwhite { color: var(--color-offwhite)}
 .txt-gray-1 { color: var(--color-gray-1)}
