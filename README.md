@@ -17,8 +17,8 @@ Try M- right now by just linking to the CDN files below and then visit the [doc 
 ## Quick start
 This is the web, so just add these links in `<head>` and you're done!
 ```html
-<link rel="stylesheet" href="https://unpkg.com/m-@1.1.0/dist/min.css">
-<script defer src="https://unpkg.com/m-@1.1.0/dist/min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/m-@1.2.1/dist/min.css">
+<script defer src="https://unpkg.com/m-@1.2.1/dist/min.js"></script>
 ```
 Or install via NPM and bundle and host with your assets: `npm install m-` (built files are located in `/dist`)
 
