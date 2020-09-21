@@ -5,8 +5,9 @@
   <button ord="primary">Primary</button>
   <button ord="secondary">Secondary</button>
   <button ord="tertiary">Tertiary</button>
-  <button type="remove"></button>
+  <button ord="primary" disabled>Disabled</button>
   <a role="button" ord="primary" href="/button">Link</a>
+  <button type="remove"></button>
 </code-sample>
 <h2>API</h2>
 <h3>Tag</h3>
@@ -22,7 +23,7 @@
   <tr>
     <td colspan="2"><code>button</code></td>
     <td colspan="2">Native element</td>
-    <td colspan="6">Any content</td>
+    <td colspan="6">Any content, but none for remove button</td>
   </tr>
   </tbody>
 </table>
@@ -61,14 +62,14 @@
     <td colspan="6">
       <p class="mar-t-none">Use submit when the button submits a form. Avoid <code>&lt;input type="submit"&gt;</code>. See
         <a href="/form#submit-button">Submit button</a> for more info</p>
-      <p class="mar-b-none">Remove is a custom button type. It's used by other components and is intended for remove use cases (e.g. remove item from cart, close Dialog).
+      <p class="mar-b-none">Remove is a custom button type. It's used by other components like Alert and is intended for remove/close use cases (e.g. remove item from cart, close Dialog).
         <a href="#remove">See below</a> for more info.</p>
     </td>
   </tr>
   <tr>
     <td colspan="2"><code>disabled</code></td>
     <td colspan="2">Boolean attribute</td>
-    <td colspan="6">When present will disable the button.</td>
+    <td colspan="6">Disables the button. Link buttons also need <code>tabindex="-1"</code> to prevent activation by keyboard or assistive tech.</td>
   </tr>
   </tbody>
 </table>
@@ -85,9 +86,9 @@
 <h2>Guidelines</h2>
 <h3>Button or link?</h3>
 <p>If the action navigates to a new url, strive to use regular <a href="/link">links</a>, but if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that for these cases an actual link is used so the user can
-  <kbd>cmd + click</kbd> or copy the link. If the action is not navigating the user to a new url, then use a button.</p>
+  <kbd>cmd + click</kbd> or copy the link. If the action does not navigate the user to a new url, then use a regular button.</p>
 <h3 id="remove">The remove button</h3>
-<p>Dialog, Alert, and other components use this button type to create a consistent experience. Use it for similar use cases to meet user expectations:</p>
+<p>Dialog, Alert, and other components use this button type to create a consistent experience. Use it for similar use cases to match user expectations:</p>
 <m-row>
   <m-col>
     <m-alert type="success">Lorem ipsum dolor</m-alert>
@@ -112,4 +113,4 @@
   </m-col>
 </m-row>
 <h3>Accessibility</h3>
-<p>The remove button should have an <code>aria-label</code> attribute.</p>
+<p>The remove button should have an <code>aria-label</code> attribute and disabled buttons should have <code>aria-disabled="true"</code> and disabled link buttons should also have <code>tabindex="-1"</code> to prevent activation by keyboard or assistive tech.</p>

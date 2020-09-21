@@ -33,42 +33,68 @@
   </tr>
   </tbody>
 </table>
-<h3 id="events">Events</h3>
-<table layout="fixed">
-  <thead>
-  <tr>
-    <th colspan="2">Name</th>
-    <th colspan="2">Detail</th>
-    <th colspan="6">Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td colspan="2"><code>toggle</code></td>
-    <td colspan="2">None</td>
-    <td colspan="6">This is the event from Details children. See <a href="#Oopen">Opening all or one</a> to learn how to use it.</td>
-  </tr>
-  </tbody>
-</table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="open">Opening all or one</h3>
-<p>Accordion does not control its Details children, your app does. You can allow all of the Accordion's Details to be open (the default behavior) or only one at a time. This is as simple as removing the <code>open</code> attribute from all Details children except the one the user clicked. Listen to the toggle event and check <code>e.target.open</code> to know if the toggled Details was opened or closed.</p>
-<code-sample>
+<p>Accordion does not control its Details children; your app does. You can allow all of the Accordion's Details to be open at once (the default behavior) or one at a time. Allowing one open at a time is as simple as removing the <code>open</code> attribute from other open Details. Details publishes a
+  <a href="/details#events"><code>toggle</code></a> event you can listen to for this.</p>
+<p>Here's two examples showing programmatic enforcement or a reflection of state:</p>
+<code-sample readonly="readonly">
+  // Programmatic
   <script>
-    // Accordion delegated "toggle" event handler
-    const handleToggle = e => e.currentTarget.querySelectorAll('details').forEach(details => details.open = details === e.target ? e.target.open : false)
+    const handleToggle = e => \{
+      // If this Details was opened, close any open siblings
+      if (e.currentTarget.open) \{
+        e.currentTarget.parentElement.querySelectorAll('details[open]').forEach(details => \{
+          if (details !== e.currentTarget) \{
+            details.open = false;
+          }
+        })
+      }
+    }
   </script>
+
   <template>
-    <m-accordion ontoggle="handleToggle(event)">
-      <details id="a">
+    <m-accordion>
+      <details ontoggle="handleToggle(event)">
         <summary>Summary</summary>
-        <p>Details about this thing</p>
+        <p>Details...</p>
       </details>
-      <details id="b">
+      <details ontoggle="handleToggle(event)">
         <summary>Summary</summary>
-        <p>Details about this thing</p>
+        <p>Details...</p>
       </details>
     </m-accordion>
+  </template>
+</code-sample>
+<br>
+<code-sample readonly="readonly">
+  // State (using Vue)
+  <template>
+    <m-accordion>
+      <details id="a" v-on:toggle="handleToggle" v-bind:open="activeDetails === 'a'">
+        <summary>Summary</summary>
+        <p>Details...</p>
+      </details>
+      <details id="b" v-on:toggle="handleToggle" v-bind:open="activeDetails === 'b'">
+        <summary>Summary</summary>
+        <p>Details...</p>
+      </details>
+    </m-accordion>
+
+    <script>
+      export default {
+        data() {
+          return {
+            activeDetails: null
+          }
+        },
+        methods: {
+          handleToggle(e) {
+            this.activeDetails = e.currentTarget.id
+          }
+        }
+      }
+    </script>
   </template>
 </code-sample>
 <h3 id="accessibility">Accessibility</h3>

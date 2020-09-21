@@ -4,7 +4,11 @@
 <code-sample>
 <template>
   <details>
-    <summary>Summary</summary>
+    <summary>Click the summary</summary>
+    <p>The deets.</p>
+  </details>
+  <details>
+    <summary><span role="link">See more</span></summary>
     <p>The deets.</p>
   </details>
 </template>
@@ -64,7 +68,7 @@
     <td colspan="2"><code>toggle</code></td>
     <td colspan="2">None</td>
     <td colspan="6">
-      <p class="mar-t-none">Fires after Details was opened or closed. If <code>e.currentTarget.open</code> is true, then it was opened otherwise it was closed.</p>
+      <p class="mar-t-none">Fires after Details was opened or closed. If <code>e.currentTarget.open</code> is true, then it was just opened, otherwise it was closed.</p>
     </td>
   </tr>
   </tbody>
@@ -78,7 +82,7 @@
 <p>Some designs will include a button or other interactive element in <code>&lt;summary&gt;</code> that should not toggle the details. Most elements behave as normal without toggling Details, but some, like in the example below, need an event handler to <code>preventDefault</code> to stop this from happening:</p>
 <code-sample>
   <script>
-    // Clicking "Clear history" will not open/close Details
+    // Makes "Clear" link not toggle Details
     const clearHistory = e => e.preventDefault();
   </script>
 
