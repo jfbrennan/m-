@@ -1,10 +1,10 @@
 m-tabs {display: flex}
 
-m-tabs[scroll] {
+m-tabs[scrollable] {
   overflow-x: scroll;
   scrollbar-width: none;
 }
-m-tabs[scroll]::-webkit-scrollbar { display: none }
+m-tabs[scrollable]::-webkit-scrollbar { display: none }
 
 m-tab {
   font-weight: bold;
