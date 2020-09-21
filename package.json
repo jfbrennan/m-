@@ -28,7 +28,9 @@
     "customelements"
   ],
   "browserslist": [
-    "last 2 versions"
+    "last 2 version",
+    "> 1%",
+    "not dead"
   ],
   "devDependencies": {
     "autoprefixer": "^9.7.3",
