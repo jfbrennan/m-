@@ -1,0 +1,399 @@
+<m-container>
+  <h1>Comparisons</h1>
+  <p>Compare <a href="#bootstrap">Bootstrap</a>, <a href="#foundation">Foundation</a>, <a href="#semantic">Semantic
+    UI</a>, and <a href="#material-web">Material Web</a> markup to M-</p>
+  <m-row>
+    <m-col>
+      <h2 id="bootstrap">Bootstrap<span class="mar-l-md txt-sm txt-gray-4">72kb<m-vbar></m-vbar>jQuery + Popper</span></h2>
+      <code-sample readonly="readonly">
+        <template>
+          // Container
+          <div class="container-md"></div>
+
+          // Grid
+          <div class="row">
+            <div class="col-6 col-md-3"></div>
+            <div class="col-6 col-md-9"></div>
+          </div>
+
+          // Accordion
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Collapsible</button>
+              </div>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">body</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Collapsible</button>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">Body</div>
+              </div>
+            </div>
+          </div>
+
+          // Alert
+          <div class="alert alert-warning alert-dismissible" role="alert">
+            <p>A dismissible warning alert.</p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+          </div>
+
+          // Badge
+          <span class="badge badge-primary">4</span>
+        </template>
+      </code-sample>
+      <code-sample readonly="readonly">
+        // Breadcrumb
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+          </ol>
+        </nav>
+
+        // Card
+        <div class="card">
+          <div class="card-body">This is a Card.</div>
+        </div>
+
+        // Collapse
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Button with data-target</button>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">Card body</div>
+        </div>
+
+        // Modal
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
+        <div class="modal" id="exampleModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Modal body text goes here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        // Forms
+        <form>
+          <div class="form-group">
+            <label for="a">Email</label>
+            <input type="email" class="form-control" id="a">
+          </div>
+          <div class="form-group">
+            <label for="b">Password</label>
+            <input type="password" class="form-control" id="b" aria-describedby="passwordHelp">
+            <small id="passwordHelp" class="form-text text-muted">Must be at least 8 characters</small>
+          </div>
+          <div class="form-group">
+            <label for="c">Address</label>
+            <input type="text" class="form-control" id="c" placeholder="Street">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Zip" autocomplete="postal-code">
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="d">
+            <label class="form-check-label" for="d">Subscribe to newsletter</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+
+        // Icon (installed separately)
+        <svg class="bi" width="32" height="32" fill="currentColor">
+  <use xlink:href="bootstrap-icons.svg#user"/>
+</svg>
+      </code-sample>
+      <h4>Tabs</h4>
+      <code-sample readonly="readonly">
+        <ul class="nav nav-tabs" id="tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="a-tab" data-toggle="tab" href="#a" role="tab" aria-controls="a" aria-selected="true">A</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="b-tab" data-toggle="tab" href="#b" role="tab" aria-controls="b" aria-selected="false">B</a>
+          </li>
+        </ul>
+      </code-sample>
+    </m-col>
+    <m-col>
+      <h2>M-<span class="mar-l-md txt-sm txt-gray-4">6kb<m-vbar></m-vbar>no dependencies</span></h2>
+      <code-sample readonly="readonly">
+        <template>
+          // Container (same loc, +9 chars
+          <m-container maxwidth="md"></m-container>
+
+          // Grid (same loc, -18 chars
+          <m-row>
+            <m-col span="3 sm-6"></m-col>
+            <m-col span="9 sm-6"></m-col>
+          </m-row>
+
+          // Accordion (-10 loc, -874 chars)
+          <m-accordion>
+            <details>
+              <summary>Summary</summary>
+              <div>Details</div>
+            </details>
+            <details>
+              <summary>Summary</summary>
+              <div>Details</div>
+            </details>
+          </m-accordion>
+
+
+
+
+
+
+
+
+
+          // Alert (-4 loc, -219 chars)
+          <m-alert type="warn">A dismissible warning alert.</m-alert>
+
+
+
+
+
+
+          // Badge
+          <m-badge count="4"></m-badge>
+        </template>
+      </code-sample>
+      <code-sample readonly="readonly">
+        <template>
+          // Breadcrumb (same loc, -73 chars)
+          <m-breadcrumb>
+            <nav>
+              <a href="#">Home</a>
+              <span aria-current="page">Library</span>
+            </nav>
+          </m-breadcrumb>
+
+          // Box
+          <m-box>This is a Box</m-box>
+
+
+
+          // Details (a native element)
+          <details>
+            <summary>Summary</summary>
+            <p>The details.</p>
+          </details>
+
+          // Dialog (-11 loc, -473 chars)
+          <m-dialog>
+            <h4>Title</h4>
+            <p>Dialog body text goes here.</p>
+          </m-dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          // Forms (-2 loc, -306 chars)
+          <form>
+            <fieldset>
+              <label for="a">Email</label>
+              <input id="a" type="email">
+            </fieldset>
+            <fieldset>
+              <label for="b">Password</label>
+              <input id="b" type="password">
+              <small>Must be at least 8 characters</small>
+            </fieldset>
+            <fieldset>
+              <label for="c">Address</label>
+              <input id="c" placeholder="Street">
+              <input placeholder="Zip" autocomplete="postal-code">
+            </fieldset>
+            <fieldset>
+              <input id="d" type="checkbox">
+              <label for="d">Subscribe to newsletter</label>
+            </fieldset>
+            <button type="submit" ord="primary">Save</button>
+          </form>
+
+
+
+          // Icon (-2 loc, -84 chars)
+          <m-icon name="user"></m-icon>
+
+
+        </template>
+      </code-sample>
+      <h4>Tabs (-4 loc, -376 chars</h4>
+      <code-sample readonly="readonly">
+        <template>
+          <m-tabs>
+            <m-tab>A</m-tab>
+            <m-tab>B</m-tab>
+          </m-tabs>
+        </template>
+      </code-sample>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col>
+      <h2 id="material-web">Material Web<span class="mar-l-md txt-sm txt-gray-4">80kb<m-vbar></m-vbar></span></h2>
+      <h3>Grid</h3>
+      <code-sample readonly="readonly">
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-6-phone"></div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 mdc-layout-grid__cell--span-6-phone"></div>
+          </div>
+        </div>
+
+      </code-sample>
+    </m-col>
+    <m-col>
+      <h2>M-<span class="mar-l-md txt-sm txt-gray-4">6kb <m-vbar></m-vbar> no dependencies</span></h2>
+      <h3>Grid (-2 loc, -338 chars)</h3>
+      <code-sample readonly="readonly">
+        <template>
+          <m-row>
+            <m-col span="3 6-sm"></m-col>
+            <m-col span="9 6-sm"></m-col>
+          </m-row>
+        </template>
+      </code-sample>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col>
+      <h3>Dialog</h3>
+      <code-sample readonly="readonly">
+        <div class="mdc-dialog">
+          <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface"
+                 role="alertdialog"
+                 aria-modal="true"
+                 aria-labelledby="my-dialog-title"
+                 aria-describedby="my-dialog-content">
+              <h2 class="mdc-dialog__title" id="my-dialog-title">Title</h2>
+              <div class="mdc-dialog__content" id="my-dialog-content">
+                <p>Content</p>
+              </div>
+            </div>
+          </div>
+          <div class="mdc-dialog__scrim"></div>
+        </div>
+      </code-sample>
+    </m-col>
+    <m-col>
+      <h3>Dialog (-11 loc, -504 chars)</h3>
+      <code-sample readonly="readonly">
+        <template>
+          <m-dialog>
+            <h4>Title</h4>
+            <p>Content</p>
+          </m-dialog>
+        </template>
+      </code-sample>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col>
+      <h3>Chip</h3>
+      <code-sample readonly="readonly">
+        <div class="mdc-chip-set mdc-chip-set--input" role="grid">
+          <div class="mdc-chip" role="row">
+            <div class="mdc-chip__ripple"></div>
+            <span role="gridcell">
+        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+          <span class="mdc-chip__text">Text</span>
+            </span>
+            </span>
+            <span role="gridcell">
+        <i class="material-icons mdc-chip__icon mdc-chip__icon--trailing" tabindex="-1" role="button">cancel</i>
+      </span>
+          </div>
+        </div>
+      </code-sample>
+    </m-col>
+    <m-col>
+      <h3>Tag (-12 loc, -465 chars)</h3>
+      <code-sample readonly="readonly">
+        <m-tag>free breakfast <button type="remove" aria-label="remove"></button></m-tag>
+      </code-sample>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col>
+      <h3>Tabs</h3>
+      <code-sample readonly="readonly">
+        <div class="mdc-tab-bar" role="tablist">
+          <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+              <div class="mdc-tab-scroller__scroll-content">
+                <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+          <span class="mdc-tab__content">
+            <span class="mdc-tab__text-label">A</span>
+          </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
+            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+          </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+                <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+          <span class="mdc-tab__content">
+            <span class="mdc-tab__text-label">B</span>
+          </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
+            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+          </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </code-sample>
+    </m-col>
+    <m-col>
+      <h3>Tabs (-22 loc, -1159 chars)</h3>
+      <code-sample readonly="readonly">
+        <template>
+          <m-tabs scrollable>
+            <m-tab>A</m-tab>
+            <m-tab>B</m-tab>
+          </m-tabs>
+        </template>
+      </code-sample>
+    </m-col>
+  </m-row>
+</m-container>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-html.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
+<script src="/code-sample.riot" type="riot/tag"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
+<script>
+  riot.compile(() => riot.mount('*'));
+</script>
