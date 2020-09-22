@@ -1,6 +1,12 @@
 <m-container>
+  <m-breadcrumb>
+    <nav>
+      <a href="/">Home</a>
+      <span>Examples</span>
+    </nav>
+  </m-breadcrumb>
   <h1 class="mar-b-xs">Examples</h1>
-  <h2 class="txt-gray-5 mar-t-none">Click on the demo pages or scroll down to see lots of examples</h2>
+  <h2 class="txt-gray-5 mar-t-none">Look at a demo page or scroll down to see tons of examples</h2>
   <m-row>
     <m-col span="4">
       <m-box>
@@ -19,20 +25,20 @@
 <hr>
 <h1 id="alert" class="txt-center txt-xxl">Alert</h1>
 <m-container>
-  <m-row>
-    <m-col>
-      <m-alert type="info">Sign up for <a href="#alert" class="fnt-bold">premium</a> to see the full list</m-alert>
-    </m-col>
-    <m-col>
-      <m-alert type="success">Your order has been received! A confirmation email was sent to john@example.com</m-alert>
-    </m-col>
-    <m-col>
-      <m-alert type="warn">Your flight has been canceled.</m-alert>
-    </m-col>
-    <m-col>
-      <m-alert type="error">You do not have permission to delete records.</m-alert>
-    </m-col>
-  </m-row>
+  <h4>All types</h4>
+  <m-alert type="info">Sign up for <a href="#alert" class="fnt-bold">premium</a> to see the full list</m-alert>
+  <m-alert type="success">Your order has been received! A confirmation email was sent to john@example.com</m-alert>
+  <m-alert type="warn">Your flight has been canceled.</m-alert>
+  <m-alert type="error">You do not have permission to delete records.</m-alert>
+  <h4>Not dismissible</h4>
+  <m-alert type="info" dismissible="false">You can't get rid of me.</m-alert>
+  <h4>Autodismiss (default of 4 seconds and 5, 6, 7 seconds)</h4>
+  <div>
+    <m-alert type="info" autodismiss>Goodbye in 4...</m-alert>
+    <m-alert type="success" autodismiss="5">Goodbye in 5...</m-alert>
+    <m-alert type="warn" autodismiss="6">Goodbye in 6...</m-alert>
+    <m-alert type="error" autodismiss="7">Goodbye in 7...</m-alert>
+  </div>
 </m-container>
 <hr>
 <h1 id="Containers" class="txt-center txt-xxl">Container</h1>
@@ -189,6 +195,10 @@
     </m-col>
   </m-row>
   <h4>Responsive columns</h4>
+  <m-row>
+    <m-col span="3 sm-12 md-5"><m-box>This column spans 3 on lg screens, 5 on md, and 12 on sm.</m-box></m-col>
+    <m-col span="9 sm-12 md-7"><m-box>This column spans 9 on lg screens, 7 on md, and 12 on sm.</m-box></m-col>
+  </m-row>
 </m-container>
 <hr>
 <h1 id="Boxes" class="txt-center txt-xxl">Boxes</h1>
@@ -231,7 +241,7 @@
             <input type="password">
             <small>Must have a number and be 6 or more characters</small>
           </fieldset>
-          <m-box ord="secondary" class="mar-t-md"><label for="agree"><input id="agree" type="checkbox"> Sign up for weekly deals and discounts!</label></m-box>
+          <m-box ord="secondary" class="mar-t-md mar-b-md"><label for="agree"><input id="agree" type="checkbox"> Sign up for weekly deals and discounts!</label></m-box>
           <button type="submit" ord="primary" class="mar-t-md">Continue</button>
         </form>
       </m-box>
@@ -299,7 +309,7 @@
       </fieldset>
     </form>
     <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a href="/sign-up">Sign up</a></div>
-    <p><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog.</p>
+    <p><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog?</p>
   </m-dialog>
   <m-dialog id="modeless">
     <h1>Modeless</h1>
@@ -388,21 +398,27 @@
   <p>Loader without <code>loading</code>: <m-loader></m-loader></p>
   <p>Loader with text: <m-loader loading>Searching...</m-loader></p>
   <h4 class="mar-b-xs">Loader used in button</h4>
-  <div>The Loader in this button is <code>hidden</code> waiting for the user to click...<button ord="primary"><m-loader loading hidden></m-loader>Save</button></div>
-  <div>When clicked, the app removes <code>hidden</code> and updates the label: <button ord="primary"><m-loader loading></m-loader>Saving</button></div>
+  <div>The Loader in this button is <code>hidden</code> waiting for the user to click... <button ord="primary"><m-loader loading hidden></m-loader>Save</button></div>
+  <div>When clicked, the app removes <code>hidden</code> from the Loader and adds <code>disabled</code> to the button and updates its label: <button ord="primary" disabled><m-loader loading></m-loader>Saving</button></div>
   <h4>Loader and links</h4>
-  <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <code>loading</code> attribute and text based on the state of the process: <a href=""><m-loader loading>Pause</m-loader></a><m-vbar></m-vbar><a href=""><m-loader>Resume</m-loader></a></p>
+  <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <code>loading</code> attribute and text based on the state of the process: <a href="#"><m-loader loading>Pause</m-loader></a> / <a href="#"><m-loader>Resume</m-loader></a></p>
   <p>This Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
   <div class="txt-center" style="width: 400px">
     <m-loader loading class="block">Downloading...</m-loader>
     <a href="" class="block mar-t-xs txt-xs">Stop</a>
   </div>
   <h4>Loader size</h4>
-  <p>Explicit size of 70px:</p>
+  <p>Explicit font-size of 70px:</p>
   <m-loader loading style="font-size: 70px"></m-loader>
-  <h1><m-loader loading>Inside Heading 1</m-loader></h1>
-  <h2><m-loader loading>Inside Heading 2</m-loader></h2>
-  <h3><m-loader loading>Inside Heading 3</m-loader></h3>
+  <p>Inherited size:</p>
+  <h1><m-loader loading>Inside heading 1</m-loader></h1>
+  <h2><m-loader loading>Inside heading 2</m-loader></h2>
+  <h3><m-loader loading>Inside heading 3</m-loader></h3>
+  <h4><m-loader loading>Inside heading 4</m-loader></h4>
+  <h5><m-loader loading>Inside heading 5</m-loader></h5>
+  <h6><m-loader loading>Inside heading 6</m-loader></h6>
+  <p><m-loader loading>Inside paragraph</m-loader></p>
+  <small><m-loader loading>Inside small</m-loader></small>
 </m-container>
 
 <!-- Menu -->
@@ -428,3 +444,70 @@
     </div>
   </m-menu>
 </m-container>
+
+<!-- Table -->
+<h1 id="table" class="txt-center txt-xxl">Tables</h1>
+<m-container>
+  <h4>Basic table</h4>
+  <table>
+    <thead>
+    <tr>
+      <th>Column heading</th>
+      <th>Column heading</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Cell</td>
+      <td>Cell</td>
+    </tr>
+    <tr>
+      <td>Cell</td>
+      <td>Cell</td>
+    </tr>
+    </tbody>
+  </table>
+</m-container>
+
+
+<!-- Tabs -->
+<h1 id="tabs" class="txt-center txt-xxl">Tabs</h1>
+<m-container>
+  <h4>Basic tabs</h4>
+  <m-tabs>
+    <m-tab>Accounts</m-tab>
+    <m-tab>Payments</m-tab>
+    <m-tab>Transfers</m-tab>
+    <m-tab>Security</m-tab>
+  </m-tabs>
+  <h4>Explicit starting tab</h4>
+  <m-tabs>
+    <m-tab>Accounts</m-tab>
+    <m-tab>Payments</m-tab>
+    <m-tab selected>Transfers</m-tab>
+    <m-tab>Security</m-tab>
+  </m-tabs>
+  <h4>With icons</h4>
+  <m-tabs>
+    <m-tab><m-icon name="home"></m-icon> Accounts</m-tab>
+    <m-tab><m-icon name="wallet"></m-icon> Payments</m-tab>
+    <m-tab><m-icon name="action-redo"></m-icon> Transfers</m-tab>
+    <m-tab><m-icon name="lock"></m-icon> Security</m-tab>
+  </m-tabs>
+  <h4>Scrollable</h4>
+  <div style="width: 460px">
+    <m-tabs scrollable>
+      <m-tab>Accounts</m-tab>
+      <m-tab>Payments</m-tab>
+      <m-tab>Transfers</m-tab>
+      <m-tab>Security</m-tab>
+      <m-tab>Credit cards</m-tab>
+      <m-tab>Loans</m-tab>
+      <m-tab>Alerts</m-tab>
+    </m-tabs>
+  </div>
+</m-container>
+
+
+
+

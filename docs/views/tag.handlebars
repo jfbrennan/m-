@@ -28,7 +28,7 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="removable">Removable tags</h3>
-<p>Just include a <a href="/button#remove">remove</a> button and attach a click handler using your preferred method. Here's a basic example:</p>
+<p>Simply include a <a href="/button#remove">remove</a> button and, using your preferred method, attach a click handler that removes the tag. Here's a basic example:</p>
 <code-sample>
   <script>
     const removeTag = (e, id) => confirm(`Remove tag ${id}?`) ? e.currentTarget.parentElement.remove() : null;
@@ -40,7 +40,24 @@
     <m-tag>p0<button type="remove" onclick="removeTag(event, 3)"></button></m-tag>
   </template>
 </code-sample>
+<p>It can be helpful to add an <code>id</code> or <code>data-*</code> attribute with some identifying data (id, name, index) to the tag to know which one was removed and update the backing data source, like an Array of users:</p>
+<code-sample readonly="readonly">
+  <template>
+    <m-tag data-user-id="{user.id}">{user.name}<button type="remove" onclick="removeUser"></button></m-tag>
+  </template>
 
+  <script>
+    removeUser(e) \{
+      const tag = e.currentTarget.parentElement;
+
+      // Remove user from org
+      this.org.users.splice(tag.dataset.userId);
+
+      // Remove tag element (depending on the framework/architecture, this may   get removed as part of the state change)
+      tag.remove();
+    }
+  </script>
+</code-sample>
 <h3 id="accessibility">Accessibility</h3>
 <p>Use <code>aria-label</code> when the Tag only contains an icon:</p>
 <code-sample>

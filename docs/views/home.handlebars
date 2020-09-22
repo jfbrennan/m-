@@ -10,10 +10,10 @@
     <h1 hidden>Does 👏 not 👏 suh 👏 port 👏 IE.</h1>
     <h1 hidden>Standards #FTW</h1>
     <h1 hidden>Depressed? Call 1-800-M-DASH</h1>
+    <h1 hidden>Some say it's the HTML6 we never got...</h1>
+    <h1 hidden>So modern it feels old!</h1>
     <h1 hidden>React is a scam.</h1>
-    <h1 hidden>Some say it's the HTML6 we never got.</h1>
-    <h1 hidden>So modern it feels old.</h1>
-    <h1 hidden>Tiny design system means a big...probability of faster pages</h1>
+    <h1 hidden>Tiny design system means a big...probability of faster pages.</h1>
     <h1 hidden>"Nothing is faster than nothing."<br><span style="white-space: nowrap">-Me</span></h1>
     <h1 hidden>The AWS fees are too damn high!!</h1>
     <h1 hidden>You should stop reading this.</h1>
@@ -63,7 +63,7 @@
 <p>Its size, speed, and adherence to web standards makes it unique.</p>
 <p>M- is also a design system. It can scale across your organization by serving as the shared source of UI/UX truth for all web-based projects. You can also fork M- and customize as you like.</p>
 <h2 id="compatibility">M- is compatible with everything</h2>
-<p>M- can be used anywhere HTML is used because it is HTML. That means SSR, SPA, PWA, static sites, and email templates are compatible as well as virtually* all JavaScript frameworks past, present, and future. That's the power of leveraging web standards!</p>
+<p>M- can be used anywhere HTML is used because it is HTML. That means SSR, SPA, PWA, static sites, and email templates are compatible, as well as virtually* all JavaScript frameworks past, present, and future. That's the power of leveraging web standards!</p>
 <p>Large organizations especially benefit because unlike other design systems, M- can be shared across all projects without restricting framework choice or changing architectures. Fork it, theme it, and help teams adopt it all without requiring any big tech changes.</p>
 <p>As an example, here's 12 different technologies using the Alert component:</p>
 <code-sample readonly="readonly">
@@ -76,16 +76,16 @@
   <m-alert if="{alert}" type="{alert.type}">{alert.message}</m-alert>
 
 
+  <!--   Preact   -->
+  {props.alert &&
+  <m-alert type={props.alert.type}>{props.alert.message}</m-alert>
+  }
+
+
   <!--   Svelte   -->
   {#if alert}
     <m-alert bind:type="{alert.type}">{alert.message}</m-alert>
   {/if}
-
-
-  <!--   Preact   -->
-  {props.alert &&
-    <m-alert type={props.alert.type}>{props.alert.message}</m-alert>
-  }
 
 
   <!--   Handlebars   -->
@@ -94,16 +94,17 @@
   \{{/if}}
 
 
+  <!--   Lit, Hyper, other template literals   -->
+  html`
+  <m-alert type="${alert.type}">${alert.message}</m-alert>
+  `
+
+
   <!--   EJS, ERB   -->
   <m-alert type="<%= alert.type %>"><%= alert.message %></m-alert>
 
 
-  <!--   Lit, Hyper, Lighter, vanilla template literals   -->
-  html`
- <m-alert type="${alert.type}">${alert.message}</m-alert>
-  `
-
-  <!--   Basic HTML of course :)   -->
+  <!--   Static HTML of course :)   -->
   <m-alert type="success">My message</m-alert>
 </template>
 </code-sample>
@@ -234,7 +235,8 @@
 <h3>It's for everyone!</h3>
 <p>The JavaScript community has been convinced of an awful lie:</p>
 <blockquote>Modern web development requires special tools, syntax, compilers, and all sorts of time-wasting pain.</blockquote>
-<p>It's not true! M- bucks the trend and doesn't need to be installed or configured, has no CLI, and doesn't send you down a rabbit hole of pain. This is the web and web development shouldn't be like enterprise Java! The web is an open platform accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started, and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. M- serves true beginners equally as well as it does professional software engineers. So, whether you're building your first website or a large scale application with millions of users, M- helps you quickly build UI with easy-to-use, long-lasting, standards-based code.</p>
+<p>The web is an open platform accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started, and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. M- serves true beginners equally as well as it does professional software engineers. So, whether you're building your first website or a large scale application with millions of users, M- helps you quickly build UI with
+  <a href="/examples/comparisons">significantly less code</a> and standards-based code.</p>
 <!--<h2>Contribution & support</h2>-->
 <!--<p>If M- has helped you, please help M- with its hosting fees: <a href="">Open Collective</a></p>-->
 <!--<p>If you want to contribute, <a href="https://github.com/jfbrennan/m-/issues" rel="noopener">come on over to GitHub</a> and help.</p>-->
