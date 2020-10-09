@@ -1,5 +1,5 @@
 ul, ol, dl { margin: 0 }
-ul, ol { padding-left: var(--space-md) }
+ul, ol { padding-left: var(--space-lg) }
 
 ul[type=none] {
   list-style: none;
