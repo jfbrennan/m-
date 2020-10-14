@@ -4,7 +4,7 @@ m-accordion > details { border-top: 3px solid var(--color-gray-2) }
 m-accordion > details:last-child { border-bottom: 3px solid var(--color-gray-2) }
 
 m-accordion > details > summary {
-  padding: var(--space-sm) 0;
+  padding: var(--space-sm) var(--space-xl) var(--space-sm) 0;
   position: relative;
 }
 
