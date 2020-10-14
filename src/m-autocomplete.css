@@ -3,7 +3,9 @@ m-autocomplete {display: block}
 m-autocomplete [ref=matches] ul {
   background-color: white;
   min-width: 200px;
+  transform: translateY(var(--space-xs));
   border: 1px solid var(--color-gray-4);
+  border-radius: var(--m-border-radius-sm);
 }
 
 m-autocomplete [ref=matches] li:hover {

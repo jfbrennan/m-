@@ -3,25 +3,27 @@
 <h2 id="demo">Demo</h2>
 <code-sample>
   <fieldset>
-    <label>Pick one</label>
+    <label>Select one</label>
     <select>
-      <option>One</option>
-      <option>Two</option>
-      <option>Three</option>
+      <option value="water">Water</option>
+      <option value="coke">Coke</option>
+      <option value="lemonade">Lemonade</option>
     </select>
   </fieldset>
   <fieldset>
-    <label>Pick many</label>
-    <select name="pets" multiple size="4">
-      <optgroup label="4-legged pets">
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="hamster">Hamster</option>
+    <label>Select many</label>
+    <select name="pets" multiple size="8">
+      <optgroup label="Appetizers">
+        <option value="chips">Chips & salsa</option>
+        <option value="cheese">Cheese platter</option>
       </optgroup>
-      <optgroup label="Flying pets">
-        <option value="parrot">Parrot</option>
-        <option value="macaw">Macaw</option>
-        <option value="albatross">Albatross</option>
+      <optgroup label="Main course">
+        <option value="duck">Duck confit</option>
+        <option value="ribeye">8oz aged ribeye</option>
+      </optgroup>
+      <optgroup label="Dessert">
+        <option value="cake">Cake</option>
+        <option value="ice-cream">Ice-cream</option>
       </optgroup>
     </select>
   </fieldset>
@@ -67,7 +69,7 @@
   <tr>
     <td colspan="2"><code>label</code></td>
     <td colspan="2">String</td>
-    <td colspan="6">Displayed as the group heading.</td>
+    <td colspan="6">Displayed as the <code>&lt;optgroup&gt;</code> heading.</td>
   </tr>
   <tr>
     <td colspan="2"><code>value</code></td>
@@ -103,54 +105,56 @@
       <fieldset>
         <label>State</label>
         <select>
-          <option value="AL">Alabama</option>
-          <option value="AK">Alaska</option>
-          <option value="AZ">Arizona</option>
-          <option value="AR">Arkansas</option>
-          <option value="CA">California</option>
-          <option value="CO">Colorado</option>
-          <option value="CT">Connecticut</option>
-          <option value="SD">South Dakota</option>
-          <option value="...">...</option>
-          <option value="TX">Texas</option>
-          <option value="UT">Utah</option>
-          <option value="VT">Vermont</option>
-          <option value="VA">Virginia</option>
-          <option value="WA">Washington</option>
-          <option value="WV">West Virginia</option>
-          <option value="WI">Wisconsin</option>
-          <option value="WY">Wyoming</option>
-        </select>
+      <option value="AL">Alabama</option>
+      <option value="AK">Alaska</option>
+      <option value="AZ">Arizona</option>
+      <option value="AR">Arkansas</option>
+      <option value="CA">California</option>
+      <option value="CO">Colorado</option>
+      <option value="CT">Connecticut</option>
+      <option value="...">...</option>
+      <option value="SD">South Dakota</option>
+      <option value="TX">Texas</option>
+      <option value="UT">Utah</option>
+      <option value="VT">Vermont</option>
+      <option value="VA">Virginia</option>
+      <option value="WA">Washington</option>
+      <option value="WV">West Virginia</option>
+      <option value="WI">Wisconsin</option>
+      <option value="WY">Wyoming</option>
+    </select>
       </fieldset>
     </code-sample>
   </m-col>
   <m-col>
     <code-sample readonly="readonly">
-      <fieldset>
-        <label>State</label>
-        <m-autocomplete source="states"></m-autocomplete>
-        <datalist id="states">
-          <option value="AL">Alabama</option>
-          <option value="AK">Alaska</option>
-          <option value="AZ">Arizona</option>
-          <option value="AR">Arkansas</option>
-          <option value="CA">California</option>
-          <option value="CO">Colorado</option>
-          <option value="CT">Connecticut</option>
-          <option value="SD">South Dakota</option>
-          <option value="...">...</option>
-          <option value="TX">Texas</option>
-          <option value="UT">Utah</option>
-          <option value="VT">Vermont</option>
-          <option value="VA">Virginia</option>
-          <option value="WA">Washington</option>
-          <option value="WV">West Virginia</option>
-          <option value="WI">Wisconsin</option>
-          <option value="WY">Wyoming</option>
-        </datalist>
-      </fieldset>
+      <template>
+        <fieldset>
+          <label>State</label>
+          <m-autocomplete source="states"></m-autocomplete>
+          <datalist id="states">
+      <option value="AL">Alabama</option>
+      <option value="AK">Alaska</option>
+      <option value="AZ">Arizona</option>
+      <option value="AR">Arkansas</option>
+      <option value="CA">California</option>
+      <option value="CO">Colorado</option>
+      <option value="CT">Connecticut</option>
+      <option value="...">...</option>
+      <option value="SD">South Dakota</option>
+      <option value="TX">Texas</option>
+      <option value="UT">Utah</option>
+      <option value="VT">Vermont</option>
+      <option value="VA">Virginia</option>
+      <option value="WA">Washington</option>
+      <option value="WV">West Virginia</option>
+      <option value="WI">Wisconsin</option>
+      <option value="WY">Wyoming</option>
+    </datalist>
+        </fieldset>
+      </template>
     </code-sample>
   </m-col>
 </m-row>
-<h3 id="accessibility">Accessibility</h3>
+<h3 id="a11y">Accessibility</h3>
 <p>Label should use the <code>for</code> attribute to reference the id of its corresponding select.</p>

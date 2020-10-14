@@ -10,12 +10,12 @@
     <h1 hidden>Does 👏 not 👏 suh 👏 port 👏 IE.</h1>
     <h1 hidden>Standards #FTW</h1>
     <h1 hidden>Depressed? Call 1-800-M-DASH</h1>
-    <h1 hidden>Some say it's the HTML6 we never got...</h1>
+    <h1 hidden>Some say it's the HTML6 we never got.</h1>
     <h1 hidden>So modern it feels old!</h1>
     <h1 hidden>React is a scam.</h1>
     <h1 hidden>Tiny design system means a big...probability of faster pages.</h1>
     <h1 hidden>"Nothing is faster than nothing."<br><span style="white-space: nowrap">-Me</span></h1>
-    <h1 hidden>The AWS fees are too damn high!!</h1>
+    <h1 hidden>The AWS bill was $42 last month!!</h1>
     <h1 hidden>You should stop reading this.</h1>
     <h1 hidden>How many messages are there?</h1>
     <h1 hidden>17, including this one.</h1>
@@ -47,7 +47,7 @@
 </div>
 <div class="push pull txt-center mar-t-xl" style="max-width: 545px">
   <h3 id="quick-start" class="mar-t-none mar-b-none">Quick start</h3>
-  <p class="mar-t-none mar-b-sm">It's called the web, people. Use it.</p>
+  <p class="mar-t-none mar-b-sm">It's called the web for a reason. Use it.</p>
   <code-sample readonly="readonly">
     <template>
       <link href="{{prodCdnUrl}}css" rel="stylesheet">
@@ -57,19 +57,36 @@
   <div class="txt-xs">or <a href="#installation">npm</a></div>
 </div>
 <hr class="mar-t-xl mar-b-xl">
-<h2 id="tell-me">Summary</h2>
-<p>M- is ready-to-use UI elements (buttons, menus, etc.) built with standards.</p>
-<p>You can use it with any framework or all on its own and it works for any type of web project (SSR, SPA, static, etc.).</p>
-<p>Its size, speed, and adherence to web standards makes it unique.</p>
-<p>M- is also a design system. It can scale across your organization by serving as the shared source of UI/UX truth for all web-based projects. You can also fork M- and customize as you like.</p>
+<h2 id="tell-me">Introduction</h2>
+<div style="max-width: 700px">
+  <p class="fnt-italic fnt-bold">What is M-?</p>
+  <p>M- (pronounced "em dash") is a UI library. It's both small and robust enough to be used as your products' design system or for a basic website.</p>
+  <p class="fnt-italic fnt-bold">What makes M- special?</p>
+  <p>Quite literally, nothing. M- bucks the trend of fussy over-engineered solutions.</p>
+  <p>There are no new concepts or methodologies. Nothing proprietary, no dependencies, and no build steps (yup, feel free to take a moment of silence if you need to). It's just a novel approach to leveraging standards that results in the
+    <span class="fnt-italic">smallest</span> and <span class="fnt-italic">most compatible</span> UI system available.</p>
+<!--  <p>M- believes <code>&lt;tag attribute="value"&gt;</code> is the best API for UI development. And so, M- extensively leverages standard HTML, custom HTML tags, and Custom Elements to create a complete set of components that all share a uniform API of tags, attributes, and nesting. There are no awkward CSS methodologies or framework idioms here!</p>-->
+  <p>This also means M- works with <a href="https://custom-elements-everywhere.com/" target="_blank" rel="noopener">any framework</a> or no framework and works for all types of web projects: SSR, SPA, PWA, static site, and even popular email clients.</p>
+  <p class="fnt-italic fnt-bold">Where did M- come from?</p>
+  <p>This approach to standards-based design systems is the result of building them in large engineering organizations where - for better or worse - tech stacks and project architectures vary wildly, but need to share a common system of UI components. React orthodxy be damned!</p>
+<!--  <p>And also out of sheer desperation for simple, immediately usable solutions that make web development so productive!</p>-->
+<!--  <p>In fact, it's no different than HTML, which, ironically, does kind of make it special nowadays.</p>-->
+<!--  <p>Its size, speed, and adherence to web standards makes it unique.</p>-->
+<!--  <p>M- is also a design system. It can scale across your organization by serving as the shared source of UI/UX truth-->
+<!--    for all web-based projects. You can also fork M- and customize as you like.</p>-->
+</div>
 <h2 id="compatibility">M- is compatible with everything</h2>
 <p>M- can be used anywhere HTML is used because it is HTML. That means SSR, SPA, PWA, static sites, and email templates are compatible, as well as virtually* all JavaScript frameworks past, present, and future. That's the power of leveraging web standards!</p>
-<p>Large organizations especially benefit because unlike other design systems, M- can be shared across all projects without restricting framework choice or changing architectures. Fork it, theme it, and help teams adopt it all without requiring any big tech changes.</p>
-<p>As an example, here's 12 different technologies using the Alert component:</p>
+<p>Large organizations especially benefit because unlike other design systems, M- can be shared across all projects without restricting framework choice or changing architectures. Fork it, theme it, and help teams adopt it all without requiring any major project changes.</p>
+<p>As a simple demonstration, here's <span class="fnt-bold">12 different choices</span> using the same M- component:</p>
 <code-sample readonly="readonly">
 <template>
   <!--   Vue   -->
   <m-alert v-if="alert" v-bind:type="alert.type">\{{ alert.message }}</m-alert>
+
+
+  <!--   Angular   -->
+  <m-alert *ngIf="alert" [type]="alert.type">\{{ alert.message }}</m-alert>
 
 
   <!--   Riot   -->
@@ -108,7 +125,7 @@
   <m-alert type="success">My message</m-alert>
 </template>
 </code-sample>
-<small>*Framework compatibility with Custom Elements is being tracked on <a href="https://custom-elements-everywhere.com">custom-elements-everywhere.com</a>. Today, all but
+<small>*Framework compatibility with Custom Elements is being tracked on <a href="https://custom-elements-everywhere.com" target="_blank" rel="noopener">custom-elements-everywhere.com</a>. Today, all but
   <a href="https://custom-elements-everywhere.com/#react">one</a> works with this standard.</small>
 <h2 id="performance">Performance</h2>
 <p>M- is fast! Its <span class="fnt-bold">execution speed</span> comes from leveraging standards as much as possible in order to minimize code, retain browser optimizations, and eliminate dependencies. The latest JavaScript frameworks and virtual DOMs are still relatively expensive abstractions with execution overhead, and when it comes to code, nothing is faster than nothing!</p>
@@ -187,7 +204,8 @@
     </td>
   </tr>
 </table>
-<small><span class="fnt-bold">Note:</span> Sizes are min+gzip and include stylesheets, scripts, and runtime dependencies. In other words, this is the overhead before you've started your first line of code.</small>
+<small><span class="fnt-bold">Note:</span> Sizes are min+gzip and include stylesheets, scripts, and runtime dependencies. In other words, this is the overhead before you've written your first line of code.</small>
+<p>In 2020 Material-UI was overtaken by Antd as the most popular React design system. Antd is <span class="fnt-bold">392kb</span> min+gzip (too fat to fit in the chart!). "But you gotta tree-shake it!" Yeah, as if being a total pig wasn't bad enough now I have to put in the effort to help it lose weight. Antd would no doubt be < 100kb min+gzip if it leveraged HTML. We need to stop the React over-engineeering!</p>
 <!--<p>Yes, this is purely a comparison of size and not a precise apples-to-apples comparison. The point is M- adds very little to page load, which is extremely important for mobile users.</p>-->
 <!--<p>Switching to M- makes your payload very small! Or another way of looking at it is you're left with a big surplus budget to use for other things. M- plus your app and its dependencies could all easily fit inside just one of those!</p>-->
 <h2 id="installation">Installation</h2>
@@ -214,7 +232,7 @@
 <p>To make [the UI part of] Web Development great again.</p>
 <p>It's all become too complicated and time-consuming. The front-end is starting to feel like enterprise Java.</p>
 <img src="/img/ew.gif" alt="Jimmy Fallon's ew!" height="100px">
-<p>So, within the scope of design systems, M- brings the easy back. It gives you a complete set of modern compatible-with-everything UI components instantly available from a CDN. No downloads. No CLI. No configuration. No build steps. No virtual transpiling the linter tree-shake compile matrix. It does this by <span class="fnt-italic">embracing</span> HTML (and CSS and JavaScript) and relentlessly leveraging it. The result is a fun, uniquely small, and fast design system with standards-level longevity.</p>
+<p>So, within the scope of design systems, M- brings the easy back. It gives you a complete set of modern compatible-with-everything UI components instantly available from a CDN. No downloads. No CLI. No configuration. No build steps. No prespiling the virtual tree-shake lint matrix. It does this by <span class="fnt-italic">embracing</span> HTML (and CSS and JavaScript) and relentlessly leveraging it. The result is a fun, uniquely small, and fast design system with standards-level longevity.</p>
 <p></p>
 <!--<p>Depending on the kind of project you're working on, you can use M- on its own or alongside your framework of choice. That framework is responsible for the-->
 <!--  <em>structure and state of your application</em> while HTML and M- supply the top layer of <em>UI components</em>.</p>-->
@@ -236,7 +254,7 @@
 <p>The JavaScript community has been convinced of an awful lie:</p>
 <blockquote>Modern web development requires special tools, syntax, compilers, and all sorts of time-wasting pain.</blockquote>
 <p>The web is an open platform accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started, and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. M- serves true beginners equally as well as it does professional software engineers. So, whether you're building your first website or a large scale application with millions of users, M- helps you quickly build UI with
-  <a href="/examples/comparisons">significantly less code</a> and standards-based code.</p>
+  <a href="/comparisons">significantly less code</a> and standards-based code.</p>
 <!--<h2>Contribution & support</h2>-->
 <!--<p>If M- has helped you, please help M- with its hosting fees: <a href="">Open Collective</a></p>-->
 <!--<p>If you want to contribute, <a href="https://github.com/jfbrennan/m-/issues" rel="noopener">come on over to GitHub</a> and help.</p>-->

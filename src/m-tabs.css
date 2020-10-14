@@ -9,6 +9,7 @@ m-tabs[scrollable]::-webkit-scrollbar { display: none }
 m-tab {
   font-weight: bold;
   text-align: center;
+  white-space: nowrap;
   padding: var(--space-xs) var(--space-lg);
 }
 

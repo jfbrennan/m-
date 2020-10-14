@@ -2,9 +2,9 @@
 <h2 class="txt-gray-5 mar-t-none">Static container for elevating content</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
-<m-box>Primary content</m-box>
-<m-box ord="secondary">Secondary content</m-box>
-<p>Content outside a Box is considered neutral</p>
+  <m-box>Primary content</m-box>
+  <m-box ord="secondary">Secondary content</m-box>
+  <p>Content outside a Box is considered neutral</p>
 </code-sample>
 <p>See more <a href="/examples#Boxes">examples</a></p>
 <h2 id="api">API</h2>
@@ -56,5 +56,15 @@
     <m-box ord="secondary"><label for="agree"><input id="agree" type="checkbox"> I agree.</label></m-box>
   </m-box>
 </code-sample>
-<h3 id="accessibility">Accessibility</h3>
+<h3 id="header-footer">Box header</h3>
+<p>Because a Box header is more tricky than it seems (compensating for default padding), it doesn't get any special styles. However, it just takes a few classes to get a nice Box header:</p>
+<code-sample>
+  <m-box class="pad-all-none">
+    <header class="pad-all-md bg-offwhite brd-b">Header</header>
+    <div class="pad-all-md">
+      Content
+    </div>
+  </m-box>
+</code-sample>
+<h3 id="a11y">Accessibility</h3>
 <p>There are no accessibility recommendations for Box.</p>

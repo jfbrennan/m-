@@ -65,9 +65,10 @@
     <small class="block mar-b-md txt-center txt-gray-6">{{version}}</small>
     <nav>
       <a href="/" class="block mar-b-xs">Home</a>
-      <a href="https://github.com/jfbrennan/m-" target="_blank" rel="noopener" class="block mar-b-xs">
-        Repo <img src="/img/github-logo.png" alt="GitHub logo" class="mar-r-xs" style="height: 14px"></a>
       <a href="/examples" class="block mar-b-xs">Examples</a>
+      <a href="/comparisons" class="block mar-b-xs">Comparison</a>
+      <a href="https://github.com/jfbrennan/m-" class="flex align-items-center mar-b-xs"><m-icon name="github" class="mar-r-xs"></m-icon> GitHub</a>
+      <a href="https://twitter.com/realEmDash" class="flex align-items-center mar-b-xs"><m-icon name="twitter" class="mar-r-xs"></m-icon>Twitter</a>
       <hr class="mar-t-md mar-b-md">
       <h4 class="mar-t-none mar-b-sm">Layout</h4>
       <a href="/head-tags" class="block mar-b-xs">Head tags</a>
@@ -101,11 +102,11 @@
       <a href="/text" class="block mar-b-xs">Text</a>
       <a href="/lists" class="block mar-b-xs">Lists</a>
       <a href="/rules" class="block mar-b-xs">Rules</a>
-      <h4 class="mar-b-sm">Utils</h4>
+      <h4 class="mar-b-sm">Styles</h4>
       <a href="/custom-props" class="block mar-b-xs">Custom properties</a>
-      <a href="/helper-classes" class="block mar-b-xs">Helper classes</a>
+      <a href="/utility-classes" class="block mar-b-xs">Utility classes</a>
       <hr class="mar-t-md mar-b-md">
-      <small>Copyright &copy; 2020<br>Jordan Brennan</small>
+      <small class="block txt-center">Copyright &copy; 2020<br>Jordan Brennan</small>
     </nav>
   </div>
 </aside>
@@ -139,6 +140,10 @@
       matches
     });
   };
+
+  // Focus demo code-sample
+  const codeSample = document.body.querySelector('code-sample');
+  codeSample?._tag?.setCursor();
 </script>
 </body>
 </html>

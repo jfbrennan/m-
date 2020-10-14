@@ -2,82 +2,89 @@
   <div ref="editor"><yield/></div>
   <div if="{!opts.readonly}" ref="preview" class="mar-l-md"></div>
   <script>
-      format() {
-        switch (this.opts.mode) {
-          case 'javascript':
-            this.editor.session.setValue(js_beautify(this.editor.getValue()), {
-              indent_size: 2,
-              indent_char: ' ',
-              indent_with_tabs: !1
-            });
-            break;
-          case 'json':
-            this.editor.session.setValue(JSON.stringify(this.editor.getValue(), null, 2));
-            break;
-          case 'css':
-            this.editor.session.setValue(css_beautify(this.editor.getValue()));
-            break;
-          default:
-            // Custom Elements have to be put in a <template> so they don't get rendered out on page load
-            let content = this.editor.getValue().replace(/^[\s\n\r]*<template>[\s\n\r]*|[\s\n\r]*<\/template>[\s\n\r]*$/gm, '');
-            content = content.replace(/=""/g, '');
-            content = this.decodeHtml(content);
-            content = html_beautify(content);
-            this.editor.session.setValue(content, {
-              indent_size: 2,
-              indent_char: ' ',
-              indent_with_tabs: !1
-            })
-        }
+    setCursor() {
+      this.editor.focus(); // To focus the ace editor
+      const n = this.editor.getSession().getValue().split('\n').length - 2;
+      this.editor.gotoLine(n);
+      this.editor.navigateLineEnd()
+    }
+
+    format() {
+      switch (this.opts.mode) {
+        case 'javascript':
+          this.editor.session.setValue(js_beautify(this.editor.getValue()), {
+            indent_size: 2,
+            indent_char: ' ',
+            indent_with_tabs: !1
+          });
+          break;
+        case 'json':
+          this.editor.session.setValue(JSON.stringify(this.editor.getValue(), null, 2));
+          break;
+        case 'css':
+          this.editor.session.setValue(css_beautify(this.editor.getValue()));
+          break;
+        default:
+          // Custom Elements have to be put in a <template> so they don't get rendered out on page load
+          let content = this.editor.getValue().replace(/^[\s\n\r]*<template>[\s\n\r]*|[\s\n\r]*<\/template>[\s\n\r]*$/gm, '');
+          content = content.replace(/=""/g, '');
+          content = this.decodeHtml(content);
+          content = html_beautify(content);
+          this.editor.session.setValue(content, {
+            indent_size: 2,
+            indent_char: ' ',
+            indent_with_tabs: !1
+          })
       }
+    }
 
-      decodeHtml(html) {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = html;
-        return txt.value;
-      }
+    decodeHtml(html) {
+      const txt = document.createElement('textarea');
+      txt.innerHTML = html;
+      return txt.value;
+    }
 
-      updatePreview() {
-        if (!this.opts.readonly) this.refs.preview.innerHTML = this.editor.getValue();
-      }
+    updatePreview() {
+      if (!this.opts.readonly) this.refs.preview.innerHTML = this.editor.getValue();
+    }
 
-      // copyToClipboard(e) {
-      //   const t = document.createElement('textarea');
-      //   t.value = this.editor.getValue();
-      //   t.setAttribute('readonly', '');
-      //   t.style.position = 'absolute';
-      //   t.style.left = '-9999px';
-      //   document.body.appendChild(t);
-      //   t.select();
-      //   document.execCommand('copy');
-      //   document.body.removeChild(t);
-      //   const label = e.currentTarget.textContent;
-      //   e.currentTarget.textContent = 'Copied';
-      //   setTimeout(() => e.currentTarget.textContent = label, 1e3)
-      // }
+    // copyToClipboard(e) {
+    //   const t = document.createElement('textarea');
+    //   t.value = this.editor.getValue();
+    //   t.setAttribute('readonly', '');
+    //   t.style.position = 'absolute';
+    //   t.style.left = '-9999px';
+    //   document.body.appendChild(t);
+    //   t.select();
+    //   document.execCommand('copy');
+    //   document.body.removeChild(t);
+    //   const label = e.currentTarget.textContent;
+    //   e.currentTarget.textContent = 'Copied';
+    //   setTimeout(() => e.currentTarget.textContent = label, 1e3)
+    // }
 
-      this.on('mount', () => {
-        let content = this.refs.editor.innerHTML;
-        this.editor = ace.edit(this.refs.editor, {
-          mode: `ace/mode/${this.opts.mode || 'html'}`,
-          theme: 'ace/theme/monokai',
-          readOnly: this.opts.readonly,
-          useWorker: !1,
-          showGutter: false,
-          highlightActiveLine: false,
-          displayIndentGuides: !1,
-          showPrintMargin: !1,
-          showFoldWidgets: !1,
-          tabSize: 2,
-          useSoftTabs: true,
-          maxLines: 1 / 0
-        });
-        this.editor.renderer.setScrollMargin(6, 6);
-        this.editor.session.setValue(content);
-        this.format();
-        this.editor.session.on('change', this.updatePreview);
-        this.updatePreview();
-      })
+    this.on('mount', () => {
+      let content = this.refs.editor.innerHTML;
+      this.editor = ace.edit(this.refs.editor, {
+        mode: `ace/mode/${this.opts.mode || 'html'}`,
+        theme: 'ace/theme/monokai',
+        readOnly: this.opts.readonly,
+        useWorker: !1,
+        showGutter: false,
+        highlightActiveLine: false,
+        displayIndentGuides: !1,
+        showPrintMargin: !1,
+        showFoldWidgets: !1,
+        tabSize: 2,
+        useSoftTabs: true,
+        maxLines: 1 / 0
+      });
+      this.editor.renderer.setScrollMargin(6, 6);
+      this.editor.session.setValue(content);
+      this.format();
+      this.editor.session.on('change', this.updatePreview);
+      this.updatePreview();
+    })
   </script>
 
   <style>

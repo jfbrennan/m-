@@ -19,6 +19,14 @@ m-icon {
   -moz-osx-font-smoothing: grayscale;
 }
 
+m-icon:before {
+  display: inline-block;
+}
+
+a:hover m-icon:before {
+  text-decoration: none !important;
+}
+
 m-icon[name=user]:before { content: "\e005"; }
 m-icon[name=people]:before { content: "\e001"; }
 /*m-icon[name=user-female]:before { content: "\e000"; }*/
@@ -189,12 +197,12 @@ m-icon[name=target]:before { content: "\e09e"; }
 m-icon[name=credit-card]:before { content: "\e025"; }
 m-icon[name=paypal]:before { content: "\e608"; }
 /*m-icon[name=social-tumblr]:before { content: "\e00a"; }*/
-/*m-icon[name=social-twitter]:before { content: "\e009"; }*/
+m-icon[name=twitter]:before { content: "\e009"; }
 /*m-icon[name=social-facebook]:before { content: "\e00b"; }*/
 /*m-icon[name=social-instagram]:before { content: "\e609"; }*/
 /*m-icon[name=social-linkedin]:before { content: "\e60a"; }*/
 /*m-icon[name=social-pinterest]:before { content: "\e60b"; }*/
-/*m-icon[name=social-github]:before { content: "\e60c"; }*/
+m-icon[name=github]:before { content: "\e60c"; }
 /*m-icon[name=social-google]:before { content: "\e60d"; }*/
 /*m-icon[name=social-reddit]:before { content: "\e60e"; }*/
 /*m-icon[name=social-skype]:before { content: "\e60f"; }*/

@@ -7,6 +7,6 @@
     "express-handlebars": "^3.1.0"
   },
   "scripts": {
-    "start": "node main.js"
+    "start": "NODE_ENV=development node main.js"
   }
 }
