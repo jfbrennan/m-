@@ -1,19 +1,19 @@
 hr {
   border: none;
   height: 1px;
-  background-color: var(--color-gray-3);
+  background-color: var(--m-color-gray-3);
 }
 
 m-vr {
   display: inline-block;
   width: 1px;
   height: 100%;
-  background-color: var(--color-gray-4);
+  background-color: var(--m-color-gray-4);
 }
 
 m-vbar {
   display: inline-block;
-  color: var(--color-gray-4);
+  color: var(--m-color-gray-4);
   margin: auto 12px;
   font-weight: 400;
 }

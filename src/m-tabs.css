@@ -10,7 +10,7 @@ m-tab {
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
-  padding: var(--space-xs) var(--space-lg);
+  padding: var(--m-space-xs) var(--m-space-lg);
 }
 
 m-tab:not([disabled]) {
@@ -18,12 +18,12 @@ m-tab:not([disabled]) {
 }
 
 m-tab:not([disabled]):not([selected]):hover {
-  border-bottom: 2px solid var(--color-gray-3);
+  border-bottom: 2px solid var(--m-color-gray-3);
 }
 
 m-tab a:hover {
   text-decoration: none;
 }
 
-m-tab[selected] {border-bottom: 2px solid var(--color-primary-action)}
-m-tab[disabled] {color: var(--color-disabled-fg); cursor: default}
+m-tab[selected] {border-bottom: 2px solid var(--m-color-primary-action)}
+m-tab[disabled] {color: var(--m-color-disabled-fg); cursor: default}

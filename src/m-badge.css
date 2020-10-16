@@ -6,7 +6,7 @@ m-badge {
   height: 1.25rem;
   text-align: center;
   color: white;
-  background-color: var(--color-primary-action);
+  background-color: var(--m-color-primary-action);
   border-radius: 0.625rem;
   font-weight: 600;
   line-height: 1.25rem;
@@ -15,7 +15,7 @@ m-badge {
 /* Use count attr for the Badge's content */
 m-badge[count]:before {
   content: attr(count);
-  padding: 0 var(--space-xs);
+  padding: 0 var(--m-space-xs);
 }
 
 /* Show the Badge only when it has a count attr and count is non-empty or non-zero */

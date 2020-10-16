@@ -1,10 +1,10 @@
 m-accordion { display: block }
 
-m-accordion > details { border-top: 3px solid var(--color-gray-2) }
-m-accordion > details:last-child { border-bottom: 3px solid var(--color-gray-2) }
+m-accordion > details { border-top: 3px solid var(--m-color-gray-2) }
+m-accordion > details:last-child { border-bottom: 3px solid var(--m-color-gray-2) }
 
 m-accordion > details > summary {
-  padding: var(--space-sm) var(--space-xl) var(--space-sm) 0;
+  padding: var(--m-space-sm) var(--m-space-xl) var(--m-space-sm) 0;
   position: relative;
 }
 
@@ -12,8 +12,8 @@ m-accordion > details > summary:after {
   font-family: 'm-icons';
   content: '\e604';
   position: absolute;
-  top: var(--space-sm);
-  right: var(--space-sm);
+  top: var(--m-space-sm);
+  right: var(--m-space-sm);
   transform: rotate(0deg);
   transition: transform 250ms;
 

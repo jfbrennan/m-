@@ -9,7 +9,7 @@ fieldset {
 fieldset + fieldset,
 fieldset + button[ord],
 fieldset + a[is=button] {
-  margin-top: var(--space-md);
+  margin-top: var(--m-space-md);
 }
 
 fieldset label,
@@ -25,7 +25,7 @@ fieldset input + label {
 
 fieldset label,
 fieldset legend {
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--m-space-xs);
   font-weight: 500;
 }
 
@@ -41,18 +41,18 @@ fieldset select,
 fieldset textarea {
   width: 100%;
   margin: 0;
-  min-height: var(--input-min-height);
+  min-height: var(--m-input-min-height);
   font-size: 16px;
   padding: 6px;
   border-radius: 0px;
   background-color: white;
-  color: var(--color-darker);
+  color: var(--m-color-darker);
 }
 
 fieldset input,
 fieldset select,
 fieldset textarea {
-  border: 1px solid var(--color-gray-1);
+  border: 1px solid var(--m-color-gray-1);
 }
 
 fieldset select:not([multiple]) {
@@ -76,14 +76,14 @@ fieldset textarea + select,
 fieldset small + input,
 fieldset small + select,
 fieldset small + textarea {
-  margin-top: var(--space-xs) !important;
+  margin-top: var(--m-space-xs) !important;
 }
 
 fieldset input:focus,
 fieldset select:focus,
 fieldset textarea:focus {
   outline: 0;
-  border: 1px solid var(--color-primary-action);
+  border: 1px solid var(--m-color-primary-action);
 }
 
 fieldset input:invalid,
@@ -92,7 +92,7 @@ fieldset select:invalid,
 fieldset select[invalid],
 fieldset textarea:invalid,
 fieldset textarea[invalid] {
-  border-color: var(--color-red-dark);
+  border-color: var(--m-color-red-dark);
 }
 
 fieldset input:invalid + small,
@@ -101,11 +101,11 @@ fieldset select:invalid + small,
 fieldset select[invalid] + small,
 fieldset textarea:invalid + small,
 fieldset textarea[invalid] + small {
-  color: var(--color-red-dark);
+  color: var(--m-color-red-dark);
 }
 
 fieldset input + small,
 fieldset select + small,
 fieldset textarea + small {
-  color: var(--color-gray-6);
+  color: var(--m-color-gray-6);
 }

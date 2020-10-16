@@ -1,5 +1,5 @@
 ul, ol, dl { margin: 0 }
-ul, ol { padding-left: var(--space-lg) }
+ul, ol { padding-left: var(--m-space-lg) }
 
 ul[type=none] {
   list-style: none;
@@ -8,9 +8,9 @@ ul[type=none] {
 
 dd { margin-inline-start: 0 }
 dl > dt {
-  margin-top: var(--space-sm);
+  margin-top: var(--m-space-sm);
   text-transform: uppercase;
-  font-size: var(--font-size-min);
+  font-size: var(--m-font-size-min);
   font-weight: bold;
 }
 dl > dt:first-of-type {margin-top: 0}

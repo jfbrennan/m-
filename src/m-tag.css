@@ -1,14 +1,14 @@
 m-tag {
   align-items: center;
-  border: 1px solid var(--color-gray-1);
-  background-color: var(--color-offwhite);
-  padding: 3px var(--space-xs);
-  font-size: var(--font-size-min);
+  border: 1px solid var(--m-color-gray-1);
+  background-color: var(--m-color-offwhite);
+  padding: 3px var(--m-space-xs);
+  font-size: var(--m-font-size-min);
 }
 
 m-tag + m-tag { margin-left: 3px }
 
 m-tag button[type=remove] {
   padding-right: 0;
-  font-size: var(--font-size-default);
+  font-size: var(--m-font-size-default);
 }

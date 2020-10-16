@@ -6,16 +6,16 @@ m-menu {
 m-menu > [slot=items] {
   display: none;
   position: absolute;
-  transform: translateY(var(--space-xs));
+  transform: translateY(var(--m-space-xs));
   background-color: white;
-  border: 1px solid var(--color-gray-4);
+  border: 1px solid var(--m-color-gray-4);
   border-radius: var(--m-border-radius-sm);
-  padding: var(--space-md);
+  padding: var(--m-space-md);
   min-width: 78px;
   z-index: 3000;
 }
 m-menu > [slot=items] > a {
-  margin-bottom: var(--space-sm)
+  margin-bottom: var(--m-space-sm)
 }
 m-menu > [slot=items] > a:last-of-type {
   margin-bottom: 0

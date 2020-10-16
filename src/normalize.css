@@ -4,14 +4,14 @@ body {
   margin: 0;
   height: 100vh;
   box-sizing: border-box;
-  color: var(--color-dark);
+  color: var(--m-color-dark);
   font-family: 'Helvetica Neue', Arial;
 }
 
 code {
   border-radius: var(--m-border-radius-sm);
-  background-color: var(--color-offwhite);
-  color: var(--color-red-dark);
+  background-color: var(--m-color-offwhite);
+  color: var(--m-color-red-dark);
   padding: 1px 3px;
 }
 

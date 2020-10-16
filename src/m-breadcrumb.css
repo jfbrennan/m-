@@ -7,6 +7,6 @@ m-breadcrumb > nav > m-crumb:not(:first-child)::before,
 m-breadcrumb > nav > span:not(:first-child)::before {
   content: '/';
   display: inline-block; /* Needed to prevent this element from getting underlined */
-  margin: 0 var(--space-sm);
-  color: var(--color-gray-4);
+  margin: 0 var(--m-space-sm);
+  color: var(--m-color-gray-4);
 }

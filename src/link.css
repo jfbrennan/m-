@@ -2,14 +2,14 @@
 
 a, span[role=link] {
   text-decoration: none;
-  color: var(--color-primary-action);
+  color: var(--m-color-primary-action);
   cursor: pointer;
 }
 
-a:visited, span[role=link]:visited { color: var(--color-primary-action) }
+a:visited, span[role=link]:visited { color: var(--m-color-primary-action) }
 a:hover, span[role=link]:hover { text-decoration: underline }
 
 a[disabled], span[role=link][disabled] {
-  color: var(--color-disabled-fg);
+  color: var(--m-color-disabled-fg);
   pointer-events: none;
 }

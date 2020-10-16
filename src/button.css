@@ -3,7 +3,7 @@ button:active, button:focus { outline:0 }
 button[ord] + button[ord],
 button[ord] + a[ord][role=button],
 a[ord][role=button] + button[ord] {
-  margin-left: var(--space-sm);
+  margin-left: var(--m-space-sm);
 }
 
 /*
@@ -22,9 +22,9 @@ button[ord], a[role=button][ord], button[type=remove] {
 }
 
 button[ord], a[role=button][ord] {
-  font-size: var(--font-size-default);
-  min-height: var(--input-min-height);
-  padding: var(--space-xs) var(--space-md);
+  font-size: var(--m-font-size-default);
+  min-height: var(--m-input-min-height);
+  padding: var(--m-space-xs) var(--m-space-md);
 }
 
 button[type=remove] { line-height: 0.5 }
@@ -38,30 +38,30 @@ a[role=button][ord] { box-sizing: border-box}
 a[role=button][ord]:hover { text-decoration: none }
 
 button[ord=primary], a[role=button][ord=primary] {
-  background-color: var(--color-primary-action);
+  background-color: var(--m-color-primary-action);
   color: white;
 }
 
 button[ord=secondary], a[role=button][ord=secondary] {
-  border: 2px solid var(--color-primary-action);
-  color: var(--color-primary-action);
+  border: 2px solid var(--m-color-primary-action);
+  color: var(--m-color-primary-action);
 }
 
 button[ord=tertiary], a[role=button][ord=tertiary] {
-  border: 2px solid var(--color-dark);
-  color: var(--color-dark);
+  border: 2px solid var(--m-color-dark);
+  color: var(--m-color-dark);
 }
 
 button[ord][disabled], a[role=button][ord][disabled], button[type=remove][disabled] {
-  color: var(--color-disabled-fg);
+  color: var(--m-color-disabled-fg);
   cursor: not-allowed;
 }
 
 button[ord=primary][disabled], a[role=button][ord=primary][disabled] {
-  background-color: var(--color-disabled-bg);
+  background-color: var(--m-color-disabled-bg);
 }
 
 button[ord=secondary][disabled], a[role=button][ord=secondary][disabled],
 button[ord=tertiary][disabled], a[role=button][ord=tertiary][disabled] {
-  border: 2px solid var(--color-disabled-fg);
+  border: 2px solid var(--m-color-disabled-fg);
 }

@@ -4,7 +4,7 @@
 <code-sample>
   <style>
     @import "../node_modules/m-/dist/custom-props.css";
-    #foo { background-color: var(--color-gray-2) }
+    #foo { background-color: var(--m-color-gray-2) }
   </style>
   <div id="foo" class="pad-all-lg">My background uses a custom property</div>
 </code-sample>
@@ -21,7 +21,7 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>--color-red-[dark|med|light]</code></td>
+    <td colspan="2"><code>--m-color-red-[dark|med|light]</code></td>
     <td colspan="3" class="pad-all-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-red-dark"></div>
@@ -32,7 +32,7 @@
     <td colspan="3">Used to denote something has or will go wrong.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--color-orange-[dark|med|light]</code></td>
+    <td colspan="2"><code>--m-color-orange-[dark|med|light]</code></td>
     <td colspan="3" class="pad-all-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-orange-dark"></div>
@@ -43,7 +43,7 @@
     <td colspan="3">Used for bringing attention to something that may not be desirable.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--color-blue-[dark|med|light]</code></td>
+    <td colspan="2"><code>--m-color-blue-[dark|med|light]</code></td>
     <td colspan="3" class="pad-all-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-blue-dark"></div>
@@ -54,7 +54,7 @@
     <td colspan="3">Used to highlight primary actions.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--color-green-[dark|med|light]</code></td>
+    <td colspan="2"><code>--m-color-green-[dark|med|light]</code></td>
     <td colspan="3" class="pad-all-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-green-dark"></div>
@@ -65,7 +65,7 @@
     <td colspan="3">Used to communicate something desirable has or will happen.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--color-[darkest|darker|dark]</code></td>
+    <td colspan="2"><code>--m-color-[darkest|darker|dark]</code></td>
     <td colspan="3" class="pad-all-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-darkest"></div>
@@ -76,7 +76,7 @@
     <td colspan="3">Used for text and high-contrast backgrounds.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--color-gray-[6|5|4|3|2|1]</code></td>
+    <td colspan="2"><code>--m-color-gray-[6|5|4|3|2|1]</code></td>
     <td colspan="3" class="pad-all-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-gray-6"></div>
@@ -90,7 +90,7 @@
     <td colspan="3">Grayscale used for backgrounds, borders, and disabled state.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--color-offwhite</code></td>
+    <td colspan="2"><code>--m-color-offwhite</code></td>
     <td colspan="3" class="pad-all-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-offwhite"></div>
@@ -99,7 +99,7 @@
     <td colspan="3">Used for the whole page background.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--color-primary-action</code></td>
+    <td colspan="2"><code>--m-color-primary-action</code></td>
     <td colspan="3" class="pad-all-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-primary-action"></div>
@@ -121,11 +121,11 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>--space-[xs|sm|md|lg|xl]</code></td>
+    <td colspan="2"><code>--m-space-[xs|sm|md|lg|xl]</code></td>
     <td colspan="3">6, 12, 18, 30, 48px</td>
     <td colspan="3">Used for developing a visual rhythm between elements. Loosely follows <a
             href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the
-      <a href="/utility-classes#space">padding and margin utility classes</a> whenever possible and reserve use of <code>--space-*</code> for other spacing needs like position.</td>
+      <a href="/utility-classes#space">padding and margin utility classes</a> whenever possible and reserve use of <code>--m-space-*</code> for other spacing needs like position.</td>
   </tr>
   </tbody>
 </table>
@@ -165,17 +165,17 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>--breakpoint-sm</code></td>
+    <td colspan="2"><code>--m-breakpoint-sm</code></td>
     <td colspan="3">576px</td>
     <td colspan="3">The portrait width of an iPhone X.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--breakpoint-md</code></td>
+    <td colspan="2"><code>--m-breakpoint-md</code></td>
     <td colspan="3">768px</td>
     <td colspan="3">The portrait width of an iPad.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--breakpoint-lg</code></td>
+    <td colspan="2"><code>--m-breakpoint-lg</code></td>
     <td colspan="3">992px</td>
     <td colspan="3">The landscape width of an iPad.</td>
   </tr>
@@ -192,17 +192,17 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>--font-family</code></td>
+    <td colspan="2"><code>--m-font-family</code></td>
     <td colspan="3">'Helvetica Neue', Arial</td>
     <td colspan="3">The typefaces in use.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--max-content-width</code></td>
+    <td colspan="2"><code>--m-max-content-width</code></td>
     <td colspan="3">1536px</td>
     <td colspan="3">The max width used by <a href="/container">Container</a>. Wrapping your content in a <code>m-container</code> is more likely what you need, but you can use this if necessary.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--min-input-height</code></td>
+    <td colspan="2"><code>--m-min-input-height</code></td>
     <td colspan="3">34px</td>
     <td colspan="3">The min height used for form elements. Reference this if you'd like your element to match the height of inputs.</td>
   </tr>
@@ -215,7 +215,7 @@
 /* Do */
 @import "../node_modules/m-/dist/custom-props.css";
 #foo \{
-  background-color: var(--color-gray-2);
+  background-color: var(--m-color-gray-2);
 }
 
 /* Don't */
@@ -229,30 +229,30 @@
 
 <style>
   [class^="color-"] { width: 32% }
-  .color-red-dark { background-color: var(--color-red-dark) }
-  .color-red-med { background-color: var(--color-red-med) }
-  .color-red-light { background-color: var(--color-red-light) }
-  .color-blue-dark { background-color: var(--color-blue-dark) }
-  .color-blue-med { background-color: var(--color-blue-med) }
-  .color-blue-light { background-color: var(--color-blue-light) }
-  .color-green-dark { background-color: var(--color-green-dark) }
-  .color-green-med { background-color: var(--color-green-med) }
-  .color-green-light { background-color: var(--color-green-light) }
-  .color-orange-dark { background-color: var(--color-orange-dark) }
-  .color-orange-med { background-color: var(--color-orange-med) }
-  .color-orange-light { background-color: var(--color-orange-light) }
-  .color-darkest { background-color: var(--color-darkest) }
-  .color-darker { background-color: var(--color-darker) }
-  .color-dark { background-color: var(--color-dark) }
+  .color-red-dark { background-color: var(--m-color-red-dark) }
+  .color-red-med { background-color: var(--m-color-red-med) }
+  .color-red-light { background-color: var(--m-color-red-light) }
+  .color-blue-dark { background-color: var(--m-color-blue-dark) }
+  .color-blue-med { background-color: var(--m-color-blue-med) }
+  .color-blue-light { background-color: var(--m-color-blue-light) }
+  .color-green-dark { background-color: var(--m-color-green-dark) }
+  .color-green-med { background-color: var(--m-color-green-med) }
+  .color-green-light { background-color: var(--m-color-green-light) }
+  .color-orange-dark { background-color: var(--m-color-orange-dark) }
+  .color-orange-med { background-color: var(--m-color-orange-med) }
+  .color-orange-light { background-color: var(--m-color-orange-light) }
+  .color-darkest { background-color: var(--m-color-darkest) }
+  .color-darker { background-color: var(--m-color-darker) }
+  .color-dark { background-color: var(--m-color-dark) }
   [class^="color-gray-"] { width: 16% }
-  .color-gray-1 { background-color: var(--color-gray-1) }
-  .color-gray-2 { background-color: var(--color-gray-2) }
-  .color-gray-3 { background-color: var(--color-gray-3) }
-  .color-gray-4 { background-color: var(--color-gray-4) }
-  .color-gray-5 { background-color: var(--color-gray-5) }
-  .color-gray-6 { background-color: var(--color-gray-6) }
+  .color-gray-1 { background-color: var(--m-color-gray-1) }
+  .color-gray-2 { background-color: var(--m-color-gray-2) }
+  .color-gray-3 { background-color: var(--m-color-gray-3) }
+  .color-gray-4 { background-color: var(--m-color-gray-4) }
+  .color-gray-5 { background-color: var(--m-color-gray-5) }
+  .color-gray-6 { background-color: var(--m-color-gray-6) }
   [class^="color-offwhite"] { width: 96% }
-  .color-offwhite { background-color: var(--color-offwhite) }
+  .color-offwhite { background-color: var(--m-color-offwhite) }
   [class^="color-primary-action"] { width: 96% }
-  .color-primary-action { background-color: var(--color-primary-action) }
+  .color-primary-action { background-color: var(--m-color-primary-action) }
 </style>
