@@ -12,6 +12,7 @@ m-menu > [slot=items] {
   border-radius: var(--m-border-radius-sm);
   padding: var(--space-md);
   min-width: 78px;
+  z-index: 3000;
 }
 m-menu > [slot=items] > a {
   margin-bottom: var(--space-sm)

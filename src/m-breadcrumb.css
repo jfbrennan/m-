@@ -3,6 +3,7 @@ m-breadcrumb, m-breadcrumb > nav {
 }
 
 m-breadcrumb > nav > a:not(:first-child)::before,
+m-breadcrumb > nav > m-crumb:not(:first-child)::before,
 m-breadcrumb > nav > span:not(:first-child)::before {
   content: '/';
   display: inline-block; /* Needed to prevent this element from getting underlined */

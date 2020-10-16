@@ -10,14 +10,14 @@
   <m-breadcrumb>
     <nav>
       <a href="#">Home</a>
-      <span>Women</span>
+      <span>Shoes</span>
     </nav>
   </m-breadcrumb>
   <m-breadcrumb>
     <nav>
       <a href="#">Home</a>
-      <a href="#">Women</a>
-      <span>Shoes</span>
+      <a href="#">Shoes</a>
+      <span>Women</span>
     </nav>
   </m-breadcrumb>
 </code-sample>
@@ -33,15 +33,47 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td colspan="2"><code>m-breadcrumb</code></td>
-    <td colspan="2">Custom tag</td>
-    <td colspan="6"><code>&lt;nav&gt;</code> with <code>&lt;a&gt;</code> and <code>&lt;span&gt;</code> children.</td>
-  </tr>
+    <tr>
+      <td colspan="2"><code>m-breadcrumb</code></td>
+      <td colspan="2">Custom tag</td>
+      <td colspan="6">One <code>&lt;nav&gt;</code> child with <code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, or <code>&lt;m-crumb&gt;</code> children.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><code>m-crumb</code></td>
+      <td colspan="2">Custom tag</td>
+      <td colspan="6">Any</td>
+    </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="title">Crumb order</h3>
-<p>The last crumb must represent the current page and should be a span. All other crumbs should be links navigating up the hierarchy. When the user is at the top of the hierarchy, it may or may not make sense to display Breadcrumb.</p>
+<h3 id="order">Crumb order</h3>
+<p>The last crumb must represent the current page and should be a span. All other crumbs should be links navigating up the hierarchy. When the user is at the top of the hierarchy, it may or may not make sense to display Breadcrumb at all.</p>
+<h3>Get creative!</h3>
+<p>Breadcrumbs can support all kinds of elements for more demanding designs, but you should not deviate from the core purpose of navigational hierarchy.</p>
+<code-sample>
+  <template>
+    <m-breadcrumb>
+      <nav>
+        <a href="#">
+          <m-icon name="home"></m-icon>
+        </a>
+        <a href="#">Shoes</a>
+        <m-crumb>
+          <m-menu>
+            <span role="link" slot="trigger">Women  <m-icon name="arrow-down" class="txt-xs"></m-icon></span>
+            <div slot="items">
+              <a href="#" class="inline-flex align-items-center justify-content-center">👞 Casual</a>
+              <a href="#" class="inline-flex align-items-center justify-content-center">👟 Sport</a>
+              <a href="#" class="inline-flex align-items-center justify-content-center">👠 Formal</a>
+            </div>
+          </m-menu>
+        </m-crumb>
+        <span>Sport</span>
+      </nav>
+    </m-breadcrumb>
+    <h3>Sport shoes</h3>
+    <div>...</div>
+  </template>
+</code-sample>
 <h3 id="a11y">Accessibility</h3>
-<p>It is recommended that the last item in the breadcrumb has <code>aria-current="page"</code>.</p>
+<p>It is recommended that the last item in breadcrumbs has <code>aria-current="page"</code>.</p>

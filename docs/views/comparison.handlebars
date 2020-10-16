@@ -1,33 +1,22 @@
 <m-container>
-  <m-breadcrumb>
-    <nav>
-      <a href="/">Home</a>
-      <span>Comparison</span>
-    </nav>
-  </m-breadcrumb>
   <div style="max-width: 660px">
-    <h1>UI Library Comparison</h1>
+    <h1>UI Library API Comparison</h1>
     <p>Comparisons are tough. Differences in problem space, constraints, values, trade-offs, and a whole bunch of other factors come into play that make a true comparison complicated.</p>
 <!--    <p>Some UI libraries are great choices for their target framework, like those created specifically for React, but have no chance at compatibility. Others put a heavy emphasis on visual beauty - and really do achieve a beautiful UI! - but aren't concerned about size or performance. This is no surprise because there are no silver bullets in software - only trade-offs.</p>-->
     <p>M- occupies the area of minimal trade-offs and maximum value by relentlessly leveraging standards and offers developers a UI library that is extremely small - the smallest by far! - compatible with everything, actually easy (no install, no config, no build step), more familiar, and is sophisticated enough to serve as a shared design system across large organizations.</p>
     <p>So, although not every UI library has all the same components, those that do match their API and required markup is lined up to M- for you to compare.</p>
     <small><a href="https://github.com/jfbrennan/m-/issues">Submit corrections</a></small>
   </div>
-</m-container>
-<div style="border-bottom: 1px solid grey">
-  <m-container class="pad-b-none">
-    <m-tabs id="comparisons">
-      <m-tab id="bootstrap">Bootstrap</m-tab>
-      <m-tab id="material-web">Material Web</m-tab>
-      <m-tab id="foundation">Foundation</m-tab>
-      <m-tab id="semantic-ui" disabled>Semantic UI</m-tab>
-    </m-tabs>
-  </m-container>
-</div>
-<m-container>
+  <m-tabs id="comparisons" class="mar-t-lg">
+    <m-tab id="bootstrap">Bootstrap</m-tab>
+    <m-tab id="material-web">Material Web</m-tab>
+    <m-tab id="foundation">Foundation</m-tab>
+    <m-tab id="semantic-ui" disabled>Semantic UI</m-tab>
+  </m-tabs>
+
   <!-- Bootstrap -->
   <div data-tab="bootstrap" role="tabpanel">
-    <m-row class="pos-sticky bg-offwhite mar-b-none" style="z-index: 10">
+    <m-row class="pos-sticky bg-white mar-b-none" style="z-index: 10">
       <m-col>
         <h2 id="bootstrap" class="mar-b-none">Bootstrap<span class="mar-l-md txt-sm txt-gray-4">v4.5<m-vbar></m-vbar>72kb<m-vbar></m-vbar>jQuery + Popper</span></h2>
       </m-col>
@@ -394,7 +383,7 @@
 
   <!-- Material Web -->
   <div data-tab="material-web" role="tabpanel">
-    <m-row class="pos-sticky bg-offwhite mar-b-none" style="z-index: 10">
+    <m-row class="pos-sticky bg-white mar-b-none" style="z-index: 10">
       <m-col>
         <h2 id="material-web" class="mar-b-none">Material Web<span class="mar-l-md txt-sm txt-gray-4">v7.0<m-vbar></m-vbar>80kb</span></h2>
       </m-col>
@@ -537,7 +526,7 @@
 
   <!-- Foundation -->
   <div data-tab="foundation" role="tabpanel">
-    <m-row class="pos-sticky bg-offwhite mar-b-none" style="z-index: 10">
+    <m-row class="pos-sticky bg-white mar-b-none" style="z-index: 10">
       <m-col>
         <h2 id="foundation" class="mar-b-none">Zurb Foundation<span class="mar-l-md txt-sm txt-gray-4">v6.6<m-vbar></m-vbar>87kb</span></h2>
       </m-col>
@@ -725,16 +714,7 @@
   </div>
 </m-container>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-css.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-html.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
-<script src="/code-sample.riot" type="riot/tag"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
 <script>
-  riot.compile(() => riot.mount('*'));
-
   // Switches tab panels
   document.getElementById('comparisons').addEventListener('select', e => {
     document.querySelectorAll('[role=tabpanel]').forEach(panel => panel.hidden = panel.dataset.tab !== e.detail.id);
