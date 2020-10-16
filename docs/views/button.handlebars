@@ -89,20 +89,20 @@
   <kbd>cmd + click</kbd> or copy the link. If the action does not navigate the user to a new url, then use a regular button.</p>
 <h3 id="remove">The remove button</h3>
 <p>Dialog, Alert, and other components use this button type to create a consistent experience. Use it for similar use cases to match user expectations:</p>
-<m-row>
-  <m-col>
+<div class="flex">
+  <div class="mar-r-lg" style="width: 300px">
     <m-alert type="success">Lorem ipsum dolor</m-alert>
-  </m-col>
-  <m-col>
+  </div>
+  <div class="mar-r-lg">
     <m-tag>lorem <button type="remove"></button></m-tag>
     <m-tag>ipsum <button type="remove"></button></m-tag>
     <m-tag>dolor <button type="remove"></button></m-tag>
-  </m-col>
-  <m-col>
+  </div>
+  <div class="mar-r-lg">
     <m-dialog>Lorem ipsum dolor</m-dialog>
     <button onclick="document.querySelector('m-dialog').showModal()" ord="primary">Open Dialog</button>
-  </m-col>
-  <m-col class="pad-r-lg">
+  </div>
+  <div>
     <h4 class="mar-t-none mar-b-xs">Your order</h4>
     <div class="flex align-items-center justify-content-between">🌮 Taco, spicy pork <button type="remove" class="txt-md"></button></div>
     <div class="flex align-items-center justify-content-between">🌯 Burrito, steak, add guac <button type="remove" class="txt-md"></button></div>
@@ -110,7 +110,7 @@
     <hr>
     <span class="left txt-xs txt-upper">Total</span>
     <span class="right txt-xs">$18.36</span>
-  </m-col>
-</m-row>
+  </div>
+</div>
 <h3>Accessibility</h3>
 <p>The remove button should have an <code>aria-label</code> attribute and disabled buttons should have <code>aria-disabled="true"</code> and disabled link buttons should also have <code>tabindex="-1"</code> to prevent activation by keyboard or assistive tech.</p>

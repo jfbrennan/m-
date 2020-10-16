@@ -1,5 +1,5 @@
 <h1 class="mar-b-xs">Utility Classes</h1>
-<h2 class="txt-gray-5 mar-t-none">130+ CSS shortcuts and utility classes</h2>
+<h2 class="txt-gray-5 mar-t-none">150+ CSS shortcuts and utility classes</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
   <div class="inline-flex align-items-center bg-white brd-radius-md pad-all-md shadow">
@@ -14,7 +14,7 @@
   </div>
 </code-sample>
 <h2 id="api">API</h2>
-<p>Go to
+<p>Shortcuts:
   <a href="#display" class="mar-r-md mar-l-sm">Display</a>
   <a href="#flexbox" class="mar-r-md">Flexbox</a>
   <a href="#float" class="mar-r-md">Float</a>
@@ -347,19 +347,27 @@
 <h3 id="avoid-bloat">Avoid CSS bloat</h3>
 <p>Use these classes to avoid writing and maintaining unnecessary styles that do what these classes already do. Quite often a feature can be implemented without writing any CSS if you leverage these shortcuts!</p>
 <h3 id="kiss">Keep it stupid-simple</h3>
-<p>Do you really need to create another idiomatic framework-dependent component perfectly coded and packaged with all the right configurations and test coverage? Probably not. Some designs can, and probably should, just be implemented with classes. Like this:</p>
-<code-sample class="pad-all-md">
-  <div class="inline-flex align-items-center bg-white brd-radius-md pad-all-md shadow">
-    <img class="brd-radius-full mar-r-md" src="/img/homer.png" height="78">
-    <div>
-      <div class="txt-md txt-nowrap">Homer J. Simpson</div>
-      <div class="txt-sm txt-gray-6 mar-b-xs">Safety Inspector</div>
-      <a href="mailto:Chunkylover53@aol.com" class="fnt-light txt-xs">Chunkylover53@aol.com</a>
-      <br>
-      <a href="tel:+15559876543" class="fnt-light txt-xs">555-7334</a>
-    </div>
+<p>Do you really need to create another idiomatic framework-dependent component perfectly coded and packaged with all the right configurations and test coverage? Probably not. Some designs can, and probably should, just be implemented with utility classes. Like the demo:</p>
+<div class="inline-flex align-items-center bg-white brd-radius-md pad-all-md mar-r-lg shadow" style="min-width: 300px">
+  <img src="/img/homer.png" height="78" class="brd-radius-full mar-r-md">
+  <div>
+    <div class="txt-md txt-nowrap">Homer J. Simpson</div>
+    <div class="txt-sm txt-gray-6 mar-b-xs">Safety Inspector</div>
+    <a href="mailto:Chunkylover53@aol.com" class="fnt-light txt-xs">Chunkylover53@aol.com</a>
+    <br>
+    <a href="tel:+15555556543" class="fnt-light txt-xs">555-7334</a>
   </div>
-</code-sample>
-<p>Reuse is possible with the standard <code>&lt;template&gt;</code> element or template literals. If standards aren't going to work, some frameworks have an option for template-only components.</p>
+</div>
+<div class="inline-flex align-items-center bg-white brd-radius-md pad-all-md shadow" style="min-width: 300px">
+  <img src="/img/m-logo.png" height="78" class="brd-radius-full mar-r-md">
+  <div>
+    <div class="txt-md txt-nowrap">E. M. Dash</div>
+    <div class="txt-sm txt-gray-6 mar-b-xs">Design System</div>
+    <a href="https://twitter.com/realEmDash" class="fnt-light txt-xs">@realEmDash</a>
+    <br>
+    <a href="tel:+18005551234" class="fnt-light txt-xs">1-800-M-DASH</a>
+  </div>
+</div>
+<p>Reuse is possible with the standard <code>&lt;template&gt;</code> element or template literals. If standards aren't going to work, partials or static components are a good choice.</p>
 <h3 id="a11y">Accessibility</h3>
 <p>There are no accessibility recommendations for these classes.</p>
