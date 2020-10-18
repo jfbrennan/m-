@@ -81,7 +81,7 @@
 <div id="icon-container"></div>
 <script>
   // Find the m- stylesheet then parse out icon names from the icon rules
-  const mdashStyleSheet = Array.from(document.styleSheets).find(css => css.href && css.href.includes('min'));
+  const mdashStyleSheet = Array.from(document.styleSheets).find(css => css.href && css.href.includes('min') && css.cssRules);
   if (mdashStyleSheet.cssRules) {
     fetch(mdashStyleSheet.href)
       .then(res => res.text())
