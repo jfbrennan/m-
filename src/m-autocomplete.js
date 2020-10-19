@@ -1,18 +1,15 @@
 class MdashAutocomplete extends HTMLElement {
   constructor() {
     super();
+    this._boundClose = this.close.bind(this)
   }
 
   connectedCallback() {
     // Closes matching results when user clicks outside of it
-    document.body.addEventListener('click', e => {
-      if (!this.querySelector('[ref="matches"]').contains(e.currentTarget)) {
-        this.clear(true);
-      }
-    });
+    document.body.addEventListener('click', this._boundClose);
 
     // Close on esc keyup
-    document.addEventListener('keyup', e => e.key === 'Escape' ? this.clear() : null);
+    document.addEventListener('keyup', this._boundClose);
 
     this.matches = null;
 
@@ -33,6 +30,20 @@ class MdashAutocomplete extends HTMLElement {
     matches.hidden = !this.matches;
 
     this.append(input, matches);  
+  }
+
+  disconnectedCallback() {
+    document.body.removeEventListener('click', this._boundClose);
+    document.removeEventListener('keyup', this._boundClose);
+  }
+
+  close(e) {
+    if (e.type === 'keyup' && e.key === 'Escape') {
+      this.clear()
+    }
+    else if (e.type === 'click' && !this.querySelector('[ref="matches"]').contains(e.currentTarget)) {
+      this.clear(true);
+    }
   }
   
   search(query) {

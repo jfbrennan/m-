@@ -12,13 +12,14 @@
 customElements.define('m-dialog', class extends HTMLElement {
   constructor() {
     super();
+    this._boundClose = e => e.key === 'Escape' ? this.close() : null;
   }
 
   connectedCallback() {
     this.returnValue = null;
 
     // Close on esc keyup
-    document.addEventListener('keyup', e => e.key === 'Escape' ? this.close() : null);
+    document.addEventListener('keydown', this._boundClose);
 
     // One time render stuff
     const container = document.createElement('div');
@@ -39,6 +40,10 @@ customElements.define('m-dialog', class extends HTMLElement {
 
     container.append(closeBtn, content1);
     this.append(container);
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('keydown', this._boundClose);
   }
 
   static get observedAttributes() { return ['open']; }
