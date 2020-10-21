@@ -5,8 +5,11 @@ customElements.define('m-menu', class extends HTMLElement {
   }
 
   connectedCallback() {
-    this.trigger = this.querySelector('[slot="trigger"]') || new HTMLButtonElement();
-    this.trigger.addEventListener('click', e => this.open = !this.open);
+    // Can expose later if desired
+    const trigger = this.querySelector('[slot="trigger"]');
+    if (trigger) {
+      trigger.addEventListener('click', e => this.open = !this.open);
+    }
 
     // Close menu if user clicks outside of a menu or navigates away
     document.body.addEventListener('click', this._boundClose);
