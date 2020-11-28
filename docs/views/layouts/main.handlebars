@@ -123,7 +123,13 @@
 <script src="/code-sample.riot" type="riot/tag"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
 <script>
-  riot.compile(() => riot.mount('*'));
+  riot.compile(() => {
+    riot.mount('*');
+
+    // Focus demo section code-sample
+    const codeSample = document.body.querySelector('code-sample');
+    codeSample?._tag?.setCursor();
+  });
 </script>
 <script src="{{localUrl}}js"></script>
 <script>
@@ -141,10 +147,6 @@
       matches
     });
   };
-
-  // Focus demo code-sample
-  const codeSample = document.body.querySelector('code-sample');
-  codeSample?._tag?.setCursor();
 </script>
 </body>
 </html>

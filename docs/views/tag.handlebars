@@ -5,7 +5,8 @@
 <m-tag>non-smoking</m-tag>
 <m-tag>WiFi</m-tag>
 <m-tag>pool</m-tag>
-<m-tag><m-icon name="cup"></m-icon> free breakfast</m-tag>
+<m-tag><m-icon name="cup"></m-icon> free breakfast
+</m-tag>
 <m-tag>free breakfast<button type="remove"></button></m-tag>
 </code-sample>
 <h2 id="api">API</h2>
@@ -59,8 +60,7 @@
   </script>
 </code-sample>
 <h3 id="a11y">Accessibility</h3>
-<p>Use <code>aria-label</code> when the Tag only contains an icon:</p>
+<p>Use <code>aria-label</code> and <code>title</code> when the Tag only contains an icon:</p>
 <code-sample>
-  <m-tag aria-label="free breakfast"><m-icon name="cup"></m-icon></m-tag>
+  <m-tag title="free breakfast" aria-label="free breakfast"><m-icon name="cup"></m-icon></m-tag>
 </code-sample>
-

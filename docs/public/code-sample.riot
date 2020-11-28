@@ -4,8 +4,8 @@
   <script>
     setCursor() {
       this.editor.focus(); // To focus the ace editor
-      const n = this.editor.getSession().getValue().split('\n').length - 2;
-      this.editor.gotoLine(n);
+      const num = this.editor.getSession().getValue().split('\n').length;
+      this.editor.gotoLine(num);
       this.editor.navigateLineEnd()
     }
 
@@ -91,7 +91,7 @@
     :scope { display: block }
     :scope [ref=editor] {
       min-width: 40%;
-      border-radius: 2px;
+      border-radius: 3px;
     }
     :scope:not([readonly]) [ref=editor] { min-height: 80px }
     :scope[readonly] [ref=editor] { width: 100% }
@@ -106,7 +106,7 @@
     }
 
     /* ACE editor overrides */
-    .ace_gutter { border-radius: 2px 0 0 2px }
+    .ace_gutter { border-radius: 3px 0 0 3px }
     .ace-monokai .ace_comment { color: #bbbbbb }
     .ace_editor .ace_marker-layer .ace_bracket { display: none }
   </style>
