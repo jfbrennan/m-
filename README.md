@@ -12,7 +12,7 @@ M- (pronounced "em dash") is a design system based 100% on web standards. This m
 
 M- can works with any framework - client-side or server-side - or no framework at all because it's made from native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). SSR, SPA, PWA, static site, email template - whatever type of project you have M- will work. This is especially useful to organizations looking to share a design system, but committing to one JavaScript framework or one architecture is not possible or desirable.
 
-Try M- right now by just linking to the CDN files below and then visit the [doc site](https://m-docs.org) to learn more. If you want to use your own design language, just fork this project and customize the code (it's a really easy codebase to work in).
+Try M- right now by just linking to the CDN files below and then visit the [doc site](http://m-docs.org) to learn more. If you want to use your own design language, just fork this project and customize the code (it's a really easy codebase to work in).
 
 ## Quick start
 This is the web, so just add these links in `<head>` and you're done!
