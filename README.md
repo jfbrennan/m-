@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="http://m-docs.org">
-    <img src="http://m-docs.org/img/m-logo.png" alt="M- logo" width="192">
+  <a href="https://m-docs.org">
+    <img src="https://m-docs.org/img/m-logo.png" alt="M- logo" width="192">
   </a>
 </p>
 <h3 align="center">A design system that fully embraces web standards.</h3>
@@ -8,11 +8,11 @@
 <p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | very compatible</strong></p>
 <hr>
 
-M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- [extremely light](http://m-docs.org/#performance), very fast, and compatible with just about any type of web project.
+M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- [extremely light](https://m-docs.org/#performance), very fast, and compatible with just about any type of web project.
 
 M- can work with any framework client-side and server-side or no framework at all because it's made from native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). Be it SSR, SPA, PWA, static site, and even some email templates - whatever type of project you have M- will work. This is especially useful to organizations looking to share a design system across products.
 
-Try M- right now by simply linking to the CDN files below and visiting the [doc site](http://m-docs.org) for code samples and full API documentation. If you want to apply your own design language, fork M- and customize the code (it's a very very easy codebase to work in).
+Try M- right now by simply linking to the CDN files below and visiting the [doc site](https://m-docs.org) for code samples and full API documentation. If you want to apply your own design language, fork M- and customize the code (it's a very very easy codebase to work in).
 
 ## Quick start
 This is the web, so add this in `<head>` and you're done!
