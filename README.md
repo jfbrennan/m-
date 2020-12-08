@@ -8,19 +8,24 @@
 <p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | very compatible</strong></p>
 <hr>
 
-M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- [extremely light](http://m-docs.org/#performance), very fast, and compatible with just about any type of web project!
+M- (pronounced "em dash") is a design system based 100% on web standards. This makes M- [extremely light](http://m-docs.org/#performance), very fast, and compatible with just about any type of web project.
 
-M- can works with any framework - client-side or server-side - or no framework at all because it's made from native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). SSR, SPA, PWA, static site, email template - whatever type of project you have M- will work. This is especially useful to organizations looking to share a design system, but committing to one JavaScript framework or one architecture is not possible or desirable.
+M- can work with any framework client-side and server-side or no framework at all because it's made from native HTML, [custom HTML tags](https://dev.to/jfbrennan/custom-html-tags-4788), and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). Be it SSR, SPA, PWA, static site, and even some email templates - whatever type of project you have M- will work. This is especially useful to organizations looking to share a design system across products.
 
-Try M- right now by just linking to the CDN files below and then visit the [doc site](http://m-docs.org) to learn more. If you want to use your own design language, just fork this project and customize the code (it's a really easy codebase to work in).
+Try M- right now by simply linking to the CDN files below and visiting the [doc site](http://m-docs.org) for code samples and full API documentation. If you want to apply your own design language, fork M- and customize the code (it's a very very easy codebase to work in).
 
 ## Quick start
-This is the web, so just add these links in `<head>` and you're done!
+This is the web, so add this in `<head>` and you're done!
 ```html
 <link rel="stylesheet" href="https://unpkg.com/m-@1.2.3/dist/min.css">
 <script defer src="https://unpkg.com/m-@1.2.3/dist/min.js"></script>
 ```
-Or install via NPM and bundle and host with your assets: `npm install m-` (built files are located in `/dist`)
+Or install via NPM and bundle with your own assets: `npm install m-` (built files are located in `/dist`)
+
+Then try some M-:
+```
+<m-alert type="success">Success!</m-alert>
+```
 
 ## Browser support
 M- works with the latest versions of:
