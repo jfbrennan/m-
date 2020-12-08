@@ -51,10 +51,10 @@
     removeUser(e) \{
       const tag = e.currentTarget.parentElement;
 
-      // Remove user from org
-      this.org.users.splice(tag.dataset.userId);
+      // Remove user
+      this.users.splice(this.users.findIndex(u => u.id === tag.dataset.userId), 1);
 
-      // Remove tag element (depending on the framework/architecture, this may   get removed as part of the state change)
+      // Remove tag (or it's removed automatically depending on your implementation)
       tag.remove();
     }
   </script>

@@ -96,5 +96,37 @@
     </details>
   </template>
 </code-sample>
+<h3>Navigation</h3>
+<p>A common application of Details is an expandable navigation. Here's a working example:</p>
+<code-sample>
+  <nav aria-label="Sidebar navigation">
+    <h4 class="txt-upper">Foo</h4>
+    <details>
+      <summary>Section A</summary>
+      <div class="pad-l-sm">
+        <a href="#" class="block">Link</a>
+        <a href="#" class="block">Link</a>
+        <a href="#" class="block">Link</a>
+      </div>
+    </details>
+    <details class="mar-t-sm">
+      <summary>Section B</summary>
+      <div class="pad-l-sm">
+        <a href="#" class="block">Link</a>
+        <a href="#" class="block">Link</a>
+        <a href="#" class="block">Link</a>
+      </div>
+    </details>
+    <h4 class="txt-upper">Bar</h4>
+    <details class="mar-t-sm">
+      <summary>Section C</summary>
+      <div class="pad-l-sm">
+        <a href="#" class="block">Link</a>
+        <a href="#" class="block">Link</a>
+        <a href="#" class="block">Link</a>
+      </div>
+    </details>
+  </nav>
+</code-sample>
 <h3 id="a11y">Accessibility</h3>
 <p>The <code>aria-expanded</code> attribute is managed automatically for you.</p>
