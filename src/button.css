@@ -2,7 +2,8 @@ button:active, button:focus { outline:0 }
 
 button[ord] + button[ord],
 button[ord] + a[ord][role=button],
-a[ord][role=button] + button[ord] {
+a[ord][role=button] + button[ord],
+a[ord][role=button] + a[ord][role=button] {
   margin-left: var(--m-space-sm);
 }
 
