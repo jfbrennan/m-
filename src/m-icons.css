@@ -10,7 +10,7 @@ m-icon {
   font-family: 'm-icons';
   speak: none;
   font-style: normal;
-  font-weight: normal;
+  font-weight: inherit;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
