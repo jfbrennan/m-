@@ -60,6 +60,7 @@ fieldset select:not([multiple]) {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' height='10px' width='22px'%3E%3Ctext x='0' y='10' fill='gray'%3E%E2%96%BE%3C/text%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right center;
+  padding-right: var(--m-space-lg);
 }
 
 fieldset textarea { resize: vertical }
