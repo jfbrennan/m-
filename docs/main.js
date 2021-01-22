@@ -17,7 +17,7 @@ app.engine('handlebars', handlebars()).set('view engine', 'handlebars');
 
 // Log all requests
 app.use((req, res, next) => {
-  console.log(req.originalUrl, req.headers);
+  console.log('originalUrl: %s', req.originalUrl, req.headers);
   next();
 });
 
