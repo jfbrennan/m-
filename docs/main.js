@@ -26,7 +26,7 @@ app.use(express.static('public'));
 
 // Routes
 app.get('/', (req, res) => res.render('home'));
-app.get('/examples/:page', (req, res) => res.render(`examples/${req.params.page}`, {layout: 'demo'})); // TODO sanitize
+app.get('/examples/:page', (req, res) => res.render(`examples/${req.params.page.replace(/\./g,'-')}`, {layout: 'demo'})); // TODO sanitize
 app.get('/examples', (req, res) => res.render('examples/index', {layout: 'examples'}));
 app.get('/*', (req, res) => res.render(req.path.substr(1, req.path.length)));
 
