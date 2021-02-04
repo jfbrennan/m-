@@ -128,5 +128,17 @@
     </details>
   </nav>
 </code-sample>
+<h3 id="safari-bug">Safari flexbox bug</h3>
+<p>Safari has a [bug](https://bugs.webkit.org/show_bug.cgi?id=190065) that prevents <code>summary</code> from being styled as a flex container. If your summary needs flexbox, add a div:</p>
+<code-sample>
+<template>
+  <details>
+    <summary>
+      <div class="flex">This works</div>
+    </summary>
+    ...
+  </details>
+</template>
+</code-sample>
 <h3 id="a11y">Accessibility</h3>
 <p>The <code>aria-expanded</code> attribute is managed automatically for you.</p>
