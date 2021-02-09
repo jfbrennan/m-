@@ -15,7 +15,7 @@ M- can work with any framework client-side and server-side or no framework at al
 Try M- right now by simply linking to the CDN files below and visiting the [doc site](https://m-docs.org) for code samples and full API documentation. If you want to apply your own design language, fork M- and customize the code (it's a very very easy codebase to work in).
 
 ## Quick start
-This is the web, so add this in `<head>` and you're done!
+This is the web, so link to these in `<head>` and you're done!
 ```html
 <link rel="stylesheet" href="https://unpkg.com/m-@1.2.4/dist/min.css">
 <script defer src="https://unpkg.com/m-@1.2.4/dist/min.js"></script>
@@ -23,7 +23,7 @@ This is the web, so add this in `<head>` and you're done!
 Or install via NPM and bundle with your own assets: `npm install m-` (built files are located in `/dist`)
 
 Then try some M-:
-```
+```html
 <m-alert type="success">Success!</m-alert>
 ```
 
