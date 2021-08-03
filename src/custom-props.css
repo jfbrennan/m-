@@ -38,7 +38,7 @@
   /* Borders */
   --m-border-radius-sm: 2px;
   --m-border-radius-md: 4px;
-  --m-border-radius-full: 50%;
+  --m-border-radius-full: 9999px;
 
 
   /* Other */

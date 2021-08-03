@@ -35,6 +35,14 @@
   </thead>
   <tbody>
   <tr>
+    <td colspan="2"><code>grid</code></td>
+    <td colspan="6">Shortcut for display: grid</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>inline-grid</code></td>
+    <td colspan="6">Shortcut for display: inline-grid</td>
+  </tr>
+  <tr>
     <td colspan="2"><code>flex</code></td>
     <td colspan="6">Shortcut for display: flex</td>
   </tr>
@@ -284,8 +292,8 @@
   </tr>
   <tr>
     <td colspan="2"><code>txt-[color-name]</code></td>
-    <td colspan="6">Sets text color. Names map to the
-      <a href="/custom-props#colors">color custom props</a>, e.g. <code>txt-red-dark</code></td>
+    <td colspan="6">Sets text color. The class names map to the
+      <a href="/custom-props#colors">color custom props</a>, e.g. <code>txt-red-dark</code> => <code>--m-color-red-dark</code>.</td>
   </tr>
   </tbody>
 </table>
@@ -299,12 +307,24 @@
   </thead>
   <tbody>
   <tr>
+    <td colspan="2"><code>brd-[all|t|r|b|l]</code></td>
+    <td colspan="6">Adds default border to the specified side(s).</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>brd-all-none</code></td>
+    <td colspan="6">Removes border from all sides.</td>
+  </tr>
+  <tr>
     <td colspan="2"><code>brd-radius-[sm|md|full]</code></td>
-    <td colspan="6">Sets border radius. Use <code>full</code> to create circles.</td>
+    <td colspan="6">Sets border radius. Use <code>full</code> to create a circle.</td>
   </tr>
   <tr>
     <td colspan="2"><code>brd-width-[sm|md]</code></td>
     <td colspan="6">Sets border width.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>brd-dashed</code></td>
+    <td colspan="6">Sets border style to <code>dashed</code>. Good for placeholders and drop targets.</td>
   </tr>
   </tbody>
 </table>
@@ -340,6 +360,22 @@
   <tr>
     <td colspan="2"><code>overflow-auto</code></td>
     <td colspan="6">Shortcut for overflow: auto</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>push</code></td>
+    <td colspan="6">Shortcut for margin-left: auto</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>pull</code></td>
+    <td colspan="6">Shortcut for margin-right: auto</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>shadow</code></td>
+    <td colspan="6">Adds default shadow</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>content-vis-auto</code></td>
+    <td colspan="6">Shortcut for content-visibility: auto. Use on large sections of content not visible to the user after page load. The browser skips rendering and layout until needed thereby reducing the initial page rendering time.</td>
   </tr>
   </tbody>
 </table>
