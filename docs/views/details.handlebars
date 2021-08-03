@@ -4,11 +4,7 @@
 <code-sample>
 <template>
   <details>
-    <summary>Click the summary</summary>
-    <p>The deets.</p>
-  </details>
-  <details>
-    <summary><span role="link">See more</span></summary>
+    <summary>Click to see details</summary>
     <p>The deets.</p>
   </details>
 </template>
@@ -100,36 +96,36 @@
 <p>A common application of Details is an expandable navigation. Here's a working example:</p>
 <code-sample>
   <nav aria-label="Sidebar navigation">
-    <h4 class="txt-upper">Foo</h4>
+    <h4 class="txt-upper mar-b-xs">Lesson 1</h4>
     <details>
       <summary>Section A</summary>
-      <div class="pad-l-sm">
-        <a href="#" class="block">Link</a>
-        <a href="#" class="block">Link</a>
-        <a href="#" class="block">Link</a>
+      <div class="pad-l-xs mar-b-md">
+        <a href="#" class="block mar-t-xs">Intro to Biology</a>
+        <a href="#" class="block mar-t-xs">Living Organisms</a>
+        <a href="#" class="block mar-t-xs">The Human Cell</a>
       </div>
     </details>
     <details class="mar-t-sm">
       <summary>Section B</summary>
-      <div class="pad-l-sm">
-        <a href="#" class="block">Link</a>
-        <a href="#" class="block">Link</a>
-        <a href="#" class="block">Link</a>
+      <div class="pad-l-xs mar-b-md">
+        <a href="#" class="block mar-t-xs">DNA</a>
+        <a href="#" class="block mar-t-xs">Mapping the Genome</a>
+        <a href="#" class="block mar-t-xs">Biological Ethics</a>
       </div>
     </details>
-    <h4 class="txt-upper">Bar</h4>
+    <h4 class="txt-upper mar-b-xs">Lesson 2</h4>
     <details class="mar-t-sm">
       <summary>Section C</summary>
-      <div class="pad-l-sm">
-        <a href="#" class="block">Link</a>
-        <a href="#" class="block">Link</a>
-        <a href="#" class="block">Link</a>
+      <div class="pad-l-xs mar-b-md">
+        <a href="#" class="block mar-t-xs">Link</a>
+        <a href="#" class="block mar-t-xs">Link</a>
+        <a href="#" class="block mar-t-xs">Link</a>
       </div>
     </details>
   </nav>
 </code-sample>
 <h3 id="safari-bug">Safari flexbox bug</h3>
-<p>Safari has a [bug](https://bugs.webkit.org/show_bug.cgi?id=190065) that prevents <code>summary</code> from being styled as a flex container. If your summary needs flexbox, add a div:</p>
+<p>Safari has a <a href="https://bugs.webkit.org/show_bug.cgi?id=190065" target="_blank">bug</a> that prevents <code>summary</code> from being styled as a flex container. It looks like a fix is coming. If your summary needs flexbox, add a div:</p>
 <code-sample>
 <template>
   <details>
