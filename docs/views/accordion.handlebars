@@ -37,9 +37,9 @@
 <h3 id="open">Opening all or one</h3>
 <p>Accordion does not control its Details children; your app does. You can allow all of the Accordion's Details to be open at once (the default behavior) or one at a time. Allowing one open at a time is as simple as removing the <code>open</code> attribute from other open Details. Details publishes a
   <a href="/details#events"><code>toggle</code></a> event you can listen to for this.</p>
-<p>Here's two examples showing programmatic enforcement or a reflection of state:</p>
+<p>Here's two examples showing a more imperative solution and a more declarative state-driven solution with Vue:</p>
 <code-sample readonly="readonly">
-  // Programmatic
+  // Imperative
   <script>
     const handleToggle = e => \{
       // If this Details was opened, close any open siblings
@@ -68,7 +68,7 @@
 </code-sample>
 <br>
 <code-sample readonly="readonly">
-  // State (using Vue)
+  // Declarative (using Vue)
   <template>
     <m-accordion>
       <details id="a" v-on:toggle="handleToggle" v-bind:open="activeDetails === 'a'">
