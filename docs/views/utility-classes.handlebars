@@ -122,6 +122,10 @@
     <td colspan="6">Shortcut for align-self: stretch</td>
   </tr>
   <tr>
+    <td colspan="2"><code>align-self-center</code></td>
+    <td colspan="6">Shortcut for align-self: center</td>
+  </tr>
+  <tr>
     <td colspan="2"><code>align-self-end</code></td>
     <td colspan="6">Shortcut for align-self: flex-end</td>
   </tr>
@@ -235,6 +239,10 @@
     <td colspan="2"><code>fnt-italic</code></td>
     <td colspan="6">Shortcut for font-style: italic</td>
   </tr>
+  <tr>
+    <td colspan="2"><code>fnt-mono</code></td>
+    <td colspan="6">Shortcut for font-family: monospace</td>
+  </tr>
   </tbody>
 </table>
 <h3 id="text">Text</h3>
@@ -284,7 +292,15 @@
   </tr>
   <tr>
     <td colspan="2"><code>txt-nowrap</code></td>
-    <td colspan="6">Shortcut for white-space: nowrap (good for forcing inline elements to stretch wide enough to accommodate the text)</td>
+    <td colspan="6">Shortcut for white-space: nowrap. Good for forcing inline elements to stretch wide enough to accommodate the text.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>txt-break-all</code></td>
+    <td colspan="6">Shortcut for word-break: break-all. Good for permitting characters to wrap when there's not enough room.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>txt-break-word</code></td>
+    <td colspan="6">Shortcut for word-break: break-word. Good for permitting words to wrap when there's not enough room.</td>
   </tr>
   <tr>
     <td colspan="2"><code>txt-[xs|sm|md|lg|xl|xxl]</code></td>
@@ -294,6 +310,10 @@
     <td colspan="2"><code>txt-[color-name]</code></td>
     <td colspan="6">Sets text color. The class names map to the
       <a href="/custom-props#colors">color custom props</a>, e.g. <code>txt-red-dark</code> => <code>--m-color-red-dark</code>.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>txt-[info|success|warn|error]</code></td>
+    <td colspan="6">Sets text color to the alert type.</td>
   </tr>
   </tbody>
 </table>
