@@ -14,8 +14,8 @@
   </div>
 </code-sample>
 <h2 id="api">API</h2>
-<p>Shortcuts:
-  <a href="#display" class="mar-r-md mar-l-sm">Display</a>
+<p>Go to:
+  <a href="#display" class="mar-r-md mar-l-xs">Display</a>
   <a href="#flexbox" class="mar-r-md">Flexbox</a>
   <a href="#float" class="mar-r-md">Float</a>
   <a href="#space" class="mar-r-md">Space</a>
@@ -380,30 +380,27 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="avoid-bloat">Avoid CSS bloat</h3>
-<p>Use these classes to avoid writing and maintaining unnecessary styles that do what these classes already do. Quite often a feature can be implemented without writing any CSS if you leverage these shortcuts!</p>
-<h3 id="kiss">Keep it stupid-simple</h3>
-<p>Do you really need to create another idiomatic framework-dependent component perfectly coded and packaged with all the right configurations and test coverage? Probably not. Some designs can, and probably should, just be implemented with utility classes. Like the demo:</p>
-<div class="inline-flex align-items-center bg-white brd-radius-md pad-all-md mar-r-lg shadow" style="min-width: 300px">
-  <img src="/img/homer.png" height="78" class="brd-radius-full mar-r-md">
-  <div>
-    <div class="txt-md txt-nowrap">Homer J. Simpson</div>
-    <div class="txt-sm txt-gray-6 mar-b-xs">Safety Inspector</div>
-    <a href="mailto:Chunkylover53@aol.com" class="fnt-light txt-xs">Chunkylover53@aol.com</a>
-    <br>
-    <a href="tel:+15555556543" class="fnt-light txt-xs">555-7334</a>
-  </div>
-</div>
-<div class="inline-flex align-items-center bg-white brd-radius-md pad-all-md shadow" style="min-width: 300px">
-  <img src="/img/m-logo.png" height="78" class="brd-radius-full mar-r-md">
-  <div>
-    <div class="txt-md txt-nowrap">E. M. Dash</div>
-    <div class="txt-sm txt-gray-6 mar-b-xs">Design System</div>
-    <a href="https://twitter.com/realEmDash" class="fnt-light txt-xs">@realEmDash</a>
-    <br>
-    <a href="tel:+18005551234" class="fnt-light txt-xs">1-800-M-DASH</a>
-  </div>
-</div>
-<p>Code reuse is made possible with the standard <code>&lt;template&gt;</code> element or template literals. If standard tools aren't enough, simple partials or static components are another low-code option.</p>
+<h3 id="avoid-bloat">Avoid CSS maintenance burden</h3>
+<p>Drastically cut maintenance efforts as well as page overhead by leveraging these classes as much as possible.</p>
+<h3 id="reuse">How to reuse these chunks of HTML</h3>
+<p>The demo code with all those classes is fine on its own or even 2-3 copies sitting next to each other, but beyond that you'll want a way to reuse chunks of HTML. This is possible with the standard <code>&lt;template&gt;</code> element or template literals. If standard tools aren't enough, templating partials or static components are another low-code option. Avoid the temptation to turn every chunk of HTML into a framework-dependent component.</p>
+<code-sample mode="javascript" readonly="readonly">
+  export function userCard(url, name, title, email, phone) {
+    return `
+      <div class="inline-flex align-items-center bg-white brd-radius-md pad-all-md mar-r-lg shadow">
+        <img src="$\{url}" height="78" class="brd-radius-full mar-r-md">
+        <div>
+          <div class="txt-md txt-nowrap">$\{name}</div>
+          <div class="txt-sm txt-gray-6 mar-b-xs">$\{title}</div>
+          <a href="mailto:$\{email}" class="fnt-light txt-xs">$\{email}</a>
+          <br>
+          <a href="tel:+1$\{phone}" class="fnt-light txt-xs">$\{phone}</a>
+        </div>
+      </div>
+    `
+  }
+
+  const homerCard = userCard('/img/homer.png', 'Homer J. Simpson', 'Safety Inspector', 'Chunkylover53@aol.com', '555-7334')
+</code-sample>
 <h3 id="a11y">Accessibility</h3>
 <p>There are no accessibility recommendations for these classes.</p>
