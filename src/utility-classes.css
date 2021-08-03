@@ -71,10 +71,11 @@
 
 /* Font */
 .fnt-bolder { font-weight: bolder }
-.fnt-light { font-weight: 300 }
 .fnt-bold { font-weight: bold}
-.fnt-italic { font-style: italic }
 .fnt-normal { font-style: normal }
+.fnt-light { font-weight: 300 }
+.fnt-italic { font-style: italic }
+.fnt-mono { font-family: monospace }
 
 /* Text */
 .txt-left { text-align: left }
@@ -85,14 +86,16 @@
 .txt-upper { text-transform: uppercase }
 .txt-caps { text-transform: capitalize }
 .txt-space { letter-spacing: 2px }
+.txt-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.txt-nowrap { white-space: nowrap }
+.txt-break-all { word-break: break-all }
+.txt-break-word { word-break: break-word }
 .txt-xs { font-size: 13px}
 .txt-sm { font-size: 16px}
 .txt-md { font-size: 18px}
 .txt-lg { font-size: 24px}
 .txt-xl { font-size: 32px}
 .txt-xxl { font-size: 100px }
-.txt-nowrap { white-space: nowrap }
-.txt-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .txt-white { color: #fff }
 .txt-offwhite { color: var(--m-color-offwhite)}
 .txt-gray-1 { color: var(--m-color-gray-1) }
@@ -116,6 +119,10 @@
 .txt-orange-dark { color: var(--m-color-orange-dark) }
 .txt-orange-med { color: var(--m-color-orange-med) }
 .txt-orange-light { color: var(--m-color-orange-light) }
+.txt-info { color: var(--m-color-blue-med) }
+.txt-success { color: var(--m-color-green-med) }
+.txt-warn { color: var(--m-color-orange-med) }
+.txt-error { color: var(--m-color-red-med) }
 
 /* Display */
 .grid { display: grid }
@@ -139,6 +146,7 @@
 .align-items-center { align-items: center}
 .align-items-end { align-items: flex-end }
 .align-self-stretch { align-self: stretch }
+.align-self-center { align-self: center }
 .align-self-end { align-self: flex-end }
 
 /* Float */
@@ -168,7 +176,8 @@
 .brd-radius-md { border-radius: var(--m-border-radius-md) }
 .brd-radius-full { border-radius: var(--m-border-radius-full) }
 .brd-dashed { border-style: dashed }
-.brd-thick { border-width: 2px }
+.brd-sm { border-width: 1px }
+.brd-md { border-width: 2px }
 
 /* Backgrounds */
 .bg-white { background-color: #fff }
