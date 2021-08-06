@@ -16,7 +16,7 @@ class MdashAutocomplete extends HTMLElement {
     // One time render stuff
     const input = document.createElement('input');
     input.setAttribute('ref', 'search');
-    input.setAttribute('placeholder', this.getAttribute('placeholder'));
+    input.setAttribute('placeholder', this.getAttribute('placeholder') || '');
     input.addEventListener('keyup', e => this.search(e.currentTarget.value));
     // TODO autocomplete can experience loss of focus during normal use, which create undesired flash of no focus ring :(
 
@@ -64,7 +64,7 @@ class MdashAutocomplete extends HTMLElement {
       else if (document.getElementById(source)) {
         this.matches = [];
         document.getElementById(source).querySelectorAll('option').forEach(opt => {
-          if (opt.value.includes(query)) {
+          if (opt.value.toLowerCase().includes(query)) {
             this.matches.push(opt.value);
           }
         });
