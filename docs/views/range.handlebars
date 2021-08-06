@@ -9,7 +9,7 @@
 </code-sample>
 <p>See more <a href="/examples#Foo">examples</a></p>
 <h2 id="api">API</h2>
-<h3 id="tag">Tag</h3>
+<h3 id="tag">Tags</h3>
 <table layout="fixed">
   <thead>
   <tr>
@@ -20,9 +20,14 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>input</code></td>
+    <td colspan="2"><code>input[type="range"]</code></td>
     <td colspan="2">Native element</td>
     <td colspan="6">None</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>output</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6">The value of range</td>
   </tr>
   </tbody>
 </table>
@@ -81,6 +86,114 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
+<h3 id="output">Displaying range values</h3>
+<p>A common use case is to display the value of range as it updates. There are so many ways to do that, so M- leaves that part of the design open for customization. The one requirement is to use the standard <code>&lt;output&gt;</code> element to contain the value.</p>
+<p>Basic designs are extremely easy to do:</p>
+<m-row>
+  <m-col>
+    <div class="mar-b-lg">
+      <fieldset>
+        <label>Price</label>
+        <input name="range1_demo" type="range" min="0" max="1000">
+        <output name="output1_demo"></output>
+      </fieldset>
+
+      <script>
+        const range1 = document.querySelector('[name=range1_demo]');
+        const output1 = document.querySelector('[name=output1_demo]');
+        const update1 = (e, range) => {
+          range = e?.currentTarget || range;
+          output1.textContent = range.value;
+        };
+
+        range1.addEventListener('input', update1);
+        update1(null, range1);
+      </script>
+    </div>
+    <code-sample readonly="readonly">
+      <template>
+        <fieldset>
+          <label>Price</label>
+          <input name="range1" type="range" min="0" max="1000">
+          <output name="output1"></output>
+        </fieldset>
+
+        <script>
+          const range1 = document.querySelector('[name=range1]');
+          const output1 = document.querySelector('[name=output1]');
+          const update1 = (e, range) => {
+            range = e?.currentTarget || range;
+            output1.textContent = range.value;
+          };
+
+          range1.addEventListener('input', update1);
+          update1(null, range1);
+        </script>
+      </template>
+    </code-sample>
+  </m-col>
+  <m-col>
+    <div class="mar-b-xl">
+      <fieldset>
+        <label>Price</label>
+        <input name="range2_demo" type="range" min="0" max="1000">
+        <output name="output2_demo" class="pos-absolute bg-offwhite pin-b mar-b-lg pad-all-xs txt-xs brd-radius-md"></output>
+      </fieldset>
+
+      <script>
+        const range2 = document.querySelector('[name=range2_demo]');
+        const output2 = document.querySelector('[name=output2_demo]');
+        const update2 = (e, range) => {
+          range = e?.currentTarget || range;
+          output2.textContent = range.value;
+          const val = Number((range.value - range.min) * 100 / (range.max - range.min));
+          const pos = 9 - (val * 0.2); // 9 is half the thumb width
+          output2.style.left = `calc(${val}% + ${pos}px)`;
+        };
+
+        range2.addEventListener('input', update2);
+        update2(null, range2);
+      </script>
+
+      <style>
+        input[type=range][name=range2_demo] + output {
+          transform: translate(-50%);
+        }
+      </style>
+    </div>
+    <code-sample readonly="readonly">
+      <template>
+        <fieldset>
+          <label>Price</label>
+          <input name="range2" type="range" min="0" max="1000">
+          <output name="output2" class="pos-absolute bg-offwhite pin-b mar-b-lg pad-all-xs txt-xs brd-radius-md"></output>
+        </fieldset>
+
+        <script>
+          const range2 = document.querySelector('[name=range2]');
+          const output2 = document.querySelector('[name=output2]');
+          const update2 = (e, range) => {
+            range = e?.currentTarget || range;
+            output2.textContent = range.value;
+            const val = Number((range.value - range.min) * 100 / (range.max - range.min));
+            const pos = 9 - (val * 0.2); // 9 is half the thumb width
+            output2.style.left = `calc(${val}% + ${pos}px)`;
+          };
+
+          range2.addEventListener('input', update2);
+          update2(null, range2);
+        </script>
+
+        <style>
+          input[type=range] + output {
+            transform: translate(-50%);
+          }
+        </style>
+      </template>
+    </code-sample>
+  </m-col>
+</m-row>
+
 <!--<h3 id="vertical">Vertical orientation</h3>-->
 <!--<p>The orient vertical option works well for one range, but having multiple vertical ranges requires the following:</p>-->
 <!--<code-sample>-->
@@ -97,4 +210,5 @@
 <!--  </div>-->
 <!--</code-sample>-->
 <h3 id="a11y">Accessibility</h3>
-<p>Use the <code>for</code> and <code>id</code> as usual.</p>
+<p>Use <code>for</code> and <code>id</code> as usual, but also use <code>for</code> on <code>output</code> elements. MDN has more details
+  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_slider_role">ARIA: Using the slider role</a>.</p>

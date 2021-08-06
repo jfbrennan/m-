@@ -4,6 +4,7 @@ fieldset {
   margin: 0;
   padding: 0;
   border: none;
+  position: relative;
 }
 
 fieldset + fieldset,
@@ -63,7 +64,10 @@ fieldset select:not([multiple]) {
   padding-right: var(--m-space-lg);
 }
 
-fieldset textarea { resize: vertical }
+fieldset textarea {
+  resize: vertical;
+  font-family: inherit;
+}
 
 fieldset input[type=range] {
   appearance: none;
