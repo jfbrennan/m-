@@ -67,13 +67,10 @@ fieldset textarea { resize: vertical }
 
 fieldset input[type=range] {
   appearance: none;
-  outline: none;
-  width: auto;
-  margin: 15px 0;
-  padding: 0;
-  height: 4px;
+  width: 100%;
+  margin: var(--m-space-sm) 0;
+  height: var(--m-space-xs);
   background-color: var(--m-color-gray-3);
-  border: none;
   border-radius: var(--m-border-radius-full);
 }
 
@@ -82,21 +79,17 @@ fieldset input[type=range]::-webkit-slider-thumb {
   width: var(--m-space-md);
   height: var(--m-space-md);
   border: 1px solid var(--m-color-gray-4);
-  box-shadow: 0px 0px 1px 1px rgba(72, 72, 72, 0.11);
   background-color: white;
   border-radius: var(--m-border-radius-full);
 }
-fieldset input[type=range]::-webkit-slider-thumb:active {
-  border: 1px solid var(--m-color-blue-med);
-}
 
-input[type=range][orient=vertical] {
-  transform: rotate(-90deg);
-  position: absolute;
-  top: 48%;
-  left: -78%;
-  margin: 0;
-}
+/*input[type=range][orient=vertical] {*/
+/*  transform: rotate(-90deg);*/
+/*  position: absolute;*/
+/*  top: 48%;*/
+/*  left: -78%;*/
+/*  margin: 0;*/
+/*}*/
 
 fieldset input + input,
 fieldset input + select,
@@ -113,7 +106,7 @@ fieldset small + textarea {
   margin-top: var(--m-space-xs) !important;
 }
 
-fieldset input:focus,
+fieldset input:not([type=range]):focus,
 fieldset select:focus,
 fieldset textarea:focus {
   outline: 0;
