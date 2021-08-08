@@ -23,10 +23,8 @@ fieldset input + label {
   display: inline;
 }
 
-
 fieldset label,
 fieldset legend {
-  margin-bottom: var(--m-space-xs);
   font-weight: 500;
 }
 
@@ -41,7 +39,6 @@ fieldset input:not([type=radio]):not([type=checkbox]):not([type=range]),
 fieldset select,
 fieldset textarea {
   width: 100%;
-  margin: 0;
   min-height: var(--m-input-min-height);
   font-size: 16px;
   padding: 6px;
@@ -95,6 +92,9 @@ fieldset input[type=range]::-webkit-slider-thumb {
 /*  margin: 0;*/
 /*}*/
 
+fieldset label + input,
+fieldset label + select,
+fieldset label + textarea,
 fieldset input + input,
 fieldset input + select,
 fieldset input + textarea,
@@ -107,10 +107,10 @@ fieldset textarea + select,
 fieldset small + input,
 fieldset small + select,
 fieldset small + textarea {
-  margin-top: var(--m-space-xs) !important;
+  margin-top: var(--m-space-xs);
 }
 
-fieldset input:not([type=range]):focus,
+fieldset input:not([type=range]):not([is=switch]):focus,
 fieldset select:focus,
 fieldset textarea:focus {
   outline: 0;
