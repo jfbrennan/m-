@@ -39,7 +39,7 @@ M- works with the latest versions of:
 
 Other modern browsers that support [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements) are likely to work, but are not tested ([file a bug](https://github.com/jfbrennan/m-/issues) if you see something). IE is not supported and is unlikely to work even if you polyfill.
 
-## Working with this project
+## Working on this project
 _Pre-reqs:_ [Node](https://nodejs.org) and [Gulp CLI](https://gulpjs.com/docs/en/getting-started/quick-start)
 
 1. Clone the repo (or fork)
