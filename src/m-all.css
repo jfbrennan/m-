@@ -23,6 +23,7 @@
 @import "m-tabs.css";
 @import "m-tag.css";
 @import "rules.css";
+@import "switch.css";
 
 /*
   Needs to come after because these *explicit* rules should win
