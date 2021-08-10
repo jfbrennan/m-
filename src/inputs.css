@@ -47,7 +47,7 @@ fieldset textarea {
   color: var(--m-color-darker);
 }
 
-fieldset input,
+fieldset input:not([is=switch]),
 fieldset select,
 fieldset textarea {
   border: 1px solid var(--m-color-gray-1);

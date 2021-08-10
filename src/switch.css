@@ -1,17 +1,16 @@
-input[type=checkbox][is=switch] {
+input[is=switch] {
   position: relative;
   width: 40px;
   height: 22px;
   appearance: none;
   margin: 0;
   border-radius: var(--m-border-radius-full);
-  border: none;
   cursor: pointer;
   background-color: var(--m-color-gray-3);
-  transition: background-color ease-in 0.15s;
+  transition: background-color ease-in 0.12s;
 }
 
-input[type=checkbox][is=switch]:before {
+input[is=switch]:before {
   content: '';
   position: absolute;
   width: 16px;
@@ -20,13 +19,13 @@ input[type=checkbox][is=switch]:before {
   left: 3px;
   border-radius: var(--m-border-radius-full);
   background-color: white;
-  transition: all ease-in 0.15s;
+  transition: all ease-in 0.12s;
 }
 
-input[type=checkbox][is=switch]:checked { background-color: var(--m-color-primary-action) }
-input[type=checkbox][is=switch]:checked:before { left: 20px }
+input[is=switch]:checked { background-color: var(--m-color-primary-action) }
+input[is=switch]:checked:before { left: 20px }
 
-input[type=checkbox][is=switch]:disabled {
+input[is=switch]:disabled {
   cursor: not-allowed;
   background-color: var(--m-color-disabled-bg);
 }
