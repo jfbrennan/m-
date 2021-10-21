@@ -8,12 +8,12 @@ m-vr {
   display: inline-block;
   width: 1px;
   height: 100%;
-  background-color: var(--m-color-gray-4);
+  background-color: var(--m-color-gray-3);
 }
 
 m-vbar {
   display: inline-block;
-  color: var(--m-color-gray-4);
+  color: var(--m-color-gray-3);
   margin: auto 12px;
   font-weight: 400;
 }
