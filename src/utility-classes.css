@@ -72,6 +72,7 @@
 /* Font */
 .fnt-bolder { font-weight: bolder }
 .fnt-bold { font-weight: bold}
+.fnt-regular { font-weight: 400 }
 .fnt-normal { font-style: normal }
 .fnt-light { font-weight: 300 }
 .fnt-italic { font-style: italic }
@@ -136,6 +137,7 @@
 
 /* Flexbox */
 .flx-grow, .flex-grow { flex-grow: 1 }
+.flx-basis-content { flex-basis: content }
 .flx-wrap, .flex-wrap { flex-wrap: wrap }
 .flx-col, .flex-col { flex-direction: column }
 .justify-content-center { justify-content: center }
@@ -143,9 +145,11 @@
 .justify-content-evenly { justify-content: space-evenly }
 .justify-content-around { justify-content: space-around }
 .justify-content-end { justify-content: flex-end }
+.align-items-start { align-items: flex-start}
 .align-items-center { align-items: center}
 .align-items-end { align-items: flex-end }
 .align-self-stretch { align-self: stretch }
+.align-self-start { align-self: start }
 .align-self-center { align-self: center }
 .align-self-end { align-self: flex-end }
 
