@@ -1,6 +1,6 @@
-<h1 class="mar-t-xl mar-b-xs">Breadcrumb</h1>
+<h1 class="mar-b-xs">Breadcrumb</h1>
 <h2 class="txt-gray-5 mar-t-none">Navigational hierarchy</h2>
-<!--<h2 id="demo" class="fnt-italic">Interactive demo</h2>-->
+<h2 id="demo">Demo</h2>
 <code-sample>
   <m-breadcrumb>
     <nav>
@@ -37,31 +37,29 @@
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="order">Crumb order</h3>
 <p>The last crumb must represent the current page and should be a span. All other crumbs should be links navigating up the hierarchy. When the user is at the top of the hierarchy, it may or may not make sense to display Breadcrumb at all.</p>
-<h3>Get creative!</h3>
+<h3>With menus</h3>
 <p>Breadcrumbs can support all kinds of elements for more demanding designs, but you should not deviate from the core purpose of navigational hierarchy.</p>
 <code-sample>
   <template>
     <m-breadcrumb>
       <nav>
-        <a href="#">
+        <a href="#home">
           <m-icon name="home"></m-icon>
         </a>
-        <a href="#">Shoes</a>
+        <a href="#shoes">Shoes</a>
         <m-crumb>
           <m-menu>
-            <span role="link" slot="trigger">Women  <m-icon name="arrow-down" class="txt-xs"></m-icon></span>
+            <span role="link" slot="trigger">Womens  <m-icon name="arrow-down" class="txt-xs"></m-icon></span>
             <div slot="items">
-              <a href="#" class="inline-flex align-items-center justify-content-center">👞 Casual</a>
-              <a href="#" class="inline-flex align-items-center justify-content-center">👟 Sport</a>
-              <a href="#" class="inline-flex align-items-center justify-content-center">👠 Formal</a>
+              <a href="#womens-casual">👞 Casual</a>
+              <a href="#womens-sporty">👟 Sporty</a>
+              <a href="#womens-formal">👠 Formal</a>
             </div>
           </m-menu>
         </m-crumb>
         <span>Sport</span>
       </nav>
     </m-breadcrumb>
-    <h3>Sport shoes</h3>
-    <div>...</div>
   </template>
 </code-sample>
 <h3 id="a11y">Accessibility</h3>

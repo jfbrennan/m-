@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   {{> ga}}
-  <title>M-</title>
+  <title>Mdash</title>
   <link rel="stylesheet" href="{{localUrl}}css">
   <link rel="stylesheet" href="/min.css">
   <link rel="stylesheet" href="/custom-props.css">
@@ -35,7 +35,11 @@
 
     #home-messages { height: 150px }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 768px) {
+      #mdash-bg { display: none }
+    }
+
+    @media only screen and (max-width: 576px) {
       #menu-toggle { display: block }
       #home-logo-version { display: block }
       #home-intro { margin-top: 0 }

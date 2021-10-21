@@ -87,14 +87,14 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="output">Displaying range values</h3>
-<p>A common use case is to display the value of range as it updates. There are so many ways to do that, so M- leaves that part of the design open for customization. The one requirement is to use the standard <code>&lt;output&gt;</code> element to contain the value.</p>
-<p>Basic designs are extremely easy to do:</p>
+<p>A common use case is to display the value of range as it updates. Mdash leaves that part of the design open for customization, but with the one requirement to use the standard <code>&lt;output&gt;</code> element to contain the value.</p>
+<p>Here's two simple designs to get you started:</p>
 <m-row>
   <m-col>
     <div class="mar-b-lg">
       <fieldset>
         <label>Price</label>
-        <input name="range1_demo" type="range" min="0" max="1000">
+        <input name="range1_demo" type="range" min="0" max="1000" value="223">
         <output name="output1_demo"></output>
       </fieldset>
 
@@ -114,7 +114,7 @@
       <template>
         <fieldset>
           <label>Price</label>
-          <input name="range1" type="range" min="0" max="1000">
+          <input name="range1" type="range" min="0" max="1000" value="223">
           <output name="output1"></output>
         </fieldset>
 
@@ -136,7 +136,7 @@
     <div class="mar-b-xl">
       <fieldset>
         <label>Price</label>
-        <input name="range2_demo" type="range" min="0" max="1000">
+        <input name="range2_demo" type="range" min="0" max="1000" value="223">
         <output name="output2_demo" class="pos-absolute bg-offwhite pin-b mar-b-lg pad-all-xs txt-xs brd-radius-md"></output>
       </fieldset>
 
@@ -165,7 +165,7 @@
       <template>
         <fieldset>
           <label>Price</label>
-          <input name="range2" type="range" min="0" max="1000">
+          <input name="range2" type="range" min="0" max="1000" value="223">
           <output name="output2" class="pos-absolute bg-offwhite pin-b mar-b-lg pad-all-xs txt-xs brd-radius-md"></output>
         </fieldset>
 

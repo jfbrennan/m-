@@ -1,11 +1,11 @@
 {
-  "name": "M-",
-  "short_name": "M-",
+  "name": "Mdash",
+  "short_name": "Mdash",
   "start_url": ".",
   "display": "minimal-ui",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
-  "description": "Web standards FTW.",
+  "description": "Tiny standards-based design system for all web projects.",
   "icons": [
     {
       "src": "/favicon-192.png",
