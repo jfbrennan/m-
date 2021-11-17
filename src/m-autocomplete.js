@@ -11,25 +11,25 @@ class MdashAutocomplete extends HTMLElement {
     // Close on esc keyup
     document.addEventListener('keyup', this._boundClose);
 
-    this.matches = null;
+    this.results = [];
 
-    // One time render stuff
-    const input = document.createElement('input');
-    input.setAttribute('ref', 'search');
-    input.setAttribute('placeholder', this.getAttribute('placeholder') || '');
-    input.addEventListener('keyup', e => this.search(e.currentTarget.value));
-    // TODO autocomplete can experience loss of focus during normal use, which create undesired flash of no focus ring :(
+    // One time setup
+    if (this.childElementCount === 0) {
+      this._input = document.createElement('input');
+      this._input.setAttribute('placeholder', this.getAttribute('placeholder'));
+      this._input.addEventListener('keyup', e => this.search(e.currentTarget.value));
+      // TODO autocomplete can experience loss of focus during normal use, which create undesired flash of no focus ring :(
 
-    const matches = document.createElement('div');
-    matches.setAttribute('ref', 'matches');
-    matches.addEventListener('click', e => {
-      const li = e.target.closest('li');
-      const match = li.dataset.value;
-      this.select(e, match);
-    });
-    matches.hidden = !this.matches;
+      this._matchesContainer = document.createElement('div');
+      this._matchesContainer.classList.add('pos-absolute', 'bg-white', 'brd-all', 'brd-radius-sm');
+      this._matchesContainer.addEventListener('click', e => {
+        const li = e.target.closest('li');
+        this.select(e, li.dataset.value, li.dataset.id);
+      });
+      this._matchesContainer.hidden = true;
 
-    this.append(input, matches);  
+      this.append(this._input, this._matchesContainer);
+    }
   }
 
   disconnectedCallback() {
@@ -38,78 +38,87 @@ class MdashAutocomplete extends HTMLElement {
   }
 
   close(e) {
+    // Close with the Esc key
     if (e.type === 'keyup' && e.key === 'Escape') {
-      this.clear()
+      this.clear();
     }
-    else if (e.type === 'click' && !this.querySelector('[ref="matches"]').contains(e.currentTarget)) {
+    // Close with off-target click
+    else if (e.type === 'click' && !this._matchesContainer.contains(e.currentTarget)) {
       this.clear(true);
     }
   }
   
-  search(query) {
+  async search(query) {
     if (query) {
       const source = this.getAttribute('source');
+      const max = Number(this.getAttribute('max'));
+      let results = [];
 
       // Try function source...
       if (MdashAutocomplete.prototype.sources[source]) {
-        MdashAutocomplete.prototype.sources[source](query).then(({query, matches}) => {
-          // Check that original query is still the same first since these are async calls
-          if (query === this.querySelector('input').value) {
-            this.matches = matches.slice(0, this.max || matches.length);
-            this.renderMatches();
+        const {query, matches} = await MdashAutocomplete.prototype.sources[source](query, max);
+
+        // Verify the original query is still current since these are async calls
+        if (query === this._input.value) {
+          results = matches.slice(0, max || matches.length);
+
+          // Normalize string results
+          if (typeof results[0] === 'string') {
+            results = results.map(value => ({value}))
           }
-        });
+        }
       }
       // Try <datalist> source...
       else if (document.getElementById(source)) {
-        this.matches = [];
-        document.getElementById(source).querySelectorAll('option').forEach(opt => {
-          if (opt.value.toLowerCase().includes(query)) {
-            this.matches.push(opt.value);
+        const lowerCaseQuery = query.toLowerCase();
+        Array.from(document.getElementById(source).options).forEach(option => {
+          // There must always be option.value and it's always set to id.
+          // If there's option.textContent, textContent is value; otherwise option.value is id and value.
+          const match = option.value?.toLowerCase().includes(lowerCaseQuery) || option.textContent?.toLowerCase().includes(lowerCaseQuery);
+          if (match) {
+            const id = option.value;
+            const value = option.textContent || id;
+            results.push({value, id});
           }
         });
-        this.renderMatches();
       }
+
+      this.results = results;
+      this.render(query);
     }
     else {
       this.clear();
     }
   }
 
-  select(e, item) {
+  select(e, value, id) {
     e.stopPropagation();
-    this.querySelector('[ref="search"]').value = item;
-    this.querySelector('[ref="search"]').focus();
-    this.dispatchEvent(new CustomEvent('select', {detail: {source: this.source, item}}));
+    const source = this.getAttribute('source');
+    this._input.value = value;
+    this._input.focus();
+    this.dispatchEvent(new CustomEvent('select', {detail: {source, value, id}}));
     this.clear();
   }
 
   clear(preventFocus) {
-    this.matches = null;
-    this.renderMatches();
+    this.results = [];
+    this.render();
     if (!preventFocus) {
-      this.querySelector('input').focus();
+      this._input.focus();
     }
   }
 
-  renderMatches() {
-    const matches = this.querySelector('[ref="matches"]');
-    matches.hidden = !this.matches;
-
-    // TODO used to have  onclick="${e => this.select(e, m)}" on each <li>
-    matches.innerHTML = `
-      <ul type="none" class="pos-absolute">
-        ${this.matches && this.matches.length
-          ? this.matches.reduce((s, m) => s +=`<li class="pad-all-sm pointer" data-value="${m}">${m}</li>`, '')
-          : this.matches && !this.matches.length 
-            ? '<li class="pad-all-sm fnt-italic">No results</li>'
-            : ''
-        }
-      </ul>
-    `;
+  render(hasQuery) {
+    this._matchesContainer.hidden = !hasQuery;
+    this._matchesContainer.innerHTML = this.results.length ?
+      `<ul type="none">
+        ${this.results.reduce((acc, result) => acc +=`<li class="pad-all-sm pointer" data-id="${result.id}" data-value="${result.value}">${result.value}</li>`, '')}
+      </ul>`
+      :
+      `<div class="pad-all-sm fnt-italic txt-gray-5">No results</div>`;
   }
 }
 
 MdashAutocomplete.prototype.sources = {};
+window.MdashAutocomplete = MdashAutocomplete;
 customElements.define('m-autocomplete', MdashAutocomplete);
-

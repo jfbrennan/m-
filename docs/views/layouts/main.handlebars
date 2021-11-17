@@ -143,15 +143,12 @@
   document.getElementById('menu-toggle').addEventListener('click', e => document.getElementById('menu').toggleAttribute('open'));
 
   // Autocomplete demo
-  MdashAutocomplete.prototype.sources.fruit = function(query) {
+  MdashAutocomplete.prototype.sources.fruit = async query => {
     // Use query to fetch/filter/map/find/whatever your use case is for getting matching results
-    let matches = ['apple', 'banana', 'peach'].filter(fruit => fruit.startsWith(query));
+    let matches = ['apple', 'banana', 'peach'].filter(fruit => fruit.includes(query));
 
     // Function must return a Promise or use async keyword
-    return Promise.resolve({
-      query,
-      matches
-    });
+    return {query, matches};
   };
 </script>
 </body>
