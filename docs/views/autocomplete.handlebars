@@ -5,8 +5,8 @@
 <template>
   <fieldset>
     <label>Search</label>
-    <m-autocomplete source="fruits" placeholder="Slowly type 'apl' to see the behavior"></m-autocomplete>
-    <datalist id="fruits">
+    <m-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior"></m-autocomplete>
+    <datalist id="fruit">
       <option value="apple"></option>
       <option value="banana"></option>
       <option value="peach"></option>
@@ -74,8 +74,8 @@
     <td colspan="2">
       <div class="mar-b-sm">An object with properties:</div>
       <ul type="none">
-        <li class="mar-b-sm"><code>source</code> the name of the source for easy reference</li>
-        <li><code>item</code> the item selected from <code>matches</code>. Item will be the whole object as returned by the source.</li>
+        <li class="mar-b-sm"><code>source</code> Name of the source for easy reference</li>
+        <li><code>item</code> Object with <code>value</code> set to the value from <code>matches</code> and <code>id</code> if provided (useful for finding the original item in the source data).</li>
       </ul>
     </td>
     <td colspan="6">Fired after a match was selected by the user.</td>
@@ -89,22 +89,24 @@
 <p>These are async functions added to the global <code>MdashAutocomplete.prototype.sources</code> object. Here's an example <code>fruit</code> source similar to the demo above:</p>
 <code-sample readonly="true">
   <script>
-    MdashAutocomplete.prototype.sources.fruit = function (query, max) \{
+    MdashAutocomplete.prototype.sources.fruit = async (query, max) => \{
 
-      // 1. Use "query" parameter to fetch, filter, map, find, or whatever your use case is for getting matching results
-      const matches = ['apple', 'banana', 'peach'].filter(fruit => fruit.startsWith(query));
+      // 1. Use `query` to fetch, filter, map, find, or whatever your use case is for getting matching results.
+      // Note: `max` is the most results that will be shown, which can be helpful to know when dealing with large data sets.
+      const matches = ['apple', 'banana', 'peach'].filter(fruit => fruit.includes(query));
 
-      // 2. Result must be an object with the original "query" parameter and a "matches" Array
+      // 2. Result must be an object with the original `query` param and a `matches` Array.
+      // Note: `matches` elements can be strings or objects with `id` and `value` properties. See Events API above for more details.
       const result = \{query, matches};
 
-      // 3. Return value must be a Promise or use async keyword
-      return Promise.resolve(result);
+      // 3. Return a resolved Promise with the result (async functions do this automatically).
+      return result;
     }
   </script>
 </code-sample>
 <p><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> If the source's data is over the network, cache results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>const matches = cache[query] || await fetchAndCacheResults(query)</code>. You can also use <code>max</code> if it's beneficial while searching to know the maximum number of matches that will be shown.</p>
 <h4>2. Datalist element</h4>
-<p>Include a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank" rel="noopener">data list</a> element in the DOM and autocomplete will search the option's values for matches. Here's an example:</p>
+<p>Include a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank" rel="noopener">datalist</a> element in the DOM and Autocomplete will search the option's values and text for matches. Here's an example:</p>
 <code-sample>
 <datalist id="fruit">
   <option value="apple"></option>
@@ -112,5 +114,6 @@
   <option value="peach"></option>
 </datalist>
 </code-sample>
+{{> more-autocomplete}}
 <h3 id="a11y">Accessibility</h3>
 <p>There are no extra recommendations for Autocomplete.</p>

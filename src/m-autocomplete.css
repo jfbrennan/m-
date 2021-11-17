@@ -1,13 +1,13 @@
 m-autocomplete {display: block}
 
-m-autocomplete [ref=matches] ul {
-  background-color: white;
+m-autocomplete > div {
+  z-index: 1;
+  overflow: hidden;
   min-width: 200px;
-  transform: translateY(var(--m-space-xs));
-  border: 1px solid var(--m-color-gray-4);
-  border-radius: var(--m-border-radius-sm);
 }
 
-m-autocomplete [ref=matches] li:hover {
+m-autocomplete > div > ul li:hover {
   background-color: var(--m-color-offwhite);
 }
+
+fieldset label + m-autocomplete { margin-top: var(--m-space-xs) }
