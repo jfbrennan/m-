@@ -1,6 +1,6 @@
 {
   "name": "m-docs",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "dependencies": {
     "express": "^4.17.1",
