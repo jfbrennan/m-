@@ -32,7 +32,7 @@ function customPropsCopy() {
 function js() {
   return gulp.src('src/*.js')
     .pipe(concat('min.js'))
-    .pipe(terser())
+    // .pipe(terser())
     .pipe(gulp.dest('dist'))
 }
 

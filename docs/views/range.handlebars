@@ -99,10 +99,10 @@
       </fieldset>
 
       <script>
-        const range1 = document.querySelector('[name=range1_demo]');
+        const range1  = document.querySelector('[name=range1_demo]');
         const output1 = document.querySelector('[name=output1_demo]');
         const update1 = (e, range) => {
-          range = e?.currentTarget || range;
+          range = e && e.currentTarget || range;
           output1.textContent = range.value;
         };
 
@@ -119,10 +119,10 @@
         </fieldset>
 
         <script>
-          const range1 = document.querySelector('[name=range1]');
+          const range1  = document.querySelector('[name=range1]');
           const output1 = document.querySelector('[name=output1]');
           const update1 = (e, range) => {
-            range = e?.currentTarget || range;
+            range = e && e.currentTarget || range;
             output1.textContent = range.value;
           };
 
@@ -141,10 +141,10 @@
       </fieldset>
 
       <script>
-        const range2 = document.querySelector('[name=range2_demo]');
+        const range2  = document.querySelector('[name=range2_demo]');
         const output2 = document.querySelector('[name=output2_demo]');
         const update2 = (e, range) => {
-          range = e?.currentTarget || range;
+          range = e && e.currentTarget || range;
           output2.textContent = range.value;
           const val = Number((range.value - range.min) * 100 / (range.max - range.min));
           const pos = 9 - (val * 0.2); // 9 is half the thumb width
@@ -170,10 +170,10 @@
         </fieldset>
 
         <script>
-          const range2 = document.querySelector('[name=range2]');
+          const range2  = document.querySelector('[name=range2]');
           const output2 = document.querySelector('[name=output2]');
           const update2 = (e, range) => {
-            range = e?.currentTarget || range;
+            range = e && e.currentTarget || range;
             output2.textContent = range.value;
             const val = Number((range.value - range.min) * 100 / (range.max - range.min));
             const pos = 9 - (val * 0.2); // 9 is half the thumb width

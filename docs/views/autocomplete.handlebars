@@ -78,7 +78,18 @@
         <li><code>item</code> Object with <code>value</code> set to the value from <code>matches</code> and <code>id</code> if provided (useful for finding the original item in the source data).</li>
       </ul>
     </td>
-    <td colspan="6">Fired after a match was selected by the user.</td>
+    <td colspan="6">
+      <div class="mar-b-md">Fires after a match is selected. Try it:</div>
+      <fieldset>
+        <label>Superheroes</label>
+        <m-autocomplete onselect="alert(JSON.stringify(event.detail, null, 2))" source="superheroes" placeholder="Search 'bat' or 'kent' and select a result"></m-autocomplete>
+        <datalist id="superheroes">
+          <option value="batman">Bruce Wayne</option>
+          <option value="superman">Clark Kent</option>
+          <option value="spiderman">Peter Parker</option>
+        </datalist>
+      </fieldset>
+    </td>
   </tr>
   </tbody>
 </table>

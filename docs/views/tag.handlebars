@@ -35,30 +35,30 @@
     const removeTag = (e, id) => confirm(`Remove tag ${id}?`) ? e.currentTarget.parentElement.remove() : null;
   </script>
   <template>
-    <h4 class="mar-b-xs">Filters</h4>
-    <m-tag>bug<button type="remove" onclick="removeTag(event, 1)"></button></m-tag>
-    <m-tag>open<button type="remove" onclick="removeTag(event, 2)"></button></m-tag>
-    <m-tag>p0<button type="remove" onclick="removeTag(event, 3)"></button></m-tag>
+    <h4 class="mar-b-xs">Issue filters</h4>
+    <m-tag>bug<button type="remove" onclick="removeTag(event, 'bug')"></button></m-tag>
+    <m-tag>open<button type="remove" onclick="removeTag(event, 'open')"></button></m-tag>
+    <m-tag>high-priority<button type="remove" onclick="removeTag(event, 'high_pri')"></button></m-tag>
   </template>
 </code-sample>
-<p>It can be helpful to add an <code>id</code> or <code>data-*</code> attribute with some identifying data (id, name, index) to the tag to know which one was removed and update the backing data source, like an Array of users:</p>
-<code-sample readonly="readonly">
-  <template>
-    <m-tag data-user-id="{user.id}">{user.name}<button type="remove" onclick="removeUser"></button></m-tag>
-  </template>
+<!--<p>It can be helpful to add an <code>id</code> or <code>data-*</code> attribute with some identifying data (id, name, index) to the tag to know which one was removed and update the backing data source, like an Array of users:</p>-->
+<!--<code-sample readonly="readonly">-->
+<!--  <template>-->
+<!--    <m-tag data-user-id="{user.id}">{user.name}<button type="remove" onclick="removeUser"></button></m-tag>-->
+<!--  </template>-->
 
-  <script>
-    removeUser(e) \{
-      const tag = e.currentTarget.parentElement;
+<!--  <script>-->
+<!--    removeUser(e) \{-->
+<!--      const tag = e.currentTarget.parentElement;-->
 
-      // Remove user
-      this.users.splice(this.users.findIndex(u => u.id === tag.dataset.userId), 1);
+<!--      // Remove user-->
+<!--      this.users.splice(this.users.findIndex(u => u.id === tag.dataset.userId), 1);-->
 
-      // Remove tag (or it's removed automatically depending on your implementation)
-      tag.remove();
-    }
-  </script>
-</code-sample>
+<!--      // Remove tag (or it's removed automatically depending on your implementation)-->
+<!--      tag.remove();-->
+<!--    }-->
+<!--  </script>-->
+<!--</code-sample>-->
 <h3 id="a11y">Accessibility</h3>
 <p>Use <code>aria-label</code> and <code>title</code> when the Tag only contains an icon:</p>
 <code-sample>

@@ -6,7 +6,7 @@
     </nav>
   </m-breadcrumb>
   <h1 class="mar-b-xs">Examples</h1>
-  <h2 class="txt-gray-5 mar-t-none">Look at a demo page or scroll down to see tons of examples</h2>
+  <h2 class="txt-gray-5 mar-t-none">Take a peek at one of these demo pages or scroll down to see tons of component examples</h2>
   <m-row>
     <m-col span="4">
       <m-box>
@@ -327,11 +327,15 @@
   <h4>Everything form</h4>
   <form>
     <fieldset>
-      <label>Input</label>
+      <label>Text inputs</label>
       <input type="text" placeholder="Text">
       <input type="email" placeholder="Email">
       <input type="number" placeholder="Number">
       <input type="password" placeholder="Password">
+    </fieldset>
+    <fieldset>
+      <label>Text area</label>
+      <textarea rows="3"></textarea>
     </fieldset>
     <fieldset>
       <label>Checkbox</label>
@@ -346,7 +350,15 @@
       <input type="radio"><label>Three</label>
     </fieldset>
     <fieldset>
-      <label>Select</label>
+      <label>Switch</label>
+      <input type="checkbox" is="switch" checked>
+    </fieldset>
+    <fieldset>
+      <label>Range</label>
+      <input type="range">
+    </fieldset>
+    <fieldset>
+      <label>Selects</label>
       <select>
         <option>Single...</option>
         <option>One</option>
@@ -354,7 +366,7 @@
         <option>Three</option>
       </select>
       <select>
-        <option>With groups...</option>
+        <option>Single with groups...</option>
         <optgroup label="Label">
           <option>One</option>
           <option>Two</option>
@@ -373,12 +385,8 @@
         <option>Three</option>
       </select>
     </fieldset>
-    <fieldset>
-      <label>Text area</label>
-      <textarea rows="3"></textarea>
-    </fieldset>
-    <button type="submit" ord="primary">Save</button>
-    <button ord="secondary">Cancel</button>
+    <button type="submit" ord="primary">Submit</button>
+    <button type="button" ord="secondary">Cancel</button>
   </form>
 </m-container>
 <hr>
@@ -459,7 +467,7 @@
       <span class="mar-r-xs">Alarm</span>
       <span class="txt-md fnt-bold">7:00<span class="txt-xs fnt-regular" style="margin-left: 2px">AM</span></span>
     </div>
-    <input type="checkbox" is="switch">
+    <input type="checkbox" is="switch" checked>
   </m-box>
   <h4>In a Box as a form of options</h4>
   <m-row>
@@ -482,7 +490,7 @@
           <fieldset class="flex flex-wrap justify-content-between align-items-center">
             <label>Smoke signal</label>
             <input type="checkbox" is="switch" name="smoke" disabled>
-            <small class="flx-basis-100">Currently unavailable</small>
+            <small class="full-width">Currently unavailable</small>
           </fieldset>
         </form>
       </m-box>
