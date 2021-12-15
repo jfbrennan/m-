@@ -16,9 +16,9 @@ class MdashAutocomplete extends HTMLElement {
     // One time setup
     if (this.childElementCount === 0) {
       this._input = document.createElement('input');
-      this._input.setAttribute('placeholder', this.getAttribute('placeholder'));
+      this._input.setAttribute('placeholder', this.getAttribute('placeholder') || '');
+      this._input.addEventListener('select', e => e.stopPropagation()); // Prevents text select event
       this._input.addEventListener('keyup', e => this.search(e.currentTarget.value));
-      // TODO autocomplete can experience loss of focus during normal use, which create undesired flash of no focus ring :(
 
       this._matchesContainer = document.createElement('div');
       this._matchesContainer.classList.add('pos-absolute', 'bg-white', 'brd-all', 'brd-radius-sm');
@@ -56,11 +56,11 @@ class MdashAutocomplete extends HTMLElement {
 
       // Try function source...
       if (MdashAutocomplete.prototype.sources[source]) {
-        const {query, matches} = await MdashAutocomplete.prototype.sources[source](query, max);
+        const result = await MdashAutocomplete.prototype.sources[source](query, max);
 
         // Verify the original query is still current since these are async calls
-        if (query === this._input.value) {
-          results = matches.slice(0, max || matches.length);
+        if (result.query === this._input.value) {
+          results = result.matches.slice(0, max || result.matches.length);
 
           // Normalize string results
           if (typeof results[0] === 'string') {
