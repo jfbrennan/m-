@@ -1,0 +1,15 @@
+code,
+pre {
+  border-radius: var(--m-border-radius-md);
+  background-color: var(--m-color-offwhite);
+  color: var(--m-color-red-dark);
+}
+
+code {
+  padding: 1px 3px;
+}
+pre {
+  margin: 0;
+  padding: var(--m-space-xs) var(--m-space-sm);
+}
+
