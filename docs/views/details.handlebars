@@ -78,17 +78,23 @@
 <p>Some designs will include a button or other interactive element in <code>&lt;summary&gt;</code> that should not toggle the details. Most elements behave as normal without toggling Details, but some, like in the example below, need an event handler to <code>preventDefault</code> to stop this from happening:</p>
 <code-sample>
   <script>
-    // Makes "Clear" link not toggle Details
-    const clearHistory = e => e.preventDefault();
+    // Makes "Delete" and "Export" links not toggle Details
+    const deleteHistory = e => e.preventDefault();
+    const exportHistory = e => e.preventDefault();
   </script>
 
   <template>
     <details>
-      <summary>
-        <span role="link"><m-icon name="clock"></m-icon> See report history</span>
-        <span onclick="clearHistory(event)" role="link" class="mar-l-md">Clear</span>
+      <summary class="pad-all-md bg-offwhite">
+        <div class="flex justify-content-between align-items-center">
+          <span role="link"><m-icon name="clock"></m-icon> Show report history</span>
+          <div>
+            <span onclick="deleteHistory(event)" role="link" class="mar-l-md">Delete</span>
+            <span onclick="exportHistory(event)" role="link" class="mar-l-md">Export</span>
+          </div>
+        </div>
       </summary>
-      <p>The report history...</p>
+      <div class="pad-all-md">The report history...</div>
     </details>
   </template>
 </code-sample>
