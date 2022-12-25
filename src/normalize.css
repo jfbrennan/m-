@@ -8,12 +8,5 @@ body {
   font-family: 'Helvetica Neue', Arial;
 }
 
-code {
-  border-radius: var(--m-border-radius-sm);
-  background-color: var(--m-color-offwhite);
-  color: var(--m-color-red-dark);
-  padding: 1px 3px;
-}
-
 /* The hidden attr has extremely low specificity because it's a User Agent style. This makes it work as expected. */
 [hidden] { display: none !important; }
