@@ -5,8 +5,10 @@
   <table>
     <thead>
     <tr>
-      <th>Item</th>
-      <th>Price</th>
+      <th>Product</th>
+      <th aria-sort="ascending">
+        <button aria-pressed="true">Price</button>
+      </th>
     </tr>
     </thead>
     <tbody>
@@ -22,7 +24,7 @@
   </table>
 </code-sample>
 <h2 id="api">API</h2>
-<h3 id="tag">Tag</h3>
+<h3 id="tag">Tags</h3>
 <table layout="fixed">
   <thead>
   <tr>
@@ -55,6 +57,7 @@
   </tbody>
 </table>
 <h3 id="attributes">Attributes</h3>
+<p>For <span class="fnt-bold">&lt;table&gt;</span> only:</p>
 <table layout="fixed">
   <thead>
   <tr>
@@ -76,7 +79,7 @@
   </tr>
   </tbody>
 </table>
-<p>For <span class="fnt-bold">td</span> and <span class="fnt-bold">th</span> only:</p>
+<p>For <span class="fnt-bold">&lt;td&gt;</span> and <span class="fnt-bold">&lt;th&gt;</span> only:</p>
 <table layout="fixed">
   <tbody>
   <tr>
@@ -86,8 +89,23 @@
   </tr>
   </tbody>
 </table>
+<p>For <span class="fnt-bold">&lt;th&gt;</span> only:</p>
+<table layout="fixed">
+  <tbody>
+  <tr>
+    <td colspan="2"><code>aria-sort</code></td>
+    <td colspan="2">
+      <ul type="none">
+        <li>ascending</li>
+        <li>descending</li>
+      </ul>
+    </td>
+    <td colspan="6">Defines that column as sorted. Your application is responsible for the sorting behavior.</td>
+  </tr>
+  </tbody>
+</table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="page-layout">Not for page layout</h3>
 <p>Use <a href="/grid">Grid</a> for creating a page's layout. Do not use Table.</p>
 <h3 id="a11y">Accessibility</h3>
-<p></p>
+<p>The sorted column must have the appropriate <code>aria-sort</code> value. When the user clicks a sort button, add <code>aria-pressed="true"</code> to it to indicate the pressed state.</p>
