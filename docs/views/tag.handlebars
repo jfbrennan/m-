@@ -32,7 +32,7 @@
 <p>Simply include a <a href="/button#remove">remove</a> button and, using your preferred method, attach a click handler that removes the tag. Here's a basic example:</p>
 <code-sample>
   <script>
-    const removeTag = (e, id) => confirm(`Remove tag ${id}?`) ? e.currentTarget.parentElement.remove() : null;
+    const removeTag = (e, id) => confirm(`Remove tag "${id}"?`) ? e.currentTarget.parentElement.remove() : null;
   </script>
   <template>
     <h4 class="mar-b-xs">Issue filters</h4>

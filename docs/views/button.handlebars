@@ -73,7 +73,7 @@
   </tr>
   </tbody>
 </table>
-<p>For <span class="fnt-bold">a</span> only:</p>
+<p>For <span class="fnt-bold">&lt;a&gt;</span> only:</p>
 <table layout="fixed">
   <tbody>
   <tr>
@@ -87,8 +87,8 @@
 <h3>Button or link?</h3>
 <p>If the action navigates to a new url, strive to use regular <a href="/link">links</a>, but if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that for these cases an actual link is used so the user can
   <kbd>cmd + click</kbd> or copy the link. If the action does not navigate the user to a new url, then use a regular button.</p>
-<h3 id="remove">The remove button</h3>
-<p>Dialog, Alert, and other components use this button type to create a consistent experience. Use it for similar use cases to match user expectations:</p>
+<h3 id="remove">The <code>remove</code> button type</h3>
+<p>Like other buttons, it is your app not Mdash that handles the click. Dialog, alert, and other components use remove button to create a consistent experience. You should use it for similar use cases to meet user expectations:</p>
 <div class="flex">
   <div class="mar-r-lg" style="width: 300px">
     <m-alert type="success">Lorem ipsum dolor</m-alert>
