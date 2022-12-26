@@ -1,8 +1,8 @@
 <h1 class="mar-b-xs">Utility Classes</h1>
-<h2 class="txt-gray-5 mar-t-none">180+ CSS shortcuts and utility classes</h2>
+<h2 class="txt-gray-5 mar-t-none">210+ CSS shortcuts and utility classes</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
-  <div class="inline-flex align-items-center bg-white brd-radius-md pad-all-md shadow">
+  <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd-all pad-all-md">
     <img src="/img/homer.png" height="78" class="brd-radius-full mar-r-md">
     <div>
       <div class="txt-md txt-nowrap">Homer J. Simpson</div>
@@ -14,15 +14,16 @@
   </div>
 </code-sample>
 <h2 id="api">API</h2>
-<p>Go to:
+<p>Categories:
   <a href="#display" class="mar-r-md mar-l-xs">Display</a>
   <a href="#flexbox" class="mar-r-md">Flexbox</a>
   <a href="#float" class="mar-r-md">Float</a>
-  <a href="#space" class="mar-r-md">Space</a>
+  <a href="#spacing" class="mar-r-md">Spacing</a>
   <a href="#position" class="mar-r-md">Position</a>
   <a href="#font" class="mar-r-md">Font</a>
   <a href="#text" class="mar-r-md">Text</a>
   <a href="#border" class="mar-r-md">Border</a>
+  <a href="#background" class="mar-r-md">Background</a>
   <a href="#other" class="mar-r-md">Other</a>
 </p>
 <h3 id="display">Display</h3>
@@ -186,7 +187,7 @@
   </tr>
   </tbody>
 </table>
-<h3 id="space">Space</h3>
+<h3 id="spacing">Spacing</h3>
 <table layout="fixed">
   <thead>
   <tr>
@@ -203,6 +204,11 @@
   <tr>
     <td colspan="3"><code>mar-[all|t|r|b|l]-[xs|sm|md|lg|xl|none]</code></td>
     <td colspan="6">Sets margin on the specified sides (all, top, right, bottom, or left) in the specified size. Sizes map to the
+      <a href="/custom-props#space">space custom props</a>.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><code>gap-[xs|sm|md|lg|xl|none]</code></td>
+    <td colspan="6">Sets gap to the specified size. Sizes map to the
       <a href="/custom-props#space">space custom props</a>.</td>
   </tr>
   </tbody>
@@ -339,6 +345,10 @@
     <td colspan="6">Shortcut for word-break: break-word. Good for permitting words to wrap when there's not enough room.</td>
   </tr>
   <tr>
+    <td colspan="2"><code>txt-noselect</code></td>
+    <td colspan="6">Prevents the user from selecting the text of this element.</td>
+  </tr>
+  <tr>
     <td colspan="2"><code>txt-[xs|sm|md|lg|xl|xxl]</code></td>
     <td colspan="6">Sets font-size.</td>
   </tr>
@@ -367,7 +377,7 @@
     <td colspan="6">Adds default border to the specified side(s).</td>
   </tr>
   <tr>
-    <td colspan="2"><code>brd-all-none</code></td>
+    <td colspan="2"><code>brd-none</code></td>
     <td colspan="6">Removes border from all sides.</td>
   </tr>
   <tr>
@@ -375,12 +385,40 @@
     <td colspan="6">Sets border radius. Use <code>full</code> to create a circle.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>brd-width-[sm|md]</code></td>
+    <td colspan="2"><code>brd-[sm|md]</code></td>
     <td colspan="6">Sets border width.</td>
   </tr>
   <tr>
     <td colspan="2"><code>brd-dashed</code></td>
     <td colspan="6">Sets border style to <code>dashed</code>. Good for placeholders and drop targets.</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="background">Background</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="6">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>bg-clip-text</code></td>
+    <td colspan="6">Clips background to match foreground text.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>bg-cover</code></td>
+    <td colspan="6">Background will be scaled to fill entire area of element. The aspect ratio is preserved, but the image may be cropped.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>bg-contain</code></td>
+    <td colspan="6">Background will be scaled to fit size of element. The aspect ratio is preserved and the image will not be cropped.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>bg-[color-name]</code></td>
+    <td colspan="6">Sets background color. The class names map to the
+      <a href="/custom-props#colors">color custom props</a>, e.g. <code>bg-red-dark</code> => <code>--m-color-red-dark</code>.</td>
   </tr>
   </tbody>
 </table>
@@ -396,10 +434,6 @@
   <tr>
     <td colspan="2"><code>pointer</code></td>
     <td colspan="6">Shortcut for cursor: pointer. Useful when you want an element to seem clickable. Buttons and links already have pointer set.</td>
-  </tr>
-  <tr>
-    <td colspan="2"><code>noselect</code></td>
-    <td colspan="6">Prevents the user from selecting the text of this element.</td>
   </tr>
   <tr>
     <td colspan="2"><code>full-height</code></td>
@@ -458,10 +492,10 @@
 <p>The demo above with all those classes is fine on its own or even 2-3 copies sitting next to each other, but beyond that you'll want a way to reuse chunks of HTML.</p>
 <p>Reuse is possible with the <code>&lt;template&gt;</code> element or template literals (see below). If standard tools aren't enough, templating partials or static components are another low-code option. Avoid the temptation to turn every chunk of HTML into a framework-dependent component.</p>
 <code-sample mode="javascript" readonly="readonly">
-  export function userCardTemplate(url, name, title, email, phone) {
+  export function userCardTemplate(imgUrl, name, title, email, phone) {
     return `
-      <div class="inline-flex align-items-center bg-white brd-radius-md pad-all-md mar-r-lg shadow">
-        <img src="$\{url}" height="78" class="brd-radius-full mar-r-md">
+      <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd-all pad-all-md">
+        <img src="$\{imgUrl}" height="78" class="brd-radius-full mar-r-md">
         <div>
           <div class="txt-md txt-nowrap">$\{name}</div>
           <div class="txt-sm txt-gray-6 mar-b-xs">$\{title}</div>
