@@ -1,6 +1,6 @@
 :root {
   /* Colors */
-  --m-color-gray-1: #eeeeee;
+  --m-color-gray-1: #f8f8f8;
   --m-color-gray-2: #dedede;
   --m-color-gray-3: #ccc;
   --m-color-gray-4: #9c9c9c;
@@ -26,12 +26,8 @@
   --m-color-disabled-bg: var(--m-color-gray-1);
 
   --m-color-primary-action: #157bb6;
-  --m-color-secondary-action: var(--m-color-blue-2);
-  --m-color-tertiary-action: tan;
 
   --m-color-primary-bg: white;
-  --m-color-secondary-bg: #F5F3F7;
-  --m-color-tertiary-bg: #fafafa;
   --m-color-border: var(--m-color-gray-2);
 
   /* Borders */
@@ -56,7 +52,7 @@
   --m-breakpoint-lg: 992px;
 
   /* Font */
-  --m-font-size-min: 13px; /* a11y recommendation */
+  --m-font-size-min: 13px; /* WCAG recommendation */
   --m-font-size-default: 16px;
   --m-font-size-md: 18px;
   --m-font-size-lg: 24px;
