@@ -60,6 +60,6 @@
   /* Font */
   --m-font-size-min: 13px; /* a11y recommendation */
   --m-font-size-default: 16px;
-  --m-font-size-lg: 20px;
+  --m-font-size-lg: 24px;
   --m-font-size-xl: 48px;
 }

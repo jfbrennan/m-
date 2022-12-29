@@ -1,0 +1,14 @@
+dialog {
+  border: none;
+  padding: var(--m-space-lg);
+  background-color: #F5F3F7;
+  box-shadow: 0 16px 18px -3px #858585;
+}
+
+dialog button[slot=close][type=remove] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: var(--m-font-size-lg);
+  padding: var(--m-space-sm);
+}
