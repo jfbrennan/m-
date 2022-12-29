@@ -1,10 +1,8 @@
-@import "custom-props.css";
-
 body {
   margin: 0;
   height: 100vh;
   box-sizing: border-box;
-  color: var(--m-color-dark);
+  color: var(--m-color-gray-7);
   font-family: 'Helvetica Neue', Arial;
 }
 

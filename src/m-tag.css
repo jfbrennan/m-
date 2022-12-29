@@ -1,13 +1,15 @@
+/* Base tag styles */
 m-tag {
   align-items: center;
-  border: 1px solid var(--m-color-gray-1);
-  background-color: var(--m-color-offwhite);
+  border: 1px solid var(--m-color-gray-2);
+  background-color: var(--m-color-gray-1);
   padding: 3px var(--m-space-xs);
   font-size: var(--m-font-size-min);
 }
 
 m-tag + m-tag { margin-left: 3px }
 
+/* Removable tag */
 m-tag button[type=remove] {
   padding-right: 0;
   font-size: var(--m-font-size-default);

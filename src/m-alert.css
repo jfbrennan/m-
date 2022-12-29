@@ -1,24 +1,22 @@
-@import "custom-props.css";
-
 m-alert + m-alert {margin-top: var(--m-space-sm)}
-m-alert[type=info] {background-color: var(--m-color-blue-light)}
-m-alert[type=success] {background-color: var(--m-color-green-light)}
-m-alert[type=warn] {background-color: var(--m-color-orange-light)}
-m-alert[type=error] {background-color: var(--m-color-red-light)}
 
-m-alert[type=info] > m-icon,
-.alert-info {
-  color: var(--m-color-blue-dark);
+/* Alert status */
+m-alert[type=info] {background-color: var(--m-color-blue-1)}
+m-alert[type=info] > m-icon {
+  color: var(--m-color-blue-3);
 }
-m-alert[type=success] > m-icon,
-.alert-success {
-  color: var(--m-color-green-dark);
+
+m-alert[type=success] {background-color: var(--m-color-green-1)}
+m-alert[type=success] > m-icon {
+  color: var(--m-color-green-3);
 }
-m-alert[type=warn] > m-icon,
-.alert-warn {
-  color: var(--m-color-orange-dark);
+
+m-alert[type=warn] {background-color: var(--m-color-orange-1)}
+m-alert[type=warn] > m-icon {
+  color: var(--m-color-orange-3);
 }
-m-alert[type=error] > m-icon,
-.alert-error {
-  color: var(--m-color-red-dark);
+
+m-alert[type=error] {background-color: var(--m-color-red-1)}
+m-alert[type=error] > m-icon {
+  color: var(--m-color-red-3);
 }

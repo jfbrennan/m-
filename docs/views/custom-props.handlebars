@@ -7,10 +7,10 @@
 
     #example {
       color: var(--m-color-gray-1);
-      background-color: var(--m-color-dark)
+      background-color: var(--m-color-gray-7)
     }
   </style>
-  <div id="example" class="pad-all-lg">My background and text colors reference custom properties</div>
+  <div id="example" class="pad-lg">My background and text colors reference custom properties</div>
 </code-sample>
 <h2 id="api">API</h2>
 <h3 id="colors">Colors</h3>
@@ -25,86 +25,77 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>--m-color-red-[dark|med|light]</code></td>
-    <td colspan="3" class="pad-all-none pos-relative">
+    <td colspan="2"><code>--m-color-red-[1|2|3]</code></td>
+    <td colspan="3" class="pad-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
-        <div class="color-red-dark"></div>
-        <div class="color-red-med"></div>
-        <div class="color-red-light"></div>
+        <div class="bg-red-1"></div>
+        <div class="bg-red-2"></div>
+        <div class="bg-red-3"></div>
       </div>
     </td>
     <td colspan="3">Used to denote something has or will go wrong.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--m-color-orange-[dark|med|light]</code></td>
-    <td colspan="3" class="pad-all-none pos-relative">
+    <td colspan="2"><code>--m-color-orange-[1|2|3]</code></td>
+    <td colspan="3" class="pad-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
-        <div class="color-orange-dark"></div>
-        <div class="color-orange-med"></div>
-        <div class="color-orange-light"></div>
+        <div class="bg-orange-1"></div>
+        <div class="bg-orange-2"></div>
+        <div class="bg-orange-3"></div>
       </div>
     </td>
     <td colspan="3">Used for bringing attention to something that may not be desirable.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--m-color-blue-[dark|med|light]</code></td>
-    <td colspan="3" class="pad-all-none pos-relative">
+    <td colspan="2"><code>--m-color-blue-[1|2|3]</code></td>
+    <td colspan="3" class="pad-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
-        <div class="color-blue-dark"></div>
-        <div class="color-blue-med"></div>
-        <div class="color-blue-light"></div>
+        <div class="bg-blue-1"></div>
+        <div class="bg-blue-2"></div>
+        <div class="bg-blue-3"></div>
       </div>
     </td>
     <td colspan="3">Used to highlight primary actions.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--m-color-green-[dark|med|light]</code></td>
-    <td colspan="3" class="pad-all-none pos-relative">
+    <td colspan="2"><code>--m-color-green-[1|2|3]</code></td>
+    <td colspan="3" class="pad-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
-        <div class="color-green-dark"></div>
-        <div class="color-green-med"></div>
-        <div class="color-green-light"></div>
+        <div class="bg-green-1"></div>
+        <div class="bg-green-2"></div>
+        <div class="bg-green-3"></div>
       </div>
     </td>
     <td colspan="3">Used to communicate something desirable has or will happen.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--m-color-[darkest|darker|dark]</code></td>
-    <td colspan="3" class="pad-all-none pos-relative">
+    <td colspan="2"><code>--m-color-gray-[7|8|9]</code></td>
+    <td colspan="3" class="pad-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
-        <div class="color-darkest"></div>
-        <div class="color-darker"></div>
-        <div class="color-dark"></div>
+        <div class="bg-gray-7"></div>
+        <div class="bg-gray-8"></div>
+        <div class="bg-gray-9"></div>
       </div>
     </td>
     <td colspan="3">Used for text and high-contrast backgrounds.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--m-color-gray-[6|5|4|3|2|1]</code></td>
-    <td colspan="3" class="pad-all-none pos-relative">
+    <td colspan="2"><code>--m-color-gray-[1|2|3|4|5|6]</code></td>
+    <td colspan="3" class="pad-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
-        <div class="color-gray-6"></div>
-        <div class="color-gray-5"></div>
-        <div class="color-gray-4"></div>
-        <div class="color-gray-3"></div>
-        <div class="color-gray-2"></div>
-        <div class="color-gray-1"></div>
+        <div class="bg-gray-1"></div>
+        <div class="bg-gray-2"></div>
+        <div class="bg-gray-3"></div>
+        <div class="bg-gray-4"></div>
+        <div class="bg-gray-5"></div>
+        <div class="bg-gray-6"></div>
       </div>
     </td>
     <td colspan="3">Grayscale used for backgrounds, borders, and disabled state.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>--m-color-offwhite</code></td>
-    <td colspan="3" class="pad-all-none pos-relative">
-      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
-        <div class="color-offwhite"></div>
-      </div>
-    </td>
-    <td colspan="3">Used for the whole page background.</td>
-  </tr>
-  <tr>
     <td colspan="2"><code>--m-color-primary-action</code></td>
-    <td colspan="3" class="pad-all-none pos-relative">
+    <td colspan="3" class="pad-none pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-primary-action"></div>
       </div>
@@ -232,31 +223,9 @@
 <p>The colors and spacing meet accessibility requirements.</p>
 
 <style>
-  [class^="color-"] { width: 32% }
-  .color-red-dark { background-color: var(--m-color-red-dark) }
-  .color-red-med { background-color: var(--m-color-red-med) }
-  .color-red-light { background-color: var(--m-color-red-light) }
-  .color-blue-dark { background-color: var(--m-color-blue-dark) }
-  .color-blue-med { background-color: var(--m-color-blue-med) }
-  .color-blue-light { background-color: var(--m-color-blue-light) }
-  .color-green-dark { background-color: var(--m-color-green-dark) }
-  .color-green-med { background-color: var(--m-color-green-med) }
-  .color-green-light { background-color: var(--m-color-green-light) }
-  .color-orange-dark { background-color: var(--m-color-orange-dark) }
-  .color-orange-med { background-color: var(--m-color-orange-med) }
-  .color-orange-light { background-color: var(--m-color-orange-light) }
-  .color-darkest { background-color: var(--m-color-darkest) }
-  .color-darker { background-color: var(--m-color-darker) }
-  .color-dark { background-color: var(--m-color-dark) }
-  [class^="color-gray-"] { width: 16% }
-  .color-gray-1 { background-color: var(--m-color-gray-1) }
-  .color-gray-2 { background-color: var(--m-color-gray-2) }
-  .color-gray-3 { background-color: var(--m-color-gray-3) }
-  .color-gray-4 { background-color: var(--m-color-gray-4) }
-  .color-gray-5 { background-color: var(--m-color-gray-5) }
-  .color-gray-6 { background-color: var(--m-color-gray-6) }
-  [class^="color-offwhite"] { width: 96% }
-  .color-offwhite { background-color: var(--m-color-offwhite) }
+  [class^="bg-"] { width: 32% }
+  [class^="bg-gray-"] { width: 16% }
+  [class="bg-gray-7"], [class="bg-gray-8"], [class="bg-gray-9"] { width: 32% }
   [class^="color-primary-action"] { width: 96% }
   .color-primary-action { background-color: var(--m-color-primary-action) }
 </style>

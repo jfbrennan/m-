@@ -1,5 +1,4 @@
-@import "custom-props.css";
-
+/* Base link styles */
 a, span[role=link] {
   text-decoration: none;
   color: var(--m-color-primary-action);
@@ -9,6 +8,7 @@ a, span[role=link] {
 a:visited, span[role=link]:visited { color: var(--m-color-primary-action) }
 a:hover, span[role=link]:hover { text-decoration: underline }
 
+/* Disabled state */
 a[disabled], span[role=link][disabled] {
   color: var(--m-color-disabled-fg);
   pointer-events: none;
