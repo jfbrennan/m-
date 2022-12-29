@@ -3,16 +3,17 @@
 <h2 id="demo">Demo</h2>
 <code-sample>
 <template>
-  <m-dialog>
+  <dialog>
     <h2>Title</h2>
-    <p>Put anything you want in here! Even some lorem ipsum dolor sit amet...</p>
-  </m-dialog>
+    <p>Put anything you want in here.</p>
+    <p>(press <kbd>Esc</kbd> to close)</p>
+  </dialog>
 </template>
 
-<button onclick="document.querySelector('m-dialog').showModal()" ord="primary">Open Dialog</button>
+<button onclick="document.querySelector('dialog').showModal()" ord="primary">Open Dialog</button>
 </code-sample>
 <h2 id="api">API</h2>
-<h3 id="tag">Tag</h3>
+<h3 id="tag">Tag and slot</h3>
 <table layout="fixed">
   <thead>
   <tr>
@@ -23,9 +24,14 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>m-dialog</code></td>
-    <td colspan="2">Custom Element</td>
+    <td colspan="2"><code>dialog</code></td>
+    <td colspan="2">Native element</td>
     <td colspan="6">Any content. The first element with <code>autofocus</code>, if any, will receive focus when the Dialog is opened.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>slot="close"</code></td>
+    <td colspan="2">A <code>type="remove"</code> button</td>
+    <td colspan="6">None. See <a href="#close-button">Close button</a> for details.</td>
   </tr>
   </tbody>
 </table>
@@ -42,7 +48,7 @@
   <tr>
     <td colspan="2"><code>open</code></td>
     <td colspan="2">Boolean attribute</td>
-    <td colspan="6">Will open the Dialog when added or close when removed. It is the same as calling <code>showModal()</code> and <code>close()</code>. If you want the dialog displayed "modelessly", you have to call the <code>show</code> method.</td>
+    <td colspan="6">Will open the Dialog when added or close when removed. If you want the dialog displayed "modelessly", you have to call the <code>show</code> method.</td>
   </tr>
   </tbody>
 </table>
@@ -59,8 +65,13 @@
   <tr>
     <td colspan="2"><code>close</code></td>
     <td colspan="2">None</td>
-    <td colspan="6">Fired after the Dialog was closed. Note that the Dialog and its content are preserved in the DOM, so forms, for example, will retain their values. Your app should reset the form if that's what your use case requires.
-      <p class="mar-b-none">Beware of infinite loops when implementing a done/close/cancel button. Only call <code>close()</code> on the Dialog if the event is not this event, e.g. <code>if (e.type !== 'close') { myDialog.close() }</code>.</p></td>
+    <td colspan="6">MDN says: "Fired when the dialog is closed, whether with the escape key, the <code>HTMLDialogElement.close()</code> method, or via submitting a form within the dialog with
+      <code>method="dialog"</code>."</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>cancel</code></td>
+    <td colspan="2">None</td>
+    <td colspan="6">MDN says: "Fired when the user dismisses the current open dialog with the escape key."</td>
   </tr>
   </tbody>
 </table>
@@ -88,8 +99,18 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="title">What about &lt;dialog&gt;?</h3>
-<p>This element attempts to match the <code>HTMLDialogElement</code> interface as close as possible, so when browser support for <code>&lt;dialog&gt;</code> is sufficient it will be removed from M- in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>
+<h3 id="close-button">Close button</h3>
+<p>Dialog elements do not come with a button to close themselves, so Mdash includes style-only support for one. Add <code>&lt;button slot="close" type="remove"&gt;</code> and Mdash will style it for you, but your application must implement the click handler (e.g. calling the dialog's <code>close</code> method or removing its <code>open</code> attribute). Note that this is required only if a dialog doesn't implement any other buttons for closing. Here's a basic example:</p>
+<code-sample>
+  <template>
+    <dialog id="close-demo">
+      <button onclick="document.querySelector('#close-demo').close()" slot="close" type="remove" aria-label="Closes dialog"></button>
+      <p>The first remove button in a dialog is assumed to be its close button and styled and positioned for you.</p>
+    </dialog>
+  </template>
+
+  <button onclick="document.querySelector('#close-demo').showModal()" ord="primary">Open Dialog</button>
+</code-sample>
 <h3 id="state">Forms and DOM state</h3>
 <p>The state of the content is controlled by your application. Dialog does not change the state of its children other than moving them into a containing div on init. Forms and all other elements will initialize the way they are provided by the application and will continue to remain untouched even when the Dialog is closed. For example, if a Dialog is used to present a login form the application should remove the Dialog completely or reset the form after successful authentication. If left alone the Dialog and the login form inside it will contain the user's credentials. It's your content; you have to manage it.</p>
 <h3 id="a11y">Accessibility</h3>
