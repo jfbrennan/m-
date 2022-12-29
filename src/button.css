@@ -49,8 +49,8 @@ button[ord=secondary], a[role=button][ord=secondary] {
 }
 
 button[ord=tertiary], a[role=button][ord=tertiary] {
-  border: 2px solid var(--m-color-dark);
-  color: var(--m-color-dark);
+  border: 2px solid var(--m-color-gray-7);
+  color: var(--m-color-gray-7);
 }
 
 button[ord][disabled], a[role=button][ord][disabled], button[type=remove][disabled] {

@@ -1,3 +1,4 @@
+/* Base switch styles */
 input[is=switch] {
   position: relative;
   width: 40px;
@@ -22,9 +23,11 @@ input[is=switch]:before {
   transition: all ease-in 0.12s;
 }
 
+/* Checked state */
 input[is=switch]:checked { background-color: var(--m-color-primary-action) }
 input[is=switch]:checked:before { left: 20px }
 
+/* Disabled state */
 input[is=switch]:disabled {
   cursor: not-allowed;
   background-color: var(--m-color-disabled-bg);

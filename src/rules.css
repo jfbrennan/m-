@@ -1,16 +1,11 @@
+/* Horizontal rule */
 hr {
   border: none;
   height: 1px;
   background-color: var(--m-color-gray-3);
 }
 
-m-vr {
-  display: inline-block;
-  width: 1px;
-  height: 100%;
-  background-color: var(--m-color-gray-3);
-}
-
+/* Vertical bar/separator */
 m-vbar {
   display: inline-block;
   color: var(--m-color-gray-3);

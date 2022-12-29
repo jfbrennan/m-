@@ -1,5 +1,4 @@
-@import "custom-props.css";
-
+/* Base container styles */
 m-container {
   display: block;
   max-width: var(--m-max-content-width);
@@ -7,6 +6,7 @@ m-container {
   padding: var(--m-space-md) var(--m-space-lg);
 }
 
+/* Sizes */
 m-container[maxwidth=md] {max-width: 924px} /* Plus its margin = 960 which is a very comfortable and common size */
 m-container[maxwidth=sm] {max-width: 375px}
 m-container[maxwidth=none] {max-width: none}

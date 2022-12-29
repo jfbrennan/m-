@@ -2,7 +2,7 @@
 <h2 class="txt-gray-5 mar-t-none">210+ CSS shortcuts and utility classes</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
-  <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd-all pad-all-md">
+  <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd pad-md">
     <img src="/img/homer.png" height="78" class="brd-radius-full mar-r-md">
     <div>
       <div class="txt-md txt-nowrap">Homer J. Simpson</div>
@@ -197,13 +197,23 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="3"><code>pad-[all|t|r|b|l]-[xs|sm|md|lg|xl|none]</code></td>
-    <td colspan="6">Sets padding on the specified sides (all, top, right, bottom, or left) in the specified size. Sizes map to the
+    <td colspan="3"><code>pad-[xs|sm|md|lg|xl|none]</code></td>
+    <td colspan="6">Sets padding on all sides in the specified size. Sizes map to the
       <a href="/custom-props#space">space custom props</a>.</td>
   </tr>
   <tr>
-    <td colspan="3"><code>mar-[all|t|r|b|l]-[xs|sm|md|lg|xl|none]</code></td>
-    <td colspan="6">Sets margin on the specified sides (all, top, right, bottom, or left) in the specified size. Sizes map to the
+    <td colspan="3"><code>pad-[t|r|b|l]-[xs|sm|md|lg|xl|none]</code></td>
+    <td colspan="6">Sets padding on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
+      <a href="/custom-props#space">space custom props</a>.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><code>mar-[xs|sm|md|lg|xl|none]</code></td>
+    <td colspan="6">Sets margin on all sides in the specified size. Sizes map to the
+      <a href="/custom-props#space">space custom props</a>.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><code>mar-[t|r|b|l]-[xs|sm|md|lg|xl|none]</code></td>
+    <td colspan="6">Sets margin on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
       <a href="/custom-props#space">space custom props</a>.</td>
   </tr>
   <tr>
@@ -373,8 +383,12 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>brd-[all|t|r|b|l]</code></td>
-    <td colspan="6">Adds default border to the specified side(s).</td>
+    <td colspan="2"><code>brd</code></td>
+    <td colspan="6">Adds a border.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>brd-[t|r|b|l]</code></td>
+    <td colspan="6">Adds a border to the specified side.</td>
   </tr>
   <tr>
     <td colspan="2"><code>brd-none</code></td>
@@ -494,7 +508,7 @@
 <code-sample mode="javascript" readonly="readonly">
   export function userCardTemplate(imgUrl, name, title, email, phone) {
     return `
-      <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd-all pad-all-md">
+      <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd pad-md">
         <img src="$\{imgUrl}" height="78" class="brd-radius-full mar-r-md">
         <div>
           <div class="txt-md txt-nowrap">$\{name}</div>

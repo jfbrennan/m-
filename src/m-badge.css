@@ -1,5 +1,4 @@
-@import "custom-props.css";
-
+/* Base badge styles */
 m-badge {
   display: none;
   min-width: 1.25rem;
@@ -12,7 +11,7 @@ m-badge {
   line-height: 1.25rem;
 }
 
-/* Use count attr for the Badge's content */
+/* Badge count */
 m-badge[count]:before {
   content: attr(count);
   padding: 0 var(--m-space-xs);

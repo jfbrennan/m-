@@ -1,10 +1,10 @@
 /* Spacing */
-.pad-all-none { padding: 0 }
-.pad-all-xs { padding: var(--m-space-xs) }
-.pad-all-sm { padding: var(--m-space-sm) }
-.pad-all-md { padding: var(--m-space-md) }
-.pad-all-lg { padding: var(--m-space-lg) }
-.pad-all-xl { padding: var(--m-space-xl) }
+.pad-none { padding: 0 }
+.pad-xs { padding: var(--m-space-xs) }
+.pad-sm { padding: var(--m-space-sm) }
+.pad-md { padding: var(--m-space-md) }
+.pad-lg { padding: var(--m-space-lg) }
+.pad-xl { padding: var(--m-space-xl) }
 
 .pad-t-none { padding-top: 0 }
 .pad-t-xs { padding-top: var(--m-space-xs) }
@@ -34,12 +34,12 @@
 .pad-l-lg { padding-left: var(--m-space-lg) }
 .pad-l-xl { padding-left: var(--m-space-xl) }
 
-.mar-all-none { margin: 0 }
-.mar-all-xs { margin: var(--m-space-xs) }
-.mar-all-sm { margin: var(--m-space-sm) }
-.mar-all-md { margin: var(--m-space-md) }
-.mar-all-lg { margin: var(--m-space-lg) }
-.mar-all-xl { margin: var(--m-space-xl) }
+.mar-none { margin: 0 }
+.mar-xs { margin: var(--m-space-xs) }
+.mar-sm { margin: var(--m-space-sm) }
+.mar-md { margin: var(--m-space-md) }
+.mar-lg { margin: var(--m-space-lg) }
+.mar-xl { margin: var(--m-space-xl) }
 
 .mar-t-none { margin-top: 0 }
 .mar-t-xs { margin-top: var(--m-space-xs) }
@@ -99,39 +99,38 @@
 .txt-break-all { word-break: break-all }
 .txt-break-word { word-break: break-word }
 .txt-noselect { user-select: none; cursor: default; }
-.txt-xs { font-size: 13px}
-.txt-sm { font-size: 16px}
-.txt-md { font-size: 18px}
-.txt-lg { font-size: 24px}
-.txt-xl { font-size: 32px}
+.txt-xs { font-size: var(--m-font-size-min)}
+.txt-sm { font-size: var(--m-font-size-default)}
+.txt-md { font-size: var(--m-font-size-md)}
+.txt-lg { font-size: var(--m-font-size-lg)}
+.txt-xl { font-size: var(--m-font-size-xl)}
 .txt-xxl { font-size: 100px }
 .txt-white { color: #fff }
-.txt-offwhite { color: var(--m-color-offwhite)}
 .txt-gray-1 { color: var(--m-color-gray-1) }
 .txt-gray-2 { color: var(--m-color-gray-2) }
 .txt-gray-3 { color: var(--m-color-gray-3) }
 .txt-gray-4 { color: var(--m-color-gray-4) }
 .txt-gray-5 { color: var(--m-color-gray-5) }
 .txt-gray-6 { color: var(--m-color-gray-6) }
-.txt-dark { color: var(--m-color-dark) }
-.txt-darker { color: var(--m-color-darker) }
-.txt-darkest { color: var(--m-color-darkest) }
-.txt-blue-dark { color: var(--m-color-blue-dark) }
-.txt-blue-med { color: var(--m-color-blue-med) }
-.txt-blue-light { color: var(--m-color-blue-light) }
-.txt-red-dark { color: var(--m-color-red-dark) }
-.txt-red-med { color: var(--m-color-red-med) }
-.txt-red-light { color: var(--m-color-red-light) }
-.txt-green-dark { color: var(--m-color-green-dark) }
-.txt-green-med { color: var(--m-color-green-med) }
-.txt-green-light { color: var(--m-color-green-light) }
-.txt-orange-dark { color: var(--m-color-orange-dark) }
-.txt-orange-med { color: var(--m-color-orange-med) }
-.txt-orange-light { color: var(--m-color-orange-light) }
-.txt-info { color: var(--m-color-blue-med) }
-.txt-success { color: var(--m-color-green-med) }
-.txt-warn { color: var(--m-color-orange-med) }
-.txt-error { color: var(--m-color-red-med) }
+.txt-gray-7 { color: var(--m-color-gray-7) }
+.txt-gray-8 { color: var(--m-color-gray-8) }
+.txt-gray-9 { color: var(--m-color-gray-9) }
+.txt-blue-1 { color: var(--m-color-blue-1) }
+.txt-blue-2 { color: var(--m-color-blue-2) }
+.txt-blue-3 { color: var(--m-color-blue-3) }
+.txt-red-1 { color: var(--m-color-red-1) }
+.txt-red-2 { color: var(--m-color-red-2) }
+.txt-red-3 { color: var(--m-color-red-3) }
+.txt-green-1 { color: var(--m-color-green-1) }
+.txt-green-2 { color: var(--m-color-green-2) }
+.txt-green-3 { color: var(--m-color-green-3) }
+.txt-orange-1 { color: var(--m-color-orange-1) }
+.txt-orange-2 { color: var(--m-color-orange-2) }
+.txt-orange-3 { color: var(--m-color-orange-3) }
+.txt-info { color: var(--m-color-blue-2) }
+.txt-success { color: var(--m-color-green-2) }
+.txt-warn { color: var(--m-color-orange-2) }
+.txt-error { color: var(--m-color-red-2) }
 
 /* Display */
 .grid { display: grid }
@@ -183,8 +182,8 @@
 .pin-l {left: 0}
 
 /* Borders */
-.brd-all-none, .brd-none { border: none }
-.brd-all { border: 1px solid var(--m-color-border) }
+.brd-none { border: none }
+.brd { border: 1px solid var(--m-color-border) }
 .brd-t { border-top: 1px solid var(--m-color-border) }
 .brd-r { border-right: 1px solid var(--m-color-border) }
 .brd-b { border-bottom: 1px solid var(--m-color-border) }
@@ -201,32 +200,31 @@
 .bg-cover {background-size: cover }
 .bg-contain {background-size: contain }
 .bg-white { background: #fff }
-.bg-offwhite { background: var(--m-color-offwhite)}
 .bg-gray-1 { background: var(--m-color-gray-1) }
 .bg-gray-2 { background: var(--m-color-gray-2) }
 .bg-gray-3 { background: var(--m-color-gray-3) }
 .bg-gray-4 { background: var(--m-color-gray-4) }
 .bg-gray-5 { background: var(--m-color-gray-5) }
 .bg-gray-6 { background: var(--m-color-gray-6) }
-.bg-dark { background: var(--m-color-dark) }
-.bg-darker { background: var(--m-color-darker) }
-.bg-darkest { background: var(--m-color-darkest) }
-.bg-blue-dark { background: var(--m-color-blue-dark) }
-.bg-blue-med { background: var(--m-color-blue-med) }
-.bg-blue-light { background: var(--m-color-blue-light) }
-.bg-red-dark { background: var(--m-color-red-dark) }
-.bg-red-med { background: var(--m-color-red-med) }
-.bg-red-light { background: var(--m-color-red-light) }
-.bg-green-dark { background: var(--m-color-green-dark) }
-.bg-green-med { background: var(--m-color-green-med) }
-.bg-green-light { background: var(--m-color-green-light) }
-.bg-orange-dark { background: var(--m-color-orange-dark) }
-.bg-orange-med { background: var(--m-color-orange-med) }
-.bg-orange-light { background: var(--m-color-orange-light) }
-.bg-info { background: var(--m-color-blue-med) }
-.bg-success { background: var(--m-color-green-med) }
-.bg-warn { background: var(--m-color-orange-med) }
-.bg-error { background: var(--m-color-red-med) }
+.bg-gray-7 { background: var(--m-color-gray-7) }
+.bg-gray-8 { background: var(--m-color-gray-8) }
+.bg-gray-9 { background: var(--m-color-gray-9) }
+.bg-blue-1 { background: var(--m-color-blue-1) }
+.bg-blue-2 { background: var(--m-color-blue-2) }
+.bg-blue-3 { background: var(--m-color-blue-3) }
+.bg-red-1 { background: var(--m-color-red-1) }
+.bg-red-2 { background: var(--m-color-red-2) }
+.bg-red-3 { background: var(--m-color-red-3) }
+.bg-green-1 { background: var(--m-color-green-1) }
+.bg-green-2 { background: var(--m-color-green-2) }
+.bg-green-3 { background: var(--m-color-green-3) }
+.bg-orange-1 { background: var(--m-color-orange-1) }
+.bg-orange-2 { background: var(--m-color-orange-2) }
+.bg-orange-3 { background: var(--m-color-orange-3) }
+.bg-info { background: var(--m-color-blue-2) }
+.bg-success { background: var(--m-color-green-2) }
+.bg-warn { background: var(--m-color-orange-2) }
+.bg-error { background: var(--m-color-red-2) }
 
 /* Other */
 .pointer { cursor: pointer; }

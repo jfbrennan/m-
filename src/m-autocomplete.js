@@ -112,10 +112,10 @@ class MdashAutocomplete extends HTMLElement {
     this._matchesContainer.hidden = !hasQuery;
     this._matchesContainer.innerHTML = this.results.length ?
       `<ul type="none">
-        ${this.results.reduce((acc, result) => acc +=`<li class="pad-all-sm pointer" data-id="${result.id}" data-value="${result.value}">${result.value}</li>`, '')}
+        ${this.results.reduce((acc, result) => acc +=`<li class="pad-sm pointer" data-id="${result.id}" data-value="${result.value}">${result.value}</li>`, '')}
       </ul>`
       :
-      `<div class="pad-all-sm fnt-italic txt-gray-5">No results</div>`;
+      `<div class="pad-sm fnt-italic txt-gray-5">No results</div>`;
   }
 }
 

@@ -5,7 +5,7 @@ customElements.define('m-alert', class extends HTMLElement {
 
   connectedCallback() {
     // One time render stuff
-    this.classList.add('pad-all-md', 'flex', 'pos-relative');
+    this.classList.add('pad-md', 'flex', 'pos-relative');
     if (this.type === 'warn' || this.type === 'error') this.setAttribute('role', 'alert');
 
     const icon = document.createElement('m-icon');
@@ -17,7 +17,7 @@ customElements.define('m-alert', class extends HTMLElement {
     dismissBtn.setAttribute('type', 'remove');
     dismissBtn.setAttribute('aria-label', 'Dismiss alert');
     dismissBtn.hidden = this.dismissible === 'false';
-    dismissBtn.classList.add('pad-all-sm', 'txt-lg', 'pos-absolute', 'pin-t', 'pin-r');
+    dismissBtn.classList.add('pad-sm', 'txt-lg', 'pos-absolute', 'pin-t', 'pin-r');
     dismissBtn.addEventListener('click', () => this.dismiss());
 
     const content = document.createElement('div');

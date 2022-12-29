@@ -1,11 +1,14 @@
+/* Base tabs styles */
 m-tabs {display: flex}
 
+/* Scrolling tabs */
 m-tabs[scrollable] {
   overflow-x: scroll;
   scrollbar-width: none;
 }
 m-tabs[scrollable]::-webkit-scrollbar { display: none }
 
+/* Base tab styles */
 m-tab {
   font-weight: bold;
   text-align: center;
@@ -13,17 +16,17 @@ m-tab {
   padding: var(--m-space-xs) var(--m-space-lg);
 }
 
-m-tab:not([disabled]) {
-  cursor: pointer;
-}
+m-tab:not([disabled]) { cursor: pointer }
 
 m-tab:not([disabled]):not([selected]):hover {
   border-bottom: 2px solid var(--m-color-gray-3);
 }
 
-m-tab a:hover {
-  text-decoration: none;
-}
+/* Hover state */
+m-tab a:hover { text-decoration: none }
 
+/* Selected state */
 m-tab[selected] {border-bottom: 2px solid var(--m-color-primary-action)}
+
+/* Disabled state */
 m-tab[disabled] {color: var(--m-color-disabled-fg); cursor: default}

@@ -7,7 +7,7 @@ m-autocomplete > div {
 }
 
 m-autocomplete > div > ul li:hover {
-  background-color: var(--m-color-offwhite);
+  background-color: var(--m-color-gray-1);
 }
 
 fieldset label + m-autocomplete { margin-top: var(--m-space-xs) }

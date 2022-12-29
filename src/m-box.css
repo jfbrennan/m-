@@ -1,5 +1,3 @@
-@import "custom-props.css";
-
 m-box, m-well {
   display: block;
   border-radius: var(--m-border-radius-md);
