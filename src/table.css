@@ -1,13 +1,16 @@
 /* Base table styles */
-table { width: 100%; border-collapse: collapse }
+table {
+  width: 100%;
+  border-collapse: collapse
+}
 table th, td { padding: var(--m-space-xs) }
 table td { vertical-align: top; padding: var(--m-space-sm) var(--m-space-md) }
-table > tbody > tr:first-of-type { border-top: 1px solid var(--m-color-gray-3) }
+table > tbody > tr:first-of-type { border-top: 1px solid var(--m-color-gray-2) }
 table > tbody > tr { border-bottom: 1px solid var(--m-color-gray-3) }
 
 /* Table header */
 thead { text-align: left }
-thead > tr { border-top: 2px solid var(--m-color-gray-3) }
+thead > tr { border-top: 2px solid var(--m-color-gray-2) }
 thead th { padding: var(--m-space-xs) var(--m-space-md) }
 
 /* Table layout */
@@ -21,3 +24,11 @@ th[aria-sort] button { all: unset; display: inline-flex }
 th[aria-sort] button:after { font-size: 0.8em; padding-left: var(--m-space-xs) }
 th[aria-sort=ascending] button:after { content: '↑' }
 th[aria-sort=descending] button:after { content: '↓' }
+
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+  table > tbody > tr:first-of-type { border-color: var(--m-color-gray-6) }
+  thead > tr { border-color: var(--m-color-gray-6) }
+  table > tbody > tr { border-color: var(--m-color-gray-6) }
+
+}

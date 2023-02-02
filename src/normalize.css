@@ -8,3 +8,11 @@ body {
 
 /* The hidden attr has extremely low specificity because it's a User Agent style. This makes it work as expected. */
 [hidden] { display: none !important; }
+
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--m-color-gray-9);
+    color: var(--m-color-gray-1);
+  }
+}

@@ -17,3 +17,10 @@ pre {
   padding: var(--m-space-xs) var(--m-space-sm);
 }
 
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+  code, pre {
+    background-color: var(--m-color-gray-8);
+    color: var(--m-color-red-2);
+  }
+}

@@ -27,3 +27,16 @@ m-box + m-box {margin-top: var(--m-space-md) }
 @media only screen and (max-width: 600px) {
   m-box { padding: var(--m-space-sm) }
 }
+
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+  m-box {
+    background-color: var(--m-color-gray-7);
+    border: none;
+  }
+
+  m-box[ord=secondary] {
+    background-color: var(--m-color-gray-6);
+    box-shadow: 0px 1px 2px #0a0a0a inset;
+  }
+}

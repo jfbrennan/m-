@@ -16,10 +16,15 @@ m-accordion > details > summary:after {
   right: var(--m-space-sm);
   transform: rotate(0deg);
   transition: transform 250ms;
-
 }
 
 m-accordion > details[open] > summary:after {
   transform: rotate(180deg);
   transition: transform 250ms;
+}
+
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+  m-accordion > details,
+  m-accordion > details:last-child { border-color: var(--m-color-gray-5) }
 }

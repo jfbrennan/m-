@@ -14,3 +14,12 @@ m-tag button[type=remove] {
   padding-right: 0;
   font-size: var(--m-font-size-default);
 }
+
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+  m-tag {
+    background-color: var(--m-color-gray-3);
+    border: none;
+    color: var(--m-color-gray-8);
+  }
+}

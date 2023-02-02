@@ -32,3 +32,10 @@ m-menu[open] > [slot=items] {
   display: block;
 }
 
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+  m-menu > [slot=items] {
+    background-color: var(--m-color-gray-7);
+    border-color: var(--m-color-gray-6);
+  }
+}

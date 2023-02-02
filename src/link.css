@@ -13,3 +13,11 @@ a[disabled], span[role=link][disabled] {
   color: var(--m-color-disabled-fg);
   pointer-events: none;
 }
+
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+  a, span[role=link],
+  a:visited, span[role=link]:visited {
+    color: #6990ee;
+  }
+}

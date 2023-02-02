@@ -1,12 +1,11 @@
 <h1 class="mar-b-xs">Dialog</h1>
-<h2 class="txt-gray-5 mar-t-none">Modal content container</h2>
+<h2 class="txt-gray-4 mar-t-none">Modal content container</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
 <template>
   <dialog>
-    <h2>Title</h2>
-    <p>Put anything you want in here.</p>
-    <p>(press <kbd>Esc</kbd> to close)</p>
+    <p>Put anything you want in here!</p>
+    <p>Press <kbd>Esc</kbd> to close (or implement a <a href="#close-button">close button</a>)</p>
   </dialog>
 </template>
 
@@ -100,7 +99,7 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="close-button">Close button</h3>
-<p>Dialog elements do not come with a button to close themselves, so Mdash includes style-only support for one. Add <code>&lt;button slot="close" type="remove"&gt;</code> and Mdash will style it for you, but your application must implement the click handler (e.g. calling the dialog's <code>close</code> method or removing its <code>open</code> attribute). Note that this is required only if a dialog doesn't implement any other buttons for closing. Here's a basic example:</p>
+<p>Dialog elements do not come with a button to close themselves, so Mdash includes style-only support for one. Add <code>&lt;button slot="close" type="remove"&gt;</code> and Mdash will style it for you, but your application must implement the click handler (e.g. call <code>close()</code> or remove <code>open</code>). Note that this is required only if a dialog doesn't implement other UI for closing. Here's a basic example:</p>
 <code-sample>
   <template>
     <dialog id="close-demo">

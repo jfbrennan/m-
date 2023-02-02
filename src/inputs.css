@@ -138,3 +138,19 @@ fieldset select + small,
 fieldset textarea + small {
   color: var(--m-color-gray-6);
 }
+
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+  fieldset input:not([type=radio]):not([type=checkbox]):not([type=range]),
+  fieldset select,
+  fieldset textarea {
+    background-color: var(--m-color-gray-5);
+    color: var(--m-color-gray-2);
+  }
+
+  fieldset input:not([is=switch]),
+  fieldset select,
+  fieldset textarea {
+    border: 1px solid var(--m-color-gray-7);
+  }
+}
