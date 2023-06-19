@@ -1,3 +1,0 @@
-/* Base styles */
-m-list { display: block }
-m-list > *:not(:last-child) { border-bottom: 1px solid var(--m-color-border) }

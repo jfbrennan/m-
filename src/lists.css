@@ -14,3 +14,14 @@ dl > dt {
   font-weight: bold;
 }
 dl > dt:first-of-type {margin-top: 0}
+
+/* Content list base styles */
+:is(ul, ol)[type=content] {
+  list-style: none;
+  padding-left: 0;
+}
+
+:is(ul, ol)[type=content] > li:not(:last-of-type) {
+  border-bottom: 1px solid var(--m-color-border)
+}
+

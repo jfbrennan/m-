@@ -7,16 +7,21 @@
     <li>Two</li>
     <li>Three</li>
   </ul>
-  <ul type="none">
-    <li>One</li>
-    <li>Two</li>
-    <li>Three</li>
-  </ul>
   <ol>
     <li>One</li>
     <li>Two</li>
     <li>Three</li>
   </ol>
+  <ul type="none">
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </ul>
+  <ul type="content">
+    <li class="flex justify-content-between pad-sm fnt-med">Email <input type="checkbox" is="switch"></li>
+    <li class="flex justify-content-between pad-sm fnt-med">SMS <input type="checkbox" is="switch"></li>
+    <li class="flex justify-content-between pad-sm fnt-med">Push <input type="checkbox" is="switch"></li>
+  </ul>
 </code-sample>
 <h2>API</h2>
 <h3>Tags</h3>
@@ -55,6 +60,18 @@
     <th colspan="6">Description</th>
   </tr>
   </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>type</code></td>
+    <td colspan="2">
+      <ul type="none">
+        <li>content</li>
+      </ul>
+    </td>
+    <td colspan="6">Defines a vertical list of content. Used for implementing designs like the master-detail pattern. See
+      <a href="#content">guideline</a> below.</td>
+  </tr>
+  </tbody>
 </table>
 <p>For <span class="fnt-bold">ul</span> only:</p>
 <table layout="fixed">
@@ -103,8 +120,8 @@
 </table>
 <h2>Guidelines</h2>
 <h3>Lists are for lists</h3>
-<p>List elements are meant for content that is a list. It's tempting to overuse these for layout, so take time to think about some better alternatives to list elements that could be used. One common alternative for navigation is this:</p>
-<code-sample>
+<p>List elements should be used for real lists. It's tempting to overuse them for anything that repeats, so take time to think about some better alternatives to list elements that should be used instead. For example, one alternative is the <code>nav</code> element when building a navigation bar:</p>
+<code-sample readonly="readonly">
   <!-- Better -->
   <nav>
     <a href="#">Link</a>
@@ -112,12 +129,77 @@
     <a href="#">Link</a>
   </nav>
 
-  <!-- Bad habit -->
-  <ul type="none">
-    <li class="inline"><a href="#">Link</a></li>
-    <li class="inline"><a href="#">Link</a></li>
-    <li class="inline"><a href="#">Link</a></li>
+  <!-- Old habits die hard -->
+  <ul>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
   </ul>
 </code-sample>
+<h3 id="content">Content list type</h3>
+<p>The content list type is meant for building a vertical list of content.</p>
+<h4>Semantics and accessibility</h4>
+<p>To retain list semantics and accessibility, Mdash leverages the standard tags for content lists. Use the correct tag for the content. If order matters, use <code>ol</code>, otherwise use <code>ul</code>.</p>
+<p class="fnt-italic">Ordered, like steps in a recipe:</p>
+<ol type="content">
+  <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Prep</span> Cook rice the day before</li>
+  <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Prep</span> Preheat wok on high heat, add 2 tbsp. oil</li>
+  <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 1</span> Chop veggies and meat</li>
+  <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 2</span> Add everything to wok and stir fry</li>
+  <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 3</span> Top with fresh basil and serve</li>
+</ol>
+<p class="fnt-italic">Unordered, like notification preferences:</p>
+<ul type="content">
+  <li class="flex justify-content-between pad-sm fnt-med">Email <input type="checkbox" is="switch" checked></li>
+  <li class="flex justify-content-between pad-sm fnt-med">SMS <input type="checkbox" is="switch" checked></li>
+  <li class="flex justify-content-between pad-sm fnt-med">Push <input type="checkbox" is="switch"></li>
+</ul>
+<h4>Nesting</h4>
+<p>Content list is designed to work wherever you need it. It can be used on its own or, for example, nested in a dialog, menu, or a box like this:</p>
+<code-sample>
+  <m-box class="pad-none">
+    <ul type="content">
+      <li class="pad-xs">one</li>
+      <li class="pad-xs">two</li>
+      <li class="pad-xs">three</li>
+    </ul>
+  </m-box>
+</code-sample>
+<h4>Alternatives</h4>
+<p>Be intentional. Not every vertical layout is a content list. Sometimes you don't need any particular component at all. In some cases you have tabular content, so use a
+  <a href="table">table</a>. In other cases you may just need
+  <a href="rules">horizontal rules</a>, like this recreation of the GitHub sidebar:</p>
+<m-row>
+  <m-col>
+    <m-box class="full-height box-sizing-border">
+      <div class="flex align-items-center fnt-med"><m-icon name="list" class="mar-r-xs"></m-icon>README.md</div>
+    </m-box>
+  </m-col>
+  <m-col span="4" class="pad-b-lg">
+    <h4 class="mar-t-none">About</h4>
+    <p>The modern web's design system.</p>
+    <div class="flex align-items-center">
+      <m-icon name="link" class="txt-xs mar-r-xs fnt-med"></m-icon>
+      <a href="/list">m-docs.org</a>
+    </div>
+    <div class="flex flx-wrap gap-xs mar-t-md">
+      <m-tag>javascript</m-tag>
+      <m-tag>css</m-tag>
+      <m-tag>html</m-tag>
+      <m-tag>fun</m-tag>
+      <m-tag>custom-elements</m-tag>
+      <m-tag>standards</m-tag>
+    </div>
+    <hr class="mar-t-lg mar-b-lg">
+    <h4>Releases</h4>
+    <div class="flex align-items-center fnt-med">
+      <m-icon name="tag" class="mar-r-xs"></m-icon>
+      <span>31 <span class="txt-gray-5 fnt-reg">tags</span></span>
+    </div>
+    <hr class="mar-t-lg mar-b-lg">
+    <h4>Packages</h4>
+    <div class="txt-gray-5 txt-sm">No packages published</div>
+  </m-col>
+</m-row>
 <h3>Accessibility</h3>
 <p>Use the correct list parent elements for your use case, i.e. <code>ol</code> when the list order is meaningful and <code>ul</code> when it isn't.</p>
