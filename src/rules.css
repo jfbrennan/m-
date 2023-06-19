@@ -1,6 +1,7 @@
 /* Horizontal rule */
 hr {
   border: none;
+  margin: 0;
   height: 1px;
   background-color: var(--m-color-gray-3);
 }
