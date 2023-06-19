@@ -3,7 +3,7 @@ m-box {
   border-radius: var(--m-border-radius-md);
   padding: var(--m-space-md);
   background-color: white;
-  border: 1px solid var(--m-color-gray-1);
+  border: 1px solid var(--m-color-border);
 }
 
 /*
