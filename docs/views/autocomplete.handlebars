@@ -9,13 +9,14 @@
     <datalist id="fruit">
       <option value="apple"></option>
       <option value="banana"></option>
+      <option value="cherry"></option>
       <option value="peach"></option>
     </datalist>
   </fieldset>
 </template>
 </code-sample>
 <h2 id="api">API</h2>
-<h3 id="tag">Tag</h3>
+<h3 id="tag">Tags</h3>
 <table layout="fixed">
   <thead>
   <tr>
@@ -64,7 +65,7 @@
   <thead>
   <tr>
     <th colspan="2">Name</th>
-    <th colspan="2">Detail</th>
+    <th colspan="2">Details</th>
     <th colspan="6">Description</th>
   </tr>
   </thead>
@@ -72,11 +73,18 @@
   <tr>
     <td colspan="2"><code>select</code></td>
     <td colspan="2">
-      <div class="mar-b-sm">An object with properties:</div>
-      <ul type="none">
-        <li class="mar-b-sm"><code>source</code> Name of the source for easy reference</li>
-        <li><code>item</code> Object with <code>value</code> set to the value from <code>matches</code> and <code>id</code> if provided (useful for finding the original item in the source data).</li>
-      </ul>
+      <pre class="overflow-auto">
+{
+  // Name of the source for easy reference
+  source: '',
+
+  // Value from matches
+  value: '',
+
+  // Id of match, if provided
+  id: ''
+}
+      </pre>
     </td>
     <td colspan="6">
       <div class="mar-b-md">Fires after a match is selected. Try it:</div>
@@ -94,17 +102,33 @@
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="creating-sources">Creating data sources</h3>
-<p>Sources can come from one of two places:</p>
-<h4>1. Custom source function</h4>
-<p>These are async functions added to the global <code>MdashAutocomplete.prototype.sources</code> object. Here's an example <code>fruit</code> source similar to the demo above:</p>
+<h3 id="creating-sources">Creating data sources for autocomplete</h3>
+<p>Sources can come from a standard <code>datalist</code> element or a custom function added to the global <code>MdashAutocomplete</code>.</p>
+<h4>1. Datalist element</h4>
+<p>Include a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank" rel="noopener">datalist</a> element in the DOM. Its <code>id</code> must match the Autocomplete's <code>source</code>. The options' value attributes and optional text are searched for matches. Here's an example:</p>
+<code-sample readonly="readonly">
+  <template>
+    <fieldset>
+      <label>Search</label>
+      <m-autocomplete source="fruit"></m-autocomplete>
+      <datalist id="fruit">
+        <option value="apple"></option>
+        <option value="banana"></option>
+        <option value="cherry"></option>
+        <option value="peach"></option>
+      </datalist>
+    </fieldset>
+  </template>
+</code-sample>
+<h4>2. Custom source function</h4>
+<p>These are asynchronous functions added to the global <code>MdashAutocomplete.prototype.sources</code> object. Here's another <code>fruit</code> example similar to the datalist above:</p>
 <code-sample readonly="true">
   <script>
     MdashAutocomplete.prototype.sources.fruit = async (query, max) => \{
 
-      // 1. Use `query` to fetch, filter, map, find, or whatever your use case is for getting matching results.
-      // Note: `max` is the most results that will be shown, which can be helpful to know when dealing with large data sets.
-      const matches = ['apple', 'banana', 'peach'].filter(fruit => fruit.includes(query));
+      // 1. Use `query` to fetch, filter, map, find, or whatever your logic is for determining matching results.
+      // Note: `max` is the most results that will be shown, which is helpful to know beforehand when dealing with large data sets.
+      const matches = ['apple', 'banana', 'cherry', 'peach'].filter(fruit => fruit.includes(query));
 
       // 2. Result must be an object with the original `query` param and a `matches` Array.
       // Note: `matches` elements can be strings or objects with `id` and `value` properties. See Events API above for more details.
@@ -116,15 +140,6 @@
   </script>
 </code-sample>
 <p><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> If the source's data is over the network, cache results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>const matches = cache[query] || await fetchAndCacheResults(query)</code>. You can also use <code>max</code> if it's beneficial while searching to know the maximum number of matches that will be shown.</p>
-<h4>2. Datalist element</h4>
-<p>Include a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank" rel="noopener">datalist</a> element in the DOM and Autocomplete will search the option's values and text for matches. Here's an example:</p>
-<code-sample>
-<datalist id="fruit">
-  <option value="apple"></option>
-  <option value="banana"></option>
-  <option value="peach"></option>
-</datalist>
-</code-sample>
 {{> more-autocomplete}}
 <h3 id="a11y">Accessibility</h3>
 <p>There are no extra recommendations for Autocomplete.</p>
