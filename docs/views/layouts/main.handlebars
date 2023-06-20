@@ -113,7 +113,7 @@
       <a href="/custom-props" class="block mar-b-xs">Custom properties</a>
       <a href="/utility-classes" class="block mar-b-xs">Utility classes</a>
       <hr class="mar-t-md mar-b-md">
-      <small class="block txt-center">Copyright &copy; 2021<br>Jordan Brennan</small>
+      <small class="block txt-center">Copyright &copy; 2023<br>Jordan Brennan</small>
     </nav>
   </div>
 </aside>
@@ -141,15 +141,6 @@
 <script>
   // Menu toggle (for small screens)
   document.getElementById('menu-toggle').addEventListener('click', e => document.getElementById('menu').toggleAttribute('open'));
-
-  // Autocomplete demo
-  MdashAutocomplete.prototype.sources.fruit = async query => {
-    // Use query to fetch/filter/map/find/whatever your use case is for getting matching results
-    let matches = ['apple', 'banana', 'peach'].filter(fruit => fruit.includes(query));
-
-    // Function must return a Promise or use async keyword
-    return {query, matches};
-  };
 </script>
 </body>
 </html>
