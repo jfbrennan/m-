@@ -18,7 +18,7 @@
   <tr>
     <td colspan="2"><code>m-badge</code></td>
     <td colspan="2">Custom tag</td>
-    <td colspan="6">None</td>
+    <td colspan="6">Text or the count attribute</td>
   </tr>
   </tbody>
 </table>
@@ -33,13 +33,15 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>count</code> <small class="fnt-bold fnt-italic">required</small></td>
+    <td colspan="2"><code>count</code></td>
     <td colspan="2">Number</td>
-    <td colspan="6">The number to display. If zero, empty, or if this attribute is missing, then Badge will hide itself.</td>
+    <td colspan="6">A number to display. When zero or empty the badge will hide itself.</td>
   </tr>
   </tbody>
 </table>
 <h2>Guidelines</h2>
+<h3>Badge hides itself</h3>
+<p>Badge can be used to display a count or text. If either is omitted, the badge will be set to <code>display: none</code>.</p>
 <h3>Localization</h3>
 <p>Localize the count value before setting it.</p>
 <h3>Accessibility</h3>

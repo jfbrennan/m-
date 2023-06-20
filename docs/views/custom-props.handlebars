@@ -102,10 +102,29 @@
     </td>
     <td colspan="3">Used for links and other primary action elements.</td>
   </tr>
+  <tr>
+    <td colspan="2"><code>--m-color-disabled-[bg|fg]</code></td>
+    <td colspan="3" class="pad-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-disabled-bg"></div>
+        <div class="color-disabled-fg"></div>
+      </div>
+    </td>
+    <td colspan="3">Disabled background and foreground.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>--m-color-border</code></td>
+    <td colspan="3" class="pad-none pos-relative">
+      <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
+        <div class="color-border"></div>
+      </div>
+    </td>
+    <td colspan="3">Default border color.</td>
+  </tr>
   </tbody>
 </table>
 <h3 id="spacing">Spacing</h3>
-<p>The spacing sizes are based on <a href="">Divine Proportions</a> to help provide a natural rhythm.</p>
+<p>The spacing sizes are based on <a href="">Divine Proportions</a> to help provide a natural rhythm. Padding, margin, and gap use these values.</p>
 <table layout="fixed">
   <thead>
   <tr>
@@ -117,7 +136,7 @@
   <tbody>
   <tr>
     <td colspan="2"><code>--m-space-[xs|sm|md|lg|xl]</code></td>
-    <td colspan="3">6, 12, 18, 30, 48px</td>
+    <td colspan="3">6px, 12px, 18px, 30px, 48px</td>
     <td colspan="3">Used for developing a visual rhythm between elements. Loosely follows <a
             href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the
       <a href="/utility-classes#space">padding and margin utility classes</a> whenever possible and reserve use of <code>--m-space-*</code> for other spacing needs like position.</td>
@@ -137,8 +156,8 @@
   <tbody>
   <tr>
     <td colspan="2"><code>--m-border-radius-[sm|md|full]</code></td>
-    <td colspan="3">2, 4, 50%</td>
-    <td colspan="3">Used for border radiuses.</td>
+    <td colspan="3">2px, 4px, fully round</td>
+    <td colspan="3">Used for border radius.</td>
   </tr>
 <!--  <tr>-->
 <!--    <td colspan="2"><code>--border-[xs|sm]</code></td>-->
@@ -205,7 +224,7 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="hard-code">Do not hard code values</h3>
-<p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across all their stylesheets. That's a maintenance meltdown! Custom properties are a standard CSS feature that helps you avoid this by defining reusable values. Reference these custom properties instead of hard coding their values. Like this:</p>
+<p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across all their stylesheets. Custom properties are a modern CSS feature that helps you avoid such a mess by defining reusable values. Use custom properties instead of hard coding their values. Like this:</p>
 <code-sample mode="css" readonly="readonly">
 /* Do */
 @import "../node_modules/m-/dist/custom-props.css";
@@ -226,6 +245,10 @@
   [class^="bg-"] { width: 32% }
   [class^="bg-gray-"] { width: 16% }
   [class="bg-gray-7"], [class="bg-gray-8"], [class="bg-gray-9"] { width: 32% }
-  [class^="color-primary-action"] { width: 96% }
+  [class^="color-primary-action"], [class^="color-border"] { width: 96% }
   .color-primary-action { background-color: var(--m-color-primary-action) }
+  .color-border { background-color: var(--m-color-border) }
+  [class^="color-disabled-"] { width: 48% }
+  .color-disabled-bg { background-color: var(--m-color-disabled-bg) }
+  .color-disabled-fg { background-color: var(--m-color-disabled-fg) }
 </style>
