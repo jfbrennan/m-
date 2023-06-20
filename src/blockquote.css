@@ -1,0 +1,4 @@
+blockquote {
+  color: var(--m-color-gray-6);
+  font-style: italic;
+}

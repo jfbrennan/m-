@@ -9,6 +9,9 @@
   <h5>Heading 5</h5>
   <h6>Heading 6</h6>
   <p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <a href="/utility-classes">utility classes</a>.</p>
+  <blockquote>
+    <p>This is something somebody said.</p>
+  </blockquote>
   <small>This is for small print, side-comments, disclaimers, etc.</small>
 </code-sample>
 <h2 id="api">API</h2>
@@ -33,6 +36,11 @@
     <td colspan="6">Any</td>
   </tr>
   <tr>
+    <td colspan="2"><code>blockquote</code></td>
+    <td colspan="2">Native element</td>
+    <td colspan="6">A <code>p</code> element for the actual quotation</td>
+  </tr>
+  <tr>
     <td colspan="2"><code>small</code></td>
     <td colspan="2">Native element</td>
     <td colspan="6">Any, but intended to represent "side-comments...small print, like copyright and legal text, independent of its styled presentation."</td>
@@ -41,10 +49,10 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="line-length">Characters per line</h3>
-<p>It is recommend that lines of text be no more than <span class="fnt-bold">65-75 characters</span>, including spaces (<span
-        class="fnt-italic">Designing
-  With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
+<p>It is recommend that lines of text be no more than <span class="fnt-bold">65-75 characters</span>, including spaces (<span class="fnt-italic">DesigningWith Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
+<p>To demonstrate, the paragraph above has no width limit and that same paragraph below is maxes out at <span class="fnt-bold">600px wide</span>; right at the word "including" which is about 75 characters.</p>
+<p style="max-width: 600px">It is recommend that lines of text be no more than <span class="fnt-bold">65-75 characters</span>, including spaces (<span class="fnt-italic">DesigningWith Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
 <h3 id="seo">SEO</h3>
-<p>Using text elements semantically improves SEO and accessibility.</p>
+<p>Using these text elements semantically improves SEO and accessibility.</p>
 <h3 id="a11y">Accessibility</h3>
-<p>The smallest font size that M- has is 13px, which is the smallest recommended by WCAG 2.1. Any smaller can be illegible for some users.</p>
+<p>The smallest font size that Mdash has is 13px, which is the smallest recommended by WCAG 2.1. Any smaller can be illegible for some users.</p>
