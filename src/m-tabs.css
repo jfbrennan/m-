@@ -1,5 +1,8 @@
 /* Base tabs styles */
-m-tabs {display: flex}
+m-tabs {
+  display: flex;
+  align-items: flex-start;
+}
 
 /* Scrolling tabs */
 m-tabs[scrollable] {
@@ -9,24 +12,32 @@ m-tabs[scrollable] {
 m-tabs[scrollable]::-webkit-scrollbar { display: none }
 
 /* Base tab styles */
-m-tab {
+m-tabs > button,
+m-tabs > a {
+  all: unset;
+  color: var(--m-color-gray-7) !important;
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
   padding: var(--m-space-xs) var(--m-space-lg);
-}
-
-m-tab:not([disabled]) { cursor: pointer }
-
-m-tab:not([disabled]):not([selected]):hover {
-  border-bottom: 2px solid var(--m-color-gray-3);
+  cursor: pointer;
 }
 
 /* Hover state */
-m-tab a:hover { text-decoration: none }
+m-tabs > button:not([disabled]):not([aria-selected=true]):hover,
+m-tabs > a:not([disabled]):not([aria-selected=true]):hover {
+  border-bottom: 2px solid var(--m-color-gray-3);
+  text-decoration: none;
+}
 
 /* Selected state */
-m-tab[selected] {border-bottom: 2px solid var(--m-color-primary-action)}
+m-tabs > button[aria-selected=true],
+m-tabs > a[aria-selected=true] {
+  border-bottom: 2px solid var(--m-color-primary-action);
+}
 
 /* Disabled state */
-m-tab[disabled] {color: var(--m-color-disabled-fg); cursor: default}
+m-tabs > button[disabled],
+m-tabs > a[disabled] {
+  color: var(--m-color-disabled-fg); cursor: default;
+}

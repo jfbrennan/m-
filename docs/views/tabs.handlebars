@@ -3,11 +3,12 @@
 <h2 id="demo">Demo</h2>
 <code-sample>
 <template>
-  <m-tabs>
-    <m-tab>One</m-tab>
-    <m-tab>Two</m-tab>
-    <m-tab><a href="/">Three</a></m-tab>
+  <m-tabs role="tablist">
+    <button role="tab" aria-selected="true">A</button>
+    <button role="tab">B</button>
+    <a href="/" role="tab">C</a>
   </m-tabs>
+  <p class="txt-xs txt-gray-5">See <a href="#select-tab">selecting tabs</a> to learn how to select the tabs</p>
 </template>
 </code-sample>
 <h2 id="api">API</h2>
@@ -23,13 +24,8 @@
   <tbody>
   <tr>
     <td colspan="2"><code>m-tabs</code></td>
-    <td colspan="2">Custom Element</td>
-    <td colspan="6"><code>&lt;m-tab&gt;</code> children</td>
-  </tr>
-  <tr>
-    <td colspan="2"><code>m-tab</code></td>
     <td colspan="2">Custom tag</td>
-    <td colspan="6">Any</td>
+    <td colspan="6"><code>button</code> or <code>a</code> children</td>
   </tr>
   </tbody>
 </table>
@@ -53,92 +49,64 @@
   </tr>
   </tbody>
 </table>
-<p>For <span class="fnt-bold">m-tab</span> only:</p>
+<p>For tab only:</p>
 <table layout="fixed">
   <tbody>
   <tr>
-    <td colspan="2"><code>selected</code></td>
-    <td colspan="2">Boolean attribute</td>
-    <td colspan="6">Selects that Tab. If more than one Tab has this attribute the first is selected. If no Tabs have it, then the first Tab is selected</td>
+    <td colspan="2"><code>aria-selected</code></td>
+    <td colspan="2">true or false</td>
+    <td colspan="6">Set the selected tab to true.</td>
   </tr>
   <tr>
     <td colspan="2"><code>disabled</code></td>
     <td colspan="2">Boolean attribute</td>
-    <td colspan="6">Disables the Tab.</td>
-  </tr>
-  </tbody>
-</table>
-<h3 id="events">Events</h3>
-<table layout="fixed">
-  <thead>
-  <tr>
-    <th colspan="2">Name</th>
-    <th colspan="2">Detail</th>
-    <th colspan="6">Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td colspan="2"><code>select</code></td>
-    <td colspan="2">
-      <div class="mar-b-sm">An object with properties:</div>
-      <ul type="none">
-        <li class="mar-b-sm"><code>index</code> of the Tab</li>
-        <li class="mar-b-sm"><code>id</code> of the Tab if present</li>
-        <li class="mar-b-sm"><code>href</code> if the clicked target was a link, this will be its href</li>
-      </ul>
-    </td>
-    <td colspan="6">Fired after a tab was selected. If the tab's content is a link the click will be prevented and you'll need to use <code>e.detail.href</code> to navigate. This also fires when Tabs is first initialized.</td>
-  </tr>
-  </tbody>
-</table>
-<h3 id="methods">Methods</h3>
-<table layout="fixed">
-  <thead>
-  <tr>
-    <th colspan="2">Signature</th>
-    <th colspan="8">Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td colspan="2"><code>select(index)</code></td>
-    <td colspan="8">Selects the Tab at <code>index</code>. This will trigger the <code>select</code> event just as if the user had clicked it.</td>
+    <td colspan="6">Disables the tab.</td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="tabpanel">Tab panel</h3>
-<p>Tabs does not enforce anything related to the toggled content, but its <code>select</code> event is there to help. The content, aka "tab panels", and how they're managed is completely left up to the application. By listening to the <code>select</code> event and using its <code>detail</code> data you can react in any way that makes sense for your use cases. This typically means showing the section of relevant content and hiding others. Here's a simple example:</p>
+<h3 id="select-tab">Selecting tabs</h3>
+<h4>Selecting the tab</h4>
+<p>Setting the selected tab is handled by your app. There are a few approaches you can take to manage this, but event delegation and setting the <code>ariaSelected</code> property is probably the best vanilla solution:</p>
 <code-sample>
   <script>
-    // Set hidden on all except the one with matching id
-    const switchPanel = e => document.querySelectorAll('[role=tabpanel]').forEach(panel => panel.hidden = panel.dataset.tab !== e.detail.id);
+    // Set ariaSelected property on all tabs except the one with matching id
+    const selectTab = e => e.currentTarget.querySelectorAll('[role=tab]').forEach(tab => tab.ariaSelected = tab.id === e.target.id);
   </script>
-  <template>
-    <m-tabs onselect="switchPanel(event)">
-      <m-tab id="a">A</m-tab>
-      <m-tab id="b">B</m-tab>
-    </m-tabs>
-    <div data-tab="a" role="tabpanel" hidden>A tab panel</div>
-    <div data-tab="b" role="tabpanel" hidden>B tab panel</div>
-  </template>
+  <m-tabs onclick="selectTab(event)">
+    <button id="a" role="tab">A</button>
+    <button id="b" role="tab">B</button>
+  </m-tabs>
 </code-sample>
-<p>Here's the same thing in a Riot app, for example:</p>
+<h4>Opening the tab panel</h4>
+<p>This component assumes nothing about what happens when a tab is selected. This allows for multiple use cases like toggling between tab panels in the DOM or navigating to a new page or something else. Here's a simple example:</p>
+<code-sample readonly="readonly">
+  <script>
+    function switchTab(e) \{
+      // Note that e.target can be a child element, like an icon in the tab, so get the actual tab element if needed.
+      const selectedTabId = e.target.closest('[role=tab]').id;
+
+      // Select the tab and its panel
+      e.currentTarget.querySelectorAll('[role=tab]').forEach(tab => tab.ariaSelected = tab.id === selectedTabId);
+      document.querySelectorAll('[role=tabpanel').forEach(panel => panel.hidden = panel.dataset.tabId !== selectedTabId);
+    }
+  </script>
+</code-sample>
+<p>Here's the same thing with a more declarative approach using Riot.js, for example:</p>
 <code-sample readonly="readonly">
   <template>
     <my-app>
-      <m-tabs onselect="{switchPanel}">
-        <m-tab id="a">A</m-tab>
-        <m-tab id="b">B</m-tab>
+      <m-tabs onclick="{switchTab}">
+        <button id="a" aria-selected="{state.tab === 'a'}">A</button>
+        <button id="b" aria-selected="{state.tab === 'b'}">B</button>
       </m-tabs>
       <div if="{state.tab === 'a'}" role="tabpanel">A tab panel</div>
       <div if="{state.tab === 'b'}" role="tabpanel">B tab panel</div>
 
       <script>
         export default {
-          switchPanel(e) {
-            this.update({tab: e.detail.id});
+          switchTab(e) {
+            this.update({tab: e.target.id});
           }
         }
       </script>
@@ -147,12 +115,12 @@
 </code-sample>
 
 <h3 id="a11y">Accessibility</h3>
-<p>Some of the necessary ARIA roles and attributes are added and maintained automatically, but you will need to set <code>role="tabpanel"</code> on the element that contains a Tab's corresponding content. You should further associate the tab and tab panel by setting up these ARIA attributes:</p>
+<p>All of the necessary ARIA attributes are here in the example below:</p>
 <code-sample readonly="readonly">
 <template>
-  <m-tabs>
-    <m-tab id="a" aria-controls="a-panel">A</m-tab>
-    <m-tab id="b" aria-controls="b-panel">B</m-tab>
+  <m-tabs role="tablist">
+    <button id="a" aria-controls="a-panel" role="tab">A</button>
+    <button id="b" aria-controls="b-panel" role="tab">B</button>
   </m-tabs>
   <div id="a-panel" role="tabpanel" aria-labelledby="a">
     This content is shown when the "a" Tab is selected.
