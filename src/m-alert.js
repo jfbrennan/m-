@@ -17,7 +17,7 @@ customElements.define('m-alert', class extends HTMLElement {
     dismissBtn.setAttribute('type', 'remove');
     dismissBtn.setAttribute('aria-label', 'Dismiss alert');
     dismissBtn.hidden = this.dismissible === 'false';
-    dismissBtn.classList.add('pad-sm', 'txt-lg', 'pos-absolute', 'pin-t', 'pin-r');
+    dismissBtn.classList.add('pad-sm', 'txt-lg', 'pos-absolute', 'pos-t-0', 'pos-r-0');
     dismissBtn.addEventListener('click', () => this.dismiss());
 
     const content = document.createElement('div');
