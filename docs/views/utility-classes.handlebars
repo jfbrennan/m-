@@ -1,5 +1,5 @@
 <h1 class="mar-b-xs">Utility Classes</h1>
-<h2 class="txt-gray-5 mar-t-none">210+ CSS shortcuts and utility classes</h2>
+<h2 class="txt-gray-5 mar-t-none">220+ CSS shortcuts and utility classes</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
   <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd pad-md">
@@ -13,11 +13,10 @@
     </div>
   </div>
 </code-sample>
-<h2 id="api">API</h2>
-<p>Categories:
+<h2 id="api" class="mar-b-xs">API</h2>
+<p class="pos-sticky pos-t-0 mar-t-0 pad-t-sm pad-b-sm bg-white">Categories:
   <a href="#display" class="mar-r-md mar-l-xs">Display</a>
   <a href="#flexbox" class="mar-r-md">Flexbox</a>
-  <a href="#float" class="mar-r-md">Float</a>
   <a href="#spacing" class="mar-r-md">Spacing</a>
   <a href="#position" class="mar-r-md">Position</a>
   <a href="#font" class="mar-r-md">Font</a>
@@ -162,28 +161,9 @@
     <td colspan="2"><code>align-self-end</code></td>
     <td colspan="6">Shortcut for align-self: flex-end</td>
   </tr>
-  </tbody>
-</table>
-<h3 id="float">Float</h3>
-<table layout="fixed">
-  <thead>
   <tr>
-    <th colspan="2">Name</th>
-    <th colspan="6">Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td colspan="2"><code>left</code></td>
-    <td colspan="6">Shortcut for float: left</td>
-  </tr>
-  <tr>
-    <td colspan="2"><code>right</code></td>
-    <td colspan="6">Shortcut for float: right</td>
-  </tr>
-  <tr>
-    <td colspan="2"><code>clear</code></td>
-    <td colspan="6">Shortcut for clear: both</td>
+    <td colspan="2"><code>place-content-center</code></td>
+    <td colspan="6">Shortcut for place-content: center</td>
   </tr>
   </tbody>
 </table>
@@ -197,29 +177,29 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="3"><code>pad-[xs|sm|md|lg|xl|none]</code></td>
-    <td colspan="6">Sets padding on all sides in the specified size. Sizes map to the
-      <a href="/custom-props#space">space custom props</a>.</td>
+    <td colspan="3"><code>pad-[xs|sm|md|lg|xl|0]</code></td>
+    <td colspan="6">Sets padding on all sides to the specified size. Sizes map to the
+      <a href="/custom-props#space">space custom props</a> and <code>0</code> really means zero.</td>
   </tr>
   <tr>
-    <td colspan="3"><code>pad-[t|r|b|l]-[xs|sm|md|lg|xl|none]</code></td>
+    <td colspan="3"><code>pad-[t|r|b|l]-[xs|sm|md|lg|xl|0]</code></td>
     <td colspan="6">Sets padding on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
-      <a href="/custom-props#space">space custom props</a>.</td>
+      <a href="/custom-props#space">space custom props</a> and <code>0</code> really means zero.</td>
   </tr>
   <tr>
-    <td colspan="3"><code>mar-[xs|sm|md|lg|xl|none]</code></td>
-    <td colspan="6">Sets margin on all sides in the specified size. Sizes map to the
-      <a href="/custom-props#space">space custom props</a>.</td>
+    <td colspan="3"><code>mar-[xs|sm|md|lg|xl|0|auto]</code></td>
+    <td colspan="6">Sets margin on all sides to the specified size. Sizes map to the
+      <a href="/custom-props#space">space custom props</a> and <code>0</code> really means zero.</td>
   </tr>
   <tr>
-    <td colspan="3"><code>mar-[t|r|b|l]-[xs|sm|md|lg|xl|none]</code></td>
+    <td colspan="3"><code>mar-[t|r|b|l]-[xs|sm|md|lg|xl|0|auto]</code></td>
     <td colspan="6">Sets margin on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
-      <a href="/custom-props#space">space custom props</a>.</td>
+      <a href="/custom-props#space">space custom props</a> and <code>0</code> really means zero.</td>
   </tr>
   <tr>
-    <td colspan="3"><code>gap-[xs|sm|md|lg|xl|none]</code></td>
+    <td colspan="3"><code>gap-[xs|sm|md|lg|xl|0]</code></td>
     <td colspan="6">Sets gap to the specified size. Sizes map to the
-      <a href="/custom-props#space">space custom props</a>.</td>
+      <a href="/custom-props#space">space custom props</a> and <code>0</code> really means zero.</td>
   </tr>
   </tbody>
 </table>
@@ -253,7 +233,7 @@
     <td colspan="6">Shortcut for position: sticky</td>
   </tr>
   <tr>
-    <td colspan="2"><code>pin-[t|r|b|l]</code></td>
+    <td colspan="2"><code>pos-[t|r|b|l]-0</code></td>
     <td colspan="6">Shortcut for setting top, right, bottom, or left to zero</td>
   </tr>
   </tbody>
@@ -450,23 +430,39 @@
     <td colspan="6">Shortcut for cursor: pointer. Useful when you want an element to seem clickable. Buttons and links already have pointer set.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>full-height</code></td>
+    <td colspan="2"><code>height-full</code></td>
     <td colspan="6">Shortcut for height: 100%</td>
   </tr>
   <tr>
-    <td colspan="2"><code>full-width</code></td>
+    <td colspan="2"><code>height-half</code></td>
+    <td colspan="6">Shortcut for height: 50%</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>height-min-0</code></td>
+    <td colspan="6">Shortcut for min-height: 0</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>width-full</code></td>
     <td colspan="6">Shortcut for width: 100%</td>
   </tr>
   <tr>
-    <td colspan="2"><code>auto-width</code></td>
-    <td colspan="6">Shortcut for width: auto</td>
+    <td colspan="2"><code>width-half</code></td>
+    <td colspan="6">Shortcut for width: 50%</td>
   </tr>
   <tr>
-    <td colspan="2"><code>box-border</code></td>
+    <td colspan="2"><code>width-fit</code></td>
+    <td colspan="6">Shortcut for width: fit-content</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>width-min-0</code></td>
+    <td colspan="6">Shortcut for min-width: 0</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>box-sizing-border</code></td>
     <td colspan="6">Shortcut for box-sizing: border-box</td>
   </tr>
   <tr>
-    <td colspan="2"><code>box-content</code></td>
+    <td colspan="2"><code>box-sizing-content</code></td>
     <td colspan="6">Shortcut for box-sizing: content-box</td>
   </tr>
   <tr>
@@ -478,16 +474,12 @@
     <td colspan="6">Shortcut for overflow: hidden</td>
   </tr>
   <tr>
+    <td colspan="2"><code>overflow-clip</code></td>
+    <td colspan="6">Shortcut for overflow: clip (good for rounded corners)</td>
+  </tr>
+  <tr>
     <td colspan="2"><code>vis-hidden</code></td>
     <td colspan="6">Shortcut for visibility: hidden</td>
-  </tr>
-  <tr>
-    <td colspan="2"><code>push</code></td>
-    <td colspan="6">Shortcut for margin-left: auto. Works well to push a flex item to the end.</td>
-  </tr>
-  <tr>
-    <td colspan="2"><code>pull</code></td>
-    <td colspan="6">Shortcut for margin-right: auto</td>
   </tr>
   <tr>
     <td colspan="2"><code>shadow</code></td>
@@ -496,6 +488,22 @@
   <tr>
     <td colspan="2"><code>content-vis-auto</code></td>
     <td colspan="6">Shortcut for content-visibility: auto. Use on large sections of content not visible to the user after page load. The browser skips rendering and layout until needed thereby reducing the initial page rendering time.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>left</code></td>
+    <td colspan="6">Shortcut for float: left</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>right</code></td>
+    <td colspan="6">Shortcut for float: right</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>clear</code></td>
+    <td colspan="6">Shortcut for clear: both</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>all-unset</code></td>
+    <td colspan="6">Shortcut for all: unset</td>
   </tr>
   </tbody>
 </table>
