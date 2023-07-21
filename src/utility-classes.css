@@ -1,3 +1,6 @@
+/* CLASSES THAT MUST COME FIRST */
+.all-unset { all: unset }
+
 /* Spacing */
 .pad-0 { padding: 0 }
 .pad-xs { padding: var(--m-space-xs) }
@@ -249,4 +252,3 @@
 .box-sizing-border { box-sizing: border-box }
 .box-sizing-content { box-sizing: content-box }
 .content-vis-auto { content-visibility: auto }
-.all-unset { all: unset }
