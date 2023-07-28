@@ -4,7 +4,7 @@ const exec = require('child_process').exec;
 
 
 function versionBump(cb) {
-  exec('npm version major && (cd docs && npm version major)', function (err, stdout, stderr) {
+  exec('npm version patch && (cd docs && npm version patch)', function (err, stdout, stderr) {
     // Update version mentioned in ./README.md
     const pkg = require('./package');
     gulp.src('./README.md', {base: './'})
@@ -39,3 +39,4 @@ function publishToNPM(cb) {
 }
 
 exports.release = gulp.series(build, versionBump, pushNewVersion, publishToNPM);
+exports.publishToNPM = gulp.series(publishToNPM)
