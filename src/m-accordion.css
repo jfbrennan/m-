@@ -10,7 +10,7 @@ m-accordion > details > summary {
 
 m-accordion > details > summary:after {
   font-family: 'm-icons';
-  content: '\e604';
+  content: 'expand_more';
   position: absolute;
   top: var(--m-space-sm);
   right: var(--m-space-sm);

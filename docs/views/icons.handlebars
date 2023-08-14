@@ -2,7 +2,8 @@
 <h2 class="txt-gray-5 mar-t-none">Symbols used to enhance communication</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
-<m-icon name="user"></m-icon>
+<m-icon name="person"></m-icon>
+<m-icon name="person" fill></m-icon>
 <m-icon name="flag"></m-icon>
 <m-icon name="menu"></m-icon>
 </code-sample>
@@ -39,6 +40,11 @@
     <td colspan="2"><a href="#all-icons">See icon names below</a></td>
     <td colspan="6">Sets the icon's symbol</td>
   </tr>
+  <tr>
+    <td colspan="2"><code>fill</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Uses filled version</td>
+  </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
@@ -50,7 +56,7 @@
     <div slot="items">
       <a href="/profile">Profile</a>
       <a href="/settings">Settings</a>
-      <hr>
+      <hr class="mar-t-sm mar-b-sm">
       <a href="/logout">Log out</a>
     </div>
   </m-menu>
@@ -62,48 +68,26 @@
     <div slot="items">
       <a href="/profile">Profile</a>
       <a href="/settings">Settings</a>
-      <hr>
+      <hr class="mar-t-sm mar-b-sm">
       <a href="/logout">Log out</a>
     </div>
   </m-menu>
 </code-sample>
 <h3 id="svg">Why not SVG?</h3>
-<p>Implementing SVG icons requires a relatively expensive abstraction and because there is no visual or accessibility difference between SVG and glyph icons, that abstraction would be all cost and no benefit. M- icons require no JavaScript and so they save kilobytes and have maximum compatibility. You can read more about the differences between SVG and glyphs
+<p>Implementing SVG icons requires a relatively expensive abstraction and because there is no visual or accessibility difference between SVG and glyph icons, that abstraction would be all cost and no benefit. Mdash icons require no JavaScript and so they save kilobytes and have maximum compatibility. You can read more about the differences between SVG and glyphs
   <a href="https://dev.to/jfbrennan/svg-icons-are-not-settled-science-4hpo" target="_blank" rel="noopener">here</a>.</p>
 <h3 id="a11y">Accessibility</h3>
 <p>Because icons should be paired with some text (see above) they should reference that text with <a
         href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"><code>aria-labelledby</code></a> attribute. In cases where there is no label, use
   <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute"><code>aria-label</code></a> and <code>title</code>.</p>
-<h3 id="all-icons">All icons</h3>
+<h3 id="all-icons">Available icons</h3>
 <fieldset>
   <input id="search-icons" type="text" placeholder="Search">
 </fieldset>
 <div id="icon-container"></div>
 <script>
-  // Find the m- stylesheet then parse out icon names from the icon rules
-  const mdashStyleSheet = Array.from(document.styleSheets).find(css => css.href && css.href.includes('m-min') && css.cssRules);
-  if (mdashStyleSheet.cssRules) {
-    fetch(mdashStyleSheet.href)
-      .then(res => res.text())
-      .then(styles => {
-        styleEl = document.createElement('style');
-        styleEl.textContent = styles;
-        document.head.appendChild(styleEl);
-        init(styleEl.sheet);
-      });
-  }
-  else {
-    init(mdashStyleSheet);
-  }
-
-  let iconNames = [];
-  function init(mdashStyleSheet) {
-    iconNames = Array.from(mdashStyleSheet.cssRules)
-      .filter(rule => rule.selectorText && rule.selectorText.includes('m-icon[name='))
-      .map(rule => rule.selectorText.match(/m-icon\[name=\"(.*)\"\]::before/)[1]);
-
-    updateIcons(iconNames);
-  }
+  const iconNames = ['home', 'menu', 'close', 'done'];
+  updateIcons(iconNames);
 
   document.getElementById('search-icons').addEventListener('keyup', e => {
     const query = e.currentTarget.value;
