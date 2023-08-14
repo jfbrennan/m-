@@ -2,7 +2,8 @@
 <h2 class="txt-gray-5 mar-t-none">Symbols used to enhance communication</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
-<m-icon name="user"></m-icon>
+<m-icon name="person"></m-icon>
+<m-icon name="person" fill></m-icon>
 <m-icon name="flag"></m-icon>
 <m-icon name="menu"></m-icon>
 </code-sample>
@@ -39,6 +40,11 @@
     <td colspan="2"><a href="#all-icons">See icon names below</a></td>
     <td colspan="6">Sets the icon's symbol</td>
   </tr>
+  <tr>
+    <td colspan="2"><code>fill</code></td>
+    <td colspan="2">Boolean attribute</td>
+    <td colspan="6">Uses filled version</td>
+  </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
@@ -50,7 +56,7 @@
     <div slot="items">
       <a href="/profile">Profile</a>
       <a href="/settings">Settings</a>
-      <hr>
+      <hr class="mar-t-sm mar-b-sm">
       <a href="/logout">Log out</a>
     </div>
   </m-menu>
@@ -62,48 +68,156 @@
     <div slot="items">
       <a href="/profile">Profile</a>
       <a href="/settings">Settings</a>
-      <hr>
+      <hr class="mar-t-sm mar-b-sm">
       <a href="/logout">Log out</a>
     </div>
   </m-menu>
 </code-sample>
 <h3 id="svg">Why not SVG?</h3>
-<p>Implementing SVG icons requires a relatively expensive abstraction and because there is no visual or accessibility difference between SVG and glyph icons, that abstraction would be all cost and no benefit. M- icons require no JavaScript and so they save kilobytes and have maximum compatibility. You can read more about the differences between SVG and glyphs
+<p>Implementing SVG icons requires a relatively expensive abstraction and because there is no visual or accessibility difference between SVG and glyph icons, that abstraction would be all cost and no benefit. Mdash icons require no JavaScript and so they save kilobytes and have maximum compatibility. You can read more about the differences between SVG and glyphs
   <a href="https://dev.to/jfbrennan/svg-icons-are-not-settled-science-4hpo" target="_blank" rel="noopener">here</a>.</p>
 <h3 id="a11y">Accessibility</h3>
 <p>Because icons should be paired with some text (see above) they should reference that text with <a
         href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"><code>aria-labelledby</code></a> attribute. In cases where there is no label, use
   <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute"><code>aria-label</code></a> and <code>title</code>.</p>
-<h3 id="all-icons">All icons</h3>
+<h3 id="all-icons">Available icons</h3>
+<p>Mdash uses <a href="https://fonts.google.com/icons?icon.style=Outlined" target="_blank">Material Symbols Outlined</a>. Where needed, the old icon names are mapped to suitable alternatives in Material Symbols. The icons <code>magic-wand</code>, <code>paypal</code>, <code>twitter</code>, <code>github</code>, and <code>social-youtube</code> have no viable alternatives in Material Symbols and are not longer supported.</p>
 <fieldset>
   <input id="search-icons" type="text" placeholder="Search">
 </fieldset>
 <div id="icon-container"></div>
 <script>
-  // Find the m- stylesheet then parse out icon names from the icon rules
-  const mdashStyleSheet = Array.from(document.styleSheets).find(css => css.href && css.href.includes('m-min') && css.cssRules);
-  if (mdashStyleSheet.cssRules) {
-    fetch(mdashStyleSheet.href)
-      .then(res => res.text())
-      .then(styles => {
-        styleEl = document.createElement('style');
-        styleEl.textContent = styles;
-        document.head.appendChild(styleEl);
-        init(styleEl.sheet);
-      });
-  }
-  else {
-    init(mdashStyleSheet);
-  }
+  const iconNames = [
+    'user',
+    'people',
+    'login',
+    'logout',
+    'emotsmile',
+    'phone',
+    'map',
+    'location-pin',
+    'layers',
+    'menu',
+    'list',
+    'options-vertical',
+    'options',
+    'arrow-down',
+    'arrow-left',
+    'arrow-right',
+    'arrow-up',
+    'arrow-up-circle',
+    'arrow-left-circle',
+    'arrow-right-circle',
+    'arrow-down-circle',
+    'check',
+    'clock',
+    'plus',
+    'minus',
+    'close',
+    'exclamation',
+    'organization',
+    'trophy',
+    'screen-smartphone',
+    'screen-tablet',
+    'screen-desktop',
+    'energy',
+    'cursor-move',
+    'crop',
+    'speedometer',
+    'shield',
+    'magic-wand',
+    'hourglass',
+    'graduation',
+    'game-controller',
+    'fire',
+    'eyeglass',
+    'bell',
+    'badge',
+    'anchor',
+    'wallet',
+    'printer',
+    'present',
+    'pin',
+    'picture',
+    'handbag',
+    'globe',
+    'folder',
+    'drop',
+    'drawer',
+    'docs',
+    'doc',
+    'diamond',
+    'cup',
+    'calculator',
+    'bubbles',
+    'briefcase',
+    'book-open',
+    'basket-loaded',
+    'basket',
+    'bag',
+    'action-undo',
+    'action-redo',
+    'wrench',
+    'umbrella',
+    'trash',
+    'tag',
+    'support',
+    'frame',
+    'size-fullscreen',
+    'size-actual',
+    'shuffle',
+    'share-alt',
+    'share',
+    'question',
+    'pie-chart',
+    'pencil',
+    'loop',
+    'home',
+    'grid',
+    'graph',
+    'microphone',
+    'music-tone-alt',
+    'earphones-alt',
+    'equalizer',
+    'like',
+    'dislike',
+    'calendar',
+    'bulb',
+    'chart',
+    'ban',
+    'bubble',
+    'camrecorder',
+    'camera',
+    'cloud-download',
+    'cloud-upload',
+    'envelope',
+    'eye',
+    'flag',
+    'heart',
+    'info',
+    'key',
+    'link',
+    'lock',
+    'lock-open',
+    'magnifier',
+    'magnifier-add',
+    'magnifier-remove',
+    'paper-clip',
+    'paper-plane',
+    'power',
+    'refresh',
+    'reload',
+    'settings',
+    'star',
+    'target',
+    'credit-card',
+    'paypal',
+    'twitter',
+    'github',
+    'social-youtube',
+  ];
 
-  let iconNames = [];
-  function init(mdashStyleSheet) {
-    iconNames = Array.from(mdashStyleSheet.cssRules)
-      .filter(rule => rule.selectorText && rule.selectorText.includes('m-icon[name='))
-      .map(rule => rule.selectorText.match(/m-icon\[name=\"(.*)\"\]::before/)[1]);
-
-    updateIcons(iconNames);
-  }
+  updateIcons(iconNames);
 
   document.getElementById('search-icons').addEventListener('keyup', e => {
     const query = e.currentTarget.value;

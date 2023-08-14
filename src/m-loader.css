@@ -1,11 +1,7 @@
-m-loader { display: inline; }
-
 m-loader:before {
   display: inline-block;
   font-family: 'm-icons';
-  content: '\e098';
-  transform: matrix(-1, 0, 0, 1, 0, 0); /* Flip icon horizontally */
-  font-weight: bolder;
+  content: 'autorenew';
   line-height: 1;
   margin-right: 3px;
   /* Better Font Rendering */
@@ -13,11 +9,11 @@ m-loader:before {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes m-loader-loading {
-  0% { transform: rotate(0deg) matrix(-1, 0, 0, 1, 0, 0) }
-  100% { transform: rotate(360deg) matrix(-1, 0, 0, 1, 0, 0) }
+@keyframes m-loader {
+    0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
 }
 
 m-loader[loading]:before {
-  animation: m-loader-loading 1.2s linear infinite;
+  animation: 1.2s linear infinite m-loader;
 }
