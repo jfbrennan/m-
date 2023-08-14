@@ -22,7 +22,7 @@
     </m-col>
   </m-row>
 </m-container>
-<hr>
+<hr class="mar-t-sm mar-b-sm">
 <h1 id="alert" class="txt-center txt-xxl">Alert</h1>
 <m-container>
   <h4>All types</h4>
@@ -40,7 +40,7 @@
 <!--    <m-alert type="error" autodismiss="7">Goodbye in 7...</m-alert>-->
 <!--  </div>-->
 </m-container>
-<hr>
+<hr class="mar-t-sm mar-b-sm">
 <h1 id="Containers" class="txt-center txt-xxl">Container</h1>
 <m-container maxwidth="sm">
   <h4>Small container</h4>
@@ -114,7 +114,7 @@
     <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a href="/sign-up">Sign up</a></div>
   </m-box>
 </m-container>
-<hr>
+<hr class="mar-t-sm mar-b-sm">
 <h1 id="Grids" class="txt-center txt-xxl">Grids</h1>
 <m-container>
   <h4>Auto-span</h4>
@@ -200,7 +200,7 @@
     <m-col span="9 sm-12 md-7"><m-box>This column spans 9 on lg screens, 7 on md, and 12 on sm.</m-box></m-col>
   </m-row>
 </m-container>
-<hr>
+<hr class="mar-t-sm mar-b-sm">
 <h1 id="Boxes" class="txt-center txt-xxl">Boxes</h1>
 <m-container>
   <h4>Default</h4>
@@ -248,10 +248,10 @@
     </m-col>
   </m-row>
 </m-container>
-<hr>
+<hr class="mar-t-sm mar-b-sm">
 <h1 id="Dialogs" class="txt-center txt-xxl">Dialogs</h1>
 <m-container>
-  <m-dialog id="overflowingcontent">
+  <dialog id="overflowingcontent">
     <h2>Title</h2>
     <p>Body lorem ipsum</p>
     <p>Regular text on the page.</p>
@@ -289,13 +289,13 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </m-box>
-  </m-dialog>
-  <m-dialog id="mincontent">
+  </dialog>
+  <dialog id="mincontent">
     <div>Text</div>
-  </m-dialog>
-  <m-dialog id="nocontent">
-  </m-dialog>
-  <m-dialog id="hasform">
+  </dialog>
+  <dialog id="nocontent">
+  </dialog>
+  <dialog id="hasform">
     <h1 class="txt-center">Log in</h1>
     <form>
       <fieldset>
@@ -310,18 +310,18 @@
     </form>
     <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a href="/sign-up">Sign up</a></div>
     <p><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog?</p>
-  </m-dialog>
-  <m-dialog id="modeless">
+  </dialog>
+  <dialog id="modeless">
     <h1>Modeless</h1>
     <p>This Dialog is opened with the <code>show()</code> method, which makes it "modeless". This means the user can still interact with other elements on the page (try it, you can't do that with the other Dialog examples), which could result in the user triggering actions unintentionally, so be judicious when using this method.</p>
-  </m-dialog>
+  </dialog>
   <button onclick="document.querySelector('#overflowingcontent').showModal()" ord="primary">Open "overflowing content" Dialog</button>
   <button onclick="document.querySelector('#mincontent').showModal()" ord="primary">Open "minimum content" Dialog</button>
   <button onclick="document.querySelector('#nocontent').showModal()" ord="primary">Open "no content" Dialog</button>
   <button onclick="document.querySelector('#hasform').showModal()" ord="primary">Open "has form" Dialog</button>
   <button onclick="document.querySelector('#modeless').show()" ord="primary">Open "modeless" Dialog</button>
 </m-container>
-<hr>
+<hr class="mar-t-sm mar-b-sm">
 <h1 id="Forms" class="txt-center txt-xxl">Forms</h1>
 <m-container>
   <h4>Everything form</h4>
@@ -389,7 +389,7 @@
     <button type="button" ord="secondary">Cancel</button>
   </form>
 </m-container>
-<hr>
+<hr class="mar-t-sm mar-b-sm">
 <h1 id="Details" class="txt-center txt-xxl">Details</h1>
 <m-container>
   <p>This is a short bit of info about elephants.</p>
@@ -490,7 +490,7 @@
           <fieldset class="flex flex-wrap justify-content-between align-items-center">
             <label>Smoke signal</label>
             <input type="checkbox" is="switch" name="smoke" disabled>
-            <small class="full-width">Currently unavailable</small>
+            <small class="width-full">Currently unavailable</small>
           </fieldset>
         </form>
       </m-box>

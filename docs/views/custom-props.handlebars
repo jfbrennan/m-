@@ -3,7 +3,7 @@
 <h2 id="demo">Demo</h2>
 <code-sample>
   <style>
-    @import "../node_modules/m-/dist/custom-props.css";
+    @import "../node_modules/m-/dist/custom-properties.css";
 
     #example {
       color: var(--m-color-gray-1);
@@ -26,7 +26,7 @@
   <tbody>
   <tr>
     <td colspan="2"><code>--m-color-red-[1|2|3]</code></td>
-    <td colspan="3" class="pad-none pos-relative">
+    <td colspan="3" class="pad-0 pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="bg-red-1"></div>
         <div class="bg-red-2"></div>
@@ -37,7 +37,7 @@
   </tr>
   <tr>
     <td colspan="2"><code>--m-color-orange-[1|2|3]</code></td>
-    <td colspan="3" class="pad-none pos-relative">
+    <td colspan="3" class="pad-0 pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="bg-orange-1"></div>
         <div class="bg-orange-2"></div>
@@ -48,7 +48,7 @@
   </tr>
   <tr>
     <td colspan="2"><code>--m-color-blue-[1|2|3]</code></td>
-    <td colspan="3" class="pad-none pos-relative">
+    <td colspan="3" class="pad-0 pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="bg-blue-1"></div>
         <div class="bg-blue-2"></div>
@@ -59,7 +59,7 @@
   </tr>
   <tr>
     <td colspan="2"><code>--m-color-green-[1|2|3]</code></td>
-    <td colspan="3" class="pad-none pos-relative">
+    <td colspan="3" class="pad-0 pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="bg-green-1"></div>
         <div class="bg-green-2"></div>
@@ -70,7 +70,7 @@
   </tr>
   <tr>
     <td colspan="2"><code>--m-color-gray-[7|8|9]</code></td>
-    <td colspan="3" class="pad-none pos-relative">
+    <td colspan="3" class="pad-0 pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="bg-gray-7"></div>
         <div class="bg-gray-8"></div>
@@ -81,7 +81,7 @@
   </tr>
   <tr>
     <td colspan="2"><code>--m-color-gray-[1|2|3|4|5|6]</code></td>
-    <td colspan="3" class="pad-none pos-relative">
+    <td colspan="3" class="pad-0 pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="bg-gray-1"></div>
         <div class="bg-gray-2"></div>
@@ -95,7 +95,7 @@
   </tr>
   <tr>
     <td colspan="2"><code>--m-color-primary-action</code></td>
-    <td colspan="3" class="pad-none pos-relative">
+    <td colspan="3" class="pad-0 pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-primary-action"></div>
       </div>
@@ -104,7 +104,7 @@
   </tr>
   <tr>
     <td colspan="2"><code>--m-color-disabled-[bg|fg]</code></td>
-    <td colspan="3" class="pad-none pos-relative">
+    <td colspan="3" class="pad-0 pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-disabled-bg"></div>
         <div class="color-disabled-fg"></div>
@@ -114,7 +114,7 @@
   </tr>
   <tr>
     <td colspan="2"><code>--m-color-border</code></td>
-    <td colspan="3" class="pad-none pos-relative">
+    <td colspan="3" class="pad-0 pos-relative">
       <div class="flex pos-absolute pin-t pin-r pin-b pin-b pin-l">
         <div class="color-border"></div>
       </div>
@@ -227,7 +227,7 @@
 <p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across all their stylesheets. Custom properties are a modern CSS feature that helps you avoid such a mess by defining reusable values. Use custom properties instead of hard coding their values. Like this:</p>
 <code-sample mode="css" readonly="readonly">
 /* Do */
-@import "../node_modules/m-/dist/custom-props.css";
+@import "../node_modules/m-/dist/custom-properties.css";
 #foo \{
   background-color: var(--m-color-gray-2);
 }
