@@ -7,7 +7,7 @@
     This Google Fonts API call returned the src URL below:
     https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1
   */
-  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v132/kJF4BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzBwG-RpA6RzaxHMPdY40KH8nGzv3fzfVJU22ZZLsYEpzC_1ver5Y0J1Llf.woff2) format('woff2');
+  src: url(./m-icons.woff2) format('woff2');
 }
 
 /* Icon base styles */
@@ -56,7 +56,6 @@ m-icon[name=energy]:before { content: "bolt" }
 m-icon[name=cursor-move]:before { content: "drag_pan" }
 m-icon[name=speedometer]:before { content: "speed" }
 m-icon[name=shield]:before { content: "gpp_bad" }
-m-icon[name=magic-wand]:before { content: "name" }
 m-icon[name=hourglass]:before { content: "hourglass_empty" }
 m-icon[name=graduation]:before { content: "school" }
 m-icon[name=game-controller]:before { content: "stadia_controller" }
@@ -130,3 +129,4 @@ m-icon[name=credit-card]:before { content: "credit_card" }
 /*m-icon[name=twitter]:before { content: "name" }*/
 /*m-icon[name=github]:before { content: "name" }*/
 /*m-icon[name=social-youtube]:before { content: "name" }*/
+/*m-icon[name=magic-wand]:before { content: "name" }*/
