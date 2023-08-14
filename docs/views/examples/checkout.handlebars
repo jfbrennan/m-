@@ -1,6 +1,6 @@
 <m-container maxwidth="md" class="bg-gray-1">
   <div class="txt-center pad-t-lg pad-b-lg">
-    <img class="block push pull mar-b-lg" src="/favicon-192.png" alt="" width="72" height="72">
+    <img class="block mar-auto mar-b-lg" src="/favicon-192.png" alt="" width="72" height="72">
     <h2>Checkout form</h2>
     <p class="txt-md fnt-light">This page is an exact recreation of Bootstrap's <a href="https://getbootstrap.com/docs/4.5/examples/checkout/">Checkout example</a> using M-. The M- version is
       <span class="fnt-bold">30</span> less loc and <span class="fnt-bold">1,538</span> less characters. M- itself is just 6.8kb, whereas Bootstrap is 71.4kb and React Bootstrap is 103kb!</p>
@@ -73,7 +73,7 @@
             </fieldset>
           </m-col>
         </m-row>
-        <hr>
+        <hr class="mar-t-sm mar-b-sm">
         <fieldset>
           <input type="checkbox" id="same-address">
           <label for="same-address">Shipping address is the same as my billing address</label>
@@ -81,7 +81,7 @@
           <input type="checkbox" id="save-info">
           <label for="save-info">Save this information for next time</label>
         </fieldset>
-        <hr>
+        <hr class="mar-t-sm mar-b-sm">
         <h4>Payment</h4>
         <fieldset>
           <input id="credit" name="paymentMethod" type="radio" checked required>
@@ -125,8 +125,8 @@
             </fieldset>
           </m-col>
         </m-row>
-        <hr>
-        <button ord="primary" class="full-width" type="submit">Continue to checkout</button>
+        <hr class="mar-t-sm mar-b-sm">
+        <button ord="primary" class="width-full" type="submit">Continue to checkout</button>
       </form>
     </m-col>
     <m-col span="4 md-12" order="md-1">
@@ -134,32 +134,32 @@
         <span class="txt-gray-5">Your cart</span>
         <m-badge count="3"></m-badge>
       </h4>
-      <m-box class="pad-none">
+      <m-box class="pad-0">
         <ul type="none">
           <li class="flex justify-content-between pad-t-sm pad-b-sm pad-l-md pad-r-md">
             <div>
-              <h6 class="mar-none">Product name</h6>
+              <h6 class="mar-0">Product name</h6>
               <small class="txt-gray-5">Brief description</small>
             </div>
             <span class="txt-gray-5">$12</span>
           </li>
           <li class="flex justify-content-between pad-t-sm pad-b-sm pad-l-md pad-r-md">
             <div>
-              <h6 class="mar-none">Second product</h6>
+              <h6 class="mar-0">Second product</h6>
               <small class="txt-gray-5">Brief description</small>
             </div>
             <span class="txt-gray-5">$8</span>
           </li>
           <li class="flex justify-content-between pad-t-sm pad-b-sm pad-l-md pad-r-md">
             <div>
-              <h6 class="mar-none">Third item</h6>
+              <h6 class="mar-0">Third item</h6>
               <small class="txt-gray-5">Brief description</small>
             </div>
             <span class="txt-gray-5">$5</span>
           </li>
           <li class="flex justify-content-between pad-t-sm pad-b-sm pad-l-md pad-r-md">
             <div class="text-success">
-              <h6 class="mar-none">Promo code</h6>
+              <h6 class="mar-0">Promo code</h6>
               <small>EXAMPLECODE</small>
             </div>
             <span class="text-success">-$5</span>

@@ -3,8 +3,9 @@
 <head>
   {{> ga}}
   <title>Mdash</title>
+  <link rel="stylesheet" href="/custom-properties.css">
   <link rel="stylesheet" href="{{localUrl}}css">
-  <link rel="stylesheet" href="/custom-props.css">
+  <script defer src="{{localUrl}}js"></script>
   {{> head-tags}}
   <style>
     #menu { flex: 0 0 140px }
@@ -13,7 +14,6 @@
       width: 60px;
       height: 60px;
       background-color: #2B2B2B;
-      border-radius: 50%;
       border: 2px solid #8DBF28;
       color: #E9C063;
       font-family: Menlo, Monaco, monospace;
@@ -27,8 +27,6 @@
     }
 
     #menu-toggle {
-      right: var(--m-space-md);
-      top: var(--m-space-md);
       z-index: 11;
     }
 
@@ -53,8 +51,8 @@
         right: 0;
         left: 0;
       }
-      .benefits m-vbar { display: none }
-      .benefits span {
+      #benefits m-vbar { display: none }
+      #benefits span {
         display: block;
         margin-top: var(--m-space-xs);
       }
@@ -62,20 +60,20 @@
   </style>
 </head>
 <body class="flex" style="height: 100%">
-<m-icon id="menu-toggle" name="menu" class="hidden pos-absolute pointer txt-md"></m-icon>
+<m-icon id="menu-toggle" name="menu" class="hidden pos-absolute pad-md pointer txt-md"></m-icon>
 <aside id="menu" class="pad-md">
   <div>
-    <div id="m-logo" aria-label="M- logo" class="push pull fnt-bold pos-relative mar-b-xs"><span class="pos-absolute">m-</span></div>
+    <div id="m-logo" aria-label="M- logo" class="mar-auto fnt-bold pos-relative brd-radius-full mar-b-xs"><span class="pos-absolute">m-</span></div>
     <small class="block mar-b-md txt-center txt-gray-6">{{version}}</small>
     <nav>
       <a href="/" class="block mar-b-xs">Home</a>
       <a href="/examples" class="block mar-b-xs">Examples</a>
       <a href="/comparison" class="block mar-b-xs">Comparison</a>
-      <a href="https://github.com/jfbrennan/m-" class="flex align-items-center mar-b-xs"><m-icon name="github" class="mar-r-xs"></m-icon> GitHub</a>
-      <a href="https://twitter.com/realEmDash" class="flex align-items-center mar-b-xs"><m-icon name="twitter" class="mar-r-xs"></m-icon>Twitter</a>
+      <a href="https://github.com/jfbrennan/m-" class="flex align-items-center mar-b-xs">GitHub</a>
+      <a href="https://twitter.com/realEmDash" class="flex align-items-center mar-b-xs">Twitter</a>
       <hr class="mar-t-md mar-b-md">
-      <h4 class="mar-t-none mar-b-sm">Page layout</h4>
-      <a href="/head-tags" class="block mar-b-xs">Head tags</a>
+      <h4 class="mar-t-none mar-b-sm">Page Layout</h4>
+      <a href="/head-tags" class="block mar-b-xs">Head Tags</a>
       <a href="/container" class="block mar-b-xs">Container</a>
       <a href="/grid" class="block mar-b-xs">Grid</a>
       <h4 class="mar-b-sm">Components</h4>
@@ -110,8 +108,8 @@
       <a href="/rules" class="block mar-b-xs">Rules</a>
       <a href="/text" class="block mar-b-xs">Text</a>
       <h4 class="mar-b-sm">Styles</h4>
-      <a href="/custom-props" class="block mar-b-xs">Custom properties</a>
-      <a href="/utility-classes" class="block mar-b-xs">Utility classes</a>
+      <a href="/custom-properties" class="block mar-b-xs">Custom Properties</a>
+      <a href="/utility-classes" class="block mar-b-xs">Utility Classes</a>
       <hr class="mar-t-md mar-b-md">
       <small class="block txt-center">Copyright &copy; 2023<br>Jordan Brennan</small>
     </nav>
@@ -137,7 +135,6 @@
     codeSample?._tag?.setCursor();
   });
 </script>
-<script src="{{localUrl}}js"></script>
 <script>
   // Menu toggle (for small screens)
   document.getElementById('menu-toggle').addEventListener('click', e => document.getElementById('menu').toggleAttribute('open'));

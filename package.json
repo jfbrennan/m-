@@ -34,8 +34,9 @@
   ],
   "scripts": {
     "watch": "nodemon --watch src --ext css,js --exec npm run build",
-    "build": "rm -r dist; mkdir dist && npm run css && npm run js && npm run icons && cp -R dist/** docs/public",
+    "build": "rm -r dist; mkdir dist && npm run css && npm run css:custom-properties && npm run js && npm run icons && cp -R dist/** docs/public",
     "css": "postcss ./src/m-all.css | lightningcss --minify -o ./dist/m-min.css /dev/stdin",
+    "css:custom-properties": "cp -R src/custom-properties.css dist",
     "icons": "cp -R ./src/Simple-Line-Icons.woff2 dist",
     "js": "terser ./src/*.js --mangle -o ./dist/m-min.js"
   },
