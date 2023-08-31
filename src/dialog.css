@@ -11,6 +11,4 @@ dialog button[slot=close][type=remove] {
   position: absolute;
   top: 0;
   right: 0;
-  font-size: var(--m-font-size-lg);
-  padding: var(--m-space-sm);
 }

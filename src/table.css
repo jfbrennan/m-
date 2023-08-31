@@ -17,7 +17,7 @@ table[layout=fixed] { table-layout: fixed }
 table[striped] > tbody tr:nth-of-type(odd) { background-color: var(--m-color-gray-2) }
 
 /* Sortable columns */
-th[aria-sort] button { all: unset; display: inline-flex }
+th[aria-sort] button { all: unset; display: inline-flex; cursor: pointer }
 th[aria-sort] button:after { font-size: 0.8em; padding-left: var(--m-space-xs) }
 th[aria-sort=ascending] button:after { content: '↑' }
 th[aria-sort=descending] button:after { content: '↓' }

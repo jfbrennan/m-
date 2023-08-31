@@ -105,7 +105,8 @@
   <template>
     <dialog id="close-demo">
       <button onclick="document.querySelector('#close-demo').close()" slot="close" type="remove" aria-label="Closes dialog"></button>
-      <p>The first remove button in a dialog is assumed to be its close button and styled and positioned for you.</p>
+      <p>A <code>button[slot=close][type=remove]</code> element in a dialog is assumed to be its close button and styled and positioned for you.</p>
+      <p>The app handles the click event and closes the dialog, not Mdash.</p>
     </dialog>
   </template>
 
