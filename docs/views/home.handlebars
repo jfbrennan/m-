@@ -51,8 +51,9 @@
   <p class="mar-t-none mar-b-xs">This is the web. Let's use it.</p>
   <code-sample readonly="readonly">
     <template>
-      <link href="{{prodCdnUrl}}css" rel="stylesheet">
-      <script src="{{prodCdnUrl}}js" defer></script>
+      <link rel="preload" href="{{prodCdnUrl}}m-icons.woff2" as="font" crossorigin>
+      <link href="{{prodCdnUrl}}m-min.css" rel="stylesheet">
+      <script src="{{prodCdnUrl}}m-min.js" defer></script>
     </template>
   </code-sample>
   <div class="txt-xs">or <a href="#installation">npm</a></div>
