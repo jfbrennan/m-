@@ -124,17 +124,17 @@ fieldset textarea[invalid] {
   border-color: var(--m-color-red-3);
 }
 
-fieldset input:invalid + small,
-fieldset input[invalid] + small,
-fieldset select:invalid + small,
-fieldset select[invalid] + small,
-fieldset textarea:invalid + small,
-fieldset textarea[invalid] + small {
+fieldset input:invalid ~ small,
+fieldset input[invalid] ~ small,
+fieldset select:invalid ~ small,
+fieldset select[invalid] ~ small,
+fieldset textarea:invalid ~ small,
+fieldset textarea[invalid] ~ small {
   color: var(--m-color-red-3);
 }
 
-fieldset input + small,
-fieldset select + small,
-fieldset textarea + small {
+fieldset input ~ small,
+fieldset select ~ small,
+fieldset textarea ~ small {
   color: var(--m-color-gray-6);
 }
