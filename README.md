@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://m-docs.org">
-    <img src="https://m-docs.org/img/m-logo.png" alt="Mdash logo" width="192">
+  <a href="http://m-docs.org">
+    <img src="http://m-docs.org/img/m-logo.png" alt="Mdash logo" width="192">
   </a>
 </p>
 <h3 align="center">A design system that fully embraces web standards.</h3>
