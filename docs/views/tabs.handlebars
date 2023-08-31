@@ -67,23 +67,23 @@
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="select-tab">Selecting tabs</h3>
 <h4>Selecting the tab</h4>
-<p>Setting the selected tab is handled by your app. There are a few approaches you can take to manage this, but event delegation and setting the <code>ariaSelected</code> property is probably the best vanilla solution:</p>
+<p>Setting the selected tab is handled by your app. To select a tab, set <code>aria-selected=true</code>. There are a several approaches you could take to manage this, but event delegation comparing tabs to the clicked tab is probably the simplest:</p>
 <code-sample>
   <script>
-    // Set ariaSelected property on all tabs except the one with matching id
-    const selectTab = e => e.currentTarget.querySelectorAll('[role=tab]').forEach(tab => tab.ariaSelected = tab.id === e.target.id);
+    const selectTab = e => e.currentTarget.querySelectorAll('[role=tab]').forEach(tab => tab.ariaSelected = tab === e.target);
   </script>
   <m-tabs onclick="selectTab(event)">
-    <button id="a" role="tab">A</button>
-    <button id="b" role="tab">B</button>
+    <button role="tab">A</button>
+    <button role="tab">B</button>
   </m-tabs>
 </code-sample>
-<h4>Opening the tab panel</h4>
-<p>This component assumes nothing about what happens when a tab is selected. This allows for multiple use cases like toggling between tab panels in the DOM or navigating to a new page or something else. Here's a simple example:</p>
+<p>That will select the tab, but that is not typically everything you need to do. Showing the corresponding tab panel requires a bit more.</p>
+<h4>Showing a tab panel</h4>
+<p>This component assumes nothing about what happens when a tab is selected, which allows for multiple use cases like toggling between tab panels in the DOM or navigating to a new page or something else. Here's an example of the typical use case of selecting a tab and showing its panel:</p>
 <code-sample readonly="readonly">
   <script>
     function switchTab(e) \{
-      // Note that e.target can be a child element, like an icon in the tab, so get the actual tab element if needed.
+      // Note that e.target could be a child element if you included an icon or something in the tab, so get the actual tab element in that case.
       const selectedTabId = e.target.closest('[role=tab]').id;
 
       // Select the tab and its panel
@@ -91,17 +91,25 @@
       document.querySelectorAll('[role=tabpanel').forEach(panel => panel.hidden = panel.dataset.tabId !== selectedTabId);
     }
   </script>
+  <template>
+    <m-tabs onclick="switchTab(event)">
+      <button id="a" role="tab">A</button>
+      <button id="b" role="tab">B</button>
+    </m-tabs>
+    <div role="tabpanel" data-tab-id="a">Tab A panel</div>
+    <div role="tabpanel" data-tab-id="b">Tab B panel</div>
+  </template>
 </code-sample>
 <p>Here's the same thing with a more declarative approach using Riot.js, for example:</p>
 <code-sample readonly="readonly">
   <template>
-    <my-app>
+    <app>
       <m-tabs onclick="{switchTab}">
         <button id="a" aria-selected="{state.tab === 'a'}">A</button>
         <button id="b" aria-selected="{state.tab === 'b'}">B</button>
       </m-tabs>
-      <div if="{state.tab === 'a'}" role="tabpanel">A tab panel</div>
-      <div if="{state.tab === 'b'}" role="tabpanel">B tab panel</div>
+      <div if="{state.tab === 'a'}">Tab A panel</div>
+      <div if="{state.tab === 'b'}">Tab B panel</div>
 
       <script>
         export default {
@@ -110,7 +118,7 @@
           }
         }
       </script>
-    </my-app>
+    </app>
   </template>
 </code-sample>
 

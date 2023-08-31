@@ -134,5 +134,19 @@
     </div>
   </div>
 </div>
+<p>Changing the size of the icon can be done with a utility class:</p>
+<code-sample>
+<button type="remove" class="txt-xs"></button>
+<button type="remove" class="txt-sm"></button>
+<button type="remove" class="txt-md"></button>
+<button type="remove" class="txt-lg"></button>
+<button type="remove" class="txt-xl"></button>
+</code-sample>
+<h3 id="unstyled">Custom button styles</h3>
+<p>Mdash leaves the plain button element untouched so you can freely use them without competing with Mdash styles (Mdash buttons require the <code>ord</code> attribute). Optionally add the <code>all-unset</code> utility class to remove user-agent styles from button, then customize as desired. For example:</p>
+<code-sample>
+  <button class="all-unset">No Styles</button>
+  <button class="all-unset pad-xs bg-gray-7 txt-white txt-center txt-upper txt-space" style="width: 200px">Custom styles</button>
+</code-sample>
 <h3>Accessibility</h3>
 <p>The remove button should have an <code>aria-label</code> attribute and disabled buttons should have <code>aria-disabled="true"</code> and disabled link buttons should also have <code>tabindex="-1"</code> to prevent activation by keyboard or assistive tech.</p>
