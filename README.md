@@ -5,7 +5,7 @@
 </p>
 <h3 align="center">A design system that fully embraces web standards.</h3>
 <p align="center">Mdash seeks to leverage HTML, not replace it or try to outsmart it.<br>This makes Mdash ideal for all web projects and skill levels.</p>
-<p align="center"><strong>linkable | tiny 8kb | responsive | WCAG 2.1 accessible | very compatible</strong></p>
+<p align="center"><strong>linkable | tiny 7kb | responsive | WCAG 2.1 accessible | very compatible</strong></p>
 <hr>
 
 Mdash is a design system based 100% on web standards. This makes Mdash [extremely light](https://m-docs.org/#performance), very fast, and compatible with just about any type of web project.
