@@ -8,8 +8,8 @@ const app = express();
 
 // Set some locals
 app.locals.version = pkg.version;
-app.locals.prodCdnUrl = `https://unpkg.com/m-@${pkg.version}/dist/m-min.`;
-app.locals.localUrl = process.env.NODE_ENV === 'development' ? '/m-min.' : app.locals.prodCdnUrl;
+app.locals.prodCdnUrl = `https://unpkg.com/m-@${pkg.version}/dist/`;
+app.locals.localUrl = process.env.NODE_ENV === 'development' ? '/' : app.locals.prodCdnUrl;
 
 // Set up template engine
 app.engine('handlebars', handlebars()).set('view engine', 'handlebars');
