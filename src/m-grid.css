@@ -2,7 +2,6 @@
 m-row {
   box-sizing: border-box;
   display: flex;
-  flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
   gap: var(--m-space-md);
@@ -34,62 +33,50 @@ m-col {
 
 /* span sets the width of the column */
 m-col[span~="1"] {
-  flex-basis: 8.33333333%;
   max-width: 8.33333333%;
 }
 
 m-col[span~="2"] {
-  flex-basis: 16.66666667%;
   max-width: 16.66666667%;
 }
 
 m-col[span~="3"] {
-  flex-basis: 25%;
   max-width: 25%;
 }
 
 m-col[span~="4"] {
-  flex-basis: 33.33333333%;
   max-width: 33.33333333%;
 }
 
 m-col[span~="5"] {
-  flex-basis: 41.66666667%;
   max-width: 41.66666667%;
 }
 
 m-col[span~="6"] {
-  flex-basis: 50%;
   max-width: 50%;
 }
 
 m-col[span~="7"] {
-  flex-basis: 58.33333333%;
   max-width: 58.33333333%;
 }
 
 m-col[span~="8"] {
-  flex-basis: 66.66666667%;
   max-width: 66.66666667%;
 }
 
 m-col[span~="9"] {
-  flex-basis: 75%;
   max-width: 75%;
 }
 
 m-col[span~="10"] {
-  flex-basis: 83.33333333%;
   max-width: 83.33333333%;
 }
 
 m-col[span~="11"] {
-  flex-basis: 91.66666667%;
   max-width: 91.66666667%;
 }
 
 m-col[span~="12"] {
-  flex-basis: 100%;
   max-width: 100%;
 }
 
@@ -145,62 +132,50 @@ m-col[indent="12"] {
 /* Order is used to reorder columns at specific breakpoints */
 @media only screen and (max-width: 768px) {
   m-col[span~=md-1] {
-    flex-basis: 8.33333333%;
     max-width: 8.33333333%;
   }
 
   m-col[span~=md-2] {
-    flex-basis: 16.66666667%;
     max-width: 16.66666667%;
   }
 
   m-col[span~=md-3] {
-    flex-basis: 25%;
     max-width: 25%;
   }
 
   m-col[span~=md-4] {
-    flex-basis: 33.33333333%;
     max-width: 33.33333333%;
   }
 
   m-col[span~=md-5] {
-    flex-basis: 41.66666667%;
     max-width: 41.66666667%;
   }
 
   m-col[span~=md-6] {
-    flex-basis: 50%;
     max-width: 50%;
   }
 
   m-col[span~=md-7] {
-    flex-basis: 58.33333333%;
     max-width: 58.33333333%;
   }
 
   m-col[span~=md-8] {
-    flex-basis: 66.66666667%;
     max-width: 66.66666667%;
   }
 
   m-col[span~=md-9] {
-    flex-basis: 75%;
     max-width: 75%;
   }
 
   m-col[span~=md-10] {
-    flex-basis: 83.33333333%;
     max-width: 83.33333333%;
   }
 
   m-col[span~=md-11] {
-    flex-basis: 91.66666667%;
     max-width: 91.66666667%;
   }
 
   m-col[span~=md-12] {
-    flex-basis: 100%;
     max-width: 100%;
   }
 }
@@ -208,64 +183,50 @@ m-col[indent="12"] {
 /* Must come after medium because cascading is used here */
 @media only screen and (max-width: 576px) {
   m-col[span~=sm-1] {
-    flex-basis: 8.33333333%;
     max-width: 8.33333333%;
   }
 
   m-col[span~=sm-2] {
-    flex-basis: 16.66666667%;
     max-width: 16.66666667%;
   }
 
   m-col[span~=sm-3] {
-    flex-basis: 25%;
     max-width: 25%;
   }
 
   m-col[span~=sm-4] {
-    flex-basis: 33.33333333%;
     max-width: 33.33333333%;
   }
 
   m-col[span~=sm-5] {
-    flex-basis: 41.66666667%;
     max-width: 41.66666667%;
   }
 
   m-col[span~=sm-6] {
-    flex-basis: 50%;
     max-width: 50%;
   }
 
   m-col[span~=sm-7] {
-    flex-basis: 58.33333333%;
     max-width: 58.33333333%;
   }
 
   m-col[span~=sm-8] {
-    flex-basis: 66.66666667%;
     max-width: 66.66666667%;
   }
 
   m-col[span~=sm-9] {
-    flex-basis: 75%;
     max-width: 75%;
   }
 
   m-col[span~=sm-10] {
-    flex-basis: 83.33333333%;
     max-width: 83.33333333%;
   }
 
   m-col[span~=sm-11] {
-    flex-basis: 91.66666667%;
     max-width: 91.66666667%;
   }
 
   m-col[span~=sm-12] {
-    flex-basis: 100%;
-
-
     max-width: 100%;
   }
 }
