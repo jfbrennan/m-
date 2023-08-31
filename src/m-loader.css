@@ -1,12 +1,10 @@
+m-loader {
+  display: inline-flex;
+}
 m-loader:before {
-  display: inline-block;
   font-family: 'm-icons';
   content: 'autorenew';
-  line-height: 1;
-  margin-right: 3px;
-  /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 @keyframes m-loader {

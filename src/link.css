@@ -5,7 +5,7 @@ a, span[role=link] {
   cursor: pointer;
 }
 
-:is(a, span[role=link]):visited { color: var(--m-color-primary-action) }
+/*:is(a, span[role=link]):visited { color: var(--m-color-primary-action) }*/
 :is(a, span[role=link]):hover { text-decoration: underline }
 
 /* Disabled state */

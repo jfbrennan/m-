@@ -16,5 +16,4 @@ m-tag button[type=remove] {
   padding-left: var(--m-space-xs);
   font-size: var(--m-font-size-default);
   width: auto;
-  height: auto;
 }
