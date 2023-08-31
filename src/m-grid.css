@@ -5,7 +5,11 @@ m-row {
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  column-gap: var(--m-space-md);
+  gap: var(--m-space-md);
+}
+
+m-row + m-row {
+  margin-top: var(--m-space-md);
 }
 
 /* Centers columns inside the row */
@@ -260,6 +264,8 @@ m-col[indent="12"] {
 
   m-col[span~=sm-12] {
     flex-basis: 100%;
+
+
     max-width: 100%;
   }
 }
