@@ -4,10 +4,6 @@ m-dot {
   align-items: center;
 }
 
-m-dot + m-dot {
-  margin-left: var(--m-space-md);
-}
-
 m-dot::before {
   content: '';
   width: 8px;

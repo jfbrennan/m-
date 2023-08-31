@@ -5,15 +5,12 @@ fieldset {
   position: relative;
 }
 
-fieldset + fieldset,
-fieldset + button[ord],
-fieldset + a[is=button] {
+fieldset + :is(fieldset, button[ord], a[role=button]) {
   margin-top: var(--m-space-md);
 }
 
-fieldset label,
 fieldset input:not([type=radio]):not([type=checkbox]),
-fieldset select {
+fieldset :is(label, select) {
   display: block;
 }
 
@@ -21,21 +18,20 @@ fieldset input + label {
   display: inline;
 }
 
-fieldset label,
-fieldset legend {
+fieldset :is(label, legend) {
   font-weight: 500;
 }
 
-fieldset input[type=radio] + label,
-fieldset input[type=checkbox] + label {
+fieldset :is(input[type=radio], input[type=checkbox]) + label {
   font-weight: normal;
 }
 
-fieldset input, fieldset textarea {box-sizing: border-box}
+fieldset :is(input, textarea) {
+  box-sizing: border-box;
+}
 
 fieldset input:not([type=radio]):not([type=checkbox]):not([type=range]),
-fieldset select,
-fieldset textarea {
+fieldset :is(select, textarea) {
   width: 100%;
   min-height: var(--m-input-min-height);
   font-size: 16px;
@@ -45,10 +41,8 @@ fieldset textarea {
   color: var(--m-color-gray-8);
 }
 
-fieldset input:not([is=switch]),
-fieldset select,
-fieldset textarea {
-  border: 1px solid var(--m-color-gray-1);
+fieldset :is(input:not([is=switch]), select, textarea) {
+  border: 1px solid var(--m-color-gray-3);
 }
 
 fieldset select:not([multiple]) {
@@ -90,51 +84,26 @@ fieldset input[type=range]::-webkit-slider-thumb {
 /*  margin: 0;*/
 /*}*/
 
-fieldset label + input,
-fieldset label + select,
-fieldset label + textarea,
-fieldset input + input,
-fieldset input + select,
-fieldset input + textarea,
-fieldset select + select,
-fieldset select + input,
-fieldset select + textarea,
-fieldset textarea + textarea,
-fieldset textarea + input,
-fieldset textarea + select,
-fieldset small + input,
-fieldset small + select,
-fieldset small + textarea {
+fieldset :is(label, input, select, textarea, small) + :is(label, input, select, textarea, small) {
   margin-top: var(--m-space-xs);
 }
 
 fieldset input:not([type=range]):not([is=switch]):focus,
-fieldset select:focus,
-fieldset textarea:focus {
+fieldset :is(select, textarea):focus {
   outline: 0;
   border: 1px solid var(--m-color-primary-action);
 }
 
-fieldset input:invalid,
-fieldset input[invalid],
-fieldset select:invalid,
-fieldset select[invalid],
-fieldset textarea:invalid,
-fieldset textarea[invalid] {
+fieldset :is(input, select, textarea):invalid,
+fieldset :is(input, select, textarea)[invalid] {
   border-color: var(--m-color-red-3);
 }
 
-fieldset input:invalid ~ small,
-fieldset input[invalid] ~ small,
-fieldset select:invalid ~ small,
-fieldset select[invalid] ~ small,
-fieldset textarea:invalid ~ small,
-fieldset textarea[invalid] ~ small {
+fieldset :is(input, select, textarea):invalid ~ small,
+fieldset :is(input, select, textarea)[invalid] ~ small {
   color: var(--m-color-red-3);
 }
 
-fieldset input ~ small,
-fieldset select ~ small,
-fieldset textarea ~ small {
+fieldset :is(input, select, textarea) ~ small {
   color: var(--m-color-gray-6);
 }

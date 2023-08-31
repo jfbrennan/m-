@@ -5,11 +5,11 @@ a, span[role=link] {
   cursor: pointer;
 }
 
-a:visited, span[role=link]:visited { color: var(--m-color-primary-action) }
-a:hover, span[role=link]:hover { text-decoration: underline }
+:is(a, span[role=link]):visited { color: var(--m-color-primary-action) }
+:is(a, span[role=link]):hover { text-decoration: underline }
 
 /* Disabled state */
-a[disabled], span[role=link][disabled] {
+:is(a, span[role=link])[disabled] {
   color: var(--m-color-disabled-fg);
   pointer-events: none;
 }

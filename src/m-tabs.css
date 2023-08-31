@@ -12,9 +12,9 @@ m-tabs[scrollable] {
 m-tabs[scrollable]::-webkit-scrollbar { display: none }
 
 /* Base tab styles */
-m-tabs > button,
-m-tabs > a {
+m-tabs > :is(a, button) {
   all: unset;
+  display: inline-flex;
   color: var(--m-color-gray-7) !important;
   font-weight: bold;
   text-align: center;
@@ -24,20 +24,17 @@ m-tabs > a {
 }
 
 /* Hover state */
-m-tabs > button:not([disabled]):not([aria-selected=true]):hover,
-m-tabs > a:not([disabled]):not([aria-selected=true]):hover {
+m-tabs > :is(a, button):not([disabled]):not([aria-selected=true]):hover {
   border-bottom: 2px solid var(--m-color-gray-3);
   text-decoration: none;
 }
 
 /* Selected state */
-m-tabs > button[aria-selected=true],
-m-tabs > a[aria-selected=true] {
+m-tabs > :is(a, button)[aria-selected=true] {
   border-bottom: 2px solid var(--m-color-primary-action);
 }
 
 /* Disabled state */
-m-tabs > button[disabled],
-m-tabs > a[disabled] {
+m-tabs > :is(a, button)[disabled] {
   color: var(--m-color-disabled-fg); cursor: default;
 }
