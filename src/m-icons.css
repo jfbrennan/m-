@@ -22,7 +22,7 @@ m-icon:before {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Fill boolean */
+/* Filled option */
 m-icon[fill]:before { font-variation-settings: 'FILL' 1 }
 
 /* Weights TBD */
