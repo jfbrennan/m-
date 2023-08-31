@@ -2,9 +2,7 @@ m-breadcrumb, m-breadcrumb > nav {
   display: flex;
 }
 
-m-breadcrumb > nav > a:not(:first-child)::before,
-m-breadcrumb > nav > m-crumb:not(:first-child)::before,
-m-breadcrumb > nav > span:not(:first-child)::before {
+m-breadcrumb > nav > :is(a, m-crumb, span):not(:first-child)::before {
   content: '/';
   display: inline-block; /* Needed to prevent this element from getting underlined */
   margin: 0 var(--m-space-sm);

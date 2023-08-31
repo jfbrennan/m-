@@ -1,16 +1,14 @@
 button:active, button:focus { outline:0 }
 
-button[ord] + button[ord],
-button[ord] + a[ord][role=button],
-a[ord][role=button] + button[ord],
-a[ord][role=button] + a[ord][role=button] {
+:is(button[ord], a[ord][role=button]) + :is(button[ord], a[ord][role=button])  {
   margin-left: var(--m-space-sm);
 }
 
 /*
-  The ord attr is short for "ordinal" as in "ordinal number word".
+  Ordinal attribute
+  The `ord` attr is short for "ordinal number word".
   Ordinal number words are the 10+ words used for describing the
-  precedence or importance of an item in an ordered list.
+  precedence or importance of an item in a group, e.g. Save and Cancel buttons.
 */
 button[ord], a[role=button][ord], button[type=remove] {
   margin: 0;
@@ -28,12 +26,15 @@ button[ord], a[role=button][ord] {
   padding: var(--m-space-xs) var(--m-space-md);
 }
 
-button[type=remove] { line-height: 0.5 }
-button[type=remove]:active { color: initial }
-button[type=remove]::before {
-  content: '×';
-  display: table;
+/* Remove button (for close, dismiss, delete use cases) */
+button[type=remove] {
+  padding: 0;
+  width: var(--m-input-min-height);
+  height: var(--m-input-min-height);
+  font-size: 24px;
 }
+button[type=remove]:active { color: initial }
+button[type=remove]::before { content: '×' }
 
 a[role=button][ord] { box-sizing: border-box}
 a[role=button][ord]:hover { text-decoration: none }
@@ -43,26 +44,50 @@ button[ord=primary], a[role=button][ord=primary] {
   color: white;
 }
 
-button[ord=secondary], a[role=button][ord=secondary] {
+:is(button, a[role=button])[ord=secondary] {
   border: 2px solid var(--m-color-primary-action);
   color: var(--m-color-primary-action);
 }
 
-button[ord=tertiary], a[role=button][ord=tertiary] {
+:is(button, a[role=button])[ord=tertiary] {
   border: 2px solid var(--m-color-gray-7);
   color: var(--m-color-gray-7);
 }
 
-button[ord][disabled], a[role=button][ord][disabled], button[type=remove][disabled] {
+/* Disabled */
+:is(button, a[role=button], button[type=remove])[disabled] {
   color: var(--m-color-disabled-fg);
   cursor: not-allowed;
 }
 
-button[ord=primary][disabled], a[role=button][ord=primary][disabled] {
+:is(button, a[role=button])[disabled] {
   background-color: var(--m-color-disabled-bg);
 }
 
-button[ord=secondary][disabled], a[role=button][ord=secondary][disabled],
-button[ord=tertiary][disabled], a[role=button][ord=tertiary][disabled] {
+:is(button, a[role=button])[ord=secondary][disabled],
+:is(button, a[role=button])[ord=tertiary][disabled] {
   border: 2px solid var(--m-color-disabled-fg);
 }
+
+/* Scale */
+/*:is(button, a[role=button])[scale=sm] {*/
+/*  min-height: var(--m-target-min-size);*/
+/*  font-size: var(--m-font-size-min);*/
+/*}*/
+
+/*:is(button, a[role=button])[scale=lg] {*/
+/*  min-height: 44px;*/
+/*  font-size: var(--m-font-size-md);*/
+/*}*/
+
+/*button[type=remove][scale=sm] {*/
+/*  width: var(--m-target-min-size);*/
+/*  height: var(--m-target-min-size);*/
+/*  font-size: 14px;*/
+/*}*/
+
+/*button[type=remove][scale=lg] {*/
+/*  width: 44px;*/
+/*  height: 44px;*/
+/*  font-size: 36px;*/
+/*}*/

@@ -534,36 +534,26 @@
 <h1 id="tabs" class="txt-center txt-xxl">Tabs</h1>
 <m-container>
   <h4>Basic tabs</h4>
-  <m-tabs>
-    <m-tab>Accounts</m-tab>
-    <m-tab>Payments</m-tab>
-    <m-tab>Transfers</m-tab>
-    <m-tab>Security</m-tab>
-  </m-tabs>
-  <h4>Explicit starting tab</h4>
-  <m-tabs>
-    <m-tab>Accounts</m-tab>
-    <m-tab>Payments</m-tab>
-    <m-tab selected>Transfers</m-tab>
-    <m-tab>Security</m-tab>
+  <m-tabs role="tablist">
+    <button role="tab" aria-selected="true">Accounts</button>
+    <button role="tab">Payments</button>
+    <button role="tab">Transfers</button>
+    <button role="tab">Security</button>
   </m-tabs>
   <h4>With icons</h4>
-  <m-tabs>
-    <m-tab><m-icon name="home"></m-icon> Accounts</m-tab>
-    <m-tab><m-icon name="wallet"></m-icon> Payments</m-tab>
-    <m-tab><m-icon name="action-redo"></m-icon> Transfers</m-tab>
-    <m-tab><m-icon name="lock"></m-icon> Security</m-tab>
+  <m-tabs role="tablist">
+    <button role="tab" aria-selected="true"><m-icon name="home"></m-icon> Accounts</button>
+    <button role="tab"><m-icon name="wallet"></m-icon> Payments</button>
+    <button role="tab"><m-icon name="action-redo"></m-icon> Transfers</button>
+    <button role="tab"><m-icon name="lock"></m-icon> Security</button>
   </m-tabs>
   <h4>Scrollable</h4>
-  <div style="width: 460px">
-    <m-tabs scrollable>
-      <m-tab>Accounts</m-tab>
-      <m-tab>Payments</m-tab>
-      <m-tab>Transfers</m-tab>
-      <m-tab>Security</m-tab>
-      <m-tab>Credit cards</m-tab>
-      <m-tab>Loans</m-tab>
-      <m-tab>Alerts</m-tab>
+  <div style="width: 318px">
+    <m-tabs role="tablist" scrollable>
+      <button role="tab" aria-selected="true">Accounts</button>
+      <button role="tab">Payments</button>
+      <button role="tab">Transfers</button>
+      <button role="tab">Security</button>
     </m-tabs>
   </div>
 </m-container>
