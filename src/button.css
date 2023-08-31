@@ -70,24 +70,24 @@ button[ord=primary], a[role=button][ord=primary] {
 }
 
 /* Scale */
-:is(button, a[role=button])[scale=sm] {
-  min-height: var(--m-target-min-size);
-  font-size: var(--m-font-size-min);
-}
+/*:is(button, a[role=button])[scale=sm] {*/
+/*  min-height: var(--m-target-min-size);*/
+/*  font-size: var(--m-font-size-min);*/
+/*}*/
 
-:is(button, a[role=button])[scale=lg] {
-  min-height: 44px;
-  font-size: var(--m-font-size-md);
-}
+/*:is(button, a[role=button])[scale=lg] {*/
+/*  min-height: 44px;*/
+/*  font-size: var(--m-font-size-md);*/
+/*}*/
 
-button[type=remove][scale=sm] {
-  width: var(--m-target-min-size);
-  height: var(--m-target-min-size);
-  font-size: 14px;
-}
+/*button[type=remove][scale=sm] {*/
+/*  width: var(--m-target-min-size);*/
+/*  height: var(--m-target-min-size);*/
+/*  font-size: 14px;*/
+/*}*/
 
-button[type=remove][scale=lg] {
-  width: 44px;
-  height: 44px;
-  font-size: 36px;
-}
+/*button[type=remove][scale=lg] {*/
+/*  width: 44px;*/
+/*  height: 44px;*/
+/*  font-size: 36px;*/
+/*}*/
