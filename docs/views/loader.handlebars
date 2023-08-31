@@ -59,11 +59,10 @@
 <h3 id="nesting">Nesting Loader</h3>
 <p>Loader will inherit font properties, so when it's nested in elements like button, anchor, or headings it looks as you would expect it to:</p>
 <code-sample>
+  <button ord="primary">Save</button>
   <button ord="primary" disabled>
-    <m-loader loading></m-loader>Saving
+    <m-loader loading>Saving</m-loader>
 </button>
-  <a href="/cancel-search"><m-loader loading>Cancel</m-loader></a>
-  <h2><m-loader loading></m-loader> Downloading...</h2>
 </code-sample>
 <h3 id="a11y">Accessibility</h3>
 <p>If a Loader doesn't have text it should use

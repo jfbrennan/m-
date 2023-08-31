@@ -1,6 +1,6 @@
 button:active, button:focus { outline:0 }
 
-:is(button[ord], a[ord][role=button]) + :is(button[ord], a[ord][role=button])  {
+:is(button, a[role=button])[ord] + :is(button, a[role=button])[ord]  {
   margin-left: var(--m-space-sm);
 }
 
@@ -10,63 +10,61 @@ button:active, button:focus { outline:0 }
   Ordinal number words are the 10+ words used for describing the
   precedence or importance of an item in a group, e.g. Save and Cancel buttons.
 */
-button[ord], a[role=button][ord], button[type=remove] {
-  margin: 0;
-  display: inline-block;
-  border: none;
+:is(button, a[role=button])[ord], button[type=remove] {
+  display: inline-flex;
+  place-content: center;
   border-radius: var(--m-border-radius-md);
-  font-weight: 500;
   cursor: pointer;
   background: none;
 }
-
-button[ord], a[role=button][ord] {
+:is(button, a[role=button])[ord] {
   font-size: var(--m-font-size-default);
-  min-height: var(--m-input-min-height);
+  height: var(--m-input-min-height);
   padding: var(--m-space-xs) var(--m-space-md);
 }
-
-/* Remove button (for close, dismiss, delete use cases) */
-button[type=remove] {
-  padding: 0;
-  width: var(--m-input-min-height);
-  height: var(--m-input-min-height);
-  font-size: 24px;
-}
-button[type=remove]:active { color: initial }
-button[type=remove]::before { content: '×' }
-
 a[role=button][ord] { box-sizing: border-box}
 a[role=button][ord]:hover { text-decoration: none }
 
-button[ord=primary], a[role=button][ord=primary] {
+/* Primary ordinal */
+:is(button, a[role=button])[ord=primary] {
+  border: 2px solid var(--m-color-primary-action);
   background-color: var(--m-color-primary-action);
   color: white;
 }
 
+/* Secondary ordinal */
 :is(button, a[role=button])[ord=secondary] {
   border: 2px solid var(--m-color-primary-action);
   color: var(--m-color-primary-action);
 }
 
+/* Tertiary ordinal */
 :is(button, a[role=button])[ord=tertiary] {
   border: 2px solid var(--m-color-gray-7);
   color: var(--m-color-gray-7);
 }
 
+/* Remove button (for close, dismiss, delete use cases) */
+button[type=remove] {
+  border: none;
+  padding: 0;
+  width: var(--m-input-min-height);
+  font-size: 24px;
+}
+button[type=remove]:active { color: initial }
+button[type=remove]::before {
+  content: '×';
+}
+
 /* Disabled */
-:is(button, a[role=button], button[type=remove])[disabled] {
+:is(button, a[role=button])[ord][disabled],
+button[type=remove][disabled] {
   color: var(--m-color-disabled-fg);
   cursor: not-allowed;
 }
-
-:is(button, a[role=button])[disabled] {
+:is(button, a[role=button])[ord][disabled] {
+  border: 2px solid var(--m-color-disabled-bg);
   background-color: var(--m-color-disabled-bg);
-}
-
-:is(button, a[role=button])[ord=secondary][disabled],
-:is(button, a[role=button])[ord=tertiary][disabled] {
-  border: 2px solid var(--m-color-disabled-fg);
 }
 
 /* Scale */
