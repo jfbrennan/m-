@@ -7,10 +7,7 @@
     <m-alert type="info">Informational message</m-alert>
     <m-alert type="success">Positive message</m-alert>
     <m-alert type="warn">Cautionary message</m-alert>
-    <m-alert type="error" icon="error">
-      Error message with icon and dismiss button
-      <button slot="dismiss" type="remove"></button>
-    </m-alert>
+    <m-alert type="error" icon="error" dismissible="false">Error message with icon and no dismiss button</m-alert>
   </template>
 </code-sample>
 <h2 id="api">API</h2>
@@ -28,23 +25,6 @@
     <td colspan="2"><code>m-alert</code></td>
     <td colspan="2">Custom Element</td>
     <td colspan="6">Any</td>
-  </tr>
-  </tbody>
-</table>
-<h3 id="tag">Slot</h3>
-<table layout="fixed">
-  <thead>
-  <tr>
-    <th colspan="2">Name</th>
-    <th colspan="2">Element</th>
-    <th colspan="6">Content</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td colspan="2"><code>dismiss</code></td>
-    <td colspan="2"><code>type="remove"</code> button</td>
-    <td colspan="6">None. See <a href="#dismiss-button">Dismiss button</a> for details.</td>
   </tr>
   </tbody>
 </table>
@@ -79,6 +59,15 @@
       </ul>
     </td>
     <td colspan="6">If present, the Alert will automatically remove itself after 4 seconds. To increase or decrease the delay, set its value to the desired number of seconds.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>dismissible</code></td>
+    <td colspan="2">
+      <ul type="none">
+        <li>false</li>
+      </ul>
+    </td>
+    <td colspan="6">When set to "false", the dismiss button will not be displayed and the user can't dismiss the alert. The application can still directly remove the alert from the DOM or call <code>dismiss()</code> and <code>autodismiss</code> is also still effective.</td>
   </tr>
   <tr>
     <td colspan="2"><code>icon</code></td>
@@ -122,7 +111,5 @@
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="alert-vs-dialog">Alert vs. Dialog</h3>
 <p>Some information is so important it justifies interrupting the user experience. In those cases consider displaying it in a <a href="/dialog">dialog</a> instead of an alert.</p>
-<h3 id="dismiss-button">Dismiss button</h3>
-<p>If you slot <code>&lt;button type="remove" slot="dismiss"&gt;</code> as the last element, a click handler that removes the alert will automatically be attached to it.</p>
 <h3 id="a11y">Accessibility</h3>
 <p>When <code>type</code> is "warn" or "error" the <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role" target="_blank" rel="noopener">ARIA alert role</a> will be added automatically. Add <code>aria-label=""</code> to the dismiss button with something helpful like "Remove confirmation message".</p>

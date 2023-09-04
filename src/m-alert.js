@@ -8,7 +8,15 @@ customElements.define('m-alert', class extends HTMLElement {
   connectedCallback() {
     if (!this.#initialized) {
       if (this.type === 'warn' || this.type === 'error') this.setAttribute('role', 'alert');
-      this.querySelector('button[slot=dismiss][type=remove]')?.addEventListener('click', () => this.dismiss());
+
+      if (this.getAttribute('dismissible') !== 'false') {
+        const dismissBtn = document.createElement('button');
+        dismissBtn.setAttribute('type', 'remove');
+        dismissBtn.setAttribute('aria-label', 'Dismiss alert');
+        dismissBtn.addEventListener('click', () => this.dismiss());
+        this.append(dismissBtn);
+      }
+
       this.#initialized = true;
     }
   }

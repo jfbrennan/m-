@@ -22,7 +22,7 @@ m-alert[icon]::before {
 }
 
 /* Dismiss button */
-m-alert button[slot=dismiss][type=remove] {
+m-alert button[type=remove]:last-of-type {
   margin-left: auto;
 }
 
