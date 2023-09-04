@@ -1,11 +1,14 @@
+/* Ordered and unordered base styles */
 ul, ol, dl { margin: 0 }
-ul, ol { padding-left: var(--m-space-lg) }
+ul, ol { padding-left: var(--m-space-md) }
 
+/* None type (no bullets) */
 ul[type=none] {
   list-style: none;
   padding-left: 0;
 }
 
+/* Definition list base styles */
 dd { margin-inline-start: 0 }
 dl > dt {
   margin-top: var(--m-space-sm);
