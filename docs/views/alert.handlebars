@@ -3,10 +3,14 @@
 <h2 id="demo">Demo</h2>
 <code-sample>
   <template>
+    <m-alert>Neutral message</m-alert>
     <m-alert type="info">Informational message</m-alert>
     <m-alert type="success">Positive message</m-alert>
     <m-alert type="warn">Cautionary message</m-alert>
-    <m-alert type="error">Error message</m-alert>
+    <m-alert type="error" icon="error">
+      Error message with icon and dismiss button
+      <button slot="dismiss" type="remove"></button>
+    </m-alert>
   </template>
 </code-sample>
 <h2 id="api">API</h2>
@@ -14,16 +18,33 @@
 <table layout="fixed">
   <thead>
   <tr>
-    <th colspan="1">Name</th>
+    <th colspan="2">Name</th>
     <th colspan="2">Type</th>
     <th colspan="6">Content</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td colspan="1"><code>m-alert</code></td>
+    <td colspan="2"><code>m-alert</code></td>
     <td colspan="2">Custom Element</td>
     <td colspan="6">Any</td>
+  </tr>
+  </tbody>
+</table>
+<h3 id="tag">Slot</h3>
+<table layout="fixed">
+  <thead>
+  <tr>
+    <th colspan="2">Name</th>
+    <th colspan="2">Element</th>
+    <th colspan="6">Content</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2"><code>dismiss</code></td>
+    <td colspan="2"><code>type="remove"</code> button</td>
+    <td colspan="6">None. See <a href="#dismiss-button">Dismiss button</a> for details.</td>
   </tr>
   </tbody>
 </table>
@@ -31,14 +52,14 @@
 <table layout="fixed">
   <thead>
   <tr>
-    <th colspan="1">Name</th>
+    <th colspan="2">Name</th>
     <th colspan="2">Value</th>
     <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr id="type">
-    <td colspan="1"><code>type</code> <small class="fnt-bold fnt-italic">required</small></td>
+    <td colspan="2"><code>type</code> <small class="fnt-bold fnt-italic">required</small></td>
     <td colspan="2">
       <ul type="none">
         <li>info</li>
@@ -50,18 +71,19 @@
     <td colspan="6">Sets the type of the message. Error messages should use "error", cautionary messages should use "warn", positive messages should use "success", and important informational messages should use "info".</td>
   </tr>
   <tr>
-    <td colspan="1"><code>autodismiss</code></td>
-    <td colspan="2">Boolean attribute or Number</td>
+    <td colspan="2"><code>autodismiss</code></td>
+    <td colspan="2">
+      <ul type="none">
+        <li>Boolean attribute</li>
+        <li>Number of seconds</li>
+      </ul>
+    </td>
     <td colspan="6">If present, the Alert will automatically remove itself after 4 seconds. To increase or decrease the delay, set its value to the desired number of seconds.</td>
   </tr>
   <tr>
-    <td colspan="1"><code>dismissible</code></td>
-    <td colspan="2">
-      <ul type="none">
-        <li>false</li>
-      </ul>
-    </td>
-    <td colspan="6">When set to "false" the dismiss button will not be displayed so the user can't dismiss the Alert. The application can still directly remove the Alert from the DOM or call its <code>dismiss</code> method. <code>autodismiss</code> is also still effective.</td>
+    <td colspan="2"><code>icon</code></td>
+    <td colspan="2"><a href="/icons#all-icons">Any icon name</a></td>
+    <td colspan="6">Adds the specified icon. Good pairings for each type are info for info, check_circle for success, warning for warn, and error for error, but use whatever is best for your alert.</td>
   </tr>
   </tbody>
 </table>
@@ -69,16 +91,16 @@
 <table layout="fixed">
   <thead>
   <tr>
-    <th colspan="1">Name</th>
+    <th colspan="2">Name</th>
     <th colspan="2">Detail</th>
     <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td colspan="1"><code>dismiss</code></td>
+    <td colspan="2"><code>dismiss</code></td>
     <td colspan="2">None</td>
-    <td colspan="6">Fires after Alert has been dismissed. This happens when the user clicks the dismiss button or after auto-dismiss or when the application calls <code>dismiss()</code>.</td>
+    <td colspan="6">Fires after alert has been dismissed. This happens when the user clicks the dismiss button, after autodismiss completes, or when <code>dismiss()</code> is called directly.</td>
   </tr>
   </tbody>
 </table>
@@ -86,19 +108,21 @@
 <table layout="fixed">
   <thead>
   <tr>
-    <th colspan="3">Signature</th>
+    <th colspan="4">Signature</th>
     <th colspan="6">Description</th>
   </tr>
   </thead>
   <tbody>
   <tr>
-    <td colspan="3"><code>dismiss()</code></td>
-    <td colspan="6">Can be used to programmatically remove the Alert.</td>
+    <td colspan="4"><code>dismiss()</code></td>
+    <td colspan="6">Removes the alert from the DOM and fires <code>dismiss</code> event.</td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="alert-vs-dialog">Alert vs. Dialog</h3>
-<p>Some information is so important it justifies interrupting the user experience, so for those cases consider displaying it in a <a href="/dialog">Dialog</a> instead of Alert.</p>
+<p>Some information is so important it justifies interrupting the user experience. In those cases consider displaying it in a <a href="/dialog">dialog</a> instead of an alert.</p>
+<h3 id="dismiss-button">Dismiss button</h3>
+<p>If you slot <code>&lt;button type="remove" slot="dismiss"&gt;</code> as the last element, a click handler that removes the alert will automatically be attached to it.</p>
 <h3 id="a11y">Accessibility</h3>
-<p>When <code>type</code> is "warn" or "error" the <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role" target="_blank" rel="noopener">ARIA alert role</a> will be added automatically.</p>
+<p>When <code>type</code> is "warn" or "error" the <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role" target="_blank" rel="noopener">ARIA alert role</a> will be added automatically. Add <code>aria-label=""</code> to the dismiss button with something helpful like "Remove confirmation message".</p>

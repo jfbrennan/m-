@@ -1,22 +1,40 @@
-m-alert + m-alert {margin-top: var(--m-space-sm)}
-
-/* Alert status */
-m-alert[type=info] {background-color: var(--m-color-blue-1)}
-m-alert[type=info] > m-icon {
-  color: var(--m-color-blue-3);
+/* Base styles */
+m-alert {
+  display: flex;
+  align-items: center;
+  padding: var(--m-space-md);
+  background-color: var(--m-color-gray-2)
 }
 
-m-alert[type=success] {background-color: var(--m-color-green-1)}
-m-alert[type=success] > m-icon {
-  color: var(--m-color-green-3);
+m-alert + m-alert {
+  margin-top: var(--m-space-sm);
 }
 
-m-alert[type=warn] {background-color: var(--m-color-orange-1)}
-m-alert[type=warn] > m-icon {
-  color: var(--m-color-orange-3);
+/* Icon */
+m-alert::before {
+  font-family: m-icons;
+  font-size: var(--m-font-size-lg);
+  margin-right: var(--m-space-sm);
 }
 
-m-alert[type=error] {background-color: var(--m-color-red-1)}
-m-alert[type=error] > m-icon {
-  color: var(--m-color-red-3);
+m-alert[icon]::before {
+  content: attr(icon);
 }
+
+/* Dismiss button */
+m-alert button[slot=dismiss][type=remove] {
+  margin-left: auto;
+}
+
+/* Types */
+m-alert[type=info] { background-color: var(--m-color-blue-1) }
+m-alert[type=info]::before { color: var(--m-color-blue-3) }
+
+m-alert[type=success] { background-color: var(--m-color-green-1) }
+m-alert[type=success]::before { color: var(--m-color-green-3) }
+
+m-alert[type=warn] { background-color: var(--m-color-orange-1) }
+m-alert[type=warn]::before { color: var(--m-color-orange-3) }
+
+m-alert[type=error] { background-color: var(--m-color-red-1) }
+m-alert[type=error]::before { color: var(--m-color-red-3) }
