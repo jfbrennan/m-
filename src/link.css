@@ -6,7 +6,11 @@ a, span[role=link] {
 }
 
 /*:is(a, span[role=link]):visited { color: var(--m-color-primary-action) }*/
-:is(a, span[role=link]):hover { text-decoration: underline }
+:is(a, span[role=link]):hover,
+:where(a, span[role=link]):focus-visible {
+  text-decoration: underline;
+  outline: 0;
+}
 
 /* Disabled state */
 :is(a, span[role=link])[disabled] {

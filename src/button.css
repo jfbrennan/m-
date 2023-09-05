@@ -1,7 +1,11 @@
-button:active, button:focus { outline:0 }
-
+/* Base style */
 :is(button, a[role=button])[ord] + :is(button, a[role=button])[ord]  {
   margin-left: var(--m-space-sm);
+}
+
+:is(button, a[role=button])[ord]:focus-visible, button[type=remove]:focus-visible {
+  outline: 2px solid var(--m-color-focus);
+  outline-offset: 0;
 }
 
 /*

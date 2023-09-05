@@ -25,6 +25,8 @@
   --m-color-disabled-fg: var(--m-color-gray-4);
   --m-color-disabled-bg: var(--m-color-gray-1);
 
+  --m-color-focus: var(--m-color-blue-1);
+
   --m-color-primary-action: #157bb6;
 
   --m-color-primary-bg: white;
