@@ -23,6 +23,12 @@ input[is=switch]:before {
   transition: all ease-in 0.12s;
 }
 
+input[is=switch]:focus-visible {
+  outline: 2px solid var(--m-color-focus);
+  outline-offset: 0;
+}
+
+
 /* Checked state */
 input[is=switch]:checked { background-color: var(--m-color-primary-action) }
 input[is=switch]:checked:before { left: 20px }

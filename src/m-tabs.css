@@ -23,6 +23,10 @@ m-tabs > :is(a, button) {
   cursor: pointer;
 }
 
+m-tabs > :is(a, button):focus-visible {
+  outline: 2px solid var(--m-color-focus);
+}
+
 /* Hover state */
 m-tabs > :is(a, button):not([disabled]):not([aria-selected=true]):hover {
   border-bottom: 2px solid var(--m-color-gray-3);
