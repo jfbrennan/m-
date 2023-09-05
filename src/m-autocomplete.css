@@ -1,3 +1,4 @@
+/* Base styles */
 m-autocomplete {display: block}
 
 m-autocomplete > div {
@@ -6,8 +7,10 @@ m-autocomplete > div {
   min-width: 200px;
 }
 
+/* Matches */
 m-autocomplete > div > ul li:hover {
   background-color: var(--m-color-gray-1);
 }
 
+/* When paired with label */
 fieldset label + m-autocomplete { margin-top: var(--m-space-xs) }
