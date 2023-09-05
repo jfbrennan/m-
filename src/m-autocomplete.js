@@ -1,40 +1,44 @@
 class MdashAutocomplete extends HTMLElement {
+  #initialized = false;
+  #boundClose;
+  #input;
+  #matches;
+  results = [];
+
   constructor() {
     super();
-    this._boundClose = this.close.bind(this)
+    this.#boundClose = this.close.bind(this)
   }
 
   connectedCallback() {
-    // Closes matching results when user clicks outside of it
-    document.body.addEventListener('click', this._boundClose);
+    if (!this.#initialized) {
+      this.#input = document.createElement('input');
+      this.#input.setAttribute('placeholder', this.getAttribute('placeholder') || '');
+      this.#input.addEventListener('select', e => e.stopPropagation()); // Prevents text select event
+      this.#input.addEventListener('keyup', e => this.search(e.currentTarget.value));
 
-    // Close on esc keyup
-    document.addEventListener('keyup', this._boundClose);
-
-    this.results = [];
-
-    // One time setup
-    if (this.childElementCount === 0) {
-      this._input = document.createElement('input');
-      this._input.setAttribute('placeholder', this.getAttribute('placeholder') || '');
-      this._input.addEventListener('select', e => e.stopPropagation()); // Prevents text select event
-      this._input.addEventListener('keyup', e => this.search(e.currentTarget.value));
-
-      this._matchesContainer = document.createElement('div');
-      this._matchesContainer.classList.add('pos-absolute', 'bg-white', 'brd-all', 'brd-radius-sm');
-      this._matchesContainer.addEventListener('click', e => {
+      this.#matches = document.createElement('div');
+      this.#matches.classList.add('pos-absolute', 'bg-white', 'brd', 'brd-radius-sm');
+      this.#matches.addEventListener('click', e => {
         const li = e.target.closest('li');
         this.select(e, li.dataset.value, li.dataset.id);
       });
-      this._matchesContainer.hidden = true;
+      this.#matches.hidden = true;
 
-      this.append(this._input, this._matchesContainer);
+      this.append(this.#input, this.#matches);
+      this.#initialized = true;
     }
+
+    // Closes matchesContainer when user clicks outside of it
+    document.body.addEventListener('click', this.#boundClose);
+
+    // Close matchesContainer on esc keyup
+    document.addEventListener('keyup', this.#boundClose);
   }
 
   disconnectedCallback() {
-    document.body.removeEventListener('click', this._boundClose);
-    document.removeEventListener('keyup', this._boundClose);
+    document.body.removeEventListener('click', this.#boundClose);
+    document.removeEventListener('keyup', this.#boundClose);
   }
 
   close(e) {
@@ -43,7 +47,7 @@ class MdashAutocomplete extends HTMLElement {
       this.clear();
     }
     // Close with off-target click
-    else if (e.type === 'click' && !this._matchesContainer.contains(e.currentTarget)) {
+    else if (e.type === 'click' && !this.#matches.contains(e.currentTarget)) {
       this.clear(true);
     }
   }
@@ -58,11 +62,11 @@ class MdashAutocomplete extends HTMLElement {
       if (MdashAutocomplete.prototype.sources[source]) {
         const result = await MdashAutocomplete.prototype.sources[source](query, max);
 
-        // Verify the original query is still current since these are async calls
-        if (result.query === this._input.value) {
+        // Verify the original query matches current value since these are async calls
+        if (result.query === this.#input.value) {
           results = result.matches.slice(0, max || result.matches.length);
 
-          // Normalize string results
+          // Normalize string results as objects
           if (typeof results[0] === 'string') {
             results = results.map(value => ({value}))
           }
@@ -94,8 +98,8 @@ class MdashAutocomplete extends HTMLElement {
   select(e, value, id) {
     e.stopPropagation();
     const source = this.getAttribute('source');
-    this._input.value = value;
-    this._input.focus();
+    this.#input.value = value;
+    this.#input.focus();
     this.dispatchEvent(new CustomEvent('select', {detail: {source, value, id}}));
     this.clear();
   }
@@ -104,18 +108,17 @@ class MdashAutocomplete extends HTMLElement {
     this.results = [];
     this.render();
     if (!preventFocus) {
-      this._input.focus();
+      this.#input.focus();
     }
   }
 
   render(hasQuery) {
-    this._matchesContainer.hidden = !hasQuery;
-    this._matchesContainer.innerHTML = this.results.length ?
-      `<ul type="none">
-        ${this.results.reduce((acc, result) => acc +=`<li class="pad-sm pointer" data-id="${result.id}" data-value="${result.value}">${result.value}</li>`, '')}
-      </ul>`
-      :
-      `<div class="pad-sm fnt-italic txt-gray-5">No results</div>`;
+    this.#matches.hidden = !hasQuery;
+    this.#matches.innerHTML = this.results.length
+      ? `<ul type="none">
+          ${this.results.reduce((acc, result) => acc +=`<li class="pad-sm pointer" data-id="${result.id}" data-value="${result.value}">${result.value}</li>`, '')}
+        </ul>`
+      : `<div class="pad-sm fnt-italic txt-gray-5">No results</div>`;
   }
 }
 
