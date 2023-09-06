@@ -1,24 +1,27 @@
 customElements.define('m-menu', class extends HTMLElement {
+  #initialized = false;
+  #boundClose;
+
   constructor() {
     super();
-    this._boundClose = this.close.bind(this)
+    this.#boundClose = this.close.bind(this)
   }
 
   connectedCallback() {
-    // Can expose later if desired
-    const trigger = this.querySelector('[slot="trigger"]');
-    if (trigger) {
-      trigger.addEventListener('click', e => this.open = !this.open);
+    if (!this.#initialized) {
+      // Bind click to trigger slot
+      this.querySelector('[slot="trigger"]')?.addEventListener('click', e => this.open = !this.open);
+      this.#initialized = true;
     }
 
     // Close menu if user clicks outside of a menu or navigates away
-    document.body.addEventListener('click', this._boundClose);
-    window.addEventListener('popstate', this._boundClose); // TODO popstate is ineffective if the link was a child of the menu
+    document.body.addEventListener('click', this.#boundClose);
+    window.addEventListener('popstate', this.#boundClose);
   }
 
   disconnectedCallback() {
-    document.body.removeEventListener('click', this._boundClose);
-    window.removeEventListener('popstate', this._boundClose);
+    document.body.removeEventListener('click', this.#boundClose);
+    window.removeEventListener('popstate', this.#boundClose);
   }
 
   close(e) {

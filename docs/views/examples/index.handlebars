@@ -442,19 +442,18 @@
   <m-menu>
     <button slot="trigger" ord="primary">Open menu</button>
     <div slot="items">
-      <a href="">Link</a>
-      <a href="">Link</a>
-      <a href="">Link</a>
+      <a href="">Link A</a>
+      <a href="">Link B</a>
+      <a href="">Link C</a>
     </div>
   </m-menu>
-  <h4>A Menu with a message and links</h4>
+  <h4>Menu with custom content and min-width: 300px</h4>
   <m-menu>
     <button slot="trigger" ord="primary">Open menu</button>
-    <div slot="items">
-      <p>Lorem ipsum dolor sit amet</p>
-      <a href="">Link</a>
-      <a href="">Link</a>
-      <a href="">Link</a>
+    <div slot="items" class="pad-sm" style="min-width: 300px">
+      <div class="fnt-med">Text Here</div>
+      <div class="mar-t-xs">Some more text with a <a>link</a></div>
+
     </div>
   </m-menu>
 </m-container>
