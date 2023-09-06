@@ -1,5 +1,5 @@
 <h1 class="mar-b-xs">Accordion</h1>
-<h2 class="txt-gray-5 mar-t-none">List of expandable details elements</h2>
+<h2 class="txt-gray-5 mar-t-0">List of expandable details elements</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
 <template>
@@ -35,9 +35,10 @@
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="open">Opening all or one</h3>
-<p>Accordion does not control its Details children; your app does. You can allow all of the Accordion's Details to be open at once (the default behavior) or one at a time. Allowing one open at a time is as simple as removing the <code>open</code> attribute from other open Details. Details publishes a
-  <a href="/details#events"><code>toggle</code></a> event you can listen to for this.</p>
-<p>Here's two examples showing a more imperative solution and a more declarative state-driven solution with Vue:</p>
+<p>Accordion does not control its details children, it only styles them. This means more than one details can be open at a time by default. Controlling this behavior can be managed by your app by adding/removing <code>open</code> to the details. Details elements publish a
+  <a href="/details#events"><code>toggle</code></a> event makes this easy.</p>
+<p>It's worth noting that limiting an accordion to one details at a time may result in a poor UX for users who want to reference information in multiple details and would need to constantly re-open them as they do so.</p>
+<p>Here's two examples showing an imperative solution and a more declarative state-driven solution with Vue:</p>
 <code-sample readonly="readonly">
   // Imperative
   <script>

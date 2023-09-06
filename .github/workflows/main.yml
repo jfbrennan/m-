@@ -31,7 +31,7 @@ jobs:
       with:
         aws_access_key: ${{secrets.AWS_ACCESS_KEY}}
         aws_secret_key: ${{secrets.AWS_SECRET_KEY}}
-        application_name: M-%20Doc%20Site
+        application_name: Mdash%20Doc%20Site
         environment_name: MDocSite-env
         region: us-east-2
         version_label: "m-docs-${{ steps.format-time.outputs.replaced }}"
