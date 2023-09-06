@@ -4,7 +4,7 @@ const exec = require('child_process').exec;
 
 
 function versionBump(cb) {
-  exec('npm version major && (cd docs && npm version major)', function (err, stdout, stderr) {
+  exec('npm version minor && (cd docs && npm version minor)', function (err, stdout, stderr) {
     // Update version mentioned in ./README.md
     const pkg = require('./package');
     gulp.src('./README.md', {base: './'})
