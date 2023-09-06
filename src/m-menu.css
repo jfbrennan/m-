@@ -5,7 +5,7 @@ m-menu {
 }
 
 /* Menu trigger */
-m-menu > [slot="trigger"] {cursor: pointer}
+m-menu > [slot="trigger"] { cursor: pointer }
 
 /* Menu items */
 m-menu > [slot=items] {
@@ -15,20 +15,17 @@ m-menu > [slot=items] {
   background-color: white;
   border: 1px solid var(--m-color-gray-4);
   border-radius: var(--m-border-radius-sm);
-  padding: var(--m-space-md);
-  min-width: 78px;
+  width: max-content;
   z-index: 3000;
 }
 
-/* Just links */
-m-menu > [slot=items] > a {
-  margin-bottom: var(--m-space-sm)
-}
-m-menu > [slot=items] > a:last-of-type {
-  margin-bottom: 0
-}
-m-menu > [slot=items] > a,
+/* Open state */
 m-menu[open] > [slot=items] {
   display: block;
 }
 
+/* Link children */
+m-menu > [slot=items] > a {
+  display: block;
+  padding: var(--m-space-xs) var(--m-space-sm);
+}
