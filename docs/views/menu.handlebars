@@ -4,11 +4,28 @@
 <code-sample>
 <template>
   <m-menu>
-    <button slot="trigger" ord="primary">Open menu</button>
+    <button slot="trigger" ord="primary">Basic Links</button>
     <div slot="items">
-      <a href="">Link</a>
-      <a href="">Link</a>
-      <a href="">Link</a>
+      <a>Products</a>
+      <a>Services</a>
+      <a>Customer support</a>
+    </div>
+  </m-menu>
+  <m-menu>
+    <button slot="trigger" ord="primary">Custom Content and Width</button>
+    <div slot="items" class="pad-sm" style="min-width: 200px">
+      <div class="inline-flex align-items-center">
+        <img src="/img/homer.png" height="51" class="brd-radius-full">
+        <div>
+          <div class="txt-nowrap">Homer J. Simpson</div>
+          <div class="txt-gray-6">Safety Inspector</div>
+        </div>
+      </div>
+      <hr class="mar-t-sm mar-b-sm">
+      <div class="flex flx-col gap-xs">
+        <a>Profile</a>
+        <a>Sign out</a>
+      </div>
     </div>
   </m-menu>
 </template>
@@ -38,7 +55,7 @@
   <tr>
     <td colspan="2"><code>slot="items"</code></td>
     <td colspan="2">Div</td>
-    <td colspan="6">Links, but other content is permitted</td>
+    <td colspan="6">Any. Link children have a default styling.</td>
   </tr>
   </tbody>
 </table>
@@ -72,7 +89,7 @@
   <tr>
     <td colspan="2"><code>toggle</code></td>
     <td colspan="2">None</td>
-    <td colspan="6">Fired after the Menu was removed from the DOM.</td>
+    <td colspan="6">Fires after the menu was opened or closed.</td>
   </tr>
   </tbody>
 </table>
