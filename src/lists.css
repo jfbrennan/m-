@@ -10,21 +10,24 @@ ul[type=none] {
 
 /* Definition list base styles */
 dd { margin-inline-start: 0 }
-dl > dt {
-  margin-top: var(--m-space-sm);
-  text-transform: uppercase;
-  font-size: var(--m-font-size-min);
-  font-weight: bold;
+dl {
+  & > dt {
+    margin-top: var(--m-space-sm);
+    text-transform: uppercase;
+    font-size: var(--m-font-size-min);
+    font-weight: bold;
+
+    &:first-of-type { margin-top: 0 }
+  }
 }
-dl > dt:first-of-type {margin-top: 0}
 
 /* Content list base styles */
 :is(ul, ol)[type=content] {
   list-style: none;
   padding-left: 0;
-}
 
-:is(ul, ol)[type=content] > li:not(:last-of-type) {
-  border-bottom: 1px solid var(--m-color-border)
+  & > li:not(:last-of-type) {
+    border-bottom: 1px solid var(--m-color-border)
+  }
 }
 

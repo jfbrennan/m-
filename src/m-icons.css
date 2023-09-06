@@ -14,16 +14,19 @@
 }
 
 /* Icon base styles */
-m-icon { display: inline-flex }
+m-icon {
+  display: inline-flex;
 
-m-icon::before {
-  font-family: 'm-icons';
-  content: attr(name);
-  -webkit-font-smoothing: antialiased;
+  &::before {
+    font-family: 'm-icons';
+    content: attr(name);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Filled option */
+  &[fill]::before { font-variation-settings: 'FILL' 1 }
 }
 
-/* Filled option */
-m-icon[fill]::before { font-variation-settings: 'FILL' 1 }
 
 /* Weights TBD */
 /*m-icon[weight="100"] { font-variation-settings: 'wght' 100 }*/

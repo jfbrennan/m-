@@ -4,12 +4,12 @@ m-container {
   max-width: var(--m-max-content-width);
   margin: auto;
   padding: var(--m-space-md) var(--m-space-lg);
-}
 
-/* Sizes */
-m-container[maxwidth=md] {max-width: 924px} /* Plus its margin = 960 which is a very comfortable and common size */
-m-container[maxwidth=sm] {max-width: 375px}
-m-container[maxwidth=none] {max-width: none}
+  /* Sizes */
+  &[maxwidth=md] { max-width: 924px } /* Plus its margin = 960 which is a very comfortable and common size */
+  &[maxwidth=sm] { max-width: 375px }
+  &[maxwidth=none] { max-width: none }
+}
 
 @media only screen and (max-width: 600px) {
   m-container { padding: var(--m-space-sm) }

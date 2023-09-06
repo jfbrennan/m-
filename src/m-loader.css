@@ -1,17 +1,16 @@
 m-loader {
   display: inline-flex;
-}
-m-loader:before {
-  font-family: 'm-icons';
-  content: 'autorenew';
-  -webkit-font-smoothing: antialiased;
+
+  &::before {
+    font-family: 'm-icons';
+    content: 'autorenew';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  &[loading]:before { animation: 1.2s linear infinite m-loader }
 }
 
 @keyframes m-loader {
     0% { transform: rotate(0deg) }
   100% { transform: rotate(360deg) }
-}
-
-m-loader[loading]:before {
-  animation: 1.2s linear infinite m-loader;
 }

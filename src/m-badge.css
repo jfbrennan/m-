@@ -9,21 +9,19 @@ m-badge {
   border-radius: 0.625rem;
   font-weight: 600;
   line-height: 1.25rem;
-}
 
-m-badge:not([count]) {
-  padding: 0 2px;
-}
+  /* Padding for text only */
+  &:not([count]) { padding: 0 var(--m-space-xs) }
 
-/* Count */
-m-badge[count]:before {
-  content: attr(count);
-  padding: 0 var(--m-space-xs);
-}
+  /* Count */
+  &[count]:before {
+    content: attr(count);
+    padding: 0 var(--m-space-xs);
+  }
 
-/* Show the badge only when it has a non-zero count or is not empty */
-m-badge:not(:empty),
-m-badge[count]:not([count=""]):not([count="0"]) {
-  display: inline-flex;
+  /* Show the badge only when it has a non-zero count or is not empty */
+  &:not(:empty),
+  &[count]:not([count=""]):not([count="0"]) {
+    display: inline-flex;
+  }
 }
-
