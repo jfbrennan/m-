@@ -2,43 +2,38 @@
 m-tabs {
   display: flex;
   align-items: flex-start;
-}
 
-/* Scrolling tabs */
-m-tabs[scrollable] {
-  overflow-x: scroll;
-  scrollbar-width: none;
-}
-m-tabs[scrollable]::-webkit-scrollbar { display: none }
+  /* Scrolling tabs */
+  &[scrollable] {
+    overflow-x: scroll;
+    scrollbar-width: none
 
-/* Base tab styles */
-m-tabs > :is(a, button) {
-  all: unset;
-  display: inline-flex;
-  color: var(--m-color-gray-7) !important;
-  font-weight: bold;
-  text-align: center;
-  white-space: nowrap;
-  padding: var(--m-space-xs) var(--m-space-lg);
-  cursor: pointer;
-}
+    &::-webkit-scrollbar { display: none }
+  }
 
-m-tabs > :is(a, button):focus-visible {
-  outline: 2px solid var(--m-color-focus);
-}
+  /* Base tab styles */
+  & > :is(a, button) {
+    all: unset;
+    display: inline-flex;
+    color: var(--m-color-gray-7) !important;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    padding: var(--m-space-xs) var(--m-space-lg);
+    cursor: pointer;
 
-/* Hover state */
-m-tabs > :is(a, button):not([disabled]):not([aria-selected=true]):hover {
-  border-bottom: 2px solid var(--m-color-gray-3);
-  text-decoration: none;
-}
+    &:focus-visible { outline: 2px solid var(--m-color-focus) }
 
-/* Selected state */
-m-tabs > :is(a, button)[aria-selected=true] {
-  border-bottom: 2px solid var(--m-color-primary-action);
-}
+    /* Hover state */
+    &:not([disabled]):not([aria-selected=true]):hover {
+      border-bottom: 2px solid var(--m-color-gray-3);
+      text-decoration: none;
+    }
 
-/* Disabled state */
-m-tabs > :is(a, button)[disabled] {
-  color: var(--m-color-disabled-fg); cursor: default;
+    /* Selected state */
+    &[aria-selected=true] { border-bottom: 2px solid var(--m-color-primary-action) }
+
+    /* Disabled state */
+    &[disabled] { color: var(--m-color-disabled-fg); cursor: default }
+  }
 }

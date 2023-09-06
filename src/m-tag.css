@@ -7,13 +7,13 @@ m-tag {
   background-color: var(--color, lightgrey);
   padding: 3px var(--m-space-xs);
   font-size: var(--m-font-size-min);
-}
 
-m-tag + m-tag { margin-left: 3px }
+  & + & { margin-left: 3px }
 
-/* Removable tag */
-m-tag button[type=remove] {
-  padding-left: var(--m-space-xs);
-  font-size: var(--m-font-size-default);
-  width: auto;
+  /* Removable tag */
+  & button[type=remove] {
+    padding-left: var(--m-space-xs);
+    font-size: var(--m-font-size-default);
+    width: auto;
+  }
 }

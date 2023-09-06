@@ -2,30 +2,28 @@
 m-menu {
   display: inline-block;
   position: relative;
-}
 
-/* Menu trigger */
-m-menu > [slot="trigger"] { cursor: pointer }
+  /* Menu trigger */
+  & > [slot="trigger"] { cursor: pointer }
 
-/* Menu items */
-m-menu > [slot=items] {
-  display: none;
-  position: absolute;
-  transform: translateY(var(--m-space-xs));
-  background-color: white;
-  border: 1px solid var(--m-color-gray-4);
-  border-radius: var(--m-border-radius-sm);
-  width: max-content;
-  z-index: 3000;
-}
+  /* Menu items */
+  & > [slot=items] {
+    display: none;
+    position: absolute;
+    transform: translateY(var(--m-space-xs));
+    background-color: white;
+    border: 1px solid var(--m-color-gray-4);
+    border-radius: var(--m-border-radius-sm);
+    width: max-content;
+    z-index: 3000;
 
-/* Open state */
-m-menu[open] > [slot=items] {
-  display: block;
-}
+    /* Link children */
+    & > a {
+      display: block;
+      padding: var(--m-space-xs) var(--m-space-sm);
+    }
+  }
 
-/* Link children */
-m-menu > [slot=items] > a {
-  display: block;
-  padding: var(--m-space-xs) var(--m-space-sm);
+  /* Open state */
+  &[open] > [slot=items] { display: block }
 }

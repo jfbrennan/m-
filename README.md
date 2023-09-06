@@ -5,7 +5,7 @@
 </p>
 <h3 align="center">A design system that fully embraces web standards.</h3>
 <p align="center">Mdash seeks to leverage HTML, not replace it or try to outsmart it.<br>This makes Mdash ideal for all web projects and skill levels.</p>
-<p align="center"><strong>linkable | tiny 7kb | responsive | WCAG 2.1 accessible | very compatible</strong></p>
+<p align="center"><strong>linkable | tiny 6kb | responsive | WCAG 2.1 accessible | very compatible</strong></p>
 <hr>
 
 Mdash is a design system based 100% on web standards. This makes Mdash [extremely light](https://m-docs.org/#performance), very fast, and compatible with just about any type of web project.
@@ -17,9 +17,9 @@ Try Mdash right now by simply linking to the CDN files below and visiting the [d
 ## Quick start
 This is the web, just link to these in `<head>` and you're all set!
 ```html
-<link rel="preload" href="https://unpkg.com/m-@3.0.0/dist/m-icons.woff2" as="font" crossorigin>
-<link rel="stylesheet" href="https://unpkg.com/m-@3.0.0/dist/m-min.css">
-<script defer src="https://unpkg.com/m-@3.0.0/dist/m-min.js"></script>
+<link rel="preload" href="https://unpkg.com/m-@3.0.0/dist/m-.woff2" as="font" crossorigin>
+<link rel="stylesheet" href="https://unpkg.com/m-@3.0.0/dist/m-.css">
+<script defer src="https://unpkg.com/m-@3.0.0/dist/m-.js"></script>
 ```
 Or install via NPM and bundle with your own assets: `npm install m-` (built files are located in `/dist`)
 

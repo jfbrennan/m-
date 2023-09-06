@@ -1,74 +1,82 @@
-/* Base style */
-:is(button, a[role=button])[ord] + :is(button, a[role=button])[ord]  {
-  margin-left: var(--m-space-sm);
+:is(button, a[role=button]) {
+  /*
+    Ordinal attribute
+    The `ord` attr is short for "ordinal number word".
+    Ordinal number words are the 10+ words used for describing the
+    precedence or importance of an item in a group, e.g. Save and Cancel buttons.
+  */
+  &[ord] {
+    display: inline-flex;
+    place-content: center;
+    border-radius: var(--m-border-radius-md);
+    cursor: pointer;
+    background: none;
+    font-size: var(--m-font-size-default);
+    height: var(--m-input-min-height);
+    padding: var(--m-space-xs) var(--m-space-md);
+
+    /* Sibling buttons */
+    + & { margin-left: var(--m-space-sm) }
+
+    /* Disabled */
+    &[disabled] {
+      cursor: not-allowed;
+      border: 2px solid var(--m-color-disabled-bg);
+      color: var(--m-color-disabled-fg);
+      background-color: var(--m-color-disabled-bg);
+    }
+  }
+
+  /* Primary ordinal */
+  &[ord=primary] {
+    border: 2px solid var(--m-color-primary-action);
+    background-color: var(--m-color-primary-action);
+    color: white;
+  }
+
+  /* Secondary ordinal */
+  &[ord=secondary] {
+    border: 2px solid var(--m-color-primary-action);
+    color: var(--m-color-primary-action);
+  }
+
+  /* Tertiary ordinal */
+  &[ord=tertiary] {
+    border: 2px solid var(--m-color-gray-7);
+    color: var(--m-color-gray-7);
+  }
 }
 
+/* Focus for all buttons */
 :is(button, a[role=button])[ord]:focus-visible, button[type=remove]:focus-visible {
   outline: 2px solid var(--m-color-focus);
   outline-offset: 0;
 }
 
-/*
-  Ordinal attribute
-  The `ord` attr is short for "ordinal number word".
-  Ordinal number words are the 10+ words used for describing the
-  precedence or importance of an item in a group, e.g. Save and Cancel buttons.
-*/
-:is(button, a[role=button])[ord], button[type=remove] {
-  display: inline-flex;
-  place-content: center;
-  border-radius: var(--m-border-radius-md);
-  cursor: pointer;
-  background: none;
-}
-:is(button, a[role=button])[ord] {
-  font-size: var(--m-font-size-default);
-  height: var(--m-input-min-height);
-  padding: var(--m-space-xs) var(--m-space-md);
-}
-a[role=button][ord] { box-sizing: border-box}
-a[role=button][ord]:hover { text-decoration: none }
+/* Link button overrides */
+a[role=button][ord] {
+  box-sizing: border-box;
 
-/* Primary ordinal */
-:is(button, a[role=button])[ord=primary] {
-  border: 2px solid var(--m-color-primary-action);
-  background-color: var(--m-color-primary-action);
-  color: white;
-}
-
-/* Secondary ordinal */
-:is(button, a[role=button])[ord=secondary] {
-  border: 2px solid var(--m-color-primary-action);
-  color: var(--m-color-primary-action);
-}
-
-/* Tertiary ordinal */
-:is(button, a[role=button])[ord=tertiary] {
-  border: 2px solid var(--m-color-gray-7);
-  color: var(--m-color-gray-7);
+  &:hover { text-decoration: none }
 }
 
 /* Remove button (for close, dismiss, delete use cases) */
 button[type=remove] {
-  border: none;
-  padding: 0;
+  all: unset;
+  display: inline-flex;
+  place-content: center;
+  cursor: pointer;
   width: var(--m-input-min-height);
   font-size: 24px;
-}
-button[type=remove]:active { color: initial }
-button[type=remove]::before {
-  content: '×';
-}
 
-/* Disabled */
-:is(button, a[role=button])[ord][disabled],
-button[type=remove][disabled] {
-  color: var(--m-color-disabled-fg);
-  cursor: not-allowed;
-}
-:is(button, a[role=button])[ord][disabled] {
-  border: 2px solid var(--m-color-disabled-bg);
-  background-color: var(--m-color-disabled-bg);
+  &:active { color: initial }
+  &::before { content: '×' }
+
+  /* Disabled */
+  &[disabled] {
+    color: var(--m-color-disabled-fg);
+    cursor: not-allowed;
+  }
 }
 
 /* Scale */

@@ -35,21 +35,20 @@
   "scripts": {
     "watch": "nodemon --watch src --ext css,js --exec npm run build",
     "build": "rm -r dist; mkdir dist && npm run css && npm run css:custom-properties && npm run js && npm run icons && cp -R dist/** docs/public",
-    "css": "postcss ./src/m-all.css | lightningcss --minify -o ./dist/m-min.css /dev/stdin",
+    "css": "postcss ./src/m-all.css | lightningcss --nesting --minify -o ./dist/m-.css /dev/stdin",
     "css:custom-properties": "cp -R src/custom-properties.css dist",
-    "icons": "cp -R ./src/m-icons.woff2 dist",
-    "js": "terser ./src/*.js --mangle -o ./dist/m-min.js"
+    "icons": "cp -R ./src/m-icons.woff2 dist/m-.woff2",
+    "js": "terser ./src/*.js --mangle -o ./dist/m-.js"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.8",
+    "autoprefixer": "^10.4.15",
     "gulp": "^4.0.2",
     "gulp-replace": "^1.1.4",
-    "lightningcss-cli": "^1.17.1",
-    "postcss": "^8.4.20",
+    "lightningcss-cli": "^1.21.7",
+    "postcss": "^8.4.29",
     "postcss-cli": "^10.1.0",
-    "postcss-custom-properties": "^12.1.11",
-    "postcss-import": "^12.0.1",
-    "terser": "^5.16.1"
-  },
-  "dependencies": {}
+    "postcss-custom-properties": "^13.3.0",
+    "postcss-import": "^15.1.0",
+    "terser": "^5.19.4"
+  }
 }

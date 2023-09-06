@@ -1,15 +1,15 @@
 /* Base styles */
-m-autocomplete {display: block}
+m-autocomplete {
+  display: block;
 
-m-autocomplete > div {
-  z-index: 1;
-  overflow: hidden;
-  min-width: 200px;
-}
+  /* Matches container */
+  & > div {
+    z-index: 1;
+    overflow: hidden;
+    min-width: 200px;
 
-/* Matches */
-m-autocomplete > div > ul li:hover {
-  background-color: var(--m-color-gray-1);
+    & > ul li:hover { background-color: var(--m-color-gray-1) }
+  }
 }
 
 /* When paired with label */
