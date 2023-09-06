@@ -7,12 +7,12 @@
 
       <div class="flex">
         <div>
-          <img src="./img/m-logo.png" alt="M- logo" width="192"/>
+          <img src="./img/m-logo.png" alt="Mdash logo" width="192"/>
           <img src="https://img.shields.io/badge/build-passing-brightgreen"/>
         </div>
         <div>
           <h3 class="txt-center">A design system that fully embraces web standards.</h3>
-          <p class="txt-center">Mdash's goal is to add to HTML, not replace it or try to outsmart it.<br/>This makes M- ideal for all web projects and skill levels.</p>
+          <p class="txt-center">Mdash's goal is to add to HTML, not replace it or try to outsmart it.<br/>This makes Mdash ideal for all web projects and skill levels.</p>
           <p class="txt-center">
             TEsting
           </p>

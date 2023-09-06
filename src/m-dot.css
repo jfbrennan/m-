@@ -1,4 +1,4 @@
-/* Base dot styles */
+/* Base styles */
 m-dot {
   display: inline-flex;
   align-items: center;
@@ -13,9 +13,9 @@ m-dot::before {
   background-color: var(--m-color-gray-4);
 }
 
-/* Dot alert status */
-m-dot[type=info]::before {background-color: var(--m-color-blue-2)}
-m-dot[type=success]::before {background-color: var(--m-color-green-2)}
-m-dot[type=warn]::before {background-color: var(--m-color-orange-2)}
-m-dot[type=error]::before {background-color: var(--m-color-red-2)}
+/* Alert type */
+m-dot[type=info]::before    { background-color: var(--m-color-blue-2) }
+m-dot[type=success]::before { background-color: var(--m-color-green-2) }
+m-dot[type=warn]::before    { background-color: var(--m-color-orange-2) }
+m-dot[type=error]::before   { background-color: var(--m-color-red-2) }
 

@@ -1,5 +1,5 @@
 <h1 class="mar-b-xs">Details</h1>
-<h2 class="txt-gray-5 mar-t-none">Expandable container for progressive disclosure</h2>
+<h2 class="txt-gray-5 mar-t-0">Expandable container for progressive disclosure</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
 <template>
@@ -64,14 +64,14 @@
     <td colspan="2"><code>toggle</code></td>
     <td colspan="2">None</td>
     <td colspan="6">
-      <p class="mar-t-none">Fires after Details was opened or closed. If <code>e.currentTarget.open</code> is true, then it was just opened, otherwise it was closed.</p>
+      <p class="mar-t-0">Fires after Details was opened or closed. If <code>e.currentTarget.open</code> is true, then it was just opened, otherwise it was closed.</p>
     </td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
 <!--<h3 id="title">What about &lt;details&gt;?</h3>-->
-<!--<p>This element matches the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement" target="_blank" rel="noopener"><code>HTMLDetailsElement</code></a> interface as close as possible so when browser support for <code>&lt;details&gt;</code> is sufficient it will be removed from M- in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>-->
+<!--<p>This element matches the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement" target="_blank" rel="noopener"><code>HTMLDetailsElement</code></a> interface as close as possible so when browser support for <code>&lt;details&gt;</code> is sufficient it will be removed from Mdash in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>-->
 <h3 id="necessary">Is the content even necessary?</h3>
 <p>Although Details and <a href="/accordion">Accordion</a> are great tools for progressive disclosure, you should consider if the hidden content is necessary or if it could just be removed altogether.</p>
 <h3>Clickable elements inside summary</h3>
@@ -143,4 +143,4 @@
 </template>
 </code-sample>
 <h3 id="a11y">Accessibility</h3>
-<p>The <code>aria-expanded</code> attribute is managed automatically for you.</p>
+<p>The <code>aria-expanded</code> attribute is managed automatically. Pressing spacebar will open/close details.</p>
