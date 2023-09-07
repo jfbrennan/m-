@@ -19,9 +19,9 @@ To apply your own design language, fork and customize Mdash. It's 100% vanilla H
 ## Quick start
 This is the web. Include these files in `<head>` and you're all set!
 ```html
-<link href="https://unpkg.com/m-@3.1.0/dist/m-.woff2" rel="preload" as="font" crossorigin>
-<link href="https://unpkg.com/m-@3.1.0/dist/m-.css" rel="stylesheet">
-<script src="https://unpkg.com/m-@3.1.0/dist/m-.js" defer></script>
+<link href="https://unpkg.com/m-@3.1.1/dist/m-.woff2" rel="preload" as="font" crossorigin>
+<link href="https://unpkg.com/m-@3.1.1/dist/m-.css" rel="stylesheet">
+<script src="https://unpkg.com/m-@3.1.1/dist/m-.js" defer></script>
 ```
 Or install via NPM and bundle with your own assets: `npm install m-` (built files are located in `/dist`)
 
