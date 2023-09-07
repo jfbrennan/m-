@@ -37,7 +37,7 @@
     "build": "rm -r dist; mkdir dist && npm run css && npm run css:custom-properties && npm run js && npm run icons && cp -R dist/** docs/public",
     "css": "postcss ./src/m-all.css | lightningcss --nesting --minify -o ./dist/m-.css /dev/stdin",
     "css:custom-properties": "cp -R src/custom-properties.css dist",
-    "icons": "cp -R ./src/m-icons.woff2 dist/m-.woff2",
+    "icons": "cp -R src/m-.woff2 dist/m-.woff2",
     "js": "terser ./src/*.js --mangle -o ./dist/m-.js"
   },
   "devDependencies": {

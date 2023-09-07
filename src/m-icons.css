@@ -10,7 +10,7 @@
     https://fonts.gstatic.com/s/materialsymbolsoutlined/v134/kJF4BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzBwG-RpA6RzaxHMPdY40KH8nGzv3fzfVJU22ZZLsYEpzC_1ver5Y0J1Llf.woff2
     That font file was downloaded and added to Mdash as src/m-icons.woff2, which gets published to npm/unpkg.
   */
-  src: url(./m-icons.woff2) format('woff2');
+  src: url(./m-.woff2) format('woff2');
 }
 
 /* Icon base styles */
