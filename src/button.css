@@ -32,18 +32,30 @@
     border: 2px solid var(--m-color-primary-action);
     background-color: var(--m-color-primary-action);
     color: white;
+
+    &:active, &[aria-pressed="true"], &[aria-pressed="mixed"] {
+      background-color: var(--m-color-blue-3);
+    }
   }
 
   /* Secondary ordinal */
   &[ord=secondary] {
     border: 2px solid var(--m-color-primary-action);
     color: var(--m-color-primary-action);
+
+    &:active, &[aria-pressed="true"], &[aria-pressed="mixed"] {
+      background-color: var(--m-color-blue-1);
+    }
   }
 
   /* Tertiary ordinal */
   &[ord=tertiary] {
     border: 2px solid var(--m-color-gray-7);
     color: var(--m-color-gray-7);
+
+    &:active, &[aria-pressed="true"], &[aria-pressed="mixed"] {
+      background-color: var(--m-color-gray-1);
+    }
   }
 }
 
@@ -76,6 +88,31 @@ button[type=remove] {
   &[disabled] {
     color: var(--m-color-disabled-fg);
     cursor: not-allowed;
+  }
+}
+
+/* Button Group */
+[role=group]:has(:is(button, a[role=button])) {
+  display: inline-flex;
+
+  & button, & a[role=button] {
+    border-radius: 0;
+    border-right-width: 1px;
+    border-left-width: 1px;
+
+    &:first-of-type {
+      border-radius: var(--m-border-radius-md) 0 0 var(--m-border-radius-md);
+      border-left-width: 2px;
+    }
+
+    &:last-of-type {
+      border-radius: 0 var(--m-border-radius-md) var(--m-border-radius-md) 0;
+      border-right-width: 2px;
+    }
+
+    & + & {
+      margin: 0;
+    }
   }
 }
 

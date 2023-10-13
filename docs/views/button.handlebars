@@ -2,16 +2,22 @@
 <h2 class="txt-gray-5 mar-t-0">For triggering actions</h2>
 <h2>Demo</h2>
 <code-sample>
-  <p>Ordinal</p>
+  <p>Ordinal name</p>
   <button ord="primary">Primary</button>
   <button ord="secondary">Secondary</button>
   <button ord="tertiary">Tertiary</button>
-  <p>Link</p>
-  <a role="button" ord="primary" href="/button">Link</a>
-  <p>Disabled</p>
+  <p>Disabled state</p>
   <button ord="primary" disabled>Disabled</button>
-  <p>Remove</p>
+  <p>Link as button</p>
+  <a role="button" ord="primary" href="/button">Link</a>
+  <p>Remove type</p>
   <button type="remove"></button>
+  <p>Button group</p>
+  <div role="group">
+    <button ord="secondary" aria-pressed="true">One</button>
+    <button ord="secondary">Two</button>
+    <button ord="secondary">Three</button>
+  </div>
 </code-sample>
 <h2>API</h2>
 <h3>Tag</h3>
@@ -66,7 +72,7 @@
     <td colspan="6">
       <p class="mar-t-0">Use submit when the button submits a form. Avoid <code>&lt;input type="submit"&gt;</code>. See
         <a href="/form#submit-button">Submit button</a> for more info</p>
-      <p class="mar-b-none">Remove is a custom button type. It's used by other components like Alert and is intended for remove/close use cases (e.g. remove item from cart, close Dialog).
+      <p class="mar-b-none">Remove is a custom button type. It's used by other components like alert and dialog and is intended for remove/close use cases (e.g. remove item from cart, close the dialog).
         <a href="#remove">See below</a> for more info.</p>
     </td>
   </tr>
@@ -74,6 +80,20 @@
     <td colspan="2"><code>disabled</code></td>
     <td colspan="2">Boolean attribute</td>
     <td colspan="6">Disables the button. Link buttons also need <code>tabindex="-1"</code> to prevent activation by keyboard or assistive tech.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>aria-pressed</code></td>
+    <td colspan="2">
+      <ul>
+        <li>true</li>
+        <li>false</li>
+        <li>mixed</li>
+      </ul>
+    </td>
+    <td colspan="6">Defines the button as a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#toggle_buttons" target="_blank">toggle
+      button</a> and sets its pressed state. The <code>ariaPressed</code> property works as well. See <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-pressed" target="_blank">MDN
+      for details</a>.
+    <p>See <a href="#button-group">Button Group</a> below to learn how to create a group of toggle buttons. It is recommended to use secondary buttons.</p></td>
   </tr>
 <!--  <tr>-->
 <!--    <td colspan="2"><code>scale</code></td>-->
@@ -138,11 +158,33 @@
 <button type="remove" class="txt-lg"></button>
 <button type="remove" class="txt-xl"></button>
 </code-sample>
+<h3 id="button-group">Button Group</h3>
+<p>To create a button group, simply put toggle buttons in a container with <code>role="group"</code>. Your app manages the <code>aria-pressed</code> state and determines if one or more can be pressed at a time.</p>
+<code-sample>
+  <div role="group">
+    <button ord="secondary" aria-pressed="true">One</button>
+    <button ord="secondary" aria-pressed="mixed">Two</button>
+    <button ord="secondary" aria-pressed="false">Three</button>
+    <button ord="secondary">Four</button>
+  </div>
+</code-sample>
+<p>Event delegation is useful for capturing all toggle button clicks and managing the pressed state. Also, optionally using the <code>value</code> or <code>data-*</code> attribute can help your app know what actions to take, e.g. setting a new filter and removing the others.</p>
+<code-sample>
+  <script>
+    // Allow only one button pressed at a time
+    const toggle = e => e.currentTarget.querySelectorAll('button').forEach(btn => (btn.ariaPressed = btn === e.target ? 'true' : 'false') && alert(`${btn.ariaPressed === 'true' ? 'Set' : 'Remove'} ${btn.value} filter`));
+  </script>
+  <div onclick="toggle(event)" role="group">
+    <button ord="secondary" value="ready">Ready</button>
+    <button ord="secondary" value="complete">Complete</button>
+    <button ord="secondary" value="overdue">Overdue</button>
+  </div>
+</code-sample>
 <h3 id="unstyled">Custom button styles</h3>
 <p>Mdash leaves the plain button element untouched so you can freely use them without competing with Mdash styles (Mdash buttons require the <code>ord</code> attribute). Optionally add the <code>all-unset</code> utility class to remove user-agent styles from button, then customize as desired. For example:</p>
 <code-sample>
   <button class="all-unset">No Styles</button>
-  <button class="all-unset pad-xs bg-gray-7 txt-white txt-center txt-upper txt-space" style="width: 200px">Custom styles</button>
+  <button class="all-unset pad-xs bg-gray-7 txt-white txt-center txt-upper txt-space pointer" style="width: 200px">Custom styles</button>
 </code-sample>
 <h3>Accessibility</h3>
-<p>The remove button should have an <code>aria-label</code> attribute and disabled buttons should have <code>aria-disabled="true"</code> and disabled link buttons should also have <code>tabindex="-1"</code> to prevent activation by keyboard or assistive tech.</p>
+<p>The remove button should have an <code>aria-label</code> attribute and disabled link buttons should have <code>tabindex="-1"</code> to prevent activation.</p>
