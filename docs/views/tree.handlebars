@@ -2,16 +2,33 @@
 <h2 class="txt-gray-5 mar-t-0">Hierarchical list view</h2>
 <h2 id="demo">Demo</h2>
 <code-sample>
-  <m-tree>
-    <m-treeitem>Item 2</m-treeitem>
-    <m-treeitem>Item 1</m-treeitem>
-    <m-tree>
-      <m-treeitem>Sub-item 1</m-treeitem>
-      <m-treeitem>Sub-item 2</m-treeitem>
-      <m-treeitem>Sub-item 3</m-treeitem>
+  <template>
+    <m-tree aria-expanded="true">
+      <details role="treeitem">
+        <summary>Parent tree item is text</summary>
+        <a href="#link1A" role="treeitem">Link</a>
+        <a href="#link2A" role="treeitem">Link</a>
+        <details role="treeitem">
+          <summary>Child tree item is text</summary>
+          <a href="#childlink1A" role="treeitem">Link</a>
+          <a href="#childlink2A" role="treeitem">Link</a>
+        </details>
+      </details>
+      <details role="treeitem">
+        <summary>
+          <a href="#about">Parent tree item is link</a>
+        </summary>
+        <a href="#link1A" role="treeitem">Link</a>
+        <a href="#link2A" role="treeitem">Link</a>
+        <details role="treeitem">
+          <summary>Child tree item is text</summary>
+          <a href="#childlink1A" role="treeitem">Link</a>
+          <a href="#childlink2A" role="treeitem">Link</a>
+        </details>
+      </details>
+      <a href="#childlink2A" role="treeitem">Link</a>
     </m-tree>
-    <m-treeitem>Item 3</m-treeitem>
-  </m-tree>
+  </template>
 </code-sample>
 <p>See more <a href="/examples#Tree">examples</a></p>
 <h2 id="api">API</h2>
@@ -28,12 +45,7 @@
   <tr>
     <td colspan="2"><code>m-tree</code></td>
     <td colspan="2">Custom Element</td>
-    <td colspan="6">Trees and tree items</td>
-  </tr>
-  <tr>
-    <td colspan="2"><code>m-treeitem</code></td>
-    <td colspan="2">Custom tag</td>
-    <td colspan="6">Any</td>
+    <td colspan="6"><code>&lt;details&gt;</code> for parent nodes and any other element as end nodes</td>
   </tr>
   </tbody>
 </table>
@@ -48,47 +60,87 @@
   </thead>
   <tbody>
   <tr>
-    <td colspan="2"><code>open</code></td>
-    <td colspan="2">Boolean attribute</td>
-    <td colspan="6">When present, will expand the this tree and only this tree. To open all trees, use the
-      <a href="#openAll"><code>openAll</code></a> method.</td>
-  </tr>
-  </tbody>
-</table>
-<h3 id="methods">Methods</h3>
-<table layout="fixed">
-  <thead>
-  <tr>
-    <th colspan="3">Signature</th>
-    <th colspan="7">Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td colspan="3"><code>openAll()</code></td>
-    <td colspan="7">Opens this tree and all nested trees. To open just this tree, simply add the <code>open</code> attribute.</td>
-  </tr>
-  <tr>
-    <td colspan="3"><code>close()</code></td>
-    <td colspan="7">Removes the open attribute and collapses this tree.</td>
+    <td colspan="2"><code>aria-expanded</code></td>
+    <td colspan="2">
+      <ul type="none">
+        <li>true</li>
+        <li>false</li>
+      </ul>
+    </td>
+    <td colspan="6">Expands/collapses all tree items. Setting the <code>ariaExpanded</code> property works as well.</td>
   </tr>
   </tbody>
 </table>
 <h2 id="guidelines">Guidelines</h2>
-<h3 id="title">Selecting tree items</h3>
-<p>Other than styles applied by the presence of the <code>selected</code> attribute, selecting items is owned by the application. This usually means setting up basic click handlers:</p>
+<h3 id="types">Custom Trees</h3>
+<p>The tree component can be used for displaying many different types of hierarchical information, not just a collection of links. For this reason Mdash keeps tree styles to a minimum and leaves it open for customization. Custom tree examples include:</p>
+<ul>
+  <li>Family tree</li>
+  <li>File system</li>
+  <li>Military rankings</li>
+  <li>Animal taxonomy</li>
+</ul>
+<p>The goal is to provide a working tree component for navigation and a starting pattern for creating any other kind of tree-like UX.</p>
+<h3 id="nav">Navigation Tree</h3>
+<p>Put the tree inside a <code>nav</code> element when creating a navigation tree:</p>
+<code-sample readonly="readonly">
+  <template>
+    <nav>
+      <m-tree>
+        ...
+      </m-tree>
+    </nav>
+  </template>
+</code-sample>
 <h3 id="a11y">Accessibility</h3>
-<p>The root tree should have <code>role="tree"</code> and <code>aria-label="..."</code>. Nested trees and tree items should have <code>role="treeitem"</code>. Here's an example:</p>
-<code-sample readonly>
-  <m-tree role="tree" aria-label="Your family tree">
-    <m-treeitem>Item 2</m-treeitem>
-    <m-treeitem>Item 1</m-treeitem>
-    <m-tree>
-      <m-treeitem>Sub-item 1</m-treeitem>
-      <m-treeitem>Sub-item 2</m-treeitem>
-      <m-treeitem>Sub-item 3</m-treeitem>
+<p>Tree has <code>role="tree"</code> set automatically. You should add an <code>aria-label</code> to it. Tree items, i.e. links, summary, and other end nodes, should have <code>role="treeitem"</code>. Details elements already have the recommended <code>role="group"</code> and their <code>open</code> attribute serves the place of <code>aria-expanded</code>. Navigation trees should set <code>aria-current="page"</code> on the tree item associated with the active page and if the link is in a details element, that details should be opened. Details elements and links have built-in keyboard navigation. Here's an example:</p>
+<code-sample>
+  <template>
+    <m-tree aria-label="My family tree">
+      <details>
+        <summary>
+          <div role="treeitem">👨</div>
+        </summary>
+        <details>
+          <summary>
+            <div role="treeitem">👩‍🦳</div>
+          </summary>
+          <details>
+            <summary>
+              <div role="treeitem">👵</div>
+            </summary>
+            <div role="treeitem">💀</div>
+            <div role="treeitem">💀</div>
+          </details>
+          <details role="treeitem">
+            <summary>
+              <div role="treeitem">👴</div>
+            </summary>
+            <div role="treeitem">💀</div>
+            <div role="treeitem">💀</div>
+          </details>
+        </details>
+        <details role="treeitem">
+          <summary>
+            <div role="treeitem">👨‍🦳</div>
+          </summary>
+          <details>
+            <summary>
+              <div role="treeitem">👵</div>
+            </summary>
+            <div role="treeitem">💀</div>
+            <div role="treeitem">💀</div>
+          </details>
+          <details role="treeitem">
+            <summary>
+              <div role="treeitem">👴</div>
+            </summary>
+            <div role="treeitem">💀</div>
+            <div role="treeitem">💀</div>
+          </details>
+        </details>
+      </details>
     </m-tree>
-    <m-treeitem>Item 3</m-treeitem>
-  </m-tree>
+  </template>
 </code-sample>
 

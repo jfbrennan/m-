@@ -1,0 +1,15 @@
+m-tree {
+  & details {
+    & details {
+      padding-left: var(--m-space-md);
+    }
+
+    > a {
+      display: block;
+    }
+
+    > :not(details)[role=treeitem] {
+      padding-left: calc(var(--m-space-md) * 2);
+    }
+  }
+}
