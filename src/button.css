@@ -38,6 +38,10 @@
   &[ord=secondary] {
     border: 2px solid var(--m-color-primary-action);
     color: var(--m-color-primary-action);
+
+    &[aria-pressed="true"], &[aria-pressed="mixed"] {
+      background-color: var(--m-color-blue-1);
+    }
   }
 
   /* Tertiary ordinal */
@@ -76,6 +80,31 @@ button[type=remove] {
   &[disabled] {
     color: var(--m-color-disabled-fg);
     cursor: not-allowed;
+  }
+}
+
+/* Button Group */
+[role=group]:has(:is(button, a[role=button])) {
+  display: inline-flex;
+
+  & button, & a[role=button] {
+    border-radius: 0;
+    border-right-width: 1px;
+    border-left-width: 1px;
+
+    &:first-of-type {
+      border-radius: var(--m-border-radius-md) 0 0 var(--m-border-radius-md);
+      border-left-width: 2px;
+    }
+
+    &:last-of-type {
+      border-radius: 0 var(--m-border-radius-md) var(--m-border-radius-md) 0;
+      border-right-width: 2px;
+    }
+
+    & + & {
+      margin: 0;
+    }
   }
 }
 
