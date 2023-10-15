@@ -32,10 +32,6 @@
     border: 2px solid var(--m-color-primary-action);
     background-color: var(--m-color-primary-action);
     color: white;
-
-    &:active, &[aria-pressed="true"], &[aria-pressed="mixed"] {
-      background-color: var(--m-color-blue-3);
-    }
   }
 
   /* Secondary ordinal */
@@ -43,7 +39,7 @@
     border: 2px solid var(--m-color-primary-action);
     color: var(--m-color-primary-action);
 
-    &:active, &[aria-pressed="true"], &[aria-pressed="mixed"] {
+    &[aria-pressed="true"], &[aria-pressed="mixed"] {
       background-color: var(--m-color-blue-1);
     }
   }
@@ -52,10 +48,6 @@
   &[ord=tertiary] {
     border: 2px solid var(--m-color-gray-7);
     color: var(--m-color-gray-7);
-
-    &:active, &[aria-pressed="true"], &[aria-pressed="mixed"] {
-      background-color: var(--m-color-gray-1);
-    }
   }
 }
 
