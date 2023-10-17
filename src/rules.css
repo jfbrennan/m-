@@ -7,10 +7,7 @@ hr {
 
   /* Vertical bar/separator, requires explicit height parent, flex or grid parent */
   &[aria-orientation=vertical] {
-    display: inline-block;
     width: 1px;
     height: auto;
-    align-self: stretch;
-    margin: 0 var(--m-space-sm);
   }
 }
