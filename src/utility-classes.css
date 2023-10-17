@@ -106,6 +106,7 @@
 .txt-nowrap { white-space: nowrap }
 .txt-break-all { word-break: break-all }
 .txt-break-word { word-break: break-word }
+.txt-maxlength { max-width: 75ch }
 .txt-noselect { user-select: none; cursor: default; }
 .txt-xs { font-size: var(--m-font-size-min)}
 .txt-sm { font-size: var(--m-font-size-default)}
