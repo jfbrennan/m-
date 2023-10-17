@@ -5,6 +5,20 @@ class MdashAutocomplete extends HTMLElement {
   #matches;
   results = [];
 
+  /**
+   * Data source function for autocomplete.
+   * @callback AutocompleteDataSource
+   * @param {string} query - The current value of the autocomplete input, i.e. what the user is typing.
+   * @param {number} max - The maximum number of results that will be shown.
+   * @returns {Promise<{query: string, matches: []}>} - Passing back query allows autocomplete to determine if the matches are still relevant.
+   */
+
+  /**
+   * Object with named autocomplete data source functions.
+   * @type {Object.<string, AutocompleteDataSource>}
+   */
+  static sources = {};
+
   constructor() {
     super();
     this.#boundClose = this.close.bind(this)
@@ -59,8 +73,8 @@ class MdashAutocomplete extends HTMLElement {
       let results = [];
 
       // Try function source...
-      if (MdashAutocomplete.prototype.sources[source]) {
-        const result = await MdashAutocomplete.prototype.sources[source](query, max);
+      if (MdashAutocomplete.sources[source]) {
+        const result = await MdashAutocomplete.sources[source](query, max);
 
         // Verify the original query matches current value since these are async calls
         if (result.query === this.#input.value) {
@@ -122,6 +136,5 @@ class MdashAutocomplete extends HTMLElement {
   }
 }
 
-MdashAutocomplete.prototype.sources = {};
 window.MdashAutocomplete = MdashAutocomplete;
 customElements.define('m-autocomplete', MdashAutocomplete);
