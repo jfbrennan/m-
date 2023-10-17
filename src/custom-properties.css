@@ -38,7 +38,7 @@
   --m-border-radius-full: 9999px;
 
   /* Other */
-  --m-max-content-width: 1792px; /* The 16" MacBook Pro */
+  --m-max-content-width: 1320px; /* The 16" MacBook Pro */
   --m-input-min-height: 34px;
   --m-target-min-size: 24px; /* WCAG Level AA minimum target recommendation is 24x24 */
 

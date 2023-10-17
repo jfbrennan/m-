@@ -1,5 +1,4 @@
 details {
-
   > summary {
     cursor: pointer;
     list-style: none; /* Hides caret in Firefox */

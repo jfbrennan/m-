@@ -121,10 +121,10 @@
   </template>
 </code-sample>
 <h4>2. Custom source function</h4>
-<p>These are asynchronous functions added to the global <code>MdashAutocomplete.prototype.sources</code> object. Here's another <code>fruit</code> example similar to the datalist above:</p>
+<p>These are asynchronous functions added to the static <code>MdashAutocomplete.sources</code> object. Here's another <code>fruit</code> example similar to the datalist above:</p>
 <code-sample readonly="true">
   <script>
-    MdashAutocomplete.prototype.sources.fruit = async (query, max) => \{
+    MdashAutocomplete.sources.fruit = async (query, max) => \{
 
       // 1. Use `query` to fetch, filter, map, find, or whatever your logic is for determining matching results.
       // Note: `max` is the most results that will be shown, which is helpful to know beforehand when dealing with large data sets.
@@ -139,7 +139,7 @@
     }
   </script>
 </code-sample>
-<p><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> If the source's data is over the network, cache results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>const matches = cache[query] || await fetchAndCacheResults(query)</code>. You can also use <code>max</code> if it's beneficial while searching to know the maximum number of matches that will be shown.</p>
+<p><span class="fnt-bold"><m-icon name="lightbulb"></m-icon>Tip:</span> If the source's data is over the network, cache results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>const matches = cache[query] || await fetchAndCacheResults(query)</code>. You can also use <code>max</code> if it's beneficial while searching to know the maximum number of matches that will be shown.</p>
 {{> more-autocomplete}}
 <h3 id="a11y">Accessibility</h3>
 <p>There are no extra recommendations for Autocomplete.</p>
