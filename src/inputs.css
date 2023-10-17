@@ -90,6 +90,7 @@ fieldset {
   & :is(select, textarea) {
     &:focus {
       outline: 2px solid var(--m-color-focus);
+      outline-offset: 0;
       border: 1px solid var(--m-color-primary-action);
     }
   }
