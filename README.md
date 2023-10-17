@@ -8,7 +8,7 @@
 <p align="center"><strong>linkable | tiny 6kb | responsive | accessible | zero dependencies</strong></p>
 <hr>
 
-Mdash UI elements are built with 100% web standards. This makes Mdash [extremely light](https://m-docs.org/#performance), very fast, and compatible with any type of web project.
+Mdash UI elements are built with 100% web standards following the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology). This makes Mdash [extremely light](https://m-docs.org/#performance), very fast, and compatible with any type of web project.
 
 Mdash can work with any framework client-side and server-side or no framework at all because it's made from native HTML, custom HTML tags, and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). Be it SSR, SPA, PWA, static site, and even some email templates - whatever type of project you have Mdash will work. This is especially useful to organizations looking to share a design system across products.
 
