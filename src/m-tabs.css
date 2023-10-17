@@ -6,7 +6,7 @@ m-tabs {
   /* Scrolling tabs */
   &[scrollable] {
     overflow-x: scroll;
-    scrollbar-width: none
+    scrollbar-width: none;
 
     &::-webkit-scrollbar { display: none }
   }
@@ -34,6 +34,9 @@ m-tabs {
     &[aria-selected=true] { border-bottom: 2px solid var(--m-color-primary-action) }
 
     /* Disabled state */
-    &[disabled] { color: var(--m-color-disabled-fg); cursor: default }
+    &[disabled] {
+      color: var(--m-color-disabled-fg);
+      cursor: default;
+    }
   }
 }

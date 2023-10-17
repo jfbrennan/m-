@@ -95,7 +95,11 @@
     }
     :scope:not([readonly]) [ref=editor] { min-height: 80px }
     :scope[readonly] [ref=editor] { width: 100% }
-    :scope [ref=preview] { flex-grow: 1 }
+    :scope [ref=preview] {
+      flex-grow: 1;
+      overflow: hidden;
+      padding: 0 6px;
+    }
 
     @media only screen and (max-width: 600px) {
       :scope { flex-direction: column }
