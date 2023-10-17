@@ -4,11 +4,12 @@
 <code-sample>
 <template>
   <m-tabs role="tablist">
-    <button role="tab" aria-selected="true">A</button>
-    <button role="tab">B</button>
-    <a href="/" role="tab">C</a>
+    <button role="tab" aria-selected="true">Selected</button>
+    <button role="tab">Not Selected</button>
+    <button role="tab" disabled>Disabled</button>
+    <a href="/" role="tab">Link</a>
   </m-tabs>
-  <p class="txt-xs txt-gray-5">See <a href="#select-tab">selecting tabs</a> to learn how to select the tabs</p>
+  <p class="txt-xs txt-gray-5">See <a href="#select-tab">selecting tabs</a> to learn how to select a tab</p>
 </template>
 </code-sample>
 <h2 id="api">API</h2>
@@ -55,7 +56,7 @@
   <tr>
     <td colspan="2"><code>aria-selected</code></td>
     <td colspan="2">true or false</td>
-    <td colspan="6">Set the selected tab to true.</td>
+    <td colspan="6">Set the selected tab to true. See <a href="#select-tab">Selecting tabs</a> for examples.</td>
   </tr>
   <tr>
     <td colspan="2"><code>disabled</code></td>
@@ -67,7 +68,7 @@
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="select-tab">Selecting tabs</h3>
 <h4>Selecting the tab</h4>
-<p>Setting the selected tab is handled by your app. To select a tab, set <code>aria-selected=true</code>. There are a several approaches you could take to manage this, but event delegation comparing tabs to the clicked tab is probably the simplest:</p>
+<p>Setting the selected tab is handled by your app. To select a tab, set <code>aria-selected="true"</code>. There are a several approaches you could take to manage this, but event delegation comparing tabs to the clicked tab is probably the simplest without a framework:</p>
 <code-sample>
   <script>
     const selectTab = e => e.currentTarget.querySelectorAll('[role=tab]').forEach(tab => tab.ariaSelected = tab === e.target);
@@ -77,9 +78,9 @@
     <button role="tab">B</button>
   </m-tabs>
 </code-sample>
-<p>That will select the tab, but that is not typically everything you need to do. Showing the corresponding tab panel requires a bit more.</p>
+<p>That will only select the tab. Selecting the corresponding tab panel is explained next.</p>
 <h4>Showing a tab panel</h4>
-<p>This component assumes nothing about what happens when a tab is selected, which allows for multiple use cases like toggling between tab panels in the DOM or navigating to a new page or something else. Here's an example of the typical use case of selecting a tab and showing its panel:</p>
+<p>Mdash assumes nothing about what happens when a tab is selected, which allows for multiple solutions like toggling the <code>hidden</code> attribute, directly changing the DOM, rendering different components, navigating to a new page, or something else. Here's an example of the typical use case of selecting a tab and showing its panel:</p>
 <code-sample readonly="readonly">
   <script>
     function switchTab(e) \{
