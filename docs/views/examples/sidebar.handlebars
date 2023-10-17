@@ -1,6 +1,6 @@
-<div class="flex full-height">
-  <aside class="brd-r overflow-auto" style="width: 380px">
-    <header class="pos-sticky bg-white pad-sm brd-b">
+<div class="flex height-full">
+  <aside class="brd-r overflow-auto" style="width: 300px">
+    <header class="pos-sticky pos-t-0 bg-white pad-sm brd-b">
       <m-breadcrumb class="txt-sm">
         <nav class="align-items-center">
           <a href="/"><img src="/img/m-logo.png" alt="Mdash logo" width="24" class="block"></a>
@@ -9,24 +9,25 @@
         </nav>
       </m-breadcrumb>
     </header>
+    <ul type="content"></ul>
   </aside>
   <main class="flx-grow-1 bg-white pad-lg">
     <h1 class="mar-t-0">Sidebar example</h1>
-    <p>This page has no custom CSS. Other than the breadcrumb, it's made from standard markup with utility classes.</p>
+    <p>This page has no custom CSS. It's just HTML and utility classes.</p>
   </main>
 </div>
 
 <script>
   const tmpl = (_, i) => `
-    <div class="flex justify-content-between align-items-center pad-sm brd-b pointer">
+    <li class="flex justify-content-between align-items-center pad-sm pointer">
       <div class="mar-r-sm">
         <div class="fnt-med">Title ${i+1}</div>
         <div class="txt-gray-5 txt-sm">A description of the item long enough to wrap</div>
       </div>
-      <m-icon name="arrow-right" class="txt-md"></m-icon>
-    </div>
+      <m-icon name="arrow_right" class="txt-xl"></m-icon>
+    </li>
   `;
 
   const html = Array.from({length: 20}, tmpl).join('');
-  document.querySelector('aside').innerHTML += html;
+  document.querySelector('aside ul[type=content]').innerHTML += html;
 </script>
