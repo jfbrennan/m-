@@ -1,21 +1,22 @@
 {
-  "name": "m-",
-  "description": "Mdash is a design system based on web standards. It's extremely small (see comparison chart), fast, simple, and compatible with any JavaScript framework. \n",
-  "version": "3.2.0",
+  "name": "@ryanbethel/m-dash-enhance",
+  "description": "Enhance wrapper for Mdash. Mdash is a design system based on web standards. It's extremely small (see comparison chart), fast, simple, and compatible with any JavaScript framework. \n",
+  "version": "0.0.0",
   "homepage": "https://m-docs.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jfbrennan/m-"
+    "url": "https://github.com/ryanbethel/m-dash-enhance"
   },
-  "bugs": "https://github.com/jfbrennan/m-/issues",
+  "bugs": "https://github.com/ryanbethel/m-dash-enhance/issues",
   "files": [
-    "/dist"
+    "/elements/m",
+    "/elements/m-includes"
   ],
   "license": "MIT",
   "contributors": [
     {
-      "name": "Jordan Brennan",
-      "url": "https://github.com/jfbrennan"
+      "name": "Ryan Bethel",
+      "url": "https://github.com/ryanbethel"
     }
   ],
   "keywords": [
@@ -25,30 +26,9 @@
     "html",
     "frontend",
     "webcomponents",
-    "customelements"
+    "customelements",
+    "enhance.dev"
   ],
-  "browserslist": [
-    "last 1 version",
-    "> 5%",
-    "not dead"
-  ],
-  "scripts": {
-    "watch": "nodemon --watch src --ext css,js --exec npm run build",
-    "build": "rm -r dist; mkdir dist && npm run css && npm run css:custom-properties && npm run js && npm run icons && cp -R dist/** docs/public",
-    "css": "postcss ./src/m-all.css | lightningcss --nesting --minify -o ./dist/m-.css /dev/stdin",
-    "css:custom-properties": "cp -R src/custom-properties.css dist",
-    "icons": "cp -R src/m-.woff2 dist/m-.woff2",
-    "js": "terser ./src/*.js --mangle -o ./dist/m-.js"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.15",
-    "gulp": "^4.0.2",
-    "gulp-replace": "^1.1.4",
-    "lightningcss-cli": "^1.21.7",
-    "postcss": "^8.4.31",
-    "postcss-cli": "^10.1.0",
-    "postcss-custom-properties": "^13.3.0",
-    "postcss-import": "^15.1.0",
-    "terser": "^5.19.4"
-  }
+  "scripts": {},
+  "devDependencies": {}
 }
