@@ -9,8 +9,8 @@
   },
   "bugs": "https://github.com/ryanbethel/m-dash-enhance/issues",
   "files": [
-    "/elements/m",
-    "/elements/m-includes"
+    "/app/elements/m",
+    "/app/elements/m-includes"
   ],
   "license": "MIT",
   "contributors": [
