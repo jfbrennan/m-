@@ -9,9 +9,9 @@
   },
   "bugs": "https://github.com/ryanbethel/m-dash-enhance/issues",
   "files": [
-    "/elements/m",
+    "/app/elements/m",
     "/helpers/m",
-    "/assets/m-.woff2"
+    "/public/m-.woff2"
   ],
   "license": "MIT",
   "contributors": [
@@ -31,6 +31,13 @@
     "customelements",
     "enhance"
   ],
-  "scripts": {},
-  "devDependencies": {}
+  "scripts": {
+    "start": "enhance dev"
+  },
+  "dependencies": {
+    "@enhance/arc-plugin-enhance": "^10.0.0"
+  },
+  "devDependencies": {
+    "@enhance/cli": "^1.1.0"
+  }
 }

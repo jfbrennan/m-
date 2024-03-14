@@ -1,7 +1,7 @@
 export default function Table({ html }) {
   const { attrs } = state
-  const mAttrs = Object.entries(attrs).filter([key, value]=> key.startsWith("m-"))
-  const mAttrsSting = mAttrs.map([key, value]=> `${key.replace(/^m-/, '')}="${value}"`).join(" ") || ''
+  const mAttrs = Object.entries(attrs).filter(([key, value]) => key.startsWith("m-"))
+  const mAttrsSting = mAttrs.map(([key, value]) => `${key.replace(/^m-/, '')}="${value}"`).join(" ") || ''
   return html`
 <style>
 /* Base table styles */

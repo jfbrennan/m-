@@ -1,10 +1,13 @@
 export default function Input({ html, state }) {
   const { attrs } = state
   const attrsWithDefaults = { 'm-type': 'text', ...attrs }
-  const mAttrs = Object.entries(attrsWithDefaults).filter([key, value]=> key.startsWith("m-"))
-  const mAttrsSting = mAttrs.map([key, value]=> `${key.replace(/^m-/, '')}="${value}"`).join(" ") || ''
+  const mAttrs = Object.entries(attrsWithDefaults).filter(([key, value]) => key.startsWith("m-"))
+  const mAttrsString = mAttrs.map(([key, value]) => `${key.replace(/^m-/, '')}="${value}"`).join(" ") || ''
   return html`
 <style>
+:host {
+  display:block;
+}
 fieldset {
   margin: 0;
   padding: 0;
@@ -114,8 +117,9 @@ fieldset :is(input, select, textarea) ~ small{
 }
 </style>
 <fieldset>
-    <label>Label</label>
+    <label><slot name=label>Label<slot></label>
     <input ${mAttrsString} >
+    <small><slot name=info></slot><small>
 </fieldset>
 `
 }

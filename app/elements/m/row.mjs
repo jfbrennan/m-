@@ -10,7 +10,7 @@ export default function Row({ html }) {
   gap: var(--m-space-md);
 }
 
-:host + :host {
+:host + m-row {
   margin-top: var(--m-space-md);
 }
 

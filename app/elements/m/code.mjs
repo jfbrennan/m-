@@ -1,6 +1,6 @@
 export default function Code({ html, state }) {
   const attrs = state.store.attrs
-  const format = attrs.format || 'inline'
+  const format = attrs?.format || 'inline'
   return html`
 <style>
 /* Base code styles */

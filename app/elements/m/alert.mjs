@@ -47,7 +47,7 @@ export default function Blockquote({ html, state }) {
 <slot></slot>
 
 <script>
-class extends HTMLElement Alert() {
+class Alert extends HTMLElement {
   #initialized = false;
 
   constructor() {
