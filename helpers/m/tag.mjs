@@ -1,2 +1,2 @@
-import Tag from '@ryanbethel/m-dash-enhance/app/elements/m/tag.mjs'
+import Tag from '@ryanbethel/m-dash-enhance/elements/m/tag.mjs'
 export default Tag

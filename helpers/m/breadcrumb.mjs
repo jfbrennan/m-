@@ -1,2 +1,2 @@
-import Breadcrumb from '@ryanbethel/m-dash-enhance/app/elements/m/breadcrumb.mjs'
+import Breadcrumb from '@ryanbethel/m-dash-enhance/elements/m/breadcrumb.mjs'
 export default Breadcrumb
