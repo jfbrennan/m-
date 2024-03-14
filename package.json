@@ -9,25 +9,27 @@
   },
   "bugs": "https://github.com/ryanbethel/m-dash-enhance/issues",
   "files": [
-    "/app/elements/m",
-    "/app/elements/m-includes"
+    "/elements/m",
+    "/helpers/m",
+    "/assets/m-.woff2"
   ],
   "license": "MIT",
   "contributors": [
     {
       "name": "Ryan Bethel",
-      "url": "https://github.com/ryanbethel"
+      "url": "https://github.com/ryanbethel/m-dash-enhance"
     }
   ],
   "keywords": [
     "ui",
+    "components",
     "web",
     "css",
     "html",
     "frontend",
     "webcomponents",
     "customelements",
-    "enhance.dev"
+    "enhance"
   ],
   "scripts": {},
   "devDependencies": {}
