@@ -1,3 +1,3 @@
 # M- Components for Enhance
-This is a fork of the [m-docs.org](https://m-docs.org) components for use with Enhance.
+This is a fork of the [MDash](https://m-docs.org) components for use with Enhance.
 It is a work in progress....
