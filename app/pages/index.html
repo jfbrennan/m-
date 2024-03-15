@@ -1,7 +1,7 @@
 <m-container>
   <m-breadcrumb class="txt-sm">
     <nav class="align-items-center">
-      <a m-is href="/"><img src="/img/m-logo.png" alt="Mdash logo" width="24" class="block"></a>
+      <a m-link href="/"><img src="/img/m-logo.png" alt="Mdash logo" width="24" class="block"></a>
       <span aria-current="page">Examples</span>
     </nav>
   </m-breadcrumb>
@@ -10,19 +10,19 @@
   <m-row>
     <m-col span="4">
       <m-box>
-        <h4 class="mar-t-0"><a m-is href="/examples/checkout"  >Checkout demo</a></h4>
+        <h4 class="mar-t-0"><a m-link href="/examples/checkout"  >Checkout demo</a></h4>
         <p>A recreation of Bootstrap's Checkout example page demonstrating form elements and validation.</p>
       </m-box>
     </m-col>
     <m-col span="4">
       <m-box>
-        <h4 class="mar-t-0"><a m-is href="/examples/pricing"  >Pricing demo</a></h4>
+        <h4 class="mar-t-0"><a m-link href="/examples/pricing"  >Pricing demo</a></h4>
         <p>A recreation of Bootstrap's Pricing example page.</p>
       </m-box>
     </m-col>
     <m-col span="4">
       <m-box>
-        <h4 class="mar-t-0"><a m-is href="/examples/sidebar">Sidebar demo</a></h4>
+        <h4 class="mar-t-0"><a m-link href="/examples/sidebar">Sidebar demo</a></h4>
         <p>Custom sidebar layout using utility classes.</p>
       </m-box>
     </m-col>
@@ -32,7 +32,7 @@
 <h1 id="alert" class="txt-center txt-xxl">Alert</h1>
 <m-container>
   <h4>All types</h4>
-  <m-alert type="info">Sign up for <a m-is href="#alert" class="fnt-bold">premium</a> to see the full list</m-alert>
+  <m-alert type="info">Sign up for <a m-link href="#alert" class="fnt-bold">premium</a> to see the full list</m-alert>
   <m-alert type="success">Your order has been received! A confirmation email was sent to john@example.com</m-alert>
   <m-alert type="warn">Your flight has been canceled.</m-alert>
   <m-alert type="error">You do not have permission to delete records.</m-alert>
@@ -56,10 +56,10 @@
       <m-input><span slot=label>Email</span></m-input>
       <m-input>
         <span slot=label>Password</span>
-        <a slot=info m-is href="/forgot">Forgot password</a>
+        <a slot=info m-link href="/forgot">Forgot password</a>
       </m-input>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-is href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
   </m-box>
 </m-container>
 <m-container maxwidth="md">
@@ -70,10 +70,10 @@
       <m-input><span slot=label>Email</span></m-input>
       <m-input>
         <span slot=label>Password</span>
-        <a slot=info m-is href="/forgot">Forgot password</a>
+        <a slot=info m-link href="/forgot">Forgot password</a>
       </m-input>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-is href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
   </m-box>
 </m-container>
 <m-container>
@@ -84,10 +84,10 @@
       <m-input><span slot=label>Email</span></m-input>
       <m-input>
         <span slot=label>Password</span>
-        <a slot=info m-is href="/forgot">Forgot password</a>
+        <a slot=info m-link href="/forgot">Forgot password</a>
       </m-input>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-is href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
   </m-box>
 </m-container>
 <m-container maxwidth="none">
@@ -98,10 +98,10 @@
       <m-input><span slot=label>Email</span></m-input>
       <m-input>
         <span slot=label>Password</span>
-        <a slot=info m-is href="/forgot">Forgot password</a>
+        <a slot=info m-link href="/forgot">Forgot password</a>
       </m-input>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-is href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
   </m-box>
 </m-container>
 <hr class="mar-t-sm mar-b-sm">
@@ -232,7 +232,7 @@
             <small>Must have a number and be 6 or more characters</small>
           </fieldset>
           <m-box ord="secondary" class="mar-t-md mar-b-md"><label for="agree"><input id="agree" type="checkbox"> Sign up for weekly deals and discounts!</label></m-box>
-          <button type="submit" ord="primary" class="mar-t-md">Continue</button>
+          <button m-button type="submit" ord="primary" class="mar-t-md">Continue</button>
         </form>
       </m-box>
     </m-col>
@@ -295,21 +295,21 @@
       <fieldset>
         <label>Password</label>
         <input type="password">
-        <small><a m-is href="/forgot">Forgot password</a></small>
+        <small><a m-link href="/forgot">Forgot password</a></small>
       </fieldset>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-is href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
     <p style="max-width: 500px"><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog?</p>
   </dialog>
   <dialog id="modeless">
     <h1>Modeless</h1>
     <p>This Dialog is opened with the <m-code>show()</m-code> method, which makes it "modeless". This means the user can still interact with other elements on the page (try it, you can't do that with the other Dialog examples), which could result in the user triggering actions unintentionally, so be judicious when using this method.</p>
   </dialog>
-  <button onclick="document.querySelector('#overflowingcontent').showModal()" ord="primary">Open "overflowing content" Dialog</button>
-  <button onclick="document.querySelector('#mincontent').showModal()" ord="primary">Open "minimum content" Dialog</button>
-  <button onclick="document.querySelector('#nocontent').showModal()" ord="primary">Open "no content" Dialog</button>
-  <button onclick="document.querySelector('#hasform').showModal()" ord="primary">Open "has form" Dialog</button>
-  <button onclick="document.querySelector('#modeless').show()" ord="primary">Open "modeless" Dialog</button>
+  <button m-button onclick="document.querySelector('#overflowingcontent').showModal()" ord="primary">Open "overflowing content" Dialog</button>
+  <button m-button onclick="document.querySelector('#mincontent').showModal()" ord="primary">Open "minimum content" Dialog</button>
+  <button m-button onclick="document.querySelector('#nocontent').showModal()" ord="primary">Open "no content" Dialog</button>
+  <button m-button onclick="document.querySelector('#hasform').showModal()" ord="primary">Open "has form" Dialog</button>
+  <button m-button onclick="document.querySelector('#modeless').show()" ord="primary">Open "modeless" Dialog</button>
 </m-container>
 <hr class="mar-t-sm mar-b-sm">
 <h1 id="Forms" class="txt-center txt-xxl">Forms</h1>
@@ -341,7 +341,7 @@
     </fieldset>
     <fieldset>
       <label>Switch</label>
-      <input type="checkbox" is="switch" checked>
+      <m-switch m-type="checkbox" m-link="switch" m-checked></m-switch>
     </fieldset>
     <fieldset>
       <label>Range</label>
@@ -375,15 +375,15 @@
         <option>Three</option>
       </select>
     </fieldset>
-    <button type="submit" ord="primary">Submit</button>
-    <button type="button" ord="secondary">Cancel</button>
+    <button m-button type="submit" ord="primary">Submit</button>
+    <button m-button type="button" ord="secondary">Cancel</button>
   </form>
 </m-container>
 <hr class="mar-t-sm mar-b-sm">
 <h1 id="Details" class="txt-center txt-xxl">Details</h1>
 <m-container>
   <p>This is a short bit of info about elephants.</p>
-  <details m-is>
+  <details m-details>
     <summary><span role="link">Learn more</span></summary>
     <p>Details about this thing.</p>
     <p>And more details about this thing.</p>
@@ -396,14 +396,14 @@
   <p>Loader without <m-code>loading</m-code>: <m-loader></m-loader></p>
   <p>Loader with text: <m-loader loading>Searching...</m-loader></p>
   <h4 class="mar-b-xs">Loader used in button</h4>
-  <div>The Loader in this button is <m-code>hidden</m-code> waiting for the user to click... <button ord="primary"><m-loader loading hidden></m-loader>Save</button></div>
-  <div>When clicked, the app removes <m-code>hidden</m-code> from the Loader and adds <m-code>disabled</m-code> to the button and updates its label: <button ord="primary" disabled><m-loader loading></m-loader>Saving</button></div>
+  <div>The Loader in this button is <m-code>hidden</m-code> waiting for the user to click... <button m-button ord="primary"><m-loader loading hidden></m-loader>Save</button></div>
+  <div>When clicked, the app removes <m-code>hidden</m-code> from the Loader and adds <m-code>disabled</m-code> to the button and updates its label: <button m-button ord="primary" disabled><m-loader loading></m-loader>Saving</button></div>
   <h4>Loader and links</h4>
-  <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <m-code>loading</m-code> attribute and text based on the state of the process: <a m-is href="#"><m-loader loading>Pause</m-loader></a> / <a m-is href="#"><m-loader>Resume</m-loader></a></p>
+  <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <m-code>loading</m-code> attribute and text based on the state of the process: <a m-link href="#"><m-loader loading>Pause</m-loader></a> / <a m-link href="#"><m-loader>Resume</m-loader></a></p>
   <p>This Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
   <div class="txt-center" style="width: 400px">
     <m-loader loading class="block">Downloading...</m-loader>
-    <a m-is href="" class="block mar-t-xs txt-xs">Stop</a>
+    <a m-link href="" class="block mar-t-xs txt-xs">Stop</a>
   </div>
   <h4>Loader size</h4>
   <p>Explicit font-size of 70px:</p>
@@ -424,19 +424,19 @@
 <m-container>
   <h4>Basic Menu with links</h4>
   <m-menu>
-    <button slot="trigger" ord="primary">Open menu</button>
+    <button m-button slot="trigger" ord="primary">Open menu</button>
     <div slot="items">
-      <a m-is href="">Link A</a>
-      <a m-is href="">Link B</a>
-      <a m-is href="">Link C</a>
+      <a m-link href="">Link A</a>
+      <a m-link href="">Link B</a>
+      <a m-link href="">Link C</a>
     </div>
   </m-menu>
   <h4>Menu with custom content and min-width: 300px</h4>
   <m-menu>
-    <button slot="trigger" ord="primary">Open menu</button>
+    <button m-button slot="trigger" ord="primary">Open menu</button>
     <div slot="items" class="pad-sm" style="min-width: 300px">
       <div class="fnt-med">Text Here</div>
-      <div class="mar-t-xs">Some more text with a <a m-is>link</a></div>
+      <div class="mar-t-xs">Some more text with a <a m-link>link</a></div>
 
     </div>
   </m-menu>
@@ -492,7 +492,7 @@
 <h1 id="table" class="txt-center txt-xxl">Tables</h1>
 <m-container>
   <h4>Basic table</h4>
-  <table>
+  <m-table>
     <thead>
     <tr>
       <th>Column heading</th>
@@ -509,7 +509,7 @@
       <td>Cell</td>
     </tr>
     </tbody>
-  </table>
+  </m-table>
 </m-container>
 
 
@@ -518,30 +518,29 @@
 <m-container>
   <h4>Basic tabs</h4>
   <m-tabs role="tablist">
-    <button role="tab" aria-selected="true">Accounts</button>
-    <button role="tab">Payments</button>
-    <button role="tab">Transfers</button>
-    <button role="tab">Security</button>
+    <button m-button role="tab" aria-selected="true">Accounts</button>
+    <button m-button role="tab">Payments</button>
+    <button m-button role="tab">Transfers</button>
+    <button m-button role="tab">Security</button>
   </m-tabs>
   <h4>With icons</h4>
   <m-tabs role="tablist">
-    <button role="tab" aria-selected="true"><m-icon name="home"></m-icon> Accounts</button>
-    <button role="tab"><m-icon name="wallet"></m-icon> Payments</button>
-    <button role="tab"><m-icon name="attach_money"></m-icon> Transfers</button>
-    <button role="tab"><m-icon name="lock"></m-icon> Security</button>
+    <button m-button role="tab" aria-selected="true"><m-icon name="home"></m-icon> Accounts</button>
+    <button m-button role="tab"><m-icon name="wallet"></m-icon> Payments</button>
+    <button m-button role="tab"><m-icon name="attach_money"></m-icon> Transfers</button>
+    <button m-button role="tab"><m-icon name="lock"></m-icon> Security</button>
   </m-tabs>
   <h4>Scrollable</h4>
   <div style="width: 318px">
     <m-tabs role="tablist" scrollable>
-      <button role="tab" aria-selected="true">Accounts</button>
-      <button role="tab">Payments</button>
-      <button role="tab">Transfers</button>
-      <button role="tab">Security</button>
+      <button m-button role="tab" aria-selected="true">Accounts</button>
+      <button m-button role="tab">Payments</button>
+      <button m-button role="tab">Transfers</button>
+      <button m-button role="tab">Security</button>
     </m-tabs>
   </div>
 </m-container>
 
-<m-global-styles></m-global-styles>
-<m-is-includes m-include="all"></m-is-includes>
+<m-include-styles include="all" ></m-include-styles>
 
 

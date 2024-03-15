@@ -61,6 +61,7 @@ class Alert extends HTMLElement {
       if (this.getAttribute('dismissible') !== 'false') {
         const dismissBtn = document.createElement('button');
         dismissBtn.setAttribute('type', 'remove');
+        dismissBtn.setAttribute('m-is', '');
         dismissBtn.setAttribute('aria-label', 'Dismiss alert');
         dismissBtn.addEventListener('click', () => this.dismiss());
         this.append(dismissBtn);

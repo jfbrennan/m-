@@ -1,10 +1,13 @@
-export default function Table({ html }) {
+export default function Table({ html, state }) {
   const { attrs } = state
   const mAttrs = Object.entries(attrs).filter(([key, value]) => key.startsWith("m-"))
-  const mAttrsSting = mAttrs.map(([key, value]) => `${key.replace(/^m-/, '')}="${value}"`).join(" ") || ''
+  const mAttrsString = mAttrs.map(([key, value]) => `${key.replace(/^m-/, '')}="${value}"`).join(" ") || ''
   return html`
 <style>
 /* Base table styles */
+:host {
+  display:block;
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -49,6 +52,6 @@ table[striped] > tbody tr:nth-of-type(odd) { background-color: var(--m-color-gra
 
 
 </style>
-<table ${mAttrsString} ><slot></slot></table>
+<table ${mAttrsString}><slot></slot></table>
 `}
 

@@ -15,7 +15,7 @@ fieldset {
   position: relative;
 }
 
-fieldset + :is(fieldset, button[ord], a[role=button]) { margin-top: var(--m-space-md) }
+fieldset + :is(m-input, fieldset, button[ord], a[role=button]) { margin-top: var(--m-space-md) }
 
 fieldset input:not([type=radio]):not([type=checkbox]),
 fieldset :is(label, select) {
@@ -91,7 +91,7 @@ fieldset input[type=range]::-webkit-slider-thumb:focus-visible {
   /*  margin: 0;*/
   /*}*/
 
-fieldset :is(label, input, select, textarea, small) + fieldset :is(label, input, select, textarea, small) {
+:host + :is(m-input, fieldset, label, input, select, textarea, small) {
   margin-top: var(--m-space-xs);
 }
 
