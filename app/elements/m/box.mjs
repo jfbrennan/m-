@@ -26,7 +26,7 @@ export default function Box({ html, state }) {
   border-top-right-radius: var(--m-border-radius-md);
 }
 
-:host + :host {margin-top: var(--m-space-md) }
+:host + m-box {margin-top: var(--m-space-md) }
 
 @media only screen and (max-width: 600px) {
   :host { padding: var(--m-space-sm) }

@@ -18,4 +18,5 @@ export default function Loader({ html }) {
   100% { transform: rotate(360deg) }
   }
 </style>
+<slot></slot>
 `}

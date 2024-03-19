@@ -222,15 +222,13 @@
       <m-box>
         <h2 class="mar-t-0 txt-center">Create an account</h2>
         <form>
-          <fieldset>
-            <label>Email</label>
-            <input type="email">
-          </fieldset>
-          <fieldset>
-            <label>Password</label>
-            <input type="password">
-            <small>Must have a number and be 6 or more characters</small>
-          </fieldset>
+          <m-input m-type=email>
+            <span slot=label>Email</span>
+          </m-input>
+          <m-input m-type=password>
+            <span slot=label>Password</span>
+            <span slot=info>Must have a number and be 6 or more characters</span>
+          </m-input>
           <m-box ord="secondary" class="mar-t-md mar-b-md"><label for="agree"><input id="agree" type="checkbox"> Sign up for weekly deals and discounts!</label></m-box>
           <button m-button type="submit" ord="primary" class="mar-t-md">Continue</button>
         </form>
@@ -288,15 +286,13 @@
   <dialog id="hasform">
     <h1 class="txt-center">Log in</h1>
     <form>
-      <fieldset>
-        <label>Email</label>
-        <input type="email">
-      </fieldset>
-      <fieldset>
-        <label>Password</label>
-        <input type="password">
-        <small><a m-link href="/forgot">Forgot password</a></small>
-      </fieldset>
+      <m-input m-type=email>
+        <span slot=label>Email</span>
+      </m-input>
+      <m-input m-type=password>
+        <span slot=label>Password</span>
+        <span slot=info> <a m-link href="/forgot">Forgot password</a></span>
+      </m-input>
     </form>
     <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
     <p style="max-width: 500px"><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog?</p>
@@ -384,7 +380,7 @@
 <m-container>
   <p>This is a short bit of info about elephants.</p>
   <details m-details>
-    <summary><span role="link">Learn more</span></summary>
+    <summary><span m-link role="link">Learn more</span></summary>
     <p>Details about this thing.</p>
     <p>And more details about this thing.</p>
   </details>

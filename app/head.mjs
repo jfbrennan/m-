@@ -9,5 +9,6 @@ export default function Head() {
       <link rel="icon" href="/_public/favicon.svg">
       <meta name="description" content="The HTML first full stack web framework.">
     </head>
+    <body class="bg-gray-1">
 `
 }

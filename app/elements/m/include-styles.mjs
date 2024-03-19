@@ -22,4 +22,6 @@ ${(components.includes('m-details') || includeAll) ?
       '<m-include-styles-details></m-include-styles-details>' : ''}
 ${(components.includes('m-rule') || includeAll) ?
       '<m-include-styles-rule></m-include-styles-rule>' : ''}
+${(components.includes('m-switch') || includeAll) ?
+      '<m-include-styles-switch></m-include-styles-switch>' : ''}
 `}
