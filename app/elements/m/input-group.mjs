@@ -1,8 +1,4 @@
-export default function Input({ html, state }) {
-  const { attrs } = state
-  const attrsWithDefaults = { 'm-type': 'text', ...attrs }
-  const mAttrs = Object.entries(attrsWithDefaults).filter(([key, value]) => key.startsWith("m-"))
-  const mAttrsString = mAttrs.map(([key, value]) => `${key.replace(/^m-/, '')}="${value}"`).join(" ") || ''
+export default function InputGroup({ html, state }) {
   return html`
 <style>
 :host {
@@ -15,7 +11,7 @@ fieldset {
   position: relative;
 }
 
-fieldset + :is(m-input, fieldset, button[ord], a[role=button]) { margin-top: var(--m-space-md) }
+:host + :is(m-input-group, fieldset, button[ord], a[role=button]) { margin-top: var(--m-space-md) }
 
 fieldset input:not([type=radio]):not([type=checkbox]),
 fieldset :is(label, select) {
@@ -117,9 +113,7 @@ fieldset :is(input, select, textarea) ~ small{
 }
 </style>
 <fieldset>
-    <label><slot name=label>Label<slot></label>
-    <input ${mAttrsString} >
-    <small><slot name=info></slot><small>
+  <slot></slot>
 </fieldset>
 `
 }

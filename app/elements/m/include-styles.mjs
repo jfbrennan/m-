@@ -10,18 +10,8 @@ export default function Styles({ html, state }) {
   }
 </style>
 
-<m-include-styles-global></m-include-styles-global>
-
 ${(components.includes('m-button') || includeAll) ?
       '<m-include-styles-button></m-include-styles-button>' : ''}
 ${(components.includes('m-table') || includeAll) ?
       '<m-include-styles-table></m-include-styles-table>' : ''}
-${(components.includes('m-link') || includeAll) ?
-      '<m-include-styles-link></m-include-styles-link>' : ''}
-${(components.includes('m-details') || includeAll) ?
-      '<m-include-styles-details></m-include-styles-details>' : ''}
-${(components.includes('m-rule') || includeAll) ?
-      '<m-include-styles-rule></m-include-styles-rule>' : ''}
-${(components.includes('m-switch') || includeAll) ?
-      '<m-include-styles-switch></m-include-styles-switch>' : ''}
 `}

@@ -1,7 +1,7 @@
 <m-container>
   <m-breadcrumb class="txt-sm">
     <nav class="align-items-center">
-      <a m-link href="/"><img src="/img/m-logo.png" alt="Mdash logo" width="24" class="block"></a>
+      <m-link href="/"><img src="/img/m-logo.png" alt="Mdash logo" width="24" class="block"></m-link>
       <span aria-current="page">Examples</span>
     </nav>
   </m-breadcrumb>
@@ -10,29 +10,29 @@
   <m-row>
     <m-col span="4">
       <m-box>
-        <h4 class="mar-t-0"><a m-link href="/examples/checkout"  >Checkout demo</a></h4>
+        <h4 class="mar-t-0"><m-link href="/examples/checkout"  >Checkout demo</m-link></h4>
         <p>A recreation of Bootstrap's Checkout example page demonstrating form elements and validation.</p>
       </m-box>
     </m-col>
     <m-col span="4">
       <m-box>
-        <h4 class="mar-t-0"><a m-link href="/examples/pricing"  >Pricing demo</a></h4>
+        <h4 class="mar-t-0"><m-link href="/examples/pricing"  >Pricing demo</m-link></h4>
         <p>A recreation of Bootstrap's Pricing example page.</p>
       </m-box>
     </m-col>
     <m-col span="4">
       <m-box>
-        <h4 class="mar-t-0"><a m-link href="/examples/sidebar">Sidebar demo</a></h4>
+        <h4 class="mar-t-0"><m-link href="/examples/sidebar">Sidebar demo</m-link></h4>
         <p>Custom sidebar layout using utility classes.</p>
       </m-box>
     </m-col>
   </m-row>
 </m-container>
-<hr class="mar-t-sm mar-b-sm">
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
 <h1 id="alert" class="txt-center txt-xxl">Alert</h1>
 <m-container>
   <h4>All types</h4>
-  <m-alert type="info">Sign up for <a m-link href="#alert" class="fnt-bold">premium</a> to see the full list</m-alert>
+  <m-alert type="info">Sign up for <m-link href="#alert" class="fnt-bold">premium</m-link> to see the full list</m-alert>
   <m-alert type="success">Your order has been received! A confirmation email was sent to john@example.com</m-alert>
   <m-alert type="warn">Your flight has been canceled.</m-alert>
   <m-alert type="error">You do not have permission to delete records.</m-alert>
@@ -46,20 +46,24 @@
 <!--    <m-alert type="error" autodismiss="7">Goodbye in 7...</m-alert>-->
 <!--  </div>-->
 </m-container>
-<hr class="mar-t-sm mar-b-sm">
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
 <h1 id="Containers" class="txt-center txt-xxl">Container</h1>
 <m-container maxwidth="sm">
   <h4>Small container</h4>
   <m-box ord="primary">
     <h1 class="txt-center">Log in</h1>
     <form>
-      <m-input><span slot=label>Email</span></m-input>
-      <m-input>
-        <span slot=label>Password</span>
-        <a slot=info m-link href="/forgot">Forgot password</a>
-      </m-input>
+      <m-input-group>
+        <label>Email</label>
+        <input type=email>
+      </m-input-group>
+      <m-input-group>
+        <label>Password</label>
+        <input type=password>
+        <small><m-link href="/forgot">Forgot password</m-link></small>
+      </m-input-group>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
   </m-box>
 </m-container>
 <m-container maxwidth="md">
@@ -67,13 +71,17 @@
   <m-box ord="primary">
     <h1 class="txt-center">Log in</h1>
     <form>
-      <m-input><span slot=label>Email</span></m-input>
-      <m-input>
-        <span slot=label>Password</span>
-        <a slot=info m-link href="/forgot">Forgot password</a>
-      </m-input>
+      <m-input-group>
+        <label>Email</label>
+        <input type=email>
+      </m-input-group>
+      <m-input-group>
+        <label>Password</label>
+        <input type=password>
+        <small><m-link href="/forgot">Forgot password</m-link></small>
+      </m-input-group>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
   </m-box>
 </m-container>
 <m-container>
@@ -81,13 +89,17 @@
   <m-box ord="primary">
     <h1 class="txt-center">Log in</h1>
     <form>
-      <m-input><span slot=label>Email</span></m-input>
-      <m-input>
-        <span slot=label>Password</span>
-        <a slot=info m-link href="/forgot">Forgot password</a>
-      </m-input>
+      <m-input-group>
+        <label>Email</label>
+        <input type=email>
+      </m-input-group>
+      <m-input-group>
+        <label>Password</label>
+        <input type=password>
+        <small><m-link href="/forgot">Forgot password</m-link></small>
+      </m-input-group>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
   </m-box>
 </m-container>
 <m-container maxwidth="none">
@@ -95,16 +107,20 @@
   <m-box ord="primary">
     <h1 class="txt-center">Log in</h1>
     <form>
-      <m-input><span slot=label>Email</span></m-input>
-      <m-input>
-        <span slot=label>Password</span>
-        <a slot=info m-link href="/forgot">Forgot password</a>
-      </m-input>
+      <m-input-group>
+        <label>Email</label>
+        <input type=email>
+      </m-input-group>
+      <m-input-group>
+        <label>Password</label>
+        <input type=password>
+        <small><m-link href="/forgot">Forgot password</m-link></small>
+      </m-input-group>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
   </m-box>
 </m-container>
-<hr class="mar-t-sm mar-b-sm">
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
 <h1 id="Grids" class="txt-center txt-xxl">Grids</h1>
 <m-container>
   <h4>Auto-span</h4>
@@ -190,7 +206,7 @@
     <m-col span="9 sm-12 md-7"><m-box>This column spans 9 on lg screens, 7 on md, and 12 on sm.</m-box></m-col>
   </m-row>
 </m-container>
-<hr class="mar-t-sm mar-b-sm">
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
 <h1 id="Boxes" class="txt-center txt-xxl">Boxes</h1>
 <m-container>
   <h4>Default</h4>
@@ -222,13 +238,15 @@
       <m-box>
         <h2 class="mar-t-0 txt-center">Create an account</h2>
         <form>
-          <m-input m-type=email>
-            <span slot=label>Email</span>
-          </m-input>
-          <m-input m-type=password>
-            <span slot=label>Password</span>
-            <span slot=info>Must have a number and be 6 or more characters</span>
-          </m-input>
+          <m-input-group m-type=email>
+            <label>Email</label>
+            <input type=email>
+          </m-input-group>
+          <m-input-group>
+            <label>Password</label>
+            <input type=password>
+            <small>Must have a number and be 6 or more characters</small>
+          </m-input-group>
           <m-box ord="secondary" class="mar-t-md mar-b-md"><label for="agree"><input id="agree" type="checkbox"> Sign up for weekly deals and discounts!</label></m-box>
           <button m-button type="submit" ord="primary" class="mar-t-md">Continue</button>
         </form>
@@ -236,7 +254,7 @@
     </m-col>
   </m-row>
 </m-container>
-<hr class="mar-t-sm mar-b-sm">
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
 <h1 id="Dialogs" class="txt-center txt-xxl">Dialogs</h1>
 <m-container>
   <dialog id="overflowingcontent">
@@ -291,10 +309,10 @@
       </m-input>
       <m-input m-type=password>
         <span slot=label>Password</span>
-        <span slot=info> <a m-link href="/forgot">Forgot password</a></span>
+        <span slot=info> <m-link href="/forgot">Forgot password</m-link></span>
       </m-input>
     </form>
-    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <a m-link href="/sign-up">Sign up</a></div>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
     <p style="max-width: 500px"><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog?</p>
   </dialog>
   <dialog id="modeless">
@@ -307,43 +325,43 @@
   <button m-button onclick="document.querySelector('#hasform').showModal()" ord="primary">Open "has form" Dialog</button>
   <button m-button onclick="document.querySelector('#modeless').show()" ord="primary">Open "modeless" Dialog</button>
 </m-container>
-<hr class="mar-t-sm mar-b-sm">
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
 <h1 id="Forms" class="txt-center txt-xxl">Forms</h1>
 <m-container>
   <h4>Everything form</h4>
   <form>
-    <fieldset>
+    <m-input-group>
       <label>Text inputs</label>
       <input type="text" placeholder="Text">
       <input type="email" placeholder="Email">
       <input type="number" placeholder="Number">
       <input type="password" placeholder="Password">
-    </fieldset>
-    <fieldset>
+    </m-input-group>
+    <m-input-group>
       <label>Text area</label>
       <textarea rows="3"></textarea>
-    </fieldset>
-    <fieldset>
+    </m-input-group>
+    <m-input-group>
       <label>Checkbox</label>
       <input type="checkbox"><label>One</label>
       <input type="checkbox"><label>Two</label>
       <input type="checkbox"><label>Three</label>
-    </fieldset>
-    <fieldset>
+    </m-input-group>
+    <m-input-group>
       <label>Radio</label>
       <input type="radio"><label>One</label>
       <input type="radio"><label>Two</label>
       <input type="radio"><label>Three</label>
-    </fieldset>
-    <fieldset>
+    </m-input-group>
+    <m-input-group>
       <label>Switch</label>
       <m-switch m-type="checkbox" m-link="switch" m-checked></m-switch>
-    </fieldset>
-    <fieldset>
+    </m-input-group>
+    <m-input-group>
       <label>Range</label>
       <input type="range">
-    </fieldset>
-    <fieldset>
+    </m-input-group>
+    <m-input-group>
       <label>Selects</label>
       <select>
         <option>Single...</option>
@@ -370,20 +388,20 @@
         <option>Two</option>
         <option>Three</option>
       </select>
-    </fieldset>
+    </m-input-group>
     <button m-button type="submit" ord="primary">Submit</button>
     <button m-button type="button" ord="secondary">Cancel</button>
   </form>
 </m-container>
-<hr class="mar-t-sm mar-b-sm">
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
 <h1 id="Details" class="txt-center txt-xxl">Details</h1>
 <m-container>
   <p>This is a short bit of info about elephants.</p>
-  <details m-details>
-    <summary><span m-link role="link">Learn more</span></summary>
+  <m-details>
+    <summary><m-link>Learn more</m-link></summary>
     <p>Details about this thing.</p>
     <p>And more details about this thing.</p>
-  </details>
+  </m-details>
 </m-container>
 <h1 id="Loader" class="txt-center txt-xxl">Loader</h1>
 <m-container>
@@ -395,11 +413,11 @@
   <div>The Loader in this button is <m-code>hidden</m-code> waiting for the user to click... <button m-button ord="primary"><m-loader loading hidden></m-loader>Save</button></div>
   <div>When clicked, the app removes <m-code>hidden</m-code> from the Loader and adds <m-code>disabled</m-code> to the button and updates its label: <button m-button ord="primary" disabled><m-loader loading></m-loader>Saving</button></div>
   <h4>Loader and links</h4>
-  <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <m-code>loading</m-code> attribute and text based on the state of the process: <a m-link href="#"><m-loader loading>Pause</m-loader></a> / <a m-link href="#"><m-loader>Resume</m-loader></a></p>
+  <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <m-code>loading</m-code> attribute and text based on the state of the process: <m-link href="#"><m-loader loading>Pause</m-loader></m-link> / <m-link href="#"><m-loader>Resume</m-loader></m-link></p>
   <p>This Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
   <div class="txt-center" style="width: 400px">
     <m-loader loading class="block">Downloading...</m-loader>
-    <a m-link href="" class="block mar-t-xs txt-xs">Stop</a>
+    <m-link href="" class="block mar-t-xs txt-xs">Stop</m-link>
   </div>
   <h4>Loader size</h4>
   <p>Explicit font-size of 70px:</p>
@@ -422,9 +440,9 @@
   <m-menu>
     <button m-button slot="trigger" ord="primary">Open menu</button>
     <div slot="items">
-      <a m-link href="">Link A</a>
-      <a m-link href="">Link B</a>
-      <a m-link href="">Link C</a>
+      <m-link href="">Link A</m-link>
+      <m-link href="">Link B</m-link>
+      <m-link href="">Link C</m-link>
     </div>
   </m-menu>
   <h4>Menu with custom content and min-width: 300px</h4>
@@ -432,7 +450,7 @@
     <button m-button slot="trigger" ord="primary">Open menu</button>
     <div slot="items" class="pad-sm" style="min-width: 300px">
       <div class="fnt-med">Text Here</div>
-      <div class="mar-t-xs">Some more text with a <a m-link>link</a></div>
+      <div class="mar-t-xs">Some more text with a <m-link>link</m-link></div>
 
     </div>
   </m-menu>
@@ -442,9 +460,9 @@
 <h1 id="switch" class="txt-center txt-xxl">Switch</h1>
 <m-container>
   <h4>Checked, unchecked, and disabled</h4>
-  <input type="checkbox" is="switch" checked>
-  <input type="checkbox" is="switch">
-  <input type="checkbox" is="switch" disabled>
+  <m-switch  checked></m-switch>
+  <m-switch ></m-switch>
+  <m-switch  disabled></m-switch>
   <h4>Standalone in a custom layout</h4>
   <m-box ord="secondary" class="inline-flex flx-col align-items-center pad-b-lg">
     <div class="flex align-items-center mar-b-lg">
@@ -452,7 +470,7 @@
       <span class="mar-r-xs">Alarm</span>
       <span class="txt-md fnt-bold">7:00<span class="txt-xs fnt-regular" style="margin-left: 2px">AM</span></span>
     </div>
-    <input type="checkbox" is="switch" checked>
+    <m-switch  checked></m-switch>
   </m-box>
   <h4>In a Box as a form of options</h4>
   <m-row>
@@ -462,19 +480,19 @@
         <form>
           <fieldset class="flex justify-content-between align-items-center">
             <label>SMS</label>
-            <input type="checkbox" is="switch" name="sms" checked>
+            <m-switch  checked name="sms"></m-switch>
           </fieldset>
           <fieldset class="flex justify-content-between align-items-center">
             <label>Email</label>
-            <input type="checkbox" is="switch" name="email" checked>
+            <m-switch  checked name="email"></m-switch>
           </fieldset>
           <fieldset class="flex justify-content-between align-items-center">
             <label>Hand-written letter</label>
-            <input type="checkbox" is="switch" name="letter">
+            <m-switch  checked name="letter"></m-switch>
           </fieldset>
           <fieldset class="flex flx-wrap justify-content-between align-items-center">
             <label>Smoke signal</label>
-            <input type="checkbox" is="switch" name="smoke" disabled>
+            <m-switch  checked name="smoke"></m-switch>
             <small class="width-full">Currently unavailable</small>
           </fieldset>
         </form>
