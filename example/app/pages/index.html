@@ -1,0 +1,562 @@
+<m-container>
+  <m-breadcrumb class="txt-sm">
+    <nav class="align-items-center">
+      <m-link href="/"><img src="/img/m-logo.png" alt="Mdash logo" width="24" class="block"></m-link>
+      <span aria-current="page">Examples</span>
+    </nav>
+  </m-breadcrumb>
+  <h1 class="mar-b-xs">Example Pages</h1>
+  <h2 class="txt-gray-5 mar-t-0">Take a look at one of these example pages or scroll down to see tons of component examples</h2>
+  <m-row>
+    <m-col span="4">
+      <m-box>
+        <h4 class="mar-t-0"><m-link href="/examples/checkout"  >Checkout demo</m-link></h4>
+        <p>A recreation of Bootstrap's Checkout example page demonstrating form elements and validation.</p>
+      </m-box>
+    </m-col>
+    <m-col span="4">
+      <m-box>
+        <h4 class="mar-t-0"><m-link href="/examples/pricing"  >Pricing demo</m-link></h4>
+        <p>A recreation of Bootstrap's Pricing example page.</p>
+      </m-box>
+    </m-col>
+    <m-col span="4">
+      <m-box>
+        <h4 class="mar-t-0"><m-link href="/examples/sidebar">Sidebar demo</m-link></h4>
+        <p>Custom sidebar layout using utility classes.</p>
+      </m-box>
+    </m-col>
+  </m-row>
+</m-container>
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
+<h1 id="alert" class="txt-center txt-xxl">Alert</h1>
+<m-container>
+  <h4>All types</h4>
+  <m-alert type="info">Sign up for <m-link href="#alert" class="fnt-bold">premium</m-link> to see the full list</m-alert>
+  <m-alert type="success">Your order has been received! A confirmation email was sent to john@example.com</m-alert>
+  <m-alert type="warn">Your flight has been canceled.</m-alert>
+  <m-alert type="error">You do not have permission to delete records.</m-alert>
+  <h4>Not dismissible</h4>
+  <m-alert type="info" dismissible="false">You can't get rid of me.</m-alert>
+<!--  <h4>Autodismiss (default of 4 seconds and 5, 6, 7 seconds)</h4>-->
+<!--  <div>-->
+<!--    <m-alert type="info" autodismiss>Goodbye in 4...</m-alert>-->
+<!--    <m-alert type="success" autodismiss="5">Goodbye in 5...</m-alert>-->
+<!--    <m-alert type="warn" autodismiss="6">Goodbye in 6...</m-alert>-->
+<!--    <m-alert type="error" autodismiss="7">Goodbye in 7...</m-alert>-->
+<!--  </div>-->
+</m-container>
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
+<h1 id="Containers" class="txt-center txt-xxl">Container</h1>
+<m-container maxwidth="sm">
+  <h4>Small container</h4>
+  <m-box ord="primary">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <m-input-group>
+        <label>Email</label>
+        <input type=email>
+      </m-input-group>
+      <m-input-group>
+        <label>Password</label>
+        <input type=password>
+        <small><m-link href="/forgot">Forgot password</m-link></small>
+      </m-input-group>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
+  </m-box>
+</m-container>
+<m-container maxwidth="md">
+  <h4>Medium container</h4>
+  <m-box ord="primary">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <m-input-group>
+        <label>Email</label>
+        <input type=email>
+      </m-input-group>
+      <m-input-group>
+        <label>Password</label>
+        <input type=password>
+        <small><m-link href="/forgot">Forgot password</m-link></small>
+      </m-input-group>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
+  </m-box>
+</m-container>
+<m-container>
+  <h4>Default container</h4>
+  <m-box ord="primary">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <m-input-group>
+        <label>Email</label>
+        <input type=email>
+      </m-input-group>
+      <m-input-group>
+        <label>Password</label>
+        <input type=password>
+        <small><m-link href="/forgot">Forgot password</m-link></small>
+      </m-input-group>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
+  </m-box>
+</m-container>
+<m-container maxwidth="none">
+  <h4>maxwidth=none container</h4>
+  <m-box ord="primary">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <m-input-group>
+        <label>Email</label>
+        <input type=email>
+      </m-input-group>
+      <m-input-group>
+        <label>Password</label>
+        <input type=password>
+        <small><m-link href="/forgot">Forgot password</m-link></small>
+      </m-input-group>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
+  </m-box>
+</m-container>
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
+<h1 id="Grids" class="txt-center txt-xxl">Grids</h1>
+<m-container>
+  <h4>Auto-span</h4>
+  <m-row>
+    <m-col>
+      <m-box>One column in one row.</m-box></m-col>
+  </m-row>
+  <m-row>
+    <m-col>
+      <m-box>Two columns...</m-box></m-col>
+    <m-col>
+      <m-box>in another row.</m-box></m-col>
+  </m-row>
+  <m-row>
+    <m-col>
+      <m-box>Three columns...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>in...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>yet another row.</m-box>
+    </m-col>
+  </m-row>
+  <h4>Span size and auto-span</h4>
+  <m-row>
+    <m-col span="3">
+      <m-box>One column with <m-code>span="3"</m-code>...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>and a second column fills remaining space.</m-box>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col span="3">
+      <m-box>One column with <m-code>span="3"</m-code>...</m-box>
+    </m-col>
+    <m-col span="4">
+      <m-box>another with <m-code>span="4"</m-code>...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>and a third column fills remaining space.</m-box>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col span="7">
+      <m-box>One column with <m-code>span="7"</m-code> and no other columns.</m-box>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col span="7">
+      <m-box>One column with <m-code>span="7"</m-code>...</m-box>
+    </m-col>
+    <m-col span="5">
+      <m-box>another with <m-code>span="5"</m-code> to make 12.</m-box>
+    </m-col>
+  </m-row>
+  <m-row>
+    <m-col span="7">
+      <m-box>One column with <m-code>span="7"</m-code>...</m-box>
+    </m-col>
+    <m-col span="6">
+      <m-box>and another with <m-code>span="6"</m-code>, which exceeds the 12 column grid. <span class="fnt-bold fnt-italic">Avoid!</span></m-box>
+    </m-col>
+  </m-row>
+  <h4>Centering columns</h4>
+  <m-row center>
+    <m-col>
+      <m-box>One auto-span column inside a <m-code>center</m-code>ed row.</m-box>
+    </m-col>
+  </m-row>
+  <m-row center>
+    <m-col span="3">
+      <m-box>One column with <m-code>span="3"</m-code>...</m-box>
+    </m-col>
+    <m-col>
+      <m-box>and one with the default auto-span inside a <m-code>center</m-code>ed row.</m-box>
+    </m-col>
+  </m-row>
+  <h4>Responsive columns</h4>
+  <m-row>
+    <m-col span="3 sm-12 md-5"><m-box>This column spans 3 on lg screens, 5 on md, and 12 on sm.</m-box></m-col>
+    <m-col span="9 sm-12 md-7"><m-box>This column spans 9 on lg screens, 7 on md, and 12 on sm.</m-box></m-col>
+  </m-row>
+</m-container>
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
+<h1 id="Boxes" class="txt-center txt-xxl">Boxes</h1>
+<m-container>
+  <h4>Default</h4>
+  <div>Regular text on the page.</div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <m-box>
+    <div>Regular text in a Box.</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </m-box>
+  <m-box ord="secondary">
+    <div>Regular text in a secondary Box.</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </m-box>
+  <h4>Three in a row</h4>
+  <m-row>
+    <m-col>
+      <div>Regular text on the page</div>
+    </m-col>
+    <m-col>
+      <m-box>Regular text in a Box</m-box>
+    </m-col>
+    <m-col>
+      <m-box ord="secondary">Regular text in a secondary Box</m-box>
+    </m-col>
+  </m-row>
+  <h4>Nesting a secondary Box</h4>
+  <m-row>
+    <m-col span="5">
+      <m-box>
+        <h2 class="mar-t-0 txt-center">Create an account</h2>
+        <form>
+          <m-input-group>
+            <label>Email</label>
+            <input type=email>
+          </m-input-group>
+          <m-input-group>
+            <label>Password</label>
+            <input type=password>
+            <small>Must have a number and be 6 or more characters</small>
+          </m-input-group>
+          <m-box ord="secondary" class="mar-t-md mar-b-md"><label for="agree"><input id="agree" type="checkbox"> Sign up for weekly deals and discounts!</label></m-box>
+          <m-button type="submit" ord="primary" class="mar-t-md">Continue</m-button>
+        </form>
+      </m-box>
+    </m-col>
+  </m-row>
+</m-container>
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
+<h1 id="Dialogs" class="txt-center txt-xxl">Dialogs</h1>
+<m-container>
+  <dialog id="overflowingcontent">
+    <h2>Title</h2>
+    <p>Body lorem ipsum</p>
+    <p>Regular text on the page.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <m-box>
+      <p>Regular text in a Box.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </m-box>
+    <p>Body lorem ipsum</p>
+    <p>Regular text on the page.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <m-box>
+      <p>Regular text in a Box.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </m-box>
+    <p>Body lorem ipsum</p>
+    <p>Regular text on the page.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <m-box>
+      <p>Regular text in a Box.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </m-box>
+    <p>Body lorem ipsum</p>
+    <p>Regular text on the page.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <m-box>
+      <p>Regular text in a Box.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </m-box>
+  </dialog>
+  <dialog id="mincontent">
+    <div>Text</div>
+  </dialog>
+  <dialog id="nocontent">
+  </dialog>
+  <dialog id="hasform">
+    <h1 class="txt-center">Log in</h1>
+    <form>
+      <m-input m-type=email>
+        <span slot=label>Email</span>
+      </m-input>
+      <m-input m-type=password>
+        <span slot=label>Password</span>
+        <span slot=info> <m-link href="/forgot">Forgot password</m-link></span>
+      </m-input>
+    </form>
+    <div class="mar-t-lg mar-b-lg txt-center">Not a member? <m-link href="/sign-up">Sign up</m-link></div>
+    <p style="max-width: 500px"><span class="fnt-bold"><m-icon name="bulb"></m-icon>Tip:</span> This content retains its state after the Dialog is closed. Try filling in the form then close the Dialog and and re-open. See how the state of the DOM was not changed by Dialog?</p>
+  </dialog>
+  <dialog id="modeless">
+    <h1>Modeless</h1>
+    <p>This Dialog is opened with the <m-code>show()</m-code> method, which makes it "modeless". This means the user can still interact with other elements on the page (try it, you can't do that with the other Dialog examples), which could result in the user triggering actions unintentionally, so be judicious when using this method.</p>
+  </dialog>
+  <m-button onclick="document.querySelector('#overflowingcontent').showModal()" ord="primary">Open "overflowing content" Dialog</m-button>
+  <m-button onclick="document.querySelector('#mincontent').showModal()" ord="primary">Open "minimum content" Dialog</m-button>
+  <m-button onclick="document.querySelector('#nocontent').showModal()" ord="primary">Open "no content" Dialog</m-button>
+  <m-button onclick="document.querySelector('#hasform').showModal()" ord="primary">Open "has form" Dialog</m-button>
+  <m-button onclick="document.querySelector('#modeless').show()" ord="primary">Open "modeless" Dialog</m-button>
+</m-container>
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
+<h1 id="Forms" class="txt-center txt-xxl">Forms</h1>
+<m-container>
+  <h4>Everything form</h4>
+  <form>
+    <m-input-group>
+      <label>Text inputs</label>
+      <input type="text" placeholder="Text">
+      <input type="email" placeholder="Email">
+      <input type="number" placeholder="Number">
+      <input type="password" placeholder="Password">
+    </m-input-group>
+    <m-input-group>
+      <label>Text area</label>
+      <textarea rows="3"></textarea>
+    </m-input-group>
+    <m-input-group>
+      <label>Checkbox</label>
+      <input type="checkbox"><label>One</label>
+      <input type="checkbox"><label>Two</label>
+      <input type="checkbox"><label>Three</label>
+    </m-input-group>
+    <m-input-group>
+      <label>Radio</label>
+      <input type="radio"><label>One</label>
+      <input type="radio"><label>Two</label>
+      <input type="radio"><label>Three</label>
+    </m-input-group>
+    <m-input-group>
+      <label>Switch</label>
+      <m-switch m-type="checkbox" m-link="switch" m-checked></m-switch>
+    </m-input-group>
+    <m-input-group>
+      <label>Range</label>
+      <input type="range">
+    </m-input-group>
+    <m-input-group>
+      <label>Selects</label>
+      <select>
+        <option>Single...</option>
+        <option>One</option>
+        <option>Two</option>
+        <option>Three</option>
+      </select>
+      <select>
+        <option>Single with groups...</option>
+        <optgroup label="Label">
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </optgroup>
+        <optgroup label="Label">
+          <option>Four</option>
+          <option>Five</option>
+          <option>Six</option>
+        </optgroup>
+      </select>
+      <select multiple>
+        <option>Multiple...</option>
+        <option>One</option>
+        <option>Two</option>
+        <option>Three</option>
+      </select>
+    </m-input-group>
+    <m-button type="submit" ord="primary">Submit</m-button>
+    <m-button type="button" ord="secondary">Cancel</m-button>
+  </form>
+</m-container>
+<m-rule class="mar-t-sm mar-b-sm"></m-rule>
+<h1 id="Details" class="txt-center txt-xxl">Details</h1>
+<m-container>
+  <p>This is a short bit of info about elephants.</p>
+  <m-details>
+    <summary><m-link>Learn more</m-link></summary>
+    <p>Details about this thing.</p>
+    <p>And more details about this thing.</p>
+  </m-details>
+</m-container>
+<h1 id="Loader" class="txt-center txt-xxl">Loader</h1>
+<m-container>
+  <h4>Basic loaders</h4>
+  <p>Loader on its own: <m-loader loading></m-loader></p>
+  <p>Loader without <m-code>loading</m-code>: <m-loader></m-loader></p>
+  <p>Loader with text: <m-loader loading>Searching...</m-loader></p>
+  <h4 class="mar-b-xs">Loader used in button</h4>
+  <div>The Loader in this button is <m-code>hidden</m-code> waiting for the user to click... <m-button ord="primary"><m-loader loading hidden></m-loader>Save</m-button></div>
+  <div>When clicked, the app removes <m-code>hidden</m-code> from the Loader and adds <m-code>disabled</m-code> to the button and updates its label: <m-button ord="primary" disabled><m-loader loading></m-loader>Saving</m-button></div>
+  <h4>Loader and links</h4>
+  <p>This Loader has its own text and is inside a link. The app, for example, could toggle its <m-code>loading</m-code> attribute and text based on the state of the process: <m-link href="#"><m-loader loading>Pause</m-loader></m-link> / <m-link href="#"><m-loader>Resume</m-loader></m-link></p>
+  <p>This Loader has its own text, is medium text size, and sits above a link. They've both been centered:</p>
+  <div class="txt-center" style="width: 400px">
+    <m-loader loading class="block">Downloading...</m-loader>
+    <m-link href="" class="block mar-t-xs txt-xs">Stop</m-link>
+  </div>
+  <h4>Loader size</h4>
+  <p>Explicit font-size of 70px:</p>
+  <m-loader loading style="font-size: 70px"></m-loader>
+  <p>Inherited size:</p>
+  <h1><m-loader loading>Inside heading 1</m-loader></h1>
+  <h2><m-loader loading>Inside heading 2</m-loader></h2>
+  <h3><m-loader loading>Inside heading 3</m-loader></h3>
+  <h4><m-loader loading>Inside heading 4</m-loader></h4>
+  <h5><m-loader loading>Inside heading 5</m-loader></h5>
+  <h6><m-loader loading>Inside heading 6</m-loader></h6>
+  <p><m-loader loading>Inside paragraph</m-loader></p>
+  <small><m-loader loading>Inside small</m-loader></small>
+</m-container>
+
+<!-- Menu -->
+<h1 id="Menus" class="txt-center txt-xxl">Menu</h1>
+<m-container>
+  <h4>Basic Menu with links</h4>
+  <m-menu>
+    <m-button slot="trigger" ord="primary">Open menu</m-button>
+    <div slot="items">
+      <m-link href="">Link A</m-link>
+      <m-link href="">Link B</m-link>
+      <m-link href="">Link C</m-link>
+    </div>
+  </m-menu>
+  <h4>Menu with custom content and min-width: 300px</h4>
+  <m-menu>
+    <m-button slot="trigger" ord="primary">Open menu</m-button>
+    <div slot="items" class="pad-sm" style="min-width: 300px">
+      <div class="fnt-med">Text Here</div>
+      <div class="mar-t-xs">Some more text with a <m-link>link</m-link></div>
+
+    </div>
+  </m-menu>
+</m-container>
+
+<!-- Switch -->
+<h1 id="switch" class="txt-center txt-xxl">Switch</h1>
+<m-container>
+  <h4>Checked, unchecked, and disabled</h4>
+  <m-switch  checked></m-switch>
+  <m-switch ></m-switch>
+  <m-switch  disabled></m-switch>
+  <h4>Standalone in a custom layout</h4>
+  <m-box ord="secondary" class="inline-flex flx-col align-items-center pad-b-lg">
+    <div class="flex align-items-center mar-b-lg">
+      <m-icon name="alarm" class="mar-r-xs"></m-icon>
+      <span class="mar-r-xs">Alarm</span>
+      <span class="txt-md fnt-bold">7:00<span class="txt-xs fnt-regular" style="margin-left: 2px">AM</span></span>
+    </div>
+    <m-switch  checked></m-switch>
+  </m-box>
+  <h4>In a Box as a form of options</h4>
+  <m-row>
+    <m-col span="3">
+      <m-box>
+        <h4 class="mar-t-xs">Notification preferences</h4>
+        <form>
+          <m-input-group field-class="flex justify-content-between align-items-center">
+            <label>SMS</label>
+            <m-switch  checked name="sms"></m-switch>
+          </m-input-group>
+          <m-input-group field-class="flex justify-content-between align-items-center">
+            <label>Email</label>
+            <m-switch  checked name="email"></m-switch>
+          </m-input-group>
+          <m-input-group field-class="flex justify-content-between align-items-center">
+            <label>Hand-written letter</label>
+            <m-switch  name="letter"></m-switch>
+          </m-input-group>
+          <m-input-group field-class="flex flx-wrap justify-content-between align-items-center">
+            <label>Smoke signal</label>
+            <m-switch  disabled name="smoke"></m-switch>
+            <small class="width-full">Currently unavailable</small>
+          </m-input-group>
+        </form>
+      </m-box>
+
+    </m-col>
+  </m-row>
+</m-container>
+
+<!-- Table -->
+<h1 id="table" class="txt-center txt-xxl">Tables</h1>
+<m-container>
+  <h4>Basic table</h4>
+  <m-table>
+    <table>
+      <thead>
+      <tr>
+        <th>Column heading</th>
+        <th>Column heading</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      <tr>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>
+      </tbody>
+    </table>
+  </m-table>
+</m-container>
+
+
+<!-- Tabs -->
+<h1 id="tabs" class="txt-center txt-xxl">Tabs</h1>
+<m-container>
+  <h4>Basic tabs</h4>
+  <m-tabs role="tablist">
+    <m-button role="tab" aria-selected="true">Accounts</m-button>
+    <m-button role="tab">Payments</m-button>
+    <m-button role="tab">Transfers</m-button>
+    <m-button role="tab">Security</m-button>
+  </m-tabs>
+  <h4>With icons</h4>
+  <m-tabs role="tablist">
+    <m-button role="tab" aria-selected="true"><m-icon name="home"></m-icon> Accounts</m-button>
+    <m-button role="tab"><m-icon name="wallet"></m-icon> Payments</m-button>
+    <m-button role="tab"><m-icon name="attach_money"></m-icon> Transfers</m-button>
+    <m-button role="tab"><m-icon name="lock"></m-icon> Security</m-button>
+  </m-tabs>
+  <h4>Scrollable</h4>
+  <div style="width: 318px">
+    <m-tabs role="tablist" scrollable>
+      <m-button role="tab" aria-selected="true">Accounts</m-button>
+      <m-button role="tab">Payments</m-button>
+      <m-button role="tab">Transfers</m-button>
+      <m-button role="tab">Security</m-button>
+    </m-tabs>
+  </div>
+</m-container>
+
+<m-include-styles include="all" ></m-include-styles>
+
+

@@ -1,5 +1,6 @@
 {
   "name": "@ryanbethel/m-dash-enhance",
+  "type": "module",
   "description": "Enhance wrapper for Mdash. Mdash is a design system based on web standards. It's extremely small (see comparison chart), fast, simple, and compatible with any JavaScript framework. \n",
   "version": "0.0.4",
   "homepage": "https://m-docs.org",
@@ -32,10 +33,10 @@
     "enhance"
   ],
   "scripts": {
-    "start": "enhance dev"
+    "start": "cd example && enhance dev"
   },
   "dependencies": {
-    "@enhance/arc-plugin-enhance": "^10.0.0"
+    "@enhance/arc-plugin-enhance": "github:ryanbethel/arc-plugin-enhance#postcss-test"
   },
   "devDependencies": {
     "@enhance/cli": "^1.1.0"
