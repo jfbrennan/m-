@@ -54,15 +54,17 @@ export default function Alert({ html, state }) {
 
     <slot></slot>
     ${dismissible ? '<m-button type=remove aria-label="Dismiss Alert" ></m-button>' : ''}
+
     <script type=module>
-      class Alert extends CustomElement {
+      class Alert extends HTMLElement {
         constructor() {
           super();
+          this.dismiss = this.dismiss.bind(this)
         }
 
         connectedCallback() {
           if (this.getAttribute('dismissible') !== 'false') {
-            const dismissBtn = document.querySelector('m-button[type=remove]');
+            const dismissBtn = this.querySelector('m-button[type=remove]');
             dismissBtn.addEventListener('click', () => this.dismiss());
             this.append(dismissBtn);
           }
