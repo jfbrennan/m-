@@ -1,2 +1,2 @@
-import InputGroup from '../../../../elements/m/input-group.mjs'
+import InputGroup from '@ryanbethel/m-dash-enhance/elements/m/input-group.mjs'
 export default InputGroup

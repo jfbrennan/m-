@@ -1,2 +1,2 @@
-import Blockquote from '../../../../elements/m/blockquote.mjs'
+import Blockquote from '@ryanbethel/m-dash-enhance/elements/m/blockquote.mjs'
 export default Blockquote

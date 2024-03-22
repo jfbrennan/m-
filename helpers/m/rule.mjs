@@ -1,2 +1,2 @@
-import rule from '../../../../elements/m/rule.mjs'
+import rule from '@ryanbethel/m-dash-enhance/elements/m/rule.mjs'
 export default rule

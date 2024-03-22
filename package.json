@@ -35,7 +35,8 @@
   "scripts": {
     "start": "cd example && enhance dev"
   },
-  "@enhance/arc-plugin-enhance": "github:ryanbethel/arc-plugin-enhance#postcss-test",
-  "@enhance/cli": "^1.1.0"
-
+  "devDependencies": {
+    "@enhance/arc-plugin-enhance": "github:ryanbethel/arc-plugin-enhance#postcss-test",
+    "@enhance/cli": "^1.1.0"
+  }
 }

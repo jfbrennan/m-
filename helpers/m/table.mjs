@@ -1,2 +1,2 @@
-import table from '../../../../elements/m/table.mjs'
+import table from '@ryanbethel/m-dash-enhance/elements/m/table.mjs'
 export default table

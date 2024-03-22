@@ -1,2 +1,2 @@
-import loader from '../../../../elements/m/loader.mjs'
+import loader from '@ryanbethel/m-dash-enhance/elements/m/loader.mjs'
 export default loader

@@ -1,2 +1,2 @@
-import icon from '../../../../elements/m/icon.mjs'
+import icon from '@ryanbethel/m-dash-enhance/elements/m/icon.mjs'
 export default icon

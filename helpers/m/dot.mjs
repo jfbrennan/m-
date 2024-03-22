@@ -1,2 +1,2 @@
-import dot from '../../../../elements/m/dot.mjs'
+import dot from '@ryanbethel/m-dash-enhance/elements/m/dot.mjs'
 export default dot

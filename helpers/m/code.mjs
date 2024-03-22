@@ -1,2 +1,2 @@
-import code from '../../../../elements/m/code.mjs'
+import code from '@ryanbethel/m-dash-enhance/elements/m/code.mjs'
 export default code

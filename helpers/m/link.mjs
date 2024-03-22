@@ -1,2 +1,2 @@
-import link from '../../../../elements/m/link.mjs'
+import link from '@ryanbethel/m-dash-enhance/elements/m/link.mjs'
 export default link

@@ -1,2 +1,2 @@
-import Badge from '../../../../elements/m/badge.mjs'
+import Badge from '@ryanbethel/m-dash-enhance/elements/m/badge.mjs'
 export default Badge
