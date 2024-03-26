@@ -1,15 +1,36 @@
-# M- Components for Enhance
+# E- Components for Enhance (inspired by [M-](https://m-docs.org))
 This is a fork of the [MDash](https://m-docs.org) components for use with Enhance.
-It is a work in progress. Many changes to come. Some components have been changed to take advantage of Enhance features. For instance M- uses many element styles (i.e. button).
+It is a work in progress.
+Many changes to come.
+Some components have been changed to take advantage of Enhance features.
+For instance M- uses many element styles (i.e. button).
 This version uses a custom element wrapper for many of those (i.e. `<m-button>`), but because Enhance expands the element you don't need to author the button inside m-button.
 
-## Include Components
-To add these components to an app:
-1. Install 
+## Usage
+To use the components first install the package:
 ```sh
 npm i @ryanbethel/e-components
 ```
-2. Add to the elements folder:
+
+The components can be added to a project in several ways:
+- *Use a plugin* to add all the components to an Enhance project:
+1. Install: `npm install @hicksy/shared-enhance-components-plugin`
+2. Add to the `app.arc` file:
+```arc
+@plugins
+hicksy/shared-enhance-components-plugin
+
+@shared-enhance-components-plugin
+ryanbethel/e-components
+```
+
+  -OR-
+
+- *Copy and paste elements* to the project folder as needed. You can add just what you need.
+
+  -OR-
+
+- *Import and re-export*:
 ```sh
 cp -r  node_modules/@ryanbethel/e-components/helpers/e app/elements/e/
 ```
@@ -19,6 +40,7 @@ The files in the helpers directory import and re-export the components as shown 
 import Accordion from '@ryanbethel/e-components/elements/e/accordion.mjs'
 export default Accordion
 ```
+
 
 
 ## Global Assets
@@ -44,4 +66,6 @@ export default function Head() {
 ```
 
 ## Examples 
-An example app showing all components is included in the `/example` directory. You can fork the repo and run `npm start` to see them. 
+An example app showing all components is included in the `/example` directory.
+You can fork the repo and run `npm start` to see them. 
+
