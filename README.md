@@ -7,22 +7,22 @@ This version uses a custom element wrapper for many of those (i.e. `<m-button>`)
 To add these components to an app:
 1. Install 
 ```sh
-npm i @ryanbethel/m-dash-enhance
+npm i @ryanbethel/e-components
 ```
 2. Add to the elements folder:
 ```sh
-cp -r  node_modules/@ryanbethel/m-dash-enhance/helpers/m app/elements/m/
+cp -r  node_modules/@ryanbethel/e-components/helpers/e app/elements/e/
 ```
 The files in the helpers directory import and re-export the components as shown below.
 
 ```javascript
-import Accordion from '@ryanbethel/m-dash-enhance/elements/m/accordion.mjs'
+import Accordion from '@ryanbethel/e-components/elements/e/accordion.mjs'
 export default Accordion
 ```
 
 
 ## Global Assets
-Add the `m-global.css` and the `m-.woff2` asssets to the head. These files include custom elements and icons. An example head.mjs for an Enhance app is shown below. These assest are in the assets directory in this repo.
+Add the `e-global.css` and the `e-.woff2` asssets to the head. These files include custom elements and icons. An example head.mjs for an Enhance app is shown below. These assest are in the assets directory in this repo.
 
 ```javascript
 // head.mjs
@@ -35,7 +35,7 @@ export default function Head() {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Enhance Starter Project</title>
       <link rel="icon" href="/_public/favicon.svg">
-      <link rel="stylesheet" href="/_public/m-global.css">
+      <link rel="stylesheet" href="/_public/e-global.css">
       <meta name="description" content="The HTML first full stack web framework.">
     </head>
     <body class="bg-gray-1">

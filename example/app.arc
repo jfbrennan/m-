@@ -1,6 +1,6 @@
 
 @app
-test-m-dash
+test-e-components
 
 @static
 prune true
