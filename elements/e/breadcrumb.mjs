@@ -1,4 +1,4 @@
-export default function({ html }) {
+export default function Breadcrumb({ html }) {
   return html`
 <style scope=global>
 e-breadcrumb { display: block; }
