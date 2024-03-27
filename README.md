@@ -13,24 +13,25 @@ npm i @ryanbethel/e-components
 ```
 
 The components can be added to a project in several ways:
-- *Use a plugin* to add all the components to an Enhance project:
-1. Install: `npm install @hicksy/shared-enhance-components-plugin`
-2. Add to the `app.arc` file:
-```arc
-@plugins
-hicksy/shared-enhance-components-plugin
+- *Import all components with element.mjs manifest* to add all the components to an Enhance project:
+Add the following `element.mjs` to your app directory:
+```javascript
+// /app/elements.mjs
+import eComponents from '@ryanbethel/e-components' 
 
-@shared-enhance-components-plugin
-ryanbethel/e-components
+let elements = {...eComponents}
+
+export default elements
 ```
+Note this can be used in addition to the `/elements/` folder.
 
   -OR-
 
-- *Copy and paste elements* to the project folder as needed. You can add just what you need.
+- *Copy and paste elements* directly from `element/e/` to the project folder as needed. You can add just what you need.
 
   -OR-
 
-- *Import and re-export*:
+- *Import and re-export* directly in the `/elements` folder.
 ```sh
 cp -r  node_modules/@ryanbethel/e-components/helpers/e app/elements/e/
 ```

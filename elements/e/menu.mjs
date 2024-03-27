@@ -21,7 +21,7 @@ export default function Menu({ html }) {
       z-index: 3000;
 
       /* Link children */
-      & > a {
+      & > a, & > e-link {
         display: block;
         padding: var(--e-space-xs) var(--e-space-sm);
       }
