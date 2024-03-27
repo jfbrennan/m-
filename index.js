@@ -1,5 +1,5 @@
 import eAccordion from './elements/e/accordion.mjs'
-import eAlert from './elements/e/accordion.mjs'
+import eAlert from './elements/e/alert.mjs'
 import eAutocomplete from './elements/e/autocomplete.mjs'
 import eBadge from './elements/e/badge.mjs'
 import eBlockquote from './elements/e/blockquote.mjs'
