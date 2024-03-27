@@ -24,6 +24,7 @@ let elements = {...eComponents}
 export default elements
 ```
 Note this can be used in addition to the `/elements/` folder.
+You can also import individual named components (i.e. `import { eLink } ...`) and add give it a custom name in the elements list.
 
   -OR-
 
@@ -45,7 +46,10 @@ export default Accordion
 
 
 ## Global Assets
-Add the `e-global.css` and the `e-.woff2` asssets to the head. These files include custom elements and icons. An example head.mjs for an Enhance app is shown below. These assest are in the assets directory in this repo.
+Add the `e-global.css` and the `e-.woff2` asssets to the public folder and the head. 
+These files include custom properties and icons. 
+An example head.mjs for an Enhance app is shown below. 
+These assest are in the assets directory in this repo.
 
 ```javascript
 // head.mjs

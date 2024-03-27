@@ -57,3 +57,32 @@ let elements = {
 }
 
 export default elements
+
+export {
+  eAccordion,
+  eAlert,
+  eAutocomplete,
+  eBadge,
+  eBlockquote,
+  eBox,
+  eBreadcrumb,
+  eButton,
+  eCode,
+  eCol,
+  eContainer,
+  eDetails,
+  eDialog,
+  eDot,
+  eIcon,
+  eInputGroup,
+  eKbd,
+  eLink,
+  eLoader,
+  eMenu,
+  eRow,
+  eRule,
+  eSwitch,
+  eTable,
+  eTabs,
+  eTag
+}
