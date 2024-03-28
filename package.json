@@ -2,7 +2,7 @@
   "name": "@ryanbethel/e-components",
   "type": "module",
   "description": "Enhance wrapper for Mdash. Mdash is a design system based on web standards. It's extremely small (see comparison chart), fast, simple, and compatible with any JavaScript framework. \n",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "repository": {
     "type": "git",
     "url": "https://github.com/ryanbethel/e-components"
