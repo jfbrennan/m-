@@ -41,10 +41,14 @@ const htmlFiles = [
   { tag: "e-tabs", path: "elements/e/tabs.html" },
   { tag: "e-tag", path: "elements/e/tag.html" },
 ];
+// const elementWrapper = (htmlString) =>
+//   function ({ html, state }) {
+//     return html`${htmlString}`;
+//   };
 const elementWrapper = (htmlString) =>
-  function ({ html, state }) {
-    return html`${htmlString}`;
-  };
+  new Function(
+    `return function ({ html, state }) { return html\`${htmlString}\`; }`,
+  )();
 
 let htmlElements = {};
 htmlFiles.map(({ tag, path }) => {
