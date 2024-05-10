@@ -37,7 +37,11 @@
     "start": "cd example && enhance dev"
   },
   "devDependencies": {
-    "@enhance/arc-plugin-enhance": "@enhance/arc-plugin-enhance",
     "@enhance/cli": "^1.1.0"
+  },
+  "dependencies": {
+    "@enhance/arc-plugin-enhance": "^11.0.1",
+    "@enhance/custom-element": "^1.2.3",
+    "enhance-idiomorph-mixin": "github:kristoferjoseph/enhance-idiomorph-mixin"
   }
 }
