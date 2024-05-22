@@ -40,8 +40,13 @@
     "@enhance/cli": "^1.1.0"
   },
   "dependencies": {
+    "@codemirror/lang-html": "^6.4.9",
+    "@codemirror/lang-javascript": "^6.2.2",
     "@enhance/arc-plugin-enhance": "^11.0.1",
     "@enhance/custom-element": "^1.2.3",
-    "enhance-idiomorph-mixin": "github:kristoferjoseph/enhance-idiomorph-mixin"
+    "@enhance/custom-element-mixin": "github:enhance-dev/enhance-custom-element-mixin#dom-diffing-slots",
+    "codemirror": "^6.0.1",
+    "enhance-idiomorph-mixin": "github:kristoferjoseph/enhance-idiomorph-mixin",
+    "morphdom": "^2.7.2"
   }
 }

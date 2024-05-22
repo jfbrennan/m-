@@ -336,3 +336,13 @@ body {
 .box-sizing-content { box-sizing: content-box }
 .content-vis-auto { content-visibility: auto }
 /* End utility-classes.css */
+
+
+/* Icon font */
+@font-face {
+    font-family: "e-icons";
+    font-style: normal;
+    font-weight: 400;
+
+    src: url("/_public/e-.woff2") format("woff2");
+}

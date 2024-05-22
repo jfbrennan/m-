@@ -4,7 +4,6 @@ export default function Lists({ html, state }) {
   const isOl = type === 'ordered'
   const isNone = type === 'none'
   const isDl = type === 'description-list'
-  console.log(state)
   return html`
 
 <style scope=global>

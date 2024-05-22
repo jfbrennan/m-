@@ -4,15 +4,13 @@ const __dirname = new URL(".", import.meta.url).pathname;
 
 import eAlert from "./elements/e/alert.mjs";
 import eCode from "./elements/e/code.mjs";
-import eInputGroup from "./elements/e/input-group.mjs";
-import eRule from "./elements/e/rule.mjs";
+import eSeperator from "./elements/e/seperator.mjs";
 import eList from "./elements/e/list.mjs";
 
 const mjsElements = {
   "e-alert": eAlert,
   "e-code": eCode,
-  "e-input-group": eInputGroup,
-  "e-rule": eRule,
+  "e-seperator": eSeperator,
   "e-list": eList,
 };
 
@@ -30,8 +28,9 @@ const htmlFiles = [
   { tag: "e-dialog", path: "elements/e/dialog.html" },
   { tag: "e-dot", path: "elements/e/dot.html" },
   { tag: "e-icon", path: "elements/e/icon.html" },
+  { tag: "e-input-group", path: "elements/e/input-group.html" },
   { tag: "e-link", path: "elements/e/link.html" },
-  { tag: "e-kbd", path: "elements/e/kbd.html" },
+  { tag: "e-keyboard", path: "elements/e/keyboard.html" },
   { tag: "e-loader", path: "elements/e/loader.html" },
   { tag: "e-menu", path: "elements/e/menu.html" },
   { tag: "e-row", path: "elements/e/row.html" },
@@ -75,8 +74,9 @@ const eDetails = htmlElements["e-details"];
 const eDialog = htmlElements["e-dialog"];
 const eDot = htmlElements["e-dot"];
 const eIcon = htmlElements["e-icon"];
+const eInputGroup = htmlElements["e-input-group"];
 const eLink = htmlElements["e-link"];
-const eKbd = htmlElements["e-kbd"];
+const eKeyboard = htmlElements["e-keyboard"];
 const eLoader = htmlElements["e-loader"];
 const eMenu = htmlElements["e-menu"];
 const eRow = htmlElements["e-row"];
@@ -91,9 +91,8 @@ export {
   eAlert,
   eButton,
   eCode,
-  eInputGroup,
   eLink,
-  eRule,
+  eSeperator,
   eSwitch,
   eAccordion,
   eAutocomplete,
@@ -107,7 +106,8 @@ export {
   eDialog,
   eDot,
   eIcon,
-  eKbd,
+  eInputGroup,
+  eKeyboard,
   eLoader,
   eList,
   eMenu,

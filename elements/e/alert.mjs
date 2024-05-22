@@ -23,7 +23,7 @@ export default function Alert({ html, state }) {
         }
 
         /* Dismiss button */
-        & e-button[type="remove"]:last-of-type {
+        & e-button:last-of-type:has(button[type=remove]){
           margin-left: auto;
         }
 
@@ -75,9 +75,8 @@ export default function Alert({ html, state }) {
 
         connectedCallback() {
           if (this.getAttribute("dismissible") !== "false") {
-            const dismissBtn = this.querySelector("e-button[type=remove]");
+            const dismissBtn = this.querySelector("e-button button[type=remove]");
             dismissBtn.addEventListener("click", () => this.dismiss());
-            this.append(dismissBtn);
           }
         }
 

@@ -13,7 +13,7 @@ export default function Head() {
           content="The HTML first full stack web framework."
         />
       </head>
-      <body class="bg-gray-1"></body>
+      <body class=""></body>
     </html>
   `;
 }

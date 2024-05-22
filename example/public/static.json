@@ -1,5 +1,8 @@
 {
   "e-.woff2": "e--a42f29574e.woff2",
-  "e-global.css": "e-global-b4f6ce25fd.css",
-  "browser/client.mjs": "browser/client-af98e2eb0c.mjs"
+  "e-global.css": "e-global-622d226f2f.css",
+  "browser/client.mjs": "browser/client-5dc01091ce.mjs",
+  "browser/client2.mjs": "browser/client2-6202932e81.mjs",
+  "browser/components.mjs": "browser/components-adc83b19e7.mjs",
+  "browser/editor.mjs": "browser/editor-67a26384ee.mjs"
 }

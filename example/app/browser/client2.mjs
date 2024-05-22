@@ -4,7 +4,7 @@
 import BaseElement from '@enhance/base-element'
 import TemplateMixin from '@enhance/template-mixin'
 import CustomElementMixin from "@enhance/custom-element-mixin"
-// import morphdom from "morphdom"
+import morphdom from "morphdom"
 import compiledElements from "../compiledElements.mjs"
 // import {
 //   eAlert,
@@ -80,10 +80,21 @@ class CustomElement extends CustomElementMixin(TemplateMixin(BaseElement)) { }
 
 function registerTag(tag, rend) {
 
-  // class Tag extends MorphDomMixin(CustomElement) {
-  class Tag extends CustomElement {
+  class Tag extends MorphDomMixin(CustomElement) {
+    // class Tag extends IdiomorphMixin(CustomElement) {
+    constructor() {
+      super()
+    }
+
+    connectedCallback() {
+      console.log('tag', tag, '\n')
+    }
+    // static get observedAttributes() {
+    // return ["heading"]
+    // }
 
     render(args) {
+      console.log('args', args, '\n')
       return rend(args)
     }
   }
