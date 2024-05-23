@@ -7,16 +7,21 @@ export default function Seperator({ html, state }) {
       e-seperator { 
         display: block; 
 
+        &[vertical] {
+          display:flex;
+          height:  auto;
+        }
+
         hr {
           background-color: var(--e-color-gray-3);
           border: none;
           margin: 0;
           height: 1px;
+        }
 
-          &[aria-orientation=vertical] {
+        hr[aria-orientation=vertical] {
             width: 1px;
             height: auto;
-          }
         }
       }
     </style>

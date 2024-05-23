@@ -3,15 +3,11 @@ import { join } from "path";
 const __dirname = new URL(".", import.meta.url).pathname;
 
 import eAlert from "./elements/e/alert.mjs";
-import eCode from "./elements/e/code.mjs";
 import eSeperator from "./elements/e/seperator.mjs";
-import eList from "./elements/e/list.mjs";
 
 const mjsElements = {
   "e-alert": eAlert,
-  "e-code": eCode,
   "e-seperator": eSeperator,
-  "e-list": eList,
 };
 
 const htmlFiles = [
@@ -38,6 +34,8 @@ const htmlFiles = [
   { tag: "e-table", path: "elements/e/table.html" },
   { tag: "e-tabs", path: "elements/e/tabs.html" },
   { tag: "e-tag", path: "elements/e/tag.html" },
+  { tag: "e-list", path: "elements/e/list.html" },
+  { tag: "e-code", path: "elements/e/code.html" },
 ];
 // const elementWrapper = (htmlString) =>
 //   function ({ html, state }) {
@@ -84,6 +82,8 @@ const eSwitch = htmlElements["e-switch"];
 const eTable = htmlElements["e-table"];
 const eTabs = htmlElements["e-tabs"];
 const eTag = htmlElements["e-tag"];
+const eCode = htmlElements["e-code"];
+const eList = htmlElements["e-list"];
 
 export default elements;
 

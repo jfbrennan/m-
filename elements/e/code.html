@@ -1,7 +1,3 @@
-export default function Code({ html, state }) {
-  const { attrs } = state;
-  const isInline = attrs.format === "inline";
-  return html`
     <style scope="global">
       /* Base code styles */
       e-code {
@@ -24,8 +20,6 @@ export default function Code({ html, state }) {
         }
       }
     </style>
-    ${isInline && "<code><slot></slot></code>"}
-    ${!isInline && "<pre><slot></slot></pre>"}
 
-  `;
-}
+    <slot></slot>
+

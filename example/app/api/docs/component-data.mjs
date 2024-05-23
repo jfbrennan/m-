@@ -4,12 +4,16 @@ const components = [
     path: "accordion",
     exampleUsage: `<e-accordion>
   <e-details>
-      <summary>Summary</summary>
-      <p>Details about this thing</p>
+    <details>
+        <summary>Summary</summary>
+        <p>Details about this thing</p>
+    </details>
   </e-details>
   <e-details>
+    <details>
       <summary>Summary</summary>
       <p>Details about this thing</p>
+    </details>
   </e-details>
 </e-accordion>
 
@@ -69,7 +73,7 @@ const components = [
         <e-link><a href="#shoes">Shoes</a></e-link>
         <e-crumb>
             <e-menu>
-                <span role="link" slot="trigger">Womens  <e-icon name="arrow-down" class="txt-xs"></e-icon></span>
+                <span role="link" slot="trigger">Womens<e-icon name="arrow_downward" class="txt-xs"></e-icon></span>
                 <div slot="items">
                     <e-link><a href="#womens-casual">👞 Casual</a></e-link>
                     <e-link><a href="#womens-sporty">👟 Sporty</a></e-link>
@@ -119,16 +123,20 @@ const components = [
   {
     name: "Details", path: 'details', exampleUsage: `
 <e-details>
+  <details>
     <summary>Click to see details</summary>
     <p>The deets.</p>
+  </details>
 </e-details>
 `},
   {
     name: "Dialog", path: 'dialog', exampleUsage: `
 <e-dialog>
+  <dialog>
     <h2>Title</h2>
     <p>Put anything you want in here.</p>
     <p>(press <kbd>Esc</kbd> to close)</p>
+  </dialog>
 </e-dialog>
 <e-button><button onclick="document.querySelector('dialog').showModal()" ord="primary">Open Dialog</button></e-button>
 `},
@@ -164,19 +172,24 @@ const components = [
     name: "Grid", path: 'grid', exampleUsage: `
 <e-row>
     <e-col>
-        <e-box>This row's columns...</e-box>
+      <e-box>This row's columns...</e-box>
     </e-col>
     <e-col>
-        <e-box>...will auto-span.</e-box>
+      <e-box>...will auto-span.</e-box>
     </e-col>
 </e-row>
 <e-row>
     <e-col span="4">
-        <e-box>These two columns...</e-box>
+      <e-box>These two columns...</e-box>
     </e-col>
     <e-col span="8">
-        <e-box>...span an explicit number of columns (4 and 8).</e-box>
+      <e-box>...span an explicit number of columns (4 and 8).</e-box>
     </e-col>
+</e-row>
+<e-row center >
+  <e-col span="4">
+    <e-box>Centered Row</e-box>
+  </e-col>
 </e-row>
 `},
   {
@@ -186,7 +199,7 @@ const components = [
 <e-icon name="flag"></e-icon>
 <e-icon name="menu"></e-icon>
 <e-icon name="error"></e-icon>
-<e-icon name="arrow-down"></e-icon>
+<e-icon name="arrow_downward"></e-icon>
 `},
   {
     name: "Input", path: 'input', exampleUsage: `
@@ -341,10 +354,10 @@ const components = [
   {
     name: "Tabs", path: 'tabs', exampleUsage: `
 <e-tabs role="tablist" scrollable>
-    <e-button><button role="tab" aria-selected="true">Selected</button></e-button>
-    <e-button><button role="tab">Not Selected</button></e-button>
-    <e-button><button role="tab" disabled>Disabled</button></e-button>
-    <e-link><a href="/" role="tab">Link</a></e-link>
+  <e-button><button role="tab" aria-selected="true">Selected</button></e-button>
+  <e-button><button role="tab">Not Selected</button></e-button>
+  <e-button><button role="tab" disabled>Disabled</button></e-button>
+  <e-link><a href="/" role="tab">Link</a></e-link>
 </e-tabs>
 <p class="txt-xs txt-gray-5">See <e-link><a href="#select-tab">selecting tabs</a></e-link> to learn how to select a tab</p>
 `},
@@ -362,13 +375,14 @@ const components = [
   {
     name: "Textarea", path: 'textarea', exampleUsage: `
 <e-input-group>
-    <label>Leave a comment</label>
-    <textarea></textarea>
+  <label>Leave a comment</label>
+  <textarea> </textarea> 
 </e-input-group>
 `},
   {
-    name: "Code", path: "code", exampleUsage: `<e-code>Text</e-code>
-<e-code format=inline>Inline</e-code>` },
+    name: "Code", path: "code", exampleUsage: `
+<e-code><pre>Text</pre></e-code>
+<e-code><code>Inline<code></e-code>` },
   {
     name: "Headings", path: 'headings', exampleUsage: `
 <h1>Heading 1</h1>
@@ -380,32 +394,40 @@ const components = [
 `},
   {
     name: "Lists", path: 'lists', exampleUsage: `
-<e-list type=unordered>
+<e-list>
+  <ul>
     <li>Foo</li>
     <li>Bar</li>
     <li>Baz</li>
+  </ul>
 </e-list>
-<e-list type=ordered>
+<e-list>
+  <ol>
     <li>Foo</li>
     <li>Bar</li>
     <li>Baz</li>
+  </ol>
 </e-list>
 <e-list type="none">
+  <ul>
     <li>Foo</li>
     <li>Bar</li>
     <li>Baz</li>
+  </ul>
 </e-list>
-<e-list type="">
+<e-list>
+  <ul>
     <li class="pad-sm">Foo</li>
     <li class="pad-sm">Bar</li>
     <li class="pad-sm">Baz</li>
+  </ul>
 </e-list>
 `},
   {
     name: "Text", path: 'text', exampleUsage: `
 <p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <e-link><a href="/utility-classes">utility classes</a></e-link>.</p>
 <e-blockquote>
-    <p>This is something somebody said.</p>
+  <p>This is something somebody said.</p>
 </e-blockquote>
 <small>This is for small print, side-comments, disclaimers, etc.</small>
 `},

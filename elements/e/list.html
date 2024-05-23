@@ -1,11 +1,3 @@
-export default function Lists({ html, state }) {
-  const type = state.attrs.type || 'unordered'
-  const isUl = type === 'unordered'
-  const isOl = type === 'ordered'
-  const isNone = type === 'none'
-  const isDl = type === 'description-list'
-  return html`
-
 <style scope=global>
   
 e-list{
@@ -43,8 +35,4 @@ e-list{
   }
 }
 </style>
-${isUl && '<ul><slot></slot></ul>'}
-${isNone && '<ul><slot></slot></ul>'}
-${isOl && '<ol><slot></slot></ol>'}
-${isDl && '<ul><slot></slot></ul>'}
-` }
+<slot></slot>
