@@ -1,4 +1,5 @@
 dist
 /.idea/
-/docs/node_modules/
+/old_docs/node_modules/
 /node_modules/
+.env

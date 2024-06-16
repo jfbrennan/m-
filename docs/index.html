@@ -1,0 +1,4668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mdash</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Mdash: tiny standards-based design system for all web projects.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
+  <link href="m-.woff2" rel="preload" as="font">
+  <link rel="stylesheet" href="m-.css">
+  <script defer src="m-.js"></script>
+  <style>
+    * { box-sizing: border-box }
+    #m-logo {
+      width: 60px;
+      height: 60px;
+      background-color: #2B2B2B;
+      border: 2px solid #8DBF28;
+      color: #E9C063;
+      font-family: Menlo, Monaco, monospace;
+      font-size: 36px;
+      cursor: default;
+    }
+
+    #menu-toggle {
+      z-index: 11;
+    }
+
+    @media only screen and (max-width: 576px) {
+      #menu-toggle { display: block }
+      #home-logo-version { display: block }
+      #menu { display: none }
+      #menu[open] {
+        background-color: white;
+        z-index: 10;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+      }
+    }
+
+    main > section {
+      padding: 120px 0;
+    }
+  </style>
+</head>
+<body class="flex height-full">
+<m-icon id="menu-toggle" name="menu" class="hidden pos-absolute pad-md pointer txt-md"></m-icon>
+<aside class="pos-sticky pos-t-0 overflow-auto pad-md" style="flex: 0 0 180px; height: 100svh">
+  <div>
+    <div id="m-logo" aria-label="Mdash logo" class="mar-auto fnt-bold pos-relative brd-radius-full mar-b-xs">
+      <span class="pos-absolute" style="top: 5px; left: 9px">m-</span>
+    </div>
+    <small class="block mar-b-md txt-center txt-gray-6">{{version}}</small>
+    <nav>
+      <a href="#intro" class="block mar-b-xs">Intro</a>
+      <a href="/examples" class="block mar-b-xs">Examples</a>
+      <a href="/comparison" class="block mar-b-xs">Comparison</a>
+      <a href="https://github.com/jfbrennan/m-" class="flex align-items-center mar-b-xs">GitHub</a>
+      <a href="https://x.com/realEmDash" class="flex align-items-center mar-b-xs">X</a>
+      <hr class="mar-t-md mar-b-md">
+      <h4 class="mar-b-sm">Components</h4>
+      <a href="#accordion" class="block mar-b-xs">Accordion</a>
+      <a href="#alert" class="block mar-b-xs">Alert</a>
+      <a href="#autocomplete" class="block mar-b-xs">Autocomplete</a>
+      <a href="#badge" class="block mar-b-xs">Badge</a>
+      <a href="#box" class="block mar-b-xs">Box</a>
+      <a href="#breadcrumbs" class="block mar-b-xs">Breadcrumbs</a>
+      <a href="#button" class="block mar-b-xs">Button</a>
+      <a href="#checkbox" class="block mar-b-xs">Checkbox</a>
+      <a href="#container" class="block mar-b-xs">Container</a>
+      <a href="#details" class="block mar-b-xs">Details</a>
+      <a href="#dialog" class="block mar-b-xs">Dialog</a>
+      <a href="#dot" class="block mar-b-xs">Dot</a>
+      <a href="#form" class="block mar-b-xs">Form</a>
+      <a href="#grid" class="block mar-b-xs">Grid</a>
+      <a href="#icons" class="block mar-b-xs">Icons</a>
+      <a href="#input" class="block mar-b-xs">Input</a>
+      <a href="#keyboard" class="block mar-b-xs">Keyboard</a>
+      <a href="#link" class="block mar-b-xs">Link</a>
+      <a href="#loader" class="block mar-b-xs">Loader</a>
+      <a href="#menu" class="block mar-b-xs">Menu</a>
+      <a href="#radio" class="block mar-b-xs">Radio</a>
+      <a href="#range" class="block mar-b-xs">Range</a>
+      <a href="#select" class="block mar-b-xs">Select</a>
+      <a href="#separator" class="block mar-b-xs">Separator</a>
+      <a href="#switch" class="block mar-b-xs">Switch</a>
+      <a href="#table" class="block mar-b-xs">Table</a>
+      <a href="#tabs" class="block mar-b-xs">Tabs</a>
+      <a href="#tag" class="block mar-b-xs">Tag</a>
+      <a href="#textarea" class="block mar-b-xs">Textarea</a>
+      <h4 class="mar-b-sm">Typography</h4>
+      <a href="#code" class="block mar-b-xs">Code</a>
+      <a href="#headings" class="block mar-b-xs">Headings</a>
+      <a href="#lists" class="block mar-b-xs">Lists</a>
+      <a href="#rules" class="block mar-b-xs">Rule</a>
+      <a href="#text" class="block mar-b-xs">Text</a>
+      <h4 class="mar-b-sm">Styles</h4>
+      <a href="#custom-properties" class="block mar-b-xs">Custom Properties</a>
+      <a href="#utility-classes" class="block mar-b-xs">Utility Classes</a>
+      <!--        <h4 class="mar-b-sm">Patterns</h4>-->
+      <!--        <a href="/head-tags" class="block mar-b-xs">Head Tags</a>-->
+      <!--        <a href="/navbar" class="block mar-b-xs">Navbar</a>-->
+      <!--        <a href="/searchbar" class="block mar-b-xs">Search</a>-->
+      <!--        <a href="/patterns/toolbar" class="block mar-b-xs">Toolbar</a>-->
+      <hr class="mar-t-md mar-b-md">
+      <small class="block txt-center">Copyright &copy; 2023<br>Jordan Brennan</small>
+    </nav>
+  </div>
+</aside>
+<main class="pad-md pad-b-lg flx-grow-1">
+  <section id="intro">
+    <div id="home-logo-version" class="txt-center mar-t-lg">
+      <small class="block mar-t-sm txt-md">{{ version }}</small>
+    </div>
+    <div id="home-intro" class="mar-t-xl">
+      <div id="home-messages" class="flex align-items-center justify-content-center txt-center" style="height: 100px">
+        <h1>A design system that fully embraces web standards 🤗</h1>
+        <h1 hidden>Think of it as HTML6</h1>
+        <h1 hidden>So modern it feels old!</h1>
+        <h1 hidden>Because UI should be fun 🥳</h1>
+        <h1 hidden>It's freedom, baby. Yeah!</h1>
+        <h1 hidden>Standards #FTW</h1>
+        <h1 hidden>Code depressed? Call 1-800-MDASH</h1>
+        <h1 hidden>28 components, 220+ utility classes, and it's how small???</h1>
+        <h1 hidden>"Nothing is faster than nothing."<br><span style="white-space: nowrap">-Me</span></h1>
+        <h1 hidden>The AWS bill was $90 last month!!</h1>
+        <h1 hidden>You can stop reading this.</h1>
+        <h1 hidden>How many of these are there?</h1>
+        <h1 hidden>15, including this one.</h1>
+        <h1 hidden>Does it loop though?</h1>
+        <h1 hidden>No.</h1>
+      </div>
+      <div class="mar-auto mar-b-xs txt-center txt-lg">
+        <div class="mar-b-xs">Mdash intends to leverage HTML, not replace it or try to outsmart it.</div>
+        <div>This makes Mdash ideal for all web projects and skill levels.</div>
+      </div>
+      <div id="benefits" class="flex justify-content-center gap-sm flx-wrap txt-center txt-xs fnt-bold mar-lg">
+        <div class="align-self-center">linkable</div>
+        <hr aria-orientation="vertical">
+        <div class="align-self-center">tiny <a href="#performance">6kb</a></div>
+        <hr aria-orientation="vertical">
+        <div class="flex align-items-center">
+          <m-icon name="devices" class="txt-md mar-r-xs"></m-icon>responsive
+        </div>
+        <hr aria-orientation="vertical">
+        <div class="align-self-center">zero dependencies</div>
+        <hr aria-orientation="vertical">
+        <a href="#compatibility" class="align-self-center">very compatible</a>
+        <hr aria-orientation="vertical">
+        <div class="align-self-center">accessible</div>
+      </div>
+    </div>
+    <div class="mar-auto txt-center mar-t-xl" style="max-width: 545px">
+      <div id="quick-start" class="txt-lg fnt-med mar-t-0 mar-b-0">Quick start</div>
+      <p class="mar-t-0 mar-b-xs">This is the web. Let's use it.</p>
+      <code-sample readonly="readonly">
+        <template>
+          <link href="{{cdnUrl}}.woff2" rel="preload" as="font" crossorigin>
+          <link href="{{cdnUrl}}.css" rel="stylesheet">
+          <script src="{{cdnUrl}}.js" defer></script>
+        </template>
+      </code-sample>
+      <div class="txt-xs">or <a href="#installation">npm</a></div>
+    </div>
+    <hr class="mar-t-xl mar-b-xl">
+    <div id="intro" class="txt-maxlength">
+      <h2 class="mar-t-0">Introduction</h2>
+      <h3>What is Mdash?</h3>
+      <p>Mdash is a better kind of UI library. It's 100% standards-based and it's tiny.</p>
+      <p>Mdash components are comprised of <span class="fnt-med">standard HTML</span>, <span class="fnt-med">custom HTML</span>, and <span class="fnt-med">Custom Elements</span>. As such, Mdash works with any framework (or no framework) and works with all types of web projects, like SSR, SPA, PWA, static site, and even popular email clients.</p>
+      <h3>What makes Mdash different?</h3>
+      <p>Quite literally, nothing. <span class="fnt-italic">Nothing</span> is exactly what makes Mdash different:</p>
+      <ul>
+        <li>No new concepts or abstractions</li>
+        <li>No setup or configuration</li>
+        <li>No dependencies</li>
+        <li>No build step</li>
+      </ul>
+      <p>It's just HTML plus custom HTML. As a result, no other UI library is as small or easy or familiar as Mdash.</p>
+      <p>Take a look around and compare Mdash's <a href="#performance">size</a> and <a href="/comparison">markup</a> to see how nothing really is better.</p>
+      <h3>Where did Mdash come from?</h3>
+      <p class="mar-b-0">Mdash is the result of building design systems in large engineering organizations where - for better or worse - tech stacks and architectures vary wildly, but the products still need to share common UI elements. It was during this time the
+        <a href="https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology" target="_blank" class="txt-nowrap">TAC CSS methodology</a> was created with Mdash being the first open-source implementation.</p>
+    </div>
+    <hr class="mar-t-xl mar-b-xl">
+    <h2 id="compatibility">Mdash is compatible with everything</h2>
+    <p>Mdash can be used anywhere HTML is used because it is HTML. Larger organizations especially benefit here because unlike other UI libraries, Mdash will work with all your products regardless of technology stack. To demonstrate, here's code samples of <span class="fnt-bold">13 different technologies</span> all using the same Mdash component:</p>
+    <code-sample readonly="readonly">
+      <template>
+        <!--   Vue   -->
+        <m-alert v-if="alert" v-bind:type="alert.type">\{{ alert.message }}</m-alert>
+
+
+        <!--   Angular   -->
+        <m-alert *ngIf="alert" [type]="alert.type">\{{ alert.message }}</m-alert>
+
+
+        <!--   Riot   -->
+        <m-alert if="{alert}" type="{alert.type}">{alert.message}</m-alert>
+
+
+        <!--   Preact   -->
+        {props.alert &&
+        <m-alert type={props.alert.type}>{props.alert.message}</m-alert>
+        }
+
+
+        <!--   Svelte   -->
+        {#if alert}
+        <m-alert bind:type="{alert.type}">{alert.message}</m-alert>
+        {/if}
+
+
+        <!--   Handlebars   -->
+        \{{#if alert}}
+        <m-alert type="\{{alert.type}}">\{{alert.message}}</m-alert>
+        \{{/if}}
+
+
+        <!--   Lit, Hyper, other template literals   -->
+        html`
+        <m-alert type="${alert.type}">${alert.message}</m-alert>
+        `
+
+
+        <!--   EJS, ERB, Underscore, Lodash   -->
+        <m-alert type="<%= alert.type %>"><%= alert.message %></m-alert>
+
+
+        <!--   Static HTML of course :)   -->
+        <m-alert type="success">My message</m-alert>
+      </template>
+    </code-sample>
+    <small>*Framework compatibility with Custom Elements is being tracked on <a href="https://custom-elements-everywhere.com" target="_blank" rel="noopener">custom-elements-everywhere.com</a>. Today, all but
+      <a href="https://custom-elements-everywhere.com/#react">one</a> works with this standard.</small>
+    <h2 id="performance">Performance</h2>
+    <p>Mdash is fast! It is by all practical measures instant. The <span class="fnt-med">execution speed</span> comes from leveraging native technology and reducing abstractions as much as possible in order to minimize code and retain browser optimizations. When it comes to code, nothing is faster than nothing.</p>
+    <p>In addition to execution speed, <span class="fnt-med">pages load faster</span> because Mdash is so much smaller than other UI libraries:</p>
+    <table>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">Mdash</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="6.8"></meter>
+          <small>6.8 kb</small>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">Bootstrap</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="71.4"></meter>
+          <small>71.4 kb</small>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">Material Web 2</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="79.5"></meter>
+          <small>79.5 kb</small>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">Zurb Foundation</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="87.8"></meter>
+          <small>87.8 kb</small>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">React Bootstrap</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="103"></meter>
+          <small>103 kb</small>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">Material-UI</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="134"></meter>
+          <small>134 kb</small>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">Semantic UI</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="174"></meter>
+          <small>174 kb</small>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">Microsoft Fabric</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="244"></meter>
+          <small>244 kb</small>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">Shoelace</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="294"></meter>
+          <small>294 kb</small>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 140px">
+          <span class="fnt-bold txt-nowrap">Material Web 3</span>
+        </td>
+        <td>
+          <meter min="0" max="353" low="20" optimum="12" high="80" value="353"></meter>
+          <small>353 kb</small>
+        </td>
+      </tr>
+    </table>
+    <small class="block mar-t-xs">
+      <span class="fnt-bold">Note:</span> Sizes are min+gzip and include stylesheets, scripts, and runtime dependencies. They do not include icons. In other words, this is the overhead before you can write your first line of code.
+    </small>
+    <h2 id="installation">Installation</h2>
+    <h3 id="installation-cdn">CDN</h3>
+    <p>Mdash is designed for production use with a CDN. Copy and paste the following three resources into the <code>&lt;head&gt;</code> section of your document and you're golden.</p>
+    <div>
+      <h4 class="mar-b-xs">Icon preload</h4>
+      <pre style="white-space: pre-wrap">&lt;link href="{{cdnUrl}}.woff2" rel="preload" as="font" crossorigin&gt;</pre>
+      <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload" target="_blank">preload</a> option tells the browser to start downloading the icon font now instead of waiting for the stylesheet to be parsed. If you don't use icons, then you don't need this.</p>
+    </div>
+    <div>
+      <h4 class="mar-b-xs">Stylesheet</h4>
+      <pre style="white-space: pre-wrap">&lt;link href="{{cdnUrl}}.css" rel="stylesheet"&gt;</pre>
+      <p>The stylesheet includes Mdash's <a href="/custom-properties">custom properties</a>, the component styles, and all the <a href="/utility-classes">utility classes</a>.</p>
+    </div>
+    <div>
+      <h4 class="mar-b-xs">Custom Elements</h4>
+      <pre style="white-space: pre-wrap">&lt;script src="{{cdnUrl}}.js" defer&gt;&lt;/script&gt;</pre>
+      <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer" target="_blank">defer</a> option tells the browser to download the script but delay its evaluation to avoid blocking document parsing.</p>
+    </div>
+    <h3 id="installation-npm">NPM</h3>
+    <p>If the CDN is not an option, you can install the Mdash package and bundle the files.</p>
+    <pre style="white-space: pre-wrap">npm install m-</pre>
+    <p>Built assets (those three files above) are located in <code>/dist</code>. The hyper optimization of <a href="https://web.dev/extract-critical-css/" target="_blank">inlining CSS</a> is also possible with Mdash because its so small, so go for it you speed demon!</p>
+    <h2 id="browsers">Browser support</h2>
+    <p>Mdash works with the latest versions of all major browsers. Please <a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file a bug</a> if you see something not working as expected.</p>
+    <h2 id="about">More about Mdash</h2>
+    <h3>The purpose</h3>
+    <p>To return the UI layer back to its rightful owner: the web platform.</p>
+    <p>The UI layer - the pixels - should be built with the modern web platform. Technologies likes CSS Custom Properties, Web Components, and new HTML and JavaScript features can and should be used to create the UI layer. No dependencies needed!</p>
+    <p>The application layer - data, routing, business logic, services - should also be built with the modern web stack as well as 3rd-party libraries and frameworks.</p>
+    <p>Mdash gives you a complete set of modern compatible-with-everything UI components instantly available from a CDN. No downloads. No CLI. No configuration. No build steps. No prespiling the virtual tree-shake lint matrix, or whatever. It does this by <span class="fnt-italic">embracing</span> HTML (and CSS and JavaScript) and relentlessly leveraging it. The result is a fun and uniquely small design system with standards-level longevity.</p>
+    <p>Depending on the kind of project you're working on, you can use Mdash on its own or alongside your framework of choice. In the latter case, the framework is responsible for the <em>structure and state of your application</em> while HTML and Mdash supply the final layer of UI.</p>
+    <h3>Frameworks are misused</h3>
+    <p>The UI layer of web applications has been overcomplicated and made dependent upon non-standard frameworks and methodologies that, in the context of generic UI components, do not add value. Frameworks are best applied to application-centric problems like routing, state management, and high-level product-centric component structure. Frameworks are not ideal for pure UI-centric problems like layout, shared UI elements, and generic styles.</p>
+    <h3>The m- prefix</h3>
+    <p>A prefix is required for any custom HTML (<a href="https://dev.to/jfbrennan/custom-html-tags-4788" target="_blank" rel="noopener">tags or elements</a>). The "m" is for markup, because Mdash is all about that beautiful declarative markup! And no the name "Mdash" doesn't have anything to do with Lodash. It was suggested the proper name be changed from "M-" to "Mdash" to help with search engine results.</p>
+    <h3>Design philosophy</h3>
+    <p>Mdash believes in and is committed to the web platform. Developing on the web is awesome because:</p>
+    <ul>
+      <li>It's open</li>
+      <li>Has low barriers to entry</li>
+      <li>Easier than other platforms</li>
+      <li>Available on virtually every device in the world!</li>
+      <li>Has the biggest and most active user base by far!</li>
+    </ul>
+    <p>Mdash was designed with all that in mind. It's why
+      <a href="#installation">CDN install</a> is the first option and not buried or unavailable as if linking to other resources on the internet is a last resort. It's why Mdash components are built with standard, approachable tech and not a popular JavaScript library. It's why there is no special syntax or proprietary ideas and why there's no dependencies. It's why the project is open source.</p>
+    <p>The intent of the Mdash API design is to be familiar. Where possible, Mdash matches native HTML, e.g. <code>type=""</code>, <code>name=""</code>, <code>disabled</code>, and when there isn't a native example to follow Mdash strives to use familiar patterns, e.g. <code>dismissible="false"</code> for Alert was chosen because it feels similar to the native <code>draggable="false"</code> attribute. If you could cover up all the <code>m-</code> prefixes in your markup, the hope is you couldn't tell the difference between native HTML elements and Mdash.</p>
+    <h3>It's for everyone!</h3>
+    <p>The web is an open platform accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started, and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. Mdash serves true beginners equally as well as it does professional software engineers. So, whether you're building your first website or a large scale application with millions of users, Mdash helps you quickly build UI with
+      <a href="/comparison">significantly less code</a> and with the longevity that only comes with standards-based code.</p>
+    <!--<h2>Contribution & support</h2>-->
+    <!--<p>If Mdash has helped you, please help Mdash with its hosting fees: <a href="">Open Collective</a></p>-->
+    <!--<p>If you want to contribute, <a href="https://github.com/jfbrennan/m-/issues" rel="noopener">come on over to GitHub</a> and help.</p>-->
+
+    <script>
+      // Cycle through the messages at the top of the page
+      const intervalId = setInterval(goToNextMessage, 3900);
+
+      function goToNextMessage() {
+        const currentMessage = document.getElementById('home-messages').querySelector('h1:not([hidden])');
+        const nextMessage = currentMessage.nextElementSibling;
+
+        // Hide current, show next
+        if (nextMessage) {
+          currentMessage.hidden = true;
+          nextMessage.hidden = false;
+        }
+        else {
+          clearInterval(intervalId);
+        }
+      }
+    </script>
+  </section>
+
+  <div class="txt-xxl fnt-bold">Components</div>
+
+  <section id="accordion">
+    <h1 class="mar-b-xs">Accordion</h1>
+    <h2 class="txt-gray-5 mar-t-0">List of expandable details elements</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <template>
+        <m-accordion>
+          <details>
+            <summary>Summary</summary>
+            <p>Details about this thing</p>
+          </details>
+          <details>
+            <summary>Summary</summary>
+            <p>Details about this thing</p>
+          </details>
+        </m-accordion>
+      </template>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-accordion</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6"><a href="/details">Details</a> children only</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="open">Opening all or one</h3>
+    <p>Accordion does not control its details children, it only styles them. This means more than one details can be open at a time by default. Controlling this behavior can be managed by your app by adding/removing <code>open</code> to the details. Details elements publish a
+      <a href="/details#events"><code>toggle</code></a> event makes this easy.</p>
+    <p>It's worth noting that limiting an accordion to one details at a time may result in a poor UX for users who want to reference information in multiple details and would need to constantly re-open them as they do so.</p>
+    <p>Here's two examples showing an imperative solution and a more declarative state-driven solution with Vue:</p>
+    <code-sample readonly="readonly">
+      // Imperative
+      <script>
+        const handleToggle = e => \{
+          // If this details was just opened, then close its open siblings
+          if (e.currentTarget.open) \{
+            const openSiblings = e.currentTarget.parentElement.querySelectorAll('details[open]');
+            openSiblings.forEach(details => \{
+              if (details !== e.currentTarget) \{
+                details.open = false;
+              }
+            })
+          }
+        }
+      </script>
+
+      <template>
+        <m-accordion>
+          <details ontoggle="handleToggle(event)">
+            <summary>Summary</summary>
+            <p>Details...</p>
+          </details>
+          <details ontoggle="handleToggle(event)">
+            <summary>Summary</summary>
+            <p>Details...</p>
+          </details>
+        </m-accordion>
+      </template>
+    </code-sample>
+    <br>
+    <code-sample readonly="readonly">
+      // Declarative (using Vue)
+      <template>
+        <m-accordion>
+          <details id="a" @toggle="handleToggle" :open="openDetails === 'a'">
+            <summary>Summary</summary>
+            <p>Details...</p>
+          </details>
+          <details id="b" @toggle="handleToggle" :open="openDetails === 'b'">
+            <summary>Summary</summary>
+            <p>Details...</p>
+          </details>
+        </m-accordion>
+
+        <script>
+          export default {
+            data() {
+              return {
+                openDetails: null
+              }
+            },
+            methods: {
+              handleToggle(e) {
+                this.openDetails = e.currentTarget.id
+              }
+            }
+          }
+        </script>
+      </template>
+    </code-sample>
+    <h3 id="a11y">Accessibility</h3>
+    <p>All accessibility recommendations apply to the <a href="/details">Details</a> children.</p>
+  </section>
+
+  <hr>
+
+  <section id="alert">
+    <h1 class="mar-b-xs">Alert</h1>
+    <h2 class="txt-gray-5 mar-t-0">Dismissible container for escalated messages</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <template>
+        <m-alert onclick="alert('click')" ondismiss="alert('dismiss')">Neutral message</m-alert>
+        <m-alert type="info">Informational message</m-alert>
+        <m-alert type="success">Positive message</m-alert>
+        <m-alert type="warn">Cautionary message</m-alert>
+        <m-alert type="error" icon="error" dismissible="false">Error message with icon and no dismiss button</m-alert>
+      </template>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-alert</code></td>
+        <td colspan="2">Custom Element</td>
+        <td colspan="6">Any</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr id="type">
+        <td colspan="2"><code>type</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>info</li>
+            <li>success</li>
+            <li>warn</li>
+            <li>error</li>
+          </ul>
+        </td>
+        <td colspan="6">Sets the type of the message. Error messages should use "error", cautionary messages should use "warn", positive messages should use "success", and important informational messages should use "info".</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>autodismiss</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>Boolean attribute</li>
+            <li>Number of seconds</li>
+          </ul>
+        </td>
+        <td colspan="6">If present, the Alert will automatically remove itself after 4 seconds. To increase or decrease the delay, set its value to the desired number of seconds.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>dismissible</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>false</li>
+          </ul>
+        </td>
+        <td colspan="6">When set to "false", the dismiss button will not be displayed and the user can't dismiss the alert. The application can still directly remove the alert from the DOM or call <code>dismiss()</code> and <code>autodismiss</code> is also still effective.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>icon</code></td>
+        <td colspan="2"><a href="/icons#all-icons">Any icon name</a></td>
+        <td colspan="6">Adds the specified icon. Good pairings for each type are info for info, check_circle for success, warning for warn, and error for error, but use whatever is best for your alert.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="events">Events</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Detail</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>dismiss</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Fires after alert has been dismissed. This happens when the user clicks the dismiss button, after autodismiss completes, or when <code>dismiss()</code> is called directly.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="methods">Methods</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="4">Signature</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="4"><code>dismiss()</code></td>
+        <td colspan="6">Removes the alert from the DOM and fires <code>dismiss</code> event.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="alert-vs-dialog">Alert vs. Dialog</h3>
+    <p>Some information is so important it justifies interrupting the user experience. In those cases consider displaying it in a <a href="/dialog">dialog</a> instead of an alert.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>When <code>type</code> is "warn" or "error" the <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role" target="_blank" rel="noopener">ARIA alert role</a> will be added automatically. Add <code>aria-label=""</code> to the dismiss button with something helpful like "Remove confirmation message".</p>
+  </section>
+
+  <hr>
+
+  <section id="autocomplete">
+    <h1 class="mar-b-xs">Autocomplete</h1>
+    <h2 class="txt-gray-5 mar-t-0">Text input for searching values or getting suggestions</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <template>
+        <fieldset>
+          <label>Search</label>
+          <m-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior"></m-autocomplete>
+          <datalist id="fruit">
+            <option value="apple"></option>
+            <option value="banana"></option>
+            <option value="cherry"></option>
+            <option value="peach"></option>
+          </datalist>
+        </fieldset>
+      </template>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-autocomplete</code></td>
+        <td colspan="2">Custom Element</td>
+        <td colspan="6">None</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>datalist</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;option&gt;</code> elements</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>source</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2">String</td>
+        <td colspan="6">The source of data to query for matches. This must be the id of a <code>&lt;datalist&gt;</code> element or the name of a custom source function. Learn how to create them <a href="#creating-sources">below</a>.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>max</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Truncates the number of results to <code>max</code>. Autocomplete will overflow at about 10 visible results regardless of the max set.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="events">Events</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Details</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>select</code></td>
+        <td colspan="2">
+      <pre class="overflow-auto">
+{
+  // Name of the source for easy reference
+  source: '',
+
+  // Value from matches
+  value: '',
+
+  // Id of match, if provided
+  id: ''
+}
+      </pre>
+        </td>
+        <td colspan="6">
+          <div class="mar-b-md">Fires after a match is selected. Try it:</div>
+          <fieldset>
+            <label>Superheroes</label>
+            <m-autocomplete onselect="alert(JSON.stringify(event.detail, null, 2))" source="superheroes" placeholder="Search 'bat' or 'kent' and select a result"></m-autocomplete>
+            <datalist id="superheroes">
+              <option value="batman">Bruce Wayne</option>
+              <option value="superman">Clark Kent</option>
+              <option value="spiderman">Peter Parker</option>
+            </datalist>
+          </fieldset>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="creating-sources">Creating data sources for autocomplete</h3>
+    <p>Sources can come from a standard <code>datalist</code> element or a custom function added to the global <code>MdashAutocomplete</code>.</p>
+    <h4>1. Datalist element</h4>
+    <p>Include a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank" rel="noopener">datalist</a> element in the DOM. Its <code>id</code> must match the Autocomplete's <code>source</code>. The options' value attributes and optional text are searched for matches. Here's an example:</p>
+    <code-sample readonly="readonly">
+      <template>
+        <fieldset>
+          <label>Search</label>
+          <m-autocomplete source="fruit"></m-autocomplete>
+          <datalist id="fruit">
+            <option value="apple"></option>
+            <option value="banana"></option>
+            <option value="cherry"></option>
+            <option value="peach"></option>
+          </datalist>
+        </fieldset>
+      </template>
+    </code-sample>
+    <h4>2. Custom source function</h4>
+    <p>These are asynchronous functions added to the static <code>MdashAutocomplete.sources</code> object. Here's another <code>fruit</code> example similar to the datalist above:</p>
+    <code-sample readonly="true">
+      <script>
+        const mdashAutocomplete = customElements.get('m-autocomplete');
+        mdashAutocomplete.sources.fruit = async (query, max) => \{
+
+          // 1. Use `query` to fetch, filter, map, find, or whatever your logic is for determining matching results.
+          // Note: `max` is the most results that will be shown, which is helpful to know beforehand when dealing with large data sets.
+          const matches = ['apple', 'banana', 'cherry', 'peach'].filter(fruit => fruit.includes(query));
+
+          // 2. Result must be an object with the original `query` param and a `matches` Array.
+          // Note: `matches` elements can be strings or objects with `id` and `value` properties. See Events API above for more details.
+          const result = \{query, matches};
+
+          // 3. Return a resolved Promise with the result (async functions do this automatically).
+          return result;
+        }
+      </script>
+    </code-sample>
+    <p><span class="fnt-bold"><m-icon name="lightbulb"></m-icon>Tip:</span> If the source's data is over the network, cache results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>const matches = cache[query] || await fetchAndCacheResults(query)</code>, but the
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache" target="_blank">Cache API</a> is another excellent option. You can also use <code>max</code> if it's beneficial while searching to know the maximum number of matches that will be shown.</p>
+    {{> more-autocomplete}}
+    <h3 id="a11y">Accessibility</h3>
+    <p>There are no extra recommendations for Autocomplete.</p>
+  </section>
+
+  <hr>
+
+  <section id="badge">
+    <h1 class="mar-b-xs">Badge</h1>
+    <h2 class="txt-gray-5 mar-t-0">Display notification counts</h2>
+    <h2>Demo</h2>
+    <code-sample>
+      <m-badge count="1"></m-badge>
+    </code-sample>
+    <h2>API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-badge</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">Text or the count attribute</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>count</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">A number to display. When zero or empty the badge will hide itself.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2>Guidelines</h2>
+    <h3>Badge hides itself</h3>
+    <p>Badge can be used to display a count or text. If either is omitted, the badge will be set to <code>display: none</code>.</p>
+    <h3>Localization</h3>
+    <p>Localize the count value before setting it.</p>
+    <h3>Accessibility</h3>
+    <p>Use <code>aria-labelledby</code> or <code>aria-label</code> to provide context for the count.</p>
+  </section>
+
+  <hr>
+
+  <section id="box">
+    <h1 class="mar-b-xs">Box</h1>
+    <h2 class="txt-gray-5 mar-t-0">Static container for elevating content</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <m-box>Primary content</m-box>
+      <m-box ord="secondary">Secondary content</m-box>
+      <p>Content outside a Box is considered neutral</p>
+    </code-sample>
+    <p>See more <a href="/examples#Boxes">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-box</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">Any</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>ord</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>secondary</li>
+          </ul>
+        </td>
+        <td colspan="6"><a href="https://en.wikipedia.org/wiki/Ordinal_numeral" target="_blank" rel="noopener">Ordinal number word</a> for describing the content's importance.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="nesting">Nesting</h3>
+    <p>Although possible, Boxes of the same <code>ord</code> should not be nested inside each other. Nesting a secondary Box inside a primary Box is ok:</p>
+    <code-sample>
+      <m-box>
+        <h3 class="mar-t-0">Terms of service</h3>
+        <p>Boxes of the same <code>ord</code> should not be nested inside each other. Nesting a secondary Box inside a primary Box is ok. You must agree to these guidelines to continue.</p>
+        <m-box ord="secondary"><label for="agree"><input id="agree" type="checkbox"> I agree.</label></m-box>
+      </m-box>
+    </code-sample>
+    <h3 id="header-footer">Box header</h3>
+    <p>Because a Box header is more tricky than it seems (compensating for default padding), it doesn't get any special styles. However, it just takes a few classes to get a nice Box header:</p>
+    <code-sample>
+      <m-box class="pad-0">
+        <header class="pad-md bg-gray-1 brd-b">Header</header>
+        <div class="pad-md">
+          Content
+        </div>
+      </m-box>
+    </code-sample>
+    <h3 id="a11y">Accessibility</h3>
+    <p>There are no accessibility recommendations for Box.</p>
+  </section>
+
+  <hr>
+
+  <section id="breadcrumbs">
+    <h1 class="mar-b-xs">Breadcrumbs</h1>
+    <h2 class="txt-gray-5 mar-t-0">Navigational hierarchy</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <m-breadcrumb>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">Shoes</a>
+          <span aria-current="page">Women</span>
+        </nav>
+      </m-breadcrumb>
+    </code-sample>
+    <p class="mar-b-lg">See more <a href="/examples#breadcrumb">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-breadcrumb</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">One <code>&lt;nav&gt;</code> child with <code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, or <code>&lt;m-crumb&gt;</code> children.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>m-crumb</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">Any</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="order">Crumb order</h3>
+    <p>The last crumb must represent the current page and should be a span. All other crumbs should be links navigating up the hierarchy. When the user is at the top of the hierarchy, it may or may not make sense to display Breadcrumb at all.</p>
+    <h3>With menus</h3>
+    <p>Breadcrumbs can support all kinds of elements for more demanding designs, but you should not deviate from the core purpose of navigational hierarchy.</p>
+    <code-sample>
+      <template>
+        <m-breadcrumb>
+          <nav>
+            <a href="/" title="Home" aria-label="Home">
+              <m-icon name="home"></m-icon>
+            </a>
+            <a href="/shoes">Shoes</a>
+            <m-crumb>
+              <m-menu>
+                <span role="link" slot="trigger">Womens  <m-icon name="arrow-down" class="txt-xs"></m-icon></span>
+                <div slot="items">
+                  <a href="/shoes/womens/casual">👞 Casual</a>
+                  <a href="/shoes/womens/sporty">👟 Sporty</a>
+                  <a href="/shoes/womens/formal">👠 Formal</a>
+                </div>
+              </m-menu>
+            </m-crumb>
+            <span>Sport</span>
+          </nav>
+        </m-breadcrumb>
+      </template>
+    </code-sample>
+    <h3 id="a11y">Accessibility</h3>
+    <p>The last item in breadcrumbs should represent the current page and have <code>aria-current="page"</code>.</p>
+  </section>
+
+  <hr>
+
+  <section id="button">
+    <h1 class="mar-b-xs">Button</h1>
+    <h2 class="txt-gray-5 mar-t-0">For triggering actions</h2>
+    <h2>Demo</h2>
+    <code-sample>
+      <p>Ordinal name</p>
+      <button ord="primary">Primary</button>
+      <button ord="secondary">Secondary</button>
+      <button ord="tertiary">Tertiary</button>
+      <p>Disabled state</p>
+      <button ord="primary" disabled>Disabled</button>
+      <p>Link as button</p>
+      <a role="button" ord="primary" href="/button">Link</a>
+      <p>Remove type</p>
+      <button type="remove" title="Remove" aria-label="Remove"></button>
+      <p>Button group</p>
+      <div role="group">
+        <button ord="secondary" aria-pressed="true">One</button>
+        <button ord="secondary">Two</button>
+        <button ord="secondary">Three</button>
+      </div>
+    </code-sample>
+    <h2>API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>button</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any content, but none for remove button</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>ord</code> <small class="fnt-bold fnt-italic">required*</small></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>primary</li>
+            <li>secondary</li>
+            <li>tertiary</li>
+          </ul>
+        </td>
+        <td colspan="6">
+          <a href="https://en.wikipedia.org/wiki/Ordinal_numeral" target="_blank" rel="noopener">Ordinal number word</a> for describing the button's precedence.
+          <p class="mar-b-none"><small>*The remove button does not require this.</small></p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>type</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>submit</li>
+            <li>remove</li>
+          </ul>
+        </td>
+        <td colspan="6">
+          <p class="mar-t-0">Use submit when the button submits a form. Avoid <code>&lt;input type="submit"&gt;</code>. See
+            <a href="/form#submit-button">Submit button</a> for more info</p>
+          <p class="mar-b-none">Remove is a custom button type. It's used by other components like alert and dialog and is intended for remove/close use cases (e.g. remove item from cart, close the dialog).
+            <a href="#remove">See below</a> for more info.</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>disabled</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Disables the button. Link buttons also need <code>tabindex="-1"</code> to prevent activation by keyboard or assistive tech.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>aria-pressed</code></td>
+        <td colspan="2">
+          <ul>
+            <li>true</li>
+            <li>false</li>
+            <li>mixed</li>
+          </ul>
+        </td>
+        <td colspan="6">Defines the button (secondary only) as a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#toggle_buttons" target="_blank">toggle
+          button</a> and sets its pressed state. The <code>ariaPressed</code> property works as well. See <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-pressed" target="_blank">MDN
+          for details</a>.
+          <p>See <a href="#button-group">Button Group</a> below to learn how to create a group of toggle buttons. It is recommended to use secondary buttons.</p></td>
+      </tr>
+      <!--  <tr>-->
+      <!--    <td colspan="2"><code>scale</code></td>-->
+      <!--    <td colspan="2">-->
+      <!--      <ul type="none">-->
+      <!--        <li>sm</li>-->
+      <!--        <li>lg</li>-->
+      <!--      </ul>-->
+      <!--    </td>-->
+      <!--    <td colspan="6">Scales the button size. Medium is the implied default and matches the size of form controls. Small is recommended for menus, table rows, and other space-constrained designs.</td>-->
+      <!--  </tr>-->
+      </tbody>
+    </table>
+    <p>For <span class="fnt-bold">&lt;a&gt;</span> only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>role</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2">button</td>
+        <td colspan="6">Styles the link as a button. Use this instead of <code>&lt;button&gt;</code> when your use case needs a real link.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2>Guidelines</h2>
+    <h3>Button or link?</h3>
+    <p>If the action navigates to a new url, strive to use regular <a href="/link">links</a>, but if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that for these cases an actual link is used so the user can
+      <kbd>cmd + click</kbd> or copy the link. If the action does not navigate the user to a new url, then use a regular button.</p>
+    <h3 id="remove">Custom <code>remove</code> type</h3>
+    <p>Like other buttons, it is your app not Mdash that handles the click. Dialog, alert, and other components use remove button to create a consistent experience. You should use it for similar use cases to meet user expectations:</p>
+    <div class="mar-b-md">
+      <m-alert type="success">Alert uses remove button</m-alert>
+    </div>
+    <div class="mar-b-md">
+      <m-tag>Tag supports remove button <button type="remove" title="Remove" aria-label="Remove"></button></m-tag>
+    </div>
+    <div class="mar-b-md">
+      <dialog>
+        <button onclick="document.querySelector('dialog').close()" type="remove" slot="close" title="Close" aria-label="Close"></button>
+        Dialog defines a slot for its remove button.
+      </dialog>
+      <button onclick="document.querySelector('dialog').showModal()" ord="primary">Dialog uses remove button</button>
+    </div>
+    <div class="width-half">
+      <p>Your app can use the remove button:</p>
+      <div>
+        <h4 class="mar-t-0 mar-b-xs">Order summary</h4>
+        <div class="flex align-items-center justify-content-between">🌮 Taco w/ spicy pork <button type="remove" title="Remove" aria-label="Remove"></button></div>
+        <div class="flex align-items-center justify-content-between">🌯 Burrito w/ steak, add guac <button type="remove" title="Remove" aria-label="Remove"></button></div>
+        <div class="flex align-items-center justify-content-between">🥤 Horchata, large, x2 <button type="remove" title="Remove" aria-label="Remove"></button></div>
+        <hr class="mar-t-xs mar-b-xs">
+        <div class="flex justify-content-between">
+          <span class="txt-sm txt-upper fnt-med">Total</span>
+          <span class="txt-sm fnt-mono">$18.36</span>
+        </div>
+      </div>
+    </div>
+    <p>Changing the size of the icon can be done with a utility class:</p>
+    <code-sample>
+      <button type="remove" title="Remove" aria-label="Remove" class="txt-xs"></button>
+      <button type="remove" title="Remove" aria-label="Remove" class="txt-sm"></button>
+      <button type="remove" title="Remove" aria-label="Remove" class="txt-md"></button>
+      <button type="remove" title="Remove" aria-label="Remove" class="txt-lg"></button>
+      <button type="remove" title="Remove" aria-label="Remove" class="txt-xl"></button>
+    </code-sample>
+    <h3 id="button-group">Button Group</h3>
+    <p>To create a button group, simply put toggle buttons in a container with <code>role="group"</code>. Your app manages the <code>aria-pressed</code> state and determines if one or more can be pressed at a time.</p>
+    <code-sample>
+      <div role="group">
+        <button ord="secondary" aria-pressed="true">One</button>
+        <button ord="secondary" aria-pressed="mixed">Two</button>
+        <button ord="secondary" aria-pressed="false">Three</button>
+        <button ord="secondary">Four</button>
+      </div>
+    </code-sample>
+    <p>Event delegation is useful for capturing all toggle button clicks and managing the pressed state. Also, optionally using the <code>value</code> or <code>data-*</code> attribute can help your app know what actions to take, e.g. setting a new filter and removing the others.</p>
+    <code-sample>
+      <script>
+        // Allow only one button pressed at a time
+        const toggle = e => e.currentTarget.querySelectorAll('button').forEach(btn => (btn.ariaPressed = btn === e.target ? 'true' : 'false') && alert(`${btn.ariaPressed === 'true' ? 'Set' : 'Remove'} ${btn.value} filter`));
+      </script>
+      <div onclick="toggle(event)" role="group">
+        <button ord="secondary" value="ready">Ready</button>
+        <button ord="secondary" value="complete">Complete</button>
+        <button ord="secondary" value="overdue">Overdue</button>
+      </div>
+    </code-sample>
+    <h3 id="unstyled">Custom button styles</h3>
+    <p>Mdash leaves the plain button element untouched so you can freely use them without competing with Mdash styles (Mdash buttons require the <code>ord</code> attribute). Optionally add the <code>all-unset</code> utility class to remove user-agent styles from button, then customize as desired. For example:</p>
+    <code-sample>
+      <button class="all-unset">No Styles</button>
+      <button class="all-unset pad-xs bg-gray-7 txt-white txt-center txt-upper txt-space pointer" style="width: 200px">Custom styles</button>
+    </code-sample>
+    <h3>Accessibility</h3>
+    <p>The remove button should have an <code>aria-label</code> attribute and disabled link buttons should have <code>tabindex="-1"</code> to prevent activation.</p>
+  </section>
+
+  <hr>
+
+  <section id="checkbox">
+    <h1 class="mar-b-xs">Checkbox</h1>
+    <h2 class="txt-gray-5 mar-t-0">Form element for selecting many options</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <fieldset>
+        <legend>Languages</legend>
+        <input id="html" type="checkbox" name="speed" value="html" checked>
+        <label for="html">HTML</label>
+        <input id="css" type="checkbox" name="speed" value="css">
+        <label for="css">CSS</label>
+        <input id="js" type="checkbox" name="speed" value="js">
+        <label for="js">JavaScript</label>
+      </fieldset>
+    </code-sample>
+    <p>See more <a href="/examples#Forms">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>input</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">None</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>name</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2">String</td>
+        <td colspan="6">All checkboxes in a group use the same name.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="title">Radio, checkbox, or select?</h3>
+    <p>There's many uses cases where a single checkbox works very well and other use cases where 50 checkboxes makes sense too. If only one of the options can be selected, use radio or select.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>Like other input elements, be sure to use <code>for</code> and <code>id</code>.</p>
+  </section>
+
+  <hr>
+
+  <section id="container">
+    <h1 class="mar-b-xs">Container</h1>
+    <h2 class="txt-gray-5 mar-t-0">Primary container element for page layout</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <m-container>Container is centered in its parent, has responsive padding, and its content will be contained according to <code>maxwidth</code>.</m-container>
+    </code-sample>
+    <p>See more <a href="/examples#Containers">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-container</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">Any</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>maxwidth</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>lg <small class="fnt-bold fnt-italic">default</small></li>
+            <li>md</li>
+            <li>sm</li>
+            <li>none</li>
+          </ul>
+        </td>
+        <td colspan="6">Sets the max width of the container, which includes some padding. "lg" <span class="fnt-italic">grows up to</span> 1536px, "md" starts at 800px and
+          <span class="fnt-italic">shrinks down</span>, and "sm" starts at 576px and <span class="fnt-italic">shrinks down</span>.<br>Read
+          <a href="#more-maxwidth">more on maxwidth</a> for details.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="more-maxwidth">More on maxwidth</h3>
+    <p>By default Container will grow up to 1,536 pixels wide, which is intended to make full use of a screen up to the equivalent of a 16" MacBook Pro. You can remove this limit with <code>none</code>.</p>
+    <p>In cases where there isn't a full page of content or maybe a more focused layout is desired, <code>md</code> is often the right width. On-boarding flows or a promotional page are good examples where medium would be useful. In some cases a very narrow and focused layout is needed, like a log in form. Use <code>sm</code> for these.</p>
+    <p>In all cases Container includes padding and centers itself in the viewport.</p>
+    <h3 id="multiple">Multiple containers</h3>
+    <p>A page can have multiple containers. This is most common when two components should share the same container characteristics, like max width and centered in the viewport, but need to have different backgrounds or other design elements that prevent sharing a single container. A site navigation is a good example:</p>
+    <header class="bg-gray-1">
+      <m-container class="flex">
+        <span class="fnt-bold txt-space txt-gray-6">LOGO</span>
+        <nav class="mar-l-lg">
+          <a href="#" class="mar-l-sm mar-r-sm">Home</a>
+          <a href="#" class="mar-l-sm mar-r-sm">Products</a>
+          <a href="#" class="mar-l-sm mar-r-sm">Sales</a>
+        </nav>
+        <m-icon name="settings" class="mar-l-auto"></m-icon>
+      </m-container>
+    </header>
+    <m-container>
+      <p>And the rest of the page's content is here in another container.</p>
+      <p>Note how this section and the site nav's content are aligned.</p>
+    </m-container>
+    <h3 id="layout-elements">Other layout elements</h3>
+    <p>In addition to Mdash's Container and <a href="/grid">Grid</a>, HTML offers a number of semantic elements for layout. From W3Schools:</p>
+    <blockquote>
+      <ul type="none">
+        <li class="mar-b-xs"><code>&lt;header&gt;</code> Defines a header for a document or a section</li>
+        <li class="mar-b-xs"><code>&lt;nav&gt;</code> Defines a container for navigation links</li>
+        <li class="mar-b-xs"><code>&lt;section&gt;</code> Defines a section in a document</li>
+        <li class="mar-b-xs"><code>&lt;article&gt;</code> Defines an independent self-contained article</li>
+        <li class="mar-b-xs"><code>&lt;aside&gt;</code> Defines content aside from the content (like a sidebar)</li>
+        <li class="mar-b-xs"><code>&lt;footer&gt;</code> Defines a footer for a document or a section</li>
+      </ul>
+    </blockquote>
+    <h3 id="a11y">Accessibility</h3>
+    <p>There are no accessibility recommendations for Container.</p>
+  </section>
+
+  <hr>
+
+  <section id="details">
+    <h1 class="mar-b-xs">Details</h1>
+    <h2 class="txt-gray-5 mar-t-0">Expandable container for progressive disclosure</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <template>
+        <details>
+          <summary>Click to see details</summary>
+          <p>The deets.</p>
+        </details>
+      </template>
+    </code-sample>
+    <p>See more <a href="/examples#Details">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>details</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;summary&gt;</code> as first child and any other content after that</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>summary</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any, but should be a “summary, caption, or legend for the rest of the contents"</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>open</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">When present, the details are shown (everything after summary). When removed details are hidden. If you want Details open by default, add this attribute.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="events">Events</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Detail</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>toggle</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">
+          <p class="mar-t-0">Fires after Details was opened or closed. If <code>e.currentTarget.open</code> is true, then it was just opened, otherwise it was closed.</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <!--<h3 id="title">What about &lt;details&gt;?</h3>-->
+    <!--<p>This element matches the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement" target="_blank" rel="noopener"><code>HTMLDetailsElement</code></a> interface as close as possible so when browser support for <code>&lt;details&gt;</code> is sufficient it will be removed from Mdash in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>-->
+    <h3 id="necessary">Is the content even necessary?</h3>
+    <p>Although Details and <a href="/accordion">Accordion</a> are great tools for progressive disclosure, you should consider if the hidden content is necessary or if it could just be removed altogether.</p>
+    <h3>Clickable elements inside summary</h3>
+    <p>Some designs will include a button or other interactive element in <code>&lt;summary&gt;</code> that should not toggle the details. Most elements behave as normal without toggling Details, but some, like in the example below, need an event handler to <code>preventDefault</code> to stop this from happening:</p>
+    <code-sample>
+      <script>
+        // Makes "Delete" and "Export" links not toggle Details
+        const deleteHistory = e => e.preventDefault();
+        const exportHistory = e => e.preventDefault();
+      </script>
+
+      <template>
+        <details>
+          <summary class="pad-md bg-gray-1">
+            <div class="flex justify-content-between align-items-center">
+              <span role="link"><m-icon name="history"></m-icon> Show report history</span>
+              <div>
+                <span onclick="deleteHistory(event)" role="link" class="mar-l-md">Delete</span>
+                <span onclick="exportHistory(event)" role="link" class="mar-l-md">Export</span>
+              </div>
+            </div>
+          </summary>
+          <div class="pad-md">The report history...</div>
+        </details>
+      </template>
+    </code-sample>
+    <h3>Navigation</h3>
+    <p>A common application of Details is an expandable navigation. Here's a working example:</p>
+    <code-sample>
+      <nav aria-label="Sidebar navigation">
+        <h4 class="txt-upper mar-b-xs">Lesson 1</h4>
+        <details>
+          <summary>Section A</summary>
+          <div class="pad-l-xs mar-b-md">
+            <a href="#" class="block mar-t-xs">Intro to Biology</a>
+            <a href="#" class="block mar-t-xs">Living Organisms</a>
+            <a href="#" class="block mar-t-xs">The Human Cell</a>
+          </div>
+        </details>
+        <details class="mar-t-sm">
+          <summary>Section B</summary>
+          <div class="pad-l-xs mar-b-md">
+            <a href="#" class="block mar-t-xs">DNA</a>
+            <a href="#" class="block mar-t-xs">Mapping the Genome</a>
+            <a href="#" class="block mar-t-xs">Biological Ethics</a>
+          </div>
+        </details>
+        <h4 class="txt-upper mar-b-xs">Lesson 2</h4>
+        <details class="mar-t-sm">
+          <summary>Section C</summary>
+          <div class="pad-l-xs mar-b-md">
+            <a href="#" class="block mar-t-xs">Link</a>
+            <a href="#" class="block mar-t-xs">Link</a>
+            <a href="#" class="block mar-t-xs">Link</a>
+          </div>
+        </details>
+      </nav>
+    </code-sample>
+    <h3 id="safari-bug">Safari flexbox bug</h3>
+    <p>Safari has a <a href="https://bugs.webkit.org/show_bug.cgi?id=190065" target="_blank">bug</a> that prevents <code>summary</code> from being styled as a flex container. It looks like a fix is coming. If your summary needs flexbox, add a div:</p>
+    <code-sample>
+      <template>
+        <details>
+          <summary>
+            <div class="flex">This works</div>
+          </summary>
+          ...
+        </details>
+      </template>
+    </code-sample>
+    <h3 id="a11y">Accessibility</h3>
+    <p>The <code>aria-expanded</code> attribute is managed automatically. Pressing spacebar will open/close details.</p>
+  </section>
+
+  <hr>
+
+  <section id="dialog">
+    <h1 class="mar-b-xs">Dialog</h1>
+    <h2 class="txt-gray-5 mar-t-0">Modal content container</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <template>
+        <dialog>
+          <h2>Title</h2>
+          <p>Put anything you want in here.</p>
+          <p>(press <kbd>Esc</kbd> to close)</p>
+        </dialog>
+      </template>
+
+      <button onclick="document.querySelector('dialog').showModal()" ord="primary">Open Dialog</button>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>dialog</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any. The first element with <code>autofocus</code> will receive focus when the dialog is opened.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>Slot</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Element</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>close</code></td>
+        <td colspan="2"><code>type="remove"</code> button</td>
+        <td colspan="6">None. See <a href="#close-button">Close button</a> for details.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>open</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Will open the Dialog when added or close when removed. If you want the dialog displayed "modelessly", you have to call the <code>show</code> method.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="events">Events</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Detail</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>close</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">MDN says: "Fired when the dialog is closed, whether with the escape key, the <code>HTMLDialogElement.close()</code> method, or via submitting a form within the dialog with
+          <code>method="dialog"</code>."</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>cancel</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">MDN says: "Fired when the user dismisses the current open dialog with the escape key."</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="methods">Methods</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Signature</th>
+        <th colspan="8">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>close([returnValue])</code></td>
+        <td colspan="8">MDN says: "Closes the dialog. An optional DOMString may be passed as an argument, updating the returnValue of the the dialog." Also note that the Dialog and its contents are still present in the DOM (e.g. forms still have user-entered values, so reset it if that's what your use case requires).</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>show()</code></td>
+        <td colspan="8">MDN says: "Displays the dialog modelessly, i.e. still allowing interaction with content outside of the dialog."</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>showModal()</code></td>
+        <td colspan="8">MDN says: "Displays the dialog as a modal, over the top of any other dialogs that might be present. Interaction outside the dialog is blocked."</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="close-button">Close button</h3>
+    <p>Dialog elements do not come with a button to close themselves, so Mdash includes style-only support for one. Add <code>&lt;button slot="close" type="remove"&gt;</code> and Mdash will style it for you, but your application must implement the click handler (e.g. calling the dialog's <code>close</code> method or removing its <code>open</code> attribute). Note that this is required only if a dialog doesn't implement any other buttons for closing. Here's a basic example:</p>
+    <code-sample>
+      <template>
+        <dialog id="close-demo">
+          <button onclick="document.querySelector('#close-demo').close()" slot="close" type="remove" title="Close" aria-label="Closes"></button>
+          <p>A <code>button[slot=close][type=remove]</code> element in a dialog is assumed to be its close button and styled and positioned for you.</p>
+          <p>The app handles the click event and closes the dialog, not Mdash.</p>
+        </dialog>
+      </template>
+
+      <button onclick="document.querySelector('#close-demo').showModal()" ord="primary">Open Dialog</button>
+    </code-sample>
+    <h3 id="state">Forms and DOM state</h3>
+    <p>The state of the content is controlled by your application. Dialog does not change the state of its children other than moving them into a containing div on init. Forms and all other elements will initialize the way they are provided by the application and will continue to remain untouched even when the Dialog is closed. For example, if a Dialog is used to present a login form the application should remove the Dialog completely or reset the form after successful authentication. If left alone the Dialog and the login form inside it will contain the user's credentials. It's your content; you have to manage it.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>The necessary ARIA attributes are added automatically; however, if your Dialog "contains an alert message" you should set <code>role="alertdialog"</code>.</p>
+  </section>
+
+  <hr>
+
+  <section id="dot">
+    <h1 class="mar-b-xs">Dot</h1>
+    <h2 class="txt-gray-5 mar-t-0">Status indicator</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <m-dot type="info">Information</m-dot>
+      <m-dot type="success">Success</m-dot>
+      <m-dot type="warn">Warning</m-dot>
+      <m-dot type="error">Error</m-dot>
+      <m-dot>Unknown</m-dot>
+    </code-sample>
+    <!--<p>See more <a href="/examples#Dot">examples</a></p>-->
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-dot</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">Text (optional)</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>type</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>info</li>
+            <li>success</li>
+            <li>warn</li>
+            <li>error</li>
+          </ul>
+        </td>
+        <td colspan="6">Sets the type of the indicator and has the same meaning as Alert's <a href="/alert#type">type</a>.</td>
+      </tr>
+      <!--  <tr>-->
+      <!--    <td colspan="2"><code>color</code></td>-->
+      <!--    <td colspan="2">String</td>-->
+      <!--    <td colspan="6">Instead of a semantic type, you can use any of the <a href="/custom-properties#colors">colors</a>, e.g. <code>color="orange-med"</code>.</td>-->
+      <!--  </tr>-->
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="title">Dot text</h3>
+    <p>In most cases Dot should include text, but sometimes it's okay to have a Dot without text (see <a href="#a11y">Accessibility</a>). An Accordion of system summaries works as a good example:</p>
+    <m-accordion>
+      <details>
+        <summary>
+          <div class="flex">
+            <m-dot type="success" class="mar-r-md"></m-dot>
+            <span class="txt-md fnt-bold">Databases</span>
+          </div>
+        </summary>
+        <p class="pad-l-lg">All good!</p>
+      </details>
+      <details>
+        <summary>
+          <div class="flex">
+            <m-dot type="success" class="mar-r-md"></m-dot>
+            <span class="txt-md fnt-bold">API</span>
+          </div>
+        </summary>
+        <p class="pad-l-lg">All good!</p>
+      </details>
+      <details>
+        <summary>
+          <div class="flex">
+            <m-dot type="warn" class="mar-r-md"></m-dot>
+            <span class="txt-md fnt-bold">Notification service</span>
+          </div>
+        </summary>
+        <p class="pad-l-lg">Increase in avgerage response time.</p>
+      </details>
+    </m-accordion>
+    <h3 id="unknown">Unknown type</h3>
+    <p>A Dot with an unknown type is useful when a generic dot is needed. Another use case is when your app wants to display a dot, but its type is still being determined. A
+      <a href="/loader">Loader</a> can help communicate in these situations:</p>
+    <div>
+      <m-dot>Marcus is offline</m-dot>
+    </div>
+    <div class="flex align-items-center">
+      <m-dot>Marcus is joining</m-dot><m-loader loading class="mar-l-xs txt-xs"></m-loader>
+    </div>
+    <div>
+      <m-dot type="success">Marcus is online</m-dot>
+    </div>
+    <h3 id="a11y">Accessibility</h3>
+    <p>When there is no text use <code>aria-label</code>, e.g. <code>&lt;m-dot type="success" aria-label="Systems okay"&gt;</code>.</p>
+  </section>
+
+  <hr>
+
+  <section id="form">
+    <h1 class="mar-b-xs">Form elements</h1>
+    <h2 class="txt-gray-5 mar-t-0">Basic elements used when creating forms</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <form>
+        <fieldset>
+          <label>Email</label>
+          <input type="email">
+        </fieldset>
+        <fieldset>
+          <label>Password</label>
+          <input type="password">
+          <small>Must be at least 8 characters</small>
+        </fieldset>
+        <fieldset>
+          <label>Address</label>
+          <input placeholder="Street">
+          <input placeholder="Zip" autocomplete="postal-code">
+        </fieldset>
+        <button type="submit" ord="primary">Save</button>
+      </form>
+    </code-sample>
+    <p>See more <a href="/examples#Forms">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>form</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>fieldset</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>label</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Text</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>small</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Text for "side-comments" associated with an input. <a href="#small">Read more</a></td>
+      </tr>
+      </tbody>
+    </table>
+    <small><span class="fnt-bold">Note:</span> Form controls are documented separately. See <a href="/input">Input</a>, <a href="/checkbox">Checkbox</a>, <a href="/radio">Radio</a>, <a href="/select">Select</a>, and <a href="/textarea">Textarea</a>.</small>
+    <h3 id="attributes">Attributes</h3>
+    <p>Nothing special to call out. See <a
+      href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#Attributes">MDN: form attributes</a> for the full list.</p>
+    <h3 id="events">Events</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Detail</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>submit</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Fires when the form is submitted, which happens when the user clicks the <a href="#submit-button">submit
+          button</a> or hits enter.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>input</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Fires when the value of a text-like input or text area changes.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>change</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Fires when a value is committed, like selecting from a list, picking a file or date, checking a box, or blurring away from a text input.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="submit-button">Submit button vs. input button</h3>
+    <p>Mdash recommends forms use <code>&lt;button type="submit"&gt;</code> instead of <code>&lt;input type="submit"&gt;</code>. This is more semantic and provides greater control of the button style and content. For example, you can't put an Icon or Loader inside a submit input.</p>
+    <h3 id="fieldset">Why &lt;fieldset&gt;?</h3>
+    <p>Rather than inventing new tags or using boilerplate divs and classes, Mdash leverages the native fieldset tag. Although it's historically uncommon to put just one input inside a fieldset, it is perfectly valid markup. Single or multiple input combinations of various types work perfectly well and results in the most clean and uniform form code:</p>
+    <code-sample>
+      <form>
+        <fieldset>
+          <label>Name</label>
+          <input>
+        </fieldset>
+        <fieldset>
+          <label>Phone</label>
+          <input type="tel">
+        </fieldset>
+        <fieldset>
+          <label>Address</label>
+          <input placeholder="Street">
+          <input placeholder="City">
+          <select>
+            <option>State...</option>
+            <option value="AL">Alabama</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </fieldset>
+      </form>
+    </code-sample>
+    <h3 id="small">Why &lt;small&gt;?</h3>
+    <p>Understand that small's semantics have to do with its <em>type</em> of content and not font size or other visual characteristic. The
+      <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-small-element">HTML spec</a> uses examples such as "disclaimers, caveats, legal restrictions, or copyrights", which is inline with this use case. Some examples:</p>
+    <code-sample>
+      <fieldset>
+        <label>Comment</label>
+        <textarea maxlength="200" rows="3">That's awesome! 👍</textarea>
+        <small>183/200 characters left</small>
+      </fieldset>
+      <fieldset>
+        <label>Password</label>
+        <input type="password" value="secret">
+        <small>Must include a number, special character, and be at least 8 characters long</small>
+      </fieldset>
+      <fieldset>
+        <label for="entree">Entrée</label>
+        <select id="entree">
+          <option>Select...</option>
+          <option>12oz Ribeye</option>
+          <option>Leg of lamb</option>
+          <option>Salmon (seasonal)</option>
+        </select>
+        <small>Please <a href="tel:">call ahead</a> for seasonal options</small>
+      </fieldset>
+    </code-sample>
+    <h3 id="a11y">Accessibility</h3>
+    <p>See <a href="/input#a11y">Input</a>, <a href="/checkbox#a11y">Checkbox</a>, <a href="/radio#a11y">Radio</a>, <a href="/select#a11y">Select</a>, and <a href="/textarea#a11y">Textarea</a> for their respective accessibility recommendations.</p>
+  </section>
+
+  <hr>
+
+  <section id="grid">
+    <h1 class="mar-b-xs">Grid</h1>
+    <h2 class="txt-gray-5 mar-t-0">Responsive 12-column grid system</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <m-row>
+        <m-col>
+          <m-box>This row's columns...</m-box>
+        </m-col>
+        <m-col>
+          <m-box>...will auto-span.</m-box>
+        </m-col>
+      </m-row>
+      <m-row>
+        <m-col span="4">
+          <m-box>These two columns...</m-box>
+        </m-col>
+        <m-col span="8">
+          <m-box>...span an explicit number of columns (4 and 8).</m-box>
+        </m-col>
+      </m-row>
+    </code-sample>
+    <p>See more <a href="/examples#Grids">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-row</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6"><code>m-col</code> children only</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>m-col</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">Any</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+    </table>
+    <p>For <span class="fnt-bold">m-row</span> only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>center</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Centers the columns in the row.</td>
+      </tr>
+      </tbody>
+    </table>
+    <p>For <span class="fnt-bold">m-col</span> only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>span</code></td>
+        <td colspan="2">[sm-|md-|lg-]1-12</td>
+        <td colspan="6">Sets the number of columns to span on a 12 column grid. Use the screen size prefixes to resize on specific screen sizes, e.g. <code>span="9 sm-12"</code> span 12 columns on small screens, otherwise 9.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>indent</code></td>
+        <td colspan="2">[sm-|md-|lg-]1-12</td>
+        <td colspan="6">Sets the number of columns to indent on a 12 column grid. Use the screen size prefixes to resize on specific screen sizes. Indenting a column by 12 is only useful if you're animating that column back into view.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>order</code></td>
+        <td colspan="2">[sm-|md-|lg-]1-12</td>
+        <td colspan="6">Overrides the order of the column in its row. Use the screen size prefixes to reorder columns for specific screen sizes.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="nesting">Nesting Grids</h3>
+    <p>Grids can be nested inside other grids to create complex responsive layouts. Two or even three Grids deep are normal, but any more than that and your implementation could be poorly designed.</p>
+    <h3 id="simple">Simpler solutions</h3>
+    <p>Although Grid is very capable, avoid the temptation to use it for everything. Sometimes a <a href="/utility-classes">utility class</a> is sufficient. Compare the three centered headings below to see how Grid may not always be the right solution:</p>
+    <code-sample>
+      <!-- Simple -->
+      <h1 class="txt-center">Example 1</h1>
+
+      <!-- Less simple -->
+      <div class="flex justify-content-center">
+        <h1>Example 2</h1>
+      </div>
+
+      <!-- Too complicated -->
+      <m-row center>
+        <m-col>
+          <h1>Example 3</h1>
+        </m-col>
+      </m-row>
+    </code-sample>
+    <h3 id="a11y">Accessibility</h3>
+    <p>There are no accessibility recommendations for Grid.</p>
+  </section>
+
+  <hr>
+
+  <section id="icons">
+    <h1 class="mar-b-xs">Icons</h1>
+    <h2 class="txt-gray-5 mar-t-0">Symbols used to enhance communication</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <m-icon name="person"></m-icon>
+      <m-icon name="person" fill></m-icon>
+      <m-icon name="flag"></m-icon>
+      <m-icon name="menu"></m-icon>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-icon</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">None</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>name</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><a href="#all-icons">See available icons below</a></td>
+        <td colspan="6">Sets the icon's symbol</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>fill</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Uses filled version</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="all-icons">Available icons</h3>
+    <p>Mdash now uses <a href="https://fonts.google.com/icons?icon.style=Outlined" target="_blank">Material Symbols Outlined</a>. On that page, getting an icon name is easier if you click the icon, then select the
+      <span class="fnt-italic">Android</span> tab, then copy the name.</p>
+    <h3 id="text">Pair with some text</h3>
+    <p>Icons should be used to <span class="fnt-italic">enhance</span> content not replace it. Users can misinterpret icons, so strive to accompany an icon with a label or other relevant content in close proximity.</p>
+    <code-sample>
+      <m-menu>
+        <span slot="trigger" role="link"><m-icon name="user"></m-icon> John Doe</span>
+        <div slot="items">
+          <a href="/profile">Profile</a>
+          <a href="/settings">Settings</a>
+          <hr class="mar-t-sm mar-b-sm">
+          <a href="/logout">Log out</a>
+        </div>
+      </m-menu>
+    </code-sample>
+    <p>If an icon is on its own, use the <code>title</code> attribute to explain what it symbolizes (e.g. "Your current location") or its action (e.g. "Reload this page", like your browser's refresh icon). Hover over the user icon for a clue:</p>
+    <code-sample>
+      <m-menu>
+        <span slot="trigger" role="link"><m-icon name="user" title="Open user menu"></m-icon></span>
+        <div slot="items">
+          <a href="/profile">Profile</a>
+          <a href="/settings">Settings</a>
+          <hr class="mar-t-sm mar-b-sm">
+          <a href="/logout">Log out</a>
+        </div>
+      </m-menu>
+    </code-sample>
+    <h3 id="svg">Why not SVG?</h3>
+    <p>Implementing SVG icons requires a relatively expensive abstraction and because there is no visual or accessibility difference between SVG and glyph icons, that abstraction would be all cost and no benefit. Mdash icons require no JavaScript and so they save kilobytes and have maximum compatibility.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>Because icons should be paired with some text (see above) they should reference that text with <a
+      href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"><code>aria-labelledby</code></a> attribute. In cases where there is no label, use
+      <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute"><code>aria-label</code></a> and <code>title</code>.</p>
+  </section>
+
+  <hr>
+
+  <section id="input">
+    <h1 class="mar-b-xs">Input</h1>
+    <h2 class="txt-gray-5 mar-t-0">Form element for receiving user input</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <fieldset>
+        <label>Label</label>
+        <input type="text" placeholder="Placeholder">
+      </fieldset>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>input</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">None</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>type</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>text <small class="fnt-bold fnt-italic">default</small></li>
+            <li>email</li>
+            <li>password</li>
+            <li>tel</li>
+            <li>number</li>
+            <li>file</li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types" target="_blank" rel="noopener">more...</a></li>
+          </ul>
+        </td>
+        <td colspan="6">
+          <div>Sets the expected type of value. Take care to set email, tel, password, and number inputs based on use case to ensure optimal user experience.</div>
+          <p>See <a href="/checkbox">checkbox</a>, <a href="/radio">radio</a>, and <a href="/range">range</a> for details on those specific types.</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>disabled</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Disables the input so it can't be changed or interacted with. It will be skipped when tabbing and its value will <span class="fnt-bold">not</span> be submitted with the form.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>readonly</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Makes the input read-only, which means the user can't change its value, but can still tab to it and copy the text. Its value will be submitted with the form.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>invalid</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Highlights input as having an invalid value. When the input is invalid it should have a <a href="/form#small">small element</a> explaining how to correct it. Validation is owned by your application not Mdash.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>placeholder</code></td>
+        <td colspan="2">String</td>
+        <td colspan="6">Displays a message inside the input. Ideal for showing an expected format or sample value.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>autofocus</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">If present, the browser will bring focus to this element on page load. Excellent for log in or search pages or whenever the first interaction is likely to type something.</td>
+      </tr>
+      <!--  <tr>-->
+      <!--    <td colspan="2"><code>autoselect</code></td>-->
+      <!--    <td colspan="2">Boolean attribute</td>-->
+      <!--    <td colspan="6">If present, the browser will select the value of the input. This is convenient to the user in cases where the value is usually-->
+      <!--      <span class="fnt-italic">replaced</span> instead of edited. Does not work with Chrome.</td>-->
+      <!--  </tr>-->
+      <tr>
+        <td colspan="2"><code>autocomplete</code></td>
+        <td colspan="2">
+          <dl>
+            <dt>Credit Card</dt>
+            <dd>cc-name</dd>
+            <dd>cc-number</dd>
+            <dd>cc-csc</dd>
+            <dd>cc-exp-month</dd>
+            <dd>cc-exp-year</dd>
+            <dt>Name</dt>
+            <dd>name</dd>
+            <dd>given-name</dd>
+            <dd>additional-name</dd>
+            <dd>family-name</dd>
+            <dt>Address</dt>
+            <dd>street-address</dd>
+            <dd>address-level1 (state or province)</dd>
+            <dd>address-level2 (city)</dd>
+            <dd>postal-code</dd>
+            <dd>country</dd>
+            <dt>Phone & Email</dt>
+            <dd>tel</dd>
+            <dd>email</dd>
+          </dl>
+        </td>
+        <td colspan="6">These are required in order for the browser to autofill the form. Not all values are shown here! See the complete list and learn more at
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete" target="_blank" rel="noopener">MDN: HTML autocomplete attribute</a>.</td>
+      </tr>
+      </tbody>
+    </table>
+    <small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes" target="_blank" rel="noopener">MDN: Input element - Attributes</a> for the full list.</small>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="right-type">Use the right type</h3>
+    <p>It's very important to take the time to understand what values a user can enter in a given input and to use the right <code>type</code> for those values. If, for example, the input is for a membership number then using <code>type="number"</code> will present an easier to use numbers-only keyboard on most touch devices. The same goes for email and phone numbers. These UX optimizations are important to users and are virtually free to implement, so take a moment to ensure you're using the right input type.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>Labels should use the <code>for</code> attribute to reference the id of its corresponding input. Inputs should use the right type (see above), autofocus, and autocomplete to improve their usability.</p>
+  </section>
+
+  <hr>
+
+  <section id="keyboard">
+    <h1 class="mar-b-xs">Keyboard</h1>
+    <h2 class="txt-gray-5 mar-t-0">Represents text from an input device</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <p>Press <kbd>⇧⌘T</kbd> to close window</p>
+      <kbd>
+        <kbd>Ctrl</kbd> + <kbd>N</kbd>
+      </kbd>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>kbd</code></td>
+        <td colspan="2">Native element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd" target="_blank">documentation</a>)</td>
+        <td colspan="6">Text or other <code>kbd</code> elements</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="formatting">Formatting</h3>
+    <p>Mdash doesn't define a format for keyboard shortcuts because there are many popular ways to do it. Shortcuts are also platform-specific and so it is recommended to follow the format used by the user's OS. There are several ways to detect OS using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator" target="_blank">Navigator</a> object.</p>
+    <p>Windows seems to use a format that includes + characters to indicate a combination of key presses, like <kbd><kbd>Ctrl</kbd> + <kbd>C</kbd></kbd>.</p>
+    <p>macOS seems to use a sequence of characters to indicate a combination of key presses, like <kbd>⌘C</kbd>. Symbols are used for modifier keys (see below).</p>
+    <p>Be careful how you show the + character. Users can misinterpret it as representing a required key.</p>
+    <h3 id="os">macOS Modifier Key Symbols</h3>
+    <p>To create macOS keyboard shortcuts, copy these symbols:</p>
+    <ul>
+      <li>⌘ - Command key</li>
+      <li>⇧ - Shift key</li>
+      <li>⌥ - Option/Alt key</li>
+      <li>⌃ - Control key</li>
+      <li>⇪ - Caps Lock key</li>
+    </ul>
+    <h3 id="a11y">Accessibility</h3>
+    <p>There are no accessibility recommendations for the keyboard element.</p>
+  </section>
+
+  <hr>
+
+  <section id="link">
+    <h1 class="mar-b-xs">Link</h1>
+    <h2 class="txt-gray-5 mar-t-0">Used for navigating</h2>
+    <h2>Demo</h2>
+    <code-sample>
+      <a href="#">Real link</a>,
+      <span role="link">Fake link</span>
+    </code-sample>
+    <h2>API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>a</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>href</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>URL</li>
+            <li>#{target fragment id}</li>
+            <li>mailto:{email address}</li>
+            <li>tel:{phone number}</li>
+            <li>sms:{phone number}</li>
+          </ul>
+        </td>
+        <td colspan="6">Sets the type of link. <p>Be sure to use target fragments or the other URL schemes correctly to ensure optimal user experience. Every phone number, for example, should be wrapped in a link with the <code>tel:</code> scheme to make it really convenient for the user to call that number.</p></td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>disabled</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Disables the link.</td>
+      </tr>
+      </tbody>
+    </table>
+    <small><span class="fnt-bold">Note:</span> Not all anchor attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes" target="_blank" rel="noopener">MDN: Anchor element - Attributes</a> for the full list.</small>
+    <p>For <span class="fnt-bold">span</span> elements only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>role</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2">link</td>
+        <td colspan="6">Styles the element as a link. Use this instead of <code>&lt;a&gt;</code> when your use case is not a real link.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2>Guidelines</h2>
+    <h3 id="security">Security</h3>
+    <p>When linking to websites you don't control, you should add the <code>rel="noopener"</code> attribute.</p>
+    <h3 id="new-tab">Open link in new tab</h3>
+    <p>Quite often it is more convenient for users to open links in a new browser tab. This is especially true when a link goes to another website or when the link is on a page (or in a place on a page) that the user would have trouble getting back to. Simply add <code>target="_blank"</code>.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>Links should behave as links, i.e. they activate when clicked. Links that don't behave this way should not use the anchor tag and should instead use a <code>span</code> with <code>role="link"</code> attribute to avoid confusing screen-readers. Also, groups of links like menus, breadcrumbs, or primary navigation should be contained in a <code>nav</code> element.</p>
+  </section>
+
+  <hr>
+
+  <section id="loader">
+    <h1 class="mar-b-xs">Loader</h1>
+    <h2 class="txt-gray-5 mar-t-0">Indicates a processing state</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <template>
+        <m-loader loading></m-loader>
+        <m-loader loading>Searching...</m-loader>
+      </template>
+    </code-sample>
+    <p>See more <a href="/examples#Loader">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-loader</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">Text (optional)</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>loading</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">When present the loader will rotate infinitely. Without it Loader remains still.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="title">Loader text</h3>
+    <p>In most cases the loader should have its own text or be in close proximity to a related message, like a button label. In some cases it's appropriate to have a loader on it's own without a message (in those cases see Accessibility).</p>
+    <h3 id="size">Loader size</h3>
+    <p>The default size works for most use cases, but you can enlarge or shrink Loader with the <a href="/utility-classes#text">text size utility classes</a> or set its own font size:</p>
+    <code-sample>
+      <m-loader loading class="txt-xs"></m-loader>
+      <m-loader loading class="txt-sm"></m-loader>
+      <m-loader loading class="txt-md"></m-loader>
+      <m-loader loading class="txt-lg"></m-loader>
+      <m-loader loading class="txt-xl"></m-loader>
+      <m-loader loading class="txt-xxl"></m-loader>
+    </code-sample>
+    <h3 id="nesting">Nesting Loader</h3>
+    <p>Loader will inherit font properties, so when it's nested in elements like button, anchor, or headings it looks as you would expect it to:</p>
+    <code-sample>
+      <button ord="primary">Save</button>
+      <button ord="primary" disabled>
+        <m-loader loading>Saving</m-loader>
+      </button>
+    </code-sample>
+    <h3 id="a11y">Accessibility</h3>
+    <p>If a Loader doesn't have text it should use
+      <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute" rel="noopener" target="_blank"><code>aria-labelledby</code></a> or <code>aria-label</code>.</p>
+  </section>
+
+  <hr>
+
+  <section id="menu">
+    <h1 class="mar-b-xs">Menu</h1>
+    <h2 class="txt-gray-5 mar-t-0">Small, toggleable containers often used for navigation</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <template>
+        <m-menu>
+          <button slot="trigger" ord="primary">Basic Links</button>
+          <div slot="items">
+            <a href="/products">Products</a>
+            <a href="/services">Services</a>
+            <a href="/support">Customer support</a>
+          </div>
+        </m-menu>
+        <m-menu>
+          <button slot="trigger" ord="primary">Custom Content and Width</button>
+          <div slot="items" class="pad-sm" style="min-width: 200px">
+            <div class="inline-flex align-items-center">
+              <img src="img/homer.webp" alt="Homer" loading="lazy" width="64" height="52" class="brd-radius-full">
+              <div>
+                <div class="txt-nowrap">Homer J. Simpson</div>
+                <div class="txt-gray-6">Safety Inspector</div>
+              </div>
+            </div>
+            <hr class="mar-t-sm mar-b-sm">
+            <div class="flex flx-col gap-xs">
+              <a href="/profile">Profile</a>
+              <a href="/signout">Sign out</a>
+            </div>
+          </div>
+        </m-menu>
+      </template>
+    </code-sample>
+    <p>See more <a href="/examples#Menus">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-menu</code></td>
+        <td colspan="2">Custom Element</td>
+        <td colspan="6">trigger and items slots only</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>Slots</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Element</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>trigger</code></td>
+        <td colspan="2">button is recommended, but other elements will work</td>
+        <td colspan="6">Any</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>items</code></td>
+        <td colspan="2">div</td>
+        <td colspan="6">Any. Link children have a default styling.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>open</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">When present the menu is shown; otherwise, it's hidden.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="events">Events</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Detail</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>toggle</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Fires after the menu was opened or closed.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="title">What about &lt;menu&gt;?</h3>
+    <p>This component is only loosely based on the <code>HTMLMenuElement</code> interface because that spec is incomplete and looks to be deprecated.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>There are no accessibility recommendations for menu at this time. This post <a
+      href="https://adrianroselli.com/2017/10/dont-use-aria-menu-roles-for-site-nav.html">https://adrianroselli.com/2017/10/dont-use-aria-menu-roles-for-site-nav.html</a> seems reasonable and accurate enough to say that simple markup like anchor tags in menus is sufficient.</p>
+  </section>
+
+  <hr>
+
+  <section id="radio">
+    <h1 class="mar-b-xs">Radio input</h1>
+    <h2 class="txt-gray-5 mar-t-0">Form element for picking one of many choices</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <fieldset>
+        <legend>Speed</legend>
+        <input type="radio" name="speed" value="slow" id="speed_slow" checked>
+        <label for="speed_slow">Slow</label>
+        <input type="radio" name="speed" value="med" id="speed_med">
+        <label for="speed_med">Medium</label>
+        <input type="radio" name="speed" value="fast" id="speed_fast">
+        <label for="speed_fast">Fast</label>
+      </fieldset>
+    </code-sample>
+    <p>See more <a href="/examples#Forms">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>input</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">None</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>name</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2">String</td>
+        <td colspan="6">All radios in a group use the same name.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="title">Radio, checkbox, or select?</h3>
+    <p>If only one of the options can be selected, don't use checkbox. There are no hard rules, but generally radio is best for 2-4 choices and select (or Autocomplete) is better for more.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>Like other input elements, be sure to use <code>for</code> and <code>id</code>.</p>
+  </section>
+
+  <hr>
+
+  <section id="range">
+    <h1 class="mar-b-xs">Range Slider</h1>
+    <h2 class="txt-gray-5 mar-t-0">Form element for fine-grained values</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <fieldset>
+        <label>Price</label>
+        <input type="range">
+      </fieldset>
+    </code-sample>
+    <p>See more <a href="/examples#Foo">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>input[type="range"]</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">None</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>output</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">The value of range</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>min</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Minimum value, default is 0</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>max</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Maximum value, default is 100</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>step</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Sets the granularity of values, default is 1</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>orient</code> <span class="fnt-italic txt-gray-5 txt-xs">coming soon</span></td>
+        <td colspan="2">vertical</td>
+        <td colspan="6">Displays the range vertically</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="events">Events</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Detail</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>change</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Fires after the value is committed.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>input</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Fires as the value changes.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="output">Displaying range values</h3>
+    <p>A common use case is to display the value of range as it updates. Mdash leaves that part of the design open for customization, but with the one requirement to use the standard <code>&lt;output&gt;</code> element to contain the value.</p>
+    <p>Here's two simple designs to get you started:</p>
+    <m-row>
+      <m-col>
+        <div class="mar-b-lg">
+          <fieldset>
+            <label>Price</label>
+            <input name="range1_demo" type="range" min="0" max="1000" value="223">
+            <output name="output1_demo"></output>
+          </fieldset>
+
+          <script>
+            const range1  = document.querySelector('[name=range1_demo]');
+            const output1 = document.querySelector('[name=output1_demo]');
+            const update1 = (e, range) => {
+              range = e && e.currentTarget || range;
+              output1.textContent = range.value;
+            };
+
+            range1.addEventListener('input', update1);
+            update1(null, range1);
+          </script>
+        </div>
+        <code-sample readonly="readonly">
+          <template>
+            <fieldset>
+              <label>Price</label>
+              <input name="range1" type="range" min="0" max="1000" value="223">
+              <output name="output1"></output>
+            </fieldset>
+
+            <script>
+              const range1  = document.querySelector('[name=range1]');
+              const output1 = document.querySelector('[name=output1]');
+              const update1 = (e, range) => {
+                range = e && e.currentTarget || range;
+                output1.textContent = range.value;
+              };
+
+              range1.addEventListener('input', update1);
+              update1(null, range1);
+            </script>
+          </template>
+        </code-sample>
+      </m-col>
+      <m-col>
+        <div class="mar-b-xl">
+          <fieldset>
+            <label>Price</label>
+            <input name="range2_demo" type="range" min="0" max="1000" value="223">
+            <output name="output2_demo" class="pos-absolute bg-gray-1 pos-b-0 mar-b-lg pad-xs txt-xs brd-radius-md"></output>
+          </fieldset>
+
+          <script>
+            const range2  = document.querySelector('[name=range2_demo]');
+            const output2 = document.querySelector('[name=output2_demo]');
+            const update2 = (e, range) => {
+              range = e && e.currentTarget || range;
+              output2.textContent = range.value;
+              const val = Number((range.value - range.min) * 100 / (range.max - range.min));
+              const pos = 9 - (val * 0.2); // 9 is half the thumb width
+              output2.style.left = `calc(${val}% + ${pos}px)`;
+            };
+
+            range2.addEventListener('input', update2);
+            update2(null, range2);
+          </script>
+
+          <style>
+            input[type=range][name=range2_demo] + output {
+              transform: translate(-50%);
+            }
+          </style>
+        </div>
+        <code-sample readonly="readonly">
+          <template>
+            <fieldset>
+              <label>Price</label>
+              <input name="range2" type="range" min="0" max="1000" value="223">
+              <output name="output2" class="pos-absolute bg-gray-1 pos-b-0 mar-b-lg pad-xs txt-xs brd-radius-md"></output>
+            </fieldset>
+
+            <script>
+              const range2  = document.querySelector('[name=range2]');
+              const output2 = document.querySelector('[name=output2]');
+              const update2 = (e, range) => {
+                range = e && e.currentTarget || range;
+                output2.textContent = range.value;
+                const val = Number((range.value - range.min) * 100 / (range.max - range.min));
+                const pos = 9 - (val * 0.2); // 9 is half the thumb width
+                output2.style.left = `calc(${val}% + ${pos}px)`;
+              };
+
+              range2.addEventListener('input', update2);
+              update2(null, range2);
+            </script>
+
+            <style>
+              input[type=range] + output {
+                transform: translate(-50%);
+              }
+            </style>
+          </template>
+        </code-sample>
+      </m-col>
+    </m-row>
+
+    <!--<h3 id="vertical">Vertical orientation</h3>-->
+    <!--<p>The orient vertical option works well for one range, but having multiple vertical ranges requires the following:</p>-->
+    <!--<code-sample>-->
+    <!--  <div class="flex">-->
+    <!--    <fieldset class="pos-relative" style="width: 50px; height: 129px">-->
+    <!--      <input type="range" orient="vertical">-->
+    <!--    </fieldset>-->
+    <!--    <fieldset class="pos-relative mar-t-0" style="width: 50px; height: 129px">-->
+    <!--      <input type="range" orient="vertical">-->
+    <!--    </fieldset>-->
+    <!--    <fieldset class="pos-relative mar-t-0" style="width: 50px; height: 129px">-->
+    <!--      <input type="range" orient="vertical">-->
+    <!--    </fieldset>-->
+    <!--  </div>-->
+    <!--</code-sample>-->
+    <h3 id="a11y">Accessibility</h3>
+    <p>Use <code>for</code> and <code>id</code> as usual, but also use <code>for</code> on <code>output</code> elements. MDN has more details
+      <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_slider_role">ARIA: Using the slider role</a>.</p>
+  </section>
+
+  <hr>
+
+  <section id="select">
+    <h1 class="mar-b-xs">Select</h1>
+    <h2 class="txt-gray-5 mar-t-0">Drop-down list of choices</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <fieldset>
+        <label for="drinks">Select one</label>
+        <select id="drinks">
+          <option value="water">Water</option>
+          <option value="coke">Coke</option>
+          <option value="lemonade">Lemonade</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <label for="entrees">Select many</label>
+        <select id="entrees" multiple size="8">
+          <optgroup label="Appetizers">
+            <option value="chips">Chips & salsa</option>
+            <option value="cheese">Cheese platter</option>
+          </optgroup>
+          <optgroup label="Main course">
+            <option value="duck">Duck confit</option>
+            <option value="ribeye">8oz aged ribeye</option>
+          </optgroup>
+          <optgroup label="Dessert">
+            <option value="cake">Cake</option>
+            <option value="ice-cream">Ice-cream</option>
+          </optgroup>
+        </select>
+      </fieldset>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>select</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;option&gt;</code> or <code>&lt;optgroup&gt;</code> children</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>optgroup</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;option&gt;</code> children</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>option</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Text</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>label</code></td>
+        <td colspan="2">String</td>
+        <td colspan="6">Displayed as the <code>&lt;optgroup&gt;</code> heading.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>value</code></td>
+        <td colspan="2">String</td>
+        <td colspan="6">Used as the <code>value</code> of the element.</td>
+      </tr>
+      </tbody>
+    </table>
+    <small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#Attributes" target="_blank" rel="noopener">MDN: Select element - Attributes</a> for the full list.</small>
+    <h3 id="events">Events</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Detail</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>change</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Fired after an option was selected.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    {{> more-autocomplete}}
+    <h3 id="a11y">Accessibility</h3>
+    <p>Label should use the <code>for</code> attribute to reference the id of its corresponding select.</p>
+  </section>
+
+  <hr>
+
+  <section id="separator">
+    <h1 class="mar-b-xs">Separator</h1>
+    <h2 class="txt-gray-5 mar-t-0">An element that divides sections of content or groups of menu items</h2>
+    <h2>Demo</h2>
+    <code-sample>
+      <p>Content</p>
+      <hr>
+      <p>Content</p>
+      <div class="flex gap-xs">
+        <div>Content</div>
+        <hr aria-orientation="vertical">
+        <div>Content</div>
+        <hr aria-orientation="vertical">
+        <div>Content</div>
+      </div>
+    </code-sample>
+    <h2>API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>hr</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">None</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>aria-orientation</code></td>
+        <td colspan="2">vertical</td>
+        <td colspan="6">
+          <p>Displays the separator vertically. Must have a Flexbox or Grid parent (use <a href="utility-classes#display">display utility classes</a>).</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <h2>Guidelines</h2>
+    <h3>Where to use</h3>
+    <p>Separators are useful in menus, toolbars, and <a href="rules">written content</a>.</p>
+    <p>Avoid using too many separators. Font size, font weight, whitespace, color contrast and other common visual characteristics are usually enough to create the needed distinction between elements.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>The hr element has an implicit <code>role="separator"</code>, so don't add it. There is also no need to set <code>aria-orientation="horizontal"</code> since it's the default.</p>
+  </section>
+
+  <hr>
+
+  <section id="switch">
+    <h1 class="mar-b-xs">Switch</h1>
+    <h2 class="txt-gray-5 mar-t-0">A control for toggling binary values like on/off</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <input type="checkbox" role="switch" checked>
+    </code-sample>
+    <p>See more <a href="/examples#switch">examples</a></p>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>input[type=checkbox]</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">None</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>role</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2">switch</td>
+        <td colspan="6">Defines the checkbox as a switch.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>checked</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Standard checkbox attribute</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>disabled</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Standard checkbox attribute</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="events">Events</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Detail</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>input</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Switch is a checkbox, so you can listen to the same standard input event.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>change</code></td>
+        <td colspan="2">None</td>
+        <td colspan="6">Switch is a checkbox, so you can listen to the same standard change event.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="form">Standalone or form</h3>
+    <p>A switch can be used on its own or more commonly as a list of options in a form, like this:</p>
+    <code-sample>
+      <m-box style="width: 300px">
+        <h4 class="mar-t-xs">Network settings</h4>
+        <form>
+          <fieldset class="flex justify-content-between align-items-center">
+            <label>Wi-Fi</label>
+            <input type="checkbox" role="switch" name="wifi" checked>
+          </fieldset>
+          <fieldset class="flex justify-content-between align-items-center">
+            <label>Bluetooth</label>
+            <input type="checkbox" role="switch" name="bluetooth" checked>
+          </fieldset>
+          <fieldset class="flex justify-content-between align-items-center">
+            <label>Cellular</label>
+            <input type="checkbox" role="switch" name="cellular">
+          </fieldset>
+          <fieldset class="flex flx-wrap justify-content-between align-items-center">
+            <label>Personal Hotspot</label>
+            <input type="checkbox" role="switch" name="hotspot" disabled>
+            <small class="width-full">Currently unavailable</small>
+          </fieldset>
+        </form>
+      </m-box>
+    </code-sample>
+    <h3 id="a11y">Accessibility</h3>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role" target="_blank">MDN</a> says, "The first rule of ARIA is if a native HTML element or attribute has the semantics and behavior you require, use it instead of re-purposing an element and adding ARIA. Instead use the native HTML checkbox of <code>&lt;input type="checkbox"&gt;</code>, which natively provides all the functionality required."</p>
+  </section>
+
+  <hr>
+
+  <section id="table">
+    <h1 class="mar-b-xs">Table</h1>
+    <h2 class="txt-gray-5 mar-t-0">Used for tabular data</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <table striped>
+        <thead>
+        <tr>
+          <th>Product</th>
+          <th aria-sort="ascending">
+            <button aria-pressed="true">Price</button>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Socks</td>
+          <td>$9.99</td>
+        </tr>
+        <tr>
+          <td>Shorts</td>
+          <td>$19.99</td>
+        </tr>
+        <tr>
+          <td>Sweater</td>
+          <td>$29.99</td>
+        </tr>
+        <tr>
+          <td>Shoes</td>
+          <td>$49.99</td>
+        </tr>
+        </tbody>
+      </table>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>table</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;thead&gt;</code> (optional) and <code>&lt;tbody&gt;</code></td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>thead</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;tr&gt;</code> with <code>&lt;th&gt;</code> children</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>tbody</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;tr&gt;</code> with <code>&lt;td&gt;</code> children, first child can be <code>&lt;th&gt;</code> for row headings</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>tfoot</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;tr&gt;</code> with <code>&lt;td&gt;</code> children</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <p>For <span class="fnt-bold">&lt;table&gt;</span> only:</p>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>layout</code></td>
+        <td colspan="2">fixed</td>
+        <td colspan="6">Table cells are sized automatically by the browser. This doesn't always produce the desired layout, so use this option with <code>colspan</code> to control the layout. Note this option does not mean the table size won't change at all - it'll still respond nicely to screen size.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>striped</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Creates a visual distinction between alternate rows.</td>
+      </tr>
+      </tbody>
+    </table>
+    <p>For <span class="fnt-bold">&lt;td&gt;</span> and <span class="fnt-bold">&lt;th&gt;</span> only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>colspan</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Defines how many columns the cell should span.</td>
+      </tr>
+      </tbody>
+    </table>
+    <p>For <span class="fnt-bold">&lt;th&gt;</span> only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>aria-sort</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>ascending</li>
+            <li>descending</li>
+          </ul>
+        </td>
+        <td colspan="6">Defines that column as sorted. Your application is responsible for the sorting behavior.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="page-layout">Not for page layout</h3>
+    <p>Use <a href="/grid">Grid</a> for creating a page's layout. Do not use Table.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>The sorted column must have the appropriate <code>aria-sort</code> value. When the user clicks a sort button, add <code>aria-pressed="true"</code> to it to indicate the pressed state.</p>
+  </section>
+
+  <hr>
+
+  <section id="tabs">
+    <h1 class="mar-b-xs">Tabs</h1>
+    <h2 class="txt-gray-5 mar-t-0">Master-detail pattern for navigating content</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <template>
+        <m-tabs role="tablist" scrollable>
+          <button role="tab" aria-selected="true">Selected</button>
+          <button role="tab">Not Selected</button>
+          <button role="tab" disabled>Disabled</button>
+          <a href="/" role="tab">Link</a>
+        </m-tabs>
+        <p class="txt-xs txt-gray-5">See <a href="#select-tab">selecting tabs</a> to learn how to select a tab</p>
+      </template>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-tabs</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6"><code>button</code> or <code>a</code> children</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+    </table>
+    <p>For <span class="fnt-bold">m-tabs</span> only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>scrollable</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Makes the tab list horizontally scrollable. In some cases, like flex grow, overflow doesn't happen and so the parent element will need an explicit width (try the <code>width-full</code> utility class).</td>
+      </tr>
+      </tbody>
+    </table>
+    <p>For tab only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>aria-selected</code></td>
+        <td colspan="2">true or false</td>
+        <td colspan="6">Set the selected tab to true. See <a href="#select-tab">Selecting tabs</a> for examples.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>disabled</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Disables the tab.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="select-tab">Selecting tabs</h3>
+    <h4>Selecting the tab</h4>
+    <p>Setting the selected tab is handled by your app. To select a tab, set <code>aria-selected="true"</code>. There are a several approaches you could take to manage this, but event delegation comparing tabs to the clicked tab is probably the simplest without a framework:</p>
+    <code-sample>
+      <script>
+        const selectTab = e => e.currentTarget.querySelectorAll('[role=tab]').forEach(tab => tab.ariaSelected = tab === e.target);
+      </script>
+      <m-tabs onclick="selectTab(event)" role="tablist">
+        <button role="tab">A</button>
+        <button role="tab">B</button>
+      </m-tabs>
+    </code-sample>
+    <p>That will only select the tab. Selecting the corresponding tab panel is explained next.</p>
+    <h4>Showing a tab panel</h4>
+    <p>Mdash assumes nothing about what happens when a tab is selected, which allows for multiple solutions like toggling the <code>hidden</code> attribute, directly changing the DOM, rendering different components, navigating to a new page, or something else. Here's an example of the typical use case of selecting a tab and showing its panel:</p>
+    <code-sample readonly="readonly">
+      <script>
+        function switchTab(e) \{
+          // Note that e.target could be a child element if you included an icon or something in the tab, so get the actual tab element in that case.
+          const selectedTabId = e.target.closest('[role=tab]').id;
+
+          // Select the tab and its panel
+          e.currentTarget.querySelectorAll('[role=tab]').forEach(tab => tab.ariaSelected = tab.id === selectedTabId);
+          document.querySelectorAll('[role=tabpanel').forEach(panel => panel.hidden = panel.dataset.tabId !== selectedTabId);
+        }
+      </script>
+      <template>
+        <m-tabs onclick="switchTab(event)" role="tablist">
+          <button id="a" role="tab">A</button>
+          <button id="b" role="tab">B</button>
+        </m-tabs>
+        <div role="tabpanel" data-tab-id="a">Tab A panel</div>
+        <div role="tabpanel" data-tab-id="b">Tab B panel</div>
+      </template>
+    </code-sample>
+    <p>Here's the same thing with a more declarative approach using Riot.js, for example:</p>
+    <code-sample readonly="readonly">
+      <template>
+        <app>
+          <m-tabs onclick="{switchTab}">
+            <button id="a" aria-selected="{state.tab === 'a'}">A</button>
+            <button id="b" aria-selected="{state.tab === 'b'}">B</button>
+          </m-tabs>
+          <div if="{state.tab === 'a'}">Tab A panel</div>
+          <div if="{state.tab === 'b'}">Tab B panel</div>
+
+          <script>
+            export default {
+              switchTab(e) {
+                this.update({tab: e.target.id});
+              }
+            }
+          </script>
+        </app>
+      </template>
+    </code-sample>
+
+    <h3 id="a11y">Accessibility</h3>
+    <p>All of the necessary ARIA attributes are here in the example below:</p>
+    <code-sample readonly="readonly">
+      <template>
+        <m-tabs role="tablist">
+          <button id="a" aria-controls="a-panel" role="tab">A</button>
+          <button id="b" aria-controls="b-panel" role="tab">B</button>
+        </m-tabs>
+        <div id="a-panel" role="tabpanel" aria-labelledby="a">
+          This content is shown when the "a" Tab is selected.
+        </div>
+        <div id="b-panel" role="tabpanel" aria-labelledby="b">
+          This content is shown when the "b" Tab is selected.
+        </div>
+      </template>
+    </code-sample>
+  </section>
+
+  <hr>
+
+  <section id="tag">
+    <h1 class="mar-b-xs">Tag</h1>
+    <h2 class="txt-gray-5 mar-t-0">Used for keywords, labeling, and filters</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <m-tag>non-smoking</m-tag>
+      <m-tag>WiFi</m-tag>
+      <m-tag>pool</m-tag>
+      <m-tag>
+        <m-icon name="local_cafe"></m-icon>
+        free breakfast
+        <button type="remove" title="Remove" aria-label="Remove"></button>
+      </m-tag>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>m-tag</code></td>
+        <td colspan="2">Custom tag</td>
+        <td colspan="6">Text, icon, or link and optional remove button for <a href="#removable">removable tags</a></td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="removable">Removable tags</h3>
+    <p>Simply include a <a href="/button#remove">remove</a> button and, using your preferred method, attach a click handler that removes the tag. Here's a basic example:</p>
+    <code-sample>
+      <script>
+        const removeTag = (e, id) => confirm(`Remove "${id}" tag?`) ? e.currentTarget.parentElement.remove() : null;
+      </script>
+      <template>
+        <m-tag>bug<button type="remove" onclick="removeTag(event, 'bug')" title="Remove" aria-label="Remove"></button></m-tag>
+        <m-tag>open<button type="remove" onclick="removeTag(event, 'open')" title="Remove" aria-label="Remove"></button></m-tag>
+        <m-tag>high-priority<button type="remove" onclick="removeTag(event, 'high_pri')" title="Remove" aria-label="Remove"></button></m-tag>
+      </template>
+    </code-sample>
+    <!--<p>It can be helpful to add an <code>id</code> or <code>data-*</code> attribute with some identifying data (id, name, index) to the tag to know which one was removed and update the backing data source, like an Array of users:</p>-->
+    <!--<code-sample readonly="readonly">-->
+    <!--  <template>-->
+    <!--    <m-tag data-user-id="{user.id}">{user.name}<button type="remove" onclick="removeUser"></button></m-tag>-->
+    <!--  </template>-->
+
+    <!--  <script>-->
+    <!--    removeUser(e) \{-->
+    <!--      const tag = e.currentTarget.parentElement;-->
+
+    <!--      // Remove user-->
+    <!--      this.users.splice(this.users.findIndex(u => u.id === tag.dataset.userId), 1);-->
+
+    <!--      // Remove tag (or it's removed automatically depending on your implementation)-->
+    <!--      tag.remove();-->
+    <!--    }-->
+    <!--  </script>-->
+    <!--</code-sample>-->
+    <h3 id="a11y">Accessibility</h3>
+    <p>Use <code>aria-label</code> and <code>title</code> when the Tag only contains an icon:</p>
+    <code-sample>
+      <m-tag title="free breakfast" aria-label="free breakfast"><m-icon name="local_cafe"></m-icon></m-tag>
+    </code-sample>
+  </section>
+
+  <hr>
+
+  <section id="textarea">
+    <h1 class="mar-b-xs">Text area</h1>
+    <h2 class="txt-gray-5 mar-t-0">Multi-line input</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <fieldset>
+        <label>Leave a comment</label>
+        <textarea></textarea>
+      </fieldset>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tag</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>textarea</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Text</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="attributes">Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>rows</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Sets a <span class="fnt-italic">starting</span> height that will accommodate the given number of rows, i.e. lines of text. This does not prevent additional lines from being typed and the user can also resize it to be taller or shorter.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>maxlength</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Limits the number of characters allowed in the text area.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>minlength</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Sets a minimum required number of characters in the text area.</td>
+      </tr>
+      </tbody>
+    </table>
+    <small><span class="fnt-bold">Note:</span> Not all text area attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#Attributes" target="_blank" rel="noopener">MDN: Text area element - Attributes</a> for the full list.</small>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="rows">Sensible row size</h3>
+    <p>The default is three rows, i.e. three lines of text, but you should set a number that makes the most sense for your use case. For example, a chat app makes sense to take the default of three, but a customer feedback form should likely have 5-10. Note that text areas are resizable so the user can extend it further if needed, just take care to set a sensible default.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>There are no accessibility recommendations for text area.</p>
+  </section>
+
+  <div class="txt-xxl fnt-bold">Typography</div>
+
+  <section id="code">
+    <h1 class="mar-b-xs">Code</h1>
+    <h2 class="txt-gray-5 mar-t-0">For displaying text as code</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <div>Use the <code>code</code> element for inline code and the <code>pre</code> element for multiple lines of code:</div>
+      <pre>const user = await fetch(url, init);
+alert(user.name);</pre>
+    </code-sample>
+    <!--<p>See more <a href="/examples#Code">examples</a></p>-->
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>code</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Text</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>pre</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Multi-line text</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="xss">Security</h3>
+    <p>Because these elements' content is code, take extra care to ensure you're preventing cross-site scripting. There's nothing that makes these elements more or less secure than any other, but in this case you know for sure you're dumping code into the DOM, so be careful!</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>You should use <code>aria-label</code> and/or <code>aria-description</code> to explain the code. For example:</p>
+    <code-sample readonly="readonly">
+      <code aria-description="JavaScript code that demonstrates the fetch API.">fetch(url, init)</code>
+    </code-sample>
+  </section>
+
+  <hr>
+
+  <section id="headings">
+    <h1 class="mar-b-xs">Headings</h1>
+    <h2 class="txt-gray-5 mar-t-0">Headings elements</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>h1-h6</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>hgroup</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">One heading and one or more paragraphs</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="seo">SEO</h3>
+    <p>Using heading elements improves SEO and accessibility.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>Strive to use the heading elements. If your situation doesn't allow for that, there is <code>role="heading"</code> and <code>aria-level</code> for defining the same.</p>
+  </section>
+
+  <hr>
+
+  <section id="lists">
+    <h1 class="mar-b-xs">Lists</h1>
+    <h2 class="txt-gray-5 mar-t-0">Lists of data or content</h2>
+    <h2>Demo</h2>
+    <code-sample>
+      <ul>
+        <li>Foo</li>
+        <li>Bar</li>
+        <li>Baz</li>
+      </ul>
+      <ol>
+        <li>Foo</li>
+        <li>Bar</li>
+        <li>Baz</li>
+      </ol>
+      <ul type="none">
+        <li>Foo</li>
+        <li>Bar</li>
+        <li>Baz</li>
+      </ul>
+      <ol type="content">
+        <li class="pad-sm">Foo</li>
+        <li class="pad-sm">Bar</li>
+        <li class="pad-sm">Baz</li>
+      </ol>
+    </code-sample>
+    <h2>API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>ul</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;li&gt;</code> children</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>ol</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;li&gt;</code> children</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>dl</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>&lt;dt&gt;</code> and <code>&lt;dd&gt;</code> children</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Value</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>type</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>content</li>
+          </ul>
+        </td>
+        <td colspan="6">Defines a vertical list of content. Used for implementing designs like the master-detail pattern. See
+          <a href="#content">guideline</a> below.</td>
+      </tr>
+      </tbody>
+    </table>
+    <p>For <span class="fnt-bold">ul</span> only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>type</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>disc <small class="fnt-italic fnt-bold">default</small></li>
+            <li>square</li>
+            <li>circle</li>
+            <li>none</li>
+          </ul>
+        </td>
+        <td colspan="6">Sets the marker type</td>
+      </tr>
+      </tbody>
+    </table>
+    <p>For <span class="fnt-bold">ol</span> only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>type</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>1 <small class="fnt-italic fnt-bold">default</small></li>
+            <li>A</li>
+            <li>a</li>
+            <li>I</li>
+            <li>i</li>
+          </ul>
+        </td>
+        <td colspan="6">Sets the marker type</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>reversed</code></td>
+        <td colspan="2">Boolean attribute</td>
+        <td colspan="6">Reverses the order of items</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>start</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Sets the starting number</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2>Guidelines</h2>
+    <h3>Lists are for lists</h3>
+    <p>List elements should be used for real lists. It's tempting to overuse them for anything that repeats, so take time to think about some better alternatives to list elements that should be used instead. For example, one alternative is the <code>nav</code> element when building a navigation bar:</p>
+    <code-sample readonly="readonly">
+      <!-- Better -->
+      <nav>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+      </nav>
+
+      <!-- Old habits die hard -->
+      <ul>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+    </code-sample>
+    <h3 id="content">Content list type</h3>
+    <p>The content list type is meant for building a vertical list of content.</p>
+    <h4>Semantics and accessibility</h4>
+    <p>To retain list semantics and accessibility, Mdash leverages the standard tags for content lists. Use the correct tag for the content, i.e. if order matters use <code>ol</code>, otherwise <code>ul</code>. Example:</p>
+    <p class="fnt-italic">Ordered, like steps in a recipe:</p>
+    <ol type="content">
+      <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Prep</span> Cook rice the day before 🍚</li>
+      <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 1</span> Preheat wok on high heat, add 2 tbsp. oil 🔥</li>
+      <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 2</span> Chop veggies and meat 🧄🥩</li>
+      <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 3</span> Add everything to wok and stir fry 🫕</li>
+      <li class="pad-xs"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 4</span> Top with fresh basil and serve 🌿</li>
+    </ol>
+    <p class="fnt-italic">Unordered, like notification preferences:</p>
+    <ul type="content">
+      <li class="flex justify-content-between pad-sm fnt-med">Email <input type="checkbox" role="switch" checked></li>
+      <li class="flex justify-content-between pad-sm fnt-med">SMS <input type="checkbox" role="switch" checked></li>
+      <li class="flex justify-content-between pad-sm fnt-med">Push <input type="checkbox" role="switch"></li>
+    </ul>
+    <h4>Nesting</h4>
+    <p>Content list is designed to work wherever you need it. It can be used on its own or, for example, nested in a dialog, menu, or a box like this:</p>
+    <code-sample>
+      <m-box class="pad-0">
+        <ul type="content">
+          <li class="pad-xs">one</li>
+          <li class="pad-xs">two</li>
+          <li class="pad-xs">three</li>
+        </ul>
+      </m-box>
+    </code-sample>
+    <h4>Alternatives</h4>
+    <p>Be intentional. Not every vertical layout is a content list. Sometimes you don't need any particular component at all. In some cases you have tabular content, so use a
+      <a href="table">table</a>. In other cases you may just need
+      <a href="rules">horizontal rules</a>, like this recreation of the GitHub sidebar:</p>
+    <m-row>
+      <m-col>
+        <m-box class="height-full box-sizing-border">
+          <div class="flex align-items-center fnt-med"><m-icon name="list" class="mar-r-xs"></m-icon>README.md</div>
+        </m-box>
+      </m-col>
+      <m-col span="4" class="pad-b-lg">
+        <h4 class="mar-t-0">About</h4>
+        <p>The modern web's design system.</p>
+        <div class="flex align-items-center">
+          <m-icon name="link" class="txt-xs mar-r-xs fnt-med"></m-icon>
+          <a href="/list">m-docs.org</a>
+        </div>
+        <div class="flex flx-wrap gap-xs mar-t-md">
+          <m-tag>javascript</m-tag>
+          <m-tag>css</m-tag>
+          <m-tag>html</m-tag>
+          <m-tag>fun</m-tag>
+          <m-tag>custom-elements</m-tag>
+          <m-tag>standards</m-tag>
+        </div>
+        <hr class="mar-t-lg mar-b-lg">
+        <h4>Releases</h4>
+        <div class="flex align-items-center fnt-med">
+          <m-icon name="tag" class="mar-r-xs"></m-icon>
+          <span>31 <span class="txt-gray-5 fnt-reg">tags</span></span>
+        </div>
+        <hr class="mar-t-lg mar-b-lg">
+        <h4>Packages</h4>
+        <div class="txt-gray-5 txt-sm">No packages published</div>
+      </m-col>
+    </m-row>
+    <h3>Accessibility</h3>
+    <p>Use the correct list parent elements for your use case, i.e. <code>ol</code> when the list order is meaningful and <code>ul</code> when it isn't.</p>
+  </section>
+
+  <hr>
+
+  <section id="text">
+    <h1 class="mar-b-xs">Text</h1>
+    <h2 class="txt-gray-5 mar-t-0">Paragraph and other text-based elements</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <a href="/utility-classes">utility classes</a>.</p>
+      <blockquote>
+        <p>This is something somebody said.</p>
+      </blockquote>
+      <small>This is for small print, side-comments, disclaimers, etc.</small>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3>Tags</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>p</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>blockquote</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6"><code>p</code> element for the actual quotation</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>small</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any, but intended to represent "side-comments...small print, like copyright and legal text, independent of its styled presentation."</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="line-length">Characters per line</h3>
+    <p>It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="fnt-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
+    <p>To demonstrate, the paragraph above has no width limit while that same paragraph below maxes out at <span class="fnt-bold">75ch</span> using the <code>txt-maxlength</code> utility class:</p>
+    <p style="max-width: 600px">It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="fnt-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
+    <h3 id="seo">SEO</h3>
+    <p>Using these text semantically will improve SEO and accessibility.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>The smallest font size that Mdash has is 13px, which is the smallest recommended by WCAG 2.1. Any smaller can be illegible for some users.</p>
+  </section>
+
+  <div class="txt-xxl fnt-bold">Styles</div>
+
+  <section id="custom-properties">
+    <h1 class="mar-b-xs">Custom Properties</h1>
+    <h2 class="txt-gray-5 mar-t-0">Design tokens referenced internally and externally for custom styles</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <style>
+        #example {
+          color: var(--m-color-gray-1);
+          background-color: var(--m-color-gray-7)
+        }
+      </style>
+      <div id="example" class="pad-lg">My background and text colors reference custom properties</div>
+    </code-sample>
+    <h2 id="api">API</h2>
+    <h3 id="colors">Colors</h3>
+    <p>All color values are in the <a href="https://stripe.com/blog/accessible-color-systems" target="_blank">perceptually uniform color space</a> to provide visually appealing colors while still achieving a11y contrast guidelines.</p>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="3">Example</th>
+        <th colspan="3">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>--m-color-red-[1|2|3]</code></td>
+        <td colspan="3" class="pad-0 pos-relative">
+          <div class="flex pos-absolute pos-t-0 pos-r-0 pos-b-0 pos-l-0">
+            <div class="bg-red-1"></div>
+            <div class="bg-red-2"></div>
+            <div class="bg-red-3"></div>
+          </div>
+        </td>
+        <td colspan="3">Used to denote something has or will go wrong.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-color-orange-[1|2|3]</code></td>
+        <td colspan="3" class="pad-0 pos-relative">
+          <div class="flex pos-absolute pos-t-0 pos-r-0 pos-b-0 pos-l-0">
+            <div class="bg-orange-1"></div>
+            <div class="bg-orange-2"></div>
+            <div class="bg-orange-3"></div>
+          </div>
+        </td>
+        <td colspan="3">Used for bringing attention to something that may not be desirable.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-color-blue-[1|2|3]</code></td>
+        <td colspan="3" class="pad-0 pos-relative">
+          <div class="flex pos-absolute pos-t-0 pos-r-0 pos-b-0 pos-l-0">
+            <div class="bg-blue-1"></div>
+            <div class="bg-blue-2"></div>
+            <div class="bg-blue-3"></div>
+          </div>
+        </td>
+        <td colspan="3">Used to highlight primary actions.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-color-green-[1|2|3]</code></td>
+        <td colspan="3" class="pad-0 pos-relative">
+          <div class="flex pos-absolute pos-t-0 pos-r-0 pos-b-0 pos-l-0">
+            <div class="bg-green-1"></div>
+            <div class="bg-green-2"></div>
+            <div class="bg-green-3"></div>
+          </div>
+        </td>
+        <td colspan="3">Used to communicate something desirable has or will happen.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-color-gray-[7|8|9]</code></td>
+        <td colspan="3" class="pad-0 pos-relative">
+          <div class="flex pos-absolute pos-t-0 pos-r-0 pos-b-0 pos-l-0">
+            <div class="bg-gray-7"></div>
+            <div class="bg-gray-8"></div>
+            <div class="bg-gray-9"></div>
+          </div>
+        </td>
+        <td colspan="3">Used for text and high-contrast backgrounds.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-color-gray-[1|2|3|4|5|6]</code></td>
+        <td colspan="3" class="pad-0 pos-relative">
+          <div class="flex pos-absolute pos-t-0 pos-r-0 pos-b-0 pos-l-0">
+            <div class="bg-gray-1"></div>
+            <div class="bg-gray-2"></div>
+            <div class="bg-gray-3"></div>
+            <div class="bg-gray-4"></div>
+            <div class="bg-gray-5"></div>
+            <div class="bg-gray-6"></div>
+          </div>
+        </td>
+        <td colspan="3">Grayscale used for backgrounds, borders, and disabled state.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-color-primary-action</code></td>
+        <td colspan="3" class="pad-0 pos-relative">
+          <div class="flex pos-absolute pos-t-0 pos-r-0 pos-b-0 pos-l-0">
+            <div class="color-primary-action"></div>
+          </div>
+        </td>
+        <td colspan="3">Used for links and other primary action elements.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-color-disabled-[bg|fg]</code></td>
+        <td colspan="3" class="pad-0 pos-relative">
+          <div class="flex pos-absolute pos-t-0 pos-r-0 pos-b-0 pos-l-0">
+            <div class="color-disabled-bg"></div>
+            <div class="color-disabled-fg"></div>
+          </div>
+        </td>
+        <td colspan="3">Disabled background and foreground.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-color-border</code></td>
+        <td colspan="3" class="pad-0 pos-relative">
+          <div class="flex pos-absolute pos-t-0 pos-r-0 pos-b-0 pos-l-0">
+            <div class="color-border"></div>
+          </div>
+        </td>
+        <td colspan="3">Default border color.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="spacing">Spacing</h3>
+    <p>The spacing sizes are based on <a href="">Divine Proportions</a> to help provide a natural rhythm. Padding, margin, and gap use these values.</p>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="3">Value</th>
+        <th colspan="3">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>--m-space-[xs|sm|md|lg|xl]</code></td>
+        <td colspan="3">6px, 12px, 18px, 30px, 48px</td>
+        <td colspan="3">Used for developing a visual rhythm between elements. Loosely follows <a
+          href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the
+          <a href="/utility-classes#space">padding and margin utility classes</a> whenever possible and reserve use of <code>--m-space-*</code> for other spacing needs like position.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="space">Element styles</h3>
+    <p>All elements use these values for their relevant styles.</p>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="3">Value</th>
+        <th colspan="3">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>--m-border-radius-[sm|md|full]</code></td>
+        <td colspan="3">2px, 4px, fully round</td>
+        <td colspan="3">Used for border radius.</td>
+      </tr>
+      <!--  <tr>-->
+      <!--    <td colspan="2"><code>--border-[xs|sm]</code></td>-->
+      <!--    <td colspan="3">1, 2</td>-->
+      <!--    <td colspan="3">Used for border width. All borders have the same <code>--color-border</code> color and solid style.</td>-->
+      <!--  </tr>-->
+      </tbody>
+    </table>
+    <h3 id="breakpoints">Breakpoints</h3>
+    <p>Although custom properties are unfortunately not usable in media queries, these breakpoint values are useful elsewhere.</p>
+    <p>The large breakpoint and above are considered desktop-sized</p>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="3">Value</th>
+        <th colspan="3">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>--m-breakpoint-sm</code></td>
+        <td colspan="3">576px</td>
+        <td colspan="3">The portrait width of an iPhone X.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-breakpoint-md</code></td>
+        <td colspan="3">768px</td>
+        <td colspan="3">The portrait width of an iPad.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-breakpoint-lg</code></td>
+        <td colspan="3">992px</td>
+        <td colspan="3">The landscape width of an iPad.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="other">Other</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="3">Value</th>
+        <th colspan="3">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>--m-font-family</code></td>
+        <td colspan="3">'Helvetica Neue', Arial</td>
+        <td colspan="3">The typefaces in use.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-max-content-width</code></td>
+        <td colspan="3">1320px</td>
+        <td colspan="3">The max width used by <a href="/container">Container</a>. Wrapping your content in a <code>m-container</code> is more likely what you need, but you can use this if necessary.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-min-input-height</code></td>
+        <td colspan="3">34px</td>
+        <td colspan="3">The min height used for form elements. Reference this if you'd like your element to match the height of inputs.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="hard-code">Do not hard code values</h3>
+    <p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across all their stylesheets. Custom properties are a modern CSS feature that helps you avoid such a mess by defining reusable values. Use custom properties instead of hard coding their values. Like this:</p>
+    <code-sample mode="css" readonly="readonly">
+      /* Do */
+      #contact \{
+      background-color: var(--m-color-gray-2);
+      }
+
+      /* Don't */
+      #contact \{
+      background-color: #dedede;
+      }
+    </code-sample>
+    <p>Go <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">here to learn more</a> about custom properties and how to use them.</p>
+    <h3 id="a11y">Accessibility</h3>
+    <p>The colors and spacing meet accessibility requirements.</p>
+
+    <style>
+      [class^="bg-"] { width: 32% }
+      [class^="bg-gray-"] { width: 16% }
+      [class="bg-gray-7"], [class="bg-gray-8"], [class="bg-gray-9"] { width: 32% }
+      [class^="color-primary-action"], [class^="color-border"] { width: 96% }
+      .color-primary-action { background-color: var(--m-color-primary-action) }
+      .color-border { background-color: var(--m-color-border) }
+      [class^="color-disabled-"] { width: 48% }
+      .color-disabled-bg { background-color: var(--m-color-disabled-bg) }
+      .color-disabled-fg { background-color: var(--m-color-disabled-fg) }
+    </style>
+  </section>
+
+  <hr>
+
+  <section id="utility-classes">
+    <h1 class="mar-b-xs">Utility Classes</h1>
+    <h2 class="txt-gray-5 mar-t-0">220+ CSS shortcuts and utility classes</h2>
+    <h2 id="demo">Demo</h2>
+    <code-sample>
+      <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd pad-md">
+        <img src="img/homer.webp" alt="Homer" loading="lazy" class="brd-radius-full mar-r-md" width="91" height="76">
+        <div>
+          <div class="txt-md txt-nowrap">Homer J. Simpson</div>
+          <div class="txt-sm txt-gray-6 mar-b-xs">Safety Inspector</div>
+          <a href="mailto:Chunkylover53@aol.com" class="fnt-light txt-xs">Chunkylover53@aol.com</a>
+          <br>
+          <a href="tel:+15555556543" class="fnt-light txt-xs">555-7334</a>
+        </div>
+      </div>
+    </code-sample>
+    <h2 id="api" class="mar-b-xs">API</h2>
+    <p class="pos-sticky pos-t-0 mar-t-0 pad-t-sm pad-b-sm bg-white">Categories:
+      <a href="#display" class="mar-r-md mar-l-xs">Display</a>
+      <a href="#flexbox" class="mar-r-md">Flexbox</a>
+      <a href="#spacing" class="mar-r-md">Spacing</a>
+      <a href="#position" class="mar-r-md">Position</a>
+      <a href="#font" class="mar-r-md">Font</a>
+      <a href="#text" class="mar-r-md">Text</a>
+      <a href="#border" class="mar-r-md">Border</a>
+      <a href="#background" class="mar-r-md">Background</a>
+      <a href="#other" class="mar-r-md">Other</a>
+    </p>
+    <h3 id="display">Display</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>grid</code></td>
+        <td colspan="6">Shortcut for display: grid</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>inline-grid</code></td>
+        <td colspan="6">Shortcut for display: inline-grid</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>flex</code></td>
+        <td colspan="6">Shortcut for display: flex</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>inline-flex</code></td>
+        <td colspan="6">Shortcut for display: inline-flex</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>block</code></td>
+        <td colspan="6">Shortcut for display: block</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>inline-block</code></td>
+        <td colspan="6">Shortcut for display: inline-block</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>inline</code></td>
+        <td colspan="6">Shortcut for display: inline</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>hidden</code></td>
+        <td colspan="6">Shortcut for display: none. Consider using the HTML <code>hidden</code> attribute instead.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="flexbox">Flexbox</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>flx-grow-0</code></td>
+        <td colspan="6">Shortcut for flex-grow: 0</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>flx-grow-1</code></td>
+        <td colspan="6">Shortcut for flex-grow: 1</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>flx-shrink-0</code></td>
+        <td colspan="6">Shortcut for flex-shrink: 0</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>flx-shrink-1</code></td>
+        <td colspan="6">Shortcut for flex-shrink: 1</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>flx-wrap</code></td>
+        <td colspan="6">Shortcut for flex-wrap: wrap</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>flx-col</code></td>
+        <td colspan="6">Shortcut for flex-direction: column</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>flx-row</code></td>
+        <td colspan="6">Shortcut for flex-direction: row</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>flx-basis-content</code></td>
+        <td colspan="6">Shortcut for flex-basic: content</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>justify-content-start</code></td>
+        <td colspan="6">Shortcut for justify-content: flex-start</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>justify-content-center</code></td>
+        <td colspan="6">Shortcut for justify-content: center</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>justify-content-between</code></td>
+        <td colspan="6">Shortcut for justify-content: between</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>justify-content-evenly</code></td>
+        <td colspan="6">Shortcut for justify-content: evenly</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>justify-content-around</code></td>
+        <td colspan="6">Shortcut for justify-content: around</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>justify-content-end</code></td>
+        <td colspan="6">Shortcut for justify-content: flex-end</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>align-items-center</code></td>
+        <td colspan="6">Shortcut for align-items: center</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>align-items-start</code></td>
+        <td colspan="6">Shortcut for align-items: flex-start</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>align-items-end</code></td>
+        <td colspan="6">Shortcut for align-items: flex-end</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>align-self-stretch</code></td>
+        <td colspan="6">Shortcut for align-self: stretch</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>align-self-center</code></td>
+        <td colspan="6">Shortcut for align-self: center</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>align-self-start</code></td>
+        <td colspan="6">Shortcut for align-self: flex-start</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>align-self-end</code></td>
+        <td colspan="6">Shortcut for align-self: flex-end</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>place-content-center</code></td>
+        <td colspan="6">Shortcut for place-content: center</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="spacing">Spacing</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="3">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="3"><code>pad-[xs|sm|md|lg|xl|0]</code></td>
+        <td colspan="6">Sets padding on all sides to the specified size. Sizes map to the
+          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+      </tr>
+      <tr>
+        <td colspan="3"><code>pad-[t|r|b|l]-[xs|sm|md|lg|xl|0]</code></td>
+        <td colspan="6">Sets padding on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
+          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+      </tr>
+      <tr>
+        <td colspan="3"><code>mar-[xs|sm|md|lg|xl|0|auto]</code></td>
+        <td colspan="6">Sets margin on all sides to the specified size. Sizes map to the
+          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+      </tr>
+      <tr>
+        <td colspan="3"><code>mar-[t|r|b|l]-[xs|sm|md|lg|xl|0|auto]</code></td>
+        <td colspan="6">Sets margin on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
+          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+      </tr>
+      <tr>
+        <td colspan="3"><code>gap-[xs|sm|md|lg|xl|0]</code></td>
+        <td colspan="6">Sets gap to the specified size. Sizes map to the
+          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="position">Position</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>pos-absolute</code></td>
+        <td colspan="6">Shortcut for position: absolute</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>pos-fixed</code></td>
+        <td colspan="6">Shortcut for position: fixed</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>pos-relative</code></td>
+        <td colspan="6">Shortcut for position: relative</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>pos-static</code></td>
+        <td colspan="6">Shortcut for position: static</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>pos-sticky</code></td>
+        <td colspan="6">Shortcut for position: sticky</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>pos-[t|r|b|l]-0</code></td>
+        <td colspan="6">Shortcut for setting top, right, bottom, or left to zero</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="font">Font</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>fnt-bold</code></td>
+        <td colspan="6">Shortcut for font-weight: 700</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>fnt-med</code></td>
+        <td colspan="6">Shortcut for font-weight: 500</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>fnt-reg</code></td>
+        <td colspan="6">Shortcut for font-weight: 400</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>fnt-light</code></td>
+        <td colspan="6">Shortcut for font-weight: 300</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>fnt-italic</code></td>
+        <td colspan="6">Shortcut for font-style: italic</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>fnt-mono</code></td>
+        <td colspan="6">Shortcut for font-family: monospace</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>fnt-normal</code></td>
+        <td colspan="6">Shortcut for font-style: normal</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="text">Text</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>txt-left</code></td>
+        <td colspan="6">Shortcut for text-align: left</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-right</code></td>
+        <td colspan="6">Shortcut for text-align: right</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-center</code></td>
+        <td colspan="6">Shortcut for text-align: center</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-justify</code></td>
+        <td colspan="6">Shortcut for text-align: justify</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-lower</code></td>
+        <td colspan="6">Shortcut for text-transform: lowercase</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-upper</code></td>
+        <td colspan="6">Shortcut for text-transform: uppercase</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-caps</code></td>
+        <td colspan="6">Shortcut for text-transform: capitalize</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-space</code></td>
+        <td colspan="6">Shortcut for letter-spacing: 2px</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-truncate</code></td>
+        <td colspan="6">Truncates overflowing text and shows an ellipsis.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-nowrap</code></td>
+        <td colspan="6">Shortcut for white-space: nowrap. Good for forcing inline elements to stretch wide enough to accommodate the text.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-break-all</code></td>
+        <td colspan="6">Shortcut for word-break: break-all. Good for permitting characters to wrap when there's not enough room.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-break-word</code></td>
+        <td colspan="6">Shortcut for word-break: break-word. Good for permitting words to wrap when there's not enough room.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-maxlength</code></td>
+        <td colspan="6">Shortcut for max-width: 75ch. Good for limiting text line length to improve readability. See <a href="https://baymard.com/blog/line-length-readability" target="_blank">Readability: The Optimal Line Length</a></td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-noselect</code></td>
+        <td colspan="6">Prevents the user from selecting the text of this element.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-[xs|sm|md|lg|xl|xxl]</code></td>
+        <td colspan="6">Sets font-size.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-[color-name]</code></td>
+        <td colspan="6">Sets text color. The class names map to the
+          <a href="/custom-properties#colors">color custom props</a>, e.g. <code>txt-red-dark</code> => <code>--m-color-red-dark</code>.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>txt-[info|success|warn|error]</code></td>
+        <td colspan="6">Sets text color to the alert type.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="border">Border</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>brd</code></td>
+        <td colspan="6">Adds a border.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>brd-[t|r|b|l]</code></td>
+        <td colspan="6">Adds a border to the specified side.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>brd-none</code></td>
+        <td colspan="6">Removes border from all sides.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>brd-radius-[sm|md|full]</code></td>
+        <td colspan="6">Sets border radius. Use <code>full</code> to create a circle.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>brd-[sm|md]</code></td>
+        <td colspan="6">Sets border width.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>brd-dashed</code></td>
+        <td colspan="6">Sets border style to <code>dashed</code>. Good for placeholders and drop targets.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="background">Background</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>bg-clip-text</code></td>
+        <td colspan="6">Clips background to match foreground text.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>bg-cover</code></td>
+        <td colspan="6">Background will be scaled to fill entire area of element. The aspect ratio is preserved, but the image may be cropped.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>bg-contain</code></td>
+        <td colspan="6">Background will be scaled to fit size of element. The aspect ratio is preserved and the image will not be cropped.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>bg-[color-name]</code></td>
+        <td colspan="6">Sets background color. The class names map to the
+          <a href="/custom-properties#colors">color custom props</a>, e.g. <code>bg-red-dark</code> => <code>--m-color-red-dark</code>.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="other">Other</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>pointer</code></td>
+        <td colspan="6">Shortcut for cursor: pointer. Useful when you want an element to seem clickable. Buttons and links already have pointer set.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>height-full</code></td>
+        <td colspan="6">Shortcut for height: 100%</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>height-half</code></td>
+        <td colspan="6">Shortcut for height: 50%</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>height-min-0</code></td>
+        <td colspan="6">Shortcut for min-height: 0</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>width-full</code></td>
+        <td colspan="6">Shortcut for width: 100%</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>width-half</code></td>
+        <td colspan="6">Shortcut for width: 50%</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>width-fit</code></td>
+        <td colspan="6">Shortcut for width: fit-content</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>width-min-0</code></td>
+        <td colspan="6">Shortcut for min-width: 0</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>box-sizing-border</code></td>
+        <td colspan="6">Shortcut for box-sizing: border-box</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>box-sizing-content</code></td>
+        <td colspan="6">Shortcut for box-sizing: content-box</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>overflow-auto</code></td>
+        <td colspan="6">Shortcut for overflow: auto</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>overflow-hidden</code></td>
+        <td colspan="6">Shortcut for overflow: hidden</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>overflow-clip</code></td>
+        <td colspan="6">Shortcut for overflow: clip (good for rounded corners)</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>vis-hidden</code></td>
+        <td colspan="6">Shortcut for visibility: hidden</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>shadow</code></td>
+        <td colspan="6">Adds default shadow</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>content-vis-auto</code></td>
+        <td colspan="6">Shortcut for content-visibility: auto. Use on large sections of content not visible to the user after page load. The browser skips rendering and layout until needed thereby reducing the initial page rendering time.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>left</code></td>
+        <td colspan="6">Shortcut for float: left</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>right</code></td>
+        <td colspan="6">Shortcut for float: right</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>clear</code></td>
+        <td colspan="6">Shortcut for clear: both</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>all-unset</code></td>
+        <td colspan="6">Shortcut for all: unset</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="guidelines">Guidelines</h2>
+    <h3 id="maintenance">Reduce CSS maintenance</h3>
+    <p>You can drastically cut down and even eliminate your CSS maintenance by leveraging these classes as much as possible.</p>
+    <h3 id="templating">Create and use templates</h3>
+    <p>The demo above with all those classes is fine on its own or even 2-3 copies sitting next to each other, but beyond that you'll want a way to reuse chunks of HTML.</p>
+    <p>Reuse is possible with the <code>&lt;template&gt;</code> element or template literals (see below). If standard tools aren't enough, templating partials or static components are another low-code option. Avoid the temptation to turn every chunk of HTML into a framework-dependent component.</p>
+    <code-sample mode="javascript" readonly="readonly">
+      export function userCardTemplate(imgUrl, name, title, email, phone) {
+      return `
+      <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd pad-md">
+        <img src="$\{imgUrl}" height="78" class="brd-radius-full mar-r-md">
+        <div>
+          <div class="txt-md txt-nowrap">$\{name}</div>
+          <div class="txt-sm txt-gray-6 mar-b-xs">$\{title}</div>
+          <a href="mailto:$\{email}" class="fnt-light txt-xs">$\{email}</a>
+          <br>
+          <a href="tel:+1$\{phone.replaceAll('-', '')}" class="fnt-light txt-xs">$\{phone}</a>
+        </div>
+      </div>
+      `
+      }
+
+      const homerCard = userCardTemplate('/img/homer.webp', 'Homer J. Simpson', 'Safety Inspector', 'Chunkylover53@aol.com', '555-7334')
+    </code-sample>
+    <h3 id="a11y">Accessibility</h3>
+    <p>There are no accessibility recommendations for these classes.</p>
+  </section>
+</main>
+
+<!-- Scripts below (order matters) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-html.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
+<script src="code-sample.riot" type="riot/tag"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
+<script>
+  riot.compile(() => {
+    riot.mount('*');
+
+    // Focus demo section code-sample
+    const codeSample = document.body.querySelector('code-sample');
+    codeSample?._tag?.setCursor();
+  });
+</script>
+<script>
+  // Menu toggle (for small screens)
+  document.getElementById('menu-toggle').addEventListener('click', e => document.getElementById('menu').toggleAttribute('open'));
+</script>
+</body>
+</html>

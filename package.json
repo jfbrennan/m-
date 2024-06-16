@@ -34,20 +34,17 @@
   ],
   "scripts": {
     "watch": "nodemon --watch src --ext css,js --exec npm run build",
-    "build": "rm -r dist; mkdir dist && npm run css && npm run css:custom-properties && npm run js && npm run icons && cp -R dist/** docs/public",
+    "build": "rm -r dist; mkdir dist && npm run css && npm run js && npm run icons && cp -R dist/** docs",
     "css": "postcss ./src/m-all.css | lightningcss --nesting --minify -o ./dist/m-.css /dev/stdin",
-    "css:custom-properties": "cp -R src/custom-properties.css dist",
     "icons": "cp -R src/m-.woff2 dist/m-.woff2",
-    "js": "terser ./src/*.js --mangle -o ./dist/m-.js"
+    "js": "terser ./src/*.js --mangle -o ./dist/m-.js",
+    "release": "git pull && git commit -a -m \"Released new version: $VERSION\" && git push --tags origin master"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",
-    "gulp": "^4.0.2",
-    "gulp-replace": "^1.1.4",
     "lightningcss-cli": "^1.21.7",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
-    "postcss-custom-properties": "^13.3.0",
     "postcss-import": "^15.1.0",
     "terser": "^5.19.4"
   }
