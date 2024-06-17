@@ -14,12 +14,18 @@
   <script defer src="m-.js"></script>
   <style>
     * { box-sizing: border-box }
+    :root {
+      --docs-logo-bg-color: #2B2B2B;
+      --docs-logo-border-color: #8DBF28;
+      --docs-logo-text-color: #E9C063;
+    }
+
     #m-logo {
       width: 60px;
       height: 60px;
-      background-color: #2B2B2B;
-      border: 2px solid #8DBF28;
-      color: #E9C063;
+      background-color: var(--docs-logo-bg-color);
+      border: 2px solid var(--docs-logo-border-color);
+      color: var(--docs-logo-text-color);
       font-family: Menlo, Monaco, monospace;
       font-size: 36px;
       cursor: default;
@@ -46,78 +52,79 @@
 
     main > section {
       padding: 120px 0;
+      scroll-margin-top: -100px;
     }
   </style>
 </head>
 <body class="flex height-full">
 <m-icon id="menu-toggle" name="menu" class="hidden pos-absolute pad-md pointer txt-md"></m-icon>
-<aside class="pos-sticky pos-t-0 overflow-auto pad-md" style="flex: 0 0 180px; height: 100svh">
-  <div>
+<aside class="pos-sticky pos-t-0 overflow-auto brd-r" style="flex: 0 0 180px; height: 100svh">
+  <a href="#" class="all-unset pointer block width-full box-sizing-border pos-sticky pos-t-0 pad-md bg-white">
     <div id="m-logo" aria-label="Mdash logo" class="mar-auto fnt-bold pos-relative brd-radius-full mar-b-xs">
       <span class="pos-absolute" style="top: 5px; left: 9px">m-</span>
     </div>
-    <small class="block mar-b-md txt-center txt-gray-6">{{version}}</small>
-    <nav>
-      <a href="#intro" class="block mar-b-xs">Intro</a>
-      <a href="/examples" class="block mar-b-xs">Examples</a>
-      <a href="/comparison" class="block mar-b-xs">Comparison</a>
-      <a href="https://github.com/jfbrennan/m-" class="flex align-items-center mar-b-xs">GitHub</a>
-      <a href="https://x.com/realEmDash" class="flex align-items-center mar-b-xs">X</a>
-      <hr class="mar-t-md mar-b-md">
-      <h4 class="mar-b-sm">Components</h4>
-      <a href="#accordion" class="block mar-b-xs">Accordion</a>
-      <a href="#alert" class="block mar-b-xs">Alert</a>
-      <a href="#autocomplete" class="block mar-b-xs">Autocomplete</a>
-      <a href="#badge" class="block mar-b-xs">Badge</a>
-      <a href="#box" class="block mar-b-xs">Box</a>
-      <a href="#breadcrumbs" class="block mar-b-xs">Breadcrumbs</a>
-      <a href="#button" class="block mar-b-xs">Button</a>
-      <a href="#checkbox" class="block mar-b-xs">Checkbox</a>
-      <a href="#container" class="block mar-b-xs">Container</a>
-      <a href="#details" class="block mar-b-xs">Details</a>
-      <a href="#dialog" class="block mar-b-xs">Dialog</a>
-      <a href="#dot" class="block mar-b-xs">Dot</a>
-      <a href="#form" class="block mar-b-xs">Form</a>
-      <a href="#grid" class="block mar-b-xs">Grid</a>
-      <a href="#icons" class="block mar-b-xs">Icons</a>
-      <a href="#input" class="block mar-b-xs">Input</a>
-      <a href="#keyboard" class="block mar-b-xs">Keyboard</a>
-      <a href="#link" class="block mar-b-xs">Link</a>
-      <a href="#loader" class="block mar-b-xs">Loader</a>
-      <a href="#menu" class="block mar-b-xs">Menu</a>
-      <a href="#radio" class="block mar-b-xs">Radio</a>
-      <a href="#range" class="block mar-b-xs">Range</a>
-      <a href="#select" class="block mar-b-xs">Select</a>
-      <a href="#separator" class="block mar-b-xs">Separator</a>
-      <a href="#switch" class="block mar-b-xs">Switch</a>
-      <a href="#table" class="block mar-b-xs">Table</a>
-      <a href="#tabs" class="block mar-b-xs">Tabs</a>
-      <a href="#tag" class="block mar-b-xs">Tag</a>
-      <a href="#textarea" class="block mar-b-xs">Textarea</a>
-      <h4 class="mar-b-sm">Typography</h4>
-      <a href="#code" class="block mar-b-xs">Code</a>
-      <a href="#headings" class="block mar-b-xs">Headings</a>
-      <a href="#lists" class="block mar-b-xs">Lists</a>
-      <a href="#rules" class="block mar-b-xs">Rule</a>
-      <a href="#text" class="block mar-b-xs">Text</a>
-      <h4 class="mar-b-sm">Styles</h4>
-      <a href="#custom-properties" class="block mar-b-xs">Custom Properties</a>
-      <a href="#utility-classes" class="block mar-b-xs">Utility Classes</a>
-      <!--        <h4 class="mar-b-sm">Patterns</h4>-->
-      <!--        <a href="/head-tags" class="block mar-b-xs">Head Tags</a>-->
-      <!--        <a href="/navbar" class="block mar-b-xs">Navbar</a>-->
-      <!--        <a href="/searchbar" class="block mar-b-xs">Search</a>-->
-      <!--        <a href="/patterns/toolbar" class="block mar-b-xs">Toolbar</a>-->
-      <hr class="mar-t-md mar-b-md">
-      <small class="block txt-center">Copyright &copy; 2023<br>Jordan Brennan</small>
-    </nav>
-  </div>
+    <div class="txt-center fnt-med txt-gray-6">Mdash</div>
+  </a>
+  <nav class="pad-md">
+    <a href="#intro" class="block mar-b-xs">Intro</a>
+    <!--      <a href="/examples" class="block mar-b-xs">Examples</a>-->
+    <!--      <a href="/comparison" class="block mar-b-xs">Comparison</a>-->
+    <a href="https://github.com/jfbrennan/m-" class="flex align-items-center mar-b-xs">GitHub</a>
+    <a href="https://x.com/realEmDash" class="flex align-items-center mar-b-xs">X</a>
+    <hr class="mar-t-md mar-b-md">
+    <h4 class="mar-b-sm">Components</h4>
+    <a href="#accordion" class="block mar-b-xs">Accordion</a>
+    <a href="#alert" class="block mar-b-xs">Alert</a>
+    <a href="#autocomplete" class="block mar-b-xs">Autocomplete</a>
+    <a href="#badge" class="block mar-b-xs">Badge</a>
+    <a href="#box" class="block mar-b-xs">Box</a>
+    <a href="#breadcrumbs" class="block mar-b-xs">Breadcrumbs</a>
+    <a href="#button" class="block mar-b-xs">Button</a>
+    <a href="#checkbox" class="block mar-b-xs">Checkbox</a>
+    <a href="#container" class="block mar-b-xs">Container</a>
+    <a href="#details" class="block mar-b-xs">Details</a>
+    <a href="#dialog" class="block mar-b-xs">Dialog</a>
+    <a href="#dot" class="block mar-b-xs">Dot</a>
+    <a href="#form" class="block mar-b-xs">Form</a>
+    <a href="#grid" class="block mar-b-xs">Grid</a>
+    <a href="#icons" class="block mar-b-xs">Icons</a>
+    <a href="#input" class="block mar-b-xs">Input</a>
+    <a href="#keyboard" class="block mar-b-xs">Keyboard</a>
+    <a href="#link" class="block mar-b-xs">Link</a>
+    <a href="#loader" class="block mar-b-xs">Loader</a>
+    <a href="#menu" class="block mar-b-xs">Menu</a>
+    <a href="#radio" class="block mar-b-xs">Radio</a>
+    <a href="#range" class="block mar-b-xs">Range</a>
+    <a href="#select" class="block mar-b-xs">Select</a>
+    <a href="#separator" class="block mar-b-xs">Separator</a>
+    <a href="#switch" class="block mar-b-xs">Switch</a>
+    <a href="#table" class="block mar-b-xs">Table</a>
+    <a href="#tabs" class="block mar-b-xs">Tabs</a>
+    <a href="#tag" class="block mar-b-xs">Tag</a>
+    <a href="#textarea" class="block mar-b-xs">Textarea</a>
+    <h4 class="mar-b-sm">Typography</h4>
+    <a href="#code" class="block mar-b-xs">Code</a>
+    <a href="#headings" class="block mar-b-xs">Headings</a>
+    <a href="#lists" class="block mar-b-xs">Lists</a>
+    <a href="#rules" class="block mar-b-xs">Rule</a>
+    <a href="#text" class="block mar-b-xs">Text</a>
+    <h4 class="mar-b-sm">Styles</h4>
+    <a href="#custom-properties" class="block mar-b-xs">Custom Properties</a>
+    <a href="#utility-classes" class="block mar-b-xs">Utility Classes</a>
+    <!--        <h4 class="mar-b-sm">Patterns</h4>-->
+    <!--        <a href="/head-tags" class="block mar-b-xs">Head Tags</a>-->
+    <!--        <a href="/navbar" class="block mar-b-xs">Navbar</a>-->
+    <!--        <a href="/searchbar" class="block mar-b-xs">Search</a>-->
+    <!--        <a href="/patterns/toolbar" class="block mar-b-xs">Toolbar</a>-->
+    <hr class="mar-t-md mar-b-md">
+    <small class="block txt-center">Copyright &copy; 2023<br>Jordan Brennan</small>
+  </nav>
 </aside>
-<main class="pad-md pad-b-lg flx-grow-1">
-  <section id="intro">
-    <div id="home-logo-version" class="txt-center mar-t-lg">
-      <small class="block mar-t-sm txt-md">{{ version }}</small>
-    </div>
+<main class="pad-md pad-b-lg flx-grow-1 bg-gray-1">
+  <div aria-label="Mdash logo" class="mar-auto fnt-bold pos-relative brd-radius-full mar-b-xs">
+    <span class="pos-absolute" style="top: 5px; left: 9px">m-</span>
+  </div>
+  <section>
     <div id="home-intro" class="mar-t-xl">
       <div id="home-messages" class="flex align-items-center justify-content-center txt-center" style="height: 100px">
         <h1>A design system that fully embraces web standards 🤗</h1>
@@ -161,9 +168,9 @@
       <p class="mar-t-0 mar-b-xs">This is the web. Let's use it.</p>
       <code-sample readonly="readonly">
         <template>
-          <link href="{{cdnUrl}}.woff2" rel="preload" as="font" crossorigin>
-          <link href="{{cdnUrl}}.css" rel="stylesheet">
-          <script src="{{cdnUrl}}.js" defer></script>
+          <link href="https://unpkg.com/m-@3.2.0/dist/m-.woff2" rel="preload" as="font" crossorigin>
+          <link href="https://unpkg.com/m-@3.2.0/dist/m-.css" rel="stylesheet">
+          <script src="https://unpkg.com/m-@3.2.0/dist/m-.js" defer></script>
         </template>
       </code-sample>
       <div class="txt-xs">or <a href="#installation">npm</a></div>
@@ -342,17 +349,17 @@
     <p>Mdash is designed for production use with a CDN. Copy and paste the following three resources into the <code>&lt;head&gt;</code> section of your document and you're golden.</p>
     <div>
       <h4 class="mar-b-xs">Icon preload</h4>
-      <pre style="white-space: pre-wrap">&lt;link href="{{cdnUrl}}.woff2" rel="preload" as="font" crossorigin&gt;</pre>
+      <pre style="white-space: pre-wrap">&lt;link href="https://unpkg.com/m-@3.2.0/dist/m-.woff2" rel="preload" as="font" crossorigin&gt;</pre>
       <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload" target="_blank">preload</a> option tells the browser to start downloading the icon font now instead of waiting for the stylesheet to be parsed. If you don't use icons, then you don't need this.</p>
     </div>
     <div>
       <h4 class="mar-b-xs">Stylesheet</h4>
-      <pre style="white-space: pre-wrap">&lt;link href="{{cdnUrl}}.css" rel="stylesheet"&gt;</pre>
+      <pre style="white-space: pre-wrap">&lt;link href="https://unpkg.com/m-@3.2.0/dist/m-.css" rel="stylesheet"&gt;</pre>
       <p>The stylesheet includes Mdash's <a href="/custom-properties">custom properties</a>, the component styles, and all the <a href="/utility-classes">utility classes</a>.</p>
     </div>
     <div>
       <h4 class="mar-b-xs">Custom Elements</h4>
-      <pre style="white-space: pre-wrap">&lt;script src="{{cdnUrl}}.js" defer&gt;&lt;/script&gt;</pre>
+      <pre style="white-space: pre-wrap">&lt;script src="https://unpkg.com/m-@3.2.0/dist/m-.js" defer&gt;&lt;/script&gt;</pre>
       <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer" target="_blank">defer</a> option tells the browser to download the script but delay its evaluation to avoid blocking document parsing.</p>
     </div>
     <h3 id="installation-npm">NPM</h3>
