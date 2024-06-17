@@ -2,19 +2,20 @@
   "name": "Mdash",
   "short_name": "Mdash",
   "start_url": ".",
+  "id": "/",
   "display": "minimal-ui",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "description": "Tiny standards-based design system for all web projects.",
   "icons": [
     {
-      "src": "/favicon-192.png",
+      "src": "img/m-logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
       "purpose": "maskable",
-      "src": "/favicon-512.png",
+      "src": "img/m-logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
