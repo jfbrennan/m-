@@ -356,7 +356,7 @@
     <div>
       <h4 class="mar-b-xs">Stylesheet</h4>
       <pre style="white-space: pre-wrap">&lt;link href="https://unpkg.com/m-@3.2.0/dist/m-.css" rel="stylesheet"&gt;</pre>
-      <p>The stylesheet includes Mdash's <a href="/custom-properties">custom properties</a>, the component styles, and all the <a href="/utility-classes">utility classes</a>.</p>
+      <p>The stylesheet includes Mdash's <a href="#custom-properties">custom properties</a>, the component styles, and all the <a href="/utility-classes">utility classes</a>.</p>
     </div>
     <div>
       <h4 class="mar-b-xs">Custom Elements</h4>
@@ -453,14 +453,14 @@
       <tr>
         <td colspan="2"><code>m-accordion</code></td>
         <td colspan="2">Custom tag</td>
-        <td colspan="6"><a href="/details">Details</a> children only</td>
+        <td colspan="6"><a href="#details">Details</a> children only</td>
       </tr>
       </tbody>
     </table>
     <h2 id="guidelines">Guidelines</h2>
     <h3 id="open">Opening all or one</h3>
     <p>Accordion does not control its details children, it only styles them. This means more than one details can be open at a time by default. Controlling this behavior can be managed by your app by adding/removing <code>open</code> to the details. Details elements publish a
-      <a href="/details#events"><code>toggle</code></a> event makes this easy.</p>
+      <a href="#details-events"><code>toggle</code></a> event makes this easy.</p>
     <p>It's worth noting that limiting an accordion to one details at a time may result in a poor UX for users who want to reference information in multiple details and would need to constantly re-open them as they do so.</p>
     <p>Here's two examples showing an imperative solution and a more declarative state-driven solution with Vue:</p>
     <code-sample readonly="readonly">
@@ -524,7 +524,7 @@
       </template>
     </code-sample>
     <h3 id="a11y">Accessibility</h3>
-    <p>All accessibility recommendations apply to the <a href="/details">Details</a> children.</p>
+    <p>All accessibility recommendations apply to the <a href="#details">Details</a> children.</p>
   </section>
 
   <hr>
@@ -603,7 +603,7 @@
       </tr>
       <tr>
         <td colspan="2"><code>icon</code></td>
-        <td colspan="2"><a href="/icons#all-icons">Any icon name</a></td>
+        <td colspan="2"><a href="#icons-all-icons">Any icon name</a></td>
         <td colspan="6">Adds the specified icon. Good pairings for each type are info for info, check_circle for success, warning for warn, and error for error, but use whatever is best for your alert.</td>
       </tr>
       </tbody>
@@ -1074,7 +1074,7 @@
         </td>
         <td colspan="6">
           <p class="mar-t-0">Use submit when the button submits a form. Avoid <code>&lt;input type="submit"&gt;</code>. See
-            <a href="/form#submit-button">Submit button</a> for more info</p>
+            <a href="#form-submit-button">Submit button</a> for more info</p>
           <p class="mar-b-none">Remove is a custom button type. It's used by other components like alert and dialog and is intended for remove/close use cases (e.g. remove item from cart, close the dialog).
             <a href="#remove">See below</a> for more info.</p>
         </td>
@@ -1122,7 +1122,7 @@
     </table>
     <h2>Guidelines</h2>
     <h3>Button or link?</h3>
-    <p>If the action navigates to a new url, strive to use regular <a href="/link">links</a>, but if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that for these cases an actual link is used so the user can
+    <p>If the action navigates to a new url, strive to use regular <a href="#link">links</a>, but if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that for these cases an actual link is used so the user can
       <kbd>cmd + click</kbd> or copy the link. If the action does not navigate the user to a new url, then use a regular button.</p>
     <h3 id="remove">Custom <code>remove</code> type</h3>
     <p>Like other buttons, it is your app not Mdash that handles the click. Dialog, alert, and other components use remove button to create a consistent experience. You should use it for similar use cases to meet user expectations:</p>
