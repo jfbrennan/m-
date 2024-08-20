@@ -369,36 +369,6 @@
     <p>Built assets (those three files above) are located in <code>/dist</code>. The hyper optimization of <a href="https://web.dev/extract-critical-css/" target="_blank">inlining CSS</a> is also possible with Mdash because its so small, so go for it you speed demon!</p>
     <h2 id="browsers">Browser support</h2>
     <p>Mdash works with the latest versions of all major browsers. Please <a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file a bug</a> if you see something not working as expected.</p>
-    <h2 id="about">More about Mdash</h2>
-    <h3>The purpose</h3>
-    <p>To return the UI layer back to its rightful owner: the web platform.</p>
-    <p>The UI layer - the pixels - should be built with the modern web platform. Technologies likes CSS Custom Properties, Web Components, and new HTML and JavaScript features can and should be used to create the UI layer. No dependencies needed!</p>
-    <p>The application layer - data, routing, business logic, services - should also be built with the modern web stack as well as 3rd-party libraries and frameworks.</p>
-    <p>Mdash gives you a complete set of modern compatible-with-everything UI components instantly available from a CDN. No downloads. No CLI. No configuration. No build steps. No prespiling the virtual tree-shake lint matrix, or whatever. It does this by <span class="fnt-italic">embracing</span> HTML (and CSS and JavaScript) and relentlessly leveraging it. The result is a fun and uniquely small design system with standards-level longevity.</p>
-    <p>Depending on the kind of project you're working on, you can use Mdash on its own or alongside your framework of choice. In the latter case, the framework is responsible for the <em>structure and state of your application</em> while HTML and Mdash supply the final layer of UI.</p>
-    <h3>Frameworks are misused</h3>
-    <p>The UI layer of web applications has been overcomplicated and made dependent upon non-standard frameworks and methodologies that, in the context of generic UI components, do not add value. Frameworks are best applied to application-centric problems like routing, state management, and high-level product-centric component structure. Frameworks are not ideal for pure UI-centric problems like layout, shared UI elements, and generic styles.</p>
-    <h3>The m- prefix</h3>
-    <p>A prefix is required for any custom HTML (<a href="https://dev.to/jfbrennan/custom-html-tags-4788" target="_blank" rel="noopener">tags or elements</a>). The "m" is for markup, because Mdash is all about that beautiful declarative markup! And no the name "Mdash" doesn't have anything to do with Lodash. It was suggested the proper name be changed from "M-" to "Mdash" to help with search engine results.</p>
-    <h3>Design philosophy</h3>
-    <p>Mdash believes in and is committed to the web platform. Developing on the web is awesome because:</p>
-    <ul>
-      <li>It's open</li>
-      <li>Has low barriers to entry</li>
-      <li>Easier than other platforms</li>
-      <li>Available on virtually every device in the world!</li>
-      <li>Has the biggest and most active user base by far!</li>
-    </ul>
-    <p>Mdash was designed with all that in mind. It's why
-      <a href="#installation">CDN install</a> is the first option and not buried or unavailable as if linking to other resources on the internet is a last resort. It's why Mdash components are built with standard, approachable tech and not a popular JavaScript library. It's why there is no special syntax or proprietary ideas and why there's no dependencies. It's why the project is open source.</p>
-    <p>The intent of the Mdash API design is to be familiar. Where possible, Mdash matches native HTML, e.g. <code>type=""</code>, <code>name=""</code>, <code>disabled</code>, and when there isn't a native example to follow Mdash strives to use familiar patterns, e.g. <code>dismissible="false"</code> for Alert was chosen because it feels similar to the native <code>draggable="false"</code> attribute. If you could cover up all the <code>m-</code> prefixes in your markup, the hope is you couldn't tell the difference between native HTML elements and Mdash.</p>
-    <h3>It's for everyone!</h3>
-    <p>The web is an open platform accessible to everyone and so a design system for the web shouldn't require advanced knowledge just to get started, and it shouldn't require a commitment to learn a specific framework's idioms and API in order to make full use of it. Mdash serves true beginners equally as well as it does professional software engineers. So, whether you're building your first website or a large scale application with millions of users, Mdash helps you quickly build UI with
-      <a href="/comparison">significantly less code</a> and with the longevity that only comes with standards-based code.</p>
-    <!--<h2>Contribution & support</h2>-->
-    <!--<p>If Mdash has helped you, please help Mdash with its hosting fees: <a href="">Open Collective</a></p>-->
-    <!--<p>If you want to contribute, <a href="https://github.com/jfbrennan/m-/issues" rel="noopener">come on over to GitHub</a> and help.</p>-->
-
     <script>
       // Cycle through the messages at the top of the page
       const intervalId = setInterval(goToNextMessage, 3900);
@@ -407,7 +377,7 @@
         const currentMessage = document.getElementById('home-messages').querySelector('h1:not([hidden])');
         const nextMessage = currentMessage.nextElementSibling;
 
-        // Hide current, show next
+        // Hide current and show next.
         if (nextMessage) {
           currentMessage.hidden = true;
           nextMessage.hidden = false;
