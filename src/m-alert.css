@@ -1,10 +1,15 @@
 /* Base styles */
 m-alert {
+  --color: var(--m-color-gray-7);
+  --bg-color: var(--m-color-gray-2);
   display: flex;
   align-items: center;
   padding: var(--m-space-md);
-  background-color: var(--m-color-gray-2);
+  color: var(--color);
+  background-color: var(--bg-color);
+  border-radius: var(--m-border-radius-md);
 
+  /* Sibling alerts */
   & + & { margin-top: var(--m-space-sm) }
 
   /* Icon */
@@ -15,31 +20,49 @@ m-alert {
     margin-right: var(--m-space-sm);
   }
 
-  /* Dismiss button */
-  & button[type=remove]:last-of-type { margin-left: auto }
+  /* Close button */
+  & button[slot=close] {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-grid;
+    place-content: center;
+    margin-left: auto;
+    font-size: var(--m-font-size-default);
+    font-weight: 500;
+    line-height: 1;
+    border-radius: var(--m-border-radius-full);
+    padding: var(--m-space-xs);
+    width: var(--m-target-min-size);
+    height: var(--m-target-min-size);
+
+    &::before {
+      content: '\2715';
+    }
+
+    &:hover {
+      background-color: rgb(from var(--color) r g b / 0.1);
+    }
+  }
 
   /* Types */
   &[type=info] {
-    background-color: var(--m-color-blue-1);
-
-    &::before { color: var(--m-color-blue-3) }
+    --color: var(--m-color-blue-3);
+    --bg-color: var(--m-color-blue-1);
   }
 
   &[type=success] {
-    background-color: var(--m-color-green-1);
-
-    &::before { color: var(--m-color-green-3) }
+    --color: var(--m-color-green-3);
+    --bg-color: var(--m-color-green-1);
   }
 
   &[type=warn] {
-    background-color: var(--m-color-orange-1);
-
-    &::before { color: var(--m-color-orange-3) }
+    --color: var(--m-color-orange-3);
+    --bg-color: var(--m-color-orange-1);
   }
 
   &[type=error] {
-    background-color: var(--m-color-red-1);
-
-    &::before { color: var(--m-color-red-3) }
+    --color: var(--m-color-red-3);
+    --bg-color: var(--m-color-red-1);
   }
 }

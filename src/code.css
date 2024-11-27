@@ -2,7 +2,6 @@
 code,
 pre {
   border-radius: var(--m-border-radius-md);
-  background-color: var(--m-color-gray-1);
   color: var(--m-color-red-3);
 }
 
@@ -13,7 +12,8 @@ code {
 
 /* Multi-line code */
 pre {
-  margin: 0;
+  background-color: white;
+  margin: var(--m-space-sm) 0;
   padding: var(--m-space-xs) var(--m-space-sm);
 }
 
