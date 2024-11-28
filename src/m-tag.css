@@ -1,19 +1,35 @@
-/* Base tag styles */
 m-tag {
+  --color: #585858;
   display: inline-flex;
   align-items: center;
-  color: var(--color, currentColor);
-  border: 1px solid var(--color, currentColor);
-  background-color: var(--color, lightgrey);
-  padding: 3px var(--m-space-xs);
+  gap: var(--m-space-xs);
+  color: var(--color);
+  background-color: oklch(from var(--color) calc(l * 2) c h);
+  padding: 4px var(--m-space-sm);
   font-size: var(--m-font-size-min);
+  border-radius: var(--m-border-radius-sm);
 
   & + & { margin-left: 3px }
 
   /* Removable tag */
-  & button[type=remove] {
-    padding-left: var(--m-space-xs);
-    font-size: var(--m-font-size-default);
-    width: auto;
+  & button[slot=close] {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-grid;
+    place-content: center;
+    font-size: var(--m-font-size-min);
+    line-height: 1;
+    border-radius: var(--m-border-radius-full);
+    width: 16px;
+    height: 16px;
+
+    &::before {
+      content: '\2715';
+    }
+
+    &:hover {
+      background-color: rgb(from var(--color) r g b / 0.1);
+    }
   }
 }
