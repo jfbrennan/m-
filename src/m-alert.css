@@ -8,6 +8,7 @@ m-alert {
   color: var(--color);
   background-color: var(--bg-color);
   border-radius: var(--m-border-radius-md);
+  min-height: 60px;
 
   /* Sibling alerts */
   & + & { margin-top: var(--m-space-sm) }
@@ -17,6 +18,7 @@ m-alert {
     content: attr(icon);
     font-family: m-icons;
     font-size: var(--m-font-size-lg);
+    line-height: 1;
     margin-right: var(--m-space-sm);
   }
 
@@ -29,7 +31,6 @@ m-alert {
     place-content: center;
     margin-left: auto;
     font-size: var(--m-font-size-default);
-    font-weight: 500;
     line-height: 1;
     border-radius: var(--m-border-radius-full);
     padding: var(--m-space-xs);

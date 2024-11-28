@@ -1073,22 +1073,8 @@
     <p>If the action navigates to a new url, strive to use regular <a href="#link">links</a>, but if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that for these cases an actual link is used so the user can
       <kbd>cmd + click</kbd> or copy the link. If the action does not navigate the user to a new url, then use a regular button.</p>
     <h3 id="remove">Custom <code>remove</code> type</h3>
-    <p>Like other buttons, it is your app not Mdash that handles the click. Dialog, alert, and other components use remove button to create a consistent experience. You should use it for similar use cases to meet user expectations:</p>
-    <div class="mar-b-md">
-      <m-alert type="success">Alert uses remove button</m-alert>
-    </div>
-    <div class="mar-b-md">
-      <m-tag>Tag supports remove button <button type="remove" title="Remove" aria-label="Remove"></button></m-tag>
-    </div>
-    <div class="mar-b-md">
-      <dialog>
-        <button onclick="document.querySelector('dialog').close()" type="remove" slot="close" title="Close" aria-label="Close"></button>
-        Dialog defines a slot for its remove button.
-      </dialog>
-      <button onclick="document.querySelector('dialog').showModal()" ord="primary">Dialog uses remove button</button>
-    </div>
+    <p>Like other buttons, it is your app not Mdash that handles the click:</p>
     <div class="width-half">
-      <p>Your app can use the remove button:</p>
       <div>
         <h4 class="mar-t-0 mar-b-xs">Order summary</h4>
         <div class="flex align-items-center justify-content-between">🌮 Taco w/ spicy pork <button type="remove" title="Remove" aria-label="Remove"></button></div>
@@ -3316,7 +3302,7 @@
   <section id="tag">
     <h1 class="mar-b-xs">Tag</h1>
     <h2 class="txt-gray-5 mar-t-0">Used for keywords, labeling, and filters</h2>
-    <h2 id="demo">Demo</h2>
+    <h2 id="tag-demo">Demo</h2>
     <code-sample>
       <m-tag>non-smoking</m-tag>
       <m-tag>WiFi</m-tag>
@@ -3324,10 +3310,10 @@
       <m-tag>
         <m-icon name="local_cafe"></m-icon>
         free breakfast
-        <button type="remove" title="Remove" aria-label="Remove"></button>
+        <button slot="close" aria-label="Remove"></button>
       </m-tag>
     </code-sample>
-    <h2 id="api">API</h2>
+    <h2 id="tag-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -3341,23 +3327,42 @@
       <tr>
         <td colspan="2"><code>m-tag</code></td>
         <td colspan="2">Custom tag</td>
-        <td colspan="6">Text, icon, or link and optional remove button for <a href="#removable">removable tags</a></td>
+        <td colspan="6">Text, icon, or link and optional remove button for <a href="#tag-removable">removable tags</a></td>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="removable">Removable tags</h3>
-    <p>Simply include a <a href="/button#remove">remove</a> button and, using your preferred method, attach a click handler that removes the tag. Here's a basic example:</p>
-    <code-sample>
-      <script>
-        const removeTag = (e, id) => confirm(`Remove "${id}" tag?`) ? e.currentTarget.parentElement.remove() : null;
-      </script>
-      <template>
-        <m-tag>bug<button type="remove" onclick="removeTag(event, 'bug')" title="Remove" aria-label="Remove"></button></m-tag>
-        <m-tag>open<button type="remove" onclick="removeTag(event, 'open')" title="Remove" aria-label="Remove"></button></m-tag>
-        <m-tag>high-priority<button type="remove" onclick="removeTag(event, 'high_pri')" title="Remove" aria-label="Remove"></button></m-tag>
-      </template>
-    </code-sample>
+    <h3>Slot</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Element</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>close</code></td>
+        <td colspan="2">button</td>
+        <td colspan="6">None. See <a href="#tag-close-button">Removable Tags</a> below.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="tag-guidelines">Guidelines</h2>
+    <h3 id="tag-close-button">Removable Tags</h3>
+    <p>To remove a tag, slot a button and using whatever method is right for your app, bind a click handler that removes the tag:</p>
+    <m-tag>Remove me <button onclick="removeTag(event)" slot="close" aria-label="Remove"></button></m-tag>
+    <script>
+      function removeTag(e) {
+        e.target.parentElement.remove();
+      }
+    </script>
+    <pre><code>&lt;m-tag&gt;Remove me &lt;button onclick=&quot;removeTag(event)&quot; slot=&quot;close&quot; aria-label=&quot;Remove&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
+&lt;script&gt;
+  function removeTag(e) {
+    e.target.parentElement.remove();
+  }
+&lt;/script&gt;</code></pre>
     <!--<p>It can be helpful to add an <code>id</code> or <code>data-*</code> attribute with some identifying data (id, name, index) to the tag to know which one was removed and update the backing data source, like an Array of users:</p>-->
     <!--<code-sample readonly="readonly">-->
     <!--  <template>-->
@@ -3376,8 +3381,14 @@
     <!--    }-->
     <!--  </script>-->
     <!--</code-sample>-->
-    <h3 id="a11y">Accessibility</h3>
-    <p>Use <code>aria-label</code> and <code>title</code> when the Tag only contains an icon:</p>
+    <h3>Color</h3>
+    <p>Tag color can be changed with its <code>--color</code> custom property:</p>
+    <m-tag style="--color: var(--m-color-blue-3)">Blue tag</m-tag>
+    <m-tag style="--color: var(--m-color-red-3)">Red tag</m-tag>
+    <m-tag style="--color: var(--m-color-green-3)">Green tag</m-tag>
+    <m-tag style="--color: var(--m-color-orange-3)">Orange tag</m-tag>
+    <h3 id="tag-a11y">Accessibility</h3>
+    <p>Use <code>aria-label</code> and <code>title</code> when the tag only contains an icon:</p>
     <code-sample>
       <m-tag title="free breakfast" aria-label="free breakfast"><m-icon name="local_cafe"></m-icon></m-tag>
     </code-sample>
