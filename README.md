@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="http://m-docs.org">
-    <img src="http://m-docs.org/img/m-logo.png" alt="Mdash logo" width="192">
+  <a href="https://www.mdash.dev">
+    <img src="https://www.mdash.dev/img/m-logo.png" alt="Mdash logo" width="192">
   </a>
 </p>
 <h3 align="center">A design system that fully embraces web standards.</h3>
@@ -8,11 +8,11 @@
 <p align="center"><strong>linkable | tiny 6kb | responsive | accessible | zero dependencies</strong></p>
 <hr>
 
-Mdash UI elements are built with 100% web standards following the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology). This makes Mdash [extremely light](https://m-docs.org/#performance), very fast, and compatible with any type of web project.
+Mdash UI elements are built with 100% web standards following the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology). This makes Mdash [extremely light](https://www.mdash.dev/#performance), very fast, and compatible with any type of web project.
 
 Mdash can work with any framework client-side and server-side or no framework at all because it's made from native HTML, custom HTML tags, and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). Be it SSR, SPA, PWA, static site, and even some email templates - whatever type of project you have Mdash will work. This is especially useful to organizations looking to share a design system across products.
 
-Try Mdash right now by simply linking to the CDN files below and visiting the [doc site](https://m-docs.org) for code samples and full API documentation. 
+Try Mdash right now by simply linking to the CDN files below and visiting the [doc site](https://www.mdash.dev) for code samples and full API documentation. 
 
 To apply your own design language, fork and customize Mdash. It's 100% vanilla HTML, CSS, and JavaScript.
 
