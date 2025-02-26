@@ -32,7 +32,7 @@ fieldset {
     color: var(--m-color-gray-8);
   }
 
-  & :is(input:not([is=switch]), select, textarea) {
+  & :is(input:not([role=switch]), select, textarea) {
     border: 1px solid var(--m-color-gray-3);
   }
 
@@ -86,7 +86,7 @@ fieldset {
     }
   }
 
-  & input:not([type=range]):not([is=switch]),
+  & input:not([type=range]):not([role=switch]),
   & :is(select, textarea) {
     &:focus {
       outline: 2px solid var(--m-color-focus);
