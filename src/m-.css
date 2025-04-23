@@ -1,11 +1,14 @@
+/* Design tokens */
 @import "custom-properties.css";
 
+/* Site-wide defaults and browser bugs */
 @import "normalize.css";
+@import "body.css";
+
+/* Components */
 @import "button.css";
-@import "blockquote.css";
 @import "code.css";
 @import "inputs.css";
-@import "headings.css";
 @import "keyboard.css";
 @import "link.css";
 @import "lists.css";
@@ -21,17 +24,20 @@
 @import "dialog.css";
 @import "m-dot.css";
 @import "m-container.css";
-@import "m-grid.css";
+/*@import "m-grid.css";*/
 @import "m-icons.css";
 @import "m-loader.css";
 @import "m-menu.css";
+@import "popover.css";
 @import "m-tabs.css";
 @import "m-tag.css";
-@import "rules.css";
+@import "separator.css";
 @import "switch.css";
+@import "typography.css";
 
 /*
-  Needs to come after because these *explicit* rules should win
+  Utility Classes
+  Needs to come last because these *explicit* rules should win
   when there's a specificity tie with the *implicit* rules of a component.
 */
 @import "utility-classes.css";
