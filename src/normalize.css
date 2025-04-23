@@ -1,10 +1,5 @@
-body {
-  margin: 0;
-  height: 100vh;
-  box-sizing: border-box;
-  color: var(--m-color-gray-7);
-  font-family: 'Helvetica Neue', Arial;
-}
+/* Much more sensible default than the spec. */
+* { box-sizing: border-box }
 
 /* The hidden attr has extremely low specificity because it's a User Agent style. This makes it work as expected. */
-[hidden] { display: none !important; }
+[hidden] { display: none !important }
