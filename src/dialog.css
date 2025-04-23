@@ -3,12 +3,27 @@ dialog {
   border: none;
   padding: var(--m-space-lg);
   background-color: #F5F3F7;
-  box-shadow: 0 16px 18px -3px #858585;
+  box-shadow: 0 12px 18px -3px rgb(from var(--m-color-gray-7) r g b / 0.1);
 
   /* Close button */
-  & button[slot=close][type=remove] {
+  & button[slot=close] {
+    all: unset;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: var(--m-space-1);
+    right: var(--m-space-1);
+    width: var(--m-target-min-size);
+    height: var(--m-target-min-size);
+    cursor: pointer;
+    display: inline-grid;
+    place-content: center;
+    border-radius: var(--m-border-radius-full);
+
+    &::before {
+      content: '\2715';
+    }
+
+    &:hover {
+      background-color: rgb(from var(--m-color-gray-7) r g b / 0.1);
+    }
   }
 }

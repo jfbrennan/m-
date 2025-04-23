@@ -7,6 +7,7 @@ pre {
 
 /* Inline code */
 code {
+  background-color: var(--m-color-gray-2);
   padding: 1px 3px;
 }
 
@@ -14,6 +15,12 @@ code {
 pre {
   background-color: white;
   margin: var(--m-space-sm) 0;
-  padding: var(--m-space-xs) var(--m-space-sm);
+
+  & code {
+    background-color: inherit;
+    display: block;
+    overflow: auto;
+    padding: 1em;
+  }
 }
 
