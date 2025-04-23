@@ -8,52 +8,47 @@
 <p align="center"><strong>linkable | tiny 6kb | responsive | accessible | zero dependencies</strong></p>
 <hr>
 
-Mdash UI elements are built with 100% web standards following the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology). This makes Mdash [extremely light](https://www.mdash.dev/#performance), very fast, and compatible with any type of web project.
-
-Mdash can work with any framework client-side and server-side or no framework at all because it's made from native HTML, custom HTML tags, and [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements). Be it SSR, SPA, PWA, static site, and even some email templates - whatever type of project you have Mdash will work. This is especially useful to organizations looking to share a design system across products.
+## About
+Mdash is a design system. It is based 100% on web standards following the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology), which has helped Mdash achieve its engineering goals:
+- Smallest overhead possible (all of Mdash is just one 7kb stylesheet)
+- Compatible with _every_ web project past, present, and future
+- Leverage the modern web platform
+- Easiest codebase to maintain, use, and debug
 
 Try Mdash right now by simply linking to the CDN files below and visiting the [doc site](https://www.mdash.dev) for code samples and full API documentation. 
 
-To apply your own design language, fork and customize Mdash. It's 100% vanilla HTML, CSS, and JavaScript.
-
-## Quick start
-This is the web. Include these files in `<head>` and you're all set!
+## Quick Start
+This is the web, so link to these files in `<head>` and you're all set:
 ```html
-<link href="https://unpkg.com/m-@3.2.0/dist/m-.woff2" rel="preload" as="font" crossorigin>
 <link href="https://unpkg.com/m-@3.2.0/dist/m-.css" rel="stylesheet">
 <script src="https://unpkg.com/m-@3.2.0/dist/m-.js" defer></script>
 ```
-Or install via NPM and bundle with your own assets: `npm install m-` (built files are located in `/dist`)
+Or install via NPM `npm install m-`. The path to the stylesheet is `node_modules/m-/dist/m-.css`.
 
-Then try some Mdash:
-```html
-<m-alert type="success">Success!</m-alert>
-```
+## Contributions
+Thank you for your interest in improving Mdash! You'll need to clone or fork the repo and have [Node.js](https://nodejs.org) installed.
 
-## Browser support
-Mdash works with the latest versions of all mainstream browsers.
-
-## Working on this project
-_Pre-reqs:_ [Node](https://nodejs.org) and [Gulp CLI](https://gulpjs.com/docs/en/getting-started/quick-start)
-
-1. Clone the repo (or fork)
-1. `cd m-`
+**Run these and start making source code changes**
 1. `npm install`
-1. `gulp watch`
-1. `cd docs`
-1. `npm install`
-1. `npm start`
+1. `npm run watch`
 
-That builds Mdash, watches for changes, and starts the doc site. Start coding!
+**Edit doc site and preview your changes**
+1. Edit [/docs/index.html](/docs/index.html)
+1. Open it in your browser to see
 
-### Developer notes
-Custom Element constructors have strict rules about what you can safely do inside them. Please get familiar with [Requirements for custom element constructors and reactions](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance).
+**Opening a pull request**
+1. Be sure your changes have followed the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology)
+1. If editing docs, please follow the patterns you see in that file
+1. For the PR summary in GitHub please use the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 
-Some components are custom HTML tags that require no JavaScript. Other components are Custom Elements and for these the styles are still maintained in a separate CSS file.
+**Some additional notes**
 
-The [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology) is followed.
+The project follows the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology). Getting familiar with that will help when making contributions.
 
-Some IDEs complain about unknown HTML tags. If that's the case, add this list to make it happy:
+Your IDE might warn about unknown custom HTML tags. If that's the case, this is the list of custom tags your IDE needs to know about:
 ```
 m-accordion, m-alert, m-autocomplete, m-badge, m-box, m-breadcrumb, m-col, m-container, m-crumb, m-dot, m-icon, m-loader, m-menu, m-row, m-tab, m-tabs, m-tag, m-vbar
 ```
+
+## Browser Support
+Mdash works with the latest versions of all mainstream browsers.
