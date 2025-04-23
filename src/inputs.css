@@ -4,35 +4,42 @@ fieldset {
   border: none;
   position: relative;
 
-  & + :is(&, button[ord], a[role=button]) { margin-top: var(--m-space-md) }
+  & + :is(&, button[ord], a[role=button]) {
+    margin-top: var(--m-space-md);
+  }
 
   & input:not([type=radio]):not([type=checkbox]),
   & :is(label, select) {
     display: block;
   }
 
-  & input + label { display: inline }
+  & input + label {
+    display: inline;
+  }
 
-  & :is(label, legend) { font-weight: 500 }
+  & :is(label, legend) {
+    padding: 0;
+    font-weight: 500;
+  }
 
-  & :is(input[type=radio], input[type=checkbox]) + label {
+  & :is(input[type=radio],
+  input[type=checkbox]) + label {
     font-weight: normal;
   }
 
-  & :is(input, textarea) { box-sizing: border-box }
-
+  /* Input text, select, and textarea */
   & input:not([type=radio], [type=checkbox], [type=range]),
   & :is(select, textarea) {
     width: 100%;
     min-height: var(--m-input-min-height);
     font-size: 16px;
     padding: 6px;
-    border-radius: 0px;
+    border-radius: 0;
     background-color: white;
     color: var(--m-color-gray-8);
   }
 
-  & :is(input:not([is=switch]), select, textarea) {
+  & :is(input:not([role=switch]), select, textarea) {
     border: 1px solid var(--m-color-gray-3);
   }
 
@@ -44,11 +51,13 @@ fieldset {
     padding-right: var(--m-space-lg);
   }
 
+  /* Textarea */
   & textarea {
     resize: vertical;
     font-family: inherit;
   }
 
+  /* Range */
   & input[type=range] {
     appearance: none;
     outline: 0;
@@ -59,25 +68,17 @@ fieldset {
     border-radius: var(--m-border-radius-full);
 
     &::-webkit-slider-thumb {
-       appearance: none;
-       width: var(--m-space-md);
-       height: var(--m-space-md);
-       border: 1px solid var(--m-color-gray-4);
-       background-color: white;
-       border-radius: var(--m-border-radius-full);
+      appearance: none;
+      width: var(--m-space-md);
+      height: var(--m-space-md);
+      border: 1px solid var(--m-color-gray-4);
+      background-color: white;
+      border-radius: var(--m-border-radius-full);
 
       &:focus-visible {
-         outline: 2px solid var(--m-color-focus);
+        outline: 2px solid var(--m-color-focus);
       }
     }
-
-    /*&[orient=vertical] {*/
-    /*  transform: rotate(-90deg);*/
-    /*  position: absolute;*/
-    /*  top: 48%;*/
-    /*  left: -78%;*/
-    /*  margin: 0;*/
-    /*}*/
   }
 
   & :is(label, input, select, textarea, small) {
@@ -86,10 +87,11 @@ fieldset {
     }
   }
 
-  & input:not([type=range]):not([is=switch]),
+  /* Focus */
+  & input:not([type=range]):not([role=switch]),
   & :is(select, textarea) {
     &:focus {
-      outline: 2px solid var(--m-color-focus);
+      outline: 3px solid var(--m-color-focus);
       outline-offset: 0;
       border: 1px solid var(--m-color-primary-action);
     }
