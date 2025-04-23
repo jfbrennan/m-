@@ -35,7 +35,7 @@
   "scripts": {
     "watch": "nodemon --watch src --ext css,js --exec npm run build",
     "build": "rm -r dist; mkdir dist && npm run css && npm run js && npm run icons && cp -R dist/** docs",
-    "css": "postcss ./src/m-all.css | lightningcss --nesting --minify -o ./dist/m-.css /dev/stdin",
+    "css": "postcss ./src/m-.css | lightningcss --nesting --minify -o ./dist/m-.css /dev/stdin",
     "icons": "cp -R src/m-.woff2 dist/m-.woff2",
     "js": "terser ./src/*.js --mangle -o ./dist/m-.js",
     "release": "git pull && git commit -a -m \"Released new version: $VERSION\" && git push --tags origin master"
