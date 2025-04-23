@@ -1,11 +1,11 @@
-/* Horizontal rule */
+/* Horizontal rule has implicit role of separator */
 hr {
   background-color: var(--m-color-gray-3);
   border: none;
   margin: 0;
   height: 1px;
 
-  /* Vertical bar/separator, requires explicit height parent, flex or grid parent */
+  /* Vertical separator (requires parent with explicit height or display flex or grid) */
   &[aria-orientation=vertical] {
     width: 1px;
     height: auto;
