@@ -1,7 +1,7 @@
 :root {
   /* Colors */
   --m-color-gray-1: #f8f8f8;
-  --m-color-gray-2: #dedede;
+  --m-color-gray-2: #ededed;
   --m-color-gray-3: #ccc;
   --m-color-gray-4: #9c9c9c;
   --m-color-gray-5: #838383;
@@ -27,32 +27,42 @@
 
   --m-color-focus: var(--m-color-blue-1);
 
-  --m-color-primary-action: #157bb6;
+  --m-color-primary-action: #1a73e8;
 
   --m-color-primary-bg: white;
   --m-color-border: var(--m-color-gray-2);
 
   /* Borders */
   --m-border-radius-sm: 2px;
-  --m-border-radius-md: 4px;
+  --m-border-radius-md: var(--m-space-1);
   --m-border-radius-full: 9999px;
 
   /* Other */
   --m-max-content-width: 1320px; /* The 16" MacBook Pro */
-  --m-input-min-height: 34px;
-  --m-target-min-size: 24px; /* WCAG Level AA minimum target recommendation is 24x24 */
+  --m-input-min-height: 34px; /* @deprecated */
+  --m-target-size: var(--m-space-10); /* WCAG Level AA recommended touch target recommendation is 44 */
+  --m-target-min-size: var(--m-space-6); /* WCAG Level AA minimum target recommendation is 24x24 */
 
-  /* Spacing (loosely based on Divine Proportions) */
-  --m-space-xs: 6px;
-  --m-space-sm: 12px;
-  --m-space-md: 18px;
-  --m-space-lg: 30px;
-  --m-space-xl: 48px;
+  /* Spacing (base 4, evens only plus 1 & 3) */
+  --m-space-xs: 6px; /* @deprecated */
+  --m-space-sm: 12px; /* @deprecated */
+  --m-space-md: 18px; /* @deprecated */
+  --m-space-lg: 30px; /* @deprecated */
+  --m-space-xl: 48px; /* @deprecated */
+  --m-space-1: 4px;
+  --m-space-2: 8px;
+  --m-space-3: 12px;
+  --m-space-4: 16px;
+  --m-space-6: 24px;
+  --m-space-8: 32px;
+  --m-space-10: 40px;
+  --m-space-12: 48px;
+  --m-space-14: 56px;
 
   /* Breakpoints */
-  --m-breakpoint-sm: 576px; /* and below is "phone" */
-  --m-breakpoint-md: 768px; /* and below is "tablet" */
-  --m-breakpoint-lg: 992px;
+  --m-breakpoint-sm: 440px; /* At and below is "phone", based on iPhone 16 Pro Max's 6.9" screen.  */
+  --m-breakpoint-md: 900px; /* At and below is "tablet", slightly bigger than an iPad 11" screen. */
+  --m-breakpoint-lg: 901px; /* At and above is considered large enough to be grouped among laptop & desktop devices. */
 
   /* Font */
   --m-font-size-min: 13px; /* WCAG recommendation */

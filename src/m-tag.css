@@ -14,7 +14,7 @@ m-tag {
   /* Removable tag */
   & button[slot=close] {
     all: unset;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     cursor: pointer;
     display: inline-grid;
     place-content: center;
