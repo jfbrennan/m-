@@ -19,6 +19,8 @@ m-accordion {
 
       &:after {
         font-family: 'm-icons';
+        font-size: 20px;
+        line-height: 1;
         content: 'expand_more';
         position: absolute;
         top: var(--m-space-sm);

@@ -1,7 +1,7 @@
 /* Base code styles */
 code,
 pre {
-  border-radius: var(--m-border-radius-md);
+  border-radius: var(--m-border-radius-lg);
   color: var(--m-color-red-3);
 }
 
