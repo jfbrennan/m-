@@ -7,7 +7,7 @@ hr {
 
   /* Vertical separator (requires parent with explicit height or display flex or grid) */
   &[aria-orientation=vertical] {
-    width: 1px;
+    width: 1.5px;
     height: auto;
   }
 }

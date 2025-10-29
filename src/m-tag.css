@@ -1,31 +1,39 @@
 m-tag {
   --color: #585858;
+  position: relative;
   display: inline-flex;
+  vertical-align: top;
   align-items: center;
   gap: var(--m-space-xs);
   color: var(--color);
   background-color: oklch(from var(--color) calc(l * 2) c h);
-  padding: 4px var(--m-space-sm);
+  padding: var(--m-space-1) var(--m-space-3);
   font-size: var(--m-font-size-min);
   border-radius: var(--m-border-radius-sm);
 
-  & + & { margin-left: 3px }
+  /* Sibling tags */
+  & + & { margin-left: var(--m-space-1) }
 
-  /* Removable tag */
+  /* Button for removable tag */
+  &:has(button[slot=close]) {
+    padding-right: var(--m-space-7);
+  }
   & button[slot=close] {
     all: unset;
-    /*box-sizing: border-box;*/
+    position: absolute;
+    padding: 1px;
+    right: var(--m-space-1);
     cursor: pointer;
     display: inline-grid;
     place-content: center;
     font-size: var(--m-font-size-min);
     line-height: 1;
     border-radius: var(--m-border-radius-full);
-    width: 16px;
-    height: 16px;
+    width: var(--m-space-4);
+    height: var(--m-space-4);
 
     &::before {
-      content: '\2715';
+      content: '\2715'; /* Unicode character "✕", decoupled from m-icons */
     }
 
     &:hover {

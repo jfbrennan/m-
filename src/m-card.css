@@ -1,10 +1,10 @@
-m-box {
+m-card {
   display: block;
+  overflow: hidden;
   border-radius: var(--m-border-radius-md);
   padding: var(--m-space-md);
   background-color: white;
   border: 1px solid var(--m-color-border);
-
 
   /*
     The ord attr is short for "ordinal" as in "ordinal number word".
@@ -14,17 +14,10 @@ m-box {
   &[ord=secondary] {
     border: none;
     background-color: var(--m-color-gray-1);
-    box-shadow: 0px 1px 2px var(--m-color-gray-3) inset;
+    box-shadow: var(--m-shadow-1);
   }
-
-  & > header {
-    border-top-left-radius: var(--m-border-radius-md);
-    border-top-right-radius: var(--m-border-radius-md);
-  }
-
-  & + & {margin-top: var(--m-space-md) }
 }
 
 @media only screen and (max-width: 600px) {
-  m-box { padding: var(--m-space-sm) }
+  m-card { padding: var(--m-space-sm) }
 }

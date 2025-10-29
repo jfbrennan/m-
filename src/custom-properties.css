@@ -55,7 +55,9 @@
   --m-space-3: 12px;
   --m-space-4: 16px;
   --m-space-6: 24px;
+  --m-space-7: 28px;
   --m-space-8: 32px;
+  --m-space-9: 36px;
   --m-space-10: 40px;
   --m-space-12: 48px;
   --m-space-14: 56px;
@@ -71,4 +73,9 @@
   --m-font-size-md: 18px;
   --m-font-size-lg: 24px;
   --m-font-size-xl: 32px;
+
+  /* Shadows */
+  --m-shadow-color: 0, 0, 0;
+  --m-shadow-1: 0 0 2px rgba(var(--m-shadow-color), 0.1);
+  --m-shadow-2: 0 0 4px rgba(var(--m-shadow-color), 0.2);
 }

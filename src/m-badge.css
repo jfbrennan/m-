@@ -7,7 +7,7 @@ m-badge {
   color: white;
   background-color: var(--m-color-primary-action);
   border-radius: 0.625rem;
-  font-weight: 600;
+  font-size: var(--m-font-size-min);
   line-height: 1.25rem;
 
   /* Padding for text only */

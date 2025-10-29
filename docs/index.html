@@ -54,10 +54,6 @@
     /* Override the syntax highlighter */
     pre {
       display: grid;
-
-      & > code {
-        padding: 1em !important;
-      }
     }
 
     /* The category sections get custom heading and paragraph margin */
@@ -67,6 +63,15 @@
 
       & h1 {
         font-size: 2em;
+
+        & + h2:first-of-type {
+          margin-top: 0;
+          color: var(--m-color-gray-5);
+        }
+      }
+
+      & h2[id$="-demo"] {
+        margin-bottom: var(--m-space-6);
       }
 
       & > :is(h1, h2, h3) {
@@ -102,6 +107,21 @@
         font-size: clamp(var(--m-font-size-min), 11vw, 20vw);
       }
     }
+
+    #utility-classes-categories {
+      container-type: scroll-state;
+      position: sticky;
+      top: var(--m-space-2);
+
+      > nav {
+        transition: box-shadow .3s ease;
+
+        @container scroll-state(stuck: top) {
+          margin-top: 12px;
+          box-shadow: 0 0 5px gray;
+        }
+      }
+    }
   </style>
 </head>
 <body class="flex height-full">
@@ -124,12 +144,12 @@
     <div class="flex flx-col flx-basis-content gap-1">
       <a href="#accordion">Accordion</a>
       <a href="#alert">Alert</a>
-      <a href="#autocomplete">Autocomplete</a>
+<!--      <a href="#autocomplete">Autocomplete</a>-->
       <a href="#badge">Badge</a>
-      <a href="#box">Box</a>
       <a href="#breadcrumbs">Breadcrumbs</a>
       <a href="#button">Button</a>
       <a href="#button-group">Button Group</a>
+      <a href="#card">Card</a>
       <a href="#checkbox">Checkbox</a>
       <a href="#container">Container</a>
       <a href="#details">Details</a>
@@ -158,7 +178,6 @@
     <a href="#code" class="block mar-b-2">Code</a>
     <a href="#headings" class="block mar-b-2">Headings</a>
     <a href="#lists" class="block mar-b-2">Lists</a>
-    <a href="#rules" class="block mar-b-2">Rule</a>
     <a href="#text" class="block mar-b-2">Text</a>
     <h4 class="mar-t-4 mar-b-2">Styles</h4>
     <a href="#custom-properties" class="block mar-b-2">Custom Properties</a>
@@ -214,8 +233,8 @@
       </div>
     </div>
     <div class="mar-auto txt-center mar-t-10" style="max-width: 730px">
-      <div id="quick-start" class="txt-lg fnt-med mar-t-0 mar-b-0">Quick start</div>
-      <p class="mar-t-0 mar-b-2">This is the web. Just link it and go!</p>
+      <div id="quick-start" class="txt-lg fnt-med mar-t-0 mar-b-1">Quick start</div>
+      <p class="mar-t-0 mar-b-2">This is the web. Just link to Mdash and go!</p>
       <pre class="txt-left"><code class="language-html">&lt;link href=&quot;https://unpkg.com/m-@3.2.0/dist/m-.woff2&quot; rel=&quot;preload&quot; as=&quot;font&quot; crossorigin&gt;
 &lt;link href=&quot;https://unpkg.com/m-@3.2.0/dist/m-.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
       <div class="txt-xs">or <a href="#installation">npm</a></div>
@@ -223,8 +242,9 @@
     <hr class="mar-t-10 mar-b-10">
     <h2 id="intro" class="mar-t-0">Introduction</h2>
     <h3>What is Mdash?</h3>
-    <p>Mdash is standards-based design system built for maximum performance in every way.</p>
-    <p>Mdash components are comprised of <span class="fnt-med">standard HTML</span>, <span class="fnt-med">custom HTML</span>, and <span class="fnt-med">Custom Elements</span>. As such, Mdash works with any framework (or no framework) and works with all types of web projects, like SSR, SPA, PWA, static site, and even popular email clients.</p>
+    <p>Mdash is a standards-based design system.</p>
+    <p>It includes <a href="#components" class="fnt-med">standard and custom HTML elements</a>, <a href="#custom-properties" class="fnt-med">CSS Custom Properties</a>, and <a href="#utility-classes" class="fnt-med">utility classes</a>.</p>
+    <p>Mdash works with all frameworks and all types of web projects, inclduing SSR, SPA, PWA, static site, and even popular email clients.</p>
     <h3>What makes Mdash different?</h3>
     <p>Quite literally, nothing. <span class="fnt-italic">Nothing</span> is exactly what makes Mdash different:</p>
     <ul class="mar-b-3">
@@ -241,7 +261,7 @@
     <hr class="mar-t-10 mar-b-10">
     <h2 id="compatibility">Compatible With Everything</h2>
     <p>Mdash can be used anywhere HTML is used because it is HTML.</p>
-    <p>All your apps will work with Mdash regardless of tech stack. Here's examples of <span class="fnt-bold">14 different technologies</span> all using the same Mdash component:</p>
+    <p>All apps work with Mdash regardless of tech stack. Here's examples of <span class="fnt-bold">14 different technologies</span> all using the same Mdash component:</p>
     <pre><code>&lt;!-- Vue --&gt;
 &lt;m-alert v-bind:type=&quot;alert.type&quot;&gt;{{ alert.message }}&lt;/m-alert&gt;
 
@@ -251,7 +271,7 @@
 
 
 &lt;!-- React*, Preact, Solid --&gt;
-&lt;m-alert type={props.alert.type}&gt;{props.alert.message}&lt;/m-alert&gt;
+&lt;m-alert type={alert.type}&gt;{alert.message}&lt;/m-alert&gt;
 
 
 &lt;!-- Riot --&gt;
@@ -277,7 +297,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
 &lt;!-- EJS, ERB, Underscore, Lodash --&gt;
 &lt;m-alert type=&quot;&lt;%= alert.type %&gt;&quot;&gt;&lt;%= alert.message %&gt;&lt;/m-alert&gt;</code></pre>
     <small>*Framework compatibility with Custom Elements is tracked on <a href="https://custom-elements-everywhere.com" target="_blank" rel="noopener">custom-elements-everywhere.com</a> and after eight long years
-      <a href="https://custom-elements-everywhere.com/#react">React v19</a> is finally compatible. Good job.</small>
+      <a href="https://custom-elements-everywhere.com/#react">React 19</a> is finally compatible. Wow. Good job.</small>
     <h2 id="performance">Performance</h2>
     <p>Mdash is fast! It is by all practical measures instant. Its <span class="fnt-med">execution speed</span> comes from leveraging native technology and avoiding abstractions as much as possible in order to minimize code and retain browser optimizations. When it comes to code, nothing is faster than nothing.</p>
     <p>In addition to execution speed, <span class="fnt-med">pages load faster</span> because Mdash is so much smaller than other UI libraries:</p>
@@ -398,7 +418,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       <div style="width: calc(49px * 2); height: 20px; background-color: palevioletred"></div>
       <div style="width: calc(146px * 2); height: 20px; background-color: orange"></div>
     </div>
-    <p>It's worth noting Mdash is so small it can be used as a non-blocking internal stylesheet. A page using Mdash will be painted before React and MUI have even finished downloading!</p>
+    <p class="mar-t-3">It's worth noting Mdash is so small it can be used as a non-blocking internal stylesheet. A page using Mdash will be painted before React and MUI have even finished downloading!</p>
     <h2 id="installation">Installation</h2>
     <h3 id="installation-cdn">CDN</h3>
     <p>Mdash is designed for production use with a CDN. Copy and paste these two resources into the <code>&lt;head&gt;</code> section of your document and you're golden.</p>
@@ -408,9 +428,9 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload" target="_blank">preload</a> option tells the browser to start downloading the icon font now instead of waiting for the stylesheet to be parsed. This must come before the stylesheet, but if you don't use icons you don't need this.</p>
     </div>
     <div>
-      <h4>Stylesheet</h4>
+      <h4 class="mar-t-4">Stylesheet</h4>
       <pre><code class="language-html">&lt;link href="https://unpkg.com/m-@3.2.0/dist/m-.css" rel="stylesheet"&gt;</code></pre>
-      <p>The stylesheet includes all of Mdash's custom properties, components, and utility classes.</p>
+      <p>This includes everything: 63 tokens, 35 components, and 302 utility classes. All in a single 7kb stylesheet!</p>
     </div>
 <!--    <div>-->
 <!--      <h4>Custom Elements</h4>-->
@@ -420,7 +440,8 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     <h3 id="installation-npm">NPM</h3>
     <p>If the CDN is not an option, you can install the Mdash package.</p>
     <pre><code>npm install m-</code></pre>
-    <p>Built assets (those two files above) are located in <code>node_modules/m-/dist</code>. The hyper optimization of <a href="https://web.dev/extract-critical-css/" target="_blank">critical CSS</a> is also possible with Mdash because its so small, so go for it you speed demon!</p>
+    <p>Built assets (the stylesheet and icon file above) are located in <code>node_modules/m-/dist</code>. The hyper optimization of <a href="https://web.dev/extract-critical-css/" target="_blank">critical CSS</a> is also possible with Mdash because it's so small - so go for it you speed demon!</p>
+    <pre><code>@import "node_modules/m-/dist/m-.css";</code></pre>
     <h2 id="browsers">Browser support</h2>
     <p>Mdash works with the latest versions of all major browsers. Please <a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file a bug</a> if you see something not working as expected.</p>
     <script>
@@ -443,26 +464,26 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     </script>
   </section>
 
-  <div class="category-heading">
+  <div id="components" class="category-heading">
     <div class="fnt-bold">Components</div>
   </div>
 
   <section id="accordion">
     <h1>Accordion</h1>
-    <h2 class="txt-gray-5">List of expandable details elements</h2>
-    <h2>Demo</h2>
+    <h2>List of expandable details elements</h2>
+    <h2 id="accordion-demo">Demo</h2>
     <m-accordion>
       <details>
-        <summary>Summary 1</summary>
-        <p>Details 1</p>
+        <summary>Summary</summary>
+        <p class="pad-3">Details</p>
       </details>
       <details>
-        <summary>Summary 2</summary>
-        <p>Details 2</p>
+        <summary>Summary</summary>
+        <p class="pad-3">Details</p>
       </details>
       <details>
-        <summary>Summary 3</summary>
-        <p>Details 3</p>
+        <summary>Summary</summary>
+        <p class="pad-3">Details</p>
       </details>
     </m-accordion>
     <pre><code class="language-html">&lt;m-accordion&gt;
@@ -493,73 +514,54 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       <tr>
         <td colspan="2"><code>m-accordion</code></td>
         <td colspan="2">Custom tag</td>
-        <td colspan="6"><a href="#details">Details</a> children only</td>
+        <td colspan="6">
+          <p><code>&lt;details&gt;</code> children only. See <a href="#details">details</a> component for information about its API.</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>Attributes</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="2">Type</th>
+        <th colspan="6">Content</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>icon</code></td>
+        <td colspan="2">Any <a href="#icons">icon</a></td>
+        <td colspan="6">Sets the toggle icon for all details in the accordion. See below for more info and recommended icons.</td>
       </tr>
       </tbody>
     </table>
     <h2 id="accordion-guidelines">Guidelines</h2>
-    <h3 id="accordion-named">Opening All Or One</h3>
-    <p>Accordion only styles its details children. Details' default behavior is each can be opened and closed independently, but details also supports defining a group of
-      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#name" target="_blank">named details</a> which allows only one open at a time:</p>
-    <m-accordion>
-      <details name="groupdemo">
-        <summary>Summary 1</summary>
-        <p>Details 1</p>
-      </details>
-      <details name="groupdemo">
-        <summary>Summary 2</summary>
-        <p>Details 2</p>
-      </details>
-      <details name="groupdemo">
-        <summary>Summary 3</summary>
-        <p>Details 3</p>
+    <h3 id="accordion-icon">Custom Icon</h3>
+    <p>Any icon is supported, but <a
+      href="https://fonts.google.com/icons?icon.query=arrow+down">arrow down
+      variations</a>, <a href="https://fonts.google.com/icons?icon.query=expand">expand down variations</a>, and <a
+      href="https://fonts.google.com/icons?icon.query=add">add
+      variations</a> are recommended. When choosing an icon, note that it will rotate when details is toggled.</p>
+    <m-accordion icon="add">
+      <details>
+        <summary>With custom icon</summary>
+        <p class="pad-3">Details</p>
       </details>
     </m-accordion>
-    <pre><code>&lt;m-accordion&gt;
-  &lt;details name=&quot;groupdemo&quot;&gt;
-    &lt;summary&gt;Summary 1&lt;/summary&gt;
-    &lt;p&gt;Details 1&lt;/p&gt;
-  &lt;/details&gt;
-  &lt;details name=&quot;groupdemo&quot;&gt;
-    &lt;summary&gt;Summary 2&lt;/summary&gt;
-    &lt;p&gt;Details 2&lt;/p&gt;
-  &lt;/details&gt;
-  &lt;details name=&quot;groupdemo&quot;&gt;
-    &lt;summary&gt;Summary 3&lt;/summary&gt;
-    &lt;p&gt;Details 3&lt;/p&gt;
+    <pre><code>&lt;m-accordion icon=&quot;add&quot;&gt;
+  &lt;details&gt;
+    &lt;summary&gt;With custom icon&lt;/summary&gt;
+    &lt;p&gt;Details&lt;/p&gt;
   &lt;/details&gt;
 &lt;/m-accordion&gt;</code></pre>
-    <p>Note that a details group may result in a poor UX when users need to reference information in multiple open details, so consider if limiting open details is actually beneficial to the user.</p>
-    <h3 id="accordion-counter">CSS Counter</h3>
-    <p>Accordion's details can be labeled with a <a
-      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters" target="_blank">custom CSS
-      counter</a>:</p>
-    <style>
-      #counterdemo {
-        counter-reset: counterdemo;
-
-        summary::before {
-          counter-increment: counterdemo;
-          content: counter(counterdemo) ". ";
-        }
-      }
-    </style>
-    <m-accordion id="counterdemo">
-      <details>
-        <summary>Do this first</summary>
-        <p>Details 1</p>
-      </details>
-      <details>
-        <summary>Next do this</summary>
-        <p>Details 2</p>
-      </details>
-      <details>
-        <summary>Finally do this</summary>
-        <p>Details 3</p>
-      </details>
-    </m-accordion>
+    <h3 id="accordion-counter">Numbered Accordion</h3>
+    <p>An accordion's details can be auto-numbered with <a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters" target="_blank">CSS
+      counter</a>. Like this:</p>
     <pre><code class="language-html">&lt;style&gt;
-  #counterdemo {
+  #counterDemo {
     counter-reset: counterdemo;
 
     summary::before {
@@ -569,7 +571,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
   }
 &lt;/style&gt;
 
-&lt;m-accordion id=&quot;counterdemo&quot;&gt;
+&lt;m-accordion id=&quot;counterDemo&quot;&gt;
   &lt;details&gt;
     &lt;summary&gt;Do this first&lt;/summary&gt;
     &lt;p&gt;Details 1&lt;/p&gt;
@@ -583,7 +585,107 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     &lt;p&gt;Details 3&lt;/p&gt;
   &lt;/details&gt;
 &lt;/m-accordion&gt;</code></pre>
+    <style>
+      #counterDemo {
+        counter-reset: counterdemo;
 
+        summary::before {
+          counter-increment: counterdemo;
+          content: counter(counterdemo) ". ";
+        }
+      }
+    </style>
+    <m-accordion id="counterDemo">
+      <details>
+        <summary>Do this first</summary>
+        <p>Details 1</p>
+      </details>
+      <details>
+        <summary>Next do this</summary>
+        <p>Details 2</p>
+      </details>
+      <details>
+        <summary>Finally do this</summary>
+        <p>Details 3</p>
+      </details>
+    </m-accordion>
+    <h3 id="accordion-open">Open by default</h3>
+    <p>Add the
+      <a href="#details-api" target="_blank">open attribute</a> to a details to make it open by default. This will also trigger an initial
+      <a href="#details-events"><code>toggle</code> event</a>. Multiple details can be set to open unless they're part of a named group (see
+      <a href="#accordion-named">Open one at a time</a> below).</p>
+    <m-accordion>
+      <details open>
+        <summary>Open by default</summary>
+        <p class="pad-3">Details</p>
+      </details>
+      <details>
+        <summary>Closed by default</summary>
+        <p class="pad-3">Details</p>
+      </details>
+    </m-accordion>
+    <pre><code class="language-html">&lt;m-accordion&gt;
+  &lt;details open&gt;
+    &lt;summary&gt;Open by default&lt;/summary&gt;
+    &lt;p&gt;Details&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details&gt;
+    &lt;summary&gt;Closed by default&lt;/summary&gt;
+    &lt;p&gt;Details&lt;/p&gt;
+  &lt;/details&gt;
+&lt;/m-accordion&gt;</code></pre>
+    <h3 id="accordion-named">Open one at a time</h3>
+    <p>The default behavior is each details opens and closes independently, but by defining a group of
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#name" target="_blank">named details</a> you can limit that to one open at a time.</p>
+    <p>Note that a details group may result in a poor experience if users want to reference information in other open details but are prevented from doing so.</p>
+    <m-accordion>
+      <details name="groupdemo">
+        <summary>Summary group</summary>
+        <p class="pad-3">Details</p>
+      </details>
+      <details name="groupdemo">
+        <summary>Summary group</summary>
+        <p class="pad-3">Details</p>
+      </details>
+      <details name="groupdemo">
+        <summary>Summary group</summary>
+        <p class="pad-3">Details</p>
+      </details>
+    </m-accordion>
+    <pre><code>&lt;m-accordion&gt;
+  &lt;details name=&quot;groupdemo&quot;&gt;
+    &lt;summary&gt;Summary group&lt;/summary&gt;
+    &lt;p&gt;Details&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details name=&quot;groupdemo&quot;&gt;
+    &lt;summary&gt;Summary group&lt;/summary&gt;
+    &lt;p&gt;Details&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details name=&quot;groupdemo&quot;&gt;
+    &lt;summary&gt;Summary group&lt;/summary&gt;
+    &lt;p&gt;Details&lt;/p&gt;
+  &lt;/details&gt;
+&lt;/m-accordion&gt;</code></pre>
+    <h3 id="accordion-toggle-delegation">Toggle Event Capturing</h3>
+    <p>The toggle event does not bubble, so event delegation to the accordion requires the <code>capture</code> option. Like this:</p>
+    <pre><code>const accordion = document.querySelector('m-accordion');
+
+// Note the capture option
+accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} toggled`), {capture: true});</code></pre>
+    <m-accordion>
+      <details data-id="A">
+        <summary>Toggle A</summary>
+        <p class="pad-3">Details A</p>
+      </details>
+      <details data-id="B">
+        <summary>Toggle B</summary>
+        <p class="pad-3">Details B</p>
+      </details>
+    </m-accordion>
+    <script>
+      const accordion = document.currentScript.previousElementSibling;
+      accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} toggled`), {capture: true})
+    </script>
     <h3 id="accordion-a11y">Accessibility</h3>
     <p>All accessibility recommendations apply to the <a href="#details">details</a> children.</p>
   </section>
@@ -592,16 +694,16 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
 
   <section id="alert">
     <h1>Alert</h1>
-    <h2 class="txt-gray-5">Container for important messaging</h2>
+    <h2>Container for important messaging</h2>
     <h2 id="alert-demo">Demo</h2>
     <m-alert>Neutral message</m-alert>
-    <m-alert icon="info">With icon and close options <button slot="close" title="Dismiss" aria-label="Dismiss"></button></m-alert>
+    <m-alert icon="info">With icon and close option <button slot="close" title="Dismiss" aria-label="Dismiss"></button></m-alert>
     <m-alert type="info">Informational message</m-alert>
     <m-alert type="success">Positive message</m-alert>
     <m-alert type="warn">Warning message</m-alert>
     <m-alert type="error">Error message</m-alert>
     <pre><code class="language-html">&lt;m-alert&gt;Neutral message&lt;/m-alert&gt;
-&lt;m-alert icon=&quot;info&quot;&gt;With icon and close options &lt;button slot=&quot;close&quot; title=&quot;Dismiss&quot; aria-label=&quot;Dismiss&quot;&gt;&lt;/button&gt;&lt;/m-alert&gt;
+&lt;m-alert icon=&quot;info&quot;&gt;With icon and close option &lt;button slot=&quot;close&quot; title=&quot;Dismiss&quot; aria-label=&quot;Dismiss&quot;&gt;&lt;/button&gt;&lt;/m-alert&gt;
 &lt;m-alert type=&quot;info&quot;&gt;Informational message&lt;/m-alert&gt;
 &lt;m-alert type=&quot;success&quot;&gt;Positive message&lt;/m-alert&gt;
 &lt;m-alert type=&quot;warn&quot;&gt;Warning message&lt;/m-alert&gt;
@@ -661,12 +763,12 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
             <li>error</li>
           </ul>
         </td>
-        <td colspan="6">Sets the type of the message. Error messages should use "error", cautionary messages should use "warn", positive messages should use "success", and important informational messages should use "info".</td>
+        <td colspan="6">Sets the type of the message. Error messages should use error, cautionary messages should use warn, positive messages should use success, and important informational messages should use info.</td>
       </tr>
       <tr>
         <td colspan="2"><code>icon</code></td>
-        <td colspan="2"><a href="#icons-all-icons">Any icon name</a></td>
-        <td colspan="6">Adds the specified icon. Suggested icons for each type are <code>info</code> for info, <code>check_circle</code> for success, <code>warning</code> for warn, and <code>error</code> for error, but use whatever is best for your alert.</td>
+        <td colspan="2">Any <a href="#icons">icon</a></td>
+        <td colspan="6">Adds the specified icon. Suggested icons for each type are <code>info</code> for info, <code>check_circle</code> for success, <code>warning</code> for warn, and <code>error</code> for error.</td>
       </tr>
       </tbody>
     </table>
@@ -688,25 +790,26 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
 
 &lt;m-alert&gt;Dismiss me &lt;button onclick=&quot;dismissAlert(event)&quot; slot=&quot;close&quot; title=&quot;Dismiss&quot; aria-label=&quot;Dismiss&quot;&gt;&lt;/button&gt;&lt;/m-alert&gt;</code></pre>
     <p>It is recommended that error alerts do not use the close slot. The user should instead be guided toward correcting the error if possible.</p>
-    <h3 id="alert-content">Content</h3>
-    <p>The content of the alert can be a simple message or something much more. Here are two example:</p>
-    <m-alert type="info" icon="event_repeat">
-      <div>
-        <h4>Sign up for autopay</h4>
-        <p>Never miss a payment with autopay. Add an account to get started!</p>
-        <button ord="tertiary" scale="sm" class="mar-t-1">Add Account</button>
-      </div>
-    </m-alert>
+<!--    <h3 id="alert-content">Content</h3>-->
+<!--    <p>The content of the alert can be a simple message or something much more. Here are two example:</p>-->
+<!--    <m-alert type="info" icon="event_repeat">-->
+<!--      <div>-->
+<!--        <h4>Sign up for autopay</h4>-->
+<!--        <p>Never miss a payment with autopay. Add an account to get started!</p>-->
+<!--        <button ord="tertiary" scale="sm" class="mar-t-1">Add Account</button>-->
+<!--      </div>-->
+<!--    </m-alert>-->
     <h3 id="alert-vs-dialog">Alert vs. Dialog</h3>
-    <p>Some information is so important it justifies interrupting the user experience. In those cases consider displaying it in a <a href="#dialog">dialog</a> instead of an alert.</p>
-    <h3 id="alert-toast">Toast aka Snackbar</h3>
+    <p>Some information is so important it justifies interrupting the user. In those cases consider displaying it in a <a href="#dialog">dialog</a> instead of an alert.</p>
+    <h3 id="alert-toast">What about a Toast component?</h3>
     <p>Mdash does not have a toast component. There are several design options that serve the same purpose in a less distracting and more thoughtful way:</p>
     <ul>
-      <li>Put the message and action in close proximity to the relevant process</li>
-      <li>If it's important, show a prominent alert with the message and action</li>
-      <li>Use a dialog (see Alert vs. Dialog above)</li>
-      <li>Display a notification using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API" target="_blank">Notifications
-        API</a>, e.g. <code>new Notification('Hello')</code></li>
+      <li>Reconsider how necessary the message is and avoid distracting users with a popup that isn't necessary</li>
+      <li>Place the message, and any related action(s), in closer proximity to the relevant process</li>
+      <li>Display the alert component in a prominent location</li>
+      <li>For really important messages, use a dialog (see Alert vs. Dialog above)</li>
+      <li>Trigger a system notification - <code>new Notification('Hello')</code> - using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API" target="_blank">Notifications
+        API</a></li>
     </ul>
     <h3 id="alert-a11y">Accessibility</h3>
     <p>Warning and error alerts should also have <code>role="alert"</code> (see <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role" target="_blank" rel="noopener">ARIA alert role</a>). Add a <code>title</code> and <code>aria-label</code> to the close slot.</p>
@@ -714,162 +817,164 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
 
   <hr>
 
-  <section id="autocomplete">
-    <h1>Autocomplete</h1>
-    <h2 class="txt-gray-5">Text input for searching values or getting suggestions</h2>
-    <h2 id="autocomplete-demo">Demo</h2>
-    <fieldset>
-      <label>Search</label>
-      <m-autocomplete source="fruit" placeholder="Slowly type 'apl' to see the behavior"></m-autocomplete>
-      <datalist id="fruit">
-        <option value="apple"></option>
-        <option value="banana"></option>
-        <option value="cherry"></option>
-        <option value="peach"></option>
-      </datalist>
-    </fieldset>
-    <pre><code>&lt;fieldset&gt;
-  &lt;label&gt;Search&lt;/label&gt;
-  &lt;m-autocomplete source=&quot;fruit&quot; placeholder=&quot;Slowly type &#39;apl&#39; to see the behavior&quot;&gt;&lt;/m-autocomplete&gt;
-  &lt;datalist id=&quot;fruit&quot;&gt;
-    &lt;option value=&quot;apple&quot;&gt;&lt;/option&gt;
-    &lt;option value=&quot;banana&quot;&gt;&lt;/option&gt;
-    &lt;option value=&quot;cherry&quot;&gt;&lt;/option&gt;
-    &lt;option value=&quot;peach&quot;&gt;&lt;/option&gt;
-  &lt;/datalist&gt;
-&lt;/fieldset&gt;</code></pre>
-    <h2 id="api">API</h2>
-    <h3>Tags</h3>
-    <table>
-      <thead>
-      <tr>
-        <th colspan="2">Name</th>
-        <th colspan="2">Type</th>
-        <th colspan="6">Content</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="2"><code>m-autocomplete</code></td>
-        <td colspan="2">Custom Element</td>
-        <td colspan="6">None</td>
-      </tr>
-      <tr>
-        <td colspan="2"><code>datalist</code></td>
-        <td colspan="2">Native element</td>
-        <td colspan="6"><code>&lt;option&gt;</code> elements</td>
-      </tr>
-      </tbody>
-    </table>
-    <h3 id="attributes">Attributes</h3>
-    <table layout="fixed">
-      <thead>
-      <tr>
-        <th colspan="2">Name</th>
-        <th colspan="2">Value</th>
-        <th colspan="6">Description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="2"><code>source</code> <small class="fnt-bold fnt-italic">required</small></td>
-        <td colspan="2">String</td>
-        <td colspan="6">The source of data to query for matches. This must be the id of a <code>&lt;datalist&gt;</code> element or the name of a custom source function. Learn how to create them <a href="#creating-sources">below</a>.</td>
-      </tr>
-      <tr>
-        <td colspan="2"><code>max</code></td>
-        <td colspan="2">Number</td>
-        <td colspan="6">Truncates the number of results to <code>max</code>. Autocomplete will overflow at about 10 visible results regardless of the max set.</td>
-      </tr>
-      </tbody>
-    </table>
-    <h3 id="events">Events</h3>
-    <table layout="fixed">
-      <thead>
-      <tr>
-        <th colspan="2">Name</th>
-        <th colspan="2">Details</th>
-        <th colspan="6">Description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="2"><code>select</code></td>
-        <td colspan="2">
-      <pre><code>// Name of the source for easy reference
-source: '',
+<!--  <section id="autocomplete">-->
+<!--    <h1>Autocomplete</h1>-->
+<!--    <h2>Text input for searching values or getting suggestions</h2>-->
+<!--    <h2 id="autocomplete-demo">Demo</h2>-->
+<!--    <fieldset>-->
+<!--      <label>Search</label>-->
+<!--      <input list="fruit" placeholder="Slowly type 'apl' to see the behavior"></input>-->
+<!--      <datalist id="fruit">-->
+<!--        <option value="apple"></option>-->
+<!--        <option value="banana"></option>-->
+<!--        <option value="cherry"></option>-->
+<!--        <option value="peach"></option>-->
+<!--      </datalist>-->
+<!--    </fieldset>-->
+<!--    <pre><code>&lt;fieldset&gt;-->
+<!--  &lt;label&gt;Search&lt;/label&gt;-->
+<!--  &lt;m-autocomplete source=&quot;fruit&quot; placeholder=&quot;Slowly type &#39;apl&#39; to see the behavior&quot;&gt;&lt;/m-autocomplete&gt;-->
+<!--  &lt;datalist id=&quot;fruit&quot;&gt;-->
+<!--    &lt;option value=&quot;apple&quot;&gt;&lt;/option&gt;-->
+<!--    &lt;option value=&quot;banana&quot;&gt;&lt;/option&gt;-->
+<!--    &lt;option value=&quot;cherry&quot;&gt;&lt;/option&gt;-->
+<!--    &lt;option value=&quot;peach&quot;&gt;&lt;/option&gt;-->
+<!--  &lt;/datalist&gt;-->
+<!--&lt;/fieldset&gt;</code></pre>-->
+<!--    <h2 id="api">API</h2>-->
+<!--    <h3>Tags</h3>-->
+<!--    <table>-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th colspan="2">Name</th>-->
+<!--        <th colspan="2">Type</th>-->
+<!--        <th colspan="6">Content</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr>-->
+<!--        <td colspan="2"><code>m-autocomplete</code></td>-->
+<!--        <td colspan="2">Custom Element</td>-->
+<!--        <td colspan="6">None</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td colspan="2"><code>datalist</code></td>-->
+<!--        <td colspan="2">Native element</td>-->
+<!--        <td colspan="6"><code>&lt;option&gt;</code> elements</td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--    <h3 id="attributes">Attributes</h3>-->
+<!--    <table layout="fixed">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th colspan="2">Name</th>-->
+<!--        <th colspan="2">Value</th>-->
+<!--        <th colspan="6">Description</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr>-->
+<!--        <td colspan="2"><code>source</code> <small class="fnt-bold fnt-italic">required</small></td>-->
+<!--        <td colspan="2">String</td>-->
+<!--        <td colspan="6">The source of data to query for matches. This must be the id of a <code>&lt;datalist&gt;</code> element or the name of a custom source function. Learn how to create them <a href="#creating-sources">below</a>.</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td colspan="2"><code>max</code></td>-->
+<!--        <td colspan="2">Number</td>-->
+<!--        <td colspan="6">Truncates the number of results to <code>max</code>. Autocomplete will overflow at about 10 visible results regardless of the max set.</td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--    <h3 id="events">Events</h3>-->
+<!--    <table layout="fixed">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th colspan="2">Name</th>-->
+<!--        <th colspan="2">Details</th>-->
+<!--        <th colspan="6">Description</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr>-->
+<!--        <td colspan="2"><code>select</code></td>-->
+<!--        <td colspan="2">-->
+<!--      <pre><code>// Name of the source for easy reference-->
+<!--source: '',-->
 
-// Value from matches
-value: '',
+<!--// Value from matches-->
+<!--value: '',-->
 
-// Id of match, if provided
-id: ''</code></pre>
-        </td>
-        <td colspan="6">
-          <div class="mar-b-4">Fires after a match is selected. Try it:</div>
-          <fieldset>
-            <label>Superheroes</label>
-            <m-autocomplete onselect="alert(JSON.stringify(event.detail, null, 2))" source="superheroes" placeholder="Search 'bat' or 'kent' and select a result"></m-autocomplete>
-            <datalist id="superheroes">
-              <option value="batman">Bruce Wayne</option>
-              <option value="superman">Clark Kent</option>
-              <option value="spiderman">Peter Parker</option>
-            </datalist>
-          </fieldset>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="creating-sources">Creating data sources for autocomplete</h3>
-    <p>Sources can come from a standard <code>datalist</code> element or a custom function added to the global <code>MdashAutocomplete</code>.</p>
-    <h4>1. Datalist element</h4>
-    <p>Include a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank" rel="noopener">datalist</a> element in the DOM. Its <code>id</code> must match the Autocomplete's <code>source</code>. The options' value attributes and optional text are searched for matches. Here's an example:</p>
-    <pre><code>&lt;fieldset&gt;
-  &lt;label&gt;Search&lt;/label&gt;
-  &lt;m-autocomplete source=&quot;fruit&quot;&gt;&lt;/m-autocomplete&gt;
-  &lt;datalist id=&quot;fruit&quot;&gt;
-    &lt;option value=&quot;apple&quot;&gt;&lt;/option&gt;
-    &lt;option value=&quot;banana&quot;&gt;&lt;/option&gt;
-    &lt;option value=&quot;cherry&quot;&gt;&lt;/option&gt;
-    &lt;option value=&quot;peach&quot;&gt;&lt;/option&gt;
-  &lt;/datalist&gt;
-&lt;/fieldset&gt;</code></pre>
-    <h4>2. Custom source function</h4>
-    <p>These are asynchronous functions added to the static <code>MdashAutocomplete.sources</code> object. Here's another <code>fruit</code> example similar to the datalist above:</p>
-    <pre><code>&lt;script&gt;
-  const mdashAutocomplete = customElements.get(&#39;m-autocomplete&#39;);
-  mdashAutocomplete.sources.fruit = async (query, max) =&gt; {
+<!--// Id of match, if provided-->
+<!--id: ''</code></pre>-->
+<!--        </td>-->
+<!--        <td colspan="6">-->
+<!--          <div class="mar-b-4">Fires after a match is selected. Try it:</div>-->
+<!--          <fieldset>-->
+<!--            <label>Superheroes</label>-->
+<!--            <m-autocomplete onselect="alert(JSON.stringify(event.detail, null, 2))" source="superheroes" placeholder="Search 'bat' or 'kent' and select a result"></m-autocomplete>-->
+<!--            <datalist id="superheroes">-->
+<!--              <option value="batman">Bruce Wayne</option>-->
+<!--              <option value="superman">Clark Kent</option>-->
+<!--              <option value="spiderman">Peter Parker</option>-->
+<!--            </datalist>-->
+<!--          </fieldset>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--    <h2 id="guidelines">Guidelines</h2>-->
+<!--    <h3 id="creating-sources">Creating data sources for autocomplete</h3>-->
+<!--    <p>Sources can come from a standard <code>datalist</code> element or a custom function added to the global <code>MdashAutocomplete</code>.</p>-->
+<!--    <h4>1. Datalist element</h4>-->
+<!--    <p>Include a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank" rel="noopener">datalist</a> element in the DOM. Its <code>id</code> must match the Autocomplete's <code>source</code>. The options' value attributes and optional text are searched for matches. Here's an example:</p>-->
+<!--    <pre><code>&lt;fieldset&gt;-->
+<!--  &lt;label&gt;Search&lt;/label&gt;-->
+<!--  &lt;m-autocomplete source=&quot;fruit&quot;&gt;&lt;/m-autocomplete&gt;-->
+<!--  &lt;datalist id=&quot;fruit&quot;&gt;-->
+<!--    &lt;option value=&quot;apple&quot;&gt;&lt;/option&gt;-->
+<!--    &lt;option value=&quot;banana&quot;&gt;&lt;/option&gt;-->
+<!--    &lt;option value=&quot;cherry&quot;&gt;&lt;/option&gt;-->
+<!--    &lt;option value=&quot;peach&quot;&gt;&lt;/option&gt;-->
+<!--  &lt;/datalist&gt;-->
+<!--&lt;/fieldset&gt;</code></pre>-->
+<!--    <h4>2. Custom source function</h4>-->
+<!--    <p>These are asynchronous functions added to the static <code>MdashAutocomplete.sources</code> object. Here's another <code>fruit</code> example similar to the datalist above:</p>-->
+<!--    <pre><code>&lt;script&gt;-->
+<!--  const mdashAutocomplete = customElements.get(&#39;m-autocomplete&#39;);-->
+<!--  mdashAutocomplete.sources.fruit = async (query, max) =&gt; {-->
 
-    // 1. Use `query` to fetch, filter, map, find, or whatever your logic is for determining matching results.
-    // Note: `max` is the most results that will be shown, which can be helpful to know beforehand when dealing with large data sets.
-    const matches = [&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;peach&#39;].filter(fruit =&gt; fruit.includes(query));
+<!--    // 1. Use `query` to fetch, filter, map, find, or whatever your logic is for determining matching results.-->
+<!--    // Note: `max` is the most results that will be shown, which can be helpful to know beforehand when dealing with large data sets.-->
+<!--    const matches = [&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;peach&#39;].filter(fruit =&gt; fruit.includes(query));-->
 
-    // 2. Result must be an object with the original `query` param and a `matches` Array.
-    // Note: `matches` elements can be strings or objects with `id` and `value` properties. See Events API above for more details.
-    const result = {query, matches};
+<!--    // 2. Result must be an object with the original `query` param and a `matches` Array.-->
+<!--    // Note: `matches` elements can be strings or objects with `id` and `value` properties. See Events API above for more details.-->
+<!--    const result = {query, matches};-->
 
-    // 3. Return a resolved Promise with the result (async functions do this automatically).
-    return result;
+<!--    // 3. Return a resolved Promise with the result (async functions do this automatically).-->
+<!--    return result;-->
 
-  }
-&lt;/script&gt;</code></pre>
-    <p><span class="fnt-bold"><m-icon name="lightbulb"></m-icon>Tip:</span> If the source's data is over the network, cache results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>const matches = cache[query] || await fetchAndCacheResults(query)</code>, but the
-      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache" target="_blank">Cache API</a> is another excellent option. You can also use <code>max</code> if it's beneficial while searching to know the maximum number of matches that will be shown.</p>
-    {{> more-autocomplete}}
-    <h3 id="a11y">Accessibility</h3>
-    <p>There are no extra recommendations for Autocomplete.</p>
-  </section>
+<!--  }-->
+<!--&lt;/script&gt;</code></pre>-->
+<!--    <p><span class="fnt-bold"><m-icon name="lightbulb"></m-icon>Tip:</span> If the source's data is over the network, cache results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>const matches = cache[query] || await fetchAndCacheResults(query)</code>, but the-->
+<!--      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache" target="_blank">Cache API</a> is another excellent option. You can also use <code>max</code> if it's beneficial while searching to know the maximum number of matches that will be shown.</p>-->
+<!--    {{> more-autocomplete}}-->
+<!--    <h3 id="a11y">Accessibility</h3>-->
+<!--    <p>There are no extra recommendations for Autocomplete.</p>-->
+<!--  </section>-->
 
   <hr>
 
   <section id="badge">
     <h1>Badge</h1>
-    <h2 class="txt-gray-5">Display notification counts</h2>
-    <h2>Demo</h2>
+    <h2>Display notification counts, values or text</h2>
+    <h2 id="badge-demo">Demo</h2>
     <m-badge count="1"></m-badge>
-    <pre><code>&lt;m-badge count=&quot;1&quot;&gt;&lt;/m-badge&gt;</code></pre>
-    <h2>API</h2>
+    <m-badge>text</m-badge>
+    <pre><code>&lt;m-badge count=&quot;1&quot;&gt;&lt;/m-badge&gt;
+&lt;m-badge&gt;text&lt;/m-badge&gt;</code></pre>
+    <h2 id="badge-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -900,33 +1005,58 @@ id: ''</code></pre>
       <tr>
         <td colspan="2"><code>count</code></td>
         <td colspan="2">Number</td>
-        <td colspan="6">A number to display. When zero or empty the badge will hide itself.</td>
+        <td colspan="6">A number to display. If set to zero or empty the badge will not be shown.</td>
       </tr>
       </tbody>
     </table>
-    <h2>Guidelines</h2>
-    <h3>Badge hides itself</h3>
-    <p>Badge can be used to display a count or text. If either is omitted, the badge will be set to <code>display: none</code>.</p>
+    <h2 id="badge-guidelines">Guidelines</h2>
+    <h3>Empty badge hides itself</h3>
+    <p>Badge can be used to display a count or text. If either is omitted, the badge will not be shown.</p>
+    <div>Empty count: <m-badge count=""></m-badge></div>
+    <div>Zero count: <m-badge count="0"></m-badge></div>
+    <div>Non-zero count: <m-badge count="1"></m-badge></div>
+    <div>Empty text: <m-badge></m-badge></div>
+    <div>Non-empty text: <m-badge>not empty</m-badge></div>
+
     <h3>Localization</h3>
-    <p>Localize the count value before setting it.</p>
+    <p>If localization is needed, use <a
+      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a>.</p>
+    <div>English: <m-badge lang="en"></m-badge></div>
+    <div>French: <m-badge lang="fr"></m-badge></div>
+    <script>
+      const countEn = Intl.NumberFormat('en').format(1000000);
+      const countFr = Intl.NumberFormat('fr').format(1000000);
+
+      document.querySelector('m-badge[lang="en"]').setAttribute('count', countEn);
+      document.querySelector('m-badge[lang="fr"]').setAttribute('count', countFr);
+    </script>
+    <pre><code>&lt;m-badge lang=&quot;en&quot;&gt;&lt;/m-badge&gt;
+&lt;m-badge lang=&quot;fr&quot;&gt;&lt;/m-badge&gt;
+
+&lt;script&gt;
+  const countEn = Intl.NumberFormat(&#39;en&#39;).format(1000000);
+  const countFr = Intl.NumberFormat(&#39;fr&#39;).format(1000000);
+
+  document.querySelector(&#39;m-badge[lang=&quot;en&quot;]&#39;).setAttribute(&#39;count&#39;, countEn);
+  document.querySelector(&#39;m-badge[lang=&quot;fr&quot;]&#39;).setAttribute(&#39;count&#39;, countFr);
+&lt;/script&gt;</code></pre>
     <h3>Accessibility</h3>
     <p>Use <code>aria-labelledby</code> or <code>aria-label</code> to provide context for the count.</p>
   </section>
 
   <hr>
 
-  <section id="box">
-    <h1>Box</h1>
-    <h2 class="txt-gray-5">Static container for elevating content</h2>
-    <h2 id="demo">Demo</h2>
-    <m-box>Primary content</m-box>
-    <m-box ord="secondary">Secondary content</m-box>
-    <p>Content outside a box is considered neutral</p>
-    <pre><code>&lt;m-box&gt;Primary content&lt;/m-box&gt;
-&lt;m-box ord=&quot;secondary&quot;&gt;Secondary content&lt;/m-box&gt;
-&lt;p&gt;Content outside a box is considered neutral&lt;/p&gt;</code></pre>
-    <p>See more <a href="/examples#Boxes">examples</a></p>
-    <h2 id="api">API</h2>
+  <section id="card">
+    <h1>Card</h1>
+    <h2>Static container for elevating content</h2>
+    <h2 id="card-demo">Demo</h2>
+    <m-card>Primary content</m-card>
+    <m-card ord="secondary">Secondary content</m-card>
+    <p class="mar-t-3">Content outside a card is considered neutral</p>
+    <pre><code>&lt;m-card&gt;Primary content&lt;/m-card&gt;
+&lt;m-card ord=&quot;secondary&quot;&gt;Secondary content&lt;/m-card&gt;
+&lt;p&gt;Content outside a card is considered neutral&lt;/p&gt;</code></pre>
+    <h2 id="card-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -938,13 +1068,13 @@ id: ''</code></pre>
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>m-box</code></td>
+        <td colspan="2"><code>m-card</code></td>
         <td colspan="2">Custom tag</td>
         <td colspan="6">Any</td>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="card-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -965,44 +1095,80 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="nesting">Nesting</h3>
-    <p>Boxes of the same <code>ord</code> should not be nested inside each other. Nesting a secondary box inside a primary box is ok:</p>
-    <m-box>
-      <h3 class="mar-t-0">Terms of service</h3>
-      <p>You must use the web platform.</p>
-      <m-box ord="secondary">
-        <label><input type="checkbox"> I agree</label>
-      </m-box>
-    </m-box>
-    <pre><code>&lt;m-box&gt;
-  &lt;h3 class=&quot;mar-t-0&quot;&gt;Terms of service&lt;/h3&gt;
-  &lt;p&gt;You must use the web platform.&lt;/p&gt;
-  &lt;m-box ord=&quot;secondary&quot;&gt;
-    &lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;I agree&lt;/label&gt;
-  &lt;/m-box&gt;
-&lt;/m-box&gt;</code></pre>
-    <h3 id="box-header-footer">Box Header & Footer</h3>
-    <p>Because a box header is more tricky than it seems (compensating for default padding), it doesn't get any special styles. However, it just takes a few classes to get a nice Box header:</p>
-    <m-box class="pad-0">
-      <header class="pad-4 bg-gray-1 brd-b">Header</header>
-      <p class="pad-4">Content</p>
-      <header class="pad-4 bg-gray-1 brd-t">Footer</header>
-    </m-box>
-    <pre><code>&lt;m-box class=&quot;pad-0&quot;&gt;
-  &lt;header class=&quot;pad-4 bg-gray-1 brd-b&quot;&gt;Header&lt;/header&gt;
-  &lt;div class=&quot;pad-4&quot;&gt;Content&lt;/div&gt;
-&lt;/m-box&gt;</code></pre>
-    <h3 id="box-a11y">Accessibility</h3>
-    <p>There are no accessibility recommendations for Box.</p>
+    <h2 id="card-guidelines">Guidelines</h2>
+    <h3 id="card-header-footer">Card with Header & Footer</h3>
+    <p>A custom card header and footer is possible using utility classes and/or custom styles. Like this:</p>
+    <m-card class="pad-0">
+      <header class="pad-4 bg-gray-1 brd-b fnt-med">Header Title</header>
+      <p class="pad-4">Body content</p>
+      <footer class="flex justify-content-between align-items-center pad-4 bg-gray-1 brd-t">
+        <div>Footer with button</div>
+        <button ord="primary" controlsize="sm">Save</button>
+      </footer>
+    </m-card>
+    <pre><code>&lt;m-card class=&quot;pad-0&quot;&gt;
+  &lt;header class=&quot;pad-4 bg-gray-1 brd-b fnt-med&quot;&gt;Header Title&lt;/header&gt;
+  &lt;p class=&quot;pad-4&quot;&gt;Body content&lt;/p&gt;
+  &lt;footer class=&quot;flex justify-content-between align-items-center pad-4 bg-gray-1 brd-t&quot;&gt;
+    &lt;div&gt;Footer with button&lt;/div&gt;
+    &lt;button ord=&quot;primary&quot; controlsize=&quot;sm&quot;&gt;Save&lt;/button&gt;
+  &lt;/footer&gt;
+&lt;/m-card&gt;</code></pre>
+    <h3 id="card-customize">Custom cards</h3>
+    <p>Card is highly customizable. Leverage HTML, utility classes, and custom styles to create unique and interactive cards. Like this:</p>
+    <script>
+      function selectCard(e) {
+        e.target.ariaPressed = e.target.ariaPressed === 'true' ? 'false' : 'true'
+      }
+    </script>
+
+    <style>
+      m-card[role=button] {
+        &:not([aria-pressed=true]):hover {
+          box-shadow: var(--m-shadow-1);
+        }
+        &[aria-pressed=true] {
+          border-color: var(--m-color-primary-action);
+        }
+      }
+    </style>
+    <div class="flex gap-2">
+      <m-card onclick="selectCard(event)" role="button" class="pointer">Card 1</m-card>
+      <m-card onclick="selectCard(event)" role="button" class="pointer">Card 2</m-card>
+      <m-card onclick="selectCard(event)" role="button" class="pointer">Card 3</m-card>
+    </div>
+    <pre><code>&lt;script&gt;
+  function selectCard(e) {
+    e.target.ariaPressed = e.target.ariaPressed === &#39;true&#39; ? &#39;false&#39; : &#39;true&#39;
+  }
+&lt;/script&gt;
+
+&lt;style&gt;
+  m-card[role=button] {
+    &amp;:not([aria-pressed=true]):hover {
+      box-shadow: var(--m-shadow-1);
+    }
+    &amp;[aria-pressed=true] {
+      border-color: var(--m-color-primary-action);
+    }
+  }
+&lt;/style&gt;
+
+&lt;div class=&quot;flex gap-2&quot;&gt;
+  &lt;m-card onclick=&quot;selectCard(event)&quot; role=&quot;button&quot; class=&quot;pointer&quot;&gt;Card 1&lt;/m-card&gt;
+  &lt;m-card onclick=&quot;selectCard(event)&quot; role=&quot;button&quot; class=&quot;pointer&quot;&gt;Card 2&lt;/m-card&gt;
+  &lt;m-card onclick=&quot;selectCard(event)&quot; role=&quot;button&quot; class=&quot;pointer&quot;&gt;Card 3&lt;/m-card&gt;
+&lt;/div&gt;</code></pre>
+    <h3 id="card-a11y">Accessibility</h3>
+    <p>There are no accessibility recommendations for card.</p>
   </section>
 
   <hr>
 
   <section id="breadcrumbs">
     <h1>Breadcrumbs</h1>
-    <h2 class="txt-gray-5">Navigational hierarchy</h2>
-    <h2 id="demo">Demo</h2>
+    <h2>Navigational hierarchy</h2>
+    <h2 id="breadcrumbs-demo">Demo</h2>
     <m-breadcrumb>
       <nav>
         <a href="/">Home</a>
@@ -1017,8 +1183,7 @@ id: ''</code></pre>
     &lt;a href=&quot;/shoes/women&quot; aria-current=&quot;page&quot;&gt;Women&lt;/a&gt;
   &lt;/nav&gt;
 &lt;/m-breadcrumb&gt;</code></pre>
-    <p class="mar-b-8">See more <a href="/examples#breadcrumb">examples</a></p>
-    <h2 id="api">API</h2>
+    <h2 id="breadcrumbs-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -1041,7 +1206,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
+    <h2 id="breadcrumbs-guidelines">Guidelines</h2>
     <h3 id="breadcrumbs-order">Crumb Order</h3>
     <p>The last crumb must represent the current page and have <code>aria-current="page"</code> set. All other crumbs should be links navigating up the hierarchy. When the user is at the top of the hierarchy, it may not make sense to display the breadcrumb at all.</p>
     <h3>With Menus</h3>
@@ -1082,7 +1247,7 @@ id: ''</code></pre>
     &lt;a href=&quot;/shoes/women/sporty&quot; aria-current="page"&gt;Sporty&lt;/a&gt;
   &lt;/nav&gt;
 &lt;/m-breadcrumb&gt;</code></pre>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="breadcrumbs-a11y">Accessibility</h3>
     <p>The last item in breadcrumbs should represent the current page and have <code>aria-current="page"</code>.</p>
   </section>
 
@@ -1090,16 +1255,16 @@ id: ''</code></pre>
 
   <section id="button">
     <h1>Button</h1>
-    <h2 class="txt-gray-5">For triggering actions</h2>
-    <h2>Demo</h2>
+    <h2>For triggering actions</h2>
+    <h2 id="button-demo">Demo</h2>
     <p class="mar-b-3 fnt-med">Ordinality</p>
     <button ord="primary">Primary</button>
     <button ord="secondary">Secondary</button>
     <button ord="tertiary">Tertiary</button>
     <p class="mar-t-4 mar-b-3 fnt-med">Size</p>
-    <button ord="primary" scale="sm">Small</button>
-    <button ord="primary" scale="md">Medium</button>
-    <button ord="primary" scale="lg">Large</button>
+    <button ord="primary" controlsize="sm">Small</button>
+    <button ord="primary" controlsize="md">Medium</button>
+    <button ord="primary" controlsize="lg">Large</button>
     <p class="mar-t-4 mar-b-3 fnt-med">Disabled</p>
     <button ord="primary" disabled>Disabled</button>
     <p class="mar-t-4 mar-b-3 fnt-med">Link as button</p>
@@ -1108,14 +1273,14 @@ id: ''</code></pre>
 &lt;button ord=&quot;secondary&quot;&gt;Secondary&lt;/button&gt;
 &lt;button ord=&quot;tertiary&quot;&gt;Tertiary&lt;/button&gt;
 
-&lt;button ord=&quot;primary&quot; scale=&quot;sm&quot;&gt;Small&lt;/button&gt;
-&lt;button ord=&quot;primary&quot;&gt;Medium&lt;/button&gt;
-&lt;button ord=&quot;primary&quot; scale=&quot;lg&quot;&gt;Large&lt;/button&gt;
+&lt;button ord=&quot;primary&quot; controlsize=&quot;sm&quot;&gt;Small&lt;/button&gt;
+&lt;button ord=&quot;primary&quot; controlsize="md"&gt;Medium&lt;/button&gt;
+&lt;button ord=&quot;primary&quot; controlsize=&quot;lg&quot;&gt;Large&lt;/button&gt;
 
 &lt;button ord=&quot;primary&quot; disabled&gt;Disabled&lt;/button&gt;
 
 &lt;a role=&quot;button&quot; ord=&quot;primary&quot; href=&quot;/button&quot;&gt;Link&lt;/a&gt;</code></pre>
-    <h2>API</h2>
+    <h2 id="button-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -1135,7 +1300,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="button-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -1157,6 +1322,18 @@ id: ''</code></pre>
         <td colspan="6">
           <a href="https://en.wikipedia.org/wiki/Ordinal_numeral" target="_blank" rel="noopener">Ordinal number word</a> for describing the button's precedence.
           <p class="mar-b-none"><small>*The remove button does not require this.</small></p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>controlsize</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>sm</li>
+            <li>lg</li>
+          </ul>
+        </td>
+        <td colspan="6">
+          <p>Changes the size of the button.</p>
         </td>
       </tr>
       <tr>
@@ -1215,7 +1392,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2>Guidelines</h2>
+    <h2 id="button-guidelines">Guidelines</h2>
     <h3>Link Button</h3>
     <p>If the action navigates to a new url, use a <a href="#link">link</a>, and if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that an actual link is used so the user can
       <kbd>cmd + click</kbd> or copy and share the link. If the action does not navigate the user to a new URL then use a regular button.</p>
@@ -1234,11 +1411,11 @@ id: ''</code></pre>
     <button ord="primary">
       Right Icon<m-icon name="download"></m-icon>
     </button>
-    <button ord="primary">
-      <m-icon name="download"></m-icon>
-      Left and Right Icons
-      <m-icon name="download"></m-icon>
-    </button>
+<!--    <button ord="primary">-->
+<!--      <m-icon name="download"></m-icon>-->
+<!--      Left and Right Icons-->
+<!--      <m-icon name="download"></m-icon>-->
+<!--    </button>-->
     <pre><code>&lt;button ord=&quot;primary&quot; title=&quot;Download&quot; aria-label=&quot;Download&quot;&gt;
   &lt;m-icon name=&quot;download&quot;&gt;&lt;/m-icon&gt;
 &lt;/button&gt;</code></pre>
@@ -1258,7 +1435,7 @@ id: ''</code></pre>
 
   <section id="button-group">
     <h1>Button Group</h1>
-    <h2 class="txt-gray-5">Group of toggle buttons</h2>
+    <h2>Group of toggle buttons</h2>
     <h2 id="button-group-demo">Demo</h2>
     <div role="group">
       <button ord="secondary" aria-pressed="true">One</button>
@@ -1272,7 +1449,7 @@ id: ''</code></pre>
   &lt;button ord=&quot;secondary&quot; aria-pressed=&quot;false&quot;&gt;Three&lt;/button&gt;
   &lt;button ord=&quot;secondary&quot;&gt;Four&lt;/button&gt;
 &lt;/div&gt;</code></pre>
-    <h2>API</h2>
+    <h2 id="button-group-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -1381,7 +1558,7 @@ id: ''</code></pre>
     <script>
       function alertFilter(e) {
         e.target.ariaPressed = e.target.ariaPressed === 'true' ? 'false' : 'true';
-        alert(`"${e.target.value}" filter was toggled`);
+        alert(`${e.target.value} is ${e.target.ariaPressed}`);
       }
     </script>
 
@@ -1393,7 +1570,7 @@ id: ''</code></pre>
     <pre><code>&lt;script&gt;
   function alertFilter(e) {
     e.target.ariaPressed = e.target.ariaPressed === &#39;true&#39; ? &#39;false&#39; : &#39;true&#39;;
-    alert(`&quot;${e.target.value}&quot; filter was toggled`);
+    alert(`${e.target.value} is ${e.target.ariaPressed}`);
   }
 &lt;/script&gt;
 
@@ -1402,71 +1579,64 @@ id: ''</code></pre>
   &lt;button ord=&quot;secondary&quot; value=&quot;complete&quot;&gt;Complete&lt;/button&gt;
   &lt;button ord=&quot;secondary&quot; value=&quot;overdue&quot;&gt;Overdue&lt;/button&gt;
 &lt;/div&gt;</code></pre>
-    <h3>Layout</h3>
-    <p>Button group is a Grid and you are free to use grid properties to lay out the buttons as needed:</p>
-    <h4>Equal Width</h4>
+    <h3 id="button-group-layout">Layout</h3>
+    <p>Button group is a CSS grid. Use grid properties to lay out the buttons as needed:</p>
+    <h4>Content Width (default)</h4>
+    <pre><code>.filters-demo-content-width {
+  grid-template-columns: repeat(3, min-content);
+}</code></pre>
     <style>
-      .filters-equal-width {
+      .filters-demo-content-width {
+        grid-auto-columns: min-content;
+      }
+    </style>
+    <div role="group" class="filters-demo-content-width">
+      <button ord="secondary">Ready</button>
+      <button ord="secondary">Complete</button>
+      <button ord="secondary">Overdue</button>
+    </div>
+
+    <h4>Equal Width</h4>
+    <pre><code>.filters-demo-equal-width {
+  grid-template-columns: repeat(3, 1fr);
+}</code></pre>
+    <style>
+      .filters-demo-equal-width {
         @media (min-width: 601px) {
           grid-template-columns: repeat(3, 1fr);
         }
       }
     </style>
-
-    <div role="group" class="filters-equal-width">
+    <div role="group" class="filters-demo-equal-width">
       <button ord="secondary">Ready</button>
       <button ord="secondary">Complete</button>
       <button ord="secondary">Overdue</button>
     </div>
-    <pre><code>&lt;style&gt;
-  .filters-equal-width {
-    @media (min-width: 601px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-&lt;/style&gt;
-
-&lt;div role=&quot;group&quot; class=&quot;filters-equal-width&quot;&gt;
-  &lt;button ord=&quot;secondary&quot;&gt;Ready&lt;/button&gt;
-  &lt;button ord=&quot;secondary&quot;&gt;Complete&lt;/button&gt;
-  &lt;button ord=&quot;secondary&quot;&gt;Overdue&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-    <h4>Full Width</h4>
+    <h4>Equal Full Width</h4>
+    <pre><code>.filters-demo-full-width {
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}</code></pre>
     <style>
-      .filters-full-width {
+      .filters-demo-full-width {
         @media (min-width: 601px) {
           grid-template-columns: repeat(3, 1fr);
           width: 100%;
         }
       }
     </style>
-
-    <div role="group" class="filters-full-width">
+    <div role="group" class="filters-demo-full-width">
       <button ord="secondary">Ready</button>
       <button ord="secondary">Complete</button>
       <button ord="secondary">Overdue</button>
     </div>
-    <pre><code>&lt;style&gt;
-  .filters-full-width {
-    @media (min-width: 601px) {
-      grid-template-columns: repeat(3, 1fr);
-      width: 100%;
-    }
-  }
-&lt;/style&gt;
-
-&lt;div role=&quot;group&quot; class=&quot;filters-full-width&quot;&gt;
-  &lt;button ord=&quot;secondary&quot;&gt;Ready&lt;/button&gt;
-  &lt;button ord=&quot;secondary&quot;&gt;Complete&lt;/button&gt;
-  &lt;button ord=&quot;secondary&quot;&gt;Overdue&lt;/button&gt;
-&lt;/div&gt;</code></pre>
   </section>
 
   <hr>
 
   <section id="checkbox">
     <h1>Checkbox</h1>
-    <h2 class="txt-gray-5">Form element for selecting many options</h2>
+    <h2>Form element for selecting many options</h2>
     <h2 id="checkbox-demo">Demo</h2>
     <fieldset>
       <legend>Languages</legend>
@@ -1486,7 +1656,6 @@ id: ''</code></pre>
   &lt;input id=&quot;js&quot; type=&quot;checkbox&quot; name=&quot;speed&quot; value=&quot;js&quot;&gt;
   &lt;label for=&quot;js&quot;&gt;JavaScript&lt;/label&gt;
 &lt;/fieldset&gt;</code></pre>
-    <p>See more <a href="/examples#Forms">examples</a></p>
     <h2 id="checkbox-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
@@ -1533,7 +1702,7 @@ id: ''</code></pre>
 
   <section id="container">
     <h1>Container</h1>
-    <h2 class="txt-gray-5">Primary container element for page layout</h2>
+    <h2>Primary container element for page layout</h2>
     <h2 id="container-demo">Demo</h2>
     <m-container>
       <p>Container is centered in its parent, has responsive padding, and its content will be contained based on its <code>maxwidth</code>.</p>
@@ -1541,7 +1710,6 @@ id: ''</code></pre>
     <pre><code class="language-html">&lt;m-container&gt;
   &lt;p&gt;Container is centered in its parent, has responsive padding, and its content will be contained based on its &lt;code&gt;maxwidth&lt;/code&gt;.&lt;/p&gt;
 &lt;/m-container&gt;</code></pre>
-    <p>See more <a href="/examples#Containers">examples</a></p>
     <h2 id="container-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
@@ -1628,8 +1796,8 @@ id: ''</code></pre>
 
   <section id="details">
     <h1>Details</h1>
-    <h2 class="txt-gray-5">Expandable container for progressive disclosure</h2>
-    <h2 id="demo">Demo</h2>
+    <h2>Expandable container for progressive disclosure</h2>
+    <h2 id="details-demo">Demo</h2>
     <details>
       <summary>Click to see details</summary>
       <p>The deets.</p>
@@ -1639,8 +1807,8 @@ id: ''</code></pre>
   &lt;p&gt;The deets.&lt;/p&gt;
 &lt;/details&gt;</code></pre>
     <p>See more <a href="/examples#Details">examples</a></p>
-    <h2 id="api">API</h2>
-    <p>Details is a native element, so reference MDN for <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">complete documentation</a>.</p>
+    <h2 id="details-api">API</h2>
+    <p>Details is a native element. More information is available on <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">MDN</a>.</p>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -1663,7 +1831,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="details-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -1686,7 +1854,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="events">Events</h3>
+    <h3 id="details-events">Events</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -1705,10 +1873,8 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <!--<h3 id="title">What about &lt;details&gt;?</h3>-->
-    <!--<p>This element matches the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDetailsElement" target="_blank" rel="noopener"><code>HTMLDetailsElement</code></a> interface as close as possible so when browser support for <code>&lt;details&gt;</code> is sufficient it will be removed from Mdash in favor of the native element. Breaking changes should be limited to just the "m-" prefix.</p>-->
-    <h3 id="necessary">Is the content even necessary?</h3>
+    <h2 id="details-guidelines">Guidelines</h2>
+    <h3 id="details-necessary">Is the content even necessary?</h3>
     <p>Although details and <a href="#accordion">accordion</a> are great tools for progressive disclosure, you should consider if the hidden content is even necessary or if it could be removed altogether.</p>
     <h3>Clickable Elements Inside Summary</h3>
     <p>Use <code>event.preventDefault()</code> to stop other interactive elements in summary from toggling the details:</p>
@@ -1727,39 +1893,39 @@ id: ''</code></pre>
       </summary>
       <div class="pad-2">The report history...</div>
     </details>
-    <h3>Navigation</h3>
-    <p>A common application of Details is an expandable navigation. Here's a working example:</p>
-    <code-sample>
-      <nav aria-label="Sidebar navigation">
-        <h4 class="txt-upper mar-b-2">Lesson 1</h4>
-        <details>
-          <summary>Section A</summary>
-          <div class="pad-l-1 mar-b-4">
-            <a href="#" class="block mar-t-1">Intro to Biology</a>
-            <a href="#" class="block mar-t-1">Living Organisms</a>
-            <a href="#" class="block mar-t-1">The Human Cell</a>
-          </div>
-        </details>
-        <details class="mar-t-2">
-          <summary>Section B</summary>
-          <div class="pad-l-1 mar-b-4">
-            <a href="#" class="block mar-t-1">DNA</a>
-            <a href="#" class="block mar-t-1">Mapping the Genome</a>
-            <a href="#" class="block mar-t-1">Biological Ethics</a>
-          </div>
-        </details>
-        <h4 class="txt-upper mar-b-2">Lesson 2</h4>
-        <details class="mar-t-2">
-          <summary>Section C</summary>
-          <div class="pad-l-1 mar-b-4">
-            <a href="#" class="block mar-t-1">Link</a>
-            <a href="#" class="block mar-t-1">Link</a>
-            <a href="#" class="block mar-t-1">Link</a>
-          </div>
-        </details>
-      </nav>
-    </code-sample>
-    <h3 id="a11y">Accessibility</h3>
+<!--    <h3>Navigation</h3>-->
+<!--    <p>A common application of Details is an expandable navigation. Here's a working example:</p>-->
+<!--    <code-sample>-->
+<!--      <nav aria-label="Sidebar navigation">-->
+<!--        <h4 class="txt-upper mar-b-2">Lesson 1</h4>-->
+<!--        <details>-->
+<!--          <summary>Section A</summary>-->
+<!--          <div class="pad-l-1 mar-b-4">-->
+<!--            <a href="#" class="block mar-t-1">Intro to Biology</a>-->
+<!--            <a href="#" class="block mar-t-1">Living Organisms</a>-->
+<!--            <a href="#" class="block mar-t-1">The Human Cell</a>-->
+<!--          </div>-->
+<!--        </details>-->
+<!--        <details class="mar-t-2">-->
+<!--          <summary>Section B</summary>-->
+<!--          <div class="pad-l-1 mar-b-4">-->
+<!--            <a href="#" class="block mar-t-1">DNA</a>-->
+<!--            <a href="#" class="block mar-t-1">Mapping the Genome</a>-->
+<!--            <a href="#" class="block mar-t-1">Biological Ethics</a>-->
+<!--          </div>-->
+<!--        </details>-->
+<!--        <h4 class="txt-upper mar-b-2">Lesson 2</h4>-->
+<!--        <details class="mar-t-2">-->
+<!--          <summary>Section C</summary>-->
+<!--          <div class="pad-l-1 mar-b-4">-->
+<!--            <a href="#" class="block mar-t-1">Link</a>-->
+<!--            <a href="#" class="block mar-t-1">Link</a>-->
+<!--            <a href="#" class="block mar-t-1">Link</a>-->
+<!--          </div>-->
+<!--        </details>-->
+<!--      </nav>-->
+<!--    </code-sample>-->
+    <h3 id="details-a11y">Accessibility</h3>
     <p>The <code>aria-expanded</code> attribute is managed automatically. Pressing spacebar will open/close details.</p>
   </section>
 
@@ -1767,8 +1933,8 @@ id: ''</code></pre>
 
   <section id="dialog">
     <h1>Dialog</h1>
-    <h2 class="txt-gray-5">Modal content container</h2>
-    <h2 id="demo">Demo</h2>
+    <h2>Modal content container</h2>
+    <h2 id="dialog-demo">Demo</h2>
     <script>
       function openDialog(e) {
         e.target.nextElementSibling.showModal()
@@ -1789,7 +1955,7 @@ id: ''</code></pre>
   &lt;p&gt;Put anything you want in here.&lt;/p&gt;
   &lt;p&gt;(press &lt;kbd&gt;Esc&lt;/kbd&gt; to close)&lt;/p&gt;
 &lt;/dialog&gt;</code></pre>
-    <h2 id="api">API</h2>
+    <h2 id="dialog-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -1841,7 +2007,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="events">Events</h3>
+    <h3 id="dialog-events">Events</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -1864,7 +2030,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="methods">Methods</h3>
+    <h3 id="dialog-methods">Methods</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -1922,9 +2088,9 @@ id: ''</code></pre>
   &lt;button onclick=&quot;closeDialogWithCloseSlot(event)&quot; slot=&quot;close&quot; type=&quot;remove&quot; title=&quot;Close&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
   &lt;p&gt;The &lt;code&gt;button[slot=close]&lt;/code&gt; element is styled and positioned for you. Your app handles the click event and closes the dialog.&lt;/p&gt;
 &lt;/dialog&gt;</code></pre>
-    <h3 id="state">Forms and DOM State</h3>
+    <h3 id="dialog-state">Forms and DOM State</h3>
     <p>The state of the content is controlled by your application. Dialog does not change the state of its children other than moving them into a containing div on init. Forms and all other elements will initialize the way they are provided by the application and will continue to remain untouched even when the Dialog is closed. For example, if a Dialog is used to present a login form the application should remove the Dialog completely or reset the form after successful authentication. If left alone the Dialog and the login form inside it will contain the user's credentials. It's your content; you have to manage it.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="dialog-a11y">Accessibility</h3>
     <p>The necessary ARIA attributes are added automatically; however, if your Dialog "contains an alert message" you should set <code>role="alertdialog"</code>.</p>
   </section>
 
@@ -1932,8 +2098,8 @@ id: ''</code></pre>
 
   <section id="dot">
     <h1>Dot</h1>
-    <h2 class="txt-gray-5">Status indicator</h2>
-    <h2 id="demo">Demo</h2>
+    <h2>Status indicator</h2>
+    <h2 id="dot-demo">Demo</h2>
     <m-dot>Unknown</m-dot>
     <m-dot type="info">Information</m-dot>
     <m-dot type="success">Success</m-dot>
@@ -1945,7 +2111,7 @@ id: ''</code></pre>
 &lt;m-dot type=&quot;warn&quot;&gt;Warning&lt;/m-dot&gt;
 &lt;m-dot type=&quot;error&quot;&gt;Error&lt;/m-dot&gt;</code></pre>
     <!--<p>See more <a href="/examples#Dot">examples</a></p>-->
-    <h2 id="api">API</h2>
+    <h2 id="dot-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -1963,7 +2129,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="dot-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -1992,8 +2158,8 @@ id: ''</code></pre>
       <!--  </tr>-->
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="title">Dot text</h3>
+    <h2 id="dot-guidelines">Guidelines</h2>
+    <h3 id="dot-text">Dot text</h3>
     <p>In most cases Dot should include text, but sometimes it's okay to have a Dot without text (see <a href="#a11y">Accessibility</a>). An Accordion of system summaries works as a good example:</p>
     <m-accordion>
       <details>
@@ -2036,7 +2202,7 @@ id: ''</code></pre>
     <div>
       <m-dot type="success">Marcus is online</m-dot>
     </div>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="dot-a11y">Accessibility</h3>
     <p>When there is no text use <code>aria-label</code>, e.g. <code>&lt;m-dot type="success" aria-label="Systems okay"&gt;</code>.</p>
   </section>
 
@@ -2044,8 +2210,8 @@ id: ''</code></pre>
 
   <section id="form">
     <h1>Form elements</h1>
-    <h2 class="txt-gray-5">Basic elements used when creating forms</h2>
-    <h2 id="demo">Demo</h2>
+    <h2>Basic elements used when creating forms</h2>
+    <h2 id="form-demo">Demo</h2>
     <form>
       <fieldset>
         <label>Email</label>
@@ -2081,7 +2247,7 @@ id: ''</code></pre>
   &lt;button type=&quot;submit&quot; ord=&quot;primary&quot;&gt;Save&lt;/button&gt;
 &lt;/form&gt;</code></pre>
     <p>See more <a href="/examples#Forms">examples</a></p>
-    <h2 id="api">API</h2>
+    <h2 id="form-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -2115,10 +2281,10 @@ id: ''</code></pre>
       </tbody>
     </table>
     <small><span class="fnt-bold">Note:</span> Form controls are documented separately. See <a href="/input">Input</a>, <a href="/checkbox">Checkbox</a>, <a href="/radio">Radio</a>, <a href="/select">Select</a>, and <a href="/textarea">Textarea</a>.</small>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="form-attributes">Attributes</h3>
     <p>Nothing special to call out. See <a
       href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#Attributes">MDN: form attributes</a> for the full list.</p>
-    <h3 id="events">Events</h3>
+    <h3 id="form-events">Events</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -2146,8 +2312,8 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="submit-button">Submit button vs. input button</h3>
+    <h2 id="form-guidelines">Guidelines</h2>
+    <h3 id="form-submit-button">Submit button vs. input button</h3>
     <p>Mdash recommends forms use <code>&lt;button type="submit"&gt;</code> instead of <code>&lt;input type="submit"&gt;</code>. This is more semantic and provides greater control of the button style and content. For example, you can't put an Icon or Loader inside a submit input.</p>
     <h3 id="fieldset">Why &lt;fieldset&gt;?</h3>
     <p>Rather than inventing new tags or using boilerplate divs and classes, Mdash leverages the native fieldset tag. Although it's historically uncommon to put just one input inside a fieldset, it is perfectly valid markup. Single or multiple input combinations of various types work perfectly well and results in the most clean and uniform form code possible:</p>
@@ -2171,7 +2337,7 @@ id: ''</code></pre>
     &lt;/select&gt;
   &lt;/fieldset&gt;
 &lt;/form&gt;</code></pre>
-    <h3 id="small">Why &lt;small&gt;?</h3>
+    <h3 id="form-small">Why &lt;small&gt;?</h3>
     <p>Understand that small's semantics have to do with its <em>type</em> of content and not font size or other visual characteristic. The
       <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-small-element">HTML spec</a> uses examples such as "disclaimers, caveats, legal restrictions, or copyrights", which is inline with this use case. Some examples:</p>
     <fieldset>
@@ -2184,7 +2350,7 @@ id: ''</code></pre>
       <input type="password" value="secret">
       <small>Must include a number, special character, and be at least 8 characters long</small>
     </fieldset>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="form-a11y">Accessibility</h3>
     <p>See <a href="/input#a11y">Input</a>, <a href="/checkbox#a11y">Checkbox</a>, <a href="/radio#a11y">Radio</a>, <a href="/select#a11y">Select</a>, and <a href="/textarea#a11y">Textarea</a> for their respective accessibility recommendations.</p>
   </section>
 
@@ -2192,17 +2358,13 @@ id: ''</code></pre>
 
   <section id="icons">
     <h1>Icons</h1>
-    <h2 class="txt-gray-5">Symbols used to enhance communication</h2>
-    <h2 id="demo">Demo</h2>
-    <m-icon name="person"></m-icon>
-    <m-icon name="person" fill></m-icon>
+    <h2>Symbols used to enhance communication</h2>
+    <h2 id="icons-demo">Demo</h2>
     <m-icon name="flag"></m-icon>
     <m-icon name="flag" fill></m-icon>
-    <pre><code>&lt;m-icon name=&quot;person&quot;&gt;&lt;/m-icon&gt;
-&lt;m-icon name=&quot;person&quot; fill&gt;&lt;/m-icon&gt;
-&lt;m-icon name=&quot;flag&quot;&gt;&lt;/m-icon&gt;
+    <pre><code>&lt;m-icon name=&quot;flag&quot;&gt;&lt;/m-icon&gt;
 &lt;m-icon name=&quot;flag&quot; fill&gt;&lt;/m-icon&gt;</code></pre>
-    <h2 id="api">API</h2>
+    <h2 id="icons-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -2220,7 +2382,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="icons-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -2242,11 +2404,11 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
+    <h2 id="icons-guidelines">Guidelines</h2>
     <h3 id="all-icons">Available Icons</h3>
     <p>Mdash uses <a href="https://fonts.google.com/icons?icon.style=Outlined" target="_blank">Material Symbols Outlined</a>. On that page, getting an icon name is easier if you click the icon, then select the
       <span class="fnt-italic">Android</span> tab, then copy the name.</p>
-    <h3 id="text">Pair With Text</h3>
+    <h3 id="icons-text">Pair With Text</h3>
     <p>Icons should be used to <span class="fnt-italic">enhance</span> content not replace it. Users can misinterpret icons, so strive to accompany an icon with a label or other relevant content in close proximity.</p>
     <m-menu>
       <span slot="trigger" role="link" class="flex align-items-center gap-1"><m-icon name="person"></m-icon> John Doe</span>
@@ -2267,20 +2429,27 @@ id: ''</code></pre>
   &lt;/div&gt;
 &lt;/m-menu&gt;</code></pre>
     <p>If an icon is on its own, use the <code>title</code> attribute to explain what it symbolizes, e.g. "Current location", or its action, e.g. "Reload this page". Hover over the user icon for a clue:</p>
-    <code-sample>
-      <m-menu>
-        <span slot="trigger" role="link"><m-icon name="person" title="Open user menu"></m-icon></span>
-        <div slot="items">
-          <a href="/profile">Profile</a>
-          <a href="/settings">Settings</a>
-          <hr class="mar-t-2 mar-b-3">
-          <a href="/logout">Log out</a>
-        </div>
-      </m-menu>
-    </code-sample>
+    <m-menu>
+      <span slot="trigger" role="link"><m-icon name="person" title="Open user menu"></m-icon></span>
+      <div slot="items">
+        <a href="/profile">Profile</a>
+        <a href="/settings">Settings</a>
+        <hr class="mar-t-2 mar-b-3">
+        <a href="/logout">Log out</a>
+      </div>
+    </m-menu>
+    <pre><code>&lt;m-menu&gt;
+  &lt;span slot=&quot;trigger&quot; role=&quot;link&quot;&gt;&lt;m-icon name=&quot;person&quot; title=&quot;Open user menu&quot;&gt;&lt;/m-icon&gt;&lt;/span&gt;
+  &lt;div slot=&quot;items&quot;&gt;
+    &lt;a href=&quot;/profile&quot;&gt;Profile&lt;/a&gt;
+    &lt;a href=&quot;/settings&quot;&gt;Settings&lt;/a&gt;
+    &lt;hr class=&quot;mar-t-2 mar-b-3&quot;&gt;
+    &lt;a href=&quot;/logout&quot;&gt;Log out&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/m-menu&gt;</code></pre>
     <h3 id="svg">Why not SVG?</h3>
     <p>Implementing SVG icons requires a relatively expensive abstraction and because there is no visual or accessibility difference between SVG and glyph icons, that abstraction would be all cost and no benefit. Mdash icons require no JavaScript and so they save kilobytes and have maximum compatibility.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="icons-a11y">Accessibility</h3>
     <p>Because icons should be paired with some text (see above) they should reference that text with <a
       href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"><code>aria-labelledby</code></a> attribute. In cases where there is no label, use
       <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute"><code>aria-label</code></a> and <code>title</code>.</p>
@@ -2290,15 +2459,15 @@ id: ''</code></pre>
 
   <section id="input">
     <h1>Input</h1>
-    <h2 class="txt-gray-5">Form element for receiving user input</h2>
-    <h2 id="demo">Demo</h2>
+    <h2>Form element for receiving user input</h2>
+    <h2 id="input-demo">Demo</h2>
     <code-sample>
       <fieldset>
         <label>Label</label>
         <input type="text" placeholder="Placeholder">
       </fieldset>
     </code-sample>
-    <h2 id="api">API</h2>
+    <h2 id="input-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -2316,7 +2485,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="input-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -2407,10 +2576,10 @@ id: ''</code></pre>
       </tbody>
     </table>
     <small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes" target="_blank" rel="noopener">MDN: Input element - Attributes</a> for the full list.</small>
-    <h2 id="guidelines">Guidelines</h2>
+    <h2 id="input-guidelines">Guidelines</h2>
     <h3 id="right-type">Use the right type</h3>
     <p>It's very important to take the time to understand what values a user can enter in a given input and to use the right <code>type</code> for those values. If, for example, the input is for a membership number then using <code>type="number"</code> will present an easier to use numbers-only keyboard on most touch devices. The same goes for email and phone numbers. These UX optimizations are important to users and are virtually free to implement, so take a moment to ensure you're using the right input type.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="input-a11y">Accessibility</h3>
     <p>Labels should use the <code>for</code> attribute to reference the id of its corresponding input. Inputs should use the right type (see above), autofocus, and autocomplete to improve their usability.</p>
   </section>
 
@@ -2418,15 +2587,17 @@ id: ''</code></pre>
 
   <section id="keyboard">
     <h1>Keyboard</h1>
-    <h2 class="txt-gray-5">Represents text from an input device</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <p>Press <kbd>⇧⌘T</kbd> to close window</p>
-      <kbd>
-        <kbd>Ctrl</kbd> + <kbd>N</kbd>
-      </kbd>
-    </code-sample>
-    <h2 id="api">API</h2>
+    <h2>Represents text from an input device</h2>
+    <h2 id="keyboard-demo">Demo</h2>
+    <p>Press <kbd>⇧⌘T</kbd> to close window</p>
+    <kbd>
+      <kbd>Ctrl</kbd> + <kbd>N</kbd>
+    </kbd>
+    <pre><code>&lt;p&gt;Press &lt;kbd&gt;⇧⌘T&lt;/kbd&gt; to close window&lt;/p&gt;
+&lt;kbd&gt;
+  &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;N&lt;/kbd&gt;
+&lt;/kbd&gt;</code></pre>
+    <h2 id="keyboard-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -2444,22 +2615,22 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="formatting">Formatting</h3>
+    <h2 id="keyboard-guidelines">Guidelines</h2>
+    <h3 id="keyboard-formatting">Formatting</h3>
     <p>Mdash doesn't define a format for keyboard shortcuts because there are many popular ways to do it. Shortcuts are also platform-specific and so it is recommended to follow the format used by the user's OS. There are several ways to detect OS using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator" target="_blank">Navigator</a> object.</p>
     <p>Windows seems to use a format that includes + characters to indicate a combination of key presses, like <kbd><kbd>Ctrl</kbd> + <kbd>C</kbd></kbd>.</p>
     <p>macOS seems to use a sequence of characters to indicate a combination of key presses, like <kbd>⌘C</kbd>. Symbols are used for modifier keys (see below).</p>
     <p>Be careful how you show the + character. Users can misinterpret it as representing a required key.</p>
-    <h3 id="os">macOS Modifier Key Symbols</h3>
+    <h3 id="keyboard-os">macOS Modifier Key Symbols</h3>
     <p>To create macOS keyboard shortcuts, copy these symbols:</p>
     <ul>
-      <li>⌘ - Command key</li>
-      <li>⇧ - Shift key</li>
-      <li>⌥ - Option/Alt key</li>
-      <li>⌃ - Control key</li>
-      <li>⇪ - Caps Lock key</li>
+      <li>⌘ Command key</li>
+      <li>⇧ Shift key</li>
+      <li>⌥ Option/Alt key</li>
+      <li>⌃ Control key</li>
+      <li>⇪ Caps Lock key</li>
     </ul>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="keyboard-a11y">Accessibility</h3>
     <p>There are no accessibility recommendations for the keyboard element.</p>
   </section>
 
@@ -2467,8 +2638,8 @@ id: ''</code></pre>
 
   <section id="link">
     <h1>Link</h1>
-    <h2 class="txt-gray-5">Used for navigating</h2>
-    <h2>Demo</h2>
+    <h2>Used for navigating</h2>
+    <h2 id="link-demo">Demo</h2>
     <code-sample>
       <a href="#">Real link</a>,
       <span role="link">Fake link</span>
@@ -2545,7 +2716,7 @@ id: ''</code></pre>
 
   <section id="loader">
     <h1>Loader</h1>
-    <h2 class="txt-gray-5">Indicates a processing state</h2>
+    <h2>Indicates a processing state</h2>
     <h2 id="demo">Demo</h2>
     <code-sample>
       <template>
@@ -2619,7 +2790,7 @@ id: ''</code></pre>
 
   <section id="menu">
     <h1>Menu</h1>
-    <h2 class="txt-gray-5">Small, toggleable containers often used for navigation</h2>
+    <h2>Small, toggleable containers often used for navigation</h2>
     <h2 id="demo">Demo</h2>
     <code-sample>
       <template>
@@ -2737,7 +2908,7 @@ id: ''</code></pre>
 
   <section id="popover">
     <h1>Popover</h1>
-    <h2 class="txt-gray-5">Small overlay containers toggled by the user</h2>
+    <h2>Small overlay containers toggled by the user</h2>
     <h2 id="popover-demo">Demo</h2>
     <m-popover tabindex="0">
       <button ord="primary" aria-controls="my-popover">Open</button>
@@ -2845,7 +3016,7 @@ id: ''</code></pre>
 
   <section id="radio">
     <h1>Radio input</h1>
-    <h2 class="txt-gray-5">Form element for picking one of many choices</h2>
+    <h2>Form element for picking one of many choices</h2>
     <h2 id="demo">Demo</h2>
     <code-sample>
       <fieldset>
@@ -2905,16 +3076,13 @@ id: ''</code></pre>
 
   <section id="range">
     <h1>Range Slider</h1>
-    <h2 class="txt-gray-5">Form element for fine-grained values</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <fieldset>
-        <label>Price</label>
-        <input type="range">
-      </fieldset>
-    </code-sample>
-    <p>See more <a href="/examples#Foo">examples</a></p>
-    <h2 id="api">API</h2>
+    <h2>Form element for fine-grained values</h2>
+    <h2 id="range-demo">Demo</h2>
+    <fieldset>
+      <label>Price</label>
+      <input type="range">
+    </fieldset>
+    <h2 id="range-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -2937,7 +3105,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="range-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -2969,7 +3137,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="events">Events</h3>
+    <h3 id="range-events">Events</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -2991,64 +3159,59 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="output">Displaying range values</h3>
-    <p>A common use case is to display the value of range as it updates. Mdash leaves that part of the design open for customization, but with the one requirement to use the standard <code>&lt;output&gt;</code> element to contain the value.</p>
-    <p>Here's two simple designs to get you started:</p>
-    <m-row>
-      <m-col>
-        <div class="mar-b-8">
-          <fieldset>
-            <label>Price</label>
-            <input name="range1_demo" type="range" min="0" max="1000" value="308">
-            <output name="output1_demo"></output>
-          </fieldset>
+    <h2 id="range-guidelines">Guidelines</h2>
+    <h3 id="range-output">Displaying range values</h3>
+    <p>Mdash leaves the design for displaying range values open for customization, but with the one requirement to use the standard <code>&lt;output&gt;</code> element to contain the value.</p>
+    <p>Here's two common patterns to help get you started:</p>
+    <div class="flex gap-4">
+      <div>
+        <fieldset>
+          <label>Price</label>
+          <input name="rangeDemo1" type="range" min="0" max="1000" value="308">
+          <output name="outputDemo1"></output>
+        </fieldset>
 
-          <script>
-            const range1  = document.querySelector('[name=range1_demo]');
-            const output1 = document.querySelector('[name=output1_demo]');
-            const update1 = (e, range) => {
-              range = e?.target || range;
-              output1.textContent = range.value;
-            };
+        <script>
+          const range1  = document.querySelector('[name=rangeDemo1]');
+          const output1 = document.querySelector('[name=outputDemo1]');
 
-            range1.addEventListener('input', update1);
-            update1(null, range1);
-          </script>
-        </div>
-      </m-col>
-      <m-col>
-        <div class="mar-b-10">
-          <fieldset>
-            <label>Price</label>
-            <input name="range2_demo" type="range" min="0" max="1000" value="223">
-            <output name="output2_demo" class="pos-absolute bg-gray-1 pos-b-0 mar-b-8 pad-1 txt-xs brd-radius-md"></output>
-          </fieldset>
+          function updateOutput2() {
+            output1.textContent = range1.value;
+          }
 
-          <script>
-            const range2  = document.querySelector('[name=range2_demo]');
-            const output2 = document.querySelector('[name=output2_demo]');
+          updateOutput2();
+          range1.addEventListener('input', updateOutput2);
+        </script>
+      </div>
+      <div>
+        <fieldset>
+          <label>Price</label>
+          <input name="rangeDemo2" type="range" min="0" max="1000" value="700">
+          <output name="outputDemo2" class="pos-absolute bg-white shadow pos-b-0 mar-b-8 pad-1 txt-xs brd-radius-md"></output>
+        </fieldset>
 
-            function update2(e, range) {
-              range = e?.currentTarget || range;
-              output2.textContent = range.value;
-              const val = Number((range.value - range.min) * 100 / (range.max - range.min));
-              const pos = 9 - (val * 0.2); // 9 is half the thumb width
-              output2.style.left = `calc(${val}% + ${pos}px)`;
-            }
+        <script>
+          const range2  = document.querySelector('[name=rangeDemo2]');
+          const output2 = document.querySelector('[name=outputDemo2]');
 
-            range2.addEventListener('input', update2);
-            update2(null, range2);
-          </script>
+          function updateOutput2() {
+            const val = Number((range2.value - range2.min) * 100 / (range2.max - range2.min));
+            const pos = 9 - (val * 0.2); // 9 is half the thumb width
+            output2.style.left = `calc(${val}% + ${pos}px)`;
+            output2.textContent = range2.value;
+          }
 
-          <style>
-            input[type=range][name=range2_demo] + output {
-              transform: translate(-50%);
-            }
-          </style>
-        </div>
-      </m-col>
-    </m-row>
+          updateOutput2();
+          range2.addEventListener('input', updateOutput2);
+        </script>
+
+        <style>
+          input[type=range][name=rangeDemo2] + output {
+            transform: translate(-50%);
+          }
+        </style>
+      </div>
+    </div>
 
     <!--<h3 id="vertical">Vertical orientation</h3>-->
     <!--<p>The orient vertical option works well for one range, but having multiple vertical ranges requires the following:</p>-->
@@ -3065,7 +3228,7 @@ id: ''</code></pre>
     <!--    </fieldset>-->
     <!--  </div>-->
     <!--</code-sample>-->
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="range-a11y">Accessibility</h3>
     <p>Use <code>for</code> and <code>id</code> as usual, but also use <code>for</code> on <code>output</code> elements. MDN has more details
       <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_slider_role">ARIA: Using the slider role</a>.</p>
   </section>
@@ -3074,7 +3237,7 @@ id: ''</code></pre>
 
   <section id="select">
     <h1>Select</h1>
-    <h2 class="txt-gray-5">Drop-down list of choices</h2>
+    <h2>Drop-down list of choices</h2>
     <h2 id="demo">Demo</h2>
     <code-sample>
       <fieldset>
@@ -3181,21 +3344,33 @@ id: ''</code></pre>
 
   <section id="separator">
     <h1>Separator</h1>
-    <h2 class="txt-gray-5">An element that divides sections of content or groups of menu items</h2>
-    <h2>Demo</h2>
-    <code-sample>
-      <p>Content</p>
+    <h2>An element that divides sections of content</h2>
+    <h2 id="separator-demo">Demo</h2>
+    <div class="flex flx-col gap-2">
+      <div>Content</div>
       <hr>
-      <p>Content</p>
-      <div class="flex gap-1">
-        <div>Content</div>
-        <hr aria-orientation="vertical">
-        <div>Content</div>
-        <hr aria-orientation="vertical">
-        <div>Content</div>
-      </div>
-    </code-sample>
-    <h2>API</h2>
+      <div>Content</div>
+    </div>
+    <div class="flex gap-2">
+      <div>Content</div>
+      <hr aria-orientation="vertical">
+      <div>Content</div>
+      <hr aria-orientation="vertical">
+      <div>Content</div>
+    </div>
+    <pre><code>&lt;div class=&quot;flex flx-col gap-2&quot;&gt;
+  &lt;div&gt;Content&lt;/div&gt;
+  &lt;hr&gt;
+  &lt;div&gt;Content&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;flex gap-2&quot;&gt;
+  &lt;div&gt;Content&lt;/div&gt;
+  &lt;hr aria-orientation=&quot;vertical&quot;&gt;
+  &lt;div&gt;Content&lt;/div&gt;
+  &lt;hr aria-orientation=&quot;vertical&quot;&gt;
+  &lt;div&gt;Content&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    <h2 id="separator-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -3227,30 +3402,28 @@ id: ''</code></pre>
         <td colspan="2"><code>aria-orientation</code></td>
         <td colspan="2">vertical</td>
         <td colspan="6">
-          <p>Displays the separator vertically. Must have a Flexbox or Grid parent (use <a href="utility-classes#display">display utility classes</a>).</p>
+          <p>Displays the separator vertically. Vertical separators must have a Flexbox or Grid parent (use the <a href="#utility-classes-display">flex or grid utility class</a>).</p>
         </td>
       </tr>
       </tbody>
     </table>
-    <h2>Guidelines</h2>
+    <h2 id="separator-guidelines">Guidelines</h2>
     <h3>Where to use</h3>
-    <p>Separators are useful in menus, toolbars, and <a href="rules">written content</a>.</p>
-    <p>Avoid using too many separators. Font size, font weight, whitespace, color contrast and other common visual characteristics are usually enough to create the needed distinction between elements.</p>
-    <h3 id="a11y">Accessibility</h3>
-    <p>The hr element has an implicit <code>role="separator"</code>, so don't add it. There is also no need to set <code>aria-orientation="horizontal"</code> since it's the default.</p>
+    <p>Separators are useful in menus, toolbars, and written content.</p>
+    <p>Avoid using too many separators. Font size, font weight, whitespace, color contrast and other common visual characteristics are often sufficient to create the necessary visual distinction between elements.</p>
+    <h3 id="separator-a11y">Accessibility</h3>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role" target="_blank">MDN</a> says, "The first rule of ARIA is if a native HTML element or attribute has the semantics and behavior you require, use it instead of re-purposing an element and adding ARIA." The native hr element has an implicit <code>role="separator"</code>, so there is no need for a proprietary implementation. There is also no need to set <code>aria-orientation="horizontal"</code> since it's the default.</p>
   </section>
 
   <hr>
 
   <section id="switch">
     <h1>Switch</h1>
-    <h2 class="txt-gray-5">A control for toggling binary values like on/off</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <input type="checkbox" role="switch" checked>
-    </code-sample>
-    <p>See more <a href="/examples#switch">examples</a></p>
-    <h2 id="api">API</h2>
+    <h2>A control for toggling binary values like on/off</h2>
+    <h2 id="switch-demo">Demo</h2>
+    <input type="checkbox" role="switch" checked>
+    <pre><code class="language-html">&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot; checked&gt;</code></pre>
+    <h2 id="switch-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -3268,7 +3441,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="switch-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -3281,7 +3454,7 @@ id: ''</code></pre>
       <tr>
         <td colspan="2"><code>role</code> <small class="fnt-bold fnt-italic">required</small></td>
         <td colspan="2">switch</td>
-        <td colspan="6">Defines the checkbox as a switch.</td>
+        <td colspan="6">Defines the checkbox as a switch</td>
       </tr>
       <tr>
         <td colspan="2"><code>checked</code></td>
@@ -3295,7 +3468,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="events">Events</h3>
+    <h3 id="switch-events">Events</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -3306,22 +3479,17 @@ id: ''</code></pre>
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>input</code></td>
-        <td colspan="2">None</td>
-        <td colspan="6">Switch is a checkbox, so you can listen to the same standard input event.</td>
-      </tr>
-      <tr>
         <td colspan="2"><code>change</code></td>
         <td colspan="2">None</td>
-        <td colspan="6">Switch is a checkbox, so you can listen to the same standard change event.</td>
+        <td colspan="6">Switch is a checkbox, so you can listen for the standard change event.</td>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="form">Standalone or form</h3>
+    <h2 id="switch-guidelines">Guidelines</h2>
+    <h3 id="switch-with-form">Standalone or form</h3>
     <p>A switch can be used on its own or more commonly as a list of options in a form, like this:</p>
     <code-sample>
-      <m-box style="width: 300px">
+      <m-card style="width: 300px">
         <h4 class="mar-t-1">Network settings</h4>
         <form>
           <fieldset class="flex justify-content-between align-items-center">
@@ -3342,49 +3510,75 @@ id: ''</code></pre>
             <small class="width-full">Currently unavailable</small>
           </fieldset>
         </form>
-      </m-box>
+      </m-card>
     </code-sample>
-    <h3 id="a11y">Accessibility</h3>
-    <p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role" target="_blank">MDN</a> says, "The first rule of ARIA is if a native HTML element or attribute has the semantics and behavior you require, use it instead of re-purposing an element and adding ARIA. Instead use the native HTML checkbox of <code>&lt;input type="checkbox"&gt;</code>, which natively provides all the functionality required."</p>
+    <h3 id="switch-a11y">Accessibility</h3>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role" target="_blank">MDN</a> says, "The first rule of ARIA is if a native HTML element or attribute has the semantics and behavior you require, use it instead of re-purposing an element and adding ARIA." The native checkbox is quite suitable for a custom switch component, so that in conjunction with the switch role should be used instead of a proprietary implementation.</p>
   </section>
 
   <hr>
 
   <section id="table">
     <h1>Table</h1>
-    <h2 class="txt-gray-5">Used for tabular data</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <table striped>
-        <thead>
-        <tr>
-          <th>Product</th>
-          <th aria-sort="ascending">
-            <button aria-pressed="true">Price</button>
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>Socks</td>
-          <td>$9.99</td>
-        </tr>
-        <tr>
-          <td>Shorts</td>
-          <td>$19.99</td>
-        </tr>
-        <tr>
-          <td>Sweater</td>
-          <td>$29.99</td>
-        </tr>
-        <tr>
-          <td>Shoes</td>
-          <td>$49.99</td>
-        </tr>
-        </tbody>
-      </table>
-    </code-sample>
-    <h2 id="api">API</h2>
+    <h2>Used for tabular data</h2>
+    <h2 id="table-demo">Demo</h2>
+    <table striped>
+      <thead>
+      <tr>
+        <th>Product</th>
+        <th aria-sort="ascending">
+          <button>Price</button>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Socks</td>
+        <td>$9.99</td>
+      </tr>
+      <tr>
+        <td>Shorts</td>
+        <td>$19.99</td>
+      </tr>
+      <tr>
+        <td>Sweater</td>
+        <td>$29.99</td>
+      </tr>
+      <tr>
+        <td>Shoes</td>
+        <td>$49.99</td>
+      </tr>
+      </tbody>
+    </table>
+    <pre><code>&lt;table striped&gt;
+  &lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Product&lt;/th&gt;
+    &lt;th aria-sort=&quot;ascending&quot;&gt;
+      &lt;button&gt;Price&lt;/button&gt;
+    &lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Socks&lt;/td&gt;
+    &lt;td&gt;$9.99&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Shorts&lt;/td&gt;
+    &lt;td&gt;$19.99&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Sweater&lt;/td&gt;
+    &lt;td&gt;$29.99&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Shoes&lt;/td&gt;
+    &lt;td&gt;$49.99&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    <h2 id="table-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -3415,9 +3609,14 @@ id: ''</code></pre>
         <td colspan="2">Native element</td>
         <td colspan="6"><code>&lt;tr&gt;</code> with <code>&lt;td&gt;</code> children</td>
       </tr>
+      <tr>
+        <td colspan="2"><code>caption</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">If used, must be first child</td>
+      </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="table-attributes">Attributes</h3>
     <p>For <span class="fnt-bold">&lt;table&gt;</span> only:</p>
     <table layout="fixed">
       <thead>
@@ -3465,31 +3664,97 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="page-layout">Not for page layout</h3>
-    <p>Use <a href="/grid">Grid</a> for creating a page's layout. Do not use Table.</p>
-    <h3 id="a11y">Accessibility</h3>
-    <p>The sorted column must have the appropriate <code>aria-sort</code> value. When the user clicks a sort button, add <code>aria-pressed="true"</code> to it to indicate the pressed state.</p>
+    <p>For <span class="fnt-bold">&lt;caption&gt;</span> only:</p>
+    <table layout="fixed">
+      <tbody>
+      <tr>
+        <td colspan="2"><code>side</code></td>
+        <td colspan="2">
+          <ul type="none">
+            <li>start <small class="fnt-bold fnt-italic">default</small></li>
+            <li>end</li>
+          </ul>
+        </td>
+        <td colspan="6">Positions the caption at the start or end of the table by setting the <code>caption-side</code> property. The values start and end were chosen instead of top and bottom to map to future support for
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values">logical values</a>. Regardless of side, captions must be the first child of the table.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 id="table-guidelines">Guidelines</h2>
+    <h3 id="table-caption">Caption side</h3>
+    <p>Captions must be the first child but can still be positioned on either end of the table. Refer to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/caption">MDN: caption</a> for more info.</p>
+    <table>
+      <caption side="start">Caption start (default)</caption>
+      <thead>
+      <tr>
+        <th>Header</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Cell</td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+    <table>
+      <caption side="end">Caption end</caption>
+      <thead>
+      <tr>
+        <th>Header</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Cell</td>
+      </tr>
+      </tbody>
+    </table>
+    <pre><code>&lt;table&gt;
+  &lt;caption side=&quot;start&quot;&gt;Caption start (default)&lt;/caption&gt;
+  &lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Header&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Cell&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;caption side=&quot;end&quot;&gt;Caption end&lt;/caption&gt;
+  &lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Header&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Cell&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    <h3 id="table-a11y">Accessibility</h3>
+    <p>The sorted column must have the appropriate <code>aria-sort</code> value.</p>
   </section>
 
   <hr>
 
   <section id="tabs">
     <h1>Tabs</h1>
-    <h2 class="txt-gray-5">Master-detail pattern for navigating content</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <template>
-        <m-tabs role="tablist" scrollable>
-          <button role="tab" aria-selected="true">Selected</button>
-          <button role="tab">Not Selected</button>
-          <button role="tab" disabled>Disabled</button>
-          <a href="/" role="tab">Link</a>
-        </m-tabs>
-        <p class="txt-xs txt-gray-5">See <a href="#select-tab">selecting tabs</a> to learn how to select a tab</p>
-      </template>
-    </code-sample>
-    <h2 id="api">API</h2>
+    <h2>Master-detail pattern for navigating content</h2>
+    <h2 id="tabs-demo">Demo</h2>
+    <m-tabs role="tablist" scrollable>
+      <button role="tab" aria-selected="true">Selected</button>
+      <button role="tab">Not Selected</button>
+      <button role="tab" disabled>Disabled</button>
+      <a href="#tabs" role="tab">Link</a>
+    </m-tabs>
+    <p class="mar-t-3 txt-xs txt-gray-5">See <a href="#tabs-select-tab">selecting tabs</a> to learn how to select a tab</p>
+    <h2 id="tabs-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -3507,7 +3772,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="tabs-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -3542,98 +3807,113 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="select-tab">Selecting tabs</h3>
-    <h4>Selecting the tab</h4>
-    <p>Setting the selected tab is handled by your app. To select a tab, set <code>aria-selected="true"</code>. There are a several approaches you could take to manage this, but event delegation comparing tabs to the clicked tab is probably the simplest without a framework:</p>
-    <code-sample>
-      <script>
-        const selectTab = e => e.currentTarget.querySelectorAll('[role=tab]').forEach(tab => tab.ariaSelected = tab === e.target);
-      </script>
-      <m-tabs onclick="selectTab(event)" role="tablist">
-        <button role="tab">A</button>
-        <button role="tab">B</button>
-      </m-tabs>
-    </code-sample>
-    <p>That will only select the tab. Selecting the corresponding tab panel is explained next.</p>
-    <h4>Showing a tab panel</h4>
-    <p>Mdash assumes nothing about what happens when a tab is selected, which allows for multiple solutions like toggling the <code>hidden</code> attribute, directly changing the DOM, rendering different components, navigating to a new page, or something else. Here's an example of the typical use case of selecting a tab and showing its panel:</p>
-    <code-sample readonly="readonly">
-      <script>
-        function switchTab(e) \{
-          // Note that e.target could be a child element if you included an icon or something in the tab, so get the actual tab element in that case.
-          const selectedTabId = e.target.closest('[role=tab]').id;
+    <h2 id="tabs-guidelines">Guidelines</h2>
+    <h3 id="tabs-select-tab">Selecting tabs</h3>
+    <h4>Select the tab</h4>
+    <p>To select a tab, set <code>aria-selected="true"</code>. This is handled by your app and there are several approaches you could take to manage this, but event delegation comparing the tabs to the clicked tab is probably the simplest without a framework.</p>
+    <script>
+      function selectTab(e) {
+        const tabs = e.currentTarget.querySelectorAll('[role=tab]');
+        tabs.forEach(tab => tab.ariaSelected = tab === e.target);
+      }
+    </script>
 
-          // Select the tab and its panel
-          e.currentTarget.querySelectorAll('[role=tab]').forEach(tab => tab.ariaSelected = tab.id === selectedTabId);
-          document.querySelectorAll('[role=tabpanel').forEach(panel => panel.hidden = panel.dataset.tabId !== selectedTabId);
-        }
-      </script>
-      <template>
-        <m-tabs onclick="switchTab(event)" role="tablist">
-          <button id="a" role="tab">A</button>
-          <button id="b" role="tab">B</button>
-        </m-tabs>
-        <div role="tabpanel" data-tab-id="a">Tab A panel</div>
-        <div role="tabpanel" data-tab-id="b">Tab B panel</div>
-      </template>
-    </code-sample>
-    <p>Here's the same thing with a more declarative approach using Riot.js, for example:</p>
-    <code-sample readonly="readonly">
-      <template>
-        <app>
-          <m-tabs onclick="{switchTab}">
-            <button id="a" aria-selected="{state.tab === 'a'}">A</button>
-            <button id="b" aria-selected="{state.tab === 'b'}">B</button>
-          </m-tabs>
-          <div if="{state.tab === 'a'}">Tab A panel</div>
-          <div if="{state.tab === 'b'}">Tab B panel</div>
+    <m-tabs onclick="selectTab(event)" role="tablist">
+      <button role="tab">A</button>
+      <button role="tab">B</button>
+    </m-tabs>
+    <pre><code>&lt;script&gt;
+  function selectTab(e) {
+    const tabs = e.currentTarget.querySelectorAll(&#39;[role=tab]&#39;);
+    tabs.forEach(tab =&gt; tab.ariaSelected = tab === e.target);
+  }
+&lt;/script&gt;
 
-          <script>
-            export default {
-              switchTab(e) {
-                this.update({tab: e.target.id});
-              }
-            }
-          </script>
-        </app>
-      </template>
-    </code-sample>
+&lt;m-tabs onclick=&quot;selectTab(event)&quot; role=&quot;tablist&quot;&gt;
+  &lt;button role=&quot;tab&quot;&gt;A&lt;/button&gt;
+  &lt;button role=&quot;tab&quot;&gt;B&lt;/button&gt;
+&lt;/m-tabs&gt;</code></pre>
+    <p>This only selects the <em>tab</em>. Selecting the corresponding panel is explained next.</p>
+    <h4>Show the panel</h4>
+    <p>Mdash assumes nothing about what happens when a tab is selected. This allows for many different solutions, like toggling the panels' <code>hidden</code> attribute, or directly changing the DOM, dynamically rendering a component, navigating to a new page, or something else. Here's a simple using the <code>hidden</code> attribute:</p>
+    <script>
+      function switchTab(e) {
+        const selectedTab = e.target.closest('[role=tab]');
+        const tabs = e.currentTarget.querySelectorAll('[role=tab]');
+        const panels = document.querySelectorAll('[role=tabpanel]');
 
-    <h3 id="a11y">Accessibility</h3>
+        // Select the tab and show  its panel.
+        tabs.forEach(tab => tab.ariaSelected = tab.id === selectedTab.id);
+        panels.forEach(panel => panel.hidden = panel.dataset.tabId !== selectedTab.id);
+      }
+    </script>
+    <m-tabs onclick="switchTab(event)" role="tablist">
+      <button id="tabA" role="tab" aria-selected="true">A</button>
+      <button id="tabB" role="tab">B</button>
+    </m-tabs>
+    <div role="tabpanel" data-tab-id="tabA">Tab A panel</div>
+    <div role="tabpanel" data-tab-id="tabB" hidden>Tab B panel</div>
+    <pre><code>&lt;script&gt;
+  function switchTab(e) {
+    const selectedTab = e.target.closest(&#39;[role=tab]&#39;);
+    const tabs = e.currentTarget.querySelectorAll(&#39;[role=tab]&#39;);
+    const panels = document.querySelectorAll(&#39;[role=tabpanel]&#39;);
+
+    // Select the tab and show  its panel.
+    tabs.forEach(tab =&gt; tab.ariaSelected = tab.id === selectedTab.id);
+    panels.forEach(panel =&gt; panel.hidden = panel.dataset.tabId !== selectedTab.id);
+  }
+&lt;/script&gt;
+
+&lt;m-tabs onclick=&quot;switchTab(event)&quot; role=&quot;tablist&quot;&gt;
+  &lt;button id=&quot;tabA&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot;&gt;A&lt;/button&gt;
+  &lt;button id=&quot;tabB&quot; role=&quot;tab&quot;&gt;B&lt;/button&gt;
+&lt;/m-tabs&gt;
+&lt;div role=&quot;tabpanel&quot; data-tab-id=&quot;tabA&quot;&gt;Tab A panel&lt;/div&gt;
+&lt;div role=&quot;tabpanel&quot; data-tab-id=&quot;tabB&quot; hidden&gt;Tab B panel&lt;/div&gt;</code></pre>
+    <p class="mar-t-3">Here's the same thing with a more declarative approach using Riot.js (or other framework):</p>
+    <pre><code>&lt;app&gt;
+  &lt;m-tabs onclick="{switchTab}" role="tablist"&gt;
+    &lt;button id="tabA" aria-selected=&quot;{state.tab === &#39;tabA&#39;}&quot;&gt;A&lt;/button&gt;
+    &lt;button id="tabB" aria-selected=&quot;{state.tab === &#39;tabB&#39;}&quot;&gt;B&lt;/button&gt;
+  &lt;/m-tabs&gt;
+  &lt;div if=&quot;{state.tab === &#39;tabA&#39;}&quot; role="tabpanel"&gt;Tab A panel&lt;/div&gt;
+  &lt;div if=&quot;{state.tab === &#39;tabB&#39;}&quot; role="tabpanel"&gt;Tab B panel&lt;/div&gt;
+
+  &lt;script&gt;
+    export default {
+      state: {
+        tab: 'tabA'
+      }
+
+      switchTab(e) {
+        this.update({tab: e.target.id});
+      }
+    }
+  &lt;/script&gt;
+&lt;/app&gt;</code></pre>
+    <h3 id="tabs-a11y">Accessibility</h3>
     <p>All of the necessary ARIA attributes are here in the example below:</p>
-    <code-sample readonly="readonly">
-      <template>
-        <m-tabs role="tablist">
-          <button id="a" aria-controls="a-panel" role="tab">A</button>
-          <button id="b" aria-controls="b-panel" role="tab">B</button>
-        </m-tabs>
-        <div id="a-panel" role="tabpanel" aria-labelledby="a">
-          This content is shown when the "a" Tab is selected.
-        </div>
-        <div id="b-panel" role="tabpanel" aria-labelledby="b">
-          This content is shown when the "b" Tab is selected.
-        </div>
-      </template>
-    </code-sample>
+    <pre><code>&lt;m-tabs role=&quot;tablist&quot;&gt;
+  &lt;button id=&quot;tabA&quot; role=&quot;tab&quot; aria-controls=&quot;panelA&quot;&gt;A&lt;/button&gt;
+  &lt;button id=&quot;tabB&quot; role=&quot;tab&quot; aria-controls=&quot;panelB&quot;&gt;B&lt;/button&gt;
+&lt;/m-tabs&gt;
+&lt;div id=&quot;panelA&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;tabA&quot;&gt;Tab A panel&lt;/div&gt;
+&lt;div id=&quot;panelB&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;tabB&quot;&gt;Tab B panel&lt;/div&gt;</code></pre>
   </section>
 
   <hr>
 
   <section id="tag">
     <h1>Tag</h1>
-    <h2 class="txt-gray-5">Used for keywords, labeling, and filters</h2>
+    <h2>Used for keywords, labeling, and filters</h2>
     <h2 id="tag-demo">Demo</h2>
-    <code-sample>
-      <m-tag>non-smoking</m-tag>
-      <m-tag>WiFi</m-tag>
-      <m-tag>pool</m-tag>
-      <m-tag>
-        <m-icon name="local_cafe"></m-icon>
-        free breakfast
-        <button slot="close" aria-label="Remove"></button>
-      </m-tag>
-    </code-sample>
+    <m-tag>non-smoking</m-tag>
+    <m-tag><m-icon name="pool"></m-icon>pool</m-tag>
+    <m-tag>breakfast available<button slot="close" title="Remove" aria-label="Remove"></button></m-tag>
+    <pre><code>&lt;m-tag&gt;non-smoking&lt;/m-tag&gt;
+&lt;m-tag&gt;&lt;m-icon name="pool"&gt;&lt;/m-icon&gt;pool&lt;/m-tag&gt;
+&lt;m-tag&gt;breakfast available&lt;button slot=&quot;close&quot; title=&quot;Remove&quot; aria-label=&quot;Remove&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;</code></pre>
     <h2 id="tag-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
@@ -3648,7 +3928,7 @@ id: ''</code></pre>
       <tr>
         <td colspan="2"><code>m-tag</code></td>
         <td colspan="2">Custom tag</td>
-        <td colspan="6">Text, icon, or link and optional remove button for <a href="#tag-removable">removable tags</a></td>
+        <td colspan="6">Text, icon, or link and optional remove button for removable tags</td>
       </tr>
       </tbody>
     </table>
@@ -3665,69 +3945,112 @@ id: ''</code></pre>
       <tr>
         <td colspan="2"><code>close</code></td>
         <td colspan="2">button</td>
-        <td colspan="6">None. See <a href="#tag-close-button">Removable Tags</a> below.</td>
+        <td colspan="6">None. See <a href="#tag-close-button">removable tags</a> below.</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>Custom Properties</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>--color</code></td>
+        <td colspan="6">Sets the base color of the tag. The text, background, and optional button colors are automatically derived from this value. See <a href="#tag-color">Color</a> below.</td>
       </tr>
       </tbody>
     </table>
     <h2 id="tag-guidelines">Guidelines</h2>
     <h3 id="tag-close-button">Removable Tags</h3>
-    <p>To remove a tag, slot a button and using whatever method is right for your app, bind a click handler that removes the tag:</p>
-    <m-tag>Remove me <button onclick="removeTag(event)" slot="close" aria-label="Remove"></button></m-tag>
+    <p>To remove a tag, slot the close button and use whatever method is right for your app to bind a click handler that removes the tag. For example:</p>
     <script>
       function removeTag(e) {
         e.target.parentElement.remove();
       }
     </script>
-    <pre><code>&lt;m-tag&gt;Remove me &lt;button onclick=&quot;removeTag(event)&quot; slot=&quot;close&quot; aria-label=&quot;Remove&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
-&lt;script&gt;
+
+    <m-tag>Text<button onclick="removeTag(event)" slot="close" title="Remove" aria-label="Remove"></button></m-tag>
+    <pre><code>&lt;script&gt;
   function removeTag(e) {
     e.target.parentElement.remove();
   }
-&lt;/script&gt;</code></pre>
-    <!--<p>It can be helpful to add an <code>id</code> or <code>data-*</code> attribute with some identifying data (id, name, index) to the tag to know which one was removed and update the backing data source, like an Array of users:</p>-->
-    <!--<code-sample readonly="readonly">-->
-    <!--  <template>-->
-    <!--    <m-tag data-user-id="{user.id}">{user.name}<button type="remove" onclick="removeUser"></button></m-tag>-->
-    <!--  </template>-->
+&lt;/script&gt;
 
-    <!--  <script>-->
-    <!--    removeUser(e) \{-->
-    <!--      const tag = e.currentTarget.parentElement;-->
+&lt;m-tag&gt;Text&lt;button onclick=&quot;removeTag(event)&quot; slot=&quot;close&quot; title="Remove" aria-label=&quot;Remove&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;</code></pre>
+    <p>It can be helpful to add an <code>id</code> or <code>data-*</code> attribute with some identifying data to the tag to know which one was removed. Like this:</p>
+    <script>
+      function removeUser(e) {
+        const tag = e.currentTarget.parentElement;
 
-    <!--      // Remove user-->
-    <!--      this.users.splice(this.users.findIndex(u => u.id === tag.dataset.userId), 1);-->
+        // Remove the user and tag.
+        console.log(`Remove user ${tag.dataset.userId}...`);
+        tag.remove();
+      }
+    </script>
 
-    <!--      // Remove tag (or it's removed automatically depending on your implementation)-->
-    <!--      tag.remove();-->
-    <!--    }-->
-    <!--  </script>-->
-    <!--</code-sample>-->
-    <h3>Color</h3>
-    <p>Tag color can be changed with its <code>--color</code> custom property:</p>
-    <m-tag style="--color: var(--m-color-blue-3)">Blue tag</m-tag>
-    <m-tag style="--color: var(--m-color-red-3)">Red tag</m-tag>
-    <m-tag style="--color: var(--m-color-green-3)">Green tag</m-tag>
-    <m-tag style="--color: var(--m-color-orange-3)">Orange tag</m-tag>
+    <m-tag data-user-id="1">Bill<button onclick="removeUser(event)" slot="close"></button></m-tag>
+    <m-tag data-user-id="2">Jill<button onclick="removeUser(event)" slot="close"></button></m-tag>
+    <m-tag data-user-id="3">Phil<button onclick="removeUser(event)" slot="close"></button></m-tag>
+    <pre><code>&lt;script&gt;
+  function removeUser(e) {
+    const tag = e.currentTarget.parentElement;
+
+    // Remove the user and tag.
+    console.log(`Remove user ${tag.dataset.userId}...`);
+    tag.remove();
+  }
+&lt;/script&gt;
+
+&lt;m-tag data-user-id=&quot;1&quot;&gt;Bill&lt;button onclick=&quot;removeUser(event)&quot; slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
+&lt;m-tag data-user-id=&quot;2&quot;&gt;Jill&lt;button onclick=&quot;removeUser(event)&quot; slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
+&lt;m-tag data-user-id=&quot;3&quot;&gt;Phil&lt;button onclick=&quot;removeUser(event)&quot; slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;</code></pre>
+    <h3 id="tag-icon">Icons</h3>
+    <p>Simply include an icon on the lift and/or right side of the label or include just an icon.</p>
+    <m-tag><m-icon name="shower"></m-icon>hot shower</m-tag>
+    <m-tag>hot shower<m-icon name="shower"></m-icon></m-tag>
+    <m-tag><m-icon name="shower" title="Hot shower" aria-label="Hot shower"></m-icon></m-tag>
+    <pre><code>&lt;m-tag&gt;&lt;m-icon name=&quot;shower&quot;&gt;&lt;/m-icon&gt;hot shower&lt;/m-tag&gt;
+&lt;m-tag&gt;hot shower&lt;m-icon name=&quot;shower&quot;&gt;&lt;/m-icon&gt;&lt;/m-tag&gt;
+&lt;m-tag&gt;&lt;m-icon name=&quot;shower&quot; title=&quot;Hot shower&quot; aria-label=&quot;Hot shower&quot;&gt;&lt;/m-icon&gt;&lt;/m-tag&gt;</code></pre>
+    <h3 id="tag-color">Color</h3>
+    <p>Tag's color can be changed with its <code>--color</code> custom property.</p>
+    <m-tag style="--color: var(--m-color-blue-3)">Blue 3 tag<button slot="close"></button></m-tag>
+    <m-tag style="--color: var(--m-color-red-3)">Red 3 tag<button slot="close"></button></m-tag>
+    <m-tag style="--color: var(--m-color-green-3)">Green 3 tag<button slot="close"></button></m-tag>
+    <m-tag style="--color: var(--m-color-orange-3)">Orange 3 tag<button slot="close"></button></m-tag>
+    <m-tag style="--color: #984e28">Custom color tag<button slot="close"></button></m-tag>
+    <pre><code>&lt;m-tag style=&quot;--color: var(--m-color-blue-3)&quot;&gt;Blue 3 tag&lt;button slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
+&lt;m-tag style=&quot;--color: var(--m-color-red-3)&quot;&gt;Red 3 tag&lt;button slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
+&lt;m-tag style=&quot;--color: var(--m-color-green-3)&quot;&gt;Green 3 tag&lt;button slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
+&lt;m-tag style=&quot;--color: var(--m-color-orange-3)&quot;&gt;Orange 3 tag&lt;button slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
+&lt;m-tag style=&quot;--color: #984E28&quot;&gt;Custom color tag&lt;button slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;</code></pre>
     <h3 id="tag-a11y">Accessibility</h3>
-    <p>Use <code>aria-label</code> and <code>title</code> when the tag only contains an icon:</p>
-    <code-sample>
-      <m-tag title="free breakfast" aria-label="free breakfast"><m-icon name="local_cafe"></m-icon></m-tag>
-    </code-sample>
+    <p>Use <code>title</code> and <code>aria-label</code> when the tag only contains an icon and on the close button.</p>
+    <m-tag title="Breakfast available" aria-label="Breakfast available"><m-icon name="local_cafe"></m-icon></m-tag>
+    <m-tag>Text<button slot="close" title="Remove" aria-label="Remove"></button></m-tag>
+    <pre><code>&lt;m-tag title=&quot;Breakfast available&quot; aria-label=&quot;Breakfast available&quot;&gt;&lt;m-icon name=&quot;local_cafe&quot;&gt;&lt;/m-icon&gt;&lt;/m-tag&gt;
+&lt;m-tag&gt;Text&lt;button slot=&quot;close&quot; title=&quot;Remove&quot; aria-label=&quot;Remove&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;</code></pre>
   </section>
 
   <hr>
 
   <section id="textarea">
     <h1>Text area</h1>
-    <h2 class="txt-gray-5">Multi-line input</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <fieldset>
-        <label>Leave a comment</label>
-        <textarea></textarea>
-      </fieldset>
-    </code-sample>
-    <h2 id="api">API</h2>
+    <h2>Multi-line input</h2>
+    <h2 id="textarea-demo">Demo</h2>
+    <fieldset>
+      <label>Label</label>
+      <textarea></textarea>
+    </fieldset>
+    <pre><code class="language-html">&lt;fieldset&gt;
+  &lt;label&gt;Label&lt;/label&gt;
+  &lt;textarea&gt;&lt;/textarea&gt;
+&lt;/fieldset&gt;</code></pre>
+    <h2 id="textarea-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -3745,7 +4068,7 @@ id: ''</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="textarea-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -3758,7 +4081,7 @@ id: ''</code></pre>
       <tr>
         <td colspan="2"><code>rows</code></td>
         <td colspan="2">Number</td>
-        <td colspan="6">Sets a <span class="fnt-italic">starting</span> height that will accommodate the given number of rows, i.e. lines of text. This does not prevent additional lines from being typed and the user can also resize it to be taller or shorter.</td>
+        <td colspan="6">Sets a starting height that will accommodate the given number of rows of text. This does not prevent additional lines from being typed and the user can also resize it.</td>
       </tr>
       <tr>
         <td colspan="2"><code>maxlength</code></td>
@@ -3773,10 +4096,18 @@ id: ''</code></pre>
       </tbody>
     </table>
     <small><span class="fnt-bold">Note:</span> Not all text area attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#Attributes" target="_blank" rel="noopener">MDN: Text area element - Attributes</a> for the full list.</small>
-    <h2 id="guidelines">Guidelines</h2>
+    <h2 id="textarea-guidelines">Guidelines</h2>
     <h3 id="rows">Sensible row size</h3>
-    <p>The default is three rows, i.e. three lines of text, but you should set a number that makes the most sense for your use case. For example, a chat app makes sense to take the default of three, but a customer feedback form should likely have 5-10. Note that text areas are resizable so the user can extend it further if needed, just take care to set a sensible default.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <p>The default is two rows, i.e. two lines of text, but you should set a number that makes the most sense for your use case. For example, a chat app makes sense to take the default of two, but a customer review form should likely have 5-10. Note that text areas are resizable so the user can extend it further if needed, just take care to set a sensible default.</p>
+    <fieldset>
+      <label>Write a review</label>
+      <textarea>Row size of 2 does not work well for a review 🚫</textarea>
+    </fieldset>
+    <fieldset>
+      <label>Write a review</label>
+      <textarea rows="12">Row size of 12 provides comfortable space for the expected content ✅</textarea>
+    </fieldset>
+    <h3 id="textarea-a11y">Accessibility</h3>
     <p>There are no accessibility recommendations for text area.</p>
   </section>
 
@@ -3786,15 +4117,18 @@ id: ''</code></pre>
 
   <section id="code">
     <h1>Code</h1>
-    <h2 class="txt-gray-5">For displaying text as code</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <div>Use the <code>code</code> element for inline code and the <code>pre</code> element for multiple lines of code:</div>
-      <pre>const user = await fetch(url, init);
-alert(user.name);</pre>
-    </code-sample>
-    <!--<p>See more <a href="/examples#Code">examples</a></p>-->
-    <h2 id="api">API</h2>
+    <h2>For displaying text as code</h2>
+    <h2 id="code-demo">Demo</h2>
+    <p>This is <code>inline code</code>.</p>
+    <pre>// Multi-line code
+const user = { name: 'Stan' };
+console.log(user.name);</pre>
+    <pre><code>&lt;p&gt;This is &lt;code&gt;inline code&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;// Multi-line code
+const user = { name: 'Stan' };
+console.log(user.name);&lt;/pre&gt;</code></pre>
+    <h2 id="code-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -3817,31 +4151,36 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="xss">Security</h3>
+    <h2 id="code-guidelines">Guidelines</h2>
+    <h3 id="code-xss">Security</h3>
     <p>Because these elements' content is code, take extra care to ensure you're preventing cross-site scripting. There's nothing that makes these elements more or less secure than any other, but in this case you know for sure you're dumping code into the DOM, so be careful!</p>
-    <h3 id="a11y">Accessibility</h3>
-    <p>You should use <code>aria-label</code> and/or <code>aria-description</code> to explain the code. For example:</p>
-    <code-sample readonly="readonly">
-      <code aria-description="JavaScript code that demonstrates the fetch API.">fetch(url, init)</code>
-    </code-sample>
+    <h3 id="code-a11y">Accessibility</h3>
+    <p>You should use <code>aria-label</code> and/or <code>aria-description</code> to explain the code.</p>
+    <code aria-description="JavaScript code that demonstrates the fetch API.">await fetch(url, init);</code>
+    <pre><code class="language-html">&lt;code aria-description=&quot;JavaScript code that demonstrates the fetch API.&quot;&gt;await fetch(url, init);&lt;/code&gt;</code></pre>
   </section>
 
   <hr>
 
   <section id="headings">
     <h1>Headings</h1>
-    <h2 class="txt-gray-5">Headings elements</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
+    <h2>Headings elements</h2>
+    <h2 id="headings-demo">Demo</h2>
+    <div>
       <h1>Heading 1</h1>
       <h2>Heading 2</h2>
       <h3>Heading 3</h3>
       <h4>Heading 4</h4>
       <h5>Heading 5</h5>
       <h6>Heading 6</h6>
-    </code-sample>
-    <h2 id="api">API</h2>
+    </div>
+    <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+    <h2 id="headings-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -3864,10 +4203,10 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="seo">SEO</h3>
+    <h2 id="headings-guidelines">Guidelines</h2>
+    <h3 id="headings-seo">SEO</h3>
     <p>Using heading elements improves SEO and accessibility.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="headings-a11y">Accessibility</h3>
     <p>Strive to use the heading elements. If your situation doesn't allow for that, there is <code>role="heading"</code> and <code>aria-level</code> for defining the same.</p>
   </section>
 
@@ -3875,7 +4214,7 @@ alert(user.name);</pre>
 
   <section id="lists">
     <h1>Lists</h1>
-    <h2 class="txt-gray-5">Lists of data or content</h2>
+    <h2>Lists of data or content</h2>
     <h2>Demo</h2>
     <code-sample>
       <ul>
@@ -4031,15 +4370,15 @@ alert(user.name);</pre>
       <li class="flex justify-content-between pad-2 fnt-med">Push <input type="checkbox" role="switch"></li>
     </ul>
     <h4>Nesting</h4>
-    <p>Content list is designed to work wherever you need it. It can be used on its own or, for example, nested in a dialog, menu, or a box like this:</p>
+    <p>Content list is designed to work wherever you need it. It can be used on its own or, for example, nested in a dialog, menu, or a card like this:</p>
     <code-sample>
-      <m-box class="pad-0">
+      <m-card class="pad-0">
         <ul type="content">
           <li class="pad-1">one</li>
           <li class="pad-1">two</li>
           <li class="pad-1">three</li>
         </ul>
-      </m-box>
+      </m-card>
     </code-sample>
     <h4>Alternatives</h4>
     <p>Be intentional. Not every vertical layout is a content list. Sometimes you don't need any particular component at all. In some cases you have tabular content, so use a
@@ -4047,9 +4386,9 @@ alert(user.name);</pre>
       <a href="rules">horizontal rules</a>, like this recreation of the GitHub sidebar:</p>
     <m-row>
       <m-col>
-        <m-box class="height-full box-sizing-border">
+        <m-card class="height-full box-sizing-border">
           <div class="flex align-items-center fnt-med"><m-icon name="list" class="mar-r-1"></m-icon>README.md</div>
-        </m-box>
+        </m-card>
       </m-col>
       <m-col span="4" class="pad-b-8">
         <h4 class="mar-t-0">About</h4>
@@ -4085,7 +4424,7 @@ alert(user.name);</pre>
 
   <section id="text">
     <h1>Text</h1>
-    <h2 class="txt-gray-5">Paragraph and other text-based elements</h2>
+    <h2>Paragraph and other text-based elements</h2>
     <h2 id="demo">Demo</h2>
     <code-sample>
       <p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <a href="/utility-classes">utility classes</a>.</p>
@@ -4140,7 +4479,7 @@ alert(user.name);</pre>
 
   <section id="custom-properties">
     <h1>Custom Properties</h1>
-    <h2 class="txt-gray-5">Design tokens referenced internally and externally for custom styles</h2>
+    <h2>Design tokens referenced internally and externally for custom styles</h2>
     <h2 id="demo">Demo</h2>
     <code-sample>
       <style>
@@ -4398,8 +4737,8 @@ alert(user.name);</pre>
 
   <section id="utility-classes">
     <h1>Utility Classes</h1>
-    <h2 class="txt-gray-5">300+ CSS property shortcuts for building custom layouts and designs</h2>
-    <h2 id="demo">Demo</h2>
+    <h2>300+ CSS property shortcuts for building custom layouts and designs</h2>
+    <h2 id="utility-classes-demo">Demo</h2>
     <div class="flex align-items-center gap-4 width-fit bg-white brd-radius-md brd pad-4">
       <img src="img/homer.webp" alt="Homer" class="brd-radius-full obj-fit-cover" width="91" height="91">
       <div>
@@ -4421,18 +4760,20 @@ alert(user.name);</pre>
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     <h2 id="utility-classes-api">API</h2>
-    <div class="pos-sticky pos-t-0 mar-t-0 pad-t-3 pad-b-3 bg-gray-1">Categories:
-      <a href="#display" class="mar-r-4 mar-l-1">Display</a>
-      <a href="#flexbox" class="mar-r-4">Flexbox</a>
-      <a href="#spacing" class="mar-r-4">Spacing</a>
-      <a href="#position" class="mar-r-4">Position</a>
-      <a href="#font" class="mar-r-4">Font</a>
-      <a href="#text" class="mar-r-4">Text</a>
-      <a href="#border" class="mar-r-4">Border</a>
-      <a href="#background" class="mar-r-4">Background</a>
-      <a href="#other" class="mar-r-4">Other</a>
+    <div id="utility-classes-categories">
+      <nav class="pad-t-3 pad-b-3 bg-gray-1">Categories:
+        <a href="#display" class="mar-r-4 mar-l-1">Display</a>
+        <a href="#flexbox" class="mar-r-4">Flexbox</a>
+        <a href="#spacing" class="mar-r-4">Spacing</a>
+        <a href="#position" class="mar-r-4">Position</a>
+        <a href="#font" class="mar-r-4">Font</a>
+        <a href="#text" class="mar-r-4">Text</a>
+        <a href="#border" class="mar-r-4">Border</a>
+        <a href="#background" class="mar-r-4">Background</a>
+        <a href="#other" class="mar-r-4">Other</a>
+      </nav>
     </div>
-    <h3 id="display">Display</h3>
+    <h3 id="utility-classes-display">Display</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4475,7 +4816,7 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="flexbox">Flexbox</h3>
+    <h3 id="utility-classes-flexbox">Flexbox</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4574,7 +4915,7 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="spacing">Spacing</h3>
+    <h3 id="utility-classes-spacing">Spacing</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4610,7 +4951,7 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="position">Position</h3>
+    <h3 id="utility-classes-position">Position</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4645,7 +4986,7 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="font">Font</h3>
+    <h3 id="utility-classes-font">Font</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4684,7 +5025,7 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="text">Text</h3>
+    <h3 id="utility-classes-text">Text</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4764,7 +5105,7 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="border">Border</h3>
+    <h3 id="utility-classes-border">Border</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4799,7 +5140,7 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="background">Background</h3>
+    <h3 id="utility-classes-background">Background</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4827,7 +5168,7 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="other">Other</h3>
+    <h3 id="utility-classes-other">Other</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4918,8 +5259,8 @@ alert(user.name);</pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="maintenance">Reduce CSS maintenance</h3>
+    <h2 id="utility-classes-guidelines">Guidelines</h2>
+    <h3 id="utility-classes-maintenance">Reduce CSS maintenance</h3>
     <p>You can drastically cut down and even eliminate your CSS maintenance by leveraging these classes as much as possible.</p>
     <h3 id="templating">Create and use templates</h3>
     <p>The demo above with all those classes is fine on its own or even 2-3 copies sitting next to each other, but beyond that you'll want a way to reuse chunks of HTML.</p>
@@ -4942,14 +5283,14 @@ alert(user.name);</pre>
 
       const homerCard = userCardTemplate('/img/homer.webp', 'Homer J. Simpson', 'Safety Inspector', 'Chunkylover53@aol.com', '555-7334')
     </code-sample>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="utility-classes-a11y">Accessibility</h3>
     <p>There are no accessibility recommendations for these classes.</p>
   </section>
 </main>
 
 <script>
   // Menu toggle (for small screens)
-  document.getElementById('menu-toggle').addEventListener('click', e => document.getElementById('menu').toggleAttribute('open'));
+  document.getElementById('menu-toggle').addEventListener('click', () => document.getElementById('menu').toggleAttribute('open'));
 </script>
 </body>
 </html>

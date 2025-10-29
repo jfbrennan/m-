@@ -20,7 +20,7 @@ pre {
     background-color: inherit;
     display: block;
     overflow: auto;
-    padding: 1em;
+    padding: 1em !important;
   }
 }
 

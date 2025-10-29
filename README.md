@@ -47,7 +47,7 @@ The project follows the [TAC CSS methodology](https://jordanbrennan.hashnode.dev
 
 Your IDE might warn about unknown custom HTML tags. If that's the case, this is the list of custom tags your IDE needs to know about:
 ```
-m-accordion, m-alert, m-autocomplete, m-badge, m-box, m-breadcrumb, m-col, m-container, m-crumb, m-dot, m-icon, m-loader, m-menu, m-row, m-tab, m-tabs, m-tag, m-vbar
+m-accordion, m-alert, m-autocomplete, m-badge, m-card, m-breadcrumb, m-col, m-container, m-crumb, m-dot, m-icon, m-loader, m-menu, m-row, m-tab, m-tabs, m-tag, m-vbar
 ```
 
 ## Browser Support

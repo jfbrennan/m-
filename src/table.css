@@ -3,11 +3,22 @@ table {
   width: 100%;
   border-collapse: collapse;
 
+  /* Caption */
+  & caption {
+    &:not([side=end]) {
+      margin-bottom: var(--m-space-2);
+    }
+    &[side=end] {
+      margin-top: var(--m-space-2);
+      caption-side: bottom;
+    }
+  }
+
   /* Table header */
   & thead {
     text-align: left;
 
-    & > tr { border-top: 2px solid var(--m-color-gray-3) }
+    & > tr { border-top: 2px solid var(--m-color-gray-3); }
 
     & th {
       padding: var(--m-space-xs) var(--m-space-md);

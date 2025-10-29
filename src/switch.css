@@ -1,7 +1,7 @@
 /* Base switch styles */
 input[type=checkbox][role=switch] {
   position: relative;
-  width: 40px;
+  width: var(--m-space-10);
   height: 22px;
   appearance: none;
   margin: 0;
@@ -13,8 +13,8 @@ input[type=checkbox][role=switch] {
   &::before {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: var(--m-space-4);
+    height: var(--m-space-4);
     top: 3px;
     left: 3px;
     border-radius: var(--m-border-radius-full);
