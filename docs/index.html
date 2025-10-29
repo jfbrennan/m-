@@ -1404,31 +1404,29 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <pre><code>&lt;button ord=&quot;primary&quot; title=&quot;Download&quot; aria-label=&quot;Download&quot;&gt;
   &lt;m-icon name=&quot;download&quot;&gt;&lt;/m-icon&gt;
 &lt;/button&gt;</code></pre>
-    <p>Button comes with gap, so icons and text will look good when paired together:</p>
+    <p>Button comes styled with gap so icons and text look good when paired together.</p>
     <button ord="primary">
       <m-icon name="download"></m-icon>Left Icon
     </button>
     <button ord="primary">
       Right Icon<m-icon name="download"></m-icon>
     </button>
-<!--    <button ord="primary">-->
-<!--      <m-icon name="download"></m-icon>-->
-<!--      Left and Right Icons-->
-<!--      <m-icon name="download"></m-icon>-->
-<!--    </button>-->
-    <pre><code>&lt;button ord=&quot;primary&quot; title=&quot;Download&quot; aria-label=&quot;Download&quot;&gt;
-  &lt;m-icon name=&quot;download&quot;&gt;&lt;/m-icon&gt;
+    <pre><code>&lt;button ord=&quot;primary&quot;&gt;
+  &lt;m-icon name=&quot;download&quot;&gt;&lt;/m-icon&gt;Left Icon
+&lt;/button&gt;
+&lt;button ord=&quot;primary&quot;&gt;
+  Right Icon&lt;m-icon name=&quot;download&quot;&gt;&lt;/m-icon&gt;
 &lt;/button&gt;</code></pre>
     <h3 id="button-unstyled">Custom Button Styles</h3>
     <p>Mdash leaves the button element untouched so you can freely use them without competing with Mdash styles (Mdash buttons require the <code>ord</code> attribute). Use the <code>all-unset</code> utility class to remove user-agent styles from button and customize as desired. For example:</p>
-    <button>User Agent Styles</button>
-    <button class="all-unset">No Styles</button>
-    <button class="all-unset pad-1 bg-gray-7 txt-white txt-center txt-upper txt-space pointer" style="width: 200px">Custom styles</button>
-    <pre><code>&lt;button&gt;User Agent Styles&lt;/button&gt;
-&lt;button class=&quot;all-unset&quot;&gt;No Styles&lt;/button&gt;
-&lt;button class=&quot;all-unset pad-1 bg-gray-7 txt-white txt-center txt-upper txt-space pointer&quot; style=&quot;width: 200px&quot;&gt;Custom Styles&lt;/button&gt;</code></pre>
+    <button>User Agent Button</button>
+    <button class="all-unset">Unstyled Button</button>
+    <button class="all-unset pad-1 bg-gray-7 txt-white txt-center txt-upper txt-space pointer" style="width: 280px">Custom Button</button>
+    <pre><code>&lt;button&gt;User Agent Button&lt;/button&gt;
+&lt;button class=&quot;all-unset&quot;&gt;Unstyled Button&lt;/button&gt;
+&lt;button class=&quot;all-unset pad-1 bg-gray-7 txt-white txt-center txt-upper txt-space pointer&quot; style=&quot;width: 280px&quot;&gt;Custom Button&lt;/button&gt;</code></pre>
     <h3>Accessibility</h3>
-    <p>The remove button should have an <code>aria-label</code> attribute and disabled link buttons should have <code>tabindex="-1"</code> to prevent activation.</p>
+    <p>Icon-only buttons should have <code>title</code> and <code>aria-label</code> attributes. Disabled link buttons should have <code>tabindex="-1"</code> to prevent activation.</p>
   </section>
 
   <hr>
@@ -1507,7 +1505,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h2 id="button-group-guidelines">Guidelines</h2>
     <h3 id="button-group-pressed">Managing Pressed State</h3>
     <p>Your app manages the button's <code>aria-pressed</code> value. You can set the attribute or <code>ariaPressed</code> property. One way to do this is with event delegation:</p>
-    <h4>Allow multiple pressed</h4>
+    <h4>Allow more than one to be pressed</h4>
     <script>
       function toggleFilter(e) {
         e.target.ariaPressed = e.target.ariaPressed === 'true' ? 'false' : 'true'
@@ -1530,7 +1528,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   &lt;button ord=&quot;secondary&quot; value=&quot;complete&quot;&gt;Complete&lt;/button&gt;
   &lt;button ord=&quot;secondary&quot; value=&quot;overdue&quot;&gt;Overdue&lt;/button&gt;
 &lt;/div&gt;</code></pre>
-    <h4>Allow only one pressed</h4>
+    <h4>Allow only one to be pressed</h4>
     <script>
       function switchFilter(e) {
         [...e.currentTarget.children].forEach(button => button.ariaPressed = String(button === e.target))
@@ -2510,7 +2508,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         </td>
         <td colspan="6">
           <div>Sets the expected type of value. Take care to set email, tel, password, and number inputs based on use case to ensure optimal user experience.</div>
-          <p>See <a href="/checkbox">checkbox</a>, <a href="/radio">radio</a>, and <a href="/range">range</a> for details on those specific types.</p>
+          <p>See <a href="#checkbox">checkbox</a>, <a href="#radio">radio</a>, and <a href="#range">range</a> for details on those specific types.</p>
         </td>
       </tr>
       <tr>
@@ -3017,7 +3015,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   <section id="radio">
     <h1>Radio input</h1>
     <h2>Form element for picking one of many choices</h2>
-    <h2 id="demo">Demo</h2>
+    <h2 id="radio-demo">Demo</h2>
     <code-sample>
       <fieldset>
         <legend>Speed</legend>
@@ -3029,8 +3027,8 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <label for="speed_fast">Fast</label>
       </fieldset>
     </code-sample>
-    <p>See more <a href="/examples#Forms">examples</a></p>
-    <h2 id="api">API</h2>
+    <p>See more <a href="#form">examples</a></p>
+    <h2 id="radio-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -3048,7 +3046,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="radio-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -3065,10 +3063,10 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="title">Radio, checkbox, or select?</h3>
+    <h2 id="radio-guidelines">Guidelines</h2>
+    <h3 id="radio-title">Radio, checkbox, or select?</h3>
     <p>If only one of the options can be selected, don't use checkbox. There are no hard rules, but generally radio is best for 2-4 choices and select (or Autocomplete) is better for more.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="radio-a11y">Accessibility</h3>
     <p>Like other input elements, be sure to use <code>for</code> and <code>id</code>.</p>
   </section>
 
@@ -3182,6 +3180,24 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
           updateOutput2();
           range1.addEventListener('input', updateOutput2);
         </script>
+
+        <pre><code>&lt;fieldset&gt;
+  &lt;label&gt;Price&lt;/label&gt;
+  &lt;input name=&quot;rangeDemo1&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1000&quot; value=&quot;308&quot;&gt;
+  &lt;output name=&quot;outputDemo1&quot;&gt;&lt;/output&gt;
+&lt;/fieldset&gt;
+
+&lt;script&gt;
+  const range1  = document.querySelector(&#39;[name=rangeDemo1]&#39;);
+  const output1 = document.querySelector(&#39;[name=outputDemo1]&#39;);
+
+  function updateOutput2() {
+    output1.textContent = range1.value;
+  }
+
+  updateOutput2();
+  range1.addEventListener(&#39;input&#39;, updateOutput2);
+&lt;/script&gt;</code></pre>
       </div>
       <div>
         <fieldset>
@@ -3210,6 +3226,33 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
             transform: translate(-50%);
           }
         </style>
+
+        <pre><code>&lt;fieldset&gt;
+  &lt;label&gt;Price&lt;/label&gt;
+  &lt;input name=&quot;rangeDemo2&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1000&quot; value=&quot;700&quot;&gt;
+  &lt;output name=&quot;outputDemo2&quot; class=&quot;pos-absolute bg-white shadow pos-b-0 mar-b-8 pad-1 txt-xs brd-radius-md&quot;&gt;&lt;/output&gt;
+&lt;/fieldset&gt;
+
+&lt;script&gt;
+  const range2  = document.querySelector(&#39;[name=rangeDemo2]&#39;);
+  const output2 = document.querySelector(&#39;[name=outputDemo2]&#39;);
+
+  function updateOutput2() {
+    const val = Number((range2.value - range2.min) * 100 / (range2.max - range2.min));
+    const pos = 9 - (val * 0.2); // 9 is half the thumb width
+    output2.style.left = `calc(${val}% + ${pos}px)`;
+    output2.textContent = range2.value;
+  }
+
+  updateOutput2();
+  range2.addEventListener(&#39;input&#39;, updateOutput2);
+&lt;/script&gt;
+
+&lt;style&gt;
+  input[type=range][name=rangeDemo2] + output {
+      transform: translate(-50%);
+  }
+&lt;/style&gt;</code></pre>
       </div>
     </div>
 
