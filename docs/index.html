@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
   <link rel="manifest" href="./manifest.json" />
-  <link href="m-.woff2" rel="preload" as="font">
+  <link href="m-.woff2" rel="preload" as="font" crossorigin>
   <link rel="stylesheet" href="m-.css">
   <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/github.min.css">
   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/highlight.min.js"></script>
@@ -141,7 +141,7 @@
     <a href="https://x.com/realEmDash" class="flex align-items-center mar-b-2">X</a>
     <hr class="mar-t-4 mar-b-4">
     <h4 class="mar-b-2">Components</h4>
-    <div class="flex flx-col flx-basis-content gap-1">
+    <div class="flex flx-col flx-basis-content gap-2">
       <a href="#accordion">Accordion</a>
       <a href="#alert">Alert</a>
 <!--      <a href="#autocomplete">Autocomplete</a>-->
@@ -5265,24 +5265,22 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
     <h3 id="templating">Create and use templates</h3>
     <p>The demo above with all those classes is fine on its own or even 2-3 copies sitting next to each other, but beyond that you'll want a way to reuse chunks of HTML.</p>
     <p>Reuse is possible with the <code>&lt;template&gt;</code> element or template literals (see below). If standard tools aren't enough, templating partials or static components are another low-code option. Avoid the temptation to turn every chunk of HTML into a framework-dependent component.</p>
-    <code-sample mode="javascript" readonly="readonly">
-      export function userCardTemplate(imgUrl, name, title, email, phone) {
-      return `
-      <div class="inline-flex align-items-center bg-gray-1 brd-radius-md brd pad-4">
-        <img src="$\{imgUrl}" height="78" class="brd-radius-full mar-r-4">
-        <div>
-          <div class="txt-md txt-nowrap">$\{name}</div>
-          <div class="txt-sm txt-gray-6 mar-b-2">$\{title}</div>
-          <a href="mailto:$\{email}" class="fnt-light txt-xs">$\{email}</a>
-          <br>
-          <a href="tel:+1$\{phone.replaceAll('-', '')}" class="fnt-light txt-xs">$\{phone}</a>
-        </div>
-      </div>
-      `
-      }
+      <pre><code class="language-javascript">export function UserCardTemplate(imgUrl, name, title, email, phone) {
+  return `
+    &lt;div class=&quot;inline-flex align-items-center bg-gray-1 brd-radius-md brd pad-4&quot;&gt;
+    &lt;img src=&quot;${imgUrl}&quot; height=&quot;78&quot; class=&quot;brd-radius-full mar-r-4&quot;&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;txt-md txt-nowrap&quot;&gt;${name}&lt;/div&gt;
+      &lt;div class=&quot;txt-sm txt-gray-6 mar-b-2&quot;&gt;${title}&lt;/div&gt;
+      &lt;a href=&quot;mailto:${email}&quot; class=&quot;fnt-light txt-xs&quot;&gt;${email}&lt;/a&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;tel:+1${phone.replaceAll(&#39;-&#39;, &#39;&#39;)}&quot; class=&quot;fnt-light txt-xs&quot;&gt;${phone}&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+  `
+}
 
-      const homerCard = userCardTemplate('/img/homer.webp', 'Homer J. Simpson', 'Safety Inspector', 'Chunkylover53@aol.com', '555-7334')
-    </code-sample>
+const homerCard = UserCardTemplate(&#39;/img/homer.webp&#39;, &#39;Homer J. Simpson&#39;, &#39;Safety Inspector&#39;, &#39;Chunkylover53@aol.com&#39;, &#39;555-7334&#39;);</code></pre>
     <h3 id="utility-classes-a11y">Accessibility</h3>
     <p>There are no accessibility recommendations for these classes.</p>
   </section>
