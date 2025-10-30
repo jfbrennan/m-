@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" href="img/m-logo.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="img/m-logo.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="img/m-logo.png">
   <link rel="manifest" href="./manifest.json" />
   <link href="m-.woff2" rel="preload" as="font" crossorigin>
   <link rel="stylesheet" href="m-.css">
@@ -156,7 +156,6 @@
       <a href="#dialog">Dialog</a>
       <a href="#dot">Dot</a>
       <a href="#form">Form</a>
-      <a href="#grid">Grid</a>
       <a href="#icons">Icons</a>
       <a href="#input">Input</a>
       <a href="#keyboard">Keyboard</a>
@@ -739,7 +738,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <tr>
         <td colspan="2"><code>close</code></td>
         <td colspan="2">button</td>
-        <td colspan="6">None. See <a href="#alert-close-button">close slot</a> for details.</td>
+        <td colspan="6">None. See <a href="#alert-dismiss">close slot</a> for details.</td>
       </tr>
       </tbody>
     </table>
@@ -1341,14 +1340,11 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <td colspan="2">
           <ul type="none">
             <li>submit</li>
-            <li>remove</li>
           </ul>
         </td>
         <td colspan="6">
           <p class="mar-t-0">Use submit when the button submits a form. Avoid <code>&lt;input type="submit"&gt;</code>. See
             <a href="#form-submit-button">Submit button</a> for more info</p>
-          <p class="mar-b-none">Remove is a custom button type. It's used by other components like alert and dialog and is intended for remove/close use cases (e.g. remove item from cart, close the dialog).
-            <a href="#remove">See below</a> for more info.</p>
         </td>
       </tr>
       <tr>
@@ -1804,7 +1800,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   &lt;summary&gt;Click to see details&lt;/summary&gt;
   &lt;p&gt;The deets.&lt;/p&gt;
 &lt;/details&gt;</code></pre>
-    <p>See more <a href="/examples#Details">examples</a></p>
     <h2 id="details-api">API</h2>
     <p>Details is a native element. More information is available on <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">MDN</a>.</p>
     <h3>Tags</h3>
@@ -2147,7 +2142,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
             <li>error</li>
           </ul>
         </td>
-        <td colspan="6">Sets the type of the indicator and has the same meaning as Alert's <a href="/alert#type">type</a>.</td>
+        <td colspan="6">Sets the type of the indicator and has the same meaning as Alert's <a href="#alert-attributes">type</a>.</td>
       </tr>
       <!--  <tr>-->
       <!--    <td colspan="2"><code>color</code></td>-->
@@ -2158,7 +2153,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     </table>
     <h2 id="dot-guidelines">Guidelines</h2>
     <h3 id="dot-text">Dot text</h3>
-    <p>In most cases Dot should include text, but sometimes it's okay to have a Dot without text (see <a href="#a11y">Accessibility</a>). An Accordion of system summaries works as a good example:</p>
+    <p>In most cases Dot should include text, but sometimes it's okay to have a Dot without text (see <a href="#dot-a11y">Accessibility</a>). An Accordion of system summaries works as a good example:</p>
     <m-accordion>
       <details>
         <summary>
@@ -2273,7 +2268,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <tr>
         <td colspan="2"><code>small</code></td>
         <td colspan="2">Native element</td>
-        <td colspan="6">Text for "side-comments" associated with an input. <a href="#small">Read more</a></td>
+        <td colspan="6">Text for "side-comments" associated with an input. <a href="#form-small">Read more</a></td>
       </tr>
       </tbody>
     </table>
@@ -2294,7 +2289,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <tr>
         <td colspan="2"><code>submit</code></td>
         <td colspan="2">None</td>
-        <td colspan="6">Fires when the form is submitted, which happens when the user clicks the <a href="#submit-button">submit
+        <td colspan="6">Fires when the form is submitted, which happens when the user clicks the <a href="#form-submit-button">submit
           button</a> or hits enter.</td>
       </tr>
       <tr>
@@ -2348,7 +2343,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <small>Must include a number, special character, and be at least 8 characters long</small>
     </fieldset>
     <h3 id="form-a11y">Accessibility</h3>
-    <p>See <a href="/input#a11y">Input</a>, <a href="/checkbox#a11y">Checkbox</a>, <a href="/radio#a11y">Radio</a>, <a href="/select#a11y">Select</a>, and <a href="/textarea#a11y">Textarea</a> for their respective accessibility recommendations.</p>
+    <p>See <a href="#input-a11y">Input</a>, <a href="#checkbox-a11y">Checkbox</a>, <a href="#radio-a11y">Radio</a>, <a href="#select-a11y">Select</a>, and <a href="#textarea-a11y">Textarea</a> for their respective accessibility recommendations.</p>
   </section>
 
   <hr>
@@ -2458,12 +2453,10 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h1>Input</h1>
     <h2>Form element for receiving user input</h2>
     <h2 id="input-demo">Demo</h2>
-    <code-sample>
-      <fieldset>
-        <label>Label</label>
-        <input type="text" placeholder="Placeholder">
-      </fieldset>
-    </code-sample>
+    <fieldset>
+      <label>Label</label>
+      <input type="text" placeholder="Placeholder">
+    </fieldset>
     <h2 id="input-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
@@ -2523,7 +2516,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <tr>
         <td colspan="2"><code>invalid</code></td>
         <td colspan="2">Boolean attribute</td>
-        <td colspan="6">Highlights input as having an invalid value. When the input is invalid it should have a <a href="/form#small">small element</a> explaining how to correct it. Validation is owned by your application not Mdash.</td>
+        <td colspan="6">Highlights input as having an invalid value. When the input is invalid it should have a <a href="#form-small">small element</a> explaining how to correct it. Validation is owned by your application not Mdash.</td>
       </tr>
       <tr>
         <td colspan="2"><code>placeholder</code></td>
@@ -2753,7 +2746,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h3 id="progress-title">Loader text</h3>
     <p>In most cases the loader should have its own text or be in close proximity to a related message, like a button label. In some cases it's appropriate to have a loader on it's own without a message (in those cases see Accessibility).</p>
     <h3 id="progress-size">Progress size</h3>
-    <p>The default size works for most use cases, but you can enlarge or shrink progress with the <a href="/utility-classes#text">text size utility classes</a> or set its own font size:</p>
+    <p>The default size works for most use cases, but you can enlarge or shrink progress with the <a href="#utility-classes-text">text size utility classes</a> or set its own font size:</p>
     <progress class="txt-xs"></progress>
     <progress class="txt-sm"></progress>
     <progress class="txt-md"></progress>
@@ -2796,36 +2789,31 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h1>Menu</h1>
     <h2>Small, toggleable containers often used for navigation</h2>
     <h2 id="menu-demo">Demo</h2>
-    <code-sample>
-      <template>
-        <m-menu>
-          <button slot="trigger" ord="primary">Basic Links</button>
-          <div slot="items">
-            <a href="/products">Products</a>
-            <a href="/services">Services</a>
-            <a href="/support">Customer support</a>
+    <m-menu>
+      <button slot="trigger" ord="primary">Basic Links</button>
+      <div slot="items">
+        <a href="/products">Products</a>
+        <a href="/services">Services</a>
+        <a href="/support">Customer support</a>
+      </div>
+    </m-menu>
+    <m-menu>
+      <button slot="trigger" ord="primary">Custom Content and Width</button>
+      <div slot="items" class="pad-2" style="min-width: 200px">
+        <div class="inline-flex align-items-center">
+          <img src="img/homer.webp" alt="Homer" loading="lazy" width="64" height="52" class="brd-radius-full">
+          <div>
+            <div class="txt-nowrap">Homer J. Simpson</div>
+            <div class="txt-gray-6">Safety Inspector</div>
           </div>
-        </m-menu>
-        <m-menu>
-          <button slot="trigger" ord="primary">Custom Content and Width</button>
-          <div slot="items" class="pad-2" style="min-width: 200px">
-            <div class="inline-flex align-items-center">
-              <img src="img/homer.webp" alt="Homer" loading="lazy" width="64" height="52" class="brd-radius-full">
-              <div>
-                <div class="txt-nowrap">Homer J. Simpson</div>
-                <div class="txt-gray-6">Safety Inspector</div>
-              </div>
-            </div>
-            <hr class="mar-t-2 mar-b-3">
-            <div class="flex flx-col gap-1">
-              <a href="/profile">Profile</a>
-              <a href="/signout">Sign out</a>
-            </div>
-          </div>
-        </m-menu>
-      </template>
-    </code-sample>
-    <p>See more <a href="/examples#Menus">examples</a></p>
+        </div>
+        <hr class="mar-t-2 mar-b-3">
+        <div class="flex flx-col gap-1">
+          <a href="/profile">Profile</a>
+          <a href="/signout">Sign out</a>
+        </div>
+      </div>
+    </m-menu>
     <h2 id="menu-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
@@ -2990,8 +2978,8 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
           </fieldset>
         </form>
         <footer class="flex justify-content-between">
-          <button ord="tertiary" scale="sm" form="popover-form" type="reset">Reset</button>
-          <button ord="tertiary" scale="sm" form="popover-form" type="submit">Apply</button>
+          <button ord="tertiary" controlsize="sm" form="popover-form" type="reset">Reset</button>
+          <button ord="tertiary" controlsize="sm" form="popover-form" type="submit">Apply</button>
         </footer>
       </div>
     </m-popover>
@@ -3022,17 +3010,15 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h1>Radio input</h1>
     <h2>Form element for picking one of many choices</h2>
     <h2 id="radio-demo">Demo</h2>
-    <code-sample>
-      <fieldset>
-        <legend>Speed</legend>
-        <input type="radio" name="speed" value="slow" id="speed_slow" checked>
-        <label for="speed_slow">Slow</label>
-        <input type="radio" name="speed" value="med" id="speed_med">
-        <label for="speed_med">Medium</label>
-        <input type="radio" name="speed" value="fast" id="speed_fast">
-        <label for="speed_fast">Fast</label>
-      </fieldset>
-    </code-sample>
+    <fieldset>
+      <legend>Speed</legend>
+      <input type="radio" name="speed" value="slow" id="speed_slow" checked>
+      <label for="speed_slow">Slow</label>
+      <input type="radio" name="speed" value="med" id="speed_med">
+      <label for="speed_med">Medium</label>
+      <input type="radio" name="speed" value="fast" id="speed_fast">
+      <label for="speed_fast">Fast</label>
+    </fieldset>
     <p>See more <a href="#form">examples</a></p>
     <h2 id="radio-api">API</h2>
     <h3>Tag</h3>
@@ -3287,35 +3273,33 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   <section id="select">
     <h1>Select</h1>
     <h2>Drop-down list of choices</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <fieldset>
-        <label for="drinks">Select one</label>
-        <select id="drinks">
-          <option value="water">Water</option>
-          <option value="coke">Coke</option>
-          <option value="lemonade">Lemonade</option>
-        </select>
-      </fieldset>
-      <fieldset>
-        <label for="entrees">Select many</label>
-        <select id="entrees" multiple size="8">
-          <optgroup label="Appetizers">
-            <option value="chips">Chips & salsa</option>
-            <option value="cheese">Cheese platter</option>
-          </optgroup>
-          <optgroup label="Main course">
-            <option value="duck">Duck confit</option>
-            <option value="ribeye">8oz aged ribeye</option>
-          </optgroup>
-          <optgroup label="Dessert">
-            <option value="cake">Cake</option>
-            <option value="ice-cream">Ice-cream</option>
-          </optgroup>
-        </select>
-      </fieldset>
-    </code-sample>
-    <h2 id="api">API</h2>
+    <h2 id="select-demo">Demo</h2>
+    <fieldset>
+      <label for="drinks">Select one</label>
+      <select id="drinks">
+        <option value="water">Water</option>
+        <option value="coke">Coke</option>
+        <option value="lemonade">Lemonade</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="entrees">Select many</label>
+      <select id="entrees" multiple size="8">
+        <optgroup label="Appetizers">
+          <option value="chips">Chips & salsa</option>
+          <option value="cheese">Cheese platter</option>
+        </optgroup>
+        <optgroup label="Main course">
+          <option value="duck">Duck confit</option>
+          <option value="ribeye">8oz aged ribeye</option>
+        </optgroup>
+        <optgroup label="Dessert">
+          <option value="cake">Cake</option>
+          <option value="ice-cream">Ice-cream</option>
+        </optgroup>
+      </select>
+    </fieldset>
+    <h2 id="select-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -3343,7 +3327,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="select-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -3366,7 +3350,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tbody>
     </table>
     <small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#Attributes" target="_blank" rel="noopener">MDN: Select element - Attributes</a> for the full list.</small>
-    <h3 id="events">Events</h3>
+    <h3 id="select-events">Events</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -3383,9 +3367,9 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
+    <h2 id="select-guidelines">Guidelines</h2>
     {{> more-autocomplete}}
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="select-a11y">Accessibility</h3>
     <p>Label should use the <code>for</code> attribute to reference the id of its corresponding select.</p>
   </section>
 
@@ -3537,30 +3521,28 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h2 id="switch-guidelines">Guidelines</h2>
     <h3 id="switch-with-form">Standalone or form</h3>
     <p>A switch can be used on its own or more commonly as a list of options in a form, like this:</p>
-    <code-sample>
-      <m-card style="width: 300px">
-        <h4 class="mar-t-1">Network settings</h4>
-        <form>
-          <fieldset class="flex justify-content-between align-items-center">
-            <label>Wi-Fi</label>
-            <input type="checkbox" role="switch" name="wifi" checked>
-          </fieldset>
-          <fieldset class="flex justify-content-between align-items-center">
-            <label>Bluetooth</label>
-            <input type="checkbox" role="switch" name="bluetooth" checked>
-          </fieldset>
-          <fieldset class="flex justify-content-between align-items-center">
-            <label>Cellular</label>
-            <input type="checkbox" role="switch" name="cellular">
-          </fieldset>
-          <fieldset class="flex flx-wrap justify-content-between align-items-center">
-            <label>Personal Hotspot</label>
-            <input type="checkbox" role="switch" name="hotspot" disabled>
-            <small class="width-full">Currently unavailable</small>
-          </fieldset>
-        </form>
-      </m-card>
-    </code-sample>
+    <m-card style="width: 300px">
+      <h4 class="mar-t-1">Network settings</h4>
+      <form>
+        <fieldset class="flex justify-content-between align-items-center">
+          <label>Wi-Fi</label>
+          <input type="checkbox" role="switch" name="wifi" checked>
+        </fieldset>
+        <fieldset class="flex justify-content-between align-items-center">
+          <label>Bluetooth</label>
+          <input type="checkbox" role="switch" name="bluetooth" checked>
+        </fieldset>
+        <fieldset class="flex justify-content-between align-items-center">
+          <label>Cellular</label>
+          <input type="checkbox" role="switch" name="cellular">
+        </fieldset>
+        <fieldset class="flex flx-wrap justify-content-between align-items-center">
+          <label>Personal Hotspot</label>
+          <input type="checkbox" role="switch" name="hotspot" disabled>
+          <small class="width-full">Currently unavailable</small>
+        </fieldset>
+      </form>
+    </m-card>
     <h3 id="switch-a11y">Accessibility</h3>
     <p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role" target="_blank">MDN</a> says, "The first rule of ARIA is if a native HTML element or attribute has the semantics and behavior you require, use it instead of re-purposing an element and adding ARIA." The native checkbox is quite suitable for a custom switch component, so that in conjunction with the switch role should be used instead of a proprietary implementation.</p>
   </section>
@@ -3847,7 +3829,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <tr>
         <td colspan="2"><code>aria-selected</code></td>
         <td colspan="2">true or false</td>
-        <td colspan="6">Set the selected tab to true. See <a href="#select-tab">Selecting tabs</a> for examples.</td>
+        <td colspan="6">Set the selected tab to true. See <a href="#tabs-select-tab">Selecting tabs</a> for examples.</td>
       </tr>
       <tr>
         <td colspan="2"><code>disabled</code></td>
@@ -4265,28 +4247,26 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
     <h1>Lists</h1>
     <h2>Lists of data or content</h2>
     <h2>Demo</h2>
-    <code-sample>
-      <ul>
-        <li>Foo</li>
-        <li>Bar</li>
-        <li>Baz</li>
-      </ul>
-      <ol>
-        <li>Foo</li>
-        <li>Bar</li>
-        <li>Baz</li>
-      </ol>
-      <ul type="none">
-        <li>Foo</li>
-        <li>Bar</li>
-        <li>Baz</li>
-      </ul>
-      <ol type="content">
-        <li class="pad-2">Foo</li>
-        <li class="pad-2">Bar</li>
-        <li class="pad-2">Baz</li>
-      </ol>
-    </code-sample>
+    <ul>
+      <li>Foo</li>
+      <li>Bar</li>
+      <li>Baz</li>
+    </ul>
+    <ol>
+      <li>Foo</li>
+      <li>Bar</li>
+      <li>Baz</li>
+    </ol>
+    <ul type="none">
+      <li>Foo</li>
+      <li>Bar</li>
+      <li>Baz</li>
+    </ul>
+    <ol type="content">
+      <li class="pad-2">Foo</li>
+      <li class="pad-2">Bar</li>
+      <li class="pad-2">Baz</li>
+    </ol>
     <h2>API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
@@ -4385,21 +4365,19 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
     <h2>Guidelines</h2>
     <h3>Lists are for lists</h3>
     <p>List elements should be used for real lists. It's tempting to overuse them for anything that repeats, so take time to think about some better alternatives to list elements that should be used instead. For example, one alternative is the <code>nav</code> element when building a navigation bar:</p>
-    <code-sample readonly="readonly">
-      <!-- Better -->
-      <nav>
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-      </nav>
+    <!-- Better -->
+    <nav>
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+      <a href="#">Link</a>
+    </nav>
 
-      <!-- Old habits die hard -->
-      <ul>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
-    </code-sample>
+    <!-- Old habits die hard -->
+    <ul>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
     <h3 id="content">Content list type</h3>
     <p>The content list type is meant for building a vertical list of content.</p>
     <h4>Semantics and accessibility</h4>
@@ -4420,19 +4398,17 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
     </ul>
     <h4>Nesting</h4>
     <p>Content list is designed to work wherever you need it. It can be used on its own or, for example, nested in a dialog, menu, or a card like this:</p>
-    <code-sample>
-      <m-card class="pad-0">
-        <ul type="content">
-          <li class="pad-1">one</li>
-          <li class="pad-1">two</li>
-          <li class="pad-1">three</li>
-        </ul>
-      </m-card>
-    </code-sample>
+    <m-card class="pad-0">
+      <ul type="content">
+        <li class="pad-1">one</li>
+        <li class="pad-1">two</li>
+        <li class="pad-1">three</li>
+      </ul>
+    </m-card>
     <h4>Alternatives</h4>
     <p>Be intentional. Not every vertical layout is a content list. Sometimes you don't need any particular component at all. In some cases you have tabular content, so use a
-      <a href="table">table</a>. In other cases you may just need
-      <a href="rules">horizontal rules</a>, like this recreation of the GitHub sidebar:</p>
+      <a href="#table">table</a>. In other cases you may just need a
+      <a href="#separator">separator</a>, like this recreation of the GitHub sidebar:</p>
     <m-row>
       <m-col>
         <m-card class="height-full box-sizing-border">
@@ -4474,15 +4450,13 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
   <section id="text">
     <h1>Text</h1>
     <h2>Paragraph and other text-based elements</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <a href="/utility-classes">utility classes</a>.</p>
-      <blockquote>
-        <p>This is something somebody said.</p>
-      </blockquote>
-      <small>This is for small print, side-comments, disclaimers, etc.</small>
-    </code-sample>
-    <h2 id="api">API</h2>
+    <h2 id="text-demo">Demo</h2>
+    <p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <a href="/utility-classes">utility classes</a>.</p>
+    <blockquote>
+      <p>This is something somebody said.</p>
+    </blockquote>
+    <small>This is for small print, side-comments, disclaimers, etc.</small>
+    <h2 id="text-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
       <thead>
@@ -4510,14 +4484,14 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="line-length">Characters per line</h3>
+    <h2 id="text-guidelines">Guidelines</h2>
+    <h3 id="text-line-length">Characters per line</h3>
     <p>It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="fnt-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
     <p>To demonstrate, the paragraph below has no width limit while that same paragraph above maxes out at <span class="fnt-bold">75ch</span> using the <code>txt-maxlength</code> utility class:</p>
     <p style="max-width: 100%">It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="fnt-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
     <h3 id="seo">SEO</h3>
     <p>Using these text semantically will improve SEO and accessibility.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="text-a11y">Accessibility</h3>
     <p>The smallest font size that Mdash has is 13px, which is the smallest recommended by WCAG 2.1. Any smaller can be illegible for some users.</p>
   </section>
 
@@ -4528,20 +4502,26 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
 
   <section id="custom-properties">
     <h1>Custom Properties</h1>
-    <h2>Design tokens referenced internally and externally for custom styles</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <style>
-        #example {
-          color: var(--m-color-gray-1);
-          background-color: var(--m-color-gray-7)
-        }
-      </style>
-      <div id="example" class="pad-8">My background and text colors reference custom properties</div>
-    </code-sample>
-    <h2 id="api">API</h2>
-    <h3 id="colors">Colors</h3>
-    <p>All color values are in the <a href="https://stripe.com/blog/accessible-color-systems" target="_blank">perceptually uniform color space</a> to provide visually appealing colors while still achieving a11y contrast guidelines.</p>
+    <h2>The design tokens used internally and intended for use in custom styles</h2>
+    <h2 id="custom-properties-demo">Demo</h2>
+    <style>
+      #example {
+        color: var(--m-color-gray-1);
+        background-color: var(--m-color-gray-7);
+      }
+    </style>
+    <div id="example" class="pad-8">These background and text colors use custom properties</div>
+    <pre><code>&lt;style&gt;
+  #customPropertiesExample {
+    color: var(--m-color-gray-1);
+    background-color: var(--m-color-gray-7);
+  }
+&lt;/style&gt;
+
+&lt;div id=&quot;customPropertiesExample&quot; class=&quot;pad-8&quot;&gt;These background and text colors use custom properties&lt;/div&gt;</code></pre>
+    <h2 id="custom-properties-api">API</h2>
+    <h3 id="custom-properties-colors">Colors</h3>
+    <p>All color values are in the <a href="https://stripe.com/blog/accessible-color-systems" target="_blank">perceptually uniform color space</a> to provide visually appealing colors while still achieving accessible contrast.</p>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4650,7 +4630,7 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="spacing">Spacing</h3>
+    <h3 id="custom-properties-spacing">Spacing</h3>
     <p>The spacing sizes are based on <a href="">Divine Proportions</a> to help provide a natural rhythm. Padding, margin, and gap use these values.</p>
     <table layout="fixed">
       <thead>
@@ -4666,11 +4646,11 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
         <td colspan="3">6px, 12px, 18px, 30px, 48px</td>
         <td colspan="3">Used for developing a visual rhythm between elements. Loosely follows <a
           href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the
-          <a href="/utility-classes#space">padding and margin utility classes</a> whenever possible and reserve use of <code>--m-space-*</code> for other spacing needs like position.</td>
+          <a href="#utility-classes">padding and margin utility classes</a> whenever possible and reserve use of <code>--m-space-*</code> for other spacing needs like position.</td>
       </tr>
       </tbody>
     </table>
-    <h3 id="space">Element styles</h3>
+    <h3 id="custom-properties-space">Element styles</h3>
     <p>All elements use these values for their relevant styles.</p>
     <table layout="fixed">
       <thead>
@@ -4693,7 +4673,7 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
       <!--  </tr>-->
       </tbody>
     </table>
-    <h3 id="breakpoints">Breakpoints</h3>
+    <h3 id="custom-properties-breakpoints">Breakpoints</h3>
     <p>Although custom properties are unfortunately not usable in media queries, these breakpoint values are useful elsewhere.</p>
     <p>The large breakpoint and above are considered desktop-sized</p>
     <table layout="fixed">
@@ -4722,7 +4702,7 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="other">Other</h3>
+    <h3 id="custom-properties-other">Other</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4749,22 +4729,20 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="hard-code">Do not hard code values</h3>
+    <h2 id="custom-properties-guidelines">Guidelines</h2>
+    <h3 id="custom-properties-hard-code">Do not hard code values</h3>
     <p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across all their stylesheets. Custom properties are a modern CSS feature that helps you avoid such a mess by defining reusable values. Use custom properties instead of hard coding their values. Like this:</p>
-    <code-sample mode="css" readonly="readonly">
-      /* Do */
-      #contact \{
-      background-color: var(--m-color-gray-2);
-      }
+    <pre><code>/* Do */
+#contact {
+  background-color: var(--m-color-gray-2);
+}
 
-      /* Don't */
-      #contact \{
-      background-color: #dedede;
-      }
-    </code-sample>
+/* Don't */
+#contact {
+  background-color: #dedede;
+}</code></pre>
     <p>Go <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">here to learn more</a> about custom properties and how to use them.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="custom-properties-a11y">Accessibility</h3>
     <p>The colors and spacing meet accessibility requirements.</p>
 
     <style>
@@ -4978,27 +4956,27 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
       <tr>
         <td colspan="3"><code>pad-[xs|sm|md|lg|xl|0]</code></td>
         <td colspan="6">Sets padding on all sides to the specified size. Sizes map to the
-          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+          <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       <tr>
         <td colspan="3"><code>pad-[t|r|b|l]-[xs|sm|md|lg|xl|0]</code></td>
         <td colspan="6">Sets padding on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
-          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+          <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       <tr>
         <td colspan="3"><code>mar-[xs|sm|md|lg|xl|0|auto]</code></td>
         <td colspan="6">Sets margin on all sides to the specified size. Sizes map to the
-          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+          <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       <tr>
         <td colspan="3"><code>mar-[t|r|b|l]-[xs|sm|md|lg|xl|0|auto]</code></td>
         <td colspan="6">Sets margin on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
-          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+          <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       <tr>
         <td colspan="3"><code>gap-[xs|sm|md|lg|xl|0]</code></td>
         <td colspan="6">Sets gap to the specified size. Sizes map to the
-          <a href="/custom-properties#space">space custom props</a> and <code>0</code> really means zero.</td>
+          <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       </tbody>
     </table>
@@ -5148,7 +5126,7 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
       <tr>
         <td colspan="2"><code>txt-[color-name]</code></td>
         <td colspan="6">Sets text color. The class names map to the
-          <a href="/custom-properties#colors">color custom props</a>, e.g. <code>txt-red-dark</code> => <code>--m-color-red-dark</code>.</td>
+          <a href="#custom-properties-colors">color custom props</a>, e.g. <code>txt-red-dark</code> => <code>--m-color-red-dark</code>.</td>
       </tr>
       <tr>
         <td colspan="2"><code>txt-[info|success|warn|error]</code></td>
@@ -5215,7 +5193,7 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
       <tr>
         <td colspan="2"><code>bg-[color-name]</code></td>
         <td colspan="6">Sets background color. The class names map to the
-          <a href="/custom-properties#colors">color custom props</a>, e.g. <code>bg-red-dark</code> => <code>--m-color-red-dark</code>.</td>
+          <a href="#custom-properties-colors">color custom props</a>, e.g. <code>bg-red-dark</code> => <code>--m-color-red-dark</code>.</td>
       </tr>
       </tbody>
     </table>
