@@ -14,7 +14,10 @@
   <link rel="stylesheet" href="m-.css">
   <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/github.min.css">
   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
+  <script>
+    hljs.configure({noHighlightRe: /^do-not-highlight$/i});
+    hljs.highlightAll();
+  </script>
   <style>
     :root {
       --docs-logo-bg-color: #2B2B2B;
@@ -187,7 +190,7 @@
     <!--        <a href="/searchbar" class="block mar-b-2">Search</a>-->
     <!--        <a href="/patterns/toolbar" class="block mar-b-2">Toolbar</a>-->
     <hr class="mar-t-4 mar-b-4">
-    <small class="block txt-center">Copyright &copy; 2023<br>Jordan Brennan</small>
+    <small class="block txt-center">Copyright &copy; 2025<br>Jordan Brennan</small>
   </nav>
 </aside>
 <main class="pad-8 flx-grow-1 bg-gray-1">
@@ -2741,9 +2744,9 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td><code>value</code></td>
-        <td>Number</td>
-        <td>Sets the completed progress</td>
+        <td colspan="2"><code>value</code></td>
+        <td colspan="2">Number</td>
+        <td colspan="6">Sets the completed progress</td>
       </tr>
       </tbody>
     </table>
@@ -4023,7 +4026,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         const tag = e.currentTarget.parentElement;
 
         // Remove the user and tag.
-        console.log(`Remove user ${tag.dataset.userId}...`);
+        alert(`Remove user ${tag.dataset.userId}...`);
         tag.remove();
       }
     </script>
@@ -4036,7 +4039,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     const tag = e.currentTarget.parentElement;
 
     // Remove the user and tag.
-    console.log(`Remove user ${tag.dataset.userId}...`);
+    alert(`Remove user ${tag.dataset.userId}...`);
     tag.remove();
   }
 &lt;/script&gt;
@@ -4156,14 +4159,20 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h2>For displaying text as code</h2>
     <h2 id="code-demo">Demo</h2>
     <p>This is <code>inline code</code>.</p>
-    <pre>// Multi-line code
-const user = { name: 'Stan' };
-console.log(user.name);</pre>
+    <pre><code class="do-not-highlight">// Multi-line code
+const user = {
+  name: 'Stan'
+};
+
+console.log(user.name);</code></pre>
     <pre><code>&lt;p&gt;This is &lt;code&gt;inline code&lt;/code&gt;.&lt;/p&gt;
 
-&lt;pre&gt;// Multi-line code
-const user = { name: 'Stan' };
-console.log(user.name);&lt;/pre&gt;</code></pre>
+&lt;pre&gt;&lt;code&gt;// Multi-line code
+const user = {
+  name: 'Stan'
+};
+
+console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <h2 id="code-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
@@ -4183,7 +4192,7 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
       <tr>
         <td colspan="2"><code>pre</code></td>
         <td colspan="2">Native element</td>
-        <td colspan="6">Multi-line text</td>
+        <td colspan="6">One <code>&lt;code&gt;</code> child with text</td>
       </tr>
       </tbody>
     </table>
