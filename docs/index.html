@@ -161,9 +161,9 @@
       <a href="#input">Input</a>
       <a href="#keyboard">Keyboard</a>
       <a href="#link">Link</a>
-      <a href="#loader">Loader</a>
       <a href="#menu">Menu</a>
       <a href="#popover">Popover</a>
+      <a href="#progress">Progress</a>
       <a href="#radio">Radio</a>
       <a href="#range">Range</a>
       <a href="#select">Select</a>
@@ -2190,12 +2190,12 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     </m-accordion>
     <h3 id="unknown">Unknown type</h3>
     <p>A Dot with an unknown type is useful when a generic dot is needed. Another use case is when your app wants to display a dot, but its type is still being determined. A
-      <a href="/loader">Loader</a> can help communicate in these situations:</p>
+      <a href="#progress">progress</a> can help communicate in these situations:</p>
     <div>
       <m-dot>Marcus is offline</m-dot>
     </div>
     <div class="flex align-items-center">
-      <m-dot>Marcus is joining</m-dot><m-loader loading class="mar-l-1 txt-xs"></m-loader>
+      <m-dot>Marcus is joining</m-dot><progress class="mar-l-1 txt-xs"></progress>
     </div>
     <div>
       <m-dot type="success">Marcus is online</m-dot>
@@ -2244,7 +2244,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   &lt;/fieldset&gt;
   &lt;button type=&quot;submit&quot; ord=&quot;primary&quot;&gt;Save&lt;/button&gt;
 &lt;/form&gt;</code></pre>
-    <p>See more <a href="/examples#Forms">examples</a></p>
     <h2 id="form-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
@@ -2312,7 +2311,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     </table>
     <h2 id="form-guidelines">Guidelines</h2>
     <h3 id="form-submit-button">Submit button vs. input button</h3>
-    <p>Mdash recommends forms use <code>&lt;button type="submit"&gt;</code> instead of <code>&lt;input type="submit"&gt;</code>. This is more semantic and provides greater control of the button style and content. For example, you can't put an Icon or Loader inside a submit input.</p>
+    <p>Mdash recommends forms use <code>&lt;button type="submit"&gt;</code> instead of <code>&lt;input type="submit"&gt;</code>. This is more semantic and provides greater control of the button style and content. For example, you can't put an icon or a progress inside a submit input.</p>
     <h3 id="fieldset">Why &lt;fieldset&gt;?</h3>
     <p>Rather than inventing new tags or using boilerplate divs and classes, Mdash leverages the native fieldset tag. Although it's historically uncommon to put just one input inside a fieldset, it is perfectly valid markup. Single or multiple input combinations of various types work perfectly well and results in the most clean and uniform form code possible:</p>
     <pre><code>&lt;form&gt;
@@ -2638,11 +2637,11 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h1>Link</h1>
     <h2>Used for navigating</h2>
     <h2 id="link-demo">Demo</h2>
-    <code-sample>
-      <a href="#">Real link</a>,
-      <span role="link">Fake link</span>
-    </code-sample>
-    <h2>API</h2>
+    <a href="#">Real link</a>
+    <span role="link">Fake link</span>
+    <pre><code class="language-html">&lt;a href=&quot;#link&quot;&gt;Real link&lt;/a&gt;
+&lt;span role=&quot;link&quot;&gt;Fake link&lt;/span&gt;</code></pre>
+    <h2 id="link-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -2660,7 +2659,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <h3>Attributes</h3>
+    <h3 id="link-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -2701,29 +2700,26 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <h2>Guidelines</h2>
-    <h3 id="security">Security</h3>
+    <h2 id="link-guidelines">Guidelines</h2>
+    <h3 id="link-security">Security</h3>
     <p>When linking to websites you don't control, you should add the <code>rel="noopener"</code> attribute.</p>
-    <h3 id="new-tab">Open link in new tab</h3>
+    <h3 id="link-new-tab">Open link in new tab</h3>
     <p>Quite often it is more convenient for users to open links in a new browser tab. This is especially true when a link goes to another website or when the link is on a page (or in a place on a page) that the user would have trouble getting back to. Simply add <code>target="_blank"</code>.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="link-a11y">Accessibility</h3>
     <p>Links should behave as links, i.e. they activate when clicked. Links that don't behave this way should not use the anchor tag and should instead use a <code>span</code> with <code>role="link"</code> attribute to avoid confusing screen-readers. Also, groups of links like menus, breadcrumbs, or primary navigation should be contained in a <code>nav</code> element.</p>
   </section>
 
   <hr>
 
-  <section id="loader">
-    <h1>Loader</h1>
+  <section id="progress">
+    <h1>Progress</h1>
     <h2>Indicates a processing state</h2>
-    <h2 id="demo">Demo</h2>
-    <code-sample>
-      <template>
-        <m-loader loading></m-loader>
-        <m-loader loading>Searching...</m-loader>
-      </template>
-    </code-sample>
-    <p>See more <a href="/examples#Loader">examples</a></p>
-    <h2 id="api">API</h2>
+    <h2 id="progress-demo">Demo</h2>
+    <progress title="Downloading" aria-label="Downloading"></progress>
+    <progress value="0.25"></progress>
+    <pre><code>&lt;progress title="Downloading" aria-label="Downloading"&gt;&lt;/progress&gt;
+&lt;progress value=&quot;0.25&quot;&gt;&lt;/progress&gt;</code></pre>
+    <h2 id="progress-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -2735,13 +2731,13 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>m-loader</code></td>
-        <td colspan="2">Custom tag</td>
-        <td colspan="6">Text (optional)</td>
+        <td colspan="2"><code>progress</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">None</td>
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="progress-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -2751,37 +2747,47 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td colspan="2"><code>loading</code></td>
-        <td colspan="2">Boolean attribute</td>
-        <td colspan="6">When present the loader will rotate infinitely. Without it Loader remains still.</td>
-      </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="title">Loader text</h3>
+    <h2 id="progress-guidelines">Guidelines</h2>
+    <h3 id="progress-title">Loader text</h3>
     <p>In most cases the loader should have its own text or be in close proximity to a related message, like a button label. In some cases it's appropriate to have a loader on it's own without a message (in those cases see Accessibility).</p>
-    <h3 id="size">Loader size</h3>
-    <p>The default size works for most use cases, but you can enlarge or shrink Loader with the <a href="/utility-classes#text">text size utility classes</a> or set its own font size:</p>
-    <code-sample>
-      <m-loader loading class="txt-xs"></m-loader>
-      <m-loader loading class="txt-sm"></m-loader>
-      <m-loader loading class="txt-md"></m-loader>
-      <m-loader loading class="txt-lg"></m-loader>
-      <m-loader loading class="txt-xl"></m-loader>
-      <m-loader loading class="txt-xxl"></m-loader>
-    </code-sample>
-    <h3 id="nesting">Nesting Loader</h3>
-    <p>Loader will inherit font properties, so when it's nested in elements like button, anchor, or headings it looks as you would expect it to:</p>
-    <code-sample>
-      <button ord="primary">Save</button>
-      <button ord="primary" disabled>
-        <m-loader loading>Saving</m-loader>
-      </button>
-    </code-sample>
-    <h3 id="a11y">Accessibility</h3>
-    <p>If a Loader doesn't have text it should use
-      <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute" rel="noopener" target="_blank"><code>aria-labelledby</code></a> or <code>aria-label</code>.</p>
+    <h3 id="progress-size">Progress size</h3>
+    <p>The default size works for most use cases, but you can enlarge or shrink progress with the <a href="/utility-classes#text">text size utility classes</a> or set its own font size:</p>
+    <progress class="txt-xs"></progress>
+    <progress class="txt-sm"></progress>
+    <progress class="txt-md"></progress>
+    <progress class="txt-lg"></progress>
+    <progress class="txt-xl"></progress>
+    <progress class="txt-xxl"></progress>
+    <h3 id="progress-nesting">Nested progress styles</h3>
+    <p>Progress will inherit font properties so that when it's nested in other elements it matches the expected styles.</p>
+    <m-tag>
+      <progress></progress>
+      <span>Inside a tag</span>
+    </m-tag>
+    <button ord="primary" disabled>
+      <progress></progress>
+      <span>Inside a disabled button</span>
+    </button>
+    <m-alert type="success" class="gap-2">
+      <progress></progress>
+      <span>Inside a success alert</span>
+    </m-alert>
+    <pre><code>&lt;m-tag&gt;
+  &lt;progress&gt;&lt;/progress&gt;
+  &lt;span&gt;Inside a tag&lt;/span&gt;
+&lt;/m-tag&gt;
+&lt;button ord=&quot;primary&quot; disabled&gt;
+  &lt;progress&gt;&lt;/progress&gt;
+  &lt;span&gt;Inside a disabled button&lt;/span&gt;
+&lt;/button&gt;
+&lt;m-alert type=&quot;success&quot; class=&quot;gap-2&quot;&gt;
+  &lt;progress&gt;&lt;/progress&gt;
+  &lt;span&gt;Inside a success alert&lt;/span&gt;
+&lt;/m-alert&gt;</code></pre>
+    <h3 id="progress-a11y">Accessibility</h3>
+    <p></p>
   </section>
 
   <hr>
@@ -2789,7 +2795,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   <section id="menu">
     <h1>Menu</h1>
     <h2>Small, toggleable containers often used for navigation</h2>
-    <h2 id="demo">Demo</h2>
+    <h2 id="menu-demo">Demo</h2>
     <code-sample>
       <template>
         <m-menu>
@@ -2820,7 +2826,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </template>
     </code-sample>
     <p>See more <a href="/examples#Menus">examples</a></p>
-    <h2 id="api">API</h2>
+    <h2 id="menu-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
       <thead>
@@ -2860,7 +2866,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <h3 id="attributes">Attributes</h3>
+    <h3 id="menu-attributes">Attributes</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -2877,7 +2883,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <h3 id="events">Events</h3>
+    <h3 id="menu-events">Events</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -2894,10 +2900,10 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <h2 id="guidelines">Guidelines</h2>
-    <h3 id="title">What about &lt;menu&gt;?</h3>
+    <h2 id="menu-guidelines">Guidelines</h2>
+    <h3 id="menu-title">What about &lt;menu&gt;?</h3>
     <p>This component is only loosely based on the <code>HTMLMenuElement</code> interface because that spec is incomplete and looks to be deprecated.</p>
-    <h3 id="a11y">Accessibility</h3>
+    <h3 id="menu-a11y">Accessibility</h3>
     <p>There are no accessibility recommendations for menu at this time. This post <a
       href="https://adrianroselli.com/2017/10/dont-use-aria-menu-roles-for-site-nav.html">https://adrianroselli.com/2017/10/dont-use-aria-menu-roles-for-site-nav.html</a> seems reasonable and accurate enough to say that simple markup like anchor tags in menus is sufficient.</p>
   </section>
@@ -4803,17 +4809,19 @@ console.log(user.name);&lt;/pre&gt;</code></pre>
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     <h2 id="utility-classes-api">API</h2>
-    <div id="utility-classes-categories">
-      <nav class="pad-t-3 pad-b-3 bg-gray-1">Categories:
-        <a href="#display" class="mar-r-4 mar-l-1">Display</a>
-        <a href="#flexbox" class="mar-r-4">Flexbox</a>
-        <a href="#spacing" class="mar-r-4">Spacing</a>
-        <a href="#position" class="mar-r-4">Position</a>
-        <a href="#font" class="mar-r-4">Font</a>
-        <a href="#text" class="mar-r-4">Text</a>
-        <a href="#border" class="mar-r-4">Border</a>
-        <a href="#background" class="mar-r-4">Background</a>
-        <a href="#other" class="mar-r-4">Other</a>
+    <p>Utility class names generally match the naming of their property with most property names abbreviated to three letters, e.g. padding is abbreviated as pad, position as pos. Some are two letters, like background shortened to just bg, and some are not abbreviated at all.</p>
+    <div id="utility-classes-categories" style="margin: 0 calc(var(--m-space-3) * -1)">
+      <nav class="pad-3 bg-gray-1">
+        <span class="fnt-med">Scroll to:</span>
+        <a href="#utility-classes-display" class="mar-r-4 mar-l-1">Display</a>
+        <a href="#utility-classes-flexbox" class="mar-r-4">Flexbox</a>
+        <a href="#utility-classes-spacing" class="mar-r-4">Spacing</a>
+        <a href="#utility-classes-position" class="mar-r-4">Position</a>
+        <a href="#utility-classes-font" class="mar-r-4">Font</a>
+        <a href="#utility-classes-text" class="mar-r-4">Text</a>
+        <a href="#utility-classes-border" class="mar-r-4">Border</a>
+        <a href="#utility-classes-background" class="mar-r-4">Background</a>
+        <a href="#utility-classes-other" class="mar-r-4">Other</a>
       </nav>
     </div>
     <h3 id="utility-classes-display">Display</h3>

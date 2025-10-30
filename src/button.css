@@ -22,7 +22,7 @@
     /* Disabled */
     &[disabled] {
       cursor: not-allowed;
-      border-color: var(--m-color-disabled-bg);
+      border-color: var(--m-color-gray-3);
       color: var(--m-color-disabled-fg);
       background-color: var(--m-color-disabled-bg);
     }

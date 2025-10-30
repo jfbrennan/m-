@@ -1,0 +1,18 @@
+progress:indeterminate {
+    appearance: none;
+    display: inline-flex;
+    place-items: center;
+    width: auto;
+
+    &::before {
+        font-family: 'm-icons';
+        content: 'autorenew';
+        -webkit-font-smoothing: antialiased;
+        animation: 1.2s linear infinite m-loader
+    }
+}
+
+@keyframes m-loader {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg) }
+}
