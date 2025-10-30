@@ -2740,6 +2740,11 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </thead>
       <tbody>
+      <tr>
+        <td><code>value</code></td>
+        <td>Number</td>
+        <td>Sets the completed progress</td>
+      </tr>
       </tbody>
     </table>
     <h2 id="progress-guidelines">Guidelines</h2>
@@ -4023,9 +4028,9 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       }
     </script>
 
-    <m-tag data-user-id="1">Bill<button onclick="removeUser(event)" slot="close"></button></m-tag>
-    <m-tag data-user-id="2">Jill<button onclick="removeUser(event)" slot="close"></button></m-tag>
-    <m-tag data-user-id="3">Phil<button onclick="removeUser(event)" slot="close"></button></m-tag>
+    <m-tag data-user-id="1">Bill<button onclick="removeUser(event)" slot="close" title="Remove" aria-label="Remove"></button></m-tag>
+    <m-tag data-user-id="2">Jill<button onclick="removeUser(event)" slot="close" title="Remove" aria-label="Remove"></button></m-tag>
+    <m-tag data-user-id="3">Phil<button onclick="removeUser(event)" slot="close" title="Remove" aria-label="Remove"></button></m-tag>
     <pre><code>&lt;script&gt;
   function removeUser(e) {
     const tag = e.currentTarget.parentElement;
@@ -4049,11 +4054,11 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
 &lt;m-tag&gt;&lt;m-icon name=&quot;shower&quot; title=&quot;Hot shower&quot; aria-label=&quot;Hot shower&quot;&gt;&lt;/m-icon&gt;&lt;/m-tag&gt;</code></pre>
     <h3 id="tag-color">Color</h3>
     <p>Tag's color can be changed with its <code>--color</code> custom property.</p>
-    <m-tag style="--color: var(--m-color-blue-3)">Blue 3 tag<button slot="close"></button></m-tag>
-    <m-tag style="--color: var(--m-color-red-3)">Red 3 tag<button slot="close"></button></m-tag>
-    <m-tag style="--color: var(--m-color-green-3)">Green 3 tag<button slot="close"></button></m-tag>
-    <m-tag style="--color: var(--m-color-orange-3)">Orange 3 tag<button slot="close"></button></m-tag>
-    <m-tag style="--color: #984e28">Custom color tag<button slot="close"></button></m-tag>
+    <m-tag style="--color: var(--m-color-blue-3)">Blue 3 tag<button slot="close" title="Remove" aria-label="Remove"></button></m-tag>
+    <m-tag style="--color: var(--m-color-red-3)">Red 3 tag<button slot="close" title="Remove" aria-label="Remove"></button></m-tag>
+    <m-tag style="--color: var(--m-color-green-3)">Green 3 tag<button slot="close" title="Remove" aria-label="Remove"></button></m-tag>
+    <m-tag style="--color: var(--m-color-orange-3)">Orange 3 tag<button slot="close" title="Remove" aria-label="Remove"></button></m-tag>
+    <m-tag style="--color: #984e28">Custom color tag<button slot="close" title="Remove" aria-label="Remove"></button></m-tag>
     <pre><code>&lt;m-tag style=&quot;--color: var(--m-color-blue-3)&quot;&gt;Blue 3 tag&lt;button slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
 &lt;m-tag style=&quot;--color: var(--m-color-red-3)&quot;&gt;Red 3 tag&lt;button slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
 &lt;m-tag style=&quot;--color: var(--m-color-green-3)&quot;&gt;Green 3 tag&lt;button slot=&quot;close&quot;&gt;&lt;/button&gt;&lt;/m-tag&gt;
