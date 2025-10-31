@@ -61,8 +61,8 @@
 
     /* The category sections get custom heading and paragraph margin */
     main > section {
-      padding: 120px 0;
-      scroll-margin-top: -100px;
+      padding: 30px 0 230px 0;
+      scroll-margin-top: -10px;
 
       & h1 {
         font-size: 2em;
@@ -107,7 +107,7 @@
 
     .category-heading {
       > div {
-        font-size: clamp(var(--m-font-size-min), 11vw, 20vw);
+        font-size: clamp(var(--m-font-size-min), 11vw, 18vw);
       }
     }
 
@@ -138,8 +138,6 @@
   </a>
   <nav class="pad-4">
     <a href="#intro" class="block mar-b-2">Intro</a>
-    <!--      <a href="/examples" class="block mar-b-2">Examples</a>-->
-    <!--      <a href="/comparison" class="block mar-b-2">Comparison</a>-->
     <a href="https://github.com/jfbrennan/m-" class="flex align-items-center mar-b-2">GitHub</a>
     <a href="https://x.com/realEmDash" class="flex align-items-center mar-b-2">X</a>
     <hr class="mar-t-4 mar-b-4">
@@ -147,7 +145,6 @@
     <div class="flex flx-col flx-basis-content gap-2">
       <a href="#accordion">Accordion</a>
       <a href="#alert">Alert</a>
-<!--      <a href="#autocomplete">Autocomplete</a>-->
       <a href="#badge">Badge</a>
       <a href="#breadcrumbs">Breadcrumbs</a>
       <a href="#button">Button</a>
@@ -184,11 +181,6 @@
     <h4 class="mar-t-4 mar-b-2">Styles</h4>
     <a href="#custom-properties" class="block mar-b-2">Custom Properties</a>
     <a href="#utility-classes" class="block mar-b-2">Utility Classes</a>
-    <!--        <h4 class="mar-b-3">Patterns</h4>-->
-    <!--        <a href="/head-tags" class="block mar-b-2">Head Tags</a>-->
-    <!--        <a href="/navbar" class="block mar-b-2">Navbar</a>-->
-    <!--        <a href="/searchbar" class="block mar-b-2">Search</a>-->
-    <!--        <a href="/patterns/toolbar" class="block mar-b-2">Toolbar</a>-->
     <hr class="mar-t-4 mar-b-4">
     <small class="block txt-center">Copyright &copy; 2025<br>Jordan Brennan</small>
   </nav>
@@ -216,11 +208,7 @@
         <h1 hidden>Does it loop?</h1>
         <h1 hidden>No.</h1>
       </div>
-      <div class="mar-auto mar-b-2 txt-center txt-lg">
-<!--        <div>Mdash intends to leverage HTML, not replace it or try to outsmart it.</div>-->
-<!--        <div>This makes Mdash ideal for all web projects and skill levels.</div>-->
-      </div>
-      <div id="benefits" class="flex justify-content-center gap-2 flx-wrap txt-center txt-xs fnt-med mar-lg">
+      <div id="benefits" class="flex justify-content-center gap-2 flx-wrap txt-center fnt-med mar-lg">
         <div class="align-self-center">zero dependencies</div>
         <hr aria-orientation="vertical">
         <div class="align-self-center">tiny <a href="#performance">6kb</a></div>
@@ -239,7 +227,7 @@
       <p class="mar-t-0 mar-b-2">This is the web. Just link to Mdash and go!</p>
       <pre class="txt-left"><code class="language-html">&lt;link href=&quot;https://unpkg.com/m-@3.2.0/dist/m-.woff2&quot; rel=&quot;preload&quot; as=&quot;font&quot; crossorigin&gt;
 &lt;link href=&quot;https://unpkg.com/m-@3.2.0/dist/m-.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
-      <div class="txt-xs">or <a href="#installation">npm</a></div>
+      <div class="txt-xs">or <a href="#installation">npm install m-</a></div>
     </div>
     <hr class="mar-t-10 mar-b-10">
     <h2 id="intro" class="mar-t-0">Introduction</h2>
@@ -432,13 +420,8 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     <div>
       <h4 class="mar-t-4">Stylesheet</h4>
       <pre><code class="language-html">&lt;link href="https://unpkg.com/m-@3.2.0/dist/m-.css" rel="stylesheet"&gt;</code></pre>
-      <p>This includes everything: 63 tokens, 35 components, and 302 utility classes. All in a single 6kb stylesheet!</p>
+      <p>This file includes everything: 63 tokens, 35 components, and 302 utility classes. All in a single 6kb stylesheet!</p>
     </div>
-<!--    <div>-->
-<!--      <h4>Custom Elements</h4>-->
-<!--      <pre><code class="language-html">&lt;script src="https://unpkg.com/m-@3.2.0/dist/m-.js" defer&gt;&lt;/script&gt;</code></pre>-->
-<!--      <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer" target="_blank">defer</a> option tells the browser to download the script but delay its evaluation to avoid blocking document parsing.</p>-->
-<!--    </div>-->
     <h3 id="installation-npm">NPM</h3>
     <p>If the CDN is not an option, you can install the Mdash package.</p>
     <pre><code>npm install m-</code></pre>
@@ -446,24 +429,6 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     <pre><code>@import "node_modules/m-/dist/m-.css";</code></pre>
     <h2 id="browsers">Browser support</h2>
     <p>Mdash works with the latest versions of all major browsers. Please <a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file a bug</a> if you see something not working as expected.</p>
-    <script>
-      // Cycle through the messages at the top of the page
-      // const intervalId = setInterval(goToNextMessage, 4100);
-
-      function goToNextMessage() {
-        const currentMessage = document.getElementById('home-messages').querySelector('h1:not([hidden])');
-        const nextMessage = currentMessage.nextElementSibling;
-
-        // Hide current and show next.
-        if (nextMessage) {
-          currentMessage.hidden = true;
-          nextMessage.hidden = false;
-        }
-        else {
-          clearInterval(intervalId);
-        }
-      }
-    </script>
   </section>
 
   <div id="components" class="category-heading">
@@ -792,15 +757,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
 
 &lt;m-alert&gt;Dismiss me &lt;button onclick=&quot;dismissAlert(event)&quot; slot=&quot;close&quot; title=&quot;Dismiss&quot; aria-label=&quot;Dismiss&quot;&gt;&lt;/button&gt;&lt;/m-alert&gt;</code></pre>
     <p>It is recommended that error alerts do not use the close slot. The user should instead be guided toward correcting the error if possible.</p>
-<!--    <h3 id="alert-content">Content</h3>-->
-<!--    <p>The content of the alert can be a simple message or something much more. Here are two example:</p>-->
-<!--    <m-alert type="info" icon="event_repeat">-->
-<!--      <div>-->
-<!--        <h4>Sign up for autopay</h4>-->
-<!--        <p>Never miss a payment with autopay. Add an account to get started!</p>-->
-<!--        <button ord="tertiary" scale="sm" class="mar-t-1">Add Account</button>-->
-<!--      </div>-->
-<!--    </m-alert>-->
     <h3 id="alert-vs-dialog">Alert vs. Dialog</h3>
     <p>Some information is so important it justifies interrupting the user. In those cases consider displaying it in a <a href="#dialog">dialog</a> instead of an alert.</p>
     <h3 id="alert-toast">What about a Toast component?</h3>
@@ -816,155 +772,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h3 id="alert-a11y">Accessibility</h3>
     <p>Warning and error alerts should also have <code>role="alert"</code> (see <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role" target="_blank" rel="noopener">ARIA alert role</a>). Add a <code>title</code> and <code>aria-label</code> to the close slot.</p>
   </section>
-
-  <hr>
-
-<!--  <section id="autocomplete">-->
-<!--    <h1>Autocomplete</h1>-->
-<!--    <h2>Text input for searching values or getting suggestions</h2>-->
-<!--    <h2 id="autocomplete-demo">Demo</h2>-->
-<!--    <fieldset>-->
-<!--      <label>Search</label>-->
-<!--      <input list="fruit" placeholder="Slowly type 'apl' to see the behavior"></input>-->
-<!--      <datalist id="fruit">-->
-<!--        <option value="apple"></option>-->
-<!--        <option value="banana"></option>-->
-<!--        <option value="cherry"></option>-->
-<!--        <option value="peach"></option>-->
-<!--      </datalist>-->
-<!--    </fieldset>-->
-<!--    <pre><code>&lt;fieldset&gt;-->
-<!--  &lt;label&gt;Search&lt;/label&gt;-->
-<!--  &lt;m-autocomplete source=&quot;fruit&quot; placeholder=&quot;Slowly type &#39;apl&#39; to see the behavior&quot;&gt;&lt;/m-autocomplete&gt;-->
-<!--  &lt;datalist id=&quot;fruit&quot;&gt;-->
-<!--    &lt;option value=&quot;apple&quot;&gt;&lt;/option&gt;-->
-<!--    &lt;option value=&quot;banana&quot;&gt;&lt;/option&gt;-->
-<!--    &lt;option value=&quot;cherry&quot;&gt;&lt;/option&gt;-->
-<!--    &lt;option value=&quot;peach&quot;&gt;&lt;/option&gt;-->
-<!--  &lt;/datalist&gt;-->
-<!--&lt;/fieldset&gt;</code></pre>-->
-<!--    <h2 id="api">API</h2>-->
-<!--    <h3>Tags</h3>-->
-<!--    <table>-->
-<!--      <thead>-->
-<!--      <tr>-->
-<!--        <th colspan="2">Name</th>-->
-<!--        <th colspan="2">Type</th>-->
-<!--        <th colspan="6">Content</th>-->
-<!--      </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--      <tr>-->
-<!--        <td colspan="2"><code>m-autocomplete</code></td>-->
-<!--        <td colspan="2">Custom Element</td>-->
-<!--        <td colspan="6">None</td>-->
-<!--      </tr>-->
-<!--      <tr>-->
-<!--        <td colspan="2"><code>datalist</code></td>-->
-<!--        <td colspan="2">Native element</td>-->
-<!--        <td colspan="6"><code>&lt;option&gt;</code> elements</td>-->
-<!--      </tr>-->
-<!--      </tbody>-->
-<!--    </table>-->
-<!--    <h3 id="attributes">Attributes</h3>-->
-<!--    <table layout="fixed">-->
-<!--      <thead>-->
-<!--      <tr>-->
-<!--        <th colspan="2">Name</th>-->
-<!--        <th colspan="2">Value</th>-->
-<!--        <th colspan="6">Description</th>-->
-<!--      </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--      <tr>-->
-<!--        <td colspan="2"><code>source</code> <small class="fnt-bold fnt-italic">required</small></td>-->
-<!--        <td colspan="2">String</td>-->
-<!--        <td colspan="6">The source of data to query for matches. This must be the id of a <code>&lt;datalist&gt;</code> element or the name of a custom source function. Learn how to create them <a href="#creating-sources">below</a>.</td>-->
-<!--      </tr>-->
-<!--      <tr>-->
-<!--        <td colspan="2"><code>max</code></td>-->
-<!--        <td colspan="2">Number</td>-->
-<!--        <td colspan="6">Truncates the number of results to <code>max</code>. Autocomplete will overflow at about 10 visible results regardless of the max set.</td>-->
-<!--      </tr>-->
-<!--      </tbody>-->
-<!--    </table>-->
-<!--    <h3 id="events">Events</h3>-->
-<!--    <table layout="fixed">-->
-<!--      <thead>-->
-<!--      <tr>-->
-<!--        <th colspan="2">Name</th>-->
-<!--        <th colspan="2">Details</th>-->
-<!--        <th colspan="6">Description</th>-->
-<!--      </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--      <tr>-->
-<!--        <td colspan="2"><code>select</code></td>-->
-<!--        <td colspan="2">-->
-<!--      <pre><code>// Name of the source for easy reference-->
-<!--source: '',-->
-
-<!--// Value from matches-->
-<!--value: '',-->
-
-<!--// Id of match, if provided-->
-<!--id: ''</code></pre>-->
-<!--        </td>-->
-<!--        <td colspan="6">-->
-<!--          <div class="mar-b-4">Fires after a match is selected. Try it:</div>-->
-<!--          <fieldset>-->
-<!--            <label>Superheroes</label>-->
-<!--            <m-autocomplete onselect="alert(JSON.stringify(event.detail, null, 2))" source="superheroes" placeholder="Search 'bat' or 'kent' and select a result"></m-autocomplete>-->
-<!--            <datalist id="superheroes">-->
-<!--              <option value="batman">Bruce Wayne</option>-->
-<!--              <option value="superman">Clark Kent</option>-->
-<!--              <option value="spiderman">Peter Parker</option>-->
-<!--            </datalist>-->
-<!--          </fieldset>-->
-<!--        </td>-->
-<!--      </tr>-->
-<!--      </tbody>-->
-<!--    </table>-->
-<!--    <h2 id="guidelines">Guidelines</h2>-->
-<!--    <h3 id="creating-sources">Creating data sources for autocomplete</h3>-->
-<!--    <p>Sources can come from a standard <code>datalist</code> element or a custom function added to the global <code>MdashAutocomplete</code>.</p>-->
-<!--    <h4>1. Datalist element</h4>-->
-<!--    <p>Include a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank" rel="noopener">datalist</a> element in the DOM. Its <code>id</code> must match the Autocomplete's <code>source</code>. The options' value attributes and optional text are searched for matches. Here's an example:</p>-->
-<!--    <pre><code>&lt;fieldset&gt;-->
-<!--  &lt;label&gt;Search&lt;/label&gt;-->
-<!--  &lt;m-autocomplete source=&quot;fruit&quot;&gt;&lt;/m-autocomplete&gt;-->
-<!--  &lt;datalist id=&quot;fruit&quot;&gt;-->
-<!--    &lt;option value=&quot;apple&quot;&gt;&lt;/option&gt;-->
-<!--    &lt;option value=&quot;banana&quot;&gt;&lt;/option&gt;-->
-<!--    &lt;option value=&quot;cherry&quot;&gt;&lt;/option&gt;-->
-<!--    &lt;option value=&quot;peach&quot;&gt;&lt;/option&gt;-->
-<!--  &lt;/datalist&gt;-->
-<!--&lt;/fieldset&gt;</code></pre>-->
-<!--    <h4>2. Custom source function</h4>-->
-<!--    <p>These are asynchronous functions added to the static <code>MdashAutocomplete.sources</code> object. Here's another <code>fruit</code> example similar to the datalist above:</p>-->
-<!--    <pre><code>&lt;script&gt;-->
-<!--  const mdashAutocomplete = customElements.get(&#39;m-autocomplete&#39;);-->
-<!--  mdashAutocomplete.sources.fruit = async (query, max) =&gt; {-->
-
-<!--    // 1. Use `query` to fetch, filter, map, find, or whatever your logic is for determining matching results.-->
-<!--    // Note: `max` is the most results that will be shown, which can be helpful to know beforehand when dealing with large data sets.-->
-<!--    const matches = [&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;peach&#39;].filter(fruit =&gt; fruit.includes(query));-->
-
-<!--    // 2. Result must be an object with the original `query` param and a `matches` Array.-->
-<!--    // Note: `matches` elements can be strings or objects with `id` and `value` properties. See Events API above for more details.-->
-<!--    const result = {query, matches};-->
-
-<!--    // 3. Return a resolved Promise with the result (async functions do this automatically).-->
-<!--    return result;-->
-
-<!--  }-->
-<!--&lt;/script&gt;</code></pre>-->
-<!--    <p><span class="fnt-bold"><m-icon name="lightbulb"></m-icon>Tip:</span> If the source's data is over the network, cache results client-side for faster lookup next time the same query is given. A simple object is often good enough, e.g. <code>const matches = cache[query] || await fetchAndCacheResults(query)</code>, but the-->
-<!--      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache" target="_blank">Cache API</a> is another excellent option. You can also use <code>max</code> if it's beneficial while searching to know the maximum number of matches that will be shown.</p>-->
-<!--    {{> more-autocomplete}}-->
-<!--    <h3 id="a11y">Accessibility</h3>-->
-<!--    <p>There are no extra recommendations for Autocomplete.</p>-->
-<!--  </section>-->
 
   <hr>
 
@@ -1369,16 +1176,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
           for details</a>.
           <p>See <a href="#button-group">Button Group</a> below to learn how to create a group of toggle buttons.</p></td>
       </tr>
-      <!--  <tr>-->
-      <!--    <td colspan="2"><code>scale</code></td>-->
-      <!--    <td colspan="2">-->
-      <!--      <ul type="none">-->
-      <!--        <li>sm</li>-->
-      <!--        <li>lg</li>-->
-      <!--      </ul>-->
-      <!--    </td>-->
-      <!--    <td colspan="6">Scales the button size. Medium is the implied default and matches the size of form controls. Small is recommended for menus, table rows, and other space-constrained designs.</td>-->
-      <!--  </tr>-->
       </tbody>
     </table>
     <p>For <span class="fnt-bold">&lt;a&gt;</span> only:</p>
@@ -1889,38 +1686,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </summary>
       <div class="pad-2">The report history...</div>
     </details>
-<!--    <h3>Navigation</h3>-->
-<!--    <p>A common application of Details is an expandable navigation. Here's a working example:</p>-->
-<!--    <code-sample>-->
-<!--      <nav aria-label="Sidebar navigation">-->
-<!--        <h4 class="txt-upper mar-b-2">Lesson 1</h4>-->
-<!--        <details>-->
-<!--          <summary>Section A</summary>-->
-<!--          <div class="pad-l-1 mar-b-4">-->
-<!--            <a href="#" class="block mar-t-1">Intro to Biology</a>-->
-<!--            <a href="#" class="block mar-t-1">Living Organisms</a>-->
-<!--            <a href="#" class="block mar-t-1">The Human Cell</a>-->
-<!--          </div>-->
-<!--        </details>-->
-<!--        <details class="mar-t-2">-->
-<!--          <summary>Section B</summary>-->
-<!--          <div class="pad-l-1 mar-b-4">-->
-<!--            <a href="#" class="block mar-t-1">DNA</a>-->
-<!--            <a href="#" class="block mar-t-1">Mapping the Genome</a>-->
-<!--            <a href="#" class="block mar-t-1">Biological Ethics</a>-->
-<!--          </div>-->
-<!--        </details>-->
-<!--        <h4 class="txt-upper mar-b-2">Lesson 2</h4>-->
-<!--        <details class="mar-t-2">-->
-<!--          <summary>Section C</summary>-->
-<!--          <div class="pad-l-1 mar-b-4">-->
-<!--            <a href="#" class="block mar-t-1">Link</a>-->
-<!--            <a href="#" class="block mar-t-1">Link</a>-->
-<!--            <a href="#" class="block mar-t-1">Link</a>-->
-<!--          </div>-->
-<!--        </details>-->
-<!--      </nav>-->
-<!--    </code-sample>-->
     <h3 id="details-a11y">Accessibility</h3>
     <p>The <code>aria-expanded</code> attribute is managed automatically. Pressing spacebar will open/close details.</p>
   </section>
@@ -2106,7 +1871,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
 &lt;m-dot type=&quot;success&quot;&gt;Success&lt;/m-dot&gt;
 &lt;m-dot type=&quot;warn&quot;&gt;Warning&lt;/m-dot&gt;
 &lt;m-dot type=&quot;error&quot;&gt;Error&lt;/m-dot&gt;</code></pre>
-    <!--<p>See more <a href="/examples#Dot">examples</a></p>-->
     <h2 id="dot-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
@@ -2147,11 +1911,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         </td>
         <td colspan="6">Sets the type of the indicator and has the same meaning as Alert's <a href="#alert-attributes">type</a>.</td>
       </tr>
-      <!--  <tr>-->
-      <!--    <td colspan="2"><code>color</code></td>-->
-      <!--    <td colspan="2">String</td>-->
-      <!--    <td colspan="6">Instead of a semantic type, you can use any of the <a href="/custom-properties#colors">colors</a>, e.g. <code>color="orange-med"</code>.</td>-->
-      <!--  </tr>-->
       </tbody>
     </table>
     <h2 id="dot-guidelines">Guidelines</h2>
@@ -2177,11 +1936,9 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <p class="pad-l-8">All good!</p>
       </details>
       <details>
-        <summary>
-          <div class="flex">
-            <m-dot type="warn" class="mar-r-4"></m-dot>
-            <span class="txt-md fnt-bold">Notification service</span>
-          </div>
+        <summary class="flex">
+          <m-dot type="warn" class="mar-r-4"></m-dot>
+          <span class="txt-md fnt-bold">Notification service</span>
         </summary>
         <p class="pad-l-8">Increase in avgerage response time.</p>
       </details>
@@ -2531,12 +2288,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <td colspan="2">Boolean attribute</td>
         <td colspan="6">If present, the browser will bring focus to this element on page load. Excellent for log in or search pages or whenever the first interaction is likely to type something.</td>
       </tr>
-      <!--  <tr>-->
-      <!--    <td colspan="2"><code>autoselect</code></td>-->
-      <!--    <td colspan="2">Boolean attribute</td>-->
-      <!--    <td colspan="6">If present, the browser will select the value of the input. This is convenient to the user in cases where the value is usually-->
-      <!--      <span class="fnt-italic">replaced</span> instead of edited. Does not work with Chrome.</td>-->
-      <!--  </tr>-->
       <tr>
         <td colspan="2"><code>autocomplete</code></td>
         <td colspan="2">
@@ -3255,22 +3006,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
 &lt;/style&gt;</code></pre>
       </div>
     </div>
-
-    <!--<h3 id="vertical">Vertical orientation</h3>-->
-    <!--<p>The orient vertical option works well for one range, but having multiple vertical ranges requires the following:</p>-->
-    <!--<code-sample>-->
-    <!--  <div class="flex">-->
-    <!--    <fieldset class="pos-relative" style="width: 50px; height: 129px">-->
-    <!--      <input type="range" orient="vertical">-->
-    <!--    </fieldset>-->
-    <!--    <fieldset class="pos-relative mar-t-0" style="width: 50px; height: 129px">-->
-    <!--      <input type="range" orient="vertical">-->
-    <!--    </fieldset>-->
-    <!--    <fieldset class="pos-relative mar-t-0" style="width: 50px; height: 129px">-->
-    <!--      <input type="range" orient="vertical">-->
-    <!--    </fieldset>-->
-    <!--  </div>-->
-    <!--</code-sample>-->
     <h3 id="range-a11y">Accessibility</h3>
     <p>Use <code>for</code> and <code>id</code> as usual, but also use <code>for</code> on <code>output</code> elements. MDN has more details
       <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_slider_role">ARIA: Using the slider role</a>.</p>
@@ -4680,11 +4415,6 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
         <td colspan="3">2px, 4px, fully round</td>
         <td colspan="3">Used for border radius.</td>
       </tr>
-      <!--  <tr>-->
-      <!--    <td colspan="2"><code>--border-[xs|sm]</code></td>-->
-      <!--    <td colspan="3">1, 2</td>-->
-      <!--    <td colspan="3">Used for border width. All borders have the same <code>--color-border</code> color and solid style.</td>-->
-      <!--  </tr>-->
       </tbody>
     </table>
     <h3 id="custom-properties-breakpoints">Breakpoints</h3>
@@ -5328,10 +5058,5 @@ const homerCard = UserCardTemplate(&#39;/img/homer.webp&#39;, &#39;Homer J. Simp
     <p>There are no accessibility recommendations for these classes.</p>
   </section>
 </main>
-
-<script>
-  // Menu toggle (for small screens)
-  document.getElementById('menu-toggle').addEventListener('click', () => document.getElementById('menu').toggleAttribute('open'));
-</script>
 </body>
 </html>
