@@ -227,8 +227,8 @@
 .place-content-center { place-content: center }
 
 /* Grid */
-.grd-template-cols-fit { grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr)) }
-.grd-template-cols-fill { grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr)) }
+.grid-template-cols-fit { grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr)) }
+.grid-template-cols-fill { grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr)) }
 .grid-flow-col { grid-auto-flow: column }
 .grid-flow-row { grid-auto-flow: row }
 .grid-flow-dense { grid-auto-flow: dense }
