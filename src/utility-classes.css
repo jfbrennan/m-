@@ -225,6 +225,7 @@
 .align-self-end { align-self: flex-end }
 .align-self-baseline { align-self: baseline }
 .place-content-center { place-content: center }
+.place-items-center { place-items: center }
 
 /* Grid */
 .grid-template-cols-fit { grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr)) }
