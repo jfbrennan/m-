@@ -131,10 +131,10 @@
 <m-icon id="menu-toggle" name="menu" class="hidden pos-absolute pad-4 pointer txt-md"></m-icon>
 <aside class="pos-sticky pos-t-0 overflow-auto brd-r" style="flex: 0 0 180px; height: 100svh">
   <a href="#" class="all-unset pointer block width-full box-sizing-border pos-sticky pos-t-0 pad-4 bg-white">
-    <div id="m-logo" aria-label="Mdash logo" class="mar-auto fnt-bold pos-relative brd-radius-full mar-b-2">
+    <div id="m-logo" aria-label="Mdash logo" class="mar-auto font-bold pos-relative brd-radius-full mar-b-2">
       <span class="pos-absolute" style="top: 5px; left: 9px">m-</span>
     </div>
-    <div class="txt-center fnt-med txt-gray-6">Mdash</div>
+    <div class="txt-center font-med txt-gray-6">Mdash</div>
   </a>
   <nav class="pad-4">
     <a href="#intro" class="block mar-b-2">Intro</a>
@@ -142,7 +142,7 @@
     <a href="https://x.com/realEmDash" class="flex align-items-center mar-b-2">X</a>
     <hr class="mar-t-4 mar-b-4">
     <h4 class="mar-b-2">Components</h4>
-    <div class="flex flx-col flx-basis-content gap-2">
+    <div class="flex flex-col flex-basis-content gap-2">
       <a href="#accordion">Accordion</a>
       <a href="#alert">Alert</a>
       <a href="#badge">Badge</a>
@@ -185,11 +185,11 @@
     <small class="block txt-center">Copyright &copy; 2025<br>Jordan Brennan</small>
   </nav>
 </aside>
-<main class="pad-8 flx-grow-1 bg-gray-1">
+<main class="pad-8 flex-grow-1 bg-gray-1">
   <section>
     <div id="home-intro">
       <div class="category-heading">
-        <div class="fnt-bold txt-center">Mdash</div>
+        <div class="font-bold txt-center">Mdash</div>
       </div>
       <div id="home-messages" class="flex align-items-center justify-content-center txt-center mar-b-4">
         <h1 hidden>93 tokens<br>31 components<br>300+ utility classes<br>7 kilobytes</h1>
@@ -208,7 +208,7 @@
         <h1 hidden>Does it loop?</h1>
         <h1 hidden>No.</h1>
       </div>
-      <div id="benefits" class="flex justify-content-center gap-2 flx-wrap txt-center fnt-med mar-lg">
+      <div id="benefits" class="flex justify-content-center gap-2 flex-wrap txt-center font-med mar-lg">
         <div class="align-self-center">zero dependencies</div>
         <hr aria-orientation="vertical">
         <div class="align-self-center">tiny <a href="#performance">6kb</a></div>
@@ -223,7 +223,7 @@
       </div>
     </div>
     <div class="mar-auto txt-center mar-t-10" style="max-width: 730px">
-      <div id="quick-start" class="txt-lg fnt-med mar-t-0 mar-b-1">Quick start</div>
+      <div id="quick-start" class="txt-lg font-med mar-t-0 mar-b-1">Quick start</div>
       <p class="mar-t-0 mar-b-2">This is the web. Just link to Mdash and go!</p>
       <pre class="txt-left"><code class="language-html">&lt;link href=&quot;https://unpkg.com/m-@3.2.0/dist/m-.woff2&quot; rel=&quot;preload&quot; as=&quot;font&quot; crossorigin&gt;
 &lt;link href=&quot;https://unpkg.com/m-@3.2.0/dist/m-.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
@@ -233,10 +233,10 @@
     <h2 id="intro" class="mar-t-0">Introduction</h2>
     <h3>What is Mdash?</h3>
     <p>Mdash is a standards-based design system.</p>
-    <p>It includes <a href="#components" class="fnt-med">standard and custom HTML elements</a>, <a href="#custom-properties" class="fnt-med">CSS Custom Properties</a>, and <a href="#utility-classes" class="fnt-med">utility classes</a>.</p>
+    <p>It includes <a href="#components" class="font-med">standard and custom HTML elements</a>, <a href="#custom-properties" class="font-med">CSS Custom Properties</a>, and <a href="#utility-classes" class="font-med">utility classes</a>.</p>
     <p>Mdash works with all frameworks and all types of web projects, inclduing SSR, SPA, PWA, static site, and even popular email clients.</p>
     <h3>What makes Mdash different?</h3>
-    <p>Quite literally, nothing. <span class="fnt-italic">Nothing</span> is exactly what makes Mdash different:</p>
+    <p>Quite literally, nothing. <span class="font-italic">Nothing</span> is exactly what makes Mdash different:</p>
     <ul class="mar-b-3">
       <li>No new concepts or abstractions</li>
       <li>No setup or configuration</li>
@@ -251,7 +251,7 @@
     <hr class="mar-t-10 mar-b-10">
     <h2 id="compatibility">Compatible With Everything</h2>
     <p>Mdash can be used anywhere HTML is used because it is HTML.</p>
-    <p>All apps work with Mdash regardless of tech stack. Here's examples of <span class="fnt-bold">14 different technologies</span> all using the same Mdash component:</p>
+    <p>All apps work with Mdash regardless of tech stack. Here's examples of <span class="font-bold">14 different technologies</span> all using the same Mdash component:</p>
     <pre><code>&lt;!-- Vue --&gt;
 &lt;m-alert v-bind:type=&quot;alert.type&quot;&gt;{{ alert.message }}&lt;/m-alert&gt;
 
@@ -289,12 +289,12 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     <small>*Framework compatibility with Custom Elements is tracked on <a href="https://custom-elements-everywhere.com" target="_blank" rel="noopener">custom-elements-everywhere.com</a> and after eight long years
       <a href="https://custom-elements-everywhere.com/#react">React 19</a> is finally compatible. Wow. Good job.</small>
     <h2 id="performance">Performance</h2>
-    <p>Mdash is fast! It is by all practical measures instant. Its <span class="fnt-med">execution speed</span> comes from leveraging native technology and avoiding abstractions as much as possible in order to minimize code and retain browser optimizations. When it comes to code, nothing is faster than nothing.</p>
-    <p>In addition to execution speed, <span class="fnt-med">pages load faster</span> because Mdash is so much smaller than other UI libraries:</p>
+    <p>Mdash is fast! It is by all practical measures instant. Its <span class="font-med">execution speed</span> comes from leveraging native technology and avoiding abstractions as much as possible in order to minimize code and retain browser optimizations. When it comes to code, nothing is faster than nothing.</p>
+    <p>In addition to execution speed, <span class="font-med">pages load faster</span> because Mdash is so much smaller than other UI libraries:</p>
     <table>
       <tr>
         <td style="width: 140px">
-          <div class="fnt-bold txt-nowrap flex align-items-center gap-1">
+          <div class="font-bold txt-nowrap flex align-items-center gap-1">
             <div>Mdash</div>
             <div class="txt-lg">🔥</div>
           </div>
@@ -306,7 +306,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
       <tr>
         <td style="width: 140px">
-          <span class="fnt-bold txt-nowrap">Bootstrap</span>
+          <span class="font-bold txt-nowrap">Bootstrap</span>
         </td>
         <td>
           <meter min="0" max="353" low="20" optimum="12" high="80" value="71"></meter>
@@ -315,7 +315,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
       <tr>
         <td style="width: 140px">
-          <span class="fnt-bold txt-nowrap">Material Web 2</span>
+          <span class="font-bold txt-nowrap">Material Web 2</span>
         </td>
         <td>
           <meter min="0" max="353" low="20" optimum="12" high="80" value="79"></meter>
@@ -324,7 +324,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
       <tr>
         <td style="width: 140px">
-          <span class="fnt-bold txt-nowrap">Zurb Foundation</span>
+          <span class="font-bold txt-nowrap">Zurb Foundation</span>
         </td>
         <td>
           <meter min="0" max="353" low="20" optimum="12" high="80" value="88"></meter>
@@ -333,7 +333,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
       <tr>
         <td style="width: 140px">
-          <span class="fnt-bold txt-nowrap">React Bootstrap</span>
+          <span class="font-bold txt-nowrap">React Bootstrap</span>
         </td>
         <td>
           <meter min="0" max="353" low="20" optimum="12" high="80" value="103"></meter>
@@ -342,7 +342,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
       <tr>
         <td style="width: 140px">
-          <span class="fnt-bold txt-nowrap">MUI</span>
+          <span class="font-bold txt-nowrap">MUI</span>
         </td>
         <td>
           <meter min="0" max="353" low="20" optimum="12" high="80" value="146"></meter>
@@ -351,7 +351,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
       <tr>
         <td style="width: 140px">
-          <span class="fnt-bold txt-nowrap">Semantic UI</span>
+          <span class="font-bold txt-nowrap">Semantic UI</span>
         </td>
         <td>
           <meter min="0" max="353" low="20" optimum="12" high="80" value="174"></meter>
@@ -360,7 +360,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
       <tr>
         <td style="width: 140px">
-          <span class="fnt-bold txt-nowrap">Microsoft Fabric</span>
+          <span class="font-bold txt-nowrap">Microsoft Fabric</span>
         </td>
         <td>
           <meter min="0" max="353" low="20" optimum="12" high="80" value="244"></meter>
@@ -369,7 +369,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
       <tr>
         <td style="width: 140px">
-          <span class="fnt-bold txt-nowrap">Shoelace</span>
+          <span class="font-bold txt-nowrap">Shoelace</span>
         </td>
         <td>
           <meter min="0" max="353" low="20" optimum="12" high="80" value="294"></meter>
@@ -378,7 +378,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
       <tr>
         <td style="width: 140px">
-          <span class="fnt-bold txt-nowrap">Material Web 3</span>
+          <span class="font-bold txt-nowrap">Material Web 3</span>
         </td>
         <td>
           <meter min="0" max="353" low="20" optimum="12" high="80" value="353"></meter>
@@ -387,7 +387,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
       </tr>
     </table>
     <small class="block mar-t-1">
-      <span class="fnt-bold">Note:</span> Sizes are min+gzip for all runtime dependencies except icons and web fonts. In other words, this is the overhead before you write your first line of code.
+      <span class="font-bold">Note:</span> Sizes are min+gzip for all runtime dependencies except icons and web fonts. In other words, this is the overhead before you write your first line of code.
     </small>
     <p class="mar-t-8">Compare these three tech stacks to see how bundle size can impact your site performace:</p>
     <div>Lit + Vaadin Router + Mdash = 21kb</div>
@@ -432,7 +432,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
   </section>
 
   <div id="components" class="category-heading">
-    <div class="fnt-bold">Components</div>
+    <div class="font-bold">Components</div>
   </div>
 
   <section id="accordion">
@@ -908,7 +908,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h3 id="card-header-footer">Card with Header & Footer</h3>
     <p>A custom card header and footer is possible using utility classes and/or custom styles. Like this:</p>
     <m-card class="pad-0">
-      <header class="pad-4 bg-gray-1 brd-b fnt-med">Header Title</header>
+      <header class="pad-4 bg-gray-1 brd-b font-med">Header Title</header>
       <p class="pad-4">Body content</p>
       <footer class="flex justify-content-between align-items-center pad-4 bg-gray-1 brd-t">
         <div>Footer with button</div>
@@ -916,7 +916,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </footer>
     </m-card>
     <pre><code>&lt;m-card class=&quot;pad-0&quot;&gt;
-  &lt;header class=&quot;pad-4 bg-gray-1 brd-b fnt-med&quot;&gt;Header Title&lt;/header&gt;
+  &lt;header class=&quot;pad-4 bg-gray-1 brd-b font-med&quot;&gt;Header Title&lt;/header&gt;
   &lt;p class=&quot;pad-4&quot;&gt;Body content&lt;/p&gt;
   &lt;footer class=&quot;flex justify-content-between align-items-center pad-4 bg-gray-1 brd-t&quot;&gt;
     &lt;div&gt;Footer with button&lt;/div&gt;
@@ -1066,17 +1066,17 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h1>Button</h1>
     <h2>For triggering actions</h2>
     <h2 id="button-demo">Demo</h2>
-    <p class="mar-b-3 fnt-med">Ordinality</p>
+    <p class="mar-b-3 font-med">Ordinality</p>
     <button ord="primary">Primary</button>
     <button ord="secondary">Secondary</button>
     <button ord="tertiary">Tertiary</button>
-    <p class="mar-t-4 mar-b-3 fnt-med">Size</p>
+    <p class="mar-t-4 mar-b-3 font-med">Size</p>
     <button ord="primary" controlsize="sm">Small</button>
     <button ord="primary" controlsize="md">Medium</button>
     <button ord="primary" controlsize="lg">Large</button>
-    <p class="mar-t-4 mar-b-3 fnt-med">Disabled</p>
+    <p class="mar-t-4 mar-b-3 font-med">Disabled</p>
     <button ord="primary" disabled>Disabled</button>
-    <p class="mar-t-4 mar-b-3 fnt-med">Link as button</p>
+    <p class="mar-t-4 mar-b-3 font-med">Link as button</p>
     <a role="button" ord="primary" href="/button">Link</a>
     <pre><code>&lt;button ord=&quot;primary&quot;&gt;Primary&lt;/button&gt;
 &lt;button ord=&quot;secondary&quot;&gt;Secondary&lt;/button&gt;
@@ -1120,7 +1120,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>ord</code> <small class="fnt-bold fnt-italic">required*</small></td>
+        <td colspan="2"><code>ord</code> <small class="font-bold font-italic">required*</small></td>
         <td colspan="2">
           <ul type="none">
             <li>primary</li>
@@ -1178,11 +1178,11 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <p>For <span class="fnt-bold">&lt;a&gt;</span> only:</p>
+    <p>For <span class="font-bold">&lt;a&gt;</span> only:</p>
     <table layout="fixed">
       <tbody>
       <tr>
-        <td colspan="2"><code>role</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><code>role</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2">button</td>
         <td colspan="6">Styles the link as a button. Use this instead of <code>&lt;button&gt;</code> when your use case needs a real link.</td>
       </tr>
@@ -1274,12 +1274,12 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>role</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><code>role</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2">group</td>
         <td colspan="6">Defines the button group</td>
       </tr>
       <tr>
-        <td colspan="2"><code>ord</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><code>ord</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2">secondary</td>
         <td colspan="6">Only secondary buttons are supported</td>
       </tr>
@@ -1479,7 +1479,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>name</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><code>name</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2">String</td>
         <td colspan="6">All checkboxes in a group use the same name.</td>
       </tr>
@@ -1536,14 +1536,14 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <td colspan="2"><code>maxwidth</code></td>
         <td colspan="2">
           <ul type="none">
-            <li>lg <small class="fnt-bold fnt-italic">default</small></li>
+            <li>lg <small class="font-bold font-italic">default</small></li>
             <li>md</li>
             <li>sm</li>
             <li>none</li>
           </ul>
         </td>
-        <td colspan="6">Sets the max width of the container, which includes some padding. "lg" <span class="fnt-italic">grows up to</span> 1536px, "md" starts at 800px and
-          <span class="fnt-italic">shrinks down</span>, and "sm" starts at 576px and <span class="fnt-italic">shrinks down</span>.<br>Read
+        <td colspan="6">Sets the max width of the container, which includes some padding. "lg" <span class="font-italic">grows up to</span> 1536px, "md" starts at 800px and
+          <span class="font-italic">shrinks down</span>, and "sm" starts at 576px and <span class="font-italic">shrinks down</span>.<br>Read
           <a href="#container-maxwidth">more on maxwidth</a> for details.</td>
       </tr>
       </tbody>
@@ -1557,7 +1557,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <p>A page can have multiple containers. This is most common when two components should share the same container characteristics, like max width and centered in the viewport, but need to have different backgrounds or other design elements that prevent sharing a single container. A site navigation is a good example:</p>
     <header class="bg-gray-1">
       <m-container class="flex">
-        <span class="fnt-bold txt-space txt-gray-6">LOGO</span>
+        <span class="font-bold txt-space txt-gray-6">LOGO</span>
         <nav class="mar-l-8">
           <a href="#" class="mar-l-2 mar-r-2">Home</a>
           <a href="#" class="mar-l-2 mar-r-2">Products</a>
@@ -1921,7 +1921,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <summary>
           <div class="flex">
             <m-dot type="success" class="mar-r-4"></m-dot>
-            <span class="txt-md fnt-bold">Databases</span>
+            <span class="txt-md font-bold">Databases</span>
           </div>
         </summary>
         <p class="pad-l-8">All good!</p>
@@ -1930,7 +1930,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <summary>
           <div class="flex">
             <m-dot type="success" class="mar-r-4"></m-dot>
-            <span class="txt-md fnt-bold">API</span>
+            <span class="txt-md font-bold">API</span>
           </div>
         </summary>
         <p class="pad-l-8">All good!</p>
@@ -1938,7 +1938,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <details>
         <summary class="flex">
           <m-dot type="warn" class="mar-r-4"></m-dot>
-          <span class="txt-md fnt-bold">Notification service</span>
+          <span class="txt-md font-bold">Notification service</span>
         </summary>
         <p class="pad-l-8">Increase in avgerage response time.</p>
       </details>
@@ -2032,7 +2032,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <small><span class="fnt-bold">Note:</span> Form controls are documented separately. See <a href="/input">Input</a>, <a href="/checkbox">Checkbox</a>, <a href="/radio">Radio</a>, <a href="/select">Select</a>, and <a href="/textarea">Textarea</a>.</small>
+    <small><span class="font-bold">Note:</span> Form controls are documented separately. See <a href="/input">Input</a>, <a href="/checkbox">Checkbox</a>, <a href="/radio">Radio</a>, <a href="/select">Select</a>, and <a href="/textarea">Textarea</a>.</small>
     <h3 id="form-attributes">Attributes</h3>
     <p>Nothing special to call out. See <a
       href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#Attributes">MDN: form attributes</a> for the full list.</p>
@@ -2145,7 +2145,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>name</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><code>name</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2"><a href="#all-icons">See available icons below</a></td>
         <td colspan="6">Sets the icon's symbol</td>
       </tr>
@@ -2159,9 +2159,9 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h2 id="icons-guidelines">Guidelines</h2>
     <h3 id="all-icons">Available Icons</h3>
     <p>Mdash uses <a href="https://fonts.google.com/icons?icon.style=Outlined" target="_blank">Material Symbols Outlined</a>. On that page, getting an icon name is easier if you click the icon, then select the
-      <span class="fnt-italic">Android</span> tab, then copy the name.</p>
+      <span class="font-italic">Android</span> tab, then copy the name.</p>
     <h3 id="icons-text">Pair With Text</h3>
-    <p>Icons should be used to <span class="fnt-italic">enhance</span> content not replace it. Users can misinterpret icons, so strive to accompany an icon with a label or other relevant content in close proximity.</p>
+    <p>Icons should be used to <span class="font-italic">enhance</span> content not replace it. Users can misinterpret icons, so strive to accompany an icon with a label or other relevant content in close proximity.</p>
     <m-menu>
       <span slot="trigger" role="link" class="flex align-items-center gap-1"><m-icon name="person"></m-icon> John Doe</span>
       <div slot="items" style="min-width: 200px">
@@ -2249,7 +2249,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <td colspan="2"><code>type</code></td>
         <td colspan="2">
           <ul type="none">
-            <li>text <small class="fnt-bold fnt-italic">default</small></li>
+            <li>text <small class="font-bold font-italic">default</small></li>
             <li>email</li>
             <li>password</li>
             <li>tel</li>
@@ -2266,7 +2266,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <tr>
         <td colspan="2"><code>disabled</code></td>
         <td colspan="2">Boolean attribute</td>
-        <td colspan="6">Disables the input so it can't be changed or interacted with. It will be skipped when tabbing and its value will <span class="fnt-bold">not</span> be submitted with the form.</td>
+        <td colspan="6">Disables the input so it can't be changed or interacted with. It will be skipped when tabbing and its value will <span class="font-bold">not</span> be submitted with the form.</td>
       </tr>
       <tr>
         <td colspan="2"><code>readonly</code></td>
@@ -2319,7 +2319,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes" target="_blank" rel="noopener">MDN: Input element - Attributes</a> for the full list.</small>
+    <small><span class="font-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes" target="_blank" rel="noopener">MDN: Input element - Attributes</a> for the full list.</small>
     <h2 id="input-guidelines">Guidelines</h2>
     <h3 id="right-type">Use the right type</h3>
     <p>It's very important to take the time to understand what values a user can enter in a given input and to use the right <code>type</code> for those values. If, for example, the input is for a membership number then using <code>type="number"</code> will present an easier to use numbers-only keyboard on most touch devices. The same goes for email and phone numbers. These UX optimizations are important to users and are virtually free to implement, so take a moment to ensure you're using the right input type.</p>
@@ -2417,7 +2417,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>href</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><code>href</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2">
           <ul type="none">
             <li>URL</li>
@@ -2436,12 +2436,12 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <small><span class="fnt-bold">Note:</span> Not all anchor attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes" target="_blank" rel="noopener">MDN: Anchor element - Attributes</a> for the full list.</small>
-    <p>For <span class="fnt-bold">span</span> elements only:</p>
+    <small><span class="font-bold">Note:</span> Not all anchor attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes" target="_blank" rel="noopener">MDN: Anchor element - Attributes</a> for the full list.</small>
+    <p>For <span class="font-bold">span</span> elements only:</p>
     <table layout="fixed">
       <tbody>
       <tr>
-        <td colspan="2"><code>role</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><code>role</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2">link</td>
         <td colspan="6">Styles the element as a link. Use this instead of <code>&lt;a&gt;</code> when your use case is not a real link.</td>
       </tr>
@@ -2567,7 +2567,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
           </div>
         </div>
         <hr class="mar-t-2 mar-b-3">
-        <div class="flex flx-col gap-1">
+        <div class="flex flex-col gap-1">
           <a href="/profile">Profile</a>
           <a href="/signout">Sign out</a>
         </div>
@@ -2808,7 +2808,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>name</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><code>name</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2">String</td>
         <td colspan="6">All radios in a group use the same name.</td>
       </tr>
@@ -2880,7 +2880,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <td colspan="6">Sets the granularity of values, default is 1</td>
       </tr>
       <tr>
-        <td colspan="2"><code>orient</code> <span class="fnt-italic txt-gray-5 txt-xs">coming soon</span></td>
+        <td colspan="2"><code>orient</code> <span class="font-italic txt-gray-5 txt-xs">coming soon</span></td>
         <td colspan="2">vertical</td>
         <td colspan="6">Displays the range vertically</td>
       </tr>
@@ -3092,7 +3092,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <small><span class="fnt-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#Attributes" target="_blank" rel="noopener">MDN: Select element - Attributes</a> for the full list.</small>
+    <small><span class="font-bold">Note:</span> Not all input attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#Attributes" target="_blank" rel="noopener">MDN: Select element - Attributes</a> for the full list.</small>
     <h3 id="select-events">Events</h3>
     <table layout="fixed">
       <thead>
@@ -3122,7 +3122,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h1>Separator</h1>
     <h2>An element that divides sections of content</h2>
     <h2 id="separator-demo">Demo</h2>
-    <div class="flex flx-col gap-2">
+    <div class="flex flex-col gap-2">
       <div>Content</div>
       <hr>
       <div>Content</div>
@@ -3134,7 +3134,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <hr aria-orientation="vertical">
       <div>Content</div>
     </div>
-    <pre><code>&lt;div class=&quot;flex flx-col gap-2&quot;&gt;
+    <pre><code>&lt;div class=&quot;flex flex-col gap-2&quot;&gt;
   &lt;div&gt;Content&lt;/div&gt;
   &lt;hr&gt;
   &lt;div&gt;Content&lt;/div&gt;
@@ -3228,7 +3228,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>role</code> <small class="fnt-bold fnt-italic">required</small></td>
+        <td colspan="2"><code>role</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2">switch</td>
         <td colspan="6">Defines the checkbox as a switch</td>
       </tr>
@@ -3279,7 +3279,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
           <label>Cellular</label>
           <input type="checkbox" role="switch" name="cellular">
         </fieldset>
-        <fieldset class="flex flx-wrap justify-content-between align-items-center">
+        <fieldset class="flex flex-wrap justify-content-between align-items-center">
           <label>Personal Hotspot</label>
           <input type="checkbox" role="switch" name="hotspot" disabled>
           <small class="width-full">Currently unavailable</small>
@@ -3391,7 +3391,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tbody>
     </table>
     <h3 id="table-attributes">Attributes</h3>
-    <p>For <span class="fnt-bold">&lt;table&gt;</span> only:</p>
+    <p>For <span class="font-bold">&lt;table&gt;</span> only:</p>
     <table layout="fixed">
       <thead>
       <tr>
@@ -3413,7 +3413,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <p>For <span class="fnt-bold">&lt;td&gt;</span> and <span class="fnt-bold">&lt;th&gt;</span> only:</p>
+    <p>For <span class="font-bold">&lt;td&gt;</span> and <span class="font-bold">&lt;th&gt;</span> only:</p>
     <table layout="fixed">
       <tbody>
       <tr>
@@ -3423,7 +3423,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <p>For <span class="fnt-bold">&lt;th&gt;</span> only:</p>
+    <p>For <span class="font-bold">&lt;th&gt;</span> only:</p>
     <table layout="fixed">
       <tbody>
       <tr>
@@ -3438,14 +3438,14 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <p>For <span class="fnt-bold">&lt;caption&gt;</span> only:</p>
+    <p>For <span class="font-bold">&lt;caption&gt;</span> only:</p>
     <table layout="fixed">
       <tbody>
       <tr>
         <td colspan="2"><code>side</code></td>
         <td colspan="2">
           <ul type="none">
-            <li>start <small class="fnt-bold fnt-italic">default</small></li>
+            <li>start <small class="font-bold font-italic">default</small></li>
             <li>end</li>
           </ul>
         </td>
@@ -3556,7 +3556,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </thead>
     </table>
-    <p>For <span class="fnt-bold">m-tabs</span> only:</p>
+    <p>For <span class="font-bold">m-tabs</span> only:</p>
     <table layout="fixed">
       <tbody>
       <tr>
@@ -3869,7 +3869,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <small><span class="fnt-bold">Note:</span> Not all text area attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#Attributes" target="_blank" rel="noopener">MDN: Text area element - Attributes</a> for the full list.</small>
+    <small><span class="font-bold">Note:</span> Not all text area attributes are listed here. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#Attributes" target="_blank" rel="noopener">MDN: Text area element - Attributes</a> for the full list.</small>
     <h2 id="textarea-guidelines">Guidelines</h2>
     <h3 id="rows">Sensible row size</h3>
     <p>The default is two rows, i.e. two lines of text, but you should set a number that makes the most sense for your use case. For example, a chat app makes sense to take the default of two, but a customer review form should likely have 5-10. Note that text areas are resizable so the user can extend it further if needed, just take care to set a sensible default.</p>
@@ -3886,7 +3886,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   </section>
 
   <div class="category-heading">
-    <div class="fnt-bold">Typography</div>
+    <div class="font-bold">Typography</div>
   </div>
 
   <section id="code">
@@ -4066,14 +4066,14 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <p>For <span class="fnt-bold">ul</span> only:</p>
+    <p>For <span class="font-bold">ul</span> only:</p>
     <table layout="fixed">
       <tbody>
       <tr>
         <td colspan="2"><code>type</code></td>
         <td colspan="2">
           <ul type="none">
-            <li>disc <small class="fnt-italic fnt-bold">default</small></li>
+            <li>disc <small class="font-italic font-bold">default</small></li>
             <li>square</li>
             <li>circle</li>
             <li>none</li>
@@ -4083,14 +4083,14 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <p>For <span class="fnt-bold">ol</span> only:</p>
+    <p>For <span class="font-bold">ol</span> only:</p>
     <table layout="fixed">
       <tbody>
       <tr>
         <td colspan="2"><code>type</code></td>
         <td colspan="2">
           <ul type="none">
-            <li>1 <small class="fnt-italic fnt-bold">default</small></li>
+            <li>1 <small class="font-italic font-bold">default</small></li>
             <li>A</li>
             <li>a</li>
             <li>I</li>
@@ -4131,19 +4131,19 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <p>The content list type is meant for building a vertical list of content.</p>
     <h4>Semantics and accessibility</h4>
     <p>To retain list semantics and accessibility, Mdash leverages the standard tags for content lists. Use the correct tag for the content, i.e. if order matters use <code>ol</code>, otherwise <code>ul</code>. Example:</p>
-    <p class="fnt-italic">Ordered, like steps in a recipe:</p>
+    <p class="font-italic">Ordered, like steps in a recipe:</p>
     <ol type="content">
-      <li class="pad-1"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Prep</span> Cook rice the day before 🍚</li>
-      <li class="pad-1"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 1</span> Preheat wok on high heat, add 2 tbsp. oil 🔥</li>
-      <li class="pad-1"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 2</span> Chop veggies and meat 🧄🥩</li>
-      <li class="pad-1"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 3</span> Add everything to wok and stir fry 🫕</li>
-      <li class="pad-1"><span class="fnt-med txt-gray-5 inline-block" style="width: 60px">Step 4</span> Top with fresh basil and serve 🌿</li>
+      <li class="pad-1"><span class="font-med txt-gray-5 inline-block" style="width: 60px">Prep</span> Cook rice the day before 🍚</li>
+      <li class="pad-1"><span class="font-med txt-gray-5 inline-block" style="width: 60px">Step 1</span> Preheat wok on high heat, add 2 tbsp. oil 🔥</li>
+      <li class="pad-1"><span class="font-med txt-gray-5 inline-block" style="width: 60px">Step 2</span> Chop veggies and meat 🧄🥩</li>
+      <li class="pad-1"><span class="font-med txt-gray-5 inline-block" style="width: 60px">Step 3</span> Add everything to wok and stir fry 🫕</li>
+      <li class="pad-1"><span class="font-med txt-gray-5 inline-block" style="width: 60px">Step 4</span> Top with fresh basil and serve 🌿</li>
     </ol>
-    <p class="fnt-italic">Unordered, like notification preferences:</p>
+    <p class="font-italic">Unordered, like notification preferences:</p>
     <ul type="content">
-      <li class="flex justify-content-between pad-2 fnt-med">Email <input type="checkbox" role="switch" checked></li>
-      <li class="flex justify-content-between pad-2 fnt-med">SMS <input type="checkbox" role="switch" checked></li>
-      <li class="flex justify-content-between pad-2 fnt-med">Push <input type="checkbox" role="switch"></li>
+      <li class="flex justify-content-between pad-2 font-med">Email <input type="checkbox" role="switch" checked></li>
+      <li class="flex justify-content-between pad-2 font-med">SMS <input type="checkbox" role="switch" checked></li>
+      <li class="flex justify-content-between pad-2 font-med">Push <input type="checkbox" role="switch"></li>
     </ul>
     <h4>Nesting</h4>
     <p>Content list is designed to work wherever you need it. It can be used on its own or, for example, nested in a dialog, menu, or a card like this:</p>
@@ -4164,9 +4164,9 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <h1>Text</h1>
     <h2>Paragraph and other text-based elements</h2>
     <h2 id="text-demo">Demo</h2>
-    <p>This is a paragraph with some <span class="fnt-bold">bold text</span> and some <span class="fnt-italic">italic text</span>. More text variations can be done using the <a href="/utility-classes">utility classes</a>.</p>
+    <p>This is a paragraph with some <strong>important text</strong> and some <em>emphasized text</em>. Text styling should be done using the <a href="#utility-classes-text">text utility classes</a>.</p>
     <blockquote>
-      <p>This is something somebody said.</p>
+      <p>This is a blockquote.</p>
     </blockquote>
     <small>This is for small print, side-comments, disclaimers, etc.</small>
     <h2 id="text-api">API</h2>
@@ -4186,6 +4186,16 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
         <td colspan="6">Any</td>
       </tr>
       <tr>
+        <td colspan="2"><code>strong</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any, but indicates that its contents have strong importance, seriousness, or urgency.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>em</code></td>
+        <td colspan="2">Native element</td>
+        <td colspan="6">Any, but meant to indicate stress emphasis</td>
+      </tr>
+      <tr>
         <td colspan="2"><code>blockquote</code></td>
         <td colspan="2">Native element</td>
         <td colspan="6"><code>p</code> element for the actual quotation</td>
@@ -4199,9 +4209,9 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     </table>
     <h2 id="text-guidelines">Guidelines</h2>
     <h3 id="text-line-length">Characters per line</h3>
-    <p>It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="fnt-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
-    <p>To demonstrate, the paragraph below has no width limit while that same paragraph above maxes out at <span class="fnt-bold">75ch</span> using the <code>txt-maxlength</code> utility class:</p>
-    <p style="max-width: 100%">It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="fnt-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
+    <p>It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="font-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
+    <p>To demonstrate, the paragraph below has no width limit while that same paragraph above maxes out at <span class="font-bold">75ch</span> using the <code>txt-maxlength</code> utility class:</p>
+    <p style="max-width: 100%">It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="font-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
     <h3 id="seo">SEO</h3>
     <p>Using these text semantically will improve SEO and accessibility.</p>
     <h3 id="text-a11y">Accessibility</h3>
@@ -4209,7 +4219,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
   </section>
 
   <div class="category-heading">
-    <div class="fnt-bold">Styles</div>
+    <div class="font-bold">Styles</div>
   </div>
 
 
@@ -4479,9 +4489,9 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       <div>
         <div class="txt-md txt-nowrap">Homer J. Simpson</div>
         <div class="txt-sm txt-gray-6 mar-b-2">Safety Inspector</div>
-        <a href="mailto:Chunkylover53@aol.com" class="fnt-light txt-xs">Chunkylover53@aol.com</a>
+        <a href="mailto:Chunkylover53@aol.com" class="font-light txt-xs">Chunkylover53@aol.com</a>
         <br>
-        <a href="tel:+15555556543" class="fnt-light txt-xs">555-7334</a>
+        <a href="tel:+15555556543" class="font-light txt-xs">555-7334</a>
       </div>
     </div>
     <pre><code class="language-html">&lt;div class=&quot;flex align-items-center gap-4 width-fit bg-white brd-radius-md brd pad-4&quot;&gt;
@@ -4489,18 +4499,19 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
   &lt;div&gt;
     &lt;div class=&quot;txt-md txt-nowrap&quot;&gt;Homer J. Simpson&lt;/div&gt;
     &lt;div class=&quot;txt-sm txt-gray-6 mar-b-2&quot;&gt;Safety Inspector&lt;/div&gt;
-    &lt;a href=&quot;mailto:Chunkylover53@aol.com&quot; class=&quot;fnt-light txt-xs&quot;&gt;Chunkylover53@aol.com&lt;/a&gt;
+    &lt;a href=&quot;mailto:Chunkylover53@aol.com&quot; class=&quot;font-light txt-xs&quot;&gt;Chunkylover53@aol.com&lt;/a&gt;
     &lt;br&gt;
-    &lt;a href=&quot;tel:+15555556543&quot; class=&quot;fnt-light txt-xs&quot;&gt;555-7334&lt;/a&gt;
+    &lt;a href=&quot;tel:+15555556543&quot; class=&quot;font-light txt-xs&quot;&gt;555-7334&lt;/a&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     <h2 id="utility-classes-api">API</h2>
     <p>Utility class names generally match the naming of their property with most property names abbreviated to three letters, e.g. padding is abbreviated as pad, position as pos. Some are two letters, like background shortened to just bg, and some are not abbreviated at all.</p>
     <div id="utility-classes-categories" style="margin: 0 calc(var(--m-space-3) * -1)">
       <nav class="pad-3 bg-gray-1">
-        <span class="fnt-med">Scroll to:</span>
+        <span class="font-med">Scroll to:</span>
         <a href="#utility-classes-display" class="mar-r-4 mar-l-1">Display</a>
         <a href="#utility-classes-flexbox" class="mar-r-4">Flexbox</a>
+        <a href="#utility-classes-grid" class="mar-r-4">Grid</a>
         <a href="#utility-classes-spacing" class="mar-r-4">Spacing</a>
         <a href="#utility-classes-position" class="mar-r-4">Position</a>
         <a href="#utility-classes-font" class="mar-r-4">Font</a>
@@ -4510,7 +4521,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
         <a href="#utility-classes-other" class="mar-r-4">Other</a>
       </nav>
     </div>
-    <h3 id="utility-classes-display">Display</h3>
+    <h3 id="utility-classes-display" style="scroll-margin-top: 100px"> Display</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4553,7 +4564,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="utility-classes-flexbox">Flexbox</h3>
+    <h3 id="utility-classes-flexbox" style="scroll-margin-top: 100px">Flexbox</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4563,35 +4574,35 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>flx-grow-0</code></td>
+        <td colspan="2"><code>flex-grow-0</code></td>
         <td colspan="6">Shortcut for flex-grow: 0</td>
       </tr>
       <tr>
-        <td colspan="2"><code>flx-grow-1</code></td>
+        <td colspan="2"><code>flex-grow-1</code></td>
         <td colspan="6">Shortcut for flex-grow: 1</td>
       </tr>
       <tr>
-        <td colspan="2"><code>flx-shrink-0</code></td>
+        <td colspan="2"><code>flex-shrink-0</code></td>
         <td colspan="6">Shortcut for flex-shrink: 0</td>
       </tr>
       <tr>
-        <td colspan="2"><code>flx-shrink-1</code></td>
+        <td colspan="2"><code>flex-shrink-1</code></td>
         <td colspan="6">Shortcut for flex-shrink: 1</td>
       </tr>
       <tr>
-        <td colspan="2"><code>flx-wrap</code></td>
+        <td colspan="2"><code>flex-wrap</code></td>
         <td colspan="6">Shortcut for flex-wrap: wrap</td>
       </tr>
       <tr>
-        <td colspan="2"><code>flx-col</code></td>
+        <td colspan="2"><code>flex-col</code></td>
         <td colspan="6">Shortcut for flex-direction: column</td>
       </tr>
       <tr>
-        <td colspan="2"><code>flx-row</code></td>
+        <td colspan="2"><code>flex-row</code></td>
         <td colspan="6">Shortcut for flex-direction: row</td>
       </tr>
       <tr>
-        <td colspan="2"><code>flx-basis-content</code></td>
+        <td colspan="2"><code>flex-basis-content</code></td>
         <td colspan="6">Shortcut for flex-basic: content</td>
       </tr>
       <tr>
@@ -4652,7 +4663,46 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="utility-classes-spacing">Spacing</h3>
+    <h3 id="utility-classes-grid" style="scroll-margin-top: 100px">Grid</h3>
+    <table layout="fixed">
+      <thead>
+      <tr>
+        <th colspan="2">Name</th>
+        <th colspan="6">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="2"><code>grid-flow-col</code></td>
+        <td colspan="6">Shortcut for grid-auto-flow: column</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>grid-flow-row</code></td>
+        <td colspan="6">Shortcut for grid-auto-flow: row</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>grid-flow-dense</code></td>
+        <td colspan="6">Shortcut for grid-auto-flow: dense</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>grid-auto-cols-min</code></td>
+        <td colspan="6">Shortcut for grid-auto-columns: min-content</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>grid-auto-cols-max</code></td>
+        <td colspan="6">Shortcut for grid-auto-columns: max-content</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>grid-template-cols-fit</code></td>
+        <td colspan="6">Shortcut for grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr))</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>grid-template-cols-fill</code></td>
+        <td colspan="6">Shortcut for grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr))</td>
+      </tr>
+      </tbody>
+    </table>
+    <h3 id="utility-classes-spacing" style="scroll-margin-top: 100px">Spacing</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4662,33 +4712,41 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </thead>
       <tbody>
       <tr>
-        <td colspan="3"><code>pad-[xs|sm|md|lg|xl|0]</code></td>
+        <td colspan="3"><code>pad-[0-14]</code></td>
         <td colspan="6">Sets padding on all sides to the specified size. Sizes map to the
           <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       <tr>
-        <td colspan="3"><code>pad-[t|r|b|l]-[xs|sm|md|lg|xl|0]</code></td>
+        <td colspan="3"><code>pad-[t|r|b|l]-[0-14]</code></td>
         <td colspan="6">Sets padding on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
           <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       <tr>
-        <td colspan="3"><code>mar-[xs|sm|md|lg|xl|0|auto]</code></td>
+        <td colspan="3"><code>mar-auto</code></td>
+        <td colspan="6">Sets margin on all sides to auto.</td>
+      </tr>
+      <tr>
+        <td colspan="3"><code>mar-[0-14]</code></td>
         <td colspan="6">Sets margin on all sides to the specified size. Sizes map to the
           <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       <tr>
-        <td colspan="3"><code>mar-[t|r|b|l]-[xs|sm|md|lg|xl|0|auto]</code></td>
+        <td colspan="3"><code>mar-[t|r|b|l]-auto</code></td>
+        <td colspan="6">Sets margin on the specified side (top, right, bottom, or left) to auto.</td>
+      </tr>
+      <tr>
+        <td colspan="3"><code>mar-[t|r|b|l]-[0-14]</code></td>
         <td colspan="6">Sets margin on the specified side (top, right, bottom, or left) in the specified size. Sizes map to the
           <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       <tr>
-        <td colspan="3"><code>gap-[xs|sm|md|lg|xl|0]</code></td>
+        <td colspan="3"><code>gap-[0-14]</code></td>
         <td colspan="6">Sets gap to the specified size. Sizes map to the
           <a href="#custom-properties-space">space custom props</a> and <code>0</code> really means zero.</td>
       </tr>
       </tbody>
     </table>
-    <h3 id="utility-classes-position">Position</h3>
+    <h3 id="utility-classes-position" style="scroll-margin-top: 100px">Position</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4723,7 +4781,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="utility-classes-font">Font</h3>
+    <h3 id="utility-classes-font" style="scroll-margin-top: 100px">Font</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4733,36 +4791,36 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>fnt-bold</code></td>
+        <td colspan="2"><code>font-bold</code></td>
         <td colspan="6">Shortcut for font-weight: 700</td>
       </tr>
       <tr>
-        <td colspan="2"><code>fnt-med</code></td>
+        <td colspan="2"><code>font-med</code></td>
         <td colspan="6">Shortcut for font-weight: 500</td>
       </tr>
       <tr>
-        <td colspan="2"><code>fnt-reg</code></td>
+        <td colspan="2"><code>font-reg</code></td>
         <td colspan="6">Shortcut for font-weight: 400</td>
       </tr>
       <tr>
-        <td colspan="2"><code>fnt-light</code></td>
+        <td colspan="2"><code>font-light</code></td>
         <td colspan="6">Shortcut for font-weight: 300</td>
       </tr>
       <tr>
-        <td colspan="2"><code>fnt-italic</code></td>
+        <td colspan="2"><code>font-italic</code></td>
         <td colspan="6">Shortcut for font-style: italic</td>
       </tr>
       <tr>
-        <td colspan="2"><code>fnt-mono</code></td>
+        <td colspan="2"><code>font-mono</code></td>
         <td colspan="6">Shortcut for font-family: monospace</td>
       </tr>
       <tr>
-        <td colspan="2"><code>fnt-normal</code></td>
+        <td colspan="2"><code>font-normal</code></td>
         <td colspan="6">Shortcut for font-style: normal</td>
       </tr>
       </tbody>
     </table>
-    <h3 id="utility-classes-text">Text</h3>
+    <h3 id="utility-classes-text" style="scroll-margin-top: 100px">Text</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4842,7 +4900,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="utility-classes-border">Border</h3>
+    <h3 id="utility-classes-border" style="scroll-margin-top: 100px">Border</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4877,7 +4935,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="utility-classes-background">Background</h3>
+    <h3 id="utility-classes-background" style="scroll-margin-top: 100px">Background</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4905,7 +4963,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </tr>
       </tbody>
     </table>
-    <h3 id="utility-classes-other">Other</h3>
+    <h3 id="utility-classes-other" style="scroll-margin-top: 100px">Other</h3>
     <table layout="fixed">
       <thead>
       <tr>
@@ -5009,9 +5067,9 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     &lt;div&gt;
       &lt;div class=&quot;txt-md txt-nowrap&quot;&gt;${name}&lt;/div&gt;
       &lt;div class=&quot;txt-sm txt-gray-6 mar-b-2&quot;&gt;${title}&lt;/div&gt;
-      &lt;a href=&quot;mailto:${email}&quot; class=&quot;fnt-light txt-xs&quot;&gt;${email}&lt;/a&gt;
+      &lt;a href=&quot;mailto:${email}&quot; class=&quot;font-light txt-xs&quot;&gt;${email}&lt;/a&gt;
       &lt;br&gt;
-      &lt;a href=&quot;tel:+1${phone.replaceAll(&#39;-&#39;, &#39;&#39;)}&quot; class=&quot;fnt-light txt-xs&quot;&gt;${phone}&lt;/a&gt;
+      &lt;a href=&quot;tel:+1${phone.replaceAll(&#39;-&#39;, &#39;&#39;)}&quot; class=&quot;font-light txt-xs&quot;&gt;${phone}&lt;/a&gt;
     &lt;/div&gt;
     &lt;/div&gt;
   `
@@ -5022,5 +5080,24 @@ const homerCard = UserCardTemplate(&#39;/img/homer.webp&#39;, &#39;Homer J. Simp
     <p>There are no accessibility recommendations for these classes.</p>
   </section>
 </main>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    try {
+      const registration = await navigator.serviceWorker.register("/sw.js", {
+        scope: "/",
+      });
+      if (registration.installing) {
+        console.log("Service worker installing");
+      } else if (registration.waiting) {
+        console.log("Service worker installed");
+      } else if (registration.active) {
+        console.log("Service worker active");
+      }
+    } catch (error) {
+      console.error(`Registration failed with ${error}`);
+    }
+  }
+</script>
 </body>
 </html>

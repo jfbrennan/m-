@@ -130,13 +130,13 @@
 .gap-14 { gap: var(--m-space-14) }
 
 /* Font */
-.fnt-bold { font-weight: 700 }
-.fnt-med { font-weight: 500}
-.fnt-reg { font-weight: 400 }
-.fnt-light { font-weight: 300 }
-.fnt-normal { font-style: normal }
-.fnt-italic { font-style: italic }
-.fnt-mono { font-family: monospace }
+.font-bold { font-weight: 700 }
+.font-med { font-weight: 500}
+.font-reg { font-weight: 400 }
+.font-light { font-weight: 300 }
+.font-normal { font-style: normal }
+.font-italic { font-style: italic }
+.font-mono { font-family: monospace }
 
 /* Text */
 .txt-left { text-align: left }
@@ -200,15 +200,15 @@
 @media (min-width: 992px) { .lg\:hide { display: none } }
 
 /* Flexbox */
-.flx-110 { &, & > * { flex: 1 1 0 } }
-.flx-grow-0 { flex-grow: 0 }
-.flx-grow-1 { flex-grow: 1 }
-.flx-shrink-0 { flex-shrink: 0 }
-.flx-shrink-1 { flex-shrink: 1 }
-.flx-basis-content { flex-basis: content }
-.flx-wrap { flex-wrap: wrap }
-.flx-row { flex-direction: row }
-.flx-col { flex-direction: column }
+.flex-110 { &, & > * { flex: 1 1 0 } }
+.flex-grow-0 { flex-grow: 0 }
+.flex-grow-1 { flex-grow: 1 }
+.flex-shrink-0 { flex-shrink: 0 }
+.flex-shrink-1 { flex-shrink: 1 }
+.flex-basis-content { flex-basis: content }
+.flex-wrap { flex-wrap: wrap }
+.flex-row { flex-direction: row }
+.flex-col { flex-direction: column }
 .justify-content-start { justify-content: flex-start }
 .justify-content-center { justify-content: center }
 .justify-content-between { justify-content: space-between }
