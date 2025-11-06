@@ -211,10 +211,10 @@
 .flex-col { flex-direction: column }
 .justify-content-start { justify-content: flex-start }
 .justify-content-center { justify-content: center }
+.justify-content-end { justify-content: flex-end }
 .justify-content-between { justify-content: space-between }
 .justify-content-evenly { justify-content: space-evenly }
 .justify-content-around { justify-content: space-around }
-.justify-content-end { justify-content: flex-end }
 .align-items-start { align-items: flex-start}
 .align-items-center { align-items: center}
 .align-items-end { align-items: flex-end }
@@ -230,11 +230,13 @@
 /* Grid */
 .grid-template-cols-fit { grid-template-columns: repeat(auto-fit, minmax(min(375px, 100%), 1fr)) }
 .grid-template-cols-fill { grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr)) }
+.grid-template-cols-subgrid { grid-template-columns: subgrid }
 .grid-flow-col { grid-auto-flow: column }
 .grid-flow-row { grid-auto-flow: row }
 .grid-flow-dense { grid-auto-flow: dense }
 .grid-auto-cols-max { grid-auto-columns: max-content }
 .grid-auto-cols-min { grid-auto-columns: min-content }
+.grid-auto-cols-fr { grid-auto-columns: minmax(0, 1fr) }
 
 /* Float */
 .left { float: left }

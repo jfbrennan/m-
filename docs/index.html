@@ -232,9 +232,8 @@
     <hr class="mar-t-10 mar-b-10">
     <h2 id="intro" class="mar-t-0">Introduction</h2>
     <h3>What is Mdash?</h3>
-    <p>Mdash is a standards-based design system.</p>
-    <p>It includes <a href="#components" class="font-med">standard and custom HTML elements</a>, <a href="#custom-properties" class="font-med">CSS Custom Properties</a>, and <a href="#utility-classes" class="font-med">utility classes</a>.</p>
-    <p>Mdash works with all frameworks and all types of web projects, inclduing SSR, SPA, PWA, static site, and even popular email clients.</p>
+    <p>Mdash is a design system built with web standards. It's impossibly small (just 6kb), works everywhere, and is incredibly easy to work with and customize.</p>
+    <p>It includes native and custom <a href="#components">HTML elements</a>, <a href="#custom-properties">CSS Custom Properties</a>, and <a href="#utility-classes">utility classes</a>.</p>
     <h3>What makes Mdash different?</h3>
     <p>Quite literally, nothing. <span class="font-italic">Nothing</span> is exactly what makes Mdash different:</p>
     <ul class="mar-b-3">
@@ -243,15 +242,14 @@
       <li>No dependencies</li>
       <li>No build step</li>
     </ul>
-    <p>However, Mdash is unlike anything you've used before. It's just CSS and HTML, but appears to be so much more.</p>
+    <p>It's HTML and CSS combined in a way you've never seen before, yet it's completely familiar.</p>
     <p>Take a look around and compare Mdash's <a href="#performance">size</a> and <a href="/comparison">markup</a> to see how nothing really is better.</p>
     <h3>Where did Mdash come from?</h3>
-    <p class="mar-b-0">Mdash is the result of building design systems in large engineering organizations where - for better or worse - tech stacks and architectures vary wildly, but the products still need to share common UI elements. It was during this time the
-      <a href="https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology" target="_blank" class="txt-nowrap">TAC CSS methodology</a> was created with Mdash being the first open-source implementation.</p>
+    <p class="mar-b-0">In 2016 my team at Expedia started building a design system using CSS-only Web Components, which at the time was the first any of us had ever seen that done before. This approach enabled us to support variations in tech stacks and architectures as the company was building more and more products. It was during this time the
+      <a href="https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology" target="_blank" class="txt-nowrap">TAC CSS methodology</a> was developed with Mdash being the first open-source implementation.</p>
     <hr class="mar-t-10 mar-b-10">
     <h2 id="compatibility">Compatible With Everything</h2>
-    <p>Mdash can be used anywhere HTML is used because it is HTML.</p>
-    <p>All apps work with Mdash regardless of tech stack. Here's examples of <span class="font-bold">14 different technologies</span> all using the same Mdash component:</p>
+    <p>Mdash can be used anywhere HTML is used because it is HTML. Here's an example of <span class="font-bold">14 different technologies</span> all using the same Mdash component:</p>
     <pre><code>&lt;!-- Vue --&gt;
 &lt;m-alert v-bind:type=&quot;alert.type&quot;&gt;{{ alert.message }}&lt;/m-alert&gt;
 
@@ -281,16 +279,20 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
 
 
 &lt;!-- Blade --&gt;
-&lt;m-alert type=&quot;{{ $alert&rarr;message }}&quot;&gt;{{ $alert&rarr;message }}&lt;/m-alert&gt;
+&lt;m-alert type=&quot;{{ $alert&rarr;type }}&quot;&gt;{{ $alert&rarr;message }}&lt;/m-alert&gt;
 
 
 &lt;!-- EJS, ERB, Underscore, Lodash --&gt;
-&lt;m-alert type=&quot;&lt;%= alert.type %&gt;&quot;&gt;&lt;%= alert.message %&gt;&lt;/m-alert&gt;</code></pre>
+&lt;m-alert type=&quot;&lt;%= alert.type %&gt;&quot;&gt;&lt;%= alert.message %&gt;&lt;/m-alert&gt;
+
+
+&lt;!-- Static HTML --&gt;
+&lt;m-alert type="success"&gt;You're using Mdash!&lt;/m-alert&gt;</code></pre>
     <small>*Framework compatibility with Custom Elements is tracked on <a href="https://custom-elements-everywhere.com" target="_blank" rel="noopener">custom-elements-everywhere.com</a> and after eight long years
-      <a href="https://custom-elements-everywhere.com/#react">React 19</a> is finally compatible. Wow. Good job.</small>
+      React 19 is finally compatible.</small>
     <h2 id="performance">Performance</h2>
-    <p>Mdash is fast! It is by all practical measures instant. Its <span class="font-med">execution speed</span> comes from leveraging native technology and avoiding abstractions as much as possible in order to minimize code and retain browser optimizations. When it comes to code, nothing is faster than nothing.</p>
-    <p>In addition to execution speed, <span class="font-med">pages load faster</span> because Mdash is so much smaller than other UI libraries:</p>
+    <p>Mdash is fast! It is by all practical measures instant. Its <strong>execution speed</strong> comes from leveraging native technology and avoiding abstractions as much as possible in order to minimize code and retain browser optimizations. When it comes to code, nothing is faster than nothing.</p>
+    <p>In addition to execution speed, <strong>pages load faster</strong> because Mdash is so much smaller than other UI libraries:</p>
     <table>
       <tr>
         <td style="width: 140px">
@@ -389,26 +391,26 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     <small class="block mar-t-1">
       <span class="font-bold">Note:</span> Sizes are min+gzip for all runtime dependencies except icons and web fonts. In other words, this is the overhead before you write your first line of code.
     </small>
-    <p class="mar-t-8">Compare these three tech stacks to see how bundle size can impact your site performace:</p>
-    <div>Lit + Vaadin Router + Mdash = 21kb</div>
-    <div class="flex">
+    <p class="mar-t-8">To help visualize the impact of choosing small packages like Mdash, compare these three tech stacks:</p>
+    <div class="font-med">Lit + Vaadin Router + Mdash = 21kb</div>
+    <div class="flex mar-b-3">
       <div style="width: calc(6px * 2); height: 20px; background-color: lightblue"></div>
       <div style="width: calc(8px * 2); height: 20px; background-color: darkcyan"></div>
       <div style="width: calc(7px * 2); height: 20px; background-color: darkseagreen"></div>
     </div>
-    <div>Solid + Solid Router + Mdash = 23kb</div>
-    <div class="flex">
+    <div class="font-med">Solid + Solid Router + Mdash = 23kb</div>
+    <div class="flex mar-b-3">
       <div style="width: calc(7px * 2); height: 20px; background-color: lightblue"></div>
       <div style="width: calc(9px * 2); height: 20px; background-color: darkcyan"></div>
       <div style="width: calc(7px * 2); height: 20px; background-color: darkseagreen"></div>
     </div>
-    <div>React + React Router + MUI = 250kb</div>
+    <div class="font-med">React + React Router + MUI = 250kb</div>
     <div class="flex">
       <div style="width: calc(55px * 2); height: 20px; background-color: lightsteelblue"></div>
       <div style="width: calc(49px * 2); height: 20px; background-color: palevioletred"></div>
       <div style="width: calc(146px * 2); height: 20px; background-color: orange"></div>
     </div>
-    <p class="mar-t-3">It's worth noting Mdash is so small it can be used as a non-blocking internal stylesheet. A page using Mdash will be painted before React and MUI have even finished downloading!</p>
+    <p class="mar-t-3">With the right tech stack your app can be painted and interactive before React and MUI have even finished downloading!</p>
     <h2 id="installation">Installation</h2>
     <h3 id="installation-cdn">CDN</h3>
     <p>Mdash is designed for production use with a CDN. Copy and paste these two resources into the <code>&lt;head&gt;</code> section of your document and you're golden.</p>
@@ -420,13 +422,16 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     <div>
       <h4 class="mar-t-4">Stylesheet</h4>
       <pre><code class="language-html">&lt;link href="https://unpkg.com/m-@3.2.0/dist/m-.css" rel="stylesheet"&gt;</code></pre>
-      <p>This file includes everything: 63 tokens, 35 components, and 302 utility classes. All in a single 6kb stylesheet!</p>
+      <p>This file includes everything: 70 tokens, 35 components, and 302 utility classes. All in a single 6kb stylesheet!</p>
     </div>
-    <h3 id="installation-npm">NPM</h3>
-    <p>If the CDN is not an option, you can install the Mdash package.</p>
+    <h3 id="installation-npm">NPM and Internal Stylesheet</h3>
+    <p>If the CDN is not an option or you want to use Mdash as an internal stylesheet you can install the Mdash package.</p>
     <pre><code>npm install m-</code></pre>
-    <p>Built assets (the stylesheet and icon file above) are located in <code>node_modules/m-/dist</code>. The hyper optimization of <a href="https://web.dev/extract-critical-css/" target="_blank">critical CSS</a> is also possible with Mdash because it's so small - so go for it you speed demon!</p>
-    <pre><code>@import "node_modules/m-/dist/m-.css";</code></pre>
+    <p>Built assets (the stylesheet and icon file above) are located in <code>node_modules/m-/dist</code>. The hyper optimization of <a href="https://web.dev/extract-critical-css/" target="_blank">critical CSS</a> is possible because Mdash is so small.</p>
+    <pre><code>&lt;style&gt;
+  /* Depending on the server setup, you can do a CSS import */
+  @import "node_modules/m-/dist/m-.css";
+&lt;/style&gt;</code></pre>
     <h2 id="browsers">Browser support</h2>
     <p>Mdash works with the latest versions of all major browsers. Please <a href="https://github.com/jfbrennan/m-/issues" target="_blank" rel="noopener">file a bug</a> if you see something not working as expected.</p>
   </section>
@@ -507,9 +512,9 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     <h2 id="accordion-guidelines">Guidelines</h2>
     <h3 id="accordion-icon">Custom Icon</h3>
     <p>Any icon is supported, but <a
-      href="https://fonts.google.com/icons?icon.query=arrow+down">arrow down
+        href="https://fonts.google.com/icons?icon.query=arrow+down">arrow down
       variations</a>, <a href="https://fonts.google.com/icons?icon.query=expand">expand down variations</a>, and <a
-      href="https://fonts.google.com/icons?icon.query=add">add
+        href="https://fonts.google.com/icons?icon.query=add">add
       variations</a> are recommended. When choosing an icon, note that it will rotate when details is toggled.</p>
     <m-accordion icon="add">
       <details>
@@ -525,7 +530,7 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
 &lt;/m-accordion&gt;</code></pre>
     <h3 id="accordion-counter">Numbered Accordion</h3>
     <p>An accordion's details can be auto-numbered with <a
-      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters" target="_blank">CSS
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters" target="_blank">CSS
       counter</a>. Like this:</p>
     <pre><code class="language-html">&lt;style&gt;
   #counterDemo {
@@ -829,7 +834,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
 
     <h3>Localization</h3>
     <p>If localization is needed, use <a
-      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a>.</p>
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a>.</p>
     <div>English: <m-badge lang="en"></m-badge></div>
     <div>French: <m-badge lang="fr"></m-badge></div>
     <script>
@@ -1077,7 +1082,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <p class="mar-t-4 mar-b-3 font-med">Disabled</p>
     <button ord="primary" disabled>Disabled</button>
     <p class="mar-t-4 mar-b-3 font-med">Link as button</p>
-    <a role="button" ord="primary" href="/button">Link</a>
+    <a role="button" ord="primary" href="/">Link</a>
     <pre><code>&lt;button ord=&quot;primary&quot;&gt;Primary&lt;/button&gt;
 &lt;button ord=&quot;secondary&quot;&gt;Secondary&lt;/button&gt;
 &lt;button ord=&quot;tertiary&quot;&gt;Tertiary&lt;/button&gt;
@@ -1088,7 +1093,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
 
 &lt;button ord=&quot;primary&quot; disabled&gt;Disabled&lt;/button&gt;
 
-&lt;a role=&quot;button&quot; ord=&quot;primary&quot; href=&quot;/button&quot;&gt;Link&lt;/a&gt;</code></pre>
+&lt;a role=&quot;button&quot; ord=&quot;primary&quot; href=&quot;/&quot;&gt;Link&lt;/a&gt;</code></pre>
     <h2 id="button-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
@@ -1571,7 +1576,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <p>Note how this section and the site nav's content are aligned.</p>
     </m-container>
     <h3 id="layout-elements">Other layout elements</h3>
-    <p>In addition to Mdash's Container and <a href="/grid">Grid</a>, HTML offers a number of semantic elements for layout. From W3Schools:</p>
+    <p>In addition to Mdash's container element, HTML offers a number of semantic elements for layout. From W3Schools:</p>
     <blockquote>
       <ul type="none">
         <li><code>&lt;header&gt;</code> Defines a header for a document or a section</li>
@@ -1643,7 +1648,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <td colspan="2"><code>name</code></td>
         <td colspan="2">Text</td>
         <td colspan="6">Defines a group of <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#name" target="_blank">named details</a>, which limits the group to only one open at a time. See <a
-          href="#accordion-named">Accordion</a> for an example.</td>
+            href="#accordion-named">Accordion</a> for an example.</td>
       </tr>
       </tbody>
     </table>
@@ -2032,10 +2037,10 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       </tbody>
     </table>
-    <small><span class="font-bold">Note:</span> Form controls are documented separately. See <a href="/input">Input</a>, <a href="/checkbox">Checkbox</a>, <a href="/radio">Radio</a>, <a href="/select">Select</a>, and <a href="/textarea">Textarea</a>.</small>
+    <small><span class="font-bold">Note:</span> Form controls are documented separately. See <a href="#input">Input</a>, <a href="#checkbox">Checkbox</a>, <a href="#radio">Radio</a>, <a href="#select">Select</a>, and <a href="#textarea">Textarea</a>.</small>
     <h3 id="form-attributes">Attributes</h3>
     <p>Nothing special to call out. See <a
-      href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#Attributes">MDN: form attributes</a> for the full list.</p>
+        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#Attributes">MDN: form attributes</a> for the full list.</p>
     <h3 id="form-events">Events</h3>
     <table layout="fixed">
       <thead>
@@ -2203,7 +2208,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <p>Implementing SVG icons requires a relatively expensive abstraction and because there is no visual or accessibility difference between SVG and glyph icons, that abstraction would be all cost and no benefit. Mdash icons require no JavaScript and so they save kilobytes and have maximum compatibility.</p>
     <h3 id="icons-a11y">Accessibility</h3>
     <p>Because icons should be paired with some text (see above) they should reference that text with <a
-      href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"><code>aria-labelledby</code></a> attribute. In cases where there is no label, use
+        href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"><code>aria-labelledby</code></a> attribute. In cases where there is no label, use
       <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute"><code>aria-label</code></a> and <code>title</code>.</p>
   </section>
 
@@ -2652,7 +2657,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <p>This component is only loosely based on the <code>HTMLMenuElement</code> interface because that spec is incomplete and looks to be deprecated.</p>
     <h3 id="menu-a11y">Accessibility</h3>
     <p>There are no accessibility recommendations for menu at this time. This post <a
-      href="https://adrianroselli.com/2017/10/dont-use-aria-menu-roles-for-site-nav.html">https://adrianroselli.com/2017/10/dont-use-aria-menu-roles-for-site-nav.html</a> seems reasonable and accurate enough to say that simple markup like anchor tags in menus is sufficient.</p>
+        href="https://adrianroselli.com/2017/10/dont-use-aria-menu-roles-for-site-nav.html">https://adrianroselli.com/2017/10/dont-use-aria-menu-roles-for-site-nav.html</a> seems reasonable and accurate enough to say that simple markup like anchor tags in menus is sufficient.</p>
   </section>
 
   <hr>
@@ -4368,7 +4373,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
         <td colspan="2"><code>--m-space-[xs|sm|md|lg|xl]</code></td>
         <td colspan="3">6px, 12px, 18px, 30px, 48px</td>
         <td colspan="3">Used for developing a visual rhythm between elements. Loosely follows <a
-          href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the
+            href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the
           <a href="#utility-classes">padding and margin utility classes</a> whenever possible and reserve use of <code>--m-space-*</code> for other spacing needs like position.</td>
       </tr>
       </tbody>
@@ -4438,7 +4443,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       <tr>
         <td colspan="2"><code>--m-max-content-width</code></td>
         <td colspan="3">1320px</td>
-        <td colspan="3">The max width used by <a href="/container">Container</a>. Wrapping your content in a <code>m-container</code> is more likely what you need, but you can use this if necessary.</td>
+        <td colspan="3">The max width used by <a href="#container">Container</a>. Wrapping your content in a <code>m-container</code> is more likely what you need, but you can use this if necessary.</td>
       </tr>
       <tr>
         <td colspan="2"><code>--m-min-input-height</code></td>
@@ -5068,7 +5073,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <h3 id="templating">Create and use templates</h3>
     <p>The demo above with all those classes is fine on its own or even 2-3 copies sitting next to each other, but beyond that you'll want a way to reuse chunks of HTML.</p>
     <p>Reuse is possible with the <code>&lt;template&gt;</code> element or template literals (see below). If standard tools aren't enough, templating partials or static components are another low-code option. Avoid the temptation to turn every chunk of HTML into a framework-dependent component.</p>
-      <pre><code class="language-javascript">export function UserCardTemplate(imgUrl, name, title, email, phone) {
+    <pre><code class="language-javascript">export function UserCardTemplate(imgUrl, name, title, email, phone) {
   return `
     &lt;div class=&quot;inline-flex align-items-center bg-gray-1 brd-radius-md brd pad-4&quot;&gt;
     &lt;img src=&quot;${imgUrl}&quot; height=&quot;78&quot; class=&quot;brd-radius-full mar-r-4&quot;&gt;
