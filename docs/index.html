@@ -1125,7 +1125,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>ord</code> <small class="font-bold font-italic">required*</small></td>
+        <td colspan="2"><code>ord</code> <small class="font-bold font-italic">required</small></td>
         <td colspan="2">
           <ul type="none">
             <li>primary</li>
@@ -1135,7 +1135,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         </td>
         <td colspan="6">
           <a href="https://en.wikipedia.org/wiki/Ordinal_numeral" target="_blank" rel="noopener">Ordinal number word</a> for describing the button's precedence.
-          <p class="mar-b-none"><small>*The remove button does not require this.</small></p>
         </td>
       </tr>
       <tr>
@@ -1143,6 +1142,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <td colspan="2">
           <ul type="none">
             <li>sm</li>
+            <li>md <small class="font-bold font-italic">default</small></li>
             <li>lg</li>
           </ul>
         </td>
@@ -1226,7 +1226,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <pre><code>&lt;button&gt;User Agent Button&lt;/button&gt;
 &lt;button class=&quot;all-unset&quot;&gt;Unstyled Button&lt;/button&gt;
 &lt;button class=&quot;all-unset pad-1 bg-gray-7 txt-white txt-center txt-upper txt-space pointer&quot; style=&quot;width: 280px&quot;&gt;Custom Button&lt;/button&gt;</code></pre>
-    <h3>Accessibility</h3>
+    <h3 id="button-a11y">Accessibility</h3>
     <p>Icon-only buttons should have <code>title</code> and <code>aria-label</code> attributes. Disabled link buttons should have <code>tabindex="-1"</code> to prevent activation.</p>
   </section>
 
@@ -1285,8 +1285,13 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tr>
       <tr>
         <td colspan="2"><code>ord</code> <small class="font-bold font-italic">required</small></td>
-        <td colspan="2">secondary</td>
-        <td colspan="6">Only secondary buttons are supported</td>
+        <td colspan="2">
+          <ul>
+            <li>secondary</li>
+            <li>tertiary</li>
+          </ul>
+        </td>
+        <td colspan="6">Sets the button variation. Primary buttons are not supported.</td>
       </tr>
       <tr>
         <td colspan="2"><code>aria-pressed</code></td>
@@ -1429,6 +1434,47 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <button ord="secondary">Complete</button>
       <button ord="secondary">Overdue</button>
     </div>
+    <h3 id="button-group-size">Group Size</h3>
+    <p>A group can be one or more buttons. Groups of one still require a container with the group role.</p>
+    <div role="group">
+      <button ord="secondary" aria-pressed="true">1</button>
+    </div>
+    <div role="group">
+      <button ord="secondary">1</button>
+      <button ord="secondary">2</button>
+      <button ord="secondary" aria-pressed="true">3</button>
+      <button ord="secondary" aria-pressed="true">4</button>
+      <button ord="secondary">5</button>
+      <button ord="secondary" aria-pressed="true">6</button>
+      <button ord="secondary">7</button>
+    </div>
+    <pre><code>&lt;div role=&quot;group&quot;&gt;
+  &lt;button ord=&quot;secondary&quot; aria-pressed="true"&gt;1&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div role=&quot;group&quot;&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;1&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;2&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot; aria-pressed="true"&gt;3&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot; aria-pressed="true"&gt;4&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;5&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot; aria-pressed="true"&gt;6&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;7&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    <h3>Icons</h3>
+    <p>Like regular buttons, group buttons can contain an icon.</p>
+    <div role="group">
+      <button ord="secondary"><m-icon name="format_bold" title="Bold" aria-label="Bold"></m-icon></button>
+      <button ord="secondary"><m-icon name="format_italic" title="Italic" aria-label="Italic"></m-icon></button>
+      <button ord="secondary"><m-icon name="format_underlined" title="Underline" aria-label="Underline"></m-icon></button>
+    </div>
+    <pre><code>&lt;div role=&quot;group&quot;&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;&lt;m-icon name=&quot;format_bold&quot; title=&quot;Bold&quot; aria-label=&quot;Bold&quot;&gt;&lt;/m-icon&gt;&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;&lt;m-icon name=&quot;format_italic&quot; title=&quot;Italic&quot; aria-label=&quot;Italic&quot;&gt;&lt;/m-icon&gt;&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;&lt;m-icon name=&quot;format_underlined&quot; title=&quot;Underline&quot; aria-label=&quot;Underline&quot;&gt;&lt;/m-icon&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    <h3 id="button-group-a11y">Accessibility</h3>
+    <p>The pressed button(s) must have <code>aria-pressed</code> set to true or mixed. All regular <a href="#button-a11y">button accessibility</a> also applies to group buttons.</p>
   </section>
 
   <hr>
@@ -3707,7 +3753,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       <tr>
         <td colspan="2"><code>m-tag</code></td>
         <td colspan="2">Custom tag</td>
-        <td colspan="6">Text, icon, or link and optional remove button for removable tags</td>
+        <td colspan="6">Text, icon, or link and optional close slot for removable tags</td>
       </tr>
       </tbody>
     </table>
