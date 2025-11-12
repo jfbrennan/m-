@@ -7,10 +7,15 @@
 .pad-2 { padding: var(--m-space-2) }
 .pad-3 { padding: var(--m-space-3) }
 .pad-4 { padding: var(--m-space-4) }
+.pad-5 { padding: var(--m-space-5) }
 .pad-6 { padding: var(--m-space-6) }
+.pad-7 { padding: var(--m-space-7) }
 .pad-8 { padding: var(--m-space-8) }
+.pad-9 { padding: var(--m-space-9) }
 .pad-10 { padding: var(--m-space-10) }
+.pad-11 { padding: var(--m-space-11) }
 .pad-12 { padding: var(--m-space-12) }
+.pad-13 { padding: var(--m-space-13) }
 .pad-14 { padding: var(--m-space-14) }
 
 .pad-t-0 { padding-top: 0 }
@@ -18,10 +23,15 @@
 .pad-t-2 { padding-top: var(--m-space-2) }
 .pad-t-3 { padding-top: var(--m-space-3) }
 .pad-t-4 { padding-top: var(--m-space-4) }
+.pad-t-5 { padding-top: var(--m-space-5) }
 .pad-t-6 { padding-top: var(--m-space-6) }
+.pad-t-7 { padding-top: var(--m-space-7) }
 .pad-t-8 { padding-top: var(--m-space-8) }
+.pad-t-9 { padding-top: var(--m-space-9) }
 .pad-t-10 { padding-top: var(--m-space-10) }
+.pad-t-11 { padding-top: var(--m-space-11) }
 .pad-t-12 { padding-top: var(--m-space-12) }
+.pad-t-13 { padding-top: var(--m-space-13) }
 .pad-t-14 { padding-top: var(--m-space-14) }
 
 .pad-r-0 { padding-right: 0 }

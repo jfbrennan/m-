@@ -4185,6 +4185,26 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       <li class="pad-2">Bar</li>
       <li class="pad-2">Baz</li>
     </ol>
+    <pre><code>&lt;ul&gt;
+  &lt;li&gt;Foo&lt;/li&gt;
+  &lt;li&gt;Bar&lt;/li&gt;
+  &lt;li&gt;Baz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+  &lt;li&gt;Foo&lt;/li&gt;
+  &lt;li&gt;Bar&lt;/li&gt;
+  &lt;li&gt;Baz&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul type=&quot;none&quot;&gt;
+  &lt;li&gt;Foo&lt;/li&gt;
+  &lt;li&gt;Bar&lt;/li&gt;
+  &lt;li&gt;Baz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol type=&quot;content&quot;&gt;
+  &lt;li class=&quot;pad-2&quot;&gt;Foo&lt;/li&gt;
+  &lt;li class=&quot;pad-2&quot;&gt;Bar&lt;/li&gt;
+  &lt;li class=&quot;pad-2&quot;&gt;Baz&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
     <h2>API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
@@ -4299,8 +4319,8 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <h3 id="content">Content list type</h3>
     <p>The content list type is meant for building a vertical list of content.</p>
     <h4>Semantics and accessibility</h4>
-    <p>To retain list semantics and accessibility, Mdash leverages the standard tags for content lists. Use the correct tag for the content, i.e. if order matters use <code>ol</code>, otherwise <code>ul</code>. Example:</p>
-    <p class="font-italic">Ordered, like steps in a recipe:</p>
+    <p>To retain list semantics and accessibility, Mdash leverages the standard tags for content lists. Use the correct tag for the content, i.e. if order matters use <code>ol</code>, otherwise <code>ul</code>.</p>
+    <p>Ordered, like steps in a recipe:</p>
     <ol type="content">
       <li class="pad-1"><span class="font-med txt-gray-5 inline-block" style="width: 60px">Prep</span> Cook rice the day before 🍚</li>
       <li class="pad-1"><span class="font-med txt-gray-5 inline-block" style="width: 60px">Step 1</span> Preheat wok on high heat, add 2 tbsp. oil 🔥</li>
@@ -4308,7 +4328,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       <li class="pad-1"><span class="font-med txt-gray-5 inline-block" style="width: 60px">Step 3</span> Add everything to wok and stir fry 🫕</li>
       <li class="pad-1"><span class="font-med txt-gray-5 inline-block" style="width: 60px">Step 4</span> Top with fresh basil and serve 🌿</li>
     </ol>
-    <p class="font-italic">Unordered, like notification preferences:</p>
+    <p class="mar-t-6">Unordered, like notification preferences:</p>
     <ul type="content">
       <li class="flex justify-content-between pad-2 font-med">Email <input type="checkbox" role="switch" checked></li>
       <li class="flex justify-content-between pad-2 font-med">SMS <input type="checkbox" role="switch" checked></li>
@@ -4318,11 +4338,18 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <p>Content list is designed to work wherever you need it. It can be used on its own or, for example, nested in a dialog, menu, or a card like this:</p>
     <m-card class="pad-0">
       <ul type="content">
-        <li class="pad-1">one</li>
-        <li class="pad-1">two</li>
-        <li class="pad-1">three</li>
+        <li class="pad-2">one</li>
+        <li class="pad-2">two</li>
+        <li class="pad-2">three</li>
       </ul>
     </m-card>
+    <pre><code>&lt;m-card class=&quot;pad-0&quot;&gt;
+  &lt;ul type=&quot;content&quot;&gt;
+    &lt;li class=&quot;pad-2&quot;&gt;one&lt;/li&gt;
+    &lt;li class=&quot;pad-2&quot;&gt;two&lt;/li&gt;
+    &lt;li class=&quot;pad-2&quot;&gt;three&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/m-card&gt;</code></pre>
     <h3>Accessibility</h3>
     <p>Use the correct list parent elements for your use case, i.e. <code>ol</code> when the list order is meaningful and <code>ul</code> when it isn't.</p>
   </section>
@@ -4338,6 +4365,11 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       <p>This is a blockquote.</p>
     </blockquote>
     <small>This is for small print, side-comments, disclaimers, etc.</small>
+    <pre><code>&lt;p&gt;This is a paragraph with some &lt;strong&gt;important text&lt;/strong&gt; and some &lt;em&gt;emphasized text&lt;/em&gt;. Text styling should be done using the &lt;a href=&quot;#utility-classes-text&quot;&gt;text utility classes&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;This is a blockquote.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;small&gt;This is for small print, side-comments, disclaimers, etc.&lt;/small&gt;</code></pre>
     <h2 id="text-api">API</h2>
     <h3>Tags</h3>
     <table layout="fixed">
@@ -4378,11 +4410,11 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     </table>
     <h2 id="text-guidelines">Guidelines</h2>
     <h3 id="text-line-length">Characters per line</h3>
-    <p>It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="font-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
+    <p>It is recommend that lines of text be no more than 65-75 characters wide, including spaces (<span class="font-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
     <p>To demonstrate, the paragraph below has no width limit while that same paragraph above maxes out at <span class="font-bold">75ch</span> using the <code>txt-maxlength</code> utility class:</p>
-    <p style="max-width: 100%">It is recommend that lines of text be no more than 65-75 characters, including spaces (<span class="font-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
+    <p style="max-width: 100%">It is recommended that lines of text be no more than 65-75 characters, including spaces (<span class="font-italic">Designing With Type</span>, James Craig). This makes for a more comfortable reading experience. Usability studies dating back to the 1970's show readers experience fatigue with text running longer than this.</p>
     <h3 id="seo">SEO</h3>
-    <p>Using these text semantically will improve SEO and accessibility.</p>
+    <p>Using these elements correctly will improve SEO and accessibility.</p>
     <h3 id="text-a11y">Accessibility</h3>
     <p>The smallest font size that Mdash has is 13px, which is the smallest recommended by WCAG 2.1. Any smaller can be illegible for some users.</p>
   </section>
@@ -4670,18 +4702,18 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <h2 id="utility-classes-api">API</h2>
     <p>Utility class names generally match the naming of their property with most property names abbreviated to three letters, e.g. padding is abbreviated as pad, position as pos. Some are two letters, like background shortened to just bg, and some are not abbreviated at all.</p>
     <div id="utility-classes-categories" style="margin: 0 calc(var(--m-space-3) * -1)">
-      <nav class="pad-3 bg-gray-1">
+      <nav class="flex flex-wrap pad-4 gap-3 bg-gray-1">
         <span class="font-med">Scroll to:</span>
-        <a href="#utility-classes-display" class="mar-r-4 mar-l-1">Display</a>
-        <a href="#utility-classes-flexbox" class="mar-r-4">Flexbox</a>
-        <a href="#utility-classes-grid" class="mar-r-4">Grid</a>
-        <a href="#utility-classes-spacing" class="mar-r-4">Spacing</a>
-        <a href="#utility-classes-position" class="mar-r-4">Position</a>
-        <a href="#utility-classes-font" class="mar-r-4">Font</a>
-        <a href="#utility-classes-text" class="mar-r-4">Text</a>
-        <a href="#utility-classes-border" class="mar-r-4">Border</a>
-        <a href="#utility-classes-background" class="mar-r-4">Background</a>
-        <a href="#utility-classes-other" class="mar-r-4">Other</a>
+        <a href="#utility-classes-display">Display</a>
+        <a href="#utility-classes-flexbox">Flexbox</a>
+        <a href="#utility-classes-grid">Grid</a>
+        <a href="#utility-classes-spacing">Spacing</a>
+        <a href="#utility-classes-position">Position</a>
+        <a href="#utility-classes-font">Font</a>
+        <a href="#utility-classes-text">Text</a>
+        <a href="#utility-classes-border">Border</a>
+        <a href="#utility-classes-background">Background</a>
+        <a href="#utility-classes-other">Other</a>
       </nav>
     </div>
     <h3 id="utility-classes-display" style="scroll-margin-top: 100px"> Display</h3>
