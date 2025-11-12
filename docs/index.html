@@ -3483,9 +3483,11 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
           <ul type="none">
             <li>ascending</li>
             <li>descending</li>
+            <li>other</li>
+            <li>none</li>
           </ul>
         </td>
-        <td colspan="6">Defines that column as sorted. Your application is responsible for the sorting behavior.</td>
+        <td colspan="6">Sets that column as sorted. Your application is responsible for the sorting logic. The <code>ariaSort</code> property is also available. See example below.</td>
       </tr>
       </tbody>
     </table>
@@ -3506,6 +3508,122 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tbody>
     </table>
     <h2 id="table-guidelines">Guidelines</h2>
+    <h3>Sorting Rows</h3>
+    <p>Applying a sort to table data and updating rows is handled by your app. Even without a framework this is very straight forward.</p>
+    <table id="products" layout="fixed">
+      <thead>
+      <tr>
+        <th>
+          <button onclick="sortProducts(event)" value="name">Product</button>
+        </th>
+        <th>
+          <button onclick="sortProducts(event)" value="price">Price</button>
+        </th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      const table = document.all.products;
+      const sort = { order: 'ascending', value: 'price' };
+      const products = [
+        { name: 'Socks', price: 9.99 },
+        { name: 'Shorts', price: 19.99 },
+        { name: 'Sweater', price: 29.99 },
+        { name: 'Shoes', price: 49.99 },
+      ];
+
+      function sortProducts(e) {
+        sort.order = e.target.parentElement.ariaSort === 'ascending' ? 'descending' : 'ascending'
+        sort.value = e.target.value;
+
+        if (sort.value === 'name') {
+          products.sort((a, b) => {
+            const x = sort.order === 'ascending' ? a : b;
+            const y = sort.order !== 'ascending' ? a : b;
+            return x.name.localeCompare(y.name, undefined, { sensitivity: 'base' })
+          });
+        }
+
+        if (sort.value === 'price') {
+          products.sort((a, b) => {
+            const x = sort.order === 'ascending' ? a : b;
+            const y = sort.order !== 'ascending' ? a : b;
+            return x.price - y.price
+          });
+        }
+
+        render(e.target.parentElement);
+      }
+
+      function render(column) {
+        // Update sorted column and rows.
+        [...table.tHead.rows[0].cells].forEach((col) => col.ariaSort = 'none');
+        column.ariaSort = sort.order;
+        table.tBodies[0].innerHTML = products.reduce((rows, p) => `${rows}<tr><td>${p.name}</td><td>$${p.price}</td></tr>`, '');
+      }
+
+      render(table.tHead.rows[0].cells[1]);
+    </script>
+
+    <pre><code>&lt;table id=&quot;products&quot; layout=&quot;fixed&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;
+        &lt;button onclick=&quot;sortProducts(event)&quot; value=&quot;name&quot;&gt;Product&lt;/button&gt;
+      &lt;/th&gt;
+      &lt;th&gt;
+        &lt;button onclick=&quot;sortProducts(event)&quot; value=&quot;price&quot;&gt;Price&lt;/button&gt;
+      &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;script&gt;
+  const table = document.all.products;
+  const sort = { order: &#39;ascending&#39;, value: &#39;price&#39; };
+  const products = [
+    { name: &#39;Socks&#39;, price: 9.99 },
+    { name: &#39;Shorts&#39;, price: 19.99 },
+    { name: &#39;Sweater&#39;, price: 29.99 },
+    { name: &#39;Shoes&#39;, price: 49.99 },
+  ];
+
+  function sortProducts(e) {
+    sort.order = e.target.parentElement.ariaSort === &#39;ascending&#39; ? &#39;descending&#39; : &#39;ascending&#39;
+    sort.value = e.target.value;
+
+    if (sort.value === &#39;name&#39;) {
+      products.sort((a, b) =&gt; {
+        const x = sort.order === &#39;ascending&#39; ? a : b;
+        const y = sort.order !== &#39;ascending&#39; ? a : b;
+        return x.name.localeCompare(y.name, undefined, { sensitivity: &#39;base&#39; })
+      });
+    }
+
+    if (sort.value === &#39;price&#39;) {
+      products.sort((a, b) =&gt; {
+        const x = sort.order === &#39;ascending&#39; ? a : b;
+        const y = sort.order !== &#39;ascending&#39; ? a : b;
+        return x.price - y.price
+      });
+    }
+
+    render(e.target.parentElement);
+  }
+
+  function render(column) {
+    // Update sorted column and rows.
+    [...table.tHead.rows[0].cells].forEach((col) =&gt; col.ariaSort = &#39;none&#39;);
+    column.ariaSort = sort.order;
+    table.tBodies[0].innerHTML = products.reduce((rows, p) =&gt; `${rows}&lt;tr&gt;&lt;td&gt;${p.name}&lt;/td&gt;&lt;td&gt;$${p.price}&lt;/td&gt;&lt;/tr&gt;`, &#39;&#39;);
+  }
+
+  render(table.tHead.rows[0].cells[1]);
+&lt;/script&gt;</code></pre>
+
+
     <h3 id="table-caption">Caption side</h3>
     <p>Captions must be the first child but can still be positioned on either end of the table. Refer to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/caption">MDN: caption</a> for more info.</p>
     <table>
@@ -4405,7 +4523,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </tbody>
     </table>
     <h3 id="custom-properties-spacing">Spacing</h3>
-    <p>The spacing sizes are based on <a href="">Divine Proportions</a> to help provide a natural rhythm. Padding, margin, and gap use these values.</p>
+    <p>Used for padding, margin, position, and gap.</p>
     <table layout="fixed">
       <thead>
       <tr>
@@ -4416,11 +4534,10 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>--m-space-[xs|sm|md|lg|xl]</code></td>
-        <td colspan="3">6px, 12px, 18px, 30px, 48px</td>
-        <td colspan="3">Used for developing a visual rhythm between elements. Loosely follows <a
-            href="https://layersmagazine.com/the-divine-proportion.html">Divine Proportion</a>. You should use the
-          <a href="#utility-classes">padding and margin utility classes</a> whenever possible and reserve use of <code>--m-space-*</code> for other spacing needs like position.</td>
+        <td colspan="2"><code>--m-space-[1-14]</code></td>
+        <td colspan="3">4px - 56px in increments of 4px</td>
+        <td colspan="3">The
+          <a href="#utility-classes">padding and margin utility classes</a> are available and map 1:1 with these values. There is no <code>--m-space-0</code>, just use the value 0.</td>
       </tr>
       </tbody>
     </table>
@@ -4436,8 +4553,8 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>--m-border-radius-[sm|md|full]</code></td>
-        <td colspan="3">2px, 4px, fully round</td>
+        <td colspan="2"><code>--m-border-radius-[sm|md|lg|xl|full]</code></td>
+        <td colspan="3">2px, 4px, 6px, 10px, and fully round</td>
         <td colspan="3">Used for border radius.</td>
       </tr>
       </tbody>
@@ -4482,11 +4599,6 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>--m-font-family</code></td>
-        <td colspan="3">'Helvetica Neue', Arial</td>
-        <td colspan="3">The typefaces in use.</td>
-      </tr>
-      <tr>
         <td colspan="2"><code>--m-max-content-width</code></td>
         <td colspan="3">1320px</td>
         <td colspan="3">The max width used by <a href="#container">Container</a>. Wrapping your content in a <code>m-container</code> is more likely what you need, but you can use this if necessary.</td>
@@ -4502,15 +4614,15 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <h3 id="custom-properties-hard-code">Do not hard code values</h3>
     <p>Facebook <a href="https://www.slideshare.net/maxdesign/css-oocss-and-smacss/16-FacebookFacebook_blue_261_Unique_colors" target="_blank" rel="noopener">famously</a> had 548 unique colors hard-coded 6,498 times across all their stylesheets. Custom properties are a modern CSS feature that helps you avoid such a mess by defining reusable values. Use custom properties instead of hard coding their values. Like this:</p>
     <pre><code>/* Do */
-#contact {
+#example {
   background-color: var(--m-color-gray-2);
 }
 
 /* Don't */
-#contact {
+#example {
   background-color: #dedede;
 }</code></pre>
-    <p>Go <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">here to learn more</a> about custom properties and how to use them.</p>
+    <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noopener">MDN to learn more</a> about custom properties and how to use them.</p>
     <h3 id="custom-properties-a11y">Accessibility</h3>
     <p>The colors and spacing meet accessibility requirements.</p>
 

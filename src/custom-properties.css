@@ -36,6 +36,7 @@
   --m-border-radius-sm: 2px;
   --m-border-radius-md: 4px;
   --m-border-radius-lg: 6px;
+  --m-border-radius-xl: 10px;
   --m-border-radius-full: 9999px;
 
   /* Other */
@@ -44,7 +45,7 @@
   --m-target-size: var(--m-space-10); /* WCAG Level AA recommended touch target recommendation is 44 */
   --m-target-min-size: var(--m-space-6); /* WCAG Level AA minimum target recommendation is 24x24 */
 
-  /* Spacing (base 4, evens only plus 1 & 3) */
+  /* Spacing (values are base 4) */
   --m-space-xs: 6px; /* @deprecated */
   --m-space-sm: 12px; /* @deprecated */
   --m-space-md: 18px; /* @deprecated */
@@ -54,12 +55,15 @@
   --m-space-2: 8px;
   --m-space-3: 12px;
   --m-space-4: 16px;
+  --m-space-5: 20px;
   --m-space-6: 24px;
   --m-space-7: 28px;
   --m-space-8: 32px;
   --m-space-9: 36px;
   --m-space-10: 40px;
+  --m-space-11: 44px;
   --m-space-12: 48px;
+  --m-space-13: 52px;
   --m-space-14: 56px;
 
   /* Breakpoints */

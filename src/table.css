@@ -28,8 +28,12 @@ table {
         all: unset;
         display: inline-flex;
         cursor: pointer;
+        align-items: center;
 
-        &::after { font-size: 0.8em; padding-left: var(--m-space-xs) }
+        &::after {
+          font-size: 0.8em;
+          padding-left: var(--m-space-xs);
+        }
       }
 
       &[aria-sort=ascending] button:after { content: '↑' }
@@ -37,21 +41,32 @@ table {
     }
   }
 
-  & th, & td { padding: var(--m-space-xs) }
+  & th, & td {
+    padding: var(--m-space-xs);
+  }
 
-  & td { vertical-align: top; padding: var(--m-space-sm) var(--m-space-md) }
+  & td {
+    vertical-align: top;
+    padding: var(--m-space-sm) var(--m-space-md);
+  }
 
   & tbody > tr {
     border-bottom: 1px solid var(--m-color-gray-3);
 
-    &:first-of-type { border-top: 1px solid var(--m-color-gray-3) }
+    &:first-of-type {
+      border-top: 1px solid var(--m-color-gray-3);
+    }
   }
 
   /* Table layout */
-  &[layout=fixed] { table-layout: fixed }
+  &[layout=fixed] {
+    table-layout: fixed;
+  }
 
   /* Striped rows */
-  &[striped] > tbody tr:nth-of-type(odd) { background-color: var(--m-color-gray-2) }
+  &[striped] > tbody tr:nth-of-type(odd) {
+    background-color: var(--m-color-gray-2);
+  }
 }
 
 
