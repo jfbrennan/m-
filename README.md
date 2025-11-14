@@ -20,8 +20,8 @@ Try Mdash right now by simply linking to the CDN files below and visiting the [d
 ## Quick Start
 This is the web, so just add these to `<head>` and you're all set:
 ```html
-<link href="https://unpkg.com/m-@3.2.0/dist/m-.woff2" rel="preload" as="font" crossorigin>
-<link href="https://unpkg.com/m-@3.2.0/dist/m-.css" rel="stylesheet">
+<link href="https://unpkg.com/m-@4.0.0/dist/m-.woff2" rel="preload" as="font" crossorigin>
+<link href="https://unpkg.com/m-@4.0.0/dist/m-.css" rel="stylesheet">
 ```
 Or install via NPM `npm install m-`. The path to the stylesheet is `node_modules/m-/dist/m-.css`.
 
