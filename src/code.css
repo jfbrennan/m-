@@ -1,7 +1,7 @@
 /* Base code styles */
 code,
 pre {
-  border-radius: var(--m-border-radius-lg);
+  border-radius: var(--m-border-radius-4);
   color: var(--m-color-red-3);
 }
 
@@ -14,13 +14,13 @@ code {
 /* Multi-line code */
 pre {
   background-color: white;
-  margin: var(--m-space-sm) 0;
+  margin: var(--m-space-3) 0;
 
   & code {
     background-color: inherit;
     display: block;
     overflow: auto;
-    padding: 1em !important;
+    padding: var(--m-space-3) !important;
   }
 }
 

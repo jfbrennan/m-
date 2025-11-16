@@ -1,8 +1,8 @@
 m-card {
   display: block;
   overflow: hidden;
-  border-radius: var(--m-border-radius-md);
-  padding: var(--m-space-md);
+  border-radius: var(--m-border-radius-2);
+  padding: var(--m-space-5);
   background-color: white;
   border: 1px solid var(--m-color-border);
 
@@ -16,8 +16,11 @@ m-card {
     background-color: var(--m-color-gray-1);
     box-shadow: var(--m-shadow-1);
   }
+
+  /* Sibling cards */
+  & + & { margin-top: var(--m-space-3) }
 }
 
 @media only screen and (max-width: 600px) {
-  m-card { padding: var(--m-space-sm) }
+  m-card { padding: var(--m-space-3) }
 }

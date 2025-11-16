@@ -10,17 +10,17 @@ m-menu {
   & > [slot=items] {
     display: none;
     position: absolute;
-    transform: translateY(var(--m-space-xs));
+    transform: translateY(var(--m-space-1));
     background-color: white;
     border: 1px solid var(--m-color-gray-4);
-    border-radius: var(--m-border-radius-sm);
+    border-radius: var(--m-border-radius-2);
     width: max-content;
     z-index: 3000;
 
     /* Link children */
     & > a {
       display: block;
-      padding: var(--m-space-xs) var(--m-space-sm);
+      padding: var(--m-space-2) var(--m-space-3);
     }
   }
 

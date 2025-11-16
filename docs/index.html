@@ -546,15 +546,15 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
 &lt;m-accordion id=&quot;counterDemo&quot;&gt;
   &lt;details&gt;
     &lt;summary&gt;Do this first&lt;/summary&gt;
-    &lt;p&gt;Details 1&lt;/p&gt;
+    &lt;p&gt;Details&lt;/p&gt;
   &lt;/details&gt;
   &lt;details&gt;
     &lt;summary&gt;Next do this&lt;/summary&gt;
-    &lt;p&gt;Details 2&lt;/p&gt;
+    &lt;p&gt;Details&lt;/p&gt;
   &lt;/details&gt;
   &lt;details&gt;
     &lt;summary&gt;Finally do this&lt;/summary&gt;
-    &lt;p&gt;Details 3&lt;/p&gt;
+    &lt;p&gt;Details&lt;/p&gt;
   &lt;/details&gt;
 &lt;/m-accordion&gt;</code></pre>
     <style>
@@ -570,15 +570,15 @@ html`&lt;m-alert type=&quot;${alert.type}&quot;&gt;${alert.message}&lt;/m-alert&
     <m-accordion id="counterDemo">
       <details>
         <summary>Do this first</summary>
-        <p>Details 1</p>
+        <p>Details</p>
       </details>
       <details>
         <summary>Next do this</summary>
-        <p>Details 2</p>
+        <p>Details</p>
       </details>
       <details>
         <summary>Finally do this</summary>
-        <p>Details 3</p>
+        <p>Details</p>
       </details>
     </m-accordion>
     <h3 id="accordion-open">Open by default</h3>
@@ -768,11 +768,11 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <p>Mdash does not have a toast component. There are several design options that serve the same purpose in a less distracting and more thoughtful way:</p>
     <ul>
       <li>Reconsider how necessary the message is and avoid distracting users with a popup that isn't necessary</li>
-      <li>Place the message, and any related action(s), in closer proximity to the relevant process</li>
-      <li>Display the alert component in a prominent location</li>
+      <li>Place the message and any related actions in close proximity to the relevant process</li>
+      <li>Display this alert component in a prominent location</li>
       <li>For really important messages, use a dialog (see Alert vs. Dialog above)</li>
-      <li>Trigger a system notification - <code>new Notification('Hello')</code> - using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API" target="_blank">Notifications
-        API</a></li>
+      <li>Trigger a system notification using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API" target="_blank">Notifications
+        API</a>, e.g. <code>new Notification('Hello')</code>.</li>
     </ul>
     <h3 id="alert-a11y">Accessibility</h3>
     <p>Warning and error alerts should also have <code>role="alert"</code> (see <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role" target="_blank" rel="noopener">ARIA alert role</a>). Add a <code>title</code> and <code>aria-label</code> to the close slot.</p>
@@ -825,12 +825,17 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     </table>
     <h2 id="badge-guidelines">Guidelines</h2>
     <h3>Empty badge hides itself</h3>
-    <p>Badge can be used to display a count or text. If either is omitted, the badge will not be shown.</p>
+    <p>Badge can be used to display a count or text. If either is omitted the badge will not be shown.</p>
     <div>Empty count: <m-badge count=""></m-badge></div>
     <div>Zero count: <m-badge count="0"></m-badge></div>
     <div>Non-zero count: <m-badge count="1"></m-badge></div>
     <div>Empty text: <m-badge></m-badge></div>
     <div>Non-empty text: <m-badge>not empty</m-badge></div>
+    <pre><code>&lt;m-badge count=&quot;&quot;&gt;&lt;/m-badge&gt;
+&lt;m-badge count=&quot;0&quot;&gt;&lt;/m-badge&gt;
+&lt;m-badge count=&quot;1&quot;&gt;&lt;/m-badge&gt;
+&lt;m-badge&gt;&lt;/m-badge&gt;
+&lt;m-badge&gt;not empty&lt;/m-badge&gt;</code></pre>
 
     <h3>Localization</h3>
     <p>If localization is needed, use <a
@@ -838,21 +843,19 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <div>English: <m-badge lang="en"></m-badge></div>
     <div>French: <m-badge lang="fr"></m-badge></div>
     <script>
-      const countEn = Intl.NumberFormat('en').format(1000000);
-      const countFr = Intl.NumberFormat('fr').format(1000000);
-
-      document.querySelector('m-badge[lang="en"]').setAttribute('count', countEn);
-      document.querySelector('m-badge[lang="fr"]').setAttribute('count', countFr);
+      document.querySelectorAll('m-badge[lang]').forEach(badge => {
+        const count = Intl.NumberFormat(badge.lang).format(1000000);
+        badge.setAttribute('count', count);
+      })
     </script>
     <pre><code>&lt;m-badge lang=&quot;en&quot;&gt;&lt;/m-badge&gt;
 &lt;m-badge lang=&quot;fr&quot;&gt;&lt;/m-badge&gt;
 
 &lt;script&gt;
-  const countEn = Intl.NumberFormat(&#39;en&#39;).format(1000000);
-  const countFr = Intl.NumberFormat(&#39;fr&#39;).format(1000000);
-
-  document.querySelector(&#39;m-badge[lang=&quot;en&quot;]&#39;).setAttribute(&#39;count&#39;, countEn);
-  document.querySelector(&#39;m-badge[lang=&quot;fr&quot;]&#39;).setAttribute(&#39;count&#39;, countFr);
+  document.querySelectorAll('m-badge[lang]').forEach(badge => {
+    const count = Intl.NumberFormat(badge.lang).format(1000000);
+    badge.setAttribute('count', count);
+  })
 &lt;/script&gt;</code></pre>
     <h3>Accessibility</h3>
     <p>Use <code>aria-labelledby</code> or <code>aria-label</code> to provide context for the count.</p>
@@ -866,10 +869,8 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h2 id="card-demo">Demo</h2>
     <m-card>Primary content</m-card>
     <m-card ord="secondary">Secondary content</m-card>
-    <p class="mar-t-3">Content outside a card is considered neutral</p>
     <pre><code>&lt;m-card&gt;Primary content&lt;/m-card&gt;
-&lt;m-card ord=&quot;secondary&quot;&gt;Secondary content&lt;/m-card&gt;
-&lt;p&gt;Content outside a card is considered neutral&lt;/p&gt;</code></pre>
+&lt;m-card ord=&quot;secondary&quot;&gt;Secondary content&lt;/m-card&gt;</code></pre>
     <h2 id="card-api">API</h2>
     <h3>Tag</h3>
     <table layout="fixed">
@@ -1076,7 +1077,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <button ord="secondary">Secondary</button>
     <button ord="tertiary">Tertiary</button>
     <p class="mar-t-4 mar-b-3 font-med">Size</p>
-    <button ord="primary" controlsize="sm">Small</button>
+    <button ord="secondary" controlsize="sm">Small</button>
     <button ord="primary" controlsize="md">Medium</button>
     <button ord="primary" controlsize="lg">Large</button>
     <p class="mar-t-4 mar-b-3 font-med">Disabled</p>
@@ -1358,7 +1359,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   &lt;button ord=&quot;secondary&quot; value=&quot;overdue&quot;&gt;Overdue&lt;/button&gt;
 &lt;/div&gt;</code></pre>
     <h3 id="button-group-value">Getting the Pressed Button Value</h3>
-    <p>Using button <code>value</code> is one way to know which button was toggled and what action to take:</p>
+    <p>Using button <code>value</code> is one way to know which button was toggled and what action to take.</p>
     <script>
       function alertFilter(e) {
         e.target.ariaPressed = e.target.ariaPressed === 'true' ? 'false' : 'true';
@@ -1384,7 +1385,8 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   &lt;button ord=&quot;secondary&quot; value=&quot;overdue&quot;&gt;Overdue&lt;/button&gt;
 &lt;/div&gt;</code></pre>
     <h3 id="button-group-layout">Layout</h3>
-    <p>Button group is a CSS grid. Use grid properties to lay out the buttons as needed:</p>
+    <p>Button group is a CSS grid. Use <a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid-template-columns" target="_blank">grid-template-columns</a> to lay out the buttons as needed.</p>
     <h4>Content Width (default)</h4>
     <pre><code>.filters-demo-content-width {
   grid-template-columns: repeat(3, min-content);
@@ -1461,6 +1463,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
   &lt;button ord=&quot;secondary&quot; aria-pressed="true"&gt;6&lt;/button&gt;
   &lt;button ord=&quot;secondary&quot;&gt;7&lt;/button&gt;
 &lt;/div&gt;</code></pre>
+
     <h3>Icons</h3>
     <p>Like regular buttons, group buttons can contain an icon.</p>
     <div role="group">
@@ -3005,7 +3008,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <fieldset>
           <label>Price</label>
           <input name="rangeDemo2" type="range" min="0" max="1000" value="700">
-          <output name="outputDemo2" class="pos-absolute bg-white shadow pos-b-0 mar-b-8 pad-1 txt-xs brd-radius-md"></output>
+          <output name="outputDemo2" class="pos-absolute bg-white shadow pos-b-0 mar-b-8 pad-1 txt-xs brd-radius-3"></output>
         </fieldset>
 
         <script>
@@ -3032,7 +3035,7 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
         <pre><code>&lt;fieldset&gt;
   &lt;label&gt;Price&lt;/label&gt;
   &lt;input name=&quot;rangeDemo2&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1000&quot; value=&quot;700&quot;&gt;
-  &lt;output name=&quot;outputDemo2&quot; class=&quot;pos-absolute bg-white shadow pos-b-0 mar-b-8 pad-1 txt-xs brd-radius-md&quot;&gt;&lt;/output&gt;
+  &lt;output name=&quot;outputDemo2&quot; class=&quot;pos-absolute bg-white shadow pos-b-0 mar-b-8 pad-1 txt-xs brd-radius-3&quot;&gt;&lt;/output&gt;
 &lt;/fieldset&gt;
 
 &lt;script&gt;
@@ -3162,7 +3165,6 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tbody>
     </table>
     <h2 id="select-guidelines">Guidelines</h2>
-    {{> more-autocomplete}}
     <h3 id="select-a11y">Accessibility</h3>
     <p>Label should use the <code>for</code> attribute to reference the id of its corresponding select.</p>
   </section>
@@ -4679,7 +4681,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <h1>Utility Classes</h1>
     <h2>300+ CSS property shortcuts for building custom layouts and designs</h2>
     <h2 id="utility-classes-demo">Demo</h2>
-    <div class="flex align-items-center gap-4 width-fit bg-white brd-radius-md brd pad-4">
+    <div class="flex align-items-center gap-4 width-fit bg-white brd-radius-3 brd pad-4">
       <img src="img/homer.webp" alt="Homer" class="brd-radius-full obj-fit-cover" width="91" height="91">
       <div>
         <div class="txt-md txt-nowrap">Homer J. Simpson</div>
@@ -4689,7 +4691,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
         <a href="tel:+15555556543" class="font-light txt-xs">555-7334</a>
       </div>
     </div>
-    <pre><code class="language-html">&lt;div class=&quot;flex align-items-center gap-4 width-fit bg-white brd-radius-md brd pad-4&quot;&gt;
+    <pre><code class="language-html">&lt;div class=&quot;flex align-items-center gap-4 width-fit bg-white brd-radius-3 brd pad-4&quot;&gt;
   &lt;img src=&quot;img/homer.webp&quot; alt=&quot;Homer&quot; class=&quot;brd-radius-full obj-fit-cover&quot; width=&quot;91&quot; height=&quot;91&quot;&gt;
   &lt;div&gt;
     &lt;div class=&quot;txt-md txt-nowrap&quot;&gt;Homer J. Simpson&lt;/div&gt;
@@ -5281,7 +5283,7 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <p>Reuse is possible with the <code>&lt;template&gt;</code> element or template literals (see below). If standard tools aren't enough, templating partials or static components are another low-code option. Avoid the temptation to turn every chunk of HTML into a framework-dependent component.</p>
     <pre><code class="language-javascript">export function UserCardTemplate(imgUrl, name, title, email, phone) {
   return `
-    &lt;div class=&quot;inline-flex align-items-center bg-gray-1 brd-radius-md brd pad-4&quot;&gt;
+    &lt;div class=&quot;inline-flex align-items-center bg-gray-1 brd-radius-3 brd pad-4&quot;&gt;
     &lt;img src=&quot;${imgUrl}&quot; height=&quot;78&quot; class=&quot;brd-radius-full mar-r-4&quot;&gt;
     &lt;div&gt;
       &lt;div class=&quot;txt-md txt-nowrap&quot;&gt;${name}&lt;/div&gt;

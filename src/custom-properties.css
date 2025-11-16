@@ -32,25 +32,20 @@
   --m-color-primary-bg: white;
   --m-color-border: var(--m-color-gray-2);
 
-  /* Borders */
-  --m-border-radius-sm: 2px;
-  --m-border-radius-md: 4px;
-  --m-border-radius-lg: 6px;
-  --m-border-radius-xl: 10px;
+  /* Borders (values are base 2) */
+  --m-border-radius-1: 2px;
+  --m-border-radius-2: 4px;
+  --m-border-radius-3: 6px;
+  --m-border-radius-4: 8px;
   --m-border-radius-full: 9999px;
 
   /* Other */
   --m-max-content-width: 1320px; /* The 16" MacBook Pro */
   --m-input-min-height: 34px; /* @deprecated */
-  --m-target-size: var(--m-space-10); /* WCAG Level AA recommended touch target recommendation is 44 */
+  --m-target-size: var(--m-space-9); /* WCAG Level AA recommended touch target recommendation is 44 */
   --m-target-min-size: var(--m-space-6); /* WCAG Level AA minimum target recommendation is 24x24 */
 
   /* Spacing (values are base 4) */
-  --m-space-xs: 6px; /* @deprecated */
-  --m-space-sm: 12px; /* @deprecated */
-  --m-space-md: 18px; /* @deprecated */
-  --m-space-lg: 30px; /* @deprecated */
-  --m-space-xl: 48px; /* @deprecated */
   --m-space-1: 4px;
   --m-space-2: 8px;
   --m-space-3: 12px;

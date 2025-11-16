@@ -271,8 +271,10 @@
 .brd-r { border-right: 1px solid var(--m-color-border) }
 .brd-b { border-bottom: 1px solid var(--m-color-border) }
 .brd-l { border-left: 1px solid var(--m-color-border) }
-.brd-radius-sm { border-radius: var(--m-border-radius-sm) }
-.brd-radius-md { border-radius: var(--m-border-radius-md) }
+.brd-radius-1 { border-radius: var(--m-border-radius-1) }
+.brd-radius-2 { border-radius: var(--m-border-radius-2) }
+.brd-radius-3 { border-radius: var(--m-border-radius-3) }
+.brd-radius-4 { border-radius: var(--m-border-radius-4) }
 .brd-radius-full { border-radius: var(--m-border-radius-full) }
 .brd-dashed { border-style: dashed }
 .brd-sm { border-width: 1px }

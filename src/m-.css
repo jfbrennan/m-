@@ -1,7 +1,7 @@
 /* Design tokens */
 @import "custom-properties.css";
 
-/* Site-wide defaults and browser bugs */
+/* Web page defaults and browser fixes */
 @import "normalize.css";
 @import "body.css";
 
@@ -16,7 +16,6 @@
 @import "meter.css";
 @import "m-accordion.css";
 @import "m-alert.css";
-/*@import "m-autocomplete.css";*/
 @import "m-badge.css";
 @import "m-card.css";
 @import "m-breadcrumb.css";
@@ -24,10 +23,8 @@
 @import "dialog.css";
 @import "m-dot.css";
 @import "m-container.css";
-/*@import "m-grid.css";*/
 @import "m-icons.css";
 @import "m-menu.css";
-/*@import "popover.css";*/
 @import "m-tabs.css";
 @import "m-tag.css";
 @import "progress.css";

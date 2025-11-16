@@ -19,7 +19,7 @@ m-tabs {
     font-weight: bold;
     text-align: center;
     white-space: nowrap;
-    padding: var(--m-space-xs) var(--m-space-lg);
+    padding: var(--m-space-2) var(--m-space-6);
     cursor: pointer;
 
     &:focus-visible { outline: 2px solid var(--m-color-focus) }

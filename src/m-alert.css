@@ -4,14 +4,14 @@ m-alert {
   --bg-color: var(--m-color-gray-2);
   display: flex;
   align-items: center;
-  padding: var(--m-space-md);
+  padding: var(--m-space-5);
   color: var(--color);
   background-color: var(--bg-color);
-  border-radius: var(--m-border-radius-md);
+  border-radius: var(--m-border-radius-3);
   min-height: 60px;
 
   /* Sibling alerts */
-  & + & { margin-top: var(--m-space-sm) }
+  & + & { margin-top: var(--m-space-2) }
 
   /* Icon */
   &[icon]::before {
@@ -19,7 +19,7 @@ m-alert {
     font-family: m-icons;
     font-size: var(--m-font-size-lg);
     line-height: 1;
-    margin-right: var(--m-space-sm);
+    margin-right: var(--m-space-3);
   }
 
   /* Close button */
@@ -33,7 +33,7 @@ m-alert {
     font-size: var(--m-font-size-default);
     line-height: 1;
     border-radius: var(--m-border-radius-full);
-    padding: var(--m-space-xs);
+    padding: var(--m-space-2);
     width: var(--m-target-min-size);
     height: var(--m-target-min-size);
 

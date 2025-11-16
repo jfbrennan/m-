@@ -21,7 +21,7 @@ m-accordion {
 
     /* Summary */
     & > summary {
-      padding: var(--m-space-sm) var(--m-space-xl) var(--m-space-sm) var(--m-space-sm);
+      padding: var(--m-space-3) var(--m-space-12) var(--m-space-3) var(--m-space-3);
       position: relative;
 
       &:focus-visible { outline: 2px solid var(--m-color-focus) }
@@ -33,8 +33,8 @@ m-accordion {
         line-height: 1;
         content: var(--icon);
         position: absolute;
-        top: var(--m-space-sm);
-        right: var(--m-space-sm);
+        top: var(--m-space-3);
+        right: var(--m-space-3);
         transform: rotate(0deg);
         transition: transform 250ms;
       }

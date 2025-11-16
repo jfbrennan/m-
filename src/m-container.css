@@ -3,7 +3,7 @@ m-container {
   display: block;
   max-width: var(--m-max-content-width);
   margin: auto;
-  padding: var(--m-space-md) var(--m-space-lg);
+  padding: var(--m-space-5) var(--m-space-7);
 
   /* Sizes */
   &[maxwidth=md] { max-width: 924px } /* Plus its margin = 960 which is a very comfortable and common size */
@@ -12,5 +12,5 @@ m-container {
 }
 
 @media only screen and (max-width: 600px) {
-  m-container { padding: var(--m-space-sm) }
+  m-container { padding: var(--m-space-3) }
 }

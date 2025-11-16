@@ -16,12 +16,10 @@ table {
 
   /* Table header */
   & thead {
-    text-align: left;
-
     & > tr { border-top: 2px solid var(--m-color-gray-3); }
 
     & th {
-      padding: var(--m-space-xs) var(--m-space-md);
+      text-align: left;
 
       /* Sortable columns */
       &[aria-sort] button {
@@ -32,7 +30,7 @@ table {
 
         &::after {
           font-size: 0.8em;
-          padding-left: var(--m-space-xs);
+          padding-left: var(--m-space-1);
         }
       }
 
@@ -42,12 +40,8 @@ table {
   }
 
   & th, & td {
-    padding: var(--m-space-xs);
-  }
-
-  & td {
+    padding: var(--m-space-2);
     vertical-align: top;
-    padding: var(--m-space-sm) var(--m-space-md);
   }
 
   & tbody > tr {

@@ -3,25 +3,25 @@ m-badge {
   display: none;
   min-width: 1.25rem;
   height: 1.25rem;
-  place-content: center;
+  place-items: center;
   color: white;
   background-color: var(--m-color-primary-action);
   border-radius: 0.625rem;
   font-size: var(--m-font-size-min);
-  line-height: 1.25rem;
+  line-height: 1.05rem;
 
   /* Padding for text only */
-  &:not([count]) { padding: 0 var(--m-space-xs) }
+  &:not([count]) { padding: 0 var(--m-space-2) }
 
   /* Count */
   &[count]:before {
     content: attr(count);
-    padding: 0 var(--m-space-xs);
+    padding: 0 var(--m-space-2);
   }
 
   /* Show the badge only when it has a non-zero count or is not empty */
   &:not(:empty),
   &[count]:not([count=""]):not([count="0"]) {
-    display: inline-flex;
+    display: inline-grid;
   }
 }

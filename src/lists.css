@@ -1,6 +1,6 @@
 /* Ordered and unordered base styles */
 ul, ol, dl { margin: 0 }
-ul, ol { padding-left: var(--m-space-md) }
+ul, ol { padding-left: var(--m-space-5) }
 
 /* None type (no bullets) */
 ul[type=none] {
@@ -12,7 +12,7 @@ ul[type=none] {
 dd { margin-inline-start: 0 }
 dl {
   & > dt {
-    margin-top: var(--m-space-sm);
+    margin-top: var(--m-space-3);
     text-transform: uppercase;
     font-size: var(--m-font-size-min);
     font-weight: bold;

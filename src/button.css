@@ -10,13 +10,13 @@
     justify-content: center;
     align-items: center;
     gap: var(--m-space-2);
-    border-radius: var(--m-border-radius-md);
+    border-radius: var(--m-border-radius-3);
     cursor: pointer;
     background: none;
     font-size: var(--m-font-size-md);
     line-height: 1.4;
     height: var(--m-target-size);
-    padding: var(--m-space-xs) var(--m-space-sm);
+    padding: var(--m-space-2) var(--m-space-3);
     border: 2px solid;
 
     /* Disabled */
@@ -29,9 +29,10 @@
 
     /* Size */
     &[controlsize=sm] {
-      border-width: 1px;
       height: var(--m-target-min-size);
       font-size: var(--m-font-size-min);
+      padding: var(--m-space-2);
+      font-weight: 500;
     }
 
     &[controlsize=lg] {
@@ -100,12 +101,12 @@ a[role=button][ord] {
         border-left-width: 1px;
 
         &:first-of-type {
-          border-radius: var(--m-border-radius-md) 0 0 var(--m-border-radius-md);
+          border-radius: var(--m-border-radius-3) 0 0 var(--m-border-radius-3);
           border-left-width: 2px;
         }
 
         &:last-of-type {
-          border-radius: 0 var(--m-border-radius-md) var(--m-border-radius-md) 0;
+          border-radius: 0 var(--m-border-radius-3) var(--m-border-radius-3) 0;
           border-right-width: 2px;
         }
       }
@@ -115,12 +116,12 @@ a[role=button][ord] {
         border-bottom-width: 1px;
 
         &:first-of-type {
-          border-radius: var(--m-border-radius-md) var(--m-border-radius-md) 0 0;
+          border-radius: var(--m-border-radius-3) var(--m-border-radius-3) 0 0;
           border-top-width: 2px;
         }
 
         &:last-of-type {
-          border-radius: 0 0 var(--m-border-radius-md) var(--m-border-radius-md);
+          border-radius: 0 0 var(--m-border-radius-3) var(--m-border-radius-3);
           border-bottom-width: 2px;
         }
       }
