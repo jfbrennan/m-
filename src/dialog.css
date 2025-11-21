@@ -1,7 +1,7 @@
 /* Base dialog styles */
 dialog {
   border: none;
-  padding: var(--m-space-7);
+  padding: var(--m-space-6);
   background-color: #F5F3F7;
   box-shadow: 0 12px 18px -3px rgb(from var(--m-color-gray-7) r g b / 0.1);
 

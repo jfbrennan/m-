@@ -102,8 +102,7 @@ fieldset {
   }
 
   & :is(input, select, textarea) {
-    &:invalid,
-    &[invalid] {
+    &:user-invalid {
       border-color: var(--m-color-red-3);
 
       & ~ small {
