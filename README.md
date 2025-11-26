@@ -9,19 +9,19 @@
 <hr>
 
 ## About
-Mdash is a design system. It is based 100% on web standards following the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology), which has helped Mdash achieve its engineering goals:
-- Smallest overhead possible (all of Mdash is just one 7kb stylesheet)
-- Compatible with _every_ web project past, present, and future
-- Leverage the modern web platform
+Mdash is a design system. It is based 100% on web standards following the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology), which has helped Mdash achieve these engineering goals:
+- Smallest overhead possible - all of Mdash is just one 6kb stylesheet
+- Compatible with _every_ web project now and in the future
+- Leverages the modern web platform
 - Easiest codebase to maintain, use, and debug
 
 Try Mdash right now by simply linking to the CDN files below and visiting the [doc site](https://www.mdash.dev) for code samples and full API documentation. 
 
 ## Quick Start
-This is the web, so just add these to `<head>` and you're all set:
+Insert this in the `<head>` section of your project and you're all set:
 ```html
-<link href="https://unpkg.com/m-@4.0.0/dist/m-.woff2" rel="preload" as="font" crossorigin>
-<link href="https://unpkg.com/m-@4.0.0/dist/m-.css" rel="stylesheet">
+<link href="https://unpkg.com/m-@4.1.0/dist/m-.woff2" rel="preload" as="font" crossorigin>
+<link href="https://unpkg.com/m-@4.1.0/dist/m-.css" rel="stylesheet">
 ```
 Or install via NPM `npm install m-`. The path to the stylesheet is `node_modules/m-/dist/m-.css`.
 
