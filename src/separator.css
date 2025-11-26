@@ -4,6 +4,7 @@ hr {
   border: none;
   margin: 0;
   height: 1px;
+  width: 100%;
 
   /* Vertical separator (requires parent with explicit height or display flex or grid) */
   &[aria-orientation=vertical] {
