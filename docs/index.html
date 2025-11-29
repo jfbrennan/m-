@@ -58,8 +58,8 @@
 
     /* The category sections get custom heading and paragraph margin */
     main > section {
-      padding: 30px 0 230px 0;
-      scroll-margin-top: -10px;
+      padding: 100px 0;
+      scroll-margin-top: -80px;
 
       & h1 {
         font-size: 2em;
@@ -1192,29 +1192,44 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
       </tbody>
     </table>
     <h2 id="button-guidelines">Guidelines</h2>
-    <h3>Link Button</h3>
-    <p>If the action navigates to a new url, use a <a href="#link">link</a>, and if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that an actual link is used so the user can
-      <kbd>cmd + click</kbd> or copy and share the link. If the action does not navigate the user to a new URL then use a regular button.</p>
+    <h3>Link Buttons</h3>
+    <p>If the action navigates to a new url or downloads a file, use a <a href="#link">link</a>, and if the link needs to look like a button then add the <code>role="button"</code> attribute. It's important that an actual link is used so the user can
+      <kbd>cmd + click</kbd> or copy and share the link. If the action does not navigate to a new URL or download, then use a regular button.</p>
+    <h4>Navigation links</h4>
+    <a href="/back" role="button" ord="secondary">Back</a>
+    <a href="/continue" role="button" ord="primary">Continue</a>
+    <pre><code>&lt;a href=&quot;/back&quot; role=&quot;button&quot; ord=&quot;secondary&quot;&gt;Back&lt;/a&gt;
+&lt;a href=&quot;/continue&quot; role=&quot;button&quot; ord=&quot;primary&quot;&gt;Continue&lt;/a&gt;</code></pre>
+    <h4>Download link</h4>
+    <a href="/img/homer.webp" download role="button" ord="primary" title="Download" aria-label="Download">
+      <m-icon name="download"></m-icon>
+    </a>
+    <pre><code>&lt;a href=&quot;/img/homer.webp&quot; download role=&quot;button&quot; ord=&quot;primary&quot; title=&quot;Download&quot; aria-label=&quot;Download&quot;&gt;
+  &lt;m-icon name=&quot;download&quot;&gt;&lt;/m-icon&gt;
+&lt;/a&gt;</code></pre>
+    <h4>Regular button</h4>
+    <button ord="primary">Save</button>
+    <pre><code>&lt;button ord=&quot;primary&quot;&gt;Save&lt;/button&gt;</code></pre>
     <h3 id="button-icon">Icon Button</h3>
     <p>Put an icon in a button and add <code>title</code> and <code>aria-label</code> attributes:</p>
-    <button ord="primary" title="Download" aria-label="Download">
-      <m-icon name="download"></m-icon>
+    <button ord="primary" title="User menu" aria-label="User menu">
+      <m-icon name="person"></m-icon>
     </button>
-    <pre><code>&lt;button ord=&quot;primary&quot; title=&quot;Download&quot; aria-label=&quot;Download&quot;&gt;
-  &lt;m-icon name=&quot;download&quot;&gt;&lt;/m-icon&gt;
+    <pre><code>&lt;button ord=&quot;primary&quot; title=&quot;User menu&quot; aria-label=&quot;User menu&quot;&gt;
+  &lt;m-icon name=&quot;person&quot;&gt;&lt;/m-icon&gt;
 &lt;/button&gt;</code></pre>
     <p>Button comes styled with gap so icons and text look good when paired together.</p>
     <button ord="primary">
-      <m-icon name="download"></m-icon>Left Icon
+      <m-icon name="person"></m-icon>Left Icon
     </button>
     <button ord="primary">
-      Right Icon<m-icon name="download"></m-icon>
+      Right Icon<m-icon name="person"></m-icon>
     </button>
     <pre><code>&lt;button ord=&quot;primary&quot;&gt;
-  &lt;m-icon name=&quot;download&quot;&gt;&lt;/m-icon&gt;Left Icon
+  &lt;m-icon name=&quot;person&quot;&gt;&lt;/m-icon&gt;Left Icon
 &lt;/button&gt;
 &lt;button ord=&quot;primary&quot;&gt;
-  Right Icon&lt;m-icon name=&quot;download&quot;&gt;&lt;/m-icon&gt;
+  Right Icon&lt;m-icon name=&quot;person&quot;&gt;&lt;/m-icon&gt;
 &lt;/button&gt;</code></pre>
     <h3 id="button-unstyled">Custom Button Styles</h3>
     <p>Mdash leaves the button element untouched so you can freely use them without competing with Mdash styles (Mdash buttons require the <code>ord</code> attribute). Use the <code>all-unset</code> utility class to remove user-agent styles from button and customize as desired. For example:</p>
@@ -1436,28 +1451,28 @@ accordion.addEventListener('toggle', e => alert(`Details ${e.target.dataset.id} 
     <h3 id="button-group-size">Group Size</h3>
     <p>A group can be one or more buttons. Groups of one still require a container with the group role.</p>
     <div role="group">
-      <button ord="secondary" aria-pressed="true">1</button>
+      <button ord="secondary">1</button>
     </div>
     <div role="group">
       <button ord="secondary">1</button>
       <button ord="secondary">2</button>
-      <button ord="secondary" aria-pressed="true">3</button>
-      <button ord="secondary" aria-pressed="true">4</button>
+      <button ord="secondary">3</button>
+      <button ord="secondary">4</button>
       <button ord="secondary">5</button>
-      <button ord="secondary" aria-pressed="true">6</button>
+      <button ord="secondary">6</button>
       <button ord="secondary">7</button>
     </div>
     <pre><code>&lt;div role=&quot;group&quot;&gt;
-  &lt;button ord=&quot;secondary&quot; aria-pressed="true"&gt;1&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;1&lt;/button&gt;
 &lt;/div&gt;
 
 &lt;div role=&quot;group&quot;&gt;
   &lt;button ord=&quot;secondary&quot;&gt;1&lt;/button&gt;
   &lt;button ord=&quot;secondary&quot;&gt;2&lt;/button&gt;
-  &lt;button ord=&quot;secondary&quot; aria-pressed="true"&gt;3&lt;/button&gt;
-  &lt;button ord=&quot;secondary&quot; aria-pressed="true"&gt;4&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;3&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;4&lt;/button&gt;
   &lt;button ord=&quot;secondary&quot;&gt;5&lt;/button&gt;
-  &lt;button ord=&quot;secondary&quot; aria-pressed="true"&gt;6&lt;/button&gt;
+  &lt;button ord=&quot;secondary&quot;&gt;6&lt;/button&gt;
   &lt;button ord=&quot;secondary&quot;&gt;7&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 

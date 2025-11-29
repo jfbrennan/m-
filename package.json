@@ -42,11 +42,9 @@
   "devDependencies": {
     "autoprefixer": "^10.4.15",
     "lightningcss-cli": "^1.21.7",
+    "nodemon": "^3.1.10",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0"
-  },
-  "dependencies": {
-    "nodemon": "^3.1.10"
   }
 }
