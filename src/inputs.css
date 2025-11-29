@@ -65,7 +65,7 @@ fieldset {
     margin: var(--m-space-3) 0;
     height: var(--m-space-1);
     background-color: var(--m-color-gray-3);
-    border-radius: var(--m-border-radius-full);
+    border-radius: var(--m-radius-full);
 
     &::-webkit-slider-thumb {
       appearance: none;
@@ -73,7 +73,7 @@ fieldset {
       height: var(--m-space-5);
       border: 1px solid var(--m-color-gray-4);
       background-color: white;
-      border-radius: var(--m-border-radius-full);
+      border-radius: var(--m-radius-full);
 
       &:focus-visible {
         outline: 2px solid var(--m-color-focus);

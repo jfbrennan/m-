@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     gap: var(--m-space-2);
-    border-radius: var(--m-border-radius-3);
+    border-radius: var(--m-radius-3);
     cursor: pointer;
     background: none;
     font-size: var(--m-font-size-md);
@@ -101,12 +101,12 @@ a[role=button][ord] {
         border-left-width: 1px;
 
         &:first-of-type {
-          border-radius: var(--m-border-radius-3) 0 0 var(--m-border-radius-3);
+          border-radius: var(--m-radius-3) 0 0 var(--m-radius-3);
           border-left-width: 2px;
         }
 
         &:last-of-type {
-          border-radius: 0 var(--m-border-radius-3) var(--m-border-radius-3) 0;
+          border-radius: 0 var(--m-radius-3) var(--m-radius-3) 0;
           border-right-width: 2px;
         }
       }
@@ -116,12 +116,12 @@ a[role=button][ord] {
         border-bottom-width: 1px;
 
         &:first-of-type {
-          border-radius: var(--m-border-radius-3) var(--m-border-radius-3) 0 0;
+          border-radius: var(--m-radius-3) var(--m-radius-3) 0 0;
           border-top-width: 2px;
         }
 
         &:last-of-type {
-          border-radius: 0 0 var(--m-border-radius-3) var(--m-border-radius-3);
+          border-radius: 0 0 var(--m-radius-3) var(--m-radius-3);
           border-bottom-width: 2px;
         }
       }

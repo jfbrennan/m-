@@ -16,7 +16,7 @@ dialog {
     cursor: pointer;
     display: inline-grid;
     place-content: center;
-    border-radius: var(--m-border-radius-full);
+    border-radius: var(--m-radius-full);
 
     &::before {
       content: '\2715';

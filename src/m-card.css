@@ -1,7 +1,7 @@
 m-card {
   display: block;
   overflow: hidden;
-  border-radius: var(--m-border-radius-2);
+  border-radius: var(--m-radius-2);
   padding: var(--m-space-5);
   background-color: white;
   border: 1px solid var(--m-color-border);

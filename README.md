@@ -15,7 +15,7 @@ Mdash is a design system. It is based 100% on web standards following the [TAC C
 - Leverages the modern web platform
 - Easiest codebase to maintain, use, and debug
 
-Try Mdash right now by simply linking to the CDN files below and visiting the [doc site](https://www.mdash.dev) for code samples and full API documentation. 
+Try Mdash right now by linking to the CDN files below and visiting the [doc site](https://www.mdash.dev) for code samples and full API documentation. 
 
 ## Quick Start
 Insert this in the `<head>` section of your project and you're all set:
@@ -23,7 +23,8 @@ Insert this in the `<head>` section of your project and you're all set:
 <link href="https://unpkg.com/m-@4.1.0/dist/m-.woff2" rel="preload" as="font" crossorigin>
 <link href="https://unpkg.com/m-@4.1.0/dist/m-.css" rel="stylesheet">
 ```
-Or install via NPM `npm install m-`. The path to the stylesheet is `node_modules/m-/dist/m-.css`.
+Mdash is also installable as a package: `npm install m-`.
+The path to the stylesheet is `node_modules/m-/dist/m-.css`. You should still preload the icon font.
 
 ## Contributions
 Thank you for your interest in improving Mdash! You'll need to clone or fork the repo and have [Node.js](https://nodejs.org) installed.
@@ -34,7 +35,7 @@ Thank you for your interest in improving Mdash! You'll need to clone or fork the
 
 **Edit doc site and preview your changes**
 1. Edit [/docs/index.html](/docs/index.html)
-1. Open it in your browser to see
+1. Open it in your browser to see changes
 
 **Opening a pull request**
 1. Be sure your changes have followed the [TAC CSS methodology](https://jordanbrennan.hashnode.dev/tac-a-new-css-methodology)
@@ -47,7 +48,7 @@ The project follows the [TAC CSS methodology](https://jordanbrennan.hashnode.dev
 
 Your IDE might warn about unknown custom HTML tags. If that's the case, this is the list of custom tags your IDE needs to know about:
 ```
-m-accordion, m-alert, m-autocomplete, m-badge, m-card, m-breadcrumb, m-col, m-container, m-crumb, m-dot, m-icon, m-loader, m-menu, m-row, m-tab, m-tabs, m-tag, m-vbar
+m-accordion, m-alert, m-badge, m-card, m-breadcrumb, m-container, m-crumb, m-dot, m-icon, m-menu, m-tab, m-tabs, m-tag
 ```
 
 ## Browser Support

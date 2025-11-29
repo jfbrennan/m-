@@ -1,20 +1,20 @@
 /* Base code styles */
-code,
-pre {
-  border-radius: var(--m-border-radius-4);
+code, pre {
   color: var(--m-color-red-3);
 }
 
 /* Inline code */
 code {
+  border-radius: var(--m-radius-2);
   background-color: var(--m-color-gray-2);
-  padding: 1px 3px;
+  padding: 1px var(--m-space-1);
 }
 
 /* Multi-line code */
 pre {
   background-color: white;
   margin: var(--m-space-3) 0;
+  border-radius: var(--m-radius-4);
 
   & code {
     background-color: inherit;

@@ -1,6 +1,6 @@
 {
   "name": "m-",
-  "description": "Mdash is a design system based on web standards. It's extremely small (see comparison chart), fast, simple, and compatible with any JavaScript framework. \n",
+  "description": "Mdash is a design system built with modern web standards. It's impossibly small (just 6kb), extremely fast, simple, and compatible with any web project. \n",
   "version": "4.1.0",
   "homepage": "https://mdash.dev",
   "repository": {
@@ -37,7 +37,7 @@
     "build": "rm -r dist; mkdir dist && npm run css && npm run icons && cp -R dist/** docs",
     "css": "postcss src/m-.css | lightningcss --nesting --minify -o ./dist/m-.css /dev/stdin",
     "icons": "cp -R src/m-.woff2 dist/m-.woff2",
-    "release": "git pull && git commit -a -m \"Released new version: $VERSION\" && git push --tags origin master"
+    "release": "npm run build && git pull && git commit -a -m \"Released new version: $VERSION\" && git push --tags origin master"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",

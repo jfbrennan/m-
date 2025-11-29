@@ -7,7 +7,7 @@ m-alert {
   padding: var(--m-space-5);
   color: var(--color);
   background-color: var(--bg-color);
-  border-radius: var(--m-border-radius-3);
+  border-radius: var(--m-radius-3);
   min-height: 60px;
 
   /* Sibling alerts */
@@ -32,7 +32,7 @@ m-alert {
     margin-left: auto;
     font-size: var(--m-font-size-default);
     line-height: 1;
-    border-radius: var(--m-border-radius-full);
+    border-radius: var(--m-radius-full);
     padding: var(--m-space-2);
     width: var(--m-target-min-size);
     height: var(--m-target-min-size);

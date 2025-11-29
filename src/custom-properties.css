@@ -32,12 +32,13 @@
   --m-color-primary-bg: white;
   --m-color-border: var(--m-color-gray-2);
 
-  /* Borders (values are base 2) */
-  --m-border-radius-1: 2px;
-  --m-border-radius-2: 4px;
-  --m-border-radius-3: 6px;
-  --m-border-radius-4: 8px;
-  --m-border-radius-full: 9999px;
+  /* Radii (values are base 2) */
+  --m-radius-1: 2px;
+  --m-radius-2: 4px;
+  --m-radius-3: 6px;
+  --m-radius-4: 8px;
+  --m-radius-5: 10px;
+  --m-radius-full: 9999px;
 
   /* Other */
   --m-max-content-width: 1320px; /* The 16" MacBook Pro */

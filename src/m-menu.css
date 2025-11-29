@@ -13,7 +13,7 @@ m-menu {
     transform: translateY(var(--m-space-1));
     background-color: white;
     border: 1px solid var(--m-color-gray-4);
-    border-radius: var(--m-border-radius-2);
+    border-radius: var(--m-radius-2);
     width: max-content;
     z-index: 3000;
 

@@ -118,7 +118,7 @@
 
         @container scroll-state(stuck: top) {
           margin-top: 12px;
-          box-shadow: 0 0 5px gray;
+          box-shadow: 0 0 5px lightgray;
         }
       }
     }
@@ -4593,8 +4593,13 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
       </thead>
       <tbody>
       <tr>
-        <td colspan="2"><code>--m-border-radius-[1|2|3|4|full]</code></td>
-        <td colspan="3">2px, 4px, 6px, 8px, and fully round</td>
+        <td colspan="2"><code>--m-radius-[1-5]</code></td>
+        <td colspan="3">2px - 10px in increments of 2px</td>
+        <td colspan="3">Used for border radius.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><code>--m-radius-full</code></td>
+        <td colspan="3">Creates a fully round radius, e.g. a circle</td>
         <td colspan="3">Used for border radius.</td>
       </tr>
       </tbody>
@@ -5149,8 +5154,8 @@ console.log(user.name);&lt;/code&gt;&lt;/pre&gt;</code></pre>
         <td colspan="6">Removes border from all sides.</td>
       </tr>
       <tr>
-        <td colspan="2"><code>brd-radius-[sm|md|full]</code></td>
-        <td colspan="6">Sets border radius. Use <code>full</code> to create a circle.</td>
+        <td colspan="2"><code>brd-radius-[1-5|full]</code></td>
+        <td colspan="6">Sets border radius. Sizes map to the <a href="#custom-properties-radius">radius custom props</a>. Use <code>full</code> to create a fully round radius, e.g. a circle.</td>
       </tr>
       <tr>
         <td colspan="2"><code>brd-[sm|md]</code></td>
